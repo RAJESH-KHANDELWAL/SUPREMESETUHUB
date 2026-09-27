@@ -331,3 +331,8 @@ REPO_SYNC = {
 import os
 
 PORT = int(os.environ.get("PORT", 8000))
+# Backward-compatible ID aliases
+SUPREME_ID = SUPREME_OWNER["supreme_id"]
+BUSINESS_ID = SUPREME_OWNER["business_id"]
+COMPANY_ID = SUPREME_OWNER["company_id"]
+PERSON_ID = SUPREME_OWNER["person_id"]
