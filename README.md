@@ -1,34 +1,62 @@
-# SUPREMESETUHUB
 
-## Digital Foundation Platform
+# SUPREMESETUHUB — MAIN BASE FOUNDATION
 
-SUPREMESETUHUB is a modular digital foundation platform designed to support future products, services, AI systems, storage, identity, security, APIs, and digital ecosystems.
+## MAIN VISION
 
-### Supreme Identity IDs
+SUPREMESETUHUB is designed as a central foundation connecting people, businesses, companies, developers, apps, websites, software, and digital services.
 
-```text
-supreme_id:         SUP-9C4M-7X2K-6P8R
-owner_person_id:    PRS-7K4M-2Q8N-6T1X
-business_id:        BUS-2M7R-9Q4A-6T8C
-company_id:         CMP-8D3F-6N1Q-4X9K
+## CORE MODULES
+
+- Identity
+- Organizations
+- Integrations
+- Security
+- Storage
+- AI
+- Notifications
+- Dashboard
+- Audit
+
+## RUN LOCALLY
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
 ```
 
-## Core Modules
+Set the admin secret:
 
-* Master Identity
-* Brand
-* Business
-* Storage
-* Security
-* API
-* AI
-* Backup
-* Dashboard
+```bash
+# Windows PowerShell
+$env:SUPREME_ADMIN_API_KEY="your-long-random-secret"
 
-## Project Status
+# Linux / macOS
+export SUPREME_ADMIN_API_KEY="your-long-random-secret"
+```
 
-Current Phase: Foundation Architecture
+Start the application:
 
-Status: Active Development
+```bash
+uvicorn app.main:app --reload
+```
 
-Version: 1.0
+Open:
+
+http://127.0.0.1:8000/docs
+
+## API ENDPOINTS
+
+- GET /
+- GET /health
+- GET /api/v1/foundation
+- POST /api/v1/organizations
+- GET /api/v1/organizations
+- POST /api/v1/organizations/{organization_id}/integrations
+- GET /api/v1/organizations/{organization_id}/integrations
+
+## IMPORTANT
+
+This is an initial foundation starter, not a production-ready global platform.
+
+Before public deployment, implement authentication, authorization, tenant isolation, secure database migrations, backups, monitoring, and provider-specific integrations.
