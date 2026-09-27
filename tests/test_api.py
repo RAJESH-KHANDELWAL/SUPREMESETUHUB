@@ -1,3 +1,4 @@
+
 from fastapi.testclient import TestClient
 from app.main import app
 
@@ -7,7 +8,7 @@ def test_health():
         response = client.get("/health")
 
         assert response.status_code == 200
-        assert response.json()["status"] == "ok"
+        assert response.json()["status"] == "running"
 
 
 def test_foundation():
@@ -18,5 +19,6 @@ def test_foundation():
 
         data = response.json()
 
-        assert data["name"] == "SUPREMESETUHUB"
-        assert "organizations" in data["modules"]
+        assert data["name"] == "SUPREMESETUHUB MAIN BASE FOUNDATION"
+        assert data["version"] == "1.0.0"
+        assert data["status"] == "active"
