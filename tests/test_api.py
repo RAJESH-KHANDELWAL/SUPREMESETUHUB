@@ -19,6 +19,6 @@ def test_foundation():
 
         data = response.json()
 
-        assert data["name"] == "SUPREMESETUHUB MAIN BASE FOUNDATION"
+        assert data["name"] == "SUPREMESETUHUB"
         assert data["version"] == "1.0.0"
         assert data["status"] == "active"
