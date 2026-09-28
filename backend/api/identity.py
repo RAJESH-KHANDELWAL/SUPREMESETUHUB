@@ -77,6 +77,54 @@ class IdentityUpdateRequest(BaseModel):
     profile_type: Optional[str] = None
 
 
+@router.post("/register")
+def register_identity(payload: RegisterRequest):
+    full_name = payload.full_name.strip()
+    email = str(payload.email).strip().lower()
+
+    if not full_name:
+        raise HTTPException(
+            status_code=422,
+            detail="FULL_NAME_REQUIRED",
+        )
+
+    try:
+        identity = controller.create(
+            full_name=full_name,
+            username=payload.username.strip(),
+            email=email,
+            phone=payload.phone.strip(),
+        )
+
+        return {
+            "success": True,
+            "message": "Identity registered successfully",
+            "user_id": identity.identity_id,
+            "master_id": identity.master_id,
+            "unique_id": identity.unique_id,
+            "identity": identity.to_dict(),
+        }
+
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=400,
+            detail=str(exc),
+        ) from exc
+
+    except sqlite3.IntegrityError as exc:
+        raise HTTPException(
+            status_code=409,
+            detail="Identity already exists.",
+        ) from exc
+
+
+@router.get("/health/status")
+def identity_health():
+    return {
+        "success": True,
+        "status": "running",
+        "service": "CENTRAL_IDENTITY",
+    }
 @router.get("/")
 def get_identity(master_id: str):
     """Get an identity by master ID."""
