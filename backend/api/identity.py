@@ -6,7 +6,7 @@ import sqlite3
 from typing import Optional
 
 from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr, Field
 
 from backend.identity.controller import IdentityController
 
@@ -17,6 +17,11 @@ router = APIRouter(
 )
 
 controller = IdentityController()
+class RegisterRequest(BaseModel):
+    full_name: str = Field(min_length=1, max_length=200)
+    email: EmailStr
+    username: str = Field(min_length=3, max_length=50)
+    phone: str = Field(min_length=10, max_length=15)
 
 
 class IdentityCreateRequest(BaseModel):
