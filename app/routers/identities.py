@@ -1,17 +1,17 @@
+
 import sqlite3
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
 from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, EmailStr, Field
 
 router = APIRouter(
     prefix="/api/v1/identities",
-    tags=["USER_ID SYSTEM V1"],
+    tags=["Identities"],
 )
 
-# Database file
 DB_PATH = Path(__file__).resolve().parents[1] / "supreme_identities.db"
 
 
@@ -36,23 +36,28 @@ def init_db():
 init_db()
 
 
-class IdentityRegister(BaseModel):
-    full_name: str = Field(min_length=2, max_length=100)
-    email: str = Field(min_length=5, max_length=254)
+def generate_user_id():
+    """Generate a unique 16-character ID in 4-4-4-4 format."""
+    return str(uuid.uuid4().hex[:16].upper())
+
+
+class RegisterRequest(BaseModel):
+    full_name: str = Field(min_length=1, max_length=200)
+    email: EmailStr
 
 
 @router.post("/register")
-def register_identity(data: IdentityRegister):
-    full_name = data.full_name.strip()
-    email = data.email.strip().lower()
+def register_identity(payload: RegisterRequest):
+    full_name = payload.full_name.strip()
+    email = str(payload.email).strip().lower()
 
-    if len(full_name) < 2 or "@" not in email:
+    if not full_name:
         raise HTTPException(
-            status_code=400,
-            detail="Please provide a valid name and email.",
+            status_code=422,
+            detail="Full name is required",
         )
 
-    user_id = "SUP-" + uuid.uuid4().hex[:16].upper()
+    user_id = generate_user_id()
     created_at = datetime.now(timezone.utc).isoformat()
 
     try:
@@ -68,12 +73,12 @@ def register_identity(data: IdentityRegister):
     except sqlite3.IntegrityError:
         raise HTTPException(
             status_code=409,
-            detail="This email is already registered.",
+            detail="This email is already registered",
         )
 
     return {
         "success": True,
-        "message": "USER_ID created successfully.",
+        "message": "Identity registered successfully",
         "user_id": user_id,
         "full_name": full_name,
         "email": email,
@@ -96,7 +101,7 @@ def get_identity(user_id: str):
     if row is None:
         raise HTTPException(
             status_code=404,
-            detail="USER_ID not found.",
+            detail="Identity not found",
         )
 
     return {
@@ -109,7 +114,5 @@ def get_identity(user_id: str):
 def identity_health():
     return {
         "success": True,
-        "service": "SUPREMESETUHUB USER_ID SYSTEM",
-        "version": "1.0.0",
         "status": "running",
     }
