@@ -4,6 +4,11 @@ from backend.supreme.repository_registry import (
     list_repository_roles,
 )
 
+from backend.supreme.repository_registry import (
+    get_repository_roles,
+    list_repository_roles,
+)
+
 from supreme_config import (
     APP_NAME,
     SUPREME_ID,
