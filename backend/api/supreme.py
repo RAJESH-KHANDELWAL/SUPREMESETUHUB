@@ -1,3 +1,9 @@
+
+from backend.supreme.repository_registry import (
+    get_repository_roles,
+    list_repository_roles,
+)
+
 from supreme_config import (
     APP_NAME,
     SUPREME_ID,
@@ -232,4 +238,38 @@ def companies_list():
                 "display_name": "👑 DR RAJESH KHANDELWAL IBC 👑",
             }
         ],
+    }
+
+# ============================================================
+# CONNECTED REPOSITORIES AND SUPREME / ADMIN / OWNER ROLE SLOTS
+# ============================================================
+
+@router.get("/repositories")
+def connected_repositories():
+    """List configured branch repositories and their role status."""
+
+    repositories = list_repository_roles()
+
+    return {
+        "success": True,
+        "count": len(repositories),
+        "repositories": repositories,
+    }
+
+
+@router.get("/repositories/{repo_key}/roles")
+def repository_roles(repo_key: str):
+    """Get Supreme, Admin, and Owner role slots."""
+
+    repository = get_repository_roles(repo_key)
+
+    if repository is None:
+        raise HTTPException(
+            status_code=404,
+            detail="REPOSITORY_NOT_FOUND",
+        )
+
+    return {
+        "success": True,
+        "repository": repository,
     }
