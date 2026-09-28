@@ -165,7 +165,6 @@ app.include_router(dashboard_router)
 app.include_router(infrastructure_router)
 app.include_router(dns_router)
 app.include_router(user_hub_router)
-app.include_router(identities_router)
 
 
 # ============================================================
