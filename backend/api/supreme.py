@@ -146,3 +146,90 @@ def control_command(
             status_code=400,
             detail=str(exc),
         ) from exc
+# ============================================================
+# SUPREME OWNER PROFILE API
+# ============================================================
+
+@router.get("/status")
+def supreme_status():
+    profile = get_supreme_profile()
+
+    return {
+        "service": APP_NAME,
+        "status": "active",
+        "supreme_id": profile["supreme_id"],
+        "owner_person_id": profile["owner_person_id"],
+        "business_id": BUSINESS_ID,
+        "company_id": COMPANY_ID,
+        "role": profile["role"],
+    }
+
+
+@router.get("/profile")
+def supreme_profile():
+    return get_supreme_profile()
+
+
+@router.get("/person")
+def supreme_person():
+    return get_person_profile()
+
+
+@router.get("/search")
+def supreme_search(q: str = ""):
+    q = q.strip()
+
+    if not q:
+        raise HTTPException(
+            status_code=400,
+            detail="Missing q query parameter",
+        )
+
+    results = search_entities(q)
+
+    return {
+        "query": q,
+        "results": results,
+        "count": len(results),
+    }
+
+
+@router.get("/persons")
+def persons_list():
+    return {
+        "service": APP_NAME,
+        "people": [get_person_profile()],
+    }
+
+
+@router.get("/businesses")
+def businesses_list():
+    return {
+        "service": APP_NAME,
+        "businesses": [
+            {
+                "business_id": BUSINESS_ID,
+                "owner_person_id": PERSON_ID,
+                "supreme_id": SUPREME_ID,
+                "name": "RAJESH KHANDELWAL OFFICIAL",
+                "display_name": "👑 RAJESH KHANDELWAL OFFICIAL 👑",
+            }
+        ],
+    }
+
+
+@router.get("/companies")
+def companies_list():
+    return {
+        "service": APP_NAME,
+        "companies": [
+            {
+                "company_id": COMPANY_ID,
+                "owner_person_id": PERSON_ID,
+                "business_id": BUSINESS_ID,
+                "supreme_id": SUPREME_ID,
+                "name": "DR RAJESH KHANDELWAL IBC",
+                "display_name": "👑 DR RAJESH KHANDELWAL IBC 👑",
+            }
+        ],
+    }
