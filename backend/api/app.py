@@ -30,6 +30,7 @@ from backend.api.roles import router as roles_router
 from backend.api.supreme import router as supreme_router
 from backend.api.users import router as users_router
 from backend.api.user_hub import router as user_hub_router
+from app.routers.identities import router as identities_router
 
 
 # ============================================================
@@ -165,6 +166,7 @@ app.include_router(dashboard_router)
 app.include_router(infrastructure_router)
 app.include_router(dns_router)
 app.include_router(user_hub_router)
+app.include_router(identities_router)
 
 
 # ============================================================
@@ -218,5 +220,17 @@ def health():
 
     return {
         "status": "healthy",
-        "service": "MAIN-BASE-FOUNDATION",
+        "service": "SUPREMESETUHUB",
+    }
+# ============================================================
+# FOUNDATION STATUS API
+# ============================================================
+
+@app.get("/api/v1/foundation")
+def foundation():
+    return {
+        "success": True,
+        "name": "SUPREMESETUHUB",
+        "version": "1.0.0",
+        "status": "active",
     }
