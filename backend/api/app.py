@@ -30,7 +30,6 @@ from backend.api.roles import router as roles_router
 from backend.api.supreme import router as supreme_router
 from backend.api.users import router as users_router
 from backend.api.user_hub import router as user_hub_router
-from app.routers.identities import router as identities_router
 
 
 # ============================================================
