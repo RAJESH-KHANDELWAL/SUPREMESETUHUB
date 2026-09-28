@@ -1,3 +1,17 @@
+from supreme_config import (
+    APP_NAME,
+    SUPREME_ID,
+    BUSINESS_ID,
+    COMPANY_ID,
+    PERSON_ID,
+)
+
+from identity_service import (
+    get_supreme_profile,
+    get_person_profile,
+    search_entities,
+)
+
 from fastapi import APIRouter, Header, HTTPException
 from pydantic import BaseModel
 
@@ -132,16 +146,3 @@ def control_command(
             status_code=400,
             detail=str(exc),
         ) from exc
-from supreme_config import (
-    APP_NAME,
-    SUPREME_ID,
-    BUSINESS_ID,
-    COMPANY_ID,
-    PERSON_ID,
-)
-
-from identity_service import (
-    get_supreme_profile,
-    get_person_profile,
-    search_entities,
-)
