@@ -38,7 +38,7 @@ from app.routers.identities import router as identities_router
 # ============================================================
 
 app = FastAPI(
-    title="MAIN-BASE-FOUNDATION",
+    title="SUPREMESETUHUB",
     version="1.0.0",
 )
 
@@ -203,7 +203,7 @@ app.include_router(
 def root():
 
     return {
-        "name": "MAIN-BASE-FOUNDATION",
+        "name": "SUPREMESETUHUB",
         "status": "RUNNING",
         "gallary_woult": "CONNECTED",
         "api_surface": "CONNECTED",
