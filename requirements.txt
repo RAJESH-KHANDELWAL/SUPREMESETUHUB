@@ -8,3 +8,4 @@ uvicorn[standard]
 email-validator
 fastapi
 uvicorn
+python-multipart
