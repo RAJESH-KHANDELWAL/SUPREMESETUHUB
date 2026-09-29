@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import logging
 from typing import Any
 
 from fastapi import APIRouter, HTTPException
@@ -7,6 +8,8 @@ from pydantic import BaseModel, Field
 
 from backend.engines.ai.manager import AIEngine
 
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(
     prefix="/api/v1/ai",
@@ -51,11 +54,13 @@ def ai_providers():
 def ai_providers_by_capability(capability: str):
     try:
         providers = ai_engine.providers_for(capability)
+
         return {
             "success": True,
             "capability": capability,
             "providers": providers,
         }
+
     except ValueError as exc:
         raise HTTPException(
             status_code=400,
@@ -86,7 +91,12 @@ def ai_generate(request: AIGenerateRequest):
         ) from exc
 
     except Exception as exc:
+        logger.exception("AI provider request failed")
+
         raise HTTPException(
             status_code=502,
-            detail="AI_PROVIDER_REQUEST_FAILED",
+            detail={
+                "error": "AI_PROVIDER_REQUEST_FAILED",
+                "message": str(exc),
+            },
         ) from exc
