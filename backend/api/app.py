@@ -236,3 +236,6 @@ def foundation():
         "version": "1.0.0",
         "status": "active",
     }
+@app.get("/api/v1/ecosystem/status")
+def ecosystem_status():
+    return ecosystem_api.status()
