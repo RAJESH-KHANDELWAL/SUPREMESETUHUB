@@ -239,3 +239,6 @@ def foundation():
 @app.get("/api/v1/ecosystem/status")
 def ecosystem_status():
     return ecosystem_api.status()
+@app.get("/api/v1/ecosystem/health")
+def ecosystem_health():
+    return ecosystem_api.health()
