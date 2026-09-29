@@ -236,9 +236,36 @@ def foundation():
         "version": "1.0.0",
         "status": "active",
     }
+# SUPREME ECOSYSTEM API
+
 @app.get("/api/v1/ecosystem/status")
 def ecosystem_status():
     return ecosystem_api.status()
+
+
 @app.get("/api/v1/ecosystem/health")
 def ecosystem_health():
     return ecosystem_api.health()
+
+
+@app.get("/api/v1/ecosystem/list")
+def ecosystem_list():
+    return ecosystem_api.list()
+
+
+@app.get("/api/v1/ecosystem/names")
+def ecosystem_names():
+    return ecosystem_api.names()
+
+
+@app.get("/api/v1/ecosystem/{ecosystem_id}")
+def ecosystem_get(ecosystem_id: str):
+    return ecosystem_api.get(ecosystem_id)
+
+
+@app.get("/api/v1/ecosystem/{ecosystem_id}/exists")
+def ecosystem_exists(ecosystem_id: str):
+    return {
+        "ecosystem_id": ecosystem_id,
+        "exists": ecosystem_api.exists(ecosystem_id),
+    }
