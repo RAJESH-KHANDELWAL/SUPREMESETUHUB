@@ -1,3 +1,4 @@
+
 from __future__ import annotations
 
 from typing import Any, Callable
@@ -33,6 +34,33 @@ class AIEngine(BaseEngine):
         super().__init__("SUPREME AI ENGINE")
 
         self._providers: dict[str, dict[str, Any]] = {}
+
+        # Existing Image and Video provider services
+        from backend.creation.providers.photo_provider import PhotoProvider
+        from backend.creation.video_service import VideoCreationService
+
+        self.photo_provider = PhotoProvider()
+        self.video_provider = VideoCreationService()
+
+        # Register OpenAI Image Provider
+        self.register_provider(
+            name="openai_image",
+            capabilities=["image"],
+            models=["gpt-image-1"],
+            handler=lambda capability, **payload: (
+                self.photo_provider.generate(**payload)
+            ),
+        )
+
+        # Register Google Veo Video Provider
+        self.register_provider(
+            name="google_veo",
+            capabilities=["video"],
+            models=[self.video_provider.model],
+            handler=lambda capability, **payload: (
+                self.video_provider.create_video(**payload)
+            ),
+        )
 
     def register_provider(
         self,
