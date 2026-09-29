@@ -42,7 +42,7 @@ app = FastAPI(
     title="SUPREMESETUHUB",
     version="1.0.0",
 )
-
+ecosystem_api = EcosystemAPI()
 
 # ============================================================
 # FRONTEND / WEBSITE CORS
