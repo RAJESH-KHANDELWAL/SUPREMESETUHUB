@@ -218,6 +218,32 @@ def root():
 
 
 # ============================================================
+# SUPREME SHARED FRONTEND
+# CENTRAL SOURCE FOR ALL 4 IDENTITIES
+# ============================================================
+
+@app.get("/api/v1/frontend/supreme")
+def supreme_frontend():
+    supreme_frontend_file = (
+        Path(__file__).resolve().parents[2]
+        / "frontend"
+        / "supreme"
+        / "index.html"
+    )
+
+    if not supreme_frontend_file.is_file():
+        raise HTTPException(
+            status_code=404,
+            detail="SUPREME frontend not found",
+        )
+
+    return FileResponse(
+        supreme_frontend_file,
+        media_type="text/html",
+    )
+
+
+# ============================================================
 # HEALTH CHECK
 # ============================================================
 
