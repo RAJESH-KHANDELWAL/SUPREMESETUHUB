@@ -244,6 +244,32 @@ def supreme_frontend():
 
 
 # ============================================================
+# SUPREME SHARED FRONTEND CSS
+# CENTRAL SOURCE FOR ALL 4 IDENTITIES
+# ============================================================
+
+@app.get("/api/v1/frontend/supreme/style.css")
+def supreme_frontend_css():
+    supreme_css_file = (
+        Path(__file__).resolve().parents[2]
+        / "frontend"
+        / "supreme"
+        / "style.css"
+    )
+
+    if not supreme_css_file.is_file():
+        raise HTTPException(
+            status_code=404,
+            detail="SUPREME frontend CSS not found",
+        )
+
+    return FileResponse(
+        supreme_css_file,
+        media_type="text/css",
+    )
+
+
+# ============================================================
 # HEALTH CHECK
 # ============================================================
 
