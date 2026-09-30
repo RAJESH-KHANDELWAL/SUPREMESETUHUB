@@ -1,87 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
 
-<!-- ACCOUNT & BRAND PROFILES -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<section id="profiles" class="section section-alt">
-    <div class="container">
+    <title>👑 SUPREMESETUHUB 👑 | DR RAJESH KHANDELWAL IBC</title>
 
-        <div class="section-heading">
-            <div class="eyebrow">
-                YOUR ACCOUNT • YOUR BRAND • YOUR PROFILES
-            </div>
+    <meta
+        name="description"
+        content="👑 SUPREMESETUHUB 👑 — Central Home of DR RAJESH KHANDELWAL IBC, Global Business Ecosystem, Work, Business, Projects, Services and Future Platforms."
+    >
 
-            <h2>
-                One Gmail Account. Your Own Brand Universe.
-            </h2>
+    <meta name="theme-color" content="#0b5cff">
 
-            <p>
-                हर Gmail Account का अपना अलग Dashboard,
-                अपना Brand Username और अपने अलग Personal,
-                Company, Business, Shop और Farm Profiles होंगे।
-            </p>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f8ff;
+            color: #111827;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            font-size: 22px;
+            font-weight: 900;
+            color: #0b5cff;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .nav-links a {
+            color: #111827;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: #0b5cff;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 82vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 70px 20px;
+            background:
+                radial-gradient(circle at top left, #dbeafe, transparent 40%),
+                radial-gradient(circle at bottom right, #bfdbfe, transparent 40%),
+                #ffffff;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: #eaf2ff;
+            color: #0b5cff;
+            font-weight: 800;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 82px);
+            line-height: 1.05;
+            font-weight: 950;
+            color: #0b5cff;
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            font-size: clamp(22px, 4vw, 38px);
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: auto;
+            font-size: 18px;
+            color: #4b5563;
+        }
+
+        .hero-buttons {
+            margin-top: 32px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-weight: 800;
+            transition: 0.2s ease;
+        }
+
+        .btn-primary {
+            background: #0b5cff;
+            color: #ffffff;
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            color: #0b5cff;
+            border: 2px solid #0b5cff;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           COMMON
+        ========================= */
+
+        .section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(30px, 5vw, 48px);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #6b7280;
+        }
+
+        /* =========================
+           ECOSYSTEM
+        ========================= */
+
+        .ecosystem {
+            background: #ffffff;
+        }
+
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+            transition: 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #0b5cff;
+        }
+
+        .card-icon {
+            font-size: 38px;
+            margin-bottom: 14px;
+        }
+
+        .card h3 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+
+        .card p {
+            color: #6b7280;
+            margin-bottom: 18px;
+        }
+
+        .card-link {
+            color: #0b5cff;
+            font-weight: 800;
+        }
+
+        /* =========================
+           CENTRAL HUB
+        ========================= */
+
+        .hub-box {
+            background: #0b5cff;
+            color: white;
+            border-radius: 28px;
+            padding: 55px 30px;
+            text-align: center;
+        }
+
+        .hub-box h2 {
+            font-size: clamp(32px, 5vw, 52px);
+            margin-bottom: 15px;
+        }
+
+        .hub-box p {
+            max-width: 760px;
+            margin: auto;
+            opacity: 0.92;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #0b1220;
+            color: #ffffff;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer h3 {
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #cbd5e1;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .nav {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: 75vh;
+                padding: 60px 18px;
+            }
+
+            .section {
+                padding: 60px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <nav class="nav">
+
+        <a href="#home" class="brand">
+            👑 SUPREMESETUHUB 👑
+        </a>
+
+        <div class="nav-links">
+            <a href="#home">🏠 HOME</a>
+            <a href="#ecosystem">🌍 GBE</a>
+            <a href="#work">💼 WORK</a>
+            <a href="#business">🏢 BUSINESS</a>
+            <a href="#projects">🚀 PROJECTS</a>
+            <a href="#services">🛠️ SERVICES</a>
         </div>
 
-        <!-- ACCOUNT STRUCTURE -->
+    </nav>
 
-        <div class="profile-grid">
+</header>
 
-            <article class="profile-card">
-                <span class="profile-number">01</span>
-                <h3>YOUR GMAIL ACCOUNT</h3>
-                <p>
-                    आपका Gmail Account आपकी अलग पहचान होगा।
-                    हर Gmail Account का अपना निजी Dashboard
-                    और अपना अलग Data रहेगा।
-                </p>
-            </article>
 
-            <article class="profile-card">
-                <span class="profile-number">02</span>
-                <h3>YOUR BRAND USERNAME</h3>
-                <p>
-                    RAJESHKHANDELWAL या आपके चुने हुए
-                    Brand Username के नाम से आपकी पहचान
-                    दिखाई देगी।
-                </p>
-            </article>
+<!-- =========================
+     HOME
+========================= -->
 
-            <article class="profile-card">
-                <span class="profile-number">03</span>
-                <h3>PERSONAL PROFILE</h3>
-                <p>
-                    आपकी व्यक्तिगत जानकारी, पहचान,
-                    Skills और Professional Details।
-                </p>
-            </article>
+<main>
 
-            <article class="profile-card">
-                <span class="profile-number">04</span>
-                <h3>COMPANY & BUSINESS PROFILES</h3>
-                <p>
-                    आपकी अलग-अलग Companies और Businesses
-                    की अलग Profiles, जानकारी और गतिविधियाँ।
-                </p>
-            </article>
+<section id="home" class="hero">
 
-            <article class="profile-card">
-                <span class="profile-number">05</span>
-                <h3>SHOP & FARM PROFILES</h3>
-                <p>
-                    आपकी Shop, Farm और अन्य Activities
-                    के लिए अलग-अलग Profiles।
-                </p>
-            </article>
+    <div class="hero-content">
 
-            <article class="profile-card">
-                <span class="profile-number">06</span>
-                <h3>STORAGE & BRAND LOGO</h3>
-                <p>
-                    अपनी Photos और Logos को Storage में रखें।
-                    चुनी हुई Image को अपनी Profile के Logo
-                    के रूप में इस्तेमाल करें।
-                </p>
-            </article>
+        <div class="hero-badge">
+            👑 CENTRAL DIGITAL HOME 👑
+        </div>
+
+        <h1>
+            SUPREMESETUHUB
+        </h1>
+
+        <h2>
+            👑 DR RAJESH KHANDELWAL IBC 👑
+        </h2>
+
+        <p>
+            🌍 GLOBAL BUSINESS COACH |
+            🧠 INDEPENDENT BUSINESS CONSULTANT |
+            🏢 FOUNDER & CEO |
+            🏡 REAL ESTATE COACH
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#ecosystem" class="btn btn-primary">
+                🌍 ENTER GLOBAL BUSINESS ECOSYSTEM
+            </a>
+
+            <a href="#services" class="btn btn-secondary">
+                🛠️ EXPLORE SERVICES
+            </a>
 
         </div>
 
     </div>
+
 </section>
+
+
+<!-- =========================
+     CENTRAL HUB
+========================= -->
+
+<section class="section">
+
+    <div class="hub-box">
+
+        <h2>
+            👑 SUPREMESETUHUB 👑
+        </h2>
+
+        <p>
+            The central digital hub connecting
+            business, work, projects, services,
+            opportunities and future platforms
+            under one unified ecosystem.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     GLOBAL BUSINESS ECOSYSTEM
+========================= -->
+
+<section id="ecosystem" class="section ecosystem">
+
+    <div class="section-title">
+
+        <h2>
+            🌍 GLOBAL BUSINESS ECOSYSTEM
+        </h2>
+
+        <p>
+            One central ecosystem for Work, Business,
+            Projects, Services and Opportunities.
+        </p>
+
+    </div>
+
+
+    <div class="ecosystem-grid">
+
+        <div id="work" class="card">
+
+            <div class="card-icon">💼</div>
+
+            <h3>WORK</h3>
+
+            <p>
+                Digital work, freelance work,
+                professional opportunities and
+                income-oriented activities.
+            </p>
+
+            <a href="#services" class="card-link">
+                EXPLORE WORK →
+            </a>
+
+        </div>
+
+
+        <div id="business" class="card">
+
+            <div class="card-icon">🏢</div>
+
+            <h3>BUSINESS</h3>
+
+            <p>
+                Business ideas, platforms,
+                entrepreneurship and digital
+                business opportunities.
+            </p>
+
+            <a href="#services" class="card-link">
+                EXPLORE BUSINESS →
+            </a>
+
+        </div>
+
+
+        <div id="projects" class="card">
+
+            <div class="card-icon">🚀</div>
+
+            <h3>PROJECTS</h3>
+
+            <p>
+                Current and future projects
+                connected with the central
+                SUPREMESETUHUB ecosystem.
+            </p>
+
+            <a href="#services" class="card-link">
+                VIEW PROJECTS →
+            </a>
+
+        </div>
+
+
+        <div id="services" class="card">
+
+            <div class="card-icon">🛠️</div>
+
+            <h3>SERVICES</h3>
+
+            <p>
+                Digital consulting, websites,
+                business solutions and
+                professional services.
+            </p>
+
+            <a href="#contact" class="card-link">
+                VIEW SERVICES →
+            </a>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">🎯</div>
+
+            <h3>OPPORTUNITIES</h3>
+
+            <p>
+                Future opportunities,
+                collaborations, projects and
+                professional possibilities.
+            </p>
+
+            <a href="#contact" class="card-link">
+                EXPLORE →
+            </a>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">🌐</div>
+
+            <h3>FUTURE PLATFORMS</h3>
+
+            <p>
+                New digital platforms and
+                ecosystem services will be
+                connected here progressively.
+            </p>
+
+            <a href="#home" class="card-link">
+                COMING →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact" class="section">
+
+    <div class="section-title">
+
+        <h2>
+            📩 CONNECT
+        </h2>
+
+        <p>
+            Connect with the central digital ecosystem.
+        </p>
+
+    </div>
+
+    <div class="hub-box">
+
+        <h2>
+            👑 DR RAJESH KHANDELWAL IBC 👑
+        </h2>
+
+        <p>
+            GLOBAL BUSINESS COACH |
+            INDEPENDENT BUSINESS CONSULTANT |
+            FOUNDER & CEO
+        </p>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <h3>
+        👑 SUPREMESETUHUB 👑
+    </h3>
+
+    <p>
+        🌍 GLOBAL BUSINESS ECOSYSTEM
+    </p>
+
+    <div class="footer-links">
+
+        <a href="#home">HOME</a>
+        <a href="#ecosystem">GBE</a>
+        <a href="#work">WORK</a>
+        <a href="#business">BUSINESS</a>
+        <a href="#projects">PROJECTS</a>
+        <a href="#services">SERVICES</a>
+
+    </div>
+
+    <p style="margin-top:20px;">
+        © 2026 SUPREMESETUHUB
+    </p>
+
+</footer>
+
+</body>
+</html>
