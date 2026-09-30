@@ -32,6 +32,8 @@ from backend.api.users import router as users_router
 from backend.api.user_hub import router as user_hub_router
 from backend.api.ai import router as ai_router
 from backend.api.ecosystem import EcosystemAPI
+from pathlib import Path
+from fastapi.responses import FileResponse
 
 
 # ============================================================
