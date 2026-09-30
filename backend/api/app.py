@@ -205,15 +205,12 @@ app.include_router(
 
 @app.get("/")
 def root():
+    home_file = Path(__file__).resolve().parents[2] / "index.html"
 
-    return {
-        "name": "SUPREMESETUHUB",
-        "status": "RUNNING",
-        "gallary_woult": "CONNECTED",
-        "api_surface": "CONNECTED",
-        "mukti_mahal": "CONNECTED",
-    }
-
+    return FileResponse(
+        home_file,
+        media_type="text/html",
+    )
 
 # ============================================================
 # HEALTH CHECK
