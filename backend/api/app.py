@@ -203,14 +203,19 @@ app.include_router(
 # ROOT API
 # ============================================================
 
+# ============================================================
+# ROOT HOME PAGE
+# ============================================================
+
 @app.get("/")
 def root():
-    home_file = Path(__file__).resolve().parents[2] / "index.html"
+    home_file = Path(__file__).resolve().parents[2] / "frontend" / "index.html"
 
     return FileResponse(
         home_file,
         media_type="text/html",
     )
+
 
 # ============================================================
 # HEALTH CHECK
