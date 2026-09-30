@@ -1,0 +1,59 @@
+.DR-RAJESH-KHANDELWAL-IBC,
+.DR-RAJESH-KHANDELWAL-IBC-OFFICIAL,
+.RAJESH-KHANDELWAL,
+.RAJESH-KHANDELWAL-OFFICIAL,
+.KHANDELWAL-GROUP-AND-COMPANY,
+.KHANDELWAL-GROUP-AND-COMPANIES,
+.DRRAJESHKHANDELWALIBC,
+.DRRAJESHKHANDELWALIBCOFFICIAL,
+.RAJESHKHANDELWAL,
+.RAJESHKHANDELWALOFFICIAL,
+.KHANDELWALGROUPANDCOMPANY,
+.KHANDELWALGROUPANDCOMPANIES,
+.HOME {
+
+
+    background: #FFFFFF !important;
+    color: #111111 !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    font-family: 'Century Schoolbook', 'Libre Baskerville', serif !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    border: 4px solid #D4AF37 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+    scroll-behavior: smooth !important;
+    
+
+    max-width: 100% !important;
+
+
+    box-sizing: border-box !important;
+
+    position: relative !important;
+
+    transition:
+        background 0.45s ease,
+        box-shadow 0.45s ease !important;
+
+
+
+
+
+
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.95),
+        inset 0 0 45px rgba(212, 175, 55, 0.05),
+        0 12px 35px rgba(0, 0, 0, 0.10) !important;
+
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+}
