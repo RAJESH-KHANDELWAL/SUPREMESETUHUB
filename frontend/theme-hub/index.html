@@ -1,51 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>THEME HUB</title>
 
-    <link
-        rel="stylesheet"
-        href="/api/v1/theme-hub/frontend/style.css"
-    >
+    <link rel="stylesheet" href="/api/v1/theme-hub/frontend/style.css">
 </head>
 
 <body>
 
-    <header class="theme-header">
+    <header class="HOME-THEME-HUB-HEADER">
 
-        <h1>🌐 THEME HUB</h1>
+        <div class="HOME-THEME-HUB-BRAND">
+            👑 THEME HUB
+        </div>
 
-        <p>
-            SEARCH • EXPLORE • DOWNLOAD
-        </p>
+        <div class="HOME-THEME-HUB-SUBTITLE">
+            🌍 GLOBAL WORDPRESS THEME DISCOVERY
+        </div>
 
     </header>
 
 
-    <main>
+    <main class="HOME-THEME-HUB-MAIN">
 
-        <section class="search-section">
+        <section class="HOME-THEME-HUB-SEARCH-SECTION">
 
-            <input
-                id="themeSearch"
-                type="search"
-                placeholder="Search themes..."
+            <h1 class="HOME-THEME-HUB-TITLE">
+                🔍 FIND YOUR WORDPRESS THEME
+            </h1>
+
+            <p class="HOME-THEME-HUB-DESCRIPTION">
+                SEARCH AND DISCOVER WORDPRESS THEMES DIRECTLY FROM THE WORDPRESS.ORG THEME DIRECTORY
+            </p>
+
+            <div class="HOME-THEME-HUB-SEARCH-BOX">
+
+                <input
+                    type="search"
+                    id="HOME-THEME-HUB-SEARCH-INPUT"
+                    class="HOME-THEME-HUB-SEARCH-INPUT"
+                    placeholder="Search themes... e.g. Astra"
+                    autocomplete="off"
+                >
+
+                <button
+                    type="button"
+                    id="HOME-THEME-HUB-SEARCH-BUTTON"
+                    class="HOME-THEME-HUB-SEARCH-BUTTON"
+                >
+                    🔍 SEARCH
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <section class="HOME-THEME-HUB-STATUS-SECTION">
+
+            <div
+                id="HOME-THEME-HUB-STATUS"
+                class="HOME-THEME-HUB-STATUS"
             >
+                ⏳ LOADING THEMES...
+            </div>
 
         </section>
 
 
         <section
-            id="themeGrid"
-            class="theme-grid"
+            id="HOME-THEME-HUB-THEMES"
+            class="HOME-THEME-HUB-THEMES"
         >
 
         </section>
@@ -53,111 +81,18 @@
     </main>
 
 
-    <script>
+    <footer class="HOME-THEME-HUB-FOOTER">
 
-        const API =
-            "/api/v1/theme-hub/themes";
+        👑 DR RAJESH KHANDELWAL IBC 👑
 
-        const grid =
-            document.getElementById(
-                "themeGrid"
-            );
+        <br>
 
-        const search =
-            document.getElementById(
-                "themeSearch"
-            );
+        🌍 GLOBAL BUSINESS COACH | 🧠 INDEPENDENT BUSINESS CONSULTANT
+
+    </footer>
 
 
-        let themes = [];
-
-
-        async function loadThemes() {
-
-            const response =
-                await fetch(API);
-
-            const data =
-                await response.json();
-
-            themes =
-                data.themes || [];
-
-            renderThemes(themes);
-        }
-
-
-        function renderThemes(list) {
-
-            grid.innerHTML = "";
-
-            list.forEach(theme => {
-
-                const card =
-                    document.createElement(
-                        "article"
-                    );
-
-                card.className =
-                    "theme-card";
-
-                card.innerHTML = `
-
-                    <h2>
-                        ${theme.name || "THEME"}
-                    </h2>
-
-                    <p>
-                        ${theme.description || ""}
-                    </p>
-
-                    <div>
-                        <strong>
-                            ${theme.type || "FREE"}
-                        </strong>
-                    </div>
-
-                    <a
-                        href="/api/v1/theme-hub/themes/${theme.id}/download"
-                    >
-                        ⬇️ DOWNLOAD
-                    </a>
-
-                `;
-
-                grid.appendChild(card);
-            });
-        }
-
-
-        search.addEventListener(
-            "input",
-            () => {
-
-                const query =
-                    search.value
-                        .toLowerCase()
-                        .trim();
-
-                const filtered =
-                    themes.filter(
-                        theme =>
-                            String(
-                                theme.name || ""
-                            )
-                            .toLowerCase()
-                            .includes(query)
-                    );
-
-                renderThemes(filtered);
-            }
-        );
-
-
-        loadThemes();
-
-    </script>
+    <script src="/api/v1/theme-hub/frontend/script.js"></script>
 
 </body>
-
 </html>
