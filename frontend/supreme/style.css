@@ -481,3 +481,385 @@
 }
 
 
+
+
+/* =========================================================
+   HOME — GLOBAL BUSINESS COACH CONSULTANT ADVISOR
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD {
+    width: 100% !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+
+    background: #ffffff !important;
+    color: #111111 !important;
+
+    border: 4px solid #D4AF37 !important;
+    border-radius: 30px !important;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08) !important;
+
+    font-family:
+        "Century Schoolbook",
+        "Libre Baskerville",
+        serif !important;
+
+    text-align: center !important;
+}
+
+
+/* =========================================================
+   BRAND NAME
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-NAME {
+    width: 100% !important;
+    box-sizing: border-box !important;
+
+    color: #AA820A !important;
+
+    font-weight: 800 !important;
+    line-height: 1.8 !important;
+    letter-spacing: 1.8px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+    display: block !important;
+}
+
+
+/* =========================================================
+   GLOBAL BUSINESS COACH
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-GLOBAL-BUSINESS-COACH {
+    width: 100% !important;
+    box-sizing: border-box !important;
+
+    color: #111111 !important;
+
+    font-weight: 800 !important;
+    line-height: 1.8 !important;
+    letter-spacing: 1.8px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+}
+
+
+/* =========================================================
+   INDEPENDENT BUSINESS CONSULTANT & BUSINESS ADVISOR
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-INDEPENDENT-BUSINESS-CONSULTANT-AND-BUSINESS-ADVISOR {
+    width: 100% !important;
+    box-sizing: border-box !important;
+
+    color: #111111 !important;
+
+    font-weight: 800 !important;
+    line-height: 1.8 !important;
+    letter-spacing: 1.8px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+}
+
+
+/* =========================================================
+   FOUNDER & CEO
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-FOUNDER-AND-CEO {
+    width: 100% !important;
+    box-sizing: border-box !important;
+
+    color: #111111 !important;
+
+    font-weight: 800 !important;
+    line-height: 1.8 !important;
+    letter-spacing: 1.8px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+}
+
+
+/* =========================================================
+   REAL ESTATE COACH
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-REAL-ESTATE-COACH {
+    width: 100% !important;
+    box-sizing: border-box !important;
+
+    color: #111111 !important;
+
+    font-weight: 800 !important;
+    line-height: 1.8 !important;
+    letter-spacing: 1.8px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+}
+
+
+/* =========================================================
+   RELATIONSHIP & INTIMACY COACH
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-AND-INTIMACY-COACH {
+    width: 100% !important;
+    box-sizing: border-box !important;
+
+    color: #111111 !important;
+
+    font-weight: 800 !important;
+    line-height: 1.8 !important;
+    letter-spacing: 1.8px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-DESCRIPTION {
+    width: 100% !important;
+    max-width: 1100px !important;
+
+    box-sizing: border-box !important;
+
+    color: #333333 !important;
+
+    font-weight: 800 !important;
+    line-height: 1.8 !important;
+    letter-spacing: 1.8px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+    border-top: 4px solid #D4AF37 !important;
+
+    border-radius: 18px !important;
+
+    background: #fffdf5 !important;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
+}
+
+
+/* =========================================================
+   1440PX AND ABOVE
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 1440px) {
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD {
+        width: 88% !important;
+        max-width: 1480px !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+
+        padding: 48px !important;
+
+        border-radius: 35px !important;
+        border: 4px solid rgba(0,0,0,.08) !important;
+
+        box-shadow:
+            0 48px 100px rgba(0,0,0,.10) !important;
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-NAME {
+        font-size: 55px !important;
+        margin-bottom: 28px !important;
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-GLOBAL-BUSINESS-COACH {
+        font-size: 55px !important;
+        margin: 8px 0 !important;
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-INDEPENDENT-BUSINESS-CONSULTANT-AND-BUSINESS-ADVISOR {
+        font-size: 44px !important;
+        margin: 8px 0 !important;
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-FOUNDER-AND-CEO {
+        font-size: 55px !important;
+        margin: 8px 0 !important;
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-REAL-ESTATE-COACH {
+        font-size: 55px !important;
+        margin: 8px 0 !important;
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-AND-INTIMACY-COACH {
+        font-size: 44px !important;
+        margin: 8px 0 !important;
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-DESCRIPTION {
+        max-width: 1240px !important;
+
+        margin: 48px auto 0 auto !important;
+
+        padding-top: 28px !important;
+
+        font-size: 28px !important;
+
+        border-top: 2px solid #D4AF37 !important;
+    }
+}
+
+
+/* =========================================================
+   1025PX — 1439PX
+   ========================================================= */
+
+@media (min-width: 1025px) and (max-width: 1439px) {
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD {
+        width: 94% !important;
+        padding: 38px 28px !important;
+        border-radius: 30px !important;
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-NAME {
+        font-size: 42px !important;
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-GLOBAL-BUSINESS-COACH,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-FOUNDER-AND-CEO,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-REAL-ESTATE-COACH {
+        font-size: 34px !important;
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-INDEPENDENT-BUSINESS-CONSULTANT-AND-BUSINESS-ADVISOR,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-AND-INTIMACY-COACH {
+        font-size: 28px !important;
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-DESCRIPTION {
+        font-size: 20px !important;
+        padding: 25px 20px !important;
+    }
+}
+
+
+/* =========================================================
+   769PX — 1024PX
+   TABLET
+   ========================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD {
+        width: 100% !important;
+        padding: 40px 25px !important;
+        border-radius: 28px !important;
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-NAME {
+        font-size: 38px !important;
+        white-space: normal !important;
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-GLOBAL-BUSINESS-COACH,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-FOUNDER-AND-CEO,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-REAL-ESTATE-COACH {
+        font-size: 30px !important;
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-INDEPENDENT-BUSINESS-CONSULTANT-AND-BUSINESS-ADVISOR,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-AND-INTIMACY-COACH {
+        font-size: 27px !important;
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-DESCRIPTION {
+        font-size: 18px !important;
+        padding: 28px 20px !important;
+    }
+}
+
+
+/* =========================================================
+   768PX AND BELOW
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD {
+        width: 100% !important;
+        padding: 28px 12px !important;
+
+        border-width: 4px !important;
+        border-radius: 22px !important;
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-NAME {
+        font-size: 22px !important;
+        white-space: normal !important;
+        margin-bottom: 20px !important;
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-GLOBAL-BUSINESS-COACH,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-FOUNDER-AND-CEO,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-REAL-ESTATE-COACH {
+        font-size: 20px !important;
+        margin: 8px 0 !important;
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-INDEPENDENT-BUSINESS-CONSULTANT-AND-BUSINESS-ADVISOR,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-AND-INTIMACY-COACH {
+        font-size: 18px !important;
+        margin: 8px 0 !important;
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-DESCRIPTION {
+        width: 100% !important;
+
+        margin-top: 28px !important;
+
+        padding: 22px 12px !important;
+
+        font-size: 15px !important;
+
+        border-top-width: 4px !important;
+    }
+}
+
+
+
+
