@@ -1,76 +1,432 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f5f7fb;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
     color: #111827;
 }
 
-.theme-header {
-    padding: 50px 20px;
+
+/* =========================================================
+   HOME THEME HUB HEADER
+   ========================================================= */
+
+.HOME-THEME-HUB-HEADER {
+    width: 100%;
+    padding: 30px 5%;
     text-align: center;
     background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
 }
 
-.theme-header h1 {
-    margin: 0;
-    font-size: 42px;
+.HOME-THEME-HUB-BRAND {
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
-.theme-header p {
-    margin-top: 10px;
-    opacity: 0.7;
+.HOME-THEME-HUB-SUBTITLE {
+    margin-top: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #64748b;
+    letter-spacing: 1px;
 }
 
-.search-section {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 0 20px;
-}
 
-#themeSearch {
+/* =========================================================
+   HOME THEME HUB MAIN
+   ========================================================= */
+
+.HOME-THEME-HUB-MAIN {
     width: 100%;
-    padding: 16px 20px;
-    border: 1px solid #d1d5db;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 50px 5%;
+}
+
+
+/* =========================================================
+   SEARCH SECTION
+   ========================================================= */
+
+.HOME-THEME-HUB-SEARCH-SECTION {
+    width: 100%;
+    text-align: center;
+}
+
+.HOME-THEME-HUB-TITLE {
+    font-size: 38px;
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.HOME-THEME-HUB-DESCRIPTION {
+    max-width: 800px;
+    margin: 15px auto 30px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #64748b;
+}
+
+
+/* =========================================================
+   SEARCH BOX
+   ========================================================= */
+
+.HOME-THEME-HUB-SEARCH-BOX {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    gap: 12px;
+}
+
+.HOME-THEME-HUB-SEARCH-INPUT {
+    flex: 1;
+    min-width: 0;
+    height: 58px;
+    padding: 0 20px;
+    border: 1px solid #cbd5e1;
     border-radius: 12px;
-    font-size: 17px;
-}
-
-.theme-grid {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-
-    display: grid;
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(260px, 1fr)
-        );
-
-    gap: 20px;
-}
-
-.theme-card {
+    outline: none;
     background: #ffffff;
-    padding: 25px;
-    border-radius: 16px;
+    color: #111827;
+    font-size: 16px;
+}
+
+.HOME-THEME-HUB-SEARCH-INPUT:focus {
+    border-color: #2563eb;
+}
+
+.HOME-THEME-HUB-SEARCH-BUTTON {
+    height: 58px;
+    padding: 0 28px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 800;
+    transition: 0.2s ease;
+}
+
+.HOME-THEME-HUB-SEARCH-BUTTON:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.HOME-THEME-HUB-STATUS-SECTION {
+    width: 100%;
+    margin: 35px 0 25px;
+}
+
+.HOME-THEME-HUB-STATUS {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: #64748b;
+}
+
+
+/* =========================================================
+   THEME GRID
+   ========================================================= */
+
+.HOME-THEME-HUB-THEMES {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+
+/* =========================================================
+   THEME CARD
+   ========================================================= */
+
+.HOME-THEME-HUB-THEME-CARD {
+    width: 100%;
+    overflow: hidden;
+    background: #ffffff;
     border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.theme-card h2 {
-    margin-top: 0;
+.HOME-THEME-HUB-THEME-CARD:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 35px rgba(15, 23, 42, 0.12);
 }
 
-.theme-card a {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 18px;
+
+/* =========================================================
+   THEME SCREENSHOT
+   ========================================================= */
+
+.HOME-THEME-HUB-THEME-SCREENSHOT-WRAPPER {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #e2e8f0;
+}
+
+.HOME-THEME-HUB-THEME-SCREENSHOT {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   THEME INFORMATION
+   ========================================================= */
+
+.HOME-THEME-HUB-THEME-CONTENT {
+    padding: 20px;
+}
+
+.HOME-THEME-HUB-THEME-NAME {
+    font-size: 21px;
+    line-height: 1.3;
+    font-weight: 800;
+    color: #111827;
+}
+
+.HOME-THEME-HUB-THEME-VERSION {
+    margin-top: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #64748b;
+}
+
+.HOME-THEME-HUB-THEME-AUTHOR {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #334155;
+}
+
+.HOME-THEME-HUB-THEME-DESCRIPTION {
+    margin-top: 13px;
+    min-height: 105px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: #64748b;
+}
+
+
+/* =========================================================
+   THEME ACTIONS
+   ========================================================= */
+
+.HOME-THEME-HUB-THEME-ACTIONS {
+    margin-top: 18px;
+    display: flex;
+    gap: 10px;
+}
+
+.HOME-THEME-HUB-PREVIEW-BUTTON,
+.HOME-THEME-HUB-DOWNLOAD-BUTTON {
+    flex: 1;
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 12px;
     border-radius: 10px;
     text-decoration: none;
-    background: #111827;
+    font-size: 13px;
+    font-weight: 800;
+    text-align: center;
+    transition: 0.2s ease;
+}
+
+.HOME-THEME-HUB-PREVIEW-BUTTON {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+}
+
+.HOME-THEME-HUB-DOWNLOAD-BUTTON {
+    background: #2563eb;
     color: #ffffff;
+    border: 1px solid #2563eb;
+}
+
+.HOME-THEME-HUB-PREVIEW-BUTTON:hover,
+.HOME-THEME-HUB-DOWNLOAD-BUTTON:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   EMPTY / ERROR STATE
+   ========================================================= */
+
+.HOME-THEME-HUB-EMPTY {
+    grid-column: 1 / -1;
+    padding: 60px 20px;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+}
+
+.HOME-THEME-HUB-EMPTY-TITLE {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.HOME-THEME-HUB-EMPTY-TEXT {
+    margin-top: 10px;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.HOME-THEME-HUB-FOOTER {
+    width: 100%;
+    padding: 30px 5%;
+    text-align: center;
+    background: #ffffff;
+    border-top: 1px solid #e5e7eb;
+    color: #475569;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   1200px
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .HOME-THEME-HUB-THEMES {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .HOME-THEME-HUB-TITLE {
+        font-size: 34px;
+    }
+}
+
+
+/* =========================================================
+   900px
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .HOME-THEME-HUB-MAIN {
+        padding: 40px 4%;
+    }
+
+    .HOME-THEME-HUB-THEMES {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .HOME-THEME-HUB-TITLE {
+        font-size: 30px;
+    }
+
+    .HOME-THEME-HUB-SEARCH-BOX {
+        max-width: 100%;
+    }
+}
+
+
+/* =========================================================
+   600px
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .HOME-THEME-HUB-HEADER {
+        padding: 24px 5%;
+    }
+
+    .HOME-THEME-HUB-BRAND {
+        font-size: 26px;
+    }
+
+    .HOME-THEME-HUB-SUBTITLE {
+        font-size: 12px;
+    }
+
+    .HOME-THEME-HUB-MAIN {
+        padding: 30px 5%;
+    }
+
+    .HOME-THEME-HUB-TITLE {
+        font-size: 26px;
+    }
+
+    .HOME-THEME-HUB-DESCRIPTION {
+        font-size: 14px;
+    }
+
+    .HOME-THEME-HUB-SEARCH-BOX {
+        flex-direction: column;
+    }
+
+    .HOME-THEME-HUB-SEARCH-INPUT,
+    .HOME-THEME-HUB-SEARCH-BUTTON {
+        width: 100%;
+    }
+
+    .HOME-THEME-HUB-THEMES {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .HOME-THEME-HUB-THEME-DESCRIPTION {
+        min-height: auto;
+    }
+
+    .HOME-THEME-HUB-THEME-ACTIONS {
+        flex-direction: column;
+    }
+}
+
+
+/* =========================================================
+   380px
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .HOME-THEME-HUB-TITLE {
+        font-size: 23px;
+    }
+
+    .HOME-THEME-HUB-THEME-NAME {
+        font-size: 19px;
+    }
+
+    .HOME-THEME-HUB-THEME-CONTENT {
+        padding: 16px;
+    }
 }
