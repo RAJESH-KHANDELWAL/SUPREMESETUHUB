@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>THEME HUB</title>
+
+    <link
+        rel="stylesheet"
+        href="/api/v1/theme-hub/frontend/style.css"
+    >
+</head>
+
+<body>
+
+    <header class="theme-header">
+
+        <h1>🌐 THEME HUB</h1>
+
+        <p>
+            SEARCH • EXPLORE • DOWNLOAD
+        </p>
+
+    </header>
+
+
+    <main>
+
+        <section class="search-section">
+
+            <input
+                id="themeSearch"
+                type="search"
+                placeholder="Search themes..."
+            >
+
+        </section>
+
+
+        <section
+            id="themeGrid"
+            class="theme-grid"
+        >
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        const API =
+            "/api/v1/theme-hub/themes";
+
+        const grid =
+            document.getElementById(
+                "themeGrid"
+            );
+
+        const search =
+            document.getElementById(
+                "themeSearch"
+            );
+
+
+        let themes = [];
+
+
+        async function loadThemes() {
+
+            const response =
+                await fetch(API);
+
+            const data =
+                await response.json();
+
+            themes =
+                data.themes || [];
+
+            renderThemes(themes);
+        }
+
+
+        function renderThemes(list) {
+
+            grid.innerHTML = "";
+
+            list.forEach(theme => {
+
+                const card =
+                    document.createElement(
+                        "article"
+                    );
+
+                card.className =
+                    "theme-card";
+
+                card.innerHTML = `
+
+                    <h2>
+                        ${theme.name || "THEME"}
+                    </h2>
+
+                    <p>
+                        ${theme.description || ""}
+                    </p>
+
+                    <div>
+                        <strong>
+                            ${theme.type || "FREE"}
+                        </strong>
+                    </div>
+
+                    <a
+                        href="/api/v1/theme-hub/themes/${theme.id}/download"
+                    >
+                        ⬇️ DOWNLOAD
+                    </a>
+
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+
+        search.addEventListener(
+            "input",
+            () => {
+
+                const query =
+                    search.value
+                        .toLowerCase()
+                        .trim();
+
+                const filtered =
+                    themes.filter(
+                        theme =>
+                            String(
+                                theme.name || ""
+                            )
+                            .toLowerCase()
+                            .includes(query)
+                    );
+
+                renderThemes(filtered);
+            }
+        );
+
+
+        loadThemes();
+
+    </script>
+
+</body>
+
+</html>
