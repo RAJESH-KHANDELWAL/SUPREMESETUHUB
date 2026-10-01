@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #111827;
+}
+
+.theme-header {
+    padding: 50px 20px;
+    text-align: center;
+    background: #ffffff;
+}
+
+.theme-header h1 {
+    margin: 0;
+    font-size: 42px;
+}
+
+.theme-header p {
+    margin-top: 10px;
+    opacity: 0.7;
+}
+
+.search-section {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+#themeSearch {
+    width: 100%;
+    padding: 16px 20px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    font-size: 17px;
+}
+
+.theme-grid {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+
+    display: grid;
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(260px, 1fr)
+        );
+
+    gap: 20px;
+}
+
+.theme-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+}
+
+.theme-card h2 {
+    margin-top: 0;
+}
+
+.theme-card a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    background: #111827;
+    color: #ffffff;
+}
