@@ -33,6 +33,7 @@ from backend.api.users import router as users_router
 from backend.api.user_hub import router as user_hub_router
 from backend.api.ai import router as ai_router
 from backend.api.ecosystem import EcosystemAPI
+from backend.api.theme_hub import router as theme_hub_router
 
 
 # ============================================================
@@ -211,6 +212,8 @@ app.include_router(dns_router)
 app.include_router(user_hub_router)
 
 app.include_router(ai_router)
+
+app.include_router(theme_hub_router)
 
 
 # ============================================================
