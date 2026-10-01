@@ -81,7 +81,7 @@
 
 .MOST-WELCOME {
 
-    font-size:55px !important;
+    font-size:48px !important;
     line-height:1.8 !important;
     letter-spacing:1.8px !important;
     padding:48px !important;
@@ -100,7 +100,7 @@
 
 .MOST-WELCOME {
 
-    font-size:55px !important;
+    font-size:48px !important;
     line-height:1.8 !important;
     letter-spacing:1.8px !important;
     padding:48px !important;
@@ -119,7 +119,7 @@
 
 .MOST-WELCOME {
 
-    font-size:55px !important;
+    font-size:48px !important;
     line-height:1.8 !important;
     letter-spacing:1.8px !important;
     padding:48px !important;
@@ -231,20 +231,20 @@
 
     .HOME-DR-RAJESH-KHANDELWAL-IBC {
 
-        font-size: 60px !important;
+        font-size: 68px !important;
         line-height: 1.8 !important;
         letter-spacing: 1.8px !important;
 
-        padding: 40px !important;
+        padding: 48px !important;
 
         width: 100% !important;
 
         margin-left: 0px !important;
         margin-right: 0px !important;
-        margin-top: 18px !important;
-        margin-bottom: 18px !important;
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
 
-        border-radius: 18px !important;
+        border-radius: 28px !important;
 
     }
 
@@ -255,20 +255,20 @@
 
     .HOME-DR-RAJESH-KHANDELWAL-IBC {
 
-        font-size: 50px !important;
+        font-size: 68px !important;
         line-height: 1.8 !important;
         letter-spacing: 1.8px !important;
 
-        padding: 35px !important;
+        padding: 48px !important;
 
         width: 100% !important;
 
         margin-left: 0px !important;
         margin-right: 0px !important;
-        margin-top: 18px !important;
-        margin-bottom: 18px !important;
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
 
-        border-radius: 18px !important;
+        border-radius: 28px !important;
 
     }
 
@@ -279,7 +279,7 @@
 
     .HOME-DR-RAJESH-KHANDELWAL-IBC {
 
-        font-size: 32px !important;
+        font-size: 28px !important;
         font-weight: 800 !important;
 
         line-height: 1.8 !important;
@@ -294,7 +294,7 @@
         align-items: center !important;
         justify-content: center !important;
 
-        padding: 25px 20px !important;
+        padding: 20px 20px !important;
 
         box-sizing: border-box !important;
 
