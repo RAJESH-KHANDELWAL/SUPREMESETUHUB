@@ -1,10 +1,11 @@
-
 from __future__ import annotations
 
+from pathlib import Path
 from typing import Optional
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 
 from backend.auth.service import AuthenticationService
 
@@ -32,8 +33,23 @@ from backend.api.users import router as users_router
 from backend.api.user_hub import router as user_hub_router
 from backend.api.ai import router as ai_router
 from backend.api.ecosystem import EcosystemAPI
-from pathlib import Path
-from fastapi.responses import FileResponse
+
+
+# ============================================================
+# PATH CONFIGURATION
+# ============================================================
+
+BASE_DIR = Path(__file__).resolve().parents[2]
+
+FRONTEND_DIR = BASE_DIR / "frontend"
+
+ROOT_FRONTEND_FILE = FRONTEND_DIR / "index.html"
+
+SUPREME_FRONTEND_DIR = FRONTEND_DIR / "supreme"
+
+SUPREME_HTML_FILE = SUPREME_FRONTEND_DIR / "index.html"
+
+SUPREME_CSS_FILE = SUPREME_FRONTEND_DIR / "style.css"
 
 
 # ============================================================
@@ -44,17 +60,20 @@ app = FastAPI(
     title="SUPREMESETUHUB",
     version="1.0.0",
 )
+
 ecosystem_api = EcosystemAPI()
 
+
 # ============================================================
-# FRONTEND / WEBSITE CORS
-# ALL 8 DOMAINS + GITHUB PAGES
+# CORS CONFIGURATION
 # ============================================================
 
 ALLOWED_ORIGINS = [
+
     # --------------------------------------------------------
     # GITHUB PAGES
     # --------------------------------------------------------
+
     "https://rajeshkhandelwal.github.io",
     "https://rajeshkhandelwalofficial.github.io",
     "https://drrajeshkhandelwalibc.github.io",
@@ -63,6 +82,7 @@ ALLOWED_ORIGINS = [
     # --------------------------------------------------------
     # MAIN DOMAINS
     # --------------------------------------------------------
+
     "https://rajeshkhandelwal.com",
     "https://www.rajeshkhandelwal.com",
 
@@ -76,12 +96,19 @@ ALLOWED_ORIGINS = [
     "https://www.drrajeshkhandelwalibcofficial.com",
 
     # --------------------------------------------------------
-    # RENDER BACKEND DOMAINS
+    # RENDER DOMAINS
     # --------------------------------------------------------
+
     "https://rajeshkhandelwal.onrender.com",
     "https://rajeshkhandelwalofficial.onrender.com",
     "https://drrajeshkhandelwalibc.onrender.com",
     "https://drrajeshkhandelwalibcofficial.onrender.com",
+
+    # --------------------------------------------------------
+    # SUPREMESETUHUB RENDER
+    # --------------------------------------------------------
+
+    "https://supremesetuhub-3v4e.onrender.com",
 ]
 
 
@@ -156,21 +183,34 @@ def _require_ai_store_actor(
 # ============================================================
 
 app.include_router(auth_router)
-app.include_router(users_router)
-app.include_router(identity_router)
-app.include_router(profiles_router)
-app.include_router(businesses_router)
-app.include_router(projects_router)
-app.include_router(opportunities_router)
-app.include_router(matching_router)
-app.include_router(roles_router)
-app.include_router(supreme_router)
-app.include_router(dashboard_router)
-app.include_router(infrastructure_router)
-app.include_router(dns_router)
-app.include_router(user_hub_router)
-app.include_router(ai_router)
 
+app.include_router(users_router)
+
+app.include_router(identity_router)
+
+app.include_router(profiles_router)
+
+app.include_router(businesses_router)
+
+app.include_router(projects_router)
+
+app.include_router(opportunities_router)
+
+app.include_router(matching_router)
+
+app.include_router(roles_router)
+
+app.include_router(supreme_router)
+
+app.include_router(dashboard_router)
+
+app.include_router(infrastructure_router)
+
+app.include_router(dns_router)
+
+app.include_router(user_hub_router)
+
+app.include_router(ai_router)
 
 
 # ============================================================
@@ -200,73 +240,93 @@ app.include_router(
 
 
 # ============================================================
-# ROOT API
-# ============================================================
-
-# ============================================================
 # ROOT HOME PAGE
 # ============================================================
 
 @app.get("/")
 def root():
-    home_file = Path(__file__).resolve().parents[2] / "frontend" / "index.html"
+
+    if not ROOT_FRONTEND_FILE.is_file():
+        raise HTTPException(
+            status_code=404,
+            detail="ROOT frontend not found",
+        )
 
     return FileResponse(
-        home_file,
+        ROOT_FRONTEND_FILE,
         media_type="text/html",
     )
 
 
 # ============================================================
-# SUPREME SHARED FRONTEND
-# CENTRAL SOURCE FOR ALL 4 IDENTITIES
+# SUPREME FRONTEND HTML
+#
+# SOURCE:
+# frontend/supreme/index.html
+#
+# API:
+# /api/v1/frontend/supreme
 # ============================================================
 
 @app.get("/api/v1/frontend/supreme")
 def supreme_frontend():
-    supreme_frontend_file = (
-        Path(__file__).resolve().parents[2]
-        / "frontend"
-        / "supreme"
-        / "index.html"
-    )
 
-    if not supreme_frontend_file.is_file():
+    if not SUPREME_HTML_FILE.is_file():
         raise HTTPException(
             status_code=404,
-            detail="SUPREME frontend not found",
+            detail="SUPREME frontend HTML not found",
         )
 
     return FileResponse(
-        supreme_frontend_file,
+        SUPREME_HTML_FILE,
         media_type="text/html",
     )
 
 
 # ============================================================
-# SUPREME SHARED FRONTEND CSS
-# CENTRAL SOURCE FOR ALL 4 IDENTITIES
+# SUPREME FRONTEND CSS
+#
+# SOURCE:
+# frontend/supreme/style.css
+#
+# API:
+# /api/v1/frontend/supreme/style.css
 # ============================================================
 
 @app.get("/api/v1/frontend/supreme/style.css")
 def supreme_frontend_css():
-    supreme_css_file = (
-        Path(__file__).resolve().parents[2]
-        / "frontend"
-        / "supreme"
-        / "style.css"
-    )
 
-    if not supreme_css_file.is_file():
+    if not SUPREME_CSS_FILE.is_file():
         raise HTTPException(
             status_code=404,
             detail="SUPREME frontend CSS not found",
         )
 
     return FileResponse(
-        supreme_css_file,
+        SUPREME_CSS_FILE,
         media_type="text/css",
+        headers={
+            "Cache-Control": "no-cache, no-store, must-revalidate",
+            "Pragma": "no-cache",
+            "Expires": "0",
+        },
     )
+
+
+# ============================================================
+# SUPREME FRONTEND STATUS
+# ============================================================
+
+@app.get("/api/v1/frontend/supreme/health")
+def supreme_frontend_health():
+
+    return {
+        "success": True,
+        "service": "SUPREMESETUHUB",
+        "frontend": "supreme",
+        "html": SUPREME_HTML_FILE.is_file(),
+        "css": SUPREME_CSS_FILE.is_file(),
+    }
 
 
 # ============================================================
@@ -280,48 +340,69 @@ def health():
         "status": "healthy",
         "service": "SUPREMESETUHUB",
     }
+
+
 # ============================================================
 # FOUNDATION STATUS API
 # ============================================================
 
 @app.get("/api/v1/foundation")
 def foundation():
+
     return {
         "success": True,
         "name": "SUPREMESETUHUB",
         "version": "1.0.0",
         "status": "active",
     }
+
+
+# ============================================================
 # SUPREME ECOSYSTEM API
+# ============================================================
 
 @app.get("/api/v1/ecosystem/status")
 def ecosystem_status():
+
     return ecosystem_api.status()
 
 
 @app.get("/api/v1/ecosystem/health")
 def ecosystem_health():
+
     return ecosystem_api.health()
 
 
 @app.get("/api/v1/ecosystem/list")
 def ecosystem_list():
+
     return ecosystem_api.list()
 
 
 @app.get("/api/v1/ecosystem/names")
 def ecosystem_names():
+
     return ecosystem_api.names()
 
 
 @app.get("/api/v1/ecosystem/{ecosystem_id}")
-def ecosystem_get(ecosystem_id: str):
-    return ecosystem_api.get(ecosystem_id)
+def ecosystem_get(
+    ecosystem_id: str,
+):
+
+    return ecosystem_api.get(
+        ecosystem_id
+    )
 
 
 @app.get("/api/v1/ecosystem/{ecosystem_id}/exists")
-def ecosystem_exists(ecosystem_id: str):
+def ecosystem_exists(
+    ecosystem_id: str,
+):
+
     return {
         "ecosystem_id": ecosystem_id,
-        "exists": ecosystem_api.exists(ecosystem_id),
+        "exists": ecosystem_api.exists(
+            ecosystem_id
+        ),
     }
