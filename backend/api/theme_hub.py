@@ -1,11 +1,10 @@
 from __future__ import annotations
 
 import json
-import shutil
-import zipfile
-from pathlib import Path
+from typing import Optional
 
-from fastapi import APIRouter, File, HTTPException, UploadFile
+import httpx
+from fastapi import APIRouter, HTTPException, Query
 from fastapi.responses import FileResponse
 
 
@@ -16,683 +15,384 @@ router = APIRouter(
 
 
 # ============================================================
-# PATHS
+# WORDPRESS.ORG THEMES API
 # ============================================================
 
+WORDPRESS_THEMES_API = (
+    "https://api.wordpress.org/themes/info/1.2/"
+)
+
 BASE_DIR = Path(__file__).resolve().parents[2]
-
-THEMES_DIR = BASE_DIR / "themes"
-UPLOADED_THEMES_DIR = THEMES_DIR / "uploaded"
-INSTALLED_THEMES_DIR = THEMES_DIR / "installed"
-
 FRONTEND_DIR = BASE_DIR / "frontend" / "theme-hub"
 
 
 # ============================================================
-# DIRECTORY SETUP
+# WORDPRESS.ORG API REQUEST
 # ============================================================
 
-THEMES_DIR.mkdir(
-    parents=True,
-    exist_ok=True,
-)
+async def wordpress_themes_api(
+    action: str,
+    request_data: dict,
+) -> dict:
 
-UPLOADED_THEMES_DIR.mkdir(
-    parents=True,
-    exist_ok=True,
-)
-
-INSTALLED_THEMES_DIR.mkdir(
-    parents=True,
-    exist_ok=True,
-)
-
-
-# ============================================================
-# HELPERS
-# ============================================================
-
-def _safe_theme_id(theme_id: str) -> str:
-    """
-    Prevent path traversal and keep theme IDs filesystem-safe.
-    """
-
-    cleaned = "".join(
-        character
-        for character in theme_id
-        if character.isalnum()
-        or character in ("-", "_")
-    )
-
-    if not cleaned:
-        raise HTTPException(
-            status_code=400,
-            detail="INVALID_THEME_ID",
-        )
-
-    return cleaned
-
-
-def _theme_metadata(theme_dir: Path) -> dict:
-    """
-    Read theme.json when available.
-    """
-
-    theme_json = theme_dir / "theme.json"
-
-    if not theme_json.is_file():
-        return {
-            "id": theme_dir.name,
-            "name": theme_dir.name,
-        }
-
-    try:
-        return json.loads(
-            theme_json.read_text(
-                encoding="utf-8"
-            )
-        )
-
-    except Exception:
-        return {
-            "id": theme_dir.name,
-            "name": theme_dir.name,
-        }
-
-
-def _find_theme_root(extract_dir: Path) -> Path:
-    """
-    Detect whether the ZIP contains the theme directly
-    or inside one top-level folder.
-    """
-
-    direct_style = extract_dir / "style.css"
-
-    if direct_style.is_file():
-        return extract_dir
-
-    directories = [
-        item
-        for item in extract_dir.iterdir()
-        if item.is_dir()
-    ]
-
-    if len(directories) == 1:
-        possible_root = directories[0]
-
-        if (
-            (possible_root / "style.css").is_file()
-            or (possible_root / "theme.json").is_file()
-        ):
-            return possible_root
-
-    return extract_dir
-
-
-def _validate_theme_directory(theme_dir: Path) -> dict:
-    """
-    Validate common WordPress theme structure.
-
-    This does not execute PHP.
-    """
-
-    style_css = theme_dir / "style.css"
-    index_php = theme_dir / "index.php"
-    functions_php = theme_dir / "functions.php"
-    screenshot_png = theme_dir / "screenshot.png"
-    screenshot_jpg = theme_dir / "screenshot.jpg"
-    screenshot_jpeg = theme_dir / "screenshot.jpeg"
-    theme_json = theme_dir / "theme.json"
-
-    errors = []
-    warnings = []
-
-    if not style_css.is_file():
-        errors.append(
-            "style.css NOT FOUND"
-        )
-
-    if not index_php.is_file():
-        warnings.append(
-            "index.php NOT FOUND"
-        )
-
-    if not functions_php.is_file():
-        warnings.append(
-            "functions.php NOT FOUND"
-        )
-
-    screenshot_found = any(
-        file.is_file()
-        for file in (
-            screenshot_png,
-            screenshot_jpg,
-            screenshot_jpeg,
-        )
-    )
-
-    if not screenshot_found:
-        warnings.append(
-            "Theme screenshot NOT FOUND"
-        )
-
-    if theme_json.is_file():
-        theme_type = "BLOCK / MODERN THEME"
-    else:
-        theme_type = "CLASSIC / STANDARD THEME"
-
-    valid = len(errors) == 0
-
-    return {
-        "valid": valid,
-        "theme_type": theme_type,
-        "files": {
-            "style.css": style_css.is_file(),
-            "index.php": index_php.is_file(),
-            "functions.php": functions_php.is_file(),
-            "screenshot": screenshot_found,
-            "theme.json": theme_json.is_file(),
-        },
-        "errors": errors,
-        "warnings": warnings,
+    params = {
+        "action": action,
+        "request": json.dumps(
+            request_data,
+            separators=(",", ":"),
+        ),
     }
 
+    try:
+
+        async with httpx.AsyncClient(
+            timeout=20.0
+        ) as client:
+
+            response = await client.get(
+                WORDPRESS_THEMES_API,
+                params=params,
+                headers={
+                    "User-Agent": (
+                        "SUPREMESETUHUB/1.0 "
+                        "WordPress Theme Hub"
+                    )
+                },
+            )
+
+    except httpx.HTTPError as error:
+
+        raise HTTPException(
+            status_code=502,
+            detail={
+                "error": "WORDPRESS_THEMES_API_UNAVAILABLE",
+                "message": str(error),
+            },
+        )
+
+    if response.status_code != 200:
+
+        raise HTTPException(
+            status_code=502,
+            detail={
+                "error": "WORDPRESS_THEMES_API_ERROR",
+                "status_code": response.status_code,
+            },
+        )
+
+    try:
+
+        return response.json()
+
+    except Exception:
+
+        raise HTTPException(
+            status_code=502,
+            detail="INVALID_WORDPRESS_THEMES_API_RESPONSE",
+        )
+
 
 # ============================================================
-# EXISTING THEMES
+# SEARCH WORDPRESS.ORG THEMES
 # ============================================================
 
 @router.get("/themes")
-def get_themes():
+async def get_themes(
+    search: Optional[str] = Query(
+        default=None
+    ),
+    page: int = Query(
+        default=1,
+        ge=1
+    ),
+    per_page: int = Query(
+        default=24,
+        ge=1,
+        le=100
+    ),
+):
 
-    themes = []
+    request_data = {
+        "per_page": per_page,
+        "page": page,
 
-    if not THEMES_DIR.exists():
-        return {
-            "success": True,
-            "count": 0,
-            "themes": [],
-        }
+        "fields": {
+            "description": True,
+            "downloadlink": True,
+            "homepage": True,
+            "last_updated": True,
+            "rating": True,
+            "ratings": True,
+            "downloaded": True,
+            "screenshot_url": True,
+            "theme_url": True,
+            "tags": True,
+        },
+    }
 
-    for theme_dir in THEMES_DIR.iterdir():
+    if search:
+        request_data["search"] = search
 
-        if not theme_dir.is_dir():
-            continue
+    data = await wordpress_themes_api(
+        "query_themes",
+        request_data,
+    )
 
-        # Internal upload/install folders are not normal
-        # theme listings.
-        if theme_dir.name in {
-            "uploaded",
-            "installed",
-        }:
-            continue
-
-        theme_json = theme_dir / "theme.json"
-
-        if not theme_json.is_file():
-            continue
-
-        try:
-
-            data = json.loads(
-                theme_json.read_text(
-                    encoding="utf-8"
-                )
-            )
-
-            themes.append(data)
-
-        except Exception:
-            continue
+    themes = data.get(
+        "themes",
+        []
+    )
 
     return {
         "success": True,
+        "source": "WORDPRESS.ORG",
+        "page": page,
+        "per_page": per_page,
         "count": len(themes),
         "themes": themes,
     }
 
 
 # ============================================================
-# THEME DETAILS
+# THEME INFORMATION
 # ============================================================
 
 @router.get("/themes/{theme_id}")
-def get_theme(theme_id: str):
+async def get_theme(
+    theme_id: str
+):
 
-    theme_id = _safe_theme_id(theme_id)
+    request_data = {
+        "slug": theme_id,
 
-    theme_dir = THEMES_DIR / theme_id
-    theme_json = theme_dir / "theme.json"
+        "fields": {
+            "description": True,
+            "sections": True,
+            "downloadlink": True,
+            "homepage": True,
+            "last_updated": True,
+            "rating": True,
+            "ratings": True,
+            "downloaded": True,
+            "screenshots": True,
+            "screenshot_url": True,
+            "theme_url": True,
+            "tags": True,
+            "versions": True,
+            "template": True,
+            "parent": True,
+        },
+    }
 
-    if not theme_json.is_file():
+    data = await wordpress_themes_api(
+        "theme_information",
+        request_data,
+    )
+
+    if not data:
+
         raise HTTPException(
             status_code=404,
             detail="THEME_NOT_FOUND",
         )
 
-    try:
-
-        data = json.loads(
-            theme_json.read_text(
-                encoding="utf-8"
-            )
-        )
-
-    except Exception:
-
-        raise HTTPException(
-            status_code=500,
-            detail="THEME_METADATA_INVALID",
-        )
-
     return {
         "success": True,
+        "source": "WORDPRESS.ORG",
         "theme": data,
     }
 
 
 # ============================================================
-# THEME DOWNLOAD
+# OFFICIAL DOWNLOAD INFORMATION
 # ============================================================
 
-@router.get("/themes/{theme_id}/download")
-def download_theme(theme_id: str):
-
-    theme_id = _safe_theme_id(theme_id)
-
-    theme_dir = THEMES_DIR / theme_id
-
-    zip_file = theme_dir / f"{theme_id}.zip"
-
-    if not zip_file.is_file():
-        raise HTTPException(
-            status_code=404,
-            detail="THEME_DOWNLOAD_NOT_FOUND",
-        )
-
-    return FileResponse(
-        zip_file,
-        media_type="application/zip",
-        filename=f"{theme_id}.zip",
-    )
-
-
-# ============================================================
-# THEME UPLOAD
-# ============================================================
-
-@router.post("/upload")
-async def upload_theme(
-    file: UploadFile = File(...)
+@router.get(
+    "/themes/{theme_id}/download"
+)
+async def download_theme(
+    theme_id: str
 ):
 
-    if not file.filename:
-        raise HTTPException(
-            status_code=400,
-            detail="THEME_FILE_REQUIRED",
-        )
+    request_data = {
+        "slug": theme_id,
 
-    original_name = Path(
-        file.filename
-    ).name
+        "fields": {
+            "downloadlink": True,
+            "theme_url": True,
+            "homepage": True,
+        },
+    }
 
-    if not original_name.lower().endswith(".zip"):
-        raise HTTPException(
-            status_code=400,
-            detail="ONLY_THEME_ZIP_ALLOWED",
-        )
-
-    theme_id = Path(
-        original_name
-    ).stem
-
-    theme_id = _safe_theme_id(
-        theme_id
+    data = await wordpress_themes_api(
+        "theme_information",
+        request_data,
     )
 
-    upload_dir = (
-        UPLOADED_THEMES_DIR
-        / theme_id
+    download_link = data.get(
+        "download_link"
     )
 
-    if upload_dir.exists():
-        shutil.rmtree(
-            upload_dir
+    if not download_link:
+
+        download_link = data.get(
+            "downloadlink"
         )
 
-    upload_dir.mkdir(
-        parents=True,
-        exist_ok=True,
-    )
-
-    zip_path = (
-        upload_dir
-        / f"{theme_id}.zip"
-    )
-
-    try:
-
-        with zip_path.open(
-            "wb"
-        ) as destination:
-
-            while True:
-
-                chunk = await file.read(
-                    1024 * 1024
-                )
-
-                if not chunk:
-                    break
-
-                destination.write(
-                    chunk
-                )
-
-    finally:
-
-        await file.close()
-
-    # --------------------------------------------------------
-    # ZIP SAFETY CHECK
-    # --------------------------------------------------------
-
-    try:
-
-        with zipfile.ZipFile(
-            zip_path,
-            "r",
-        ) as archive:
-
-            for member in archive.infolist():
-
-                member_path = Path(
-                    member.filename
-                )
-
-                if member_path.is_absolute():
-                    raise HTTPException(
-                        status_code=400,
-                        detail="UNSAFE_THEME_ZIP",
-                    )
-
-                if ".." in member_path.parts:
-                    raise HTTPException(
-                        status_code=400,
-                        detail="UNSAFE_THEME_ZIP",
-                    )
-
-            extract_dir = (
-                upload_dir
-                / "extracted"
-            )
-
-            extract_dir.mkdir(
-                parents=True,
-                exist_ok=True,
-            )
-
-            archive.extractall(
-                extract_dir
-            )
-
-    except zipfile.BadZipFile:
-
-        shutil.rmtree(
-            upload_dir,
-            ignore_errors=True,
-        )
+    if not download_link:
 
         raise HTTPException(
-            status_code=400,
-            detail="INVALID_THEME_ZIP",
+            status_code=404,
+            detail="OFFICIAL_THEME_DOWNLOAD_NOT_FOUND",
         )
-
-    # --------------------------------------------------------
-    # DETECT THEME ROOT
-    # --------------------------------------------------------
-
-    theme_root = _find_theme_root(
-        extract_dir
-    )
-
-    validation = (
-        _validate_theme_directory(
-            theme_root
-        )
-    )
 
     return {
         "success": True,
+        "source": "WORDPRESS.ORG",
         "theme_id": theme_id,
-        "filename": original_name,
-        "validation": validation,
-        "upload_directory": str(
-            upload_dir
+        "theme_name": data.get(
+            "name"
+        ),
+        "download_url": download_link,
+        "theme_url": data.get(
+            "theme_url"
+        ),
+        "homepage": data.get(
+            "homepage"
         ),
     }
 
 
 # ============================================================
-# THEME CHECK
+# FEATURED THEMES
 # ============================================================
 
-@router.get(
-    "/check/{theme_id}"
-)
-def check_theme(theme_id: str):
+@router.get("/featured")
+async def featured_themes():
 
-    theme_id = _safe_theme_id(
-        theme_id
-    )
+    request_data = {
+        "browse": "featured",
+        "per_page": 24,
 
-    upload_dir = (
-        UPLOADED_THEMES_DIR
-        / theme_id
-    )
+        "fields": {
+            "description": True,
+            "downloadlink": True,
+            "homepage": True,
+            "last_updated": True,
+            "rating": True,
+            "screenshot_url": True,
+            "theme_url": True,
+        },
+    }
 
-    extract_dir = (
-        upload_dir
-        / "extracted"
-    )
-
-    if not extract_dir.is_dir():
-        raise HTTPException(
-            status_code=404,
-            detail="UPLOADED_THEME_NOT_FOUND",
-        )
-
-    theme_root = _find_theme_root(
-        extract_dir
-    )
-
-    validation = (
-        _validate_theme_directory(
-            theme_root
-        )
+    data = await wordpress_themes_api(
+        "query_themes",
+        request_data,
     )
 
     return {
         "success": True,
-        "theme_id": theme_id,
-        "validation": validation,
-    }
-
-
-# ============================================================
-# INSTALL THEME INTO THEME HUB
-# ============================================================
-
-@router.post(
-    "/install/{theme_id}"
-)
-def install_theme(theme_id: str):
-
-    theme_id = _safe_theme_id(
-        theme_id
-    )
-
-    upload_dir = (
-        UPLOADED_THEMES_DIR
-        / theme_id
-    )
-
-    extract_dir = (
-        upload_dir
-        / "extracted"
-    )
-
-    if not extract_dir.is_dir():
-        raise HTTPException(
-            status_code=404,
-            detail="UPLOADED_THEME_NOT_FOUND",
-        )
-
-    theme_root = _find_theme_root(
-        extract_dir
-    )
-
-    validation = (
-        _validate_theme_directory(
-            theme_root
-        )
-    )
-
-    if not validation["valid"]:
-        raise HTTPException(
-            status_code=400,
-            detail={
-                "message": "THEME_VALIDATION_FAILED",
-                "validation": validation,
-            },
-        )
-
-    installed_dir = (
-        INSTALLED_THEMES_DIR
-        / theme_id
-    )
-
-    if installed_dir.exists():
-        shutil.rmtree(
-            installed_dir
-        )
-
-    shutil.copytree(
-        theme_root,
-        installed_dir
-    )
-
-    return {
-        "success": True,
-        "theme_id": theme_id,
-        "status": "INSTALLED",
-        "validation": validation,
-    }
-
-
-# ============================================================
-# INSTALLED THEMES
-# ============================================================
-
-@router.get("/installed")
-def installed_themes():
-
-    themes = []
-
-    if not INSTALLED_THEMES_DIR.exists():
-        return {
-            "success": True,
-            "count": 0,
-            "themes": [],
-        }
-
-    for theme_dir in INSTALLED_THEMES_DIR.iterdir():
-
-        if not theme_dir.is_dir():
-            continue
-
-        validation = (
-            _validate_theme_directory(
-                theme_dir
+        "source": "WORDPRESS.ORG",
+        "type": "featured",
+        "count": len(
+            data.get(
+                "themes",
+                []
             )
-        )
-
-        themes.append(
-            {
-                "id": theme_dir.name,
-                "name": theme_dir.name,
-                "status": "INSTALLED",
-                "validation": validation,
-            }
-        )
-
-    return {
-        "success": True,
-        "count": len(themes),
-        "themes": themes,
+        ),
+        "themes": data.get(
+            "themes",
+            []
+        ),
     }
 
 
 # ============================================================
-# INSTALLED THEME PREVIEW
+# POPULAR THEMES
 # ============================================================
 
-@router.get(
-    "/preview/{theme_id}"
-)
-def preview_theme(theme_id: str):
+@router.get("/popular")
+async def popular_themes():
 
-    theme_id = _safe_theme_id(
-        theme_id
+    request_data = {
+        "browse": "popular",
+        "per_page": 24,
+
+        "fields": {
+            "description": True,
+            "downloadlink": True,
+            "homepage": True,
+            "last_updated": True,
+            "rating": True,
+            "screenshot_url": True,
+            "theme_url": True,
+        },
+    }
+
+    data = await wordpress_themes_api(
+        "query_themes",
+        request_data,
     )
 
-    theme_dir = (
-        INSTALLED_THEMES_DIR
-        / theme_id
-    )
-
-    if not theme_dir.is_dir():
-        raise HTTPException(
-            status_code=404,
-            detail="INSTALLED_THEME_NOT_FOUND",
-        )
-
-    preview_file = (
-        theme_dir
-        / "index.html"
-    )
-
-    if not preview_file.is_file():
-
-        preview_file = (
-            theme_dir
-            / "index.php"
-        )
-
-    if not preview_file.is_file():
-        raise HTTPException(
-            status_code=404,
-            detail="THEME_PREVIEW_NOT_AVAILABLE",
-        )
-
-    # NOTE:
-    # PHP is intentionally NOT executed by FastAPI.
-    # HTML preview works directly.
-    # PHP themes require a WordPress/PHP runtime.
-
-    if preview_file.suffix.lower() == ".html":
-
-        return FileResponse(
-            preview_file,
-            media_type="text/html",
-        )
-
-    raise HTTPException(
-        status_code=501,
-        detail=(
-            "PHP_THEME_REQUIRES_WORDPRESS_RUNTIME"
+    return {
+        "success": True,
+        "source": "WORDPRESS.ORG",
+        "type": "popular",
+        "count": len(
+            data.get(
+                "themes",
+                []
+            )
         ),
+        "themes": data.get(
+            "themes",
+            []
+        ),
+    }
+
+
+# ============================================================
+# UPDATED THEMES
+# ============================================================
+
+@router.get("/updated")
+async def updated_themes():
+
+    request_data = {
+        "browse": "updated",
+        "per_page": 24,
+
+        "fields": {
+            "description": True,
+            "downloadlink": True,
+            "homepage": True,
+            "last_updated": True,
+            "rating": True,
+            "screenshot_url": True,
+            "theme_url": True,
+        },
+    }
+
+    data = await wordpress_themes_api(
+        "query_themes",
+        request_data,
     )
+
+    return {
+        "success": True,
+        "source": "WORDPRESS.ORG",
+        "type": "updated",
+        "count": len(
+            data.get(
+                "themes",
+                []
+            )
+        ),
+        "themes": data.get(
+            "themes",
+            []
+        ),
+    }
 
 
 # ============================================================
@@ -708,6 +408,7 @@ def theme_hub_frontend():
     )
 
     if not index_file.is_file():
+
         raise HTTPException(
             status_code=404,
             detail="THEME_HUB_FRONTEND_NOT_FOUND",
@@ -732,6 +433,7 @@ def theme_hub_css():
     )
 
     if not css_file.is_file():
+
         raise HTTPException(
             status_code=404,
             detail="THEME_HUB_CSS_NOT_FOUND",
