@@ -1200,431 +1200,272 @@
 
 
 
-.HOME-WHAT-I-DO-CARD {
-
-    width: 100% !important;
-    max-width: 1440px !important;
-
-    margin: 50px auto !important;
-    padding: 55px 60px !important;
-
-    box-sizing: border-box !important;
-
-    background: #ffffff !important;
-
-    border: 3px solid rgba(212, 175, 55, 0.35) !important;
-    border-radius: 28px !important;
-
-    box-shadow:
-        0 15px 45px rgba(0, 0, 0, 0.08),
-        0 0 0 1px rgba(212, 175, 55, 0.08) !important;
-
-    overflow: hidden !important;
-
-    font-family:
-        "Century Schoolbook",
-        "Libre Baskerville",
-        Georgia,
-        serif !important;
-}
-
-
-.HOME-WHAT-I-DO-INTRO {
-
-    width: 100% !important;
-    max-width: 1100px !important;
-
-    margin: 0 auto 40px auto !important;
-    padding: 0 !important;
-
-    text-align: center !important;
-
-    font-family:
-        "Century Schoolbook",
-        "Libre Baskerville",
-        Georgia,
-        serif !important;
-
-    font-size: clamp(16px, 1.5vw, 22px) !important;
-
-    line-height: 1.75 !important;
-
-    font-weight: 600 !important;
-
-    letter-spacing: 0.5px !important;
-
-    color: #222222 !important;
-}
-
-
-.HOME-WHAT-I-DO-ITEM {
-
-    width: 100% !important;
-
-    margin: 0 0 24px 0 !important;
-    padding: 28px 32px !important;
-
-    box-sizing: border-box !important;
-
-    background: #ffffff !important;
-
-    border: 2px solid rgba(212, 175, 55, 0.25) !important;
-
-    border-radius: 20px !important;
-
-    box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.05) !important;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        border-color 0.3s ease !important;
-}
-
-
-.HOME-WHAT-I-DO-ITEM:hover {
-
-    transform: translateY(-4px) !important;
-
-    border-color: #D4AF37 !important;
-
-    box-shadow:
-        0 15px 35px rgba(212, 175, 55, 0.14) !important;
-}
-
-
-.HOME-WHAT-I-DO-ITEM h3 {
-
-    width: 100% !important;
-
-    margin: 0 0 12px 0 !important;
-    padding: 0 !important;
-
-    font-family:
-        "Century Schoolbook",
-        "Libre Baskerville",
-        Georgia,
-        serif !important;
-
-    font-size: clamp(20px, 2vw, 30px) !important;
-
-    line-height: 1.4 !important;
-
-    font-weight: 800 !important;
-
-    letter-spacing: 0.5px !important;
-
-    color: #D4AF37 !important;
-
-    overflow-wrap: anywhere !important;
-}
-
-
-.HOME-WHAT-I-DO-ITEM p {
-
-    width: 100% !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    font-family:
-        "Century Schoolbook",
-        "Libre Baskerville",
-        Georgia,
-        serif !important;
-
-    font-size: clamp(15px, 1.35vw, 20px) !important;
-
-    line-height: 1.75 !important;
-
-    font-weight: 400 !important;
-
-    letter-spacing: 0.25px !important;
-
-    color: #333333 !important;
-}
-
-
-.HOME-WHAT-I-DO-CLOSING {
-
-    width: 100% !important;
-    max-width: 1150px !important;
-
-    margin: 35px auto 0 auto !important;
-    padding: 0 !important;
-
-    text-align: center !important;
-
-    font-family:
-        "Century Schoolbook",
-        "Libre Baskerville",
-        Georgia,
-        serif !important;
-
-    font-size: clamp(16px, 1.5vw, 22px) !important;
-
-    line-height: 1.75 !important;
-
-    font-weight: 700 !important;
-
-    letter-spacing: 0.5px !important;
-
-    color: #222222 !important;
-}
-
-
-/* ================================
-   1440 PX AND ABOVE
-   ================================ */
+/* =========================================================
+   HOME WHAT I DO
+   RESPONSIVE SYSTEM
+   1440PX → MOBILE
+   EXISTING DESIGN PRESERVED
+   ========================================================= */
+
+
+/* =========================================================
+   LARGE DESKTOP — 1440PX+
+   ========================================================= */
 
 @media (min-width: 1440px) {
 
     .HOME-WHAT-I-DO-CARD {
-
+        width: 100% !important;
         max-width: 1440px !important;
-
-        padding: 65px 75px !important;
-
-        margin: 60px auto !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        box-sizing: border-box !important;
     }
+
+    .HOME-WHAT-I-DO-INTRO,
+    .HOME-WHAT-I-DO-CLOSING {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .HOME-WHAT-I-DO-ITEM {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
 }
 
 
-/* ================================
-   1025 PX — 1439 PX
-   ================================ */
+/* =========================================================
+   DESKTOP — 1025PX TO 1439PX
+   ========================================================= */
 
 @media (min-width: 1025px) and (max-width: 1439px) {
 
     .HOME-WHAT-I-DO-CARD {
-
-        width: 96% !important;
-
-        padding: 50px 55px !important;
-
-        margin: 50px auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
+
+    .HOME-WHAT-I-DO-INTRO,
+    .HOME-WHAT-I-DO-CLOSING {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .HOME-WHAT-I-DO-ITEM {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
 }
 
 
-/* ================================
-   769 PX — 1024 PX
-   ================================ */
+/* =========================================================
+   TABLET — 769PX TO 1024PX
+   ========================================================= */
 
 @media (min-width: 769px) and (max-width: 1024px) {
 
     .HOME-WHAT-I-DO-CARD {
-
-        width: 94% !important;
-
-        margin: 40px auto !important;
-
-        padding: 42px 38px !important;
-
-        border-radius: 24px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
 
-    .HOME-WHAT-I-DO-INTRO {
-
-        margin-bottom: 32px !important;
-
-        font-size: 18px !important;
+    .HOME-WHAT-I-DO-INTRO,
+    .HOME-WHAT-I-DO-CLOSING {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     .HOME-WHAT-I-DO-ITEM {
-
-        margin-bottom: 20px !important;
-
-        padding: 24px 26px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     .HOME-WHAT-I-DO-ITEM h3 {
-
-        font-size: 23px !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
     }
 
     .HOME-WHAT-I-DO-ITEM p {
-
-        font-size: 17px !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
     }
+
 }
 
 
-/* ================================
-   481 PX — 768 PX
-   ================================ */
+/* =========================================================
+   MOBILE — 481PX TO 768PX
+   ========================================================= */
 
 @media (min-width: 481px) and (max-width: 768px) {
 
     .HOME-WHAT-I-DO-CARD {
-
-        width: 94% !important;
-
-        margin: 30px auto !important;
-
-        padding: 32px 24px !important;
-
-        border-radius: 20px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
 
-    .HOME-WHAT-I-DO-INTRO {
+    .HOME-WHAT-I-DO-INTRO,
+    .HOME-WHAT-I-DO-CLOSING {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
 
-        margin-bottom: 28px !important;
-
-        font-size: 17px !important;
-
-        line-height: 1.65 !important;
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
     }
 
     .HOME-WHAT-I-DO-ITEM {
-
-        margin-bottom: 18px !important;
-
-        padding: 22px 20px !important;
-
-        border-radius: 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     .HOME-WHAT-I-DO-ITEM h3 {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
 
-        font-size: 21px !important;
-
-        line-height: 1.45 !important;
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
+        white-space: normal !important;
     }
 
     .HOME-WHAT-I-DO-ITEM p {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
 
-        font-size: 16px !important;
-
-        line-height: 1.65 !important;
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
+        white-space: normal !important;
     }
 
-    .HOME-WHAT-I-DO-CLOSING {
-
-        margin-top: 28px !important;
-
-        font-size: 17px !important;
-    }
 }
 
 
-/* ================================
-   360 PX — 480 PX
-   ================================ */
+/* =========================================================
+   MOBILE — 360PX TO 480PX
+   ========================================================= */
 
-@media (max-width: 480px) {
+@media (min-width: 360px) and (max-width: 480px) {
 
     .HOME-WHAT-I-DO-CARD {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
 
-        width: 94% !important;
-
-        margin: 24px auto !important;
-
-        padding: 25px 16px !important;
-
-        border-radius: 17px !important;
-
-        border-width: 2px !important;
+        overflow: hidden !important;
     }
 
-    .HOME-WHAT-I-DO-INTRO {
+    .HOME-WHAT-I-DO-INTRO,
+    .HOME-WHAT-I-DO-CLOSING {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
 
-        margin-bottom: 24px !important;
-
-        font-size: 15px !important;
-
-        line-height: 1.65 !important;
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
+        white-space: normal !important;
     }
 
     .HOME-WHAT-I-DO-ITEM {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
 
-        margin-bottom: 16px !important;
-
-        padding: 19px 15px !important;
-
-        border-radius: 14px !important;
+        overflow: hidden !important;
     }
 
     .HOME-WHAT-I-DO-ITEM h3 {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
 
-        margin-bottom: 10px !important;
-
-        font-size: 18px !important;
-
-        line-height: 1.45 !important;
-
-        overflow-wrap: anywhere !important;
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
+        white-space: normal !important;
     }
 
     .HOME-WHAT-I-DO-ITEM p {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
 
-        font-size: 14px !important;
-
-        line-height: 1.65 !important;
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
+        white-space: normal !important;
     }
 
-    .HOME-WHAT-I-DO-CLOSING {
-
-        margin-top: 24px !important;
-
-        font-size: 15px !important;
-
-        line-height: 1.65 !important;
-    }
 }
 
 
-/* ================================
-   BELOW 360 PX
-   ================================ */
+/* =========================================================
+   SMALL MOBILE — BELOW 360PX
+   ========================================================= */
 
 @media (max-width: 359px) {
 
     .HOME-WHAT-I-DO-CARD {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
 
-        width: 96% !important;
-
-        padding: 22px 13px !important;
+        overflow: hidden !important;
     }
 
-    .HOME-WHAT-I-DO-INTRO {
+    .HOME-WHAT-I-DO-INTRO,
+    .HOME-WHAT-I-DO-CLOSING {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
 
-        font-size: 14px !important;
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
+        white-space: normal !important;
     }
 
     .HOME-WHAT-I-DO-ITEM {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
 
-        padding: 17px 13px !important;
+        overflow: hidden !important;
     }
 
     .HOME-WHAT-I-DO-ITEM h3 {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
 
-        font-size: 17px !important;
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
+        white-space: normal !important;
     }
 
     .HOME-WHAT-I-DO-ITEM p {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
 
-        font-size: 14px !important;
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
+        white-space: normal !important;
     }
 
-    .HOME-WHAT-I-DO-CLOSING {
-
-        font-size: 14px !important;
-    }
 }
 
-
-/* ================================
-   REDUCED MOTION
-   ================================ */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .HOME-WHAT-I-DO-ITEM {
-
-        transition: none !important;
-    }
-}
 
 
 
