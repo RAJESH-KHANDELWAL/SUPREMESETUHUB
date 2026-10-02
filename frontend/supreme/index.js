@@ -1,47 +1,51 @@
-/* =========================================================
-   GITHUB HOME LOADER
-   SUPREMESETUHUB
-   ========================================================= */
-
 (function () {
-
     "use strict";
 
-    /* =========================================================
-       GITHUB SOURCE
-       ========================================================= */
-
-    const GITHUB_HTML =
+    const HTML_URL =
         "https://raw.githubusercontent.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/main/frontend/supreme/index.html";
 
-    const GITHUB_CSS =
+    const CSS_URL =
         "https://raw.githubusercontent.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/main/frontend/supreme/style.css";
 
+    const TARGET_ID = "GITHUB-HOME-CONTENT";
 
-    /* =========================================================
-       LOAD GITHUB CSS
-       ========================================================= */
 
-    const styleId = "SUPREME-GITHUB-HOME-CSS";
+    /* =====================================================
+       FIND WORDPRESS HOME CONTAINER
+       ===================================================== */
 
-    if (!document.getElementById(styleId)) {
+    const target = document.getElementById(TARGET_ID);
 
-        const link = document.createElement("link");
-
-        link.id = styleId;
-        link.rel = "stylesheet";
-        link.type = "text/css";
-        link.href = GITHUB_CSS;
-
-        document.head.appendChild(link);
+    if (!target) {
+        console.error(
+            "GitHub Home Loader: #" + TARGET_ID + " nahi mila."
+        );
+        return;
     }
 
 
-    /* =========================================================
-       LOAD GITHUB HTML
-       ========================================================= */
+    /* =====================================================
+       LOAD GITHUB CSS
+       ===================================================== */
 
-    fetch(GITHUB_HTML, {
+    if (!document.getElementById("SUPREME-GITHUB-CSS")) {
+
+        const css = document.createElement("link");
+
+        css.id = "SUPREME-GITHUB-CSS";
+        css.rel = "stylesheet";
+        css.type = "text/css";
+        css.href = CSS_URL;
+
+        document.head.appendChild(css);
+    }
+
+
+    /* =====================================================
+       LOAD GITHUB HTML
+       ===================================================== */
+
+    fetch(HTML_URL, {
         method: "GET",
         cache: "no-cache"
     })
@@ -50,8 +54,7 @@
 
         if (!response.ok) {
             throw new Error(
-                "GitHub Home Page Load Failed: " +
-                response.status
+                "GitHub HTML load failed: " + response.status
             );
         }
 
@@ -61,23 +64,20 @@
     .then(function (html) {
 
         /*
-         * Existing Hostinger Home page ke andar
-         * GitHub ka HTML load hoga.
+         * GitHub index.html me agar complete document
+         * structure hai, to sirf BODY ka content nikalo.
          */
 
-        const target =
-            document.getElementById("GITHUB-HOME-CONTENT");
+        const parser = new DOMParser();
 
-        if (!target) {
+        const doc = parser.parseFromString(
+            html,
+            "text/html"
+        );
 
-            console.error(
-                "GITHUB-HOME-CONTENT target nahi mila."
-            );
-
-            return;
-        }
-
-        target.innerHTML = html;
+        target.innerHTML = doc.body
+            ? doc.body.innerHTML
+            : html;
 
     })
 
