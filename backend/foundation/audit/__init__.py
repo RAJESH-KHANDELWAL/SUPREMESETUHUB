@@ -1,0 +1,7 @@
+"""
+FOUNDATION AUDIT
+
+Central audit layer for MAIN BASE FOUNDATION.
+"""
+
+AUDIT_LAYER = "FOUNDATION AUDIT"
