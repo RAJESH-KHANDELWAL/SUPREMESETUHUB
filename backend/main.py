@@ -1,4 +1,5 @@
 from backend.core.bootstrap import Bootstrap
+from backend.foundation.core.bootstrap import FoundationBootstrap
 
 
 def main():
