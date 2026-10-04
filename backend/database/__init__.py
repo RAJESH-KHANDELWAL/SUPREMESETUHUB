@@ -11,6 +11,7 @@ from .model import (
     DatabaseSchemaInfo,
 )
 from .service import DatabaseService
+from .wordpress_registry import WordPressDatabaseRegistry
 
 
 __all__ = [
