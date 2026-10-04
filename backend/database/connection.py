@@ -6,6 +6,7 @@ This module is responsible only for creating, maintaining, checking,
 and closing the SQLite database connection.
 
 Higher-level database operations remain in DatabaseService.
+Database schema definitions remain in DatabaseSchema.
 """
 
 from __future__ import annotations
@@ -56,6 +57,11 @@ class DatabaseConnection:
             )
 
             self.connection.row_factory = sqlite3.Row
+
+            # Enable relational foreign-key enforcement.
+            self.connection.execute(
+                "PRAGMA foreign_keys = ON"
+            )
 
             return self.connection
 
