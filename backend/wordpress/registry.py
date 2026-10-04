@@ -70,7 +70,7 @@ class WordPressRegistry:
     Database passwords and API secrets are never stored here.
     """
 
-    TABLE = "wordpress_sites"
+    TABLE = "wordpress_registry"
 
     def __init__(
         self,
