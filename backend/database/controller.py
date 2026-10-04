@@ -2,19 +2,34 @@
 
 Controller layer for database operations.
 
-This module keeps higher-level backend code independent from the
-internal DatabaseService implementation.
+This module provides a stable public facade over DatabaseService.
+
+Responsibilities:
+- database lifecycle
+- database initialization
+- SQL execution
+- queries
+- transactions
+- health
+- status
+
+This controller intentionally contains no business logic.
+
+Domain, hosting, website, WordPress, application, user,
+customer, storage, authentication, authorization, and other
+higher-level logic must remain outside this layer.
 """
 
 from __future__ import annotations
 
+import sqlite3
 from typing import Any, Iterable, Optional, Sequence
 
 from .service import DatabaseService
 
 
 class DatabaseController:
-    """Controller facade for the MAIN BASE FOUNDATION database layer."""
+    """Public controller facade for the central database layer."""
 
     def __init__(
         self,
@@ -22,7 +37,8 @@ class DatabaseController:
     ) -> None:
         self.service = (
             database_service
-            or DatabaseService()
+            if database_service is not None
+            else DatabaseService()
         )
 
     # ------------------------------------------------------------------
@@ -30,17 +46,17 @@ class DatabaseController:
     # ------------------------------------------------------------------
 
     def connect(self) -> dict:
-        """Connect to the database."""
+        """Connect to the central database."""
 
         return self.service.connect()
 
     def disconnect(self) -> dict:
-        """Disconnect from the database."""
+        """Disconnect from the central database."""
 
         return self.service.disconnect()
 
     def initialize(self) -> dict:
-        """Initialize the database foundation."""
+        """Initialize the central database and its schema."""
 
         return self.service.initialize()
 
@@ -53,7 +69,7 @@ class DatabaseController:
         query: str,
         parameters: Sequence[Any] | Iterable[Any] = (),
     ) -> int:
-        """Execute a SQL statement."""
+        """Execute one SQL statement."""
 
         return self.service.execute(
             query=query,
@@ -65,7 +81,7 @@ class DatabaseController:
         query: str,
         parameters: Iterable[Sequence[Any]],
     ) -> int:
-        """Execute a SQL statement for multiple parameter sets."""
+        """Execute one SQL statement for multiple parameter sets."""
 
         return self.service.executemany(
             query=query,
@@ -80,7 +96,7 @@ class DatabaseController:
         self,
         query: str,
         parameters: Sequence[Any] | Iterable[Any] = (),
-    ):
+    ) -> Optional[sqlite3.Row]:
         """Return one database row."""
 
         return self.service.fetchone(
@@ -92,7 +108,7 @@ class DatabaseController:
         self,
         query: str,
         parameters: Sequence[Any] | Iterable[Any] = (),
-    ):
+    ) -> list[sqlite3.Row]:
         """Return all matching database rows."""
 
         return self.service.fetchall(
@@ -120,16 +136,20 @@ class DatabaseController:
         return self.service.rollback()
 
     # ------------------------------------------------------------------
-    # STATUS
+    # HEALTH
     # ------------------------------------------------------------------
 
     def health(self) -> dict:
-        """Return database health information."""
+        """Return central database health information."""
 
         return self.service.health()
 
+    # ------------------------------------------------------------------
+    # STATUS
+    # ------------------------------------------------------------------
+
     def status(self) -> dict:
-        """Return database controller status."""
+        """Return database controller and service status."""
 
         return {
             "controller": "DatabaseController",
