@@ -34,6 +34,9 @@ from backend.api.user_hub import router as user_hub_router
 from backend.api.ai import router as ai_router
 from backend.api.ecosystem import EcosystemAPI
 from backend.api.theme_hub import router as theme_hub_router
+from backend.wordpress.bootstrap import (
+    create_wordpress_service,
+)
 
 
 # ============================================================
@@ -343,6 +346,64 @@ def health():
         "status": "healthy",
         "service": "SUPREMESETUHUB",
     }
+    # ============================================================
+# WORDPRESS STATUS
+# ============================================================
+
+@app.get("/api/v1/wordpress/sites")
+def wordpress_sites():
+
+    return {
+        "success": True,
+        "sites": [
+            site.to_dict()
+            for site in wordpress_service.list_sites()
+        ],
+    }
+
+
+@app.get("/api/v1/wordpress/status/{site_id}")
+def wordpress_status(
+    site_id: str,
+):
+
+    return wordpress_service.connection_status(
+        site_id
+    )
+
+
+@app.get("/api/v1/wordpress/health/{site_id}")
+def wordpress_health(
+    site_id: str,
+):
+
+    result = wordpress_service.connect_site(
+        site_id=site_id,
+        environment_prefix="WORDPRESS",
+    )
+
+    if not result.get("success"):
+        return result
+
+    return {
+        "success": True,
+        "status": "CONNECTED",
+        "site_id": site_id,
+        "domain": (
+            result.get("domain")
+        ),
+        "database": (
+            result.get("database")
+        ),
+        "health": (
+            result.get("health")
+        ),
+        "wordpress_tables": (
+            wordpress_service.check_wordpress(
+                site_id
+            )
+        ),
+    }
 
 
 # ============================================================
@@ -409,3 +470,8 @@ def ecosystem_exists(
             ecosystem_id
         ),
     }
+# ============================================================
+# WORDPRESS SERVICE
+# ============================================================
+
+wordpress_service = create_wordpress_service()
