@@ -1,6 +1,19 @@
 """MAIN BASE FOUNDATION database models.
 
 Core data models for the database layer.
+
+This module contains database-level models only.
+
+It intentionally does NOT contain:
+- users
+- authentication
+- authorization
+- domains
+- hosting
+- websites
+- WordPress
+- business logic
+- storage logic
 """
 
 from __future__ import annotations
@@ -33,6 +46,46 @@ class DatabaseInfo:
         }
 
 
+@dataclass
+class DatabaseTableInfo:
+    """Information about a central database table."""
+
+    name: str
+    status: str = "UNKNOWN"
+    description: Optional[str] = None
+
+    def to_dict(self) -> dict:
+        """Return table information as a dictionary."""
+
+        return {
+            "name": self.name,
+            "status": self.status,
+            "description": self.description,
+        }
+
+
+@dataclass
+class DatabaseSchemaInfo:
+    """Information about the central database schema."""
+
+    version: str = "1.0"
+    status: str = "UNKNOWN"
+    table_count: int = 0
+    description: Optional[str] = None
+
+    def to_dict(self) -> dict:
+        """Return schema information as a dictionary."""
+
+        return {
+            "version": self.version,
+            "status": self.status,
+            "table_count": self.table_count,
+            "description": self.description,
+        }
+
+
 __all__ = [
     "DatabaseInfo",
+    "DatabaseTableInfo",
+    "DatabaseSchemaInfo",
 ]
