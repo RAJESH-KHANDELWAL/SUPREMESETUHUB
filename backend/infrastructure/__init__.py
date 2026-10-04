@@ -1,11 +1,27 @@
-"""MAIN BASE FOUNDATION infrastructure layer."""
+"""
+MAIN BASE FOUNDATION
+INFRASTRUCTURE PACKAGE
+"""
 
-from .model import InfrastructureInfo
-from .service import InfrastructureService
-from .controller import InfrastructureController
+from .model import (
+    InfrastructureCategory,
+    InfrastructureOwnershipType,
+    InfrastructureRegistry,
+    InfrastructureRelationship,
+    InfrastructureRelationshipType,
+    InfrastructureResource,
+    InfrastructureResourceStatus,
+    InfrastructureResourceType,
+)
+
 
 __all__ = [
-    "InfrastructureInfo",
-    "InfrastructureService",
-    "InfrastructureController",
+    "InfrastructureCategory",
+    "InfrastructureOwnershipType",
+    "InfrastructureRegistry",
+    "InfrastructureRelationship",
+    "InfrastructureRelationshipType",
+    "InfrastructureResource",
+    "InfrastructureResourceStatus",
+    "InfrastructureResourceType",
 ]
