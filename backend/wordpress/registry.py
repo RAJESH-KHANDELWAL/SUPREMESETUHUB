@@ -7,6 +7,7 @@ Central registry for connected WordPress websites.
 Responsibilities:
 - register WordPress sites
 - store safe site metadata
+- persist registry data in the central database
 - identify each WordPress installation
 - manage multiple connected sites
 - keep site configuration separate
@@ -17,12 +18,17 @@ Database passwords are NOT stored here.
 
 Credentials remain in environment variables
 or deployment secrets.
+
+Central database:
+    SUPREME_DB_PATH
 """
 
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
-from typing import Optional
+from typing import Any, Optional
+
+from backend.database.service import DatabaseService
 
 
 @dataclass
@@ -56,18 +62,106 @@ class WordPressSite:
 
 class WordPressRegistry:
     """
-    Central registry of WordPress websites.
+    Central persistent registry of WordPress websites.
 
-    This registry is intentionally independent from
-    WordPress database credentials.
+    Registry metadata is stored in the central Supreme
+    database through DatabaseService.
+
+    Database passwords and API secrets are never stored here.
     """
 
-    def __init__(self) -> None:
+    TABLE = "wordpress_sites"
 
-        self._sites: dict[
-            str,
-            WordPressSite
-        ] = {}
+    def __init__(
+        self,
+        database_service: Optional[
+            DatabaseService
+        ] = None,
+    ) -> None:
+
+        self.database = (
+            database_service
+            or DatabaseService()
+        )
+
+        self.database.initialize()
+
+        self._ensure_table()
+
+    # ==============================================================
+    # DATABASE TABLE
+    # ==============================================================
+
+    def _ensure_table(self) -> None:
+        """
+        Ensure the WordPress registry table exists.
+
+        This is intentionally compatible with the existing
+        central database architecture.
+        """
+
+        self.database.execute(
+            f"""
+            CREATE TABLE IF NOT EXISTS {self.TABLE} (
+
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+                site_id TEXT NOT NULL UNIQUE,
+
+                domain TEXT NOT NULL UNIQUE,
+
+                site_url TEXT,
+
+                provider TEXT,
+
+                hosting_account_id TEXT,
+
+                database_name TEXT,
+
+                table_prefix TEXT
+                    DEFAULT 'wp_',
+
+                status TEXT
+                    DEFAULT 'REGISTERED',
+
+                environment TEXT
+                    DEFAULT 'production',
+
+                description TEXT,
+
+                created_at TEXT
+                    DEFAULT CURRENT_TIMESTAMP,
+
+                updated_at TEXT
+                    DEFAULT CURRENT_TIMESTAMP
+            )
+            """
+        )
+
+    # ==============================================================
+    # NORMALIZE DOMAIN
+    # ==============================================================
+
+    @staticmethod
+    def _normalize_domain(
+        domain: str,
+    ) -> str:
+        """Normalize a domain for comparison."""
+
+        return (
+            domain
+            .lower()
+            .strip()
+            .replace(
+                "https://",
+                "",
+            )
+            .replace(
+                "http://",
+                "",
+            )
+            .rstrip("/")
+        )
 
     # ==============================================================
     # REGISTER
@@ -89,17 +183,77 @@ class WordPressRegistry:
                 "domain is required."
             )
 
-        if site.site_id in self._sites:
+        existing_by_id = self.get(
+            site.site_id
+        )
+
+        if existing_by_id is not None:
             raise ValueError(
                 f"WordPress site already registered: "
                 f"{site.site_id}"
             )
 
-        self._sites[
-            site.site_id
-        ] = site
+        existing_by_domain = (
+            self.find_by_domain(
+                site.domain
+            )
+        )
 
-        return site
+        if existing_by_domain is not None:
+            raise ValueError(
+                f"WordPress domain already registered: "
+                f"{site.domain}"
+            )
+
+        normalized_domain = (
+            self._normalize_domain(
+                site.domain
+            )
+        )
+
+        self.database.execute(
+            f"""
+            INSERT INTO {self.TABLE} (
+
+                site_id,
+                domain,
+                site_url,
+                provider,
+                hosting_account_id,
+                database_name,
+                table_prefix,
+                status,
+                environment,
+                description
+
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                site.site_id,
+                normalized_domain,
+                site.site_url,
+                site.provider,
+                site.hosting_account_id,
+                site.database_name,
+                site.table_prefix,
+                site.status,
+                site.environment,
+                site.description,
+            ),
+        )
+
+        result = self.get(
+            site.site_id
+        )
+
+        if result is None:
+            raise RuntimeError(
+                "WordPress site was registered "
+                "but could not be retrieved."
+            )
+
+        return result
 
     # ==============================================================
     # UPDATE
@@ -111,17 +265,80 @@ class WordPressRegistry:
     ) -> WordPressSite:
         """Update an existing WordPress site."""
 
-        if site.site_id not in self._sites:
+        existing = self.get(
+            site.site_id
+        )
+
+        if existing is None:
             raise ValueError(
                 f"WordPress site not registered: "
                 f"{site.site_id}"
             )
 
-        self._sites[
-            site.site_id
-        ] = site
+        normalized_domain = (
+            self._normalize_domain(
+                site.domain
+            )
+        )
 
-        return site
+        domain_owner = (
+            self.find_by_domain(
+                normalized_domain
+            )
+        )
+
+        if (
+            domain_owner is not None
+            and domain_owner.site_id
+            != site.site_id
+        ):
+            raise ValueError(
+                f"WordPress domain already belongs "
+                f"to another site: {site.domain}"
+            )
+
+        self.database.execute(
+            f"""
+            UPDATE {self.TABLE}
+
+            SET
+                domain = ?,
+                site_url = ?,
+                provider = ?,
+                hosting_account_id = ?,
+                database_name = ?,
+                table_prefix = ?,
+                status = ?,
+                environment = ?,
+                description = ?,
+                updated_at = CURRENT_TIMESTAMP
+
+            WHERE site_id = ?
+            """,
+            (
+                normalized_domain,
+                site.site_url,
+                site.provider,
+                site.hosting_account_id,
+                site.database_name,
+                site.table_prefix,
+                site.status,
+                site.environment,
+                site.description,
+                site.site_id,
+            ),
+        )
+
+        result = self.get(
+            site.site_id
+        )
+
+        if result is None:
+            raise RuntimeError(
+                "WordPress site update failed."
+            )
+
+        return result
 
     # ==============================================================
     # GET
@@ -133,8 +350,34 @@ class WordPressRegistry:
     ) -> Optional[WordPressSite]:
         """Return one registered WordPress site."""
 
-        return self._sites.get(
-            site_id
+        row = self.database.fetchone(
+            f"""
+            SELECT
+                site_id,
+                domain,
+                site_url,
+                provider,
+                hosting_account_id,
+                database_name,
+                table_prefix,
+                status,
+                environment,
+                description
+
+            FROM {self.TABLE}
+
+            WHERE site_id = ?
+            """,
+            (
+                site_id,
+            ),
+        )
+
+        if row is None:
+            return None
+
+        return self._row_to_site(
+            row
         )
 
     # ==============================================================
@@ -148,41 +391,40 @@ class WordPressRegistry:
         """Find a WordPress site by domain."""
 
         normalized = (
-            domain
-            .lower()
-            .strip()
-            .replace(
-                "https://",
-                ""
+            self._normalize_domain(
+                domain
             )
-            .replace(
-                "http://",
-                ""
-            )
-            .rstrip("/")
         )
 
-        for site in self._sites.values():
+        row = self.database.fetchone(
+            f"""
+            SELECT
+                site_id,
+                domain,
+                site_url,
+                provider,
+                hosting_account_id,
+                database_name,
+                table_prefix,
+                status,
+                environment,
+                description
 
-            site_domain = (
-                site.domain
-                .lower()
-                .strip()
-                .replace(
-                    "https://",
-                    ""
-                )
-                .replace(
-                    "http://",
-                    ""
-                )
-                .rstrip("/")
-            )
+            FROM {self.TABLE}
 
-            if site_domain == normalized:
-                return site
+            WHERE domain = ?
+            """,
+            (
+                normalized,
+            ),
+        )
 
-        return None
+        if row is None:
+            return None
+
+        return self._row_to_site(
+            row
+        )
 
     # ==============================================================
     # LIST
@@ -193,9 +435,30 @@ class WordPressRegistry:
     ) -> list[WordPressSite]:
         """Return all registered WordPress sites."""
 
-        return list(
-            self._sites.values()
+        rows = self.database.fetchall(
+            f"""
+            SELECT
+                site_id,
+                domain,
+                site_url,
+                provider,
+                hosting_account_id,
+                database_name,
+                table_prefix,
+                status,
+                environment,
+                description
+
+            FROM {self.TABLE}
+
+            ORDER BY id ASC
+            """
         )
+
+        return [
+            self._row_to_site(row)
+            for row in rows
+        ]
 
     # ==============================================================
     # REMOVE
@@ -207,12 +470,23 @@ class WordPressRegistry:
     ) -> bool:
         """Remove a WordPress site from the registry."""
 
-        if site_id not in self._sites:
+        existing = self.get(
+            site_id
+        )
+
+        if existing is None:
             return False
 
-        del self._sites[
-            site_id
-        ]
+        self.database.execute(
+            f"""
+            DELETE FROM {self.TABLE}
+
+            WHERE site_id = ?
+            """,
+            (
+                site_id,
+            ),
+        )
 
         return True
 
@@ -237,9 +511,32 @@ class WordPressRegistry:
                 f"{site_id}"
             )
 
-        site.status = status
+        self.database.execute(
+            f"""
+            UPDATE {self.TABLE}
 
-        return site
+            SET
+                status = ?,
+                updated_at = CURRENT_TIMESTAMP
+
+            WHERE site_id = ?
+            """,
+            (
+                status,
+                site_id,
+            ),
+        )
+
+        result = self.get(
+            site_id
+        )
+
+        if result is None:
+            raise RuntimeError(
+                "WordPress site status update failed."
+            )
+
+        return result
 
     # ==============================================================
     # EXPORT
@@ -257,7 +554,7 @@ class WordPressRegistry:
 
         return [
             site.to_dict()
-            for site in self._sites.values()
+            for site in self.list_sites()
         ]
 
     # ==============================================================
@@ -267,8 +564,19 @@ class WordPressRegistry:
     def count(self) -> int:
         """Return number of registered WordPress sites."""
 
-        return len(
-            self._sites
+        row = self.database.fetchone(
+            f"""
+            SELECT COUNT(*) AS total
+
+            FROM {self.TABLE}
+            """
+        )
+
+        if row is None:
+            return 0
+
+        return int(
+            row["total"]
         )
 
     # ==============================================================
@@ -289,7 +597,9 @@ class WordPressRegistry:
         return {
             "registry": "WordPressRegistry",
 
-            "total_sites": len(sites),
+            "total_sites": len(
+                sites
+            ),
 
             "connected_sites": connected,
 
@@ -302,6 +612,44 @@ class WordPressRegistry:
                 for site in sites
             ],
         }
+
+    # ==============================================================
+    # ROW CONVERSION
+    # ==============================================================
+
+    @staticmethod
+    def _row_to_site(
+        row: Any,
+    ) -> WordPressSite:
+        """Convert a database row into WordPressSite."""
+
+        return WordPressSite(
+            site_id=row["site_id"],
+            domain=row["domain"],
+            site_url=row["site_url"],
+            provider=row["provider"],
+            hosting_account_id=(
+                row["hosting_account_id"]
+            ),
+            database_name=(
+                row["database_name"]
+            ),
+            table_prefix=(
+                row["table_prefix"]
+                or "wp_"
+            ),
+            status=(
+                row["status"]
+                or "REGISTERED"
+            ),
+            environment=(
+                row["environment"]
+                or "production"
+            ),
+            description=(
+                row["description"]
+            ),
+        )
 
 
 __all__ = [
