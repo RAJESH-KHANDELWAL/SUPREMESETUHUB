@@ -11,6 +11,7 @@ Responsibilities:
 - transactions
 - rollback
 - health information
+- central database schema initialization
 
 The service intentionally keeps the database layer independent from
 authentication, authorization, permissions, roles, organizations,
@@ -23,6 +24,8 @@ import sqlite3
 from pathlib import Path
 from threading import RLock
 from typing import Any, Iterable, Optional, Sequence
+
+from backend.database.schema import DatabaseSchema
 
 
 class DatabaseService:
@@ -70,6 +73,11 @@ class DatabaseService:
 
             self._connection.row_factory = sqlite3.Row
 
+            # Enable foreign-key relationships.
+            self._connection.execute(
+                "PRAGMA foreign_keys = ON"
+            )
+
             return {
                 "success": True,
                 "status": "CONNECTED",
@@ -99,9 +107,13 @@ class DatabaseService:
     # ------------------------------------------------------------------
 
     def initialize(self) -> dict:
-        """Initialize the database foundation."""
+        """Initialize the central database foundation."""
 
         self.connect()
+
+        # --------------------------------------------------------------
+        # SYSTEM METADATA
+        # --------------------------------------------------------------
 
         self.execute(
             """
@@ -127,10 +139,24 @@ class DatabaseService:
             ),
         )
 
+        # --------------------------------------------------------------
+        # CENTRAL DATABASE SCHEMA
+        # --------------------------------------------------------------
+
+        for table_name, table_schema in DatabaseSchema.TABLES.items():
+            try:
+                self.execute(table_schema)
+            except Exception as exc:
+                raise RuntimeError(
+                    f"Failed to initialize database table: "
+                    f"{table_name}"
+                ) from exc
+
         return {
             "success": True,
             "status": "READY",
             "database": self.database_path,
+            "tables": DatabaseSchema.list_tables(),
         }
 
     # ------------------------------------------------------------------
@@ -346,6 +372,7 @@ class DatabaseService:
             "service": "DatabaseService",
             "database": self.database_path,
             "connected": self._connection is not None,
+            "schema_tables": DatabaseSchema.list_tables(),
         }
 
 
