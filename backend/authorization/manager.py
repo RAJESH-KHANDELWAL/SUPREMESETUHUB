@@ -1,6 +1,25 @@
-"""MAIN BASE FOUNDATION authorization manager."""
+"""
+MAIN BASE FOUNDATION
+AUTHORIZATION MANAGER
 
-from typing import Dict
+Manages authorization requests.
+
+This module is responsible only for authorization-request
+lifecycle management.
+
+It does not contain:
+- API routing
+- database operations
+- WordPress operations
+- hosting operations
+- domain operations
+- server operations
+- engine logic
+"""
+
+from __future__ import annotations
+
+from typing import Dict, Optional
 
 from .models import AuthorizationRequest
 
@@ -8,11 +27,15 @@ from .models import AuthorizationRequest
 class AuthorizationManager:
     """Manage authorization requests."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.requests: Dict[
             str,
             AuthorizationRequest,
         ] = {}
+
+    # ------------------------------------------------------------------
+    # REQUEST
+    # ------------------------------------------------------------------
 
     def request(
         self,
@@ -21,12 +44,12 @@ class AuthorizationManager:
         resource: str,
         action: str,
         scope: str,
-        provider_id: str | None = None,
-        server_id: str | None = None,
-        connection_id: str | None = None,
-        reason: str | None = None,
+        provider_id: Optional[str] = None,
+        server_id: Optional[str] = None,
+        connection_id: Optional[str] = None,
+        reason: Optional[str] = None,
     ) -> dict:
-        """Create an authorization request."""
+        """Create a new authorization request."""
 
         if request_id in self.requests:
             return {
@@ -51,16 +74,22 @@ class AuthorizationManager:
 
         return {
             "success": True,
-            "authorization": authorization.__dict__,
+            "authorization": authorization.to_dict(),
         }
+
+    # ------------------------------------------------------------------
+    # GET
+    # ------------------------------------------------------------------
 
     def get(
         self,
         request_id: str,
     ) -> dict:
-        """Return an authorization request."""
+        """Return one authorization request."""
 
-        authorization = self.requests.get(request_id)
+        authorization = self.requests.get(
+            request_id
+        )
 
         if authorization is None:
             return {
@@ -71,8 +100,12 @@ class AuthorizationManager:
 
         return {
             "success": True,
-            "authorization": authorization.__dict__,
+            "authorization": authorization.to_dict(),
         }
+
+    # ------------------------------------------------------------------
+    # APPROVE
+    # ------------------------------------------------------------------
 
     def approve(
         self,
@@ -80,34 +113,44 @@ class AuthorizationManager:
     ) -> dict:
         """Approve an authorization request."""
 
-        authorization = self.requests.get(request_id)
+        authorization = self.requests.get(
+            request_id
+        )
 
         if authorization is None:
             return {
                 "success": False,
                 "error": "REQUEST_NOT_FOUND",
+                "request_id": request_id,
             }
 
         authorization.status = "APPROVED"
 
         return {
             "success": True,
-            "authorization": authorization.__dict__,
+            "authorization": authorization.to_dict(),
         }
+
+    # ------------------------------------------------------------------
+    # DENY
+    # ------------------------------------------------------------------
 
     def deny(
         self,
         request_id: str,
-        reason: str | None = None,
+        reason: Optional[str] = None,
     ) -> dict:
         """Deny an authorization request."""
 
-        authorization = self.requests.get(request_id)
+        authorization = self.requests.get(
+            request_id
+        )
 
         if authorization is None:
             return {
                 "success": False,
                 "error": "REQUEST_NOT_FOUND",
+                "request_id": request_id,
             }
 
         authorization.status = "DENIED"
@@ -117,22 +160,29 @@ class AuthorizationManager:
 
         return {
             "success": True,
-            "authorization": authorization.__dict__,
+            "authorization": authorization.to_dict(),
         }
+
+    # ------------------------------------------------------------------
+    # REVOKE
+    # ------------------------------------------------------------------
 
     def revoke(
         self,
         request_id: str,
-        reason: str | None = None,
+        reason: Optional[str] = None,
     ) -> dict:
         """Revoke an approved authorization."""
 
-        authorization = self.requests.get(request_id)
+        authorization = self.requests.get(
+            request_id
+        )
 
         if authorization is None:
             return {
                 "success": False,
                 "error": "REQUEST_NOT_FOUND",
+                "request_id": request_id,
             }
 
         authorization.status = "REVOKED"
@@ -142,26 +192,39 @@ class AuthorizationManager:
 
         return {
             "success": True,
-            "authorization": authorization.__dict__,
+            "authorization": authorization.to_dict(),
         }
 
+    # ------------------------------------------------------------------
+    # LIST
+    # ------------------------------------------------------------------
+
     def list(self) -> dict:
-        """Return authorization requests."""
+        """Return all authorization requests."""
 
         return {
             "success": True,
             "count": len(self.requests),
             "requests": [
-                request.__dict__
+                request.to_dict()
                 for request in self.requests.values()
             ],
         }
 
+    # ------------------------------------------------------------------
+    # HEALTH
+    # ------------------------------------------------------------------
+
     def health(self) -> dict:
-        """Return authorization system health."""
+        """Return authorization manager health."""
 
         return {
             "system": "Authorization Manager",
             "health": "HEALTHY",
             "requests": len(self.requests),
         }
+
+
+__all__ = [
+    "AuthorizationManager",
+]
