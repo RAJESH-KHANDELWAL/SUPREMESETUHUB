@@ -21,4 +21,5 @@ __all__ = [
     "DatabaseTableInfo",
     "DatabaseSchemaInfo",
     "DatabaseService",
+    "WordPressDatabaseRegistry",
 ]
