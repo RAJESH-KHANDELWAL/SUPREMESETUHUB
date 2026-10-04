@@ -2,106 +2,164 @@
 MAIN BASE FOUNDATION
 WORDPRESS CONTROLLER
 
-Controller layer for WordPress management.
+Controller/API-facing layer for WordPress management.
 
-Responsibilities:
-- expose WordPress management operations
-- keep higher-level code independent
-  from WordPressManagementService internals
+The controller does not contain database logic.
 
-This module does NOT contain:
-- API routes
-- API request/response logic
-- Core logic
-- Engine logic
-- authorization logic
-- domain logic
-- hosting logic
-- server logic
+Flow:
 
-Authorization will be handled by its own layer.
+FRONTEND / API
+      ↓
+WORDPRESS CONTROLLER
+      ↓
+WORDPRESS SERVICE
+      ↓
+WORDPRESS CONNECTION
+      ↓
+LIVE WORDPRESS DATABASE
 """
 
 from __future__ import annotations
 
 from typing import Optional
 
-from .service import WordPressManagementService
+from .registry import WordPressSite
+from .service import WordPressService
 
 
 class WordPressController:
-    """Controller facade for WordPress management."""
+    """Controller facade for the WordPress platform."""
 
     def __init__(
         self,
-        wordpress_service: WordPressManagementService,
+        service: Optional[
+            WordPressService
+        ] = None,
     ) -> None:
-        self.service = wordpress_service
 
-    # ------------------------------------------------------------------
-    # CONNECTION
-    # ------------------------------------------------------------------
+        self.service = (
+            service
+            or WordPressService()
+        )
 
-    def connect(self) -> dict:
-        """Connect to the WordPress database."""
+    # ==============================================================
+    # SITE MANAGEMENT
+    # ==============================================================
 
-        return self.service.connect()
+    def register_site(
+        self,
+        site: WordPressSite,
+    ) -> WordPressSite:
+        """Register a WordPress website."""
 
-    def disconnect(self) -> dict:
-        """Disconnect from the WordPress database."""
+        return self.service.register_site(
+            site
+        )
 
-        return self.service.disconnect()
+    def get_site(
+        self,
+        site_id: str,
+    ) -> Optional[WordPressSite]:
+        """Return one WordPress website."""
 
-    # ------------------------------------------------------------------
+        return self.service.get_site(
+            site_id
+        )
+
+    def list_sites(
+        self,
+    ) -> list[WordPressSite]:
+        """Return all registered WordPress websites."""
+
+        return self.service.list_sites()
+
+    # ==============================================================
+    # DATABASE CONNECTION
+    # ==============================================================
+
+    def connect_site(
+        self,
+        site_id: str,
+        environment_prefix: str,
+    ) -> dict:
+        """Connect a registered WordPress site."""
+
+        return self.service.connect_site(
+            site_id=site_id,
+            environment_prefix=environment_prefix,
+        )
+
+    def disconnect_site(
+        self,
+        site_id: str,
+    ) -> dict:
+        """Disconnect a WordPress database."""
+
+        return self.service.disconnect_site(
+            site_id
+        )
+
+    # ==============================================================
+    # HEALTH
+    # ==============================================================
+
+    def health(
+        self,
+        site_id: str,
+    ) -> dict:
+        """Check live WordPress database health."""
+
+        return self.service.health(
+            site_id
+        )
+
+    def check_wordpress(
+        self,
+        site_id: str,
+    ) -> dict:
+        """Verify essential WordPress tables."""
+
+        return self.service.check_wordpress(
+            site_id
+        )
+
+    # ==============================================================
     # STATUS
-    # ------------------------------------------------------------------
+    # ==============================================================
+
+    def connection_status(
+        self,
+        site_id: str,
+    ) -> dict:
+        """Return one site's connection status."""
+
+        return self.service.connection_status(
+            site_id
+        )
+
+    def connection_status_all(
+        self,
+    ) -> list[dict]:
+        """Return connection status for all sites."""
+
+        return self.service.connection_status_all()
+
+    # ==============================================================
+    # SUMMARY
+    # ==============================================================
+
+    def summary(self) -> dict:
+        """Return WordPress platform summary."""
+
+        return self.service.summary()
 
     def status(self) -> dict:
-        """Return WordPress connection status."""
+        """Return controller status."""
 
-        return self.service.status()
-
-    def health(self) -> dict:
-        """Return WordPress database health."""
-
-        return self.service.health()
-
-    # ------------------------------------------------------------------
-    # INFORMATION
-    # ------------------------------------------------------------------
-
-    def information(self) -> dict:
-        """Return WordPress database information."""
-
-        return self.service.information()
-
-    # ------------------------------------------------------------------
-    # TABLES
-    # ------------------------------------------------------------------
-
-    def list_tables(self) -> dict:
-        """Return all database tables."""
-
-        return self.service.list_tables()
-
-    def list_wordpress_tables(self) -> dict:
-        """Return tables using the WordPress prefix."""
-
-        return self.service.list_wordpress_tables()
-
-    def check_core_tables(self) -> dict:
-        """Check standard WordPress core tables."""
-
-        return self.service.check_core_tables()
-
-    # ------------------------------------------------------------------
-    # SITE
-    # ------------------------------------------------------------------
-
-    def site_summary(self) -> dict:
-        """Return a complete safe WordPress site summary."""
-
-        return self.service.site_summary()
+        return {
+            "controller": "WordPressController",
+            "service": self.service.summary(),
+        }
 
 
 __all__ = [
