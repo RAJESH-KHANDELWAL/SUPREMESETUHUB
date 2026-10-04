@@ -4,17 +4,17 @@ AUTHORIZATION PERMISSION FOUNDATION
 
 Defines permissions used by the platform.
 
-IMPORTANT:
-- This module defines WHAT a user is allowed to do.
-- It does not authenticate users.
-- It does not manage passwords.
-- It does not manage API routes.
-- It does not contain WordPress logic.
-- It does not contain database logic.
-- It does not contain engine logic.
+This module defines WHAT an authorized subject can do.
 
-Actual permission assignment and enforcement belong
-to the authorization layer.
+It does not contain:
+- authentication
+- API routing
+- database operations
+- WordPress operations
+- hosting operations
+- domain operations
+- server operations
+- engine logic
 """
 
 from __future__ import annotations
@@ -27,170 +27,131 @@ from typing import Iterable
 class Permission(str, Enum):
     """Platform permissions."""
 
-    # --------------------------------------------------------------
+    # ==============================================================
     # GENERAL
-    # --------------------------------------------------------------
+    # ==============================================================
 
     VIEW = "view"
-
     CREATE = "create"
-
     EDIT = "edit"
-
     UPDATE = "update"
-
     DELETE = "delete"
-
     MANAGE = "manage"
 
-    # --------------------------------------------------------------
+    # ==============================================================
     # DATABASE
-    # --------------------------------------------------------------
+    # ==============================================================
 
     DATABASE_VIEW = "database.view"
-
     DATABASE_CREATE = "database.create"
-
     DATABASE_EDIT = "database.edit"
-
     DATABASE_UPDATE = "database.update"
-
     DATABASE_DELETE = "database.delete"
-
     DATABASE_MANAGE = "database.manage"
 
-    # --------------------------------------------------------------
+    # ==============================================================
     # WORDPRESS
-    # --------------------------------------------------------------
+    # ==============================================================
 
     WORDPRESS_VIEW = "wordpress.view"
-
     WORDPRESS_CREATE = "wordpress.create"
-
     WORDPRESS_EDIT = "wordpress.edit"
-
     WORDPRESS_UPDATE = "wordpress.update"
-
     WORDPRESS_DELETE = "wordpress.delete"
-
     WORDPRESS_MANAGE = "wordpress.manage"
 
-    # --------------------------------------------------------------
+    # ==============================================================
+    # WEBSITE
+    # ==============================================================
+
+    WEBSITE_VIEW = "website.view"
+    WEBSITE_CREATE = "website.create"
+    WEBSITE_EDIT = "website.edit"
+    WEBSITE_UPDATE = "website.update"
+    WEBSITE_DELETE = "website.delete"
+    WEBSITE_MANAGE = "website.manage"
+
+    # ==============================================================
     # THEMES
-    # --------------------------------------------------------------
+    # ==============================================================
 
     THEME_VIEW = "theme.view"
-
     THEME_INSTALL = "theme.install"
-
     THEME_ACTIVATE = "theme.activate"
-
     THEME_UPDATE = "theme.update"
-
     THEME_DELETE = "theme.delete"
 
-    # --------------------------------------------------------------
+    # ==============================================================
     # PLUGINS
-    # --------------------------------------------------------------
+    # ==============================================================
 
     PLUGIN_VIEW = "plugin.view"
-
     PLUGIN_INSTALL = "plugin.install"
-
     PLUGIN_ACTIVATE = "plugin.activate"
-
     PLUGIN_UPDATE = "plugin.update"
-
     PLUGIN_DELETE = "plugin.delete"
 
-    # --------------------------------------------------------------
+    # ==============================================================
     # DOMAIN
-    # --------------------------------------------------------------
+    # ==============================================================
 
     DOMAIN_VIEW = "domain.view"
-
     DOMAIN_CREATE = "domain.create"
-
     DOMAIN_EDIT = "domain.edit"
-
     DOMAIN_UPDATE = "domain.update"
-
     DOMAIN_DELETE = "domain.delete"
-
     DOMAIN_MANAGE = "domain.manage"
 
-    # --------------------------------------------------------------
+    # ==============================================================
     # HOSTING
-    # --------------------------------------------------------------
+    # ==============================================================
 
     HOSTING_VIEW = "hosting.view"
-
     HOSTING_CREATE = "hosting.create"
-
     HOSTING_EDIT = "hosting.edit"
-
     HOSTING_UPDATE = "hosting.update"
-
     HOSTING_DELETE = "hosting.delete"
-
     HOSTING_MANAGE = "hosting.manage"
 
-    # --------------------------------------------------------------
+    # ==============================================================
     # SERVER
-    # --------------------------------------------------------------
+    # ==============================================================
 
     SERVER_VIEW = "server.view"
-
     SERVER_CREATE = "server.create"
-
     SERVER_EDIT = "server.edit"
-
     SERVER_UPDATE = "server.update"
-
     SERVER_DELETE = "server.delete"
-
     SERVER_MANAGE = "server.manage"
 
-    # --------------------------------------------------------------
-    # COMPANY / ORGANIZATION
-    # --------------------------------------------------------------
+    # ==============================================================
+    # COMPANY
+    # ==============================================================
 
     COMPANY_VIEW = "company.view"
-
     COMPANY_CREATE = "company.create"
-
     COMPANY_EDIT = "company.edit"
-
     COMPANY_UPDATE = "company.update"
-
     COMPANY_DELETE = "company.delete"
-
     COMPANY_MANAGE = "company.manage"
 
-    # --------------------------------------------------------------
+    # ==============================================================
     # USERS
-    # --------------------------------------------------------------
+    # ==============================================================
 
     USER_VIEW = "user.view"
-
     USER_CREATE = "user.create"
-
     USER_EDIT = "user.edit"
-
     USER_UPDATE = "user.update"
-
     USER_DELETE = "user.delete"
-
     USER_MANAGE = "user.manage"
 
-    # --------------------------------------------------------------
+    # ==============================================================
     # SYSTEM
-    # --------------------------------------------------------------
+    # ==============================================================
 
     SYSTEM_VIEW = "system.view"
-
     SYSTEM_MANAGE = "system.manage"
-
     SYSTEM_CONFIGURATION = "system.configuration"
 
 
@@ -203,28 +164,38 @@ class PermissionSet:
     @classmethod
     def from_permissions(
         cls,
-        permissions: Iterable[
-            Permission | str
-        ],
+        permissions: (
+            Iterable[Permission | str]
+            | type[Permission]
+        ),
     ) -> "PermissionSet":
-        """Create a permission set."""
+        """
+        Create a PermissionSet.
 
-        normalized: set[Permission] = set()
+        Passing Permission means all defined permissions
+        are granted. This is used for the Supreme Admin Owner.
+        """
 
-        for permission in permissions:
+        if permissions is Permission:
+            normalized = set(Permission)
 
-            if isinstance(
-                permission,
-                Permission,
-            ):
-                normalized.add(
-                    permission
-                )
-                continue
+        else:
+            normalized = set()
 
-            normalized.add(
-                Permission(permission)
-            )
+            for permission in permissions:
+
+                if isinstance(
+                    permission,
+                    Permission,
+                ):
+                    normalized.add(
+                        permission
+                    )
+
+                else:
+                    normalized.add(
+                        Permission(permission)
+                    )
 
         return cls(
             permissions=frozenset(
@@ -275,11 +246,18 @@ class PermissionSet:
         )
 
     def to_list(self) -> list[str]:
-        """Return permissions as strings."""
+        """Return permissions as sorted strings."""
 
         return sorted(
             permission.value
             for permission in self.permissions
+        )
+
+    def count(self) -> int:
+        """Return total number of permissions."""
+
+        return len(
+            self.permissions
         )
 
 
