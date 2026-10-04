@@ -34,6 +34,7 @@ from backend.api.user_hub import router as user_hub_router
 from backend.api.ai import router as ai_router
 from backend.api.ecosystem import EcosystemAPI
 from backend.api.theme_hub import router as theme_hub_router
+
 from backend.wordpress.bootstrap import (
     create_wordpress_service,
 )
@@ -65,7 +66,14 @@ app = FastAPI(
     version="1.0.0",
 )
 
+
+# ============================================================
+# CORE SERVICES
+# ============================================================
+
 ecosystem_api = EcosystemAPI()
+
+wordpress_service = create_wordpress_service()
 
 
 # ============================================================
@@ -321,7 +329,7 @@ def supreme_frontend_css():
 
 # ============================================================
 # SUPREME FRONTEND STATUS
-# ============================================================
+# ==============================================================
 
 @app.get("/api/v1/frontend/supreme/health")
 def supreme_frontend_health():
@@ -346,7 +354,9 @@ def health():
         "status": "healthy",
         "service": "SUPREMESETUHUB",
     }
-    # ============================================================
+
+
+# ============================================================
 # WORDPRESS STATUS
 # ============================================================
 
@@ -389,15 +399,9 @@ def wordpress_health(
         "success": True,
         "status": "CONNECTED",
         "site_id": site_id,
-        "domain": (
-            result.get("domain")
-        ),
-        "database": (
-            result.get("database")
-        ),
-        "health": (
-            result.get("health")
-        ),
+        "domain": result.get("domain"),
+        "database": result.get("database"),
+        "health": result.get("health"),
         "wordpress_tables": (
             wordpress_service.check_wordpress(
                 site_id
@@ -470,8 +474,3 @@ def ecosystem_exists(
             ecosystem_id
         ),
     }
-# ============================================================
-# WORDPRESS SERVICE
-# ============================================================
-
-wordpress_service = create_wordpress_service()
