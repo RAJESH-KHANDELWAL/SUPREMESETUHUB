@@ -1,260 +1,396 @@
 """
 MAIN BASE FOUNDATION
-WORDPRESS MANAGEMENT SERVICE
+WORDPRESS SERVICE
 
-WordPress-specific management layer.
+Central service layer for connected WordPress websites.
 
 Responsibilities:
-- WordPress site information
-- database health
-- database information
-- table discovery
-- WordPress site status
-- safe database inspection
+- register WordPress sites
+- retrieve WordPress sites
+- connect to WordPress databases
+- check WordPress database health
+- verify WordPress tables
+- disconnect database connections
+- provide central platform status
 
-This module does NOT contain:
-- API routing
-- API request/response handling
-- Core engine logic
-- authorization logic
-- hosting logic
-- domain logic
-- server logic
-
-Those responsibilities remain in their respective modules.
+IMPORTANT:
+- Live WordPress data remains on the hosting/provider.
+- Database credentials are never stored in this service.
+- Credentials come from secure environment variables.
+- This service coordinates Connection + Registry.
 """
 
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Optional
 
-from ..database.wordpress_connection import (
+from .connection import (
+    WordPressConnectionConfig,
     WordPressDatabaseConnection,
 )
 
+from .registry import (
+    WordPressRegistry,
+    WordPressSite,
+)
 
-class WordPressManagementService:
-    """Management service for a registered WordPress website."""
+
+class WordPressService:
+    """Central service for WordPress platform management."""
 
     def __init__(
         self,
-        connection: WordPressDatabaseConnection,
+        registry: Optional[
+            WordPressRegistry
+        ] = None,
     ) -> None:
-        self.connection = connection
 
-    # ------------------------------------------------------------------
-    # CONNECTION
-    # ------------------------------------------------------------------
-
-    def connect(self) -> dict:
-        """Connect to the WordPress database."""
-
-        return self.connection.connect()
-
-    def disconnect(self) -> dict:
-        """Disconnect from the WordPress database."""
-
-        return self.connection.disconnect()
-
-    # ------------------------------------------------------------------
-    # STATUS
-    # ------------------------------------------------------------------
-
-    def status(self) -> dict:
-        """Return WordPress database connection status."""
-
-        return self.connection.status()
-
-    def health(self) -> dict:
-        """Return WordPress database health."""
-
-        return self.connection.health()
-
-    # ------------------------------------------------------------------
-    # INFORMATION
-    # ------------------------------------------------------------------
-
-    def information(self) -> dict:
-        """Return WordPress database information."""
-
-        return self.connection.information()
-
-    # ------------------------------------------------------------------
-    # TABLE MANAGEMENT
-    # ------------------------------------------------------------------
-
-    def list_tables(self) -> dict:
-        """
-        Return all tables belonging to the connected
-        WordPress database.
-
-        This operation is read-only.
-        """
-
-        return self.connection.list_tables()
-
-    # ------------------------------------------------------------------
-    # WORDPRESS TABLE CHECK
-    # ------------------------------------------------------------------
-
-    def check_core_tables(self) -> dict:
-        """
-        Check whether the standard WordPress tables exist.
-
-        No table is created, modified, moved, merged, or deleted.
-        """
-
-        result = self.connection.list_tables()
-
-        if not result.get("success"):
-            return result
-
-        tables = set(
-            result.get("tables", [])
+        self.registry = (
+            registry
+            or WordPressRegistry()
         )
 
-        prefix = self.connection.table_prefix
+        self._connections: dict[
+            str,
+            WordPressDatabaseConnection
+        ] = {}
 
-        expected_tables = {
-            f"{prefix}commentmeta",
-            f"{prefix}comments",
-            f"{prefix}links",
-            f"{prefix}options",
-            f"{prefix}postmeta",
-            f"{prefix}posts",
-            f"{prefix}term_relationships",
-            f"{prefix}term_taxonomy",
-            f"{prefix}termmeta",
-            f"{prefix}terms",
-            f"{prefix}usermeta",
-            f"{prefix}users",
-        }
+    # ==============================================================
+    # REGISTER SITE
+    # ==============================================================
 
-        present = sorted(
-            expected_tables.intersection(
-                tables
-            )
+    def register_site(
+        self,
+        site: WordPressSite,
+    ) -> WordPressSite:
+        """Register a WordPress site."""
+
+        return self.registry.register(
+            site
         )
 
-        missing = sorted(
-            expected_tables.difference(
-                tables
-            )
+    # ==============================================================
+    # GET SITE
+    # ==============================================================
+
+    def get_site(
+        self,
+        site_id: str,
+    ) -> Optional[WordPressSite]:
+        """Return a registered WordPress site."""
+
+        return self.registry.get(
+            site_id
         )
 
-        return {
-            "success": True,
-            "status": "CORE_TABLE_CHECKED",
-            "prefix": prefix,
-            "expected": len(expected_tables),
-            "present": len(present),
-            "missing": len(missing),
-            "present_tables": present,
-            "missing_tables": missing,
-            "complete": len(missing) == 0,
-        }
+    # ==============================================================
+    # LIST SITES
+    # ==============================================================
 
-    # ------------------------------------------------------------------
-    # WORDPRESS TABLE FILTER
-    # ------------------------------------------------------------------
+    def list_sites(
+        self,
+    ) -> list[WordPressSite]:
+        """Return all registered WordPress sites."""
 
-    def list_wordpress_tables(self) -> dict:
+        return self.registry.list_sites()
+
+    # ==============================================================
+    # CONNECT DATABASE
+    # ==============================================================
+
+    def connect_site(
+        self,
+        site_id: str,
+        environment_prefix: str,
+    ) -> dict:
         """
-        Return tables using the configured WordPress prefix.
+        Connect one registered WordPress site
+        to its live database.
 
-        This does not modify the database.
+        The database credentials are loaded from
+        secure environment variables.
         """
 
-        result = self.connection.list_tables()
+        site = self.registry.get(
+            site_id
+        )
 
-        if not result.get("success"):
-            return result
+        if site is None:
+            return {
+                "success": False,
+                "status": "SITE_NOT_FOUND",
+                "site_id": site_id,
+            }
 
-        prefix = self.connection.table_prefix
+        try:
 
-        tables = [
-            table
-            for table in result.get(
-                "tables",
-                [],
+            config = (
+                WordPressConnectionConfig
+                .from_environment(
+                    site_id=site.site_id,
+                    domain=site.domain,
+                    prefix=environment_prefix,
+                )
             )
-            if table.startswith(prefix)
+
+            connection = (
+                WordPressDatabaseConnection(
+                    config
+                )
+            )
+
+            health = connection.health()
+
+            if not health["success"]:
+
+                return {
+                    "success": False,
+                    "status": (
+                        "DATABASE_CONNECTION_FAILED"
+                    ),
+                    "site_id": site_id,
+                    "domain": site.domain,
+                    "health": health,
+                }
+
+            self._connections[
+                site_id
+            ] = connection
+
+            self.registry.set_status(
+                site_id,
+                "CONNECTED",
+            )
+
+            return {
+                "success": True,
+                "status": "CONNECTED",
+
+                "site_id": site_id,
+
+                "domain": site.domain,
+
+                "database": (
+                    config.database_name
+                ),
+
+                "health": health,
+            }
+
+        except Exception as exc:
+
+            self.registry.set_status(
+                site_id,
+                "CONNECTION_FAILED",
+            )
+
+            return {
+                "success": False,
+                "status": (
+                    "CONNECTION_ERROR"
+                ),
+
+                "site_id": site_id,
+
+                "domain": site.domain,
+
+                "error": str(exc),
+            }
+
+    # ==============================================================
+    # DISCONNECT DATABASE
+    # ==============================================================
+
+    def disconnect_site(
+        self,
+        site_id: str,
+    ) -> dict:
+        """Disconnect a WordPress site's database."""
+
+        connection = self._connections.get(
+            site_id
+        )
+
+        if connection is None:
+
+            return {
+                "success": True,
+                "status": (
+                    "ALREADY_DISCONNECTED"
+                ),
+                "site_id": site_id,
+            }
+
+        connection.disconnect()
+
+        del self._connections[
+            site_id
         ]
 
+        site = self.registry.get(
+            site_id
+        )
+
+        if site is not None:
+            self.registry.set_status(
+                site_id,
+                "REGISTERED",
+            )
+
         return {
             "success": True,
-            "status": "WORDPRESS_TABLES_LISTED",
-            "prefix": prefix,
-            "count": len(tables),
-            "tables": tables,
+            "status": "DISCONNECTED",
+            "site_id": site_id,
         }
 
-    # ------------------------------------------------------------------
-    # SITE SUMMARY
-    # ------------------------------------------------------------------
+    # ==============================================================
+    # HEALTH
+    # ==============================================================
 
-    def site_summary(self) -> dict:
-        """
-        Return a safe summary of the connected
-        WordPress installation.
-        """
+    def health(
+        self,
+        site_id: str,
+    ) -> dict:
+        """Return live database health."""
 
-        connection_status = (
-            self.connection.status()
+        connection = self._connections.get(
+            site_id
         )
 
-        health = (
-            self.connection.health()
-        )
+        if connection is None:
 
-        information = (
-            self.connection.information()
-            if health.get("success")
-            else {
+            return {
                 "success": False,
-                "status": "INFORMATION_UNAVAILABLE",
+                "status": "NOT_CONNECTED",
+                "site_id": site_id,
             }
+
+        return connection.health()
+
+    # ==============================================================
+    # WORDPRESS TABLE CHECK
+    # ==============================================================
+
+    def check_wordpress(
+        self,
+        site_id: str,
+    ) -> dict:
+        """Verify essential WordPress tables."""
+
+        connection = self._connections.get(
+            site_id
         )
 
-        tables = (
-            self.connection.list_tables()
-            if health.get("success")
-            else {
+        if connection is None:
+
+            return {
                 "success": False,
-                "tables": [],
-                "count": 0,
+                "status": "NOT_CONNECTED",
+                "site_id": site_id,
             }
+
+        return (
+            connection
+            .check_wordpress_tables()
         )
 
-        core = (
-            self.check_core_tables()
-            if health.get("success")
-            else {
-                "success": False,
-            }
+    # ==============================================================
+    # CONNECTION STATUS
+    # ==============================================================
+
+    def connection_status(
+        self,
+        site_id: str,
+    ) -> dict:
+        """Return safe connection status."""
+
+        connection = self._connections.get(
+            site_id
         )
+
+        site = self.registry.get(
+            site_id
+        )
+
+        if site is None:
+
+            return {
+                "success": False,
+                "status": "SITE_NOT_FOUND",
+                "site_id": site_id,
+            }
 
         return {
             "success": True,
-            "status": "WORDPRESS_SUMMARY_READY",
 
-            "connection": connection_status,
+            "site_id": site.site_id,
 
-            "health": health,
+            "domain": site.domain,
 
-            "database": information,
+            "site_status": site.status,
 
-            "tables": {
-                "count": tables.get(
-                    "count",
-                    0,
-                ),
-            },
+            "database_connected": (
+                connection is not None
+                and connection.connection
+                is not None
+            ),
+        }
 
-            "core_wordpress": core,
+    # ==============================================================
+    # ALL CONNECTIONS
+    # ==============================================================
+
+    def connection_status_all(
+        self,
+    ) -> list[dict]:
+        """Return connection status for every site."""
+
+        return [
+            self.connection_status(
+                site.site_id
+            )
+            for site
+            in self.registry.list_sites()
+        ]
+
+    # ==============================================================
+    # PLATFORM SUMMARY
+    # ==============================================================
+
+    def summary(self) -> dict:
+        """Return WordPress platform summary."""
+
+        sites = self.registry.list_sites()
+
+        connected = sum(
+            1
+            for site in sites
+            if site.status == "CONNECTED"
+        )
+
+        failed = sum(
+            1
+            for site in sites
+            if site.status
+            == "CONNECTION_FAILED"
+        )
+
+        return {
+            "service": "WordPressService",
+
+            "total_sites": len(sites),
+
+            "connected_sites": connected,
+
+            "failed_sites": failed,
+
+            "registered_sites": [
+                site.to_dict()
+                for site in sites
+            ],
         }
 
 
 __all__ = [
-    "WordPressManagementService",
+    "WordPressService",
 ]
