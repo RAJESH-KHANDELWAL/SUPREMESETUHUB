@@ -1,15 +1,53 @@
 """
 MAIN BASE FOUNDATION
-WORDPRESS PACKAGE
+WORDPRESS MODULE
 
-Public interface for the WordPress management layer.
+Public interface for the WordPress platform layer.
+
+Architecture:
+
+WORDPRESS CONTROLLER
+        ↓
+WORDPRESS SERVICE
+        ↓
+WORDPRESS REGISTRY
+        ↓
+WORDPRESS CONNECTION
+        ↓
+LIVE WORDPRESS DATABASE
 """
 
-from .controller import WordPressController
-from .service import WordPressManagementService
+from .connection import (
+    WordPressConnectionConfig,
+    WordPressDatabaseConnection,
+)
+
+from .controller import (
+    WordPressController,
+)
+
+from .registry import (
+    WordPressRegistry,
+    WordPressSite,
+)
+
+from .service import (
+    WordPressService,
+)
 
 
 __all__ = [
+    # Connection
+    "WordPressConnectionConfig",
+    "WordPressDatabaseConnection",
+
+    # Registry
+    "WordPressRegistry",
+    "WordPressSite",
+
+    # Service
+    "WordPressService",
+
+    # Controller
     "WordPressController",
-    "WordPressManagementService",
 ]
