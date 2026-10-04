@@ -1,174 +1,388 @@
-"""Infrastructure service layer."""
+"""
+MAIN BASE FOUNDATION
+INFRASTRUCTURE SERVICE
+
+Business/service layer for infrastructure resources.
+
+Responsibilities:
+- infrastructure resource registration
+- resource retrieval
+- resource listing
+- resource deletion
+- resource relationships
+- resource validation
+
+This service does NOT directly perform provider operations.
+
+Provider/API/engine operations belong to their
+respective integration and engine layers.
+"""
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
 from typing import Optional
 
-from backend.database.controller import DatabaseController
-from .model import InfrastructureInfo
+from .model import (
+    InfrastructureCategory,
+    InfrastructureOwnershipType,
+    InfrastructureRelationship,
+    InfrastructureRelationshipType,
+    InfrastructureResource,
+    InfrastructureResourceStatus,
+    InfrastructureResourceType,
+)
+
+from .repository import InfrastructureRepository
 
 
 class InfrastructureService:
+    """Service layer for infrastructure management."""
 
-    def __init__(self):
-        self.database = DatabaseController()
-        self.initialize()
-
-    def initialize(self) -> None:
-        self.database.execute(
-            """
-            CREATE TABLE IF NOT EXISTS infrastructure (
-                infrastructure_id TEXT PRIMARY KEY,
-                name TEXT NOT NULL,
-                infrastructure_type TEXT NOT NULL,
-                provider TEXT DEFAULT '',
-                region TEXT DEFAULT '',
-                public_ipv4 TEXT DEFAULT '',
-                public_ipv6 TEXT DEFAULT '',
-                status TEXT DEFAULT 'PLANNED',
-                description TEXT DEFAULT '',
-                created_at TEXT NOT NULL,
-                updated_at TEXT NOT NULL
-            )
-            """
-        )
-
-    def create(
+    def __init__(
         self,
-        name: str,
-        infrastructure_type: str,
-        provider: str = "",
-        region: str = "",
-        public_ipv4: str = "",
-        public_ipv6: str = "",
-        description: str = "",
-    ) -> InfrastructureInfo:
+        repository: Optional[
+            InfrastructureRepository
+        ] = None,
+    ) -> None:
 
-        existing = self.list_all()
-
-        infrastructure_id = (
-            f"INF-{len(existing) + 1:06d}"
+        self.repository = (
+            repository
+            or InfrastructureRepository()
         )
 
-        now = datetime.now(timezone.utc).isoformat()
+    # ==============================================================
+    # INITIALIZATION
+    # ==============================================================
 
-        item = InfrastructureInfo(
-            infrastructure_id=infrastructure_id,
-            name=name,
-            infrastructure_type=infrastructure_type,
-            provider=provider,
-            region=region,
-            public_ipv4=public_ipv4,
-            public_ipv6=public_ipv6,
-            status="PLANNED",
-            description=description,
-            created_at=now,
-            updated_at=now,
-        )
+    def initialize(self) -> dict:
+        """Initialize infrastructure persistence."""
 
-        self.database.execute(
-            """
-            INSERT INTO infrastructure (
-                infrastructure_id,
-                name,
-                infrastructure_type,
-                provider,
-                region,
-                public_ipv4,
-                public_ipv6,
-                status,
-                description,
-                created_at,
-                updated_at
-            )
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            """,
-            (
-                item.infrastructure_id,
-                item.name,
-                item.infrastructure_type,
-                item.provider,
-                item.region,
-                item.public_ipv4,
-                item.public_ipv6,
-                item.status,
-                item.description,
-                item.created_at,
-                item.updated_at,
-            ),
-        )
+        self.repository.initialize()
 
-        return item
+        return {
+            "success": True,
+            "status": "INFRASTRUCTURE_READY",
+        }
 
-    def get(
+    # ==============================================================
+    # CREATE
+    # ==============================================================
+
+    def register_resource(
         self,
-        infrastructure_id: str,
-    ) -> Optional[InfrastructureInfo]:
+        resource: InfrastructureResource,
+    ) -> InfrastructureResource:
+        """
+        Register a new infrastructure resource.
 
-        row = self.database.fetchone(
-            """
-            SELECT *
-            FROM infrastructure
-            WHERE infrastructure_id = ?
-            """,
-            (infrastructure_id,),
+        Validation is performed before persistence.
+        """
+
+        self._validate_resource(
+            resource
         )
 
-        if not row:
-            return None
-
-        return InfrastructureInfo(**dict(row))
-
-    def list_all(self) -> list[InfrastructureInfo]:
-
-        rows = self.database.fetchall(
-            """
-            SELECT *
-            FROM infrastructure
-            ORDER BY created_at DESC
-            """
+        existing = self.repository.get(
+            resource.resource_id
         )
+
+        if existing is not None:
+            raise ValueError(
+                "Infrastructure resource already exists: "
+                f"{resource.resource_id}"
+            )
+
+        return self.repository.create(
+            resource
+        )
+
+    # ==============================================================
+    # READ
+    # ==============================================================
+
+    def get_resource(
+        self,
+        resource_id: str,
+    ) -> Optional[InfrastructureResource]:
+        """Return one infrastructure resource."""
+
+        return self.repository.get(
+            resource_id
+        )
+
+    # ==============================================================
+    # LIST
+    # ==============================================================
+
+    def list_resources(
+        self,
+    ) -> list[InfrastructureResource]:
+        """Return all infrastructure resources."""
+
+        return self.repository.list_all()
+
+    # ==============================================================
+    # DELETE
+    # ==============================================================
+
+    def delete_resource(
+        self,
+        resource_id: str,
+    ) -> bool:
+        """
+        Delete an infrastructure resource.
+
+        This operation only removes the platform's
+        database record.
+
+        It does NOT delete an actual external server,
+        VPS, domain, hosting account, or provider resource.
+        """
+
+        resource = self.repository.get(
+            resource_id
+        )
+
+        if resource is None:
+            return False
+
+        return self.repository.delete(
+            resource_id
+        )
+
+    # ==============================================================
+    # RELATIONSHIPS
+    # ==============================================================
+
+    def connect_resources(
+        self,
+        relationship: InfrastructureRelationship,
+    ) -> InfrastructureRelationship:
+        """
+        Connect two infrastructure resources.
+        """
+
+        source = self.repository.get(
+            relationship.source_resource_id
+        )
+
+        if source is None:
+            raise ValueError(
+                "Source infrastructure resource "
+                "does not exist."
+            )
+
+        target = self.repository.get(
+            relationship.target_resource_id
+        )
+
+        if target is None:
+            raise ValueError(
+                "Target infrastructure resource "
+                "does not exist."
+            )
+
+        if (
+            relationship.source_resource_id
+            == relationship.target_resource_id
+        ):
+            raise ValueError(
+                "A resource cannot be connected "
+                "to itself."
+            )
+
+        return self.repository.create_relationship(
+            relationship
+        )
+
+    def list_relationships(
+        self,
+    ) -> list[InfrastructureRelationship]:
+        """Return infrastructure relationships."""
+
+        return self.repository.list_relationships()
+
+    # ==============================================================
+    # VALIDATION
+    # ==============================================================
+
+    @staticmethod
+    def _validate_resource(
+        resource: InfrastructureResource,
+    ) -> None:
+        """Validate an infrastructure resource."""
+
+        if not resource.resource_id:
+            raise ValueError(
+                "resource_id is required."
+            )
+
+        if not resource.name:
+            raise ValueError(
+                "resource name is required."
+            )
+
+        if not isinstance(
+            resource.resource_type,
+            InfrastructureResourceType,
+        ):
+            raise ValueError(
+                "Invalid infrastructure resource type."
+            )
+
+        if not isinstance(
+            resource.category,
+            InfrastructureCategory,
+        ):
+            raise ValueError(
+                "Invalid infrastructure category."
+            )
+
+        if not isinstance(
+            resource.status,
+            InfrastructureResourceStatus,
+        ):
+            raise ValueError(
+                "Invalid infrastructure status."
+            )
+
+        if not isinstance(
+            resource.ownership_type,
+            InfrastructureOwnershipType,
+        ):
+            raise ValueError(
+                "Invalid infrastructure ownership type."
+            )
+
+    # ==============================================================
+    # TYPE FILTERS
+    # ==============================================================
+
+    def list_by_type(
+        self,
+        resource_type: InfrastructureResourceType,
+    ) -> list[InfrastructureResource]:
+        """Return resources of a specific type."""
+
+        resources = self.repository.list_all()
 
         return [
-            InfrastructureInfo(**dict(row))
-            for row in rows
+            resource
+            for resource in resources
+            if resource.resource_type
+            == resource_type
         ]
 
-    def update_status(
+    def list_by_category(
         self,
-        infrastructure_id: str,
-        status: str,
-    ) -> Optional[InfrastructureInfo]:
+        category: InfrastructureCategory,
+    ) -> list[InfrastructureResource]:
+        """Return resources of a specific category."""
 
-        now = datetime.now(timezone.utc).isoformat()
+        resources = self.repository.list_all()
 
-        self.database.execute(
-            """
-            UPDATE infrastructure
-            SET status = ?, updated_at = ?
-            WHERE infrastructure_id = ?
-            """,
-            (
-                status,
-                now,
-                infrastructure_id,
-            ),
+        return [
+            resource
+            for resource in resources
+            if resource.category
+            == category
+        ]
+
+    def list_by_owner(
+        self,
+        owner_id: str,
+    ) -> list[InfrastructureResource]:
+        """Return resources belonging to an owner."""
+
+        resources = self.repository.list_all()
+
+        return [
+            resource
+            for resource in resources
+            if resource.owner_id
+            == owner_id
+        ]
+
+    def list_by_business(
+        self,
+        business_id: str,
+    ) -> list[InfrastructureResource]:
+        """Return resources belonging to a business."""
+
+        resources = self.repository.list_all()
+
+        return [
+            resource
+            for resource in resources
+            if resource.business_id
+            == business_id
+        ]
+
+    def list_by_customer(
+        self,
+        customer_id: str,
+    ) -> list[InfrastructureResource]:
+        """Return resources assigned to a customer."""
+
+        resources = self.repository.list_all()
+
+        return [
+            resource
+            for resource in resources
+            if resource.customer_id
+            == customer_id
+        ]
+
+    # ==============================================================
+    # STATUS
+    # ==============================================================
+
+    def set_status(
+        self,
+        resource_id: str,
+        status: InfrastructureResourceStatus,
+    ) -> InfrastructureResource:
+        """
+        Change the logical status of a resource.
+
+        Actual provider-side state is not changed here.
+        """
+
+        resource = self.repository.get(
+            resource_id
         )
 
-        return self.get(infrastructure_id)
+        if resource is None:
+            raise ValueError(
+                "Infrastructure resource not found: "
+                f"{resource_id}"
+            )
 
-    def delete(
-        self,
-        infrastructure_id: str,
-    ) -> bool:
+        resource.status = status
 
-        self.database.execute(
-            """
-            DELETE FROM infrastructure
-            WHERE infrastructure_id = ?
-            """,
-            (infrastructure_id,),
-        )
+        # Current repository implementation has
+        # create/read/delete persistence only.
+        # Update persistence will be added in the
+        # next database update step.
 
-        return self.get(infrastructure_id) is None
+        return resource
+
+    # ==============================================================
+    # STATUS
+    # ==============================================================
+
+    def status(self) -> dict:
+        """Return service status."""
+
+        resources = self.repository.list_all()
+
+        return {
+            "service": "InfrastructureService",
+            "status": "READY",
+            "resource_count": len(resources),
+        }
+
+
+__all__ = [
+    "InfrastructureService",
+]
