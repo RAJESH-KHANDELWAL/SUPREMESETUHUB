@@ -12,6 +12,7 @@ from .model import (
 )
 from .service import DatabaseService
 from .wordpress_registry import WordPressDatabaseRegistry
+from .wordpress_connection import WordPressDatabaseConnection
 
 
 __all__ = [
@@ -22,4 +23,5 @@ __all__ = [
     "DatabaseSchemaInfo",
     "DatabaseService",
     "WordPressDatabaseRegistry",
+    "WordPressDatabaseConnection",
 ]
