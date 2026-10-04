@@ -5,7 +5,11 @@ Public interface for the database layer.
 
 from .connection import DatabaseConnection
 from .controller import DatabaseController
-from .model import DatabaseInfo
+from .model import (
+    DatabaseInfo,
+    DatabaseTableInfo,
+    DatabaseSchemaInfo,
+)
 from .service import DatabaseService
 
 
@@ -13,5 +17,7 @@ __all__ = [
     "DatabaseConnection",
     "DatabaseController",
     "DatabaseInfo",
+    "DatabaseTableInfo",
+    "DatabaseSchemaInfo",
     "DatabaseService",
 ]
