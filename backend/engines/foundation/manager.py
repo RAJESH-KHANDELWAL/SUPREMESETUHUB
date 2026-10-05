@@ -18,14 +18,11 @@ class FoundationEngine(BaseEngine):
     NAME = "FOUNDATION ENGINE"
     VERSION = "1.0.0"
 
-    def __init__(self):
-        super().__init__(
-            name=self.NAME,
-            version=self.VERSION
-        )
+   def __init__(self):
+    super().__init__(self.NAME)
 
-        self.foundation = None
-
+    self.foundation = None
+       
     def initialize(self, foundation=None):
         """
         Connect the ENGINE layer with
