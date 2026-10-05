@@ -1,4 +1,3 @@
-from backend.engines.manager import EngineManager
 
 from backend.engines.database.manager import DatabaseEngine
 from backend.engines.storage.manager import StorageEngine
@@ -20,7 +19,6 @@ class Bootstrap:
         self.engine_manager.register_engine("database", DatabaseEngine())
         self.engine_manager.register_engine("storage", StorageEngine())
         self.engine_manager.register_engine("security", SecurityEngine())
-        self.engine_manager.register_engine("api", APIEngine())
         self.engine_manager.register_engine("ai", AIEngine())
         self.engine_manager.register_engine("foundation", FoundationEngine())
         self.engine_manager.register_engine("work_business", WorkBusinessEngine())
