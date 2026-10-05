@@ -1,66 +1,47 @@
-"""MAIN BASE FOUNDATION database service.
-
-Central database service used by backend modules.
-
-Responsibilities:
-- database initialization
-- connection lifecycle
-- SQL execution
-- single-row queries
-- multi-row queries
-- transactions
-- rollback
-- health information
-- central database schema initialization
-
-The service intentionally keeps the database layer independent from
-authentication, authorization, permissions, roles, organizations,
-businesses, storage, and other higher-level modules.
-"""
-
 from __future__ import annotations
 
+import os
 import sqlite3
 from pathlib import Path
-from threading import RLock
-from typing import Any, Iterable, Optional, Sequence
-
-from backend.database.schema import DatabaseSchema
+from typing import Any, Iterable, Optional
 
 
 class DatabaseService:
-    """Central database service for MAIN BASE FOUNDATION."""
+    """
+    CENTRAL SQLITE DATABASE SERVICE
+
+    Responsibilities:
+    - Open central SQLite database
+    - Create required tables
+    - Safely migrate existing tables
+    - Add missing columns without deleting existing data
+    - Provide execute / fetchone / fetchall helpers
+    """
 
     def __init__(
         self,
-        database_path: Optional[str] = None,
+        db_path: Optional[str] = None,
     ) -> None:
-        self.database_path = (
-            database_path
-            or "main_base_foundation.db"
+
+        self.db_path = (
+            db_path
+            or os.getenv("SUPREME_DB_PATH")
+            or "data/supreme.db"
         )
 
         self._connection: Optional[sqlite3.Connection] = None
-        self._lock = RLock()
 
-    # ------------------------------------------------------------------
+    # ==========================================================
     # CONNECTION
-    # ------------------------------------------------------------------
+    # ==========================================================
 
-    def connect(self) -> dict:
-        """Open the database connection."""
+    def connect(self) -> sqlite3.Connection:
 
-        with self._lock:
-            if self._connection is not None:
-                return {
-                    "success": True,
-                    "status": "ALREADY_CONNECTED",
-                    "database": self.database_path,
-                }
+        if self._connection is None:
 
-            path = Path(self.database_path)
+            path = Path(self.db_path)
 
-            if path.parent != Path("."):
+            if path.parent:
                 path.parent.mkdir(
                     parents=True,
                     exist_ok=True,
@@ -71,311 +52,363 @@ class DatabaseService:
                 check_same_thread=False,
             )
 
-            self._connection.row_factory = sqlite3.Row
+            self._connection.row_factory = (
+                sqlite3.Row
+            )
 
-            # Enable foreign-key relationships.
             self._connection.execute(
                 "PRAGMA foreign_keys = ON"
             )
 
-            return {
-                "success": True,
-                "status": "CONNECTED",
-                "database": self.database_path,
-            }
-
-    def disconnect(self) -> dict:
-        """Close the database connection."""
-
-        with self._lock:
-            if self._connection is None:
-                return {
-                    "success": True,
-                    "status": "ALREADY_DISCONNECTED",
-                }
-
-            self._connection.close()
-            self._connection = None
-
-            return {
-                "success": True,
-                "status": "DISCONNECTED",
-            }
-
-    # ------------------------------------------------------------------
-    # INITIALIZATION
-    # ------------------------------------------------------------------
-
-    def initialize(self) -> dict:
-        """Initialize the central database foundation."""
-
-        self.connect()
-
-        # --------------------------------------------------------------
-        # SYSTEM METADATA
-        # --------------------------------------------------------------
-
-        self.execute(
-            """
-            CREATE TABLE IF NOT EXISTS system_metadata (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                key TEXT NOT NULL UNIQUE,
-                value TEXT,
-                created_at TEXT DEFAULT CURRENT_TIMESTAMP,
-                updated_at TEXT DEFAULT CURRENT_TIMESTAMP
-            )
-            """
-        )
-
-        self.execute(
-            """
-            INSERT OR IGNORE INTO system_metadata
-            (key, value)
-            VALUES (?, ?)
-            """,
-            (
-                "database_version",
-                "1.0",
-            ),
-        )
-
-        # --------------------------------------------------------------
-        # CENTRAL DATABASE SCHEMA
-        # --------------------------------------------------------------
-
-        for table_name, table_schema in DatabaseSchema.TABLES.items():
-            try:
-                self.execute(table_schema)
-            except Exception as exc:
-                raise RuntimeError(
-                    f"Failed to initialize database table: "
-                    f"{table_name}"
-                ) from exc
-
-        return {
-            "success": True,
-            "status": "READY",
-            "database": self.database_path,
-            "tables": DatabaseSchema.list_tables(),
-        }
-
-    # ------------------------------------------------------------------
-    # INTERNAL CONNECTION
-    # ------------------------------------------------------------------
-
-    def _require_connection(self) -> sqlite3.Connection:
-        """Return an active connection."""
-
-        if self._connection is None:
-            self.connect()
-
-        if self._connection is None:
-            raise RuntimeError(
-                "Database connection could not be established."
-            )
-
         return self._connection
 
-    # ------------------------------------------------------------------
-    # EXECUTION
-    # ------------------------------------------------------------------
+    # ==========================================================
+    # CLOSE
+    # ==========================================================
+
+    def close(self) -> None:
+
+        if self._connection is not None:
+
+            self._connection.close()
+
+            self._connection = None
+
+    # ==========================================================
+    # EXECUTE
+    # ==========================================================
 
     def execute(
         self,
         query: str,
-        parameters: Sequence[Any] | Iterable[Any] = (),
-    ) -> int:
-        """Execute one SQL statement and return affected rows."""
+        parameters: Iterable[Any] = (),
+    ) -> sqlite3.Cursor:
 
-        with self._lock:
-            connection = self._require_connection()
+        connection = self.connect()
 
-            cursor = connection.cursor()
+        cursor = connection.cursor()
 
-            try:
-                cursor.execute(
-                    query,
-                    tuple(parameters),
-                )
+        cursor.execute(
+            query,
+            tuple(parameters),
+        )
 
-                connection.commit()
+        connection.commit()
 
-                return cursor.rowcount
+        return cursor
 
-            except Exception:
-                connection.rollback()
-                raise
-
-            finally:
-                cursor.close()
-
-    def executemany(
-        self,
-        query: str,
-        parameters: Iterable[Sequence[Any]],
-    ) -> int:
-        """Execute one SQL statement against multiple parameter sets."""
-
-        with self._lock:
-            connection = self._require_connection()
-
-            cursor = connection.cursor()
-
-            try:
-                cursor.executemany(
-                    query,
-                    [tuple(item) for item in parameters],
-                )
-
-                connection.commit()
-
-                return cursor.rowcount
-
-            except Exception:
-                connection.rollback()
-                raise
-
-            finally:
-                cursor.close()
-
-    # ------------------------------------------------------------------
-    # QUERIES
-    # ------------------------------------------------------------------
+    # ==========================================================
+    # FETCH ONE
+    # ==========================================================
 
     def fetchone(
         self,
         query: str,
-        parameters: Sequence[Any] | Iterable[Any] = (),
+        parameters: Iterable[Any] = (),
     ) -> Optional[sqlite3.Row]:
-        """Return one database row."""
 
-        with self._lock:
-            connection = self._require_connection()
+        connection = self.connect()
 
-            cursor = connection.cursor()
+        cursor = connection.cursor()
 
-            try:
-                cursor.execute(
-                    query,
-                    tuple(parameters),
-                )
+        cursor.execute(
+            query,
+            tuple(parameters),
+        )
 
-                return cursor.fetchone()
+        return cursor.fetchone()
 
-            finally:
-                cursor.close()
+    # ==========================================================
+    # FETCH ALL
+    # ==========================================================
 
     def fetchall(
         self,
         query: str,
-        parameters: Sequence[Any] | Iterable[Any] = (),
+        parameters: Iterable[Any] = (),
     ) -> list[sqlite3.Row]:
-        """Return all database rows."""
 
-        with self._lock:
-            connection = self._require_connection()
+        connection = self.connect()
 
-            cursor = connection.cursor()
+        cursor = connection.cursor()
 
-            try:
-                cursor.execute(
-                    query,
-                    tuple(parameters),
-                )
+        cursor.execute(
+            query,
+            tuple(parameters),
+        )
 
-                return cursor.fetchall()
+        return cursor.fetchall()
 
-            finally:
-                cursor.close()
+    # ==========================================================
+    # TABLE EXISTS
+    # ==========================================================
 
-    # ------------------------------------------------------------------
-    # TRANSACTION
-    # ------------------------------------------------------------------
+    def table_exists(
+        self,
+        table_name: str,
+    ) -> bool:
 
-    def begin(self) -> dict:
-        """Begin a transaction."""
+        row = self.fetchone(
+            """
+            SELECT name
+            FROM sqlite_master
+            WHERE type = 'table'
+              AND name = ?
+            """,
+            (table_name,),
+        )
 
-        with self._lock:
-            connection = self._require_connection()
+        return row is not None
 
-            connection.execute("BEGIN")
+    # ==========================================================
+    # TABLE COLUMNS
+    # ==========================================================
 
-            return {
-                "success": True,
-                "status": "TRANSACTION_STARTED",
-            }
+    def get_columns(
+        self,
+        table_name: str,
+    ) -> set[str]:
 
-    def commit(self) -> dict:
-        """Commit the active transaction."""
-
-        with self._lock:
-            connection = self._require_connection()
-
-            connection.commit()
-
-            return {
-                "success": True,
-                "status": "TRANSACTION_COMMITTED",
-            }
-
-    def rollback(self) -> dict:
-        """Rollback the active transaction."""
-
-        with self._lock:
-            connection = self._require_connection()
-
-            connection.rollback()
-
-            return {
-                "success": True,
-                "status": "TRANSACTION_ROLLED_BACK",
-            }
-
-    # ------------------------------------------------------------------
-    # HEALTH
-    # ------------------------------------------------------------------
-
-    def health(self) -> dict:
-        """Return database health information."""
-
-        try:
-            self._require_connection()
-
-            self.fetchone(
-                "SELECT 1"
-            )
-
-            return {
-                "success": True,
-                "status": "HEALTHY",
-                "connected": True,
-                "database": self.database_path,
-            }
-
-        except Exception as exc:
-            return {
-                "success": False,
-                "status": "UNHEALTHY",
-                "connected": False,
-                "database": self.database_path,
-                "error": str(exc),
-            }
-
-    # ------------------------------------------------------------------
-    # INFORMATION
-    # ------------------------------------------------------------------
-
-    def status(self) -> dict:
-        """Return database service status."""
+        rows = self.fetchall(
+            f'PRAGMA table_info("{table_name}")'
+        )
 
         return {
-            "service": "DatabaseService",
-            "database": self.database_path,
-            "connected": self._connection is not None,
-            "schema_tables": DatabaseSchema.list_tables(),
+            str(row["name"])
+            for row in rows
         }
 
+    # ==========================================================
+    # ADD MISSING COLUMN
+    # ==========================================================
 
-__all__ = [
-    "DatabaseService",
-]
+    def add_column_if_missing(
+        self,
+        table_name: str,
+        column_name: str,
+        column_definition: str,
+    ) -> bool:
+
+        if not self.table_exists(
+            table_name
+        ):
+            return False
+
+        columns = self.get_columns(
+            table_name
+        )
+
+        if column_name in columns:
+            return False
+
+        self.execute(
+            f'''
+            ALTER TABLE "{table_name}"
+            ADD COLUMN "{column_name}"
+            {column_definition}
+            '''
+        )
+
+        return True
+
+    # ==========================================================
+    # WORDPRESS SITES MIGRATION
+    # ==========================================================
+
+    def migrate_wordpress_sites(self) -> None:
+
+        table = "wordpress_sites"
+
+        # ------------------------------------------------------
+        # If table does not exist, create the complete version
+        # ------------------------------------------------------
+
+        if not self.table_exists(table):
+
+            self.execute(
+                """
+                CREATE TABLE IF NOT EXISTS wordpress_sites (
+
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+                    site_id TEXT NOT NULL UNIQUE,
+
+                    domain TEXT NOT NULL UNIQUE,
+
+                    site_url TEXT,
+
+                    provider TEXT,
+
+                    hosting_account_id TEXT,
+
+                    database_name TEXT,
+
+                    table_prefix TEXT
+                        DEFAULT 'wp_',
+
+                    status TEXT
+                        DEFAULT 'REGISTERED',
+
+                    environment TEXT
+                        DEFAULT 'production',
+
+                    description TEXT,
+
+                    created_at TEXT
+                        DEFAULT CURRENT_TIMESTAMP,
+
+                    updated_at TEXT
+                        DEFAULT CURRENT_TIMESTAMP
+                )
+                """
+            )
+
+            return
+
+        # ------------------------------------------------------
+        # Existing table:
+        # ADD ONLY MISSING COLUMNS
+        # ------------------------------------------------------
+
+        required_columns = {
+
+            "site_id":
+                "TEXT",
+
+            "domain":
+                "TEXT",
+
+            "site_url":
+                "TEXT",
+
+            "provider":
+                "TEXT",
+
+            "hosting_account_id":
+                "TEXT",
+
+            "database_name":
+                "TEXT",
+
+            "table_prefix":
+                "TEXT DEFAULT 'wp_'",
+
+            "status":
+                "TEXT DEFAULT 'REGISTERED'",
+
+            "environment":
+                "TEXT DEFAULT 'production'",
+
+            "description":
+                "TEXT",
+
+            "created_at":
+                "TEXT DEFAULT CURRENT_TIMESTAMP",
+
+            "updated_at":
+                "TEXT DEFAULT CURRENT_TIMESTAMP",
+        }
+
+        for column_name, definition in (
+            required_columns.items()
+        ):
+
+            self.add_column_if_missing(
+                table,
+                column_name,
+                definition,
+            )
+
+        # ------------------------------------------------------
+        # Repair NULL/default values for existing rows
+        # ------------------------------------------------------
+
+        self.execute(
+            """
+            UPDATE wordpress_sites
+            SET table_prefix = 'wp_'
+            WHERE table_prefix IS NULL
+               OR table_prefix = ''
+            """
+        )
+
+        self.execute(
+            """
+            UPDATE wordpress_sites
+            SET status = 'REGISTERED'
+            WHERE status IS NULL
+               OR status = ''
+            """
+        )
+
+        self.execute(
+            """
+            UPDATE wordpress_sites
+            SET environment = 'production'
+            WHERE environment IS NULL
+               OR environment = ''
+            """
+        )
+
+    # ==========================================================
+    # GLOBAL MIGRATION
+    # ==========================================================
+
+    def migrate_existing_database(self) -> None:
+
+        # ------------------------------------------------------
+        # WORDPRESS
+        # ------------------------------------------------------
+
+        self.migrate_wordpress_sites()
+
+    # ==========================================================
+    # INITIALIZE
+    # ==========================================================
+
+    def initialize(self) -> None:
+
+        self.connect()
+
+        # ------------------------------------------------------
+        # Existing project schema initialization
+        # ------------------------------------------------------
+
+        try:
+
+            from backend.database.schema import (
+                DatabaseSchema,
+            )
+
+            for table_name in (
+                DatabaseSchema.list_tables()
+            ):
+
+                schema_sql = (
+                    DatabaseSchema.get_table_schema(
+                        table_name
+                    )
+                )
+
+                if schema_sql:
+                    self.execute(
+                        schema_sql
+                    )
+
+        except ImportError:
+            # Schema module is optional during
+            # early bootstrap.
+            pass
+
+        # ------------------------------------------------------
+        # IMPORTANT:
+        # Run migrations AFTER table creation.
+        # ------------------------------------------------------
+
+        self.migrate_existing_database()
+
+        # ------------------------------------------------------
+        # Final commit
+        # ------------------------------------------------------
+
+        self.connect().commit()
