@@ -13,7 +13,7 @@ def create_test_identity_service():
     database_file.close()
 
     database = DatabaseService(
-        database_path=database_file.name
+        db_path=database_file.name
     )
 
     return IdentityService(
