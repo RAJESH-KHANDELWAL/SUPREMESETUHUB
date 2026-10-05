@@ -1,3 +1,4 @@
+from backend.engines.manager import EngineManager
 
 from backend.engines.database.manager import DatabaseEngine
 from backend.engines.storage.manager import StorageEngine
