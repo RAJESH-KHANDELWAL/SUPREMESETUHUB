@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 
+from backend.supreme.personal_ai.api import router as supreme_personal_ai_router
+
 
 app = FastAPI(
     title="SUPREMESETUHUB",
@@ -7,12 +9,30 @@ app = FastAPI(
 )
 
 
+# ---------------------------------------------------------
+# SUPREME PERSONAL AI
+# ---------------------------------------------------------
+
+app.include_router(
+    supreme_personal_ai_router
+)
+
+
+# ---------------------------------------------------------
+# HEALTH
+# ---------------------------------------------------------
+
 @app.get("/health")
 def health():
     return {
-        "status": "running"
+        "status": "running",
+        "system": "SUPREMESETUHUB",
     }
 
+
+# ---------------------------------------------------------
+# FOUNDATION
+# ---------------------------------------------------------
 
 @app.get("/api/v1/foundation")
 def foundation():
