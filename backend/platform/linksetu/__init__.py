@@ -1,7 +1,5 @@
-"""
-LINKSETU
-Social, Media, Messaging, Professional and Microblogging Platform
-"""
+"""LINKSETU CREATOR EXPERIENCE."""
 
-__version__ = "1.0.0"
-__platform__ = "LINKSETU"
+from .service import LinkSetuCreatorService
+
+__all__ = ["LinkSetuCreatorService"]
