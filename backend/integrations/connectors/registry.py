@@ -1,4 +1,5 @@
 from __future__ import annotations
+from .openai_image import OpenAIImageConnector
 
 from dataclasses import dataclass, asdict
 from typing import Any, Callable
