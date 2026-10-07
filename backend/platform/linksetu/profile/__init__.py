@@ -1,11 +1,5 @@
-"""
-LINKSETU PROFILE MODULE
-"""
+"""LINKSETU PROFILE EXPERIENCE."""
 
-from .models import LinkSetuProfile
-from .service import ProfileService
+from .service import LinkSetuProfileService
 
-__all__ = [
-    "LinkSetuProfile",
-    "ProfileService",
-]
+__all__ = ["LinkSetuProfileService"]
