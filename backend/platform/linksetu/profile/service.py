@@ -1,36 +1,28 @@
-"""
-LINKSETU PROFILE SERVICE
-"""
+"""LINKSETU profile experience service."""
 
 
-class ProfileService:
+class LinkSetuProfileService:
+    """Resolve a MAIN PROFILE into the LINKSETU experience."""
 
-    def create_profile(
-        self,
-        user_id: str,
-        username: str,
-        display_name: str,
-        bio: str = "",
-    ):
+    platform_name = "LINKSETU"
+
+    def get_profile(self, user_id: str) -> dict:
         return {
+            "platform": self.platform_name,
             "user_id": user_id,
-            "username": username,
-            "display_name": display_name,
-            "bio": bio,
-            "platform": "LINKSETU",
-            "status": "created",
+            "profile_source": "MAIN_BASE_PROFILE",
+            "status": "linked",
         }
 
-    def get_profile(self, user_id: str):
+    def get_profile_experience(self, user_id: str) -> dict:
         return {
-            "platform": "LINKSETU",
+            "platform": self.platform_name,
             "user_id": user_id,
-        }
-
-    def update_profile(self, user_id: str, **updates):
-        return {
-            "platform": "LINKSETU",
-            "user_id": user_id,
-            "updates": updates,
-            "status": "updated",
+            "profile_source": "MAIN_BASE_PROFILE",
+            "experience": {
+                "profile": True,
+                "connections": True,
+                "posts": True,
+                "media": True,
+            },
         }
