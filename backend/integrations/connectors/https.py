@@ -4,25 +4,27 @@ from typing import Any
 
 import requests
 
+from .tls import TLSConfiguration
+
 
 class ExternalHTTPSConnector:
     """
     Secure HTTPS connector for authorized external APIs.
 
     External services remain on their own official servers.
-    SUPREMESETUHUB only communicates through HTTPS.
+    SUPREMESETUHUB communicates with them through HTTPS.
     """
 
     def __init__(
         self,
         base_url: str,
         timeout: int = 60,
-        verify_ssl: bool = True,
+        tls: TLSConfiguration | None = None,
     ) -> None:
 
         self.base_url = base_url.rstrip("/")
         self.timeout = timeout
-        self.verify_ssl = verify_ssl
+        self.tls = tls or TLSConfiguration()
 
         if not self.base_url:
             raise ValueError(
@@ -54,6 +56,8 @@ class ExternalHTTPSConnector:
                 "HTTPS_REQUIRED_FOR_EXTERNAL_REQUEST"
             )
 
+        tls_status = self.tls.status()
+
         response = requests.request(
             method=method.upper(),
             url=url,
@@ -61,7 +65,7 @@ class ExternalHTTPSConnector:
             params=params or {},
             json=json,
             timeout=self.timeout,
-            verify=self.verify_ssl,
+            verify=tls_status["certificate_verification"],
         )
 
         try:
@@ -75,5 +79,5 @@ class ExternalHTTPSConnector:
             "success": response.ok,
             "http_code": response.status_code,
             "response": data,
-            "tls_verified": self.verify_ssl,
+            "security": tls_status,
         }
