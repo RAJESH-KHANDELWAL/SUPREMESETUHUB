@@ -38,7 +38,6 @@ from backend.api.theme_hub import router as theme_hub_router
 from backend.wordpress.bootstrap import (
     create_wordpress_service,
 )
-from backend.api.supreme import router as supreme_router
 from backend.api.connectors import router as connectors_router
 
 
@@ -227,8 +226,6 @@ app.include_router(user_hub_router)
 app.include_router(ai_router)
 
 app.include_router(theme_hub_router)
-
-app.include_router(supreme_router)
 
 app.include_router(connectors_router)
 
