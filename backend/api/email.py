@@ -7,6 +7,9 @@ from pydantic import BaseModel, Field
 
 from backend.infrastructure.email.controller import EmailController
 from backend.infrastructure.email.model import EmailAccountInfo
+from backend.infrastructure.email.providers import (
+    email_provider_registry,
+)
 
 
 router = APIRouter(
@@ -16,6 +19,11 @@ router = APIRouter(
 
 
 email_controller = EmailController()
+
+
+# ============================================================
+# REQUEST MODELS
+# ============================================================
 
 
 class EmailAccountCreateRequest(BaseModel):
@@ -37,18 +45,67 @@ class EmailAccountStatusRequest(BaseModel):
     status: str = Field(min_length=1)
 
 
+# ============================================================
+# EMAIL INFRASTRUCTURE STATUS
+# ============================================================
+
+
 @router.get("/status")
 def email_status():
     """Return email infrastructure status."""
 
     accounts = email_controller.list_accounts()
+    providers = email_provider_registry.list_all()
 
     return {
         "success": True,
         "system": "SUPREMESETU MAIL",
         "status": "active",
         "accounts": len(accounts),
+        "providers": len(providers),
     }
+
+
+# ============================================================
+# EMAIL PROVIDERS
+# ============================================================
+
+
+@router.get("/providers")
+def list_email_providers():
+    """Return registered email providers."""
+
+    return {
+        "success": True,
+        "providers": email_provider_registry.public_list(),
+    }
+
+
+@router.get("/providers/{provider_id}")
+def get_email_provider(
+    provider_id: str,
+):
+    """Return a registered email provider."""
+
+    provider = email_provider_registry.get(
+        provider_id
+    )
+
+    if not provider:
+        raise HTTPException(
+            status_code=404,
+            detail="EMAIL_PROVIDER_NOT_FOUND",
+        )
+
+    return {
+        "success": True,
+        "provider": provider.to_dict(),
+    }
+
+
+# ============================================================
+# SUPREMESETU MAIL ACCOUNTS
+# ============================================================
 
 
 @router.post("/accounts")
@@ -79,7 +136,9 @@ def create_email_account(
     )
 
     try:
-        result = email_controller.create_account(account)
+        result = email_controller.create_account(
+            account
+        )
 
     except Exception as exc:
         raise HTTPException(
@@ -116,7 +175,9 @@ def get_email_account(
 ):
     """Get a SUPREMESETU MAIL account."""
 
-    account = email_controller.get_account(account_id)
+    account = email_controller.get_account(
+        account_id
+    )
 
     if not account:
         raise HTTPException(
@@ -136,7 +197,9 @@ def verify_email_account(
 ):
     """Verify a SUPREMESETU MAIL account."""
 
-    account = email_controller.verify_account(account_id)
+    account = email_controller.verify_account(
+        account_id
+    )
 
     if not account:
         raise HTTPException(
