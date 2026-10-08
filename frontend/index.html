@@ -1369,6 +1369,33 @@
 
 </script>
 
+<script>
+async function checkLinkSetuBackend() {
+    try {
+        const response = await fetch("/api/v1/linksetu/status");
 
+        if (!response.ok) {
+            throw new Error("LINKSETU API unavailable");
+        }
+
+        const data = await response.json();
+
+        console.log("LINKSETU BACKEND:", data);
+
+        if (data.success && data.status === "active") {
+            document.body.setAttribute("data-linksetu-backend", "connected");
+            console.log("✅ LINKSETU FRONTEND → BACKEND CONNECTED");
+        } else {
+            console.warn("⚠️ LINKSETU backend responded but is not active");
+        }
+
+    } catch (error) {
+        console.error("❌ LINKSETU FRONTEND → BACKEND CONNECTION FAILED:", error);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", checkLinkSetuBackend);
+</script>
+    
 </body>
 </html>
