@@ -1,5 +1,3 @@
-"""LINKSETU CREATOR EXPERIENCE."""
+"""LINKSETU PLATFORM PACKAGE."""
 
-from .service import LinkSetuCreatorService
-
-__all__ = ["LinkSetuCreatorService"]
+__all__ = []
