@@ -39,6 +39,7 @@ from backend.wordpress.bootstrap import (
     create_wordpress_service,
 )
 from backend.api.connectors import router as connectors_router
+from backend.api.linksetu import router as linksetu_router
 
 
 # ============================================================
@@ -228,6 +229,8 @@ app.include_router(ai_router)
 app.include_router(theme_hub_router)
 
 app.include_router(connectors_router)
+
+app.include_router(linksetu_router)
 
 
 # ============================================================
