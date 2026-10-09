@@ -62,6 +62,14 @@ class AIEngine(BaseEngine):
             ),
         )
 
+        # Register NSFWInfra Image Provider
+        self.register_provider(
+            name="nsfwinfra",
+            capabilities=["image"],
+            models=["nsfwinfra-image"],
+            handler=self._generate_nsfwinfra_image,
+        )
+    
     def register_provider(
         self,
         name: str,
