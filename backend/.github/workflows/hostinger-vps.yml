@@ -1,4 +1,3 @@
-
 name: Hostinger VPS Deployment
 
 on:
@@ -23,15 +22,24 @@ concurrency:
 
 jobs:
   deploy:
-    name: Deploy Foundation to Hostinger VPS
+    name: Deploy SUPREMESETUHUB to Hostinger VPS
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify deployment files
+        run: |
+          test -f backend/Dockerfile
+          test -f backend/docker-compose.yml
+          test -f backend/requirements.txt
+          echo "Deployment files found."
+
       - name: Deploy to Hostinger VPS
         uses: hostinger/deploy-on-vps@v2
         with:
           api-key: ${{ secrets.HOSTINGER_API_KEY }}
           virtual-machine: ${{ vars.HOSTINGER_VM_ID }}
           project-name: supreme-foundation
-          docker-compose-path: docker-compose.yml
-  
+          docker-compose-path: backend/docker-compose.yml
