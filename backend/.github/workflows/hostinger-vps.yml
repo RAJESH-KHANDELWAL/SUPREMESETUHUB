@@ -1,4 +1,5 @@
-name: Hostinger VPS Deployment
+```yaml
+name: Deploy to Hostinger VPS
 
 on:
   workflow_dispatch:
@@ -6,10 +7,6 @@ on:
     branches:
       - main
     paths:
-      - "Dockerfile"
-      - "docker-compose.yml"
-      - "requirements.txt"
-      - "app.py"
       - "backend/**"
       - ".github/workflows/hostinger-vps.yml"
 
@@ -22,19 +19,18 @@ concurrency:
 
 jobs:
   deploy:
-    name: Deploy SUPREMESETUHUB to Hostinger VPS
+    name: Deploy SUPREMESETUHUB
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Verify deployment files
         run: |
           test -f backend/Dockerfile
           test -f backend/docker-compose.yml
           test -f backend/requirements.txt
-          echo "Deployment files found."
 
       - name: Deploy to Hostinger VPS
         uses: hostinger/deploy-on-vps@v2
@@ -43,3 +39,4 @@ jobs:
           virtual-machine: ${{ vars.HOSTINGER_VM_ID }}
           project-name: supreme-foundation
           docker-compose-path: backend/docker-compose.yml
+```
