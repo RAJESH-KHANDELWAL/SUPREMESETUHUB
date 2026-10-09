@@ -1,1 +1,37 @@
 
+name: Hostinger VPS Deployment
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "Dockerfile"
+      - "docker-compose.yml"
+      - "requirements.txt"
+      - "app.py"
+      - "backend/**"
+      - ".github/workflows/hostinger-vps.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hostinger-vps-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy Foundation to Hostinger VPS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Hostinger VPS
+        uses: hostinger/deploy-on-vps@v2
+        with:
+          api-key: ${{ secrets.HOSTINGER_API_KEY }}
+          virtual-machine: ${{ vars.HOSTINGER_VM_ID }}
+          project-name: supreme-foundation
+          docker-compose-path: docker-compose.yml
+  
