@@ -27,18 +27,13 @@ jobs:
           cache-dependency-path: backend/requirements.txt
 
       - name: Install Python dependencies
-        shell: bash
         run: |
-          set -e
           python -m pip install --upgrade pip
           python -m pip install -r backend/requirements.txt
           python -m pip install pytest
 
       - name: Run Backend Tests
-        shell: bash
-        run: |
-          set -e
-          python -m pytest backend/tests -v
+        run: python -m pytest backend/tests -v
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
@@ -48,24 +43,18 @@ jobs:
           cache: gradle
 
       - name: Prepare Android SDK
-        shell: bash
         run: |
           set -e
           SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
-          "$SDKMANAGER" --version
           "$SDKMANAGER" --install \
             "platform-tools" \
             "platforms;android-36" \
             "build-tools;36.0.0"
 
       - name: Verify Android SDK
-        shell: bash
         run: |
-          set -e
           test -d "$ANDROID_HOME/platforms/android-36"
           test -d "$ANDROID_HOME/build-tools/36.0.0"
-          echo "Android SDK 36 is ready."
-          echo "Build Tools 36.0.0 is ready."
 
       - name: Install Gradle
         uses: gradle/actions/setup-gradle@v4
@@ -74,27 +63,19 @@ jobs:
 
       - name: Check Gradle
         working-directory: mobile/android
-        shell: bash
-        run: |
-          set -e
-          gradle --version
+        run: gradle --version
 
       - name: Build Release AAB
         working-directory: mobile/android
-        shell: bash
         run: |
-          set -e
           gradle :app:bundleRelease \
             --stacktrace \
             --no-daemon
 
       - name: Verify AAB
-        shell: bash
         run: |
-          set -e
           AAB="mobile/android/app/build/outputs/bundle/release/app-release.aab"
           test -f "$AAB"
-          echo "Release AAB successfully created:"
           ls -lh "$AAB"
 
       - name: Upload Release AAB
