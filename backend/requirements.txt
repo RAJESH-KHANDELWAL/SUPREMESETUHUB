@@ -9,3 +9,4 @@ openai
 google-genai
 mysql-connector-python>=9.0,<10.0
 PyMySQL>=1.1,<2
+httpx
