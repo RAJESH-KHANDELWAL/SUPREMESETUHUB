@@ -1,0 +1,32 @@
+```yaml
+name: Hostinger SSH Key Setup
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  generate-key:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Generate SSH key pair
+        run: |
+          ssh-keygen -t ed25519 \
+            -C "github-actions-hostinger" \
+            -f "$RUNNER_TEMP/hostinger_deploy" \
+            -N ""
+
+          echo "Public key generated:"
+          cat "$RUNNER_TEMP/hostinger_deploy.pub"
+
+          echo "Private key generated securely."
+          echo "It will not be printed."
+
+      - name: Explain next step
+        run: |
+          echo "Add the public key shown above to Hostinger SSH Access."
+          echo "The runner is temporary; this key pair will not persist."
+```
