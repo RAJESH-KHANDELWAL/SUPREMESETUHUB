@@ -1,4 +1,3 @@
-```yaml
 name: Android Build
 
 on:
@@ -81,4 +80,4 @@ jobs:
           name: supreme-setu-hub-release-aab
           path: mobile/android/app/build/outputs/bundle/release/app-release.aab
           if-no-files-found: error
-```
+          
