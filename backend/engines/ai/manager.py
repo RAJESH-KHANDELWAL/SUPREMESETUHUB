@@ -1,9 +1,16 @@
 
 from __future__ import annotations
 
+import os
+import logging
 from typing import Any, Callable
 
+import httpx
+
 from backend.engines.base import BaseEngine
+
+
+logger = logging.getLogger(__name__)
 
 
 class AIEngine(BaseEngine):
@@ -35,7 +42,7 @@ class AIEngine(BaseEngine):
 
         self._providers: dict[str, dict[str, Any]] = {}
 
-        # Existing Image and Video provider services
+        # Existing image and video provider services
         from backend.creation.providers.photo_provider import PhotoProvider
         from backend.creation.video_service import VideoCreationService
 
@@ -69,7 +76,54 @@ class AIEngine(BaseEngine):
             models=["nsfwinfra-image"],
             handler=self._generate_nsfwinfra_image,
         )
-    
+
+    def _generate_nsfwinfra_image(
+        self,
+        capability: str,
+        **payload: Any,
+    ) -> dict[str, Any]:
+        """Generate an image through the NSFWInfra API."""
+
+        api_key = os.getenv("NSFWINFRA_API_KEY")
+
+        if not api_key:
+            raise RuntimeError(
+                "NSFWINFRA_API_KEY is not configured"
+            )
+
+        prompt = str(payload.get("prompt", "")).strip()
+
+        if not prompt:
+            raise ValueError("PROMPT_REQUIRED")
+
+        # Send only the prompt supported by the supplied API example.
+        response = httpx.post(
+            "https://api.nsfwinfra.com/v1/images/generate",
+            headers={
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json",
+            },
+            json={"prompt": prompt},
+            timeout=60.0,
+        )
+
+        if not response.is_success:
+            logger.error(
+                "NSFWInfra request failed with HTTP status %s",
+                response.status_code,
+            )
+            raise RuntimeError(
+                f"NSFWINFRA_HTTP_ERROR_{response.status_code}"
+            )
+
+        try:
+            return response.json()
+        except ValueError as exc:
+            logger.error("NSFWInfra returned a non-JSON response")
+            raise RuntimeError(
+                "NSFWINFRA_INVALID_JSON_RESPONSE"
+            ) from exc
+
     def register_provider(
         self,
         name: str,
@@ -183,7 +237,9 @@ class AIEngine(BaseEngine):
             raise ValueError("PROVIDER_NOT_FOUND")
 
         if capability_name not in selected["capabilities"]:
-            raise ValueError("CAPABILITY_NOT_SUPPORTED_BY_PROVIDER")
+            raise ValueError(
+                "CAPABILITY_NOT_SUPPORTED_BY_PROVIDER"
+            )
 
         return selected["handler"](
             capability=capability_name,
