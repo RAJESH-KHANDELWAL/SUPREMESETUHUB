@@ -1,2 +1,15 @@
 buildCommand: pip install -r backend/requirements.txt
 startCommand: python -m backend.start
+services:
+  - type: web
+    name: main-base-foundation-api
+    runtime: python
+    plan: free
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: python start.py
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: SUPREME_CONTROL_TOKEN
+        sync: false
