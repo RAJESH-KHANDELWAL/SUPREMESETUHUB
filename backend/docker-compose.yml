@@ -1,0 +1,12 @@
+services:
+  supreme-foundation:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: supreme-foundation
+    restart: unless-stopped
+    environment:
+      PORT: "8000"
+    ports:
+      - "8000:8000"
+  
