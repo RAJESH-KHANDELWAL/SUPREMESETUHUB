@@ -1,0 +1,44 @@
+```yaml
+name: Deploy Website to Hostinger SSH
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "frontend/**"
+      - ".github/workflows/hostinger-ssh.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hostinger-ssh-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy SUPREMESETUHUB Frontend
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Verify frontend
+        run: |
+          test -f frontend/index.html
+          test -f frontend/styles.css
+
+      - name: Deploy to Hostinger
+        uses: pedromneto97/hostinger-deploy@v1.0.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-host: ${{ secrets.SSH_HOST }}
+          ssh-user: ${{ secrets.SSH_USER }}
+          ssh-port: ${{ secrets.SSH_PORT }}
+          local-path: ./frontend/
+          remote-path: ${{ vars.HOSTINGER_REMOTE_PATH }}
+          rsync-options: "-avz"
+```
