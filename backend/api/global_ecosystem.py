@@ -8,24 +8,30 @@ from backend.engines.global_ecosystem import GlobalEcosystemManager
 
 
 class GlobalEcosystemAPI:
-    """API facade for the GLOBAL ECOSYSTEM."""
+    """API facade for the GLOBAL ECOSYSTEM engine."""
 
     def __init__(self) -> None:
         self.engine = GlobalEcosystemManager()
 
     def status(self) -> dict[str, Any]:
+        """Return ecosystem status."""
         return self.engine.status()
 
     def health(self) -> dict[str, Any]:
+        """Return ecosystem health."""
         return self.engine.health()
 
     def list(self) -> dict[str, Any]:
+        """Return all registered ecosystems."""
         return self.engine.list()
 
     def names(self) -> dict[str, Any]:
+        """Return all ecosystem names."""
         return self.engine.names()
 
     def get(self, ecosystem_id: str) -> dict[str, Any]:
+        """Get an ecosystem by ID or exact name."""
+
         result = self.engine.get(ecosystem_id)
 
         if result is None:
@@ -36,10 +42,7 @@ class GlobalEcosystemAPI:
             }
 
         if hasattr(result, "to_dict"):
-            return result.to_dict()
-
-        if isinstance(result, dict):
-            return result
+            result = result.to_dict()
 
         return {
             "success": True,
@@ -47,14 +50,17 @@ class GlobalEcosystemAPI:
         }
 
     def exists(self, ecosystem_id: str) -> bool:
+        """Check whether an ecosystem exists."""
         return self.engine.exists(ecosystem_id)
 
     def tree(self) -> dict[str, Any]:
+        """Return the nested ecosystem hierarchy."""
         return self.engine.tree()
 
     def connection_map(self) -> dict[str, Any]:
+        """Return ecosystem relationships."""
         return self.engine.connection_map()
 
 
-# Backward compatibility
+# Backward compatibility for older imports.
 EcosystemAPI = GlobalEcosystemAPI
