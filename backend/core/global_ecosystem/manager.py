@@ -4,20 +4,18 @@ from __future__ import annotations
 
 from typing import Any
 
-from backend.core.global_ecosystem.catalog import (
-    ROOT_ID,
-    get_catalog,
-)
+from backend.core.global_ecosystem.catalog import ROOT_ID, get_catalog
 from backend.core.global_ecosystem.models import GlobalEcosystemIdentity
 from backend.core.global_ecosystem.registry import GlobalEcosystemRegistry
 
 
 class GlobalEcosystemManager:
-    """Initialize and manage the canonical GLOBAL ECOSYSTEM hierarchy."""
+    """Manage the canonical GLOBAL ECOSYSTEM hierarchy."""
 
     ROOT_ID = ROOT_ID
     ROOT_NAME = "GLOBAL ECOSYSTEM"
     VERSION = "1.0.0"
+    CORE_ID = "GLOBAL-SUPREME-ECOSYSTEM"
 
     def __init__(self) -> None:
         self.registry = GlobalEcosystemRegistry()
@@ -25,7 +23,6 @@ class GlobalEcosystemManager:
 
     @staticmethod
     def _to_identity(record: dict[str, Any]) -> GlobalEcosystemIdentity:
-        """Convert a catalog record into the CORE identity model."""
         return GlobalEcosystemIdentity(
             ecosystem_id=record["ecosystem_id"],
             name=record["name"],
@@ -40,23 +37,44 @@ class GlobalEcosystemManager:
         )
 
     def _initialize(self) -> None:
-        """Register the root first, then categories and registrations."""
+        """Register catalog entries in parent-first order."""
         records = get_catalog()
 
-        # The catalog orders records as root, categories, registrations.
+        if not records:
+            raise RuntimeError("GLOBAL ECOSYSTEM catalog is empty")
+
+        registered_ids: set[str] = set()
+
         for record in records:
             identity = self._to_identity(record)
-            result = self.registry.register(identity)
+            ecosystem_id = identity.ecosystem_id
 
-            if not result.get("success", False):
+            if ecosystem_id in registered_ids:
                 raise RuntimeError(
-                    "GLOBAL ECOSYSTEM initialization failed for "
-                    f"{identity.ecosystem_id}: "
-                    f"{result.get('error', 'REGISTRATION_FAILED')}"
+                    f"Duplicate ecosystem ID in catalog: {ecosystem_id}"
                 )
 
+            parent_id = identity.parent_id
+
+            if parent_id and parent_id not in registered_ids:
+                raise RuntimeError(
+                    f"Parent must appear before child: "
+                    f"{ecosystem_id} -> {parent_id}"
+                )
+
+            try:
+                self.registry.register(identity)
+            except (ValueError, KeyError) as exc:
+                raise RuntimeError(
+                    f"Initialization failed for {ecosystem_id}: {exc}"
+                ) from exc
+
+            registered_ids.add(ecosystem_id)
+
+        if self.ROOT_ID not in registered_ids:
+            raise RuntimeError("GLOBAL ECOSYSTEM root is missing")
+
     def status(self) -> dict[str, Any]:
-        """Return the current registry summary."""
         root = self.registry.get(self.ROOT_ID)
 
         return {
@@ -69,24 +87,23 @@ class GlobalEcosystemManager:
         }
 
     def health(self) -> dict[str, Any]:
-        """Check registry structure without claiming external services work."""
         root_exists = self.registry.exists(self.ROOT_ID)
-        core_exists = self.registry.exists("GLOBAL-CORE")
+        core_exists = self.registry.exists(self.CORE_ID)
+        healthy = root_exists and core_exists
 
         return {
-            "success": root_exists and core_exists,
+            "success": healthy,
             "root_exists": root_exists,
             "core_exists": core_exists,
             "registry_count": self.registry.count(),
             "status": (
                 "FOUNDATION_READY"
-                if root_exists and core_exists
+                if healthy
                 else "FOUNDATION_INCOMPLETE"
             ),
         }
 
     def list(self) -> dict[str, Any]:
-        """List all registered ecosystem records."""
         ecosystems = self.registry.list()
 
         return {
@@ -96,7 +113,6 @@ class GlobalEcosystemManager:
         }
 
     def names(self) -> dict[str, Any]:
-        """List all registered ecosystem names."""
         names = self.registry.names()
 
         return {
@@ -106,43 +122,64 @@ class GlobalEcosystemManager:
         }
 
     def get(self, ecosystem_id: str) -> dict[str, Any] | None:
-        """Find an ecosystem by its ID or supported name lookup."""
         return self.registry.get(ecosystem_id)
 
     def exists(self, ecosystem_id: str) -> bool:
-        """Return whether an ecosystem ID or supported name exists."""
         return self.registry.exists(ecosystem_id)
 
     def register(
         self,
         identity: GlobalEcosystemIdentity,
     ) -> dict[str, Any]:
-        """Register an additional ecosystem through the CORE registry."""
-        if identity.ecosystem_id == self.ROOT_ID:
+        ecosystem_id = identity.ecosystem_id.strip()
+
+        if not ecosystem_id:
+            return {
+                "success": False,
+                "error": "ECOSYSTEM_ID_REQUIRED",
+            }
+
+        if ecosystem_id == self.ROOT_ID:
             return {
                 "success": False,
                 "error": "ROOT_ALREADY_INITIALIZED",
             }
 
-        if self.registry.exists(identity.ecosystem_id):
+        if self.registry.exists(ecosystem_id):
             return {
                 "success": False,
                 "error": "ECOSYSTEM_ALREADY_EXISTS",
-                "ecosystem_id": identity.ecosystem_id,
+                "ecosystem_id": ecosystem_id,
             }
 
-        if identity.parent_id and not self.registry.exists(identity.parent_id):
+        if not identity.parent_id:
+            identity.parent_id = self.ROOT_ID
+
+        if not self.registry.exists(identity.parent_id):
             return {
                 "success": False,
                 "error": "PARENT_NOT_FOUND",
                 "parent_id": identity.parent_id,
             }
 
-        return self.registry.register(identity)
+        try:
+            registered = self.registry.register(identity)
+        except (ValueError, KeyError) as exc:
+            return {
+                "success": False,
+                "error": "REGISTRATION_FAILED",
+                "message": str(exc),
+                "ecosystem_id": ecosystem_id,
+            }
+
+        return {
+            "success": True,
+            "ecosystem": registered,
+        }
 
     def tree(self) -> dict[str, Any]:
-        """Return the ecosystem hierarchy as a nested tree."""
         records = self.registry.list()
+
         by_id = {
             record["ecosystem_id"]: {
                 **record,
@@ -153,9 +190,11 @@ class GlobalEcosystemManager:
 
         for record in records:
             parent_id = record.get("parent_id")
+            ecosystem_id = record["ecosystem_id"]
+
             if parent_id in by_id:
                 by_id[parent_id]["children"].append(
-                    by_id[record["ecosystem_id"]]
+                    by_id[ecosystem_id]
                 )
 
         root = by_id.get(self.ROOT_ID)
@@ -166,8 +205,8 @@ class GlobalEcosystemManager:
         }
 
     def connection_map(self) -> dict[str, Any]:
-        """Return parent-child relationships between ecosystem records."""
         records = self.registry.list()
+
         edges = [
             {
                 "source": record["parent_id"],
