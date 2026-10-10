@@ -1,4 +1,3 @@
-```python
 """Canonical GLOBAL ECOSYSTEM catalog under CORE."""
 
 from __future__ import annotations
@@ -261,4 +260,3 @@ def get_registration_catalog() -> list[dict[str, Any]]:
     """Return independent copies of the 8 existing registrations."""
     records = [*PERSONAL_REGISTRATIONS, *COMPANY_REGISTRATIONS]
     return [_normalize_record(record) for record in records]
-```
