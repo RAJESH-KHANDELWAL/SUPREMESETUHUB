@@ -33,6 +33,8 @@ from backend.api.users import router as users_router
 from backend.api.user_hub import router as user_hub_router
 from backend.api.ai import router as ai_router
 from backend.api.ecosystem import EcosystemAPI
+from backend.api.cloud import CloudAPI
+from backend.api.storage import StorageAPI
 from backend.api.theme_hub import router as theme_hub_router
 
 from backend.wordpress.bootstrap import (
@@ -75,6 +77,9 @@ app = FastAPI(
 # ============================================================
 
 ecosystem_api = EcosystemAPI()
+
+cloud_api = CloudAPI()
+storage_api = StorageAPI()
 
 wordpress_service = create_wordpress_service()
 
@@ -482,4 +487,62 @@ def ecosystem_exists(
         "exists": ecosystem_api.exists(
             ecosystem_id
         ),
+    }
+
+
+# ============================================================
+# GLOBAL CLOUD ECOSYSTEM
+# ============================================================
+
+@app.get("/api/v1/global-cloud/status")
+def global_cloud_status():
+    return cloud_api.status()
+
+
+@app.get("/api/v1/global-cloud/health")
+def global_cloud_health():
+    return cloud_api.health()
+
+
+@app.get("/api/v1/global-cloud/providers")
+def global_cloud_providers():
+    return {
+        "success": True,
+        "providers": cloud_api.providers(),
+    }
+
+
+# ============================================================
+# GLOBAL CLOUD STORAGE
+# ============================================================
+
+@app.get("/api/v1/global-cloud-storage/status")
+def global_cloud_storage_status():
+    return storage_api.status()
+
+
+@app.get("/api/v1/global-cloud-storage/health")
+def global_cloud_storage_health():
+    return storage_api.health()
+
+
+@app.get("/api/v1/global-cloud-storage/configuration")
+def global_cloud_storage_configuration():
+    return storage_api.configuration()
+
+
+# ============================================================
+# GLOBAL STORAGE ECOSYSTEM
+# ============================================================
+
+@app.get("/api/v1/global-storage-ecosystem/status")
+def global_storage_ecosystem_status():
+    return {
+        "success": True,
+        "ecosystem": "GLOBAL STORAGE ECOSYSTEM",
+        "cloud_storage": storage_api.status(),
+        "storage_configuration": storage_api.configuration(),
+        "cloud_providers": cloud_api.providers(),
+        "external_storage_connected": False,
+        "google_cloud_setup": "DEFERRED",
     }
