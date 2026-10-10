@@ -1,12 +1,6 @@
-name: GLOBAL ECOSYSTEM CORE Tests
+name: Backend GLOBAL ECOSYSTEM Tests
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
   workflow_dispatch:
 
 permissions:
@@ -14,7 +8,6 @@ permissions:
 
 jobs:
   test-global-ecosystem:
-    name: Test GLOBAL ECOSYSTEM CORE
     runs-on: ubuntu-latest
 
     steps:
@@ -26,10 +19,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Check Python Version
-        run: python --version
-
-      - name: Run GLOBAL ECOSYSTEM CORE Tests
+      - name: Run CORE Tests
         run: |
           python -m unittest discover \
             -s tests \
