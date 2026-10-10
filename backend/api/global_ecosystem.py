@@ -1,49 +1,60 @@
-
 """GLOBAL ECOSYSTEM API."""
 
-from backend.engines.global_ecosystem import (
-    GlobalEcosystemManager,
-)
+from __future__ import annotations
+
+from typing import Any
+
+from backend.engines.global_ecosystem import GlobalEcosystemManager
 
 
 class GlobalEcosystemAPI:
     """API facade for the GLOBAL ECOSYSTEM."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.engine = GlobalEcosystemManager()
 
-    def status(self) -> dict:
-        """Return GLOBAL ECOSYSTEM status."""
+    def status(self) -> dict[str, Any]:
         return self.engine.status()
 
-    def health(self) -> dict:
-        """Return GLOBAL ECOSYSTEM health."""
+    def health(self) -> dict[str, Any]:
         return self.engine.health()
 
-    def list(self) -> list:
-        """Return all registered ecosystems."""
+    def list(self) -> dict[str, Any]:
         return self.engine.list()
 
-    def names(self) -> list:
-        """Return all registered ecosystem names."""
+    def names(self) -> dict[str, Any]:
         return self.engine.names()
 
-    def get(self, ecosystem_id: str) -> dict:
-        """Return one registered ecosystem."""
-        return self.engine.get(ecosystem_id)
+    def get(self, ecosystem_id: str) -> dict[str, Any]:
+        result = self.engine.get(ecosystem_id)
+
+        if result is None:
+            return {
+                "success": False,
+                "ecosystem_id": ecosystem_id,
+                "error": "ECOSYSTEM_NOT_FOUND",
+            }
+
+        if hasattr(result, "to_dict"):
+            return result.to_dict()
+
+        if isinstance(result, dict):
+            return result
+
+        return {
+            "success": True,
+            "ecosystem": result,
+        }
 
     def exists(self, ecosystem_id: str) -> bool:
-        """Check whether an ecosystem exists."""
         return self.engine.exists(ecosystem_id)
 
-    def tree(self) -> dict:
-        """Return the GLOBAL ECOSYSTEM hierarchy."""
+    def tree(self) -> dict[str, Any]:
         return self.engine.tree()
 
-    def connection_map(self) -> dict:
-        """Return the connection map."""
+    def connection_map(self) -> dict[str, Any]:
         return self.engine.connection_map()
 
 
-# Compatibility alias for existing app integrations.
+# Backward compatibility
 EcosystemAPI = GlobalEcosystemAPI
