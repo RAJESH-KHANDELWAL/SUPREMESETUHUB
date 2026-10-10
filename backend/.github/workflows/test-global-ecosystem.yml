@@ -1,0 +1,37 @@
+name: GLOBAL ECOSYSTEM CORE Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-global-ecosystem:
+    name: Test GLOBAL ECOSYSTEM CORE
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check Python Version
+        run: python --version
+
+      - name: Run GLOBAL ECOSYSTEM CORE Tests
+        run: |
+          python -m unittest discover \
+            -s tests \
+            -p "test_global_ecosystem_core.py" \
+            -v
