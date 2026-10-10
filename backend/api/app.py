@@ -37,9 +37,8 @@ from backend.api.cloud import CloudAPI
 from backend.api.storage import StorageAPI
 from backend.api.theme_hub import router as theme_hub_router
 
-from backend.wordpress.bootstrap import (
-    create_wordpress_service,
-)
+from backend.wordpress.bootstrap import create_wordpress_service
+
 from backend.api.connectors import router as connectors_router
 from backend.api.linksetu import router as linksetu_router
 from backend.api.email import router as email_router
@@ -52,13 +51,10 @@ from backend.api.email import router as email_router
 BASE_DIR = Path(__file__).resolve().parents[2]
 
 FRONTEND_DIR = BASE_DIR / "frontend"
-
 ROOT_FRONTEND_FILE = FRONTEND_DIR / "index.html"
 
 SUPREME_FRONTEND_DIR = FRONTEND_DIR / "supreme"
-
 SUPREME_HTML_FILE = SUPREME_FRONTEND_DIR / "index.html"
-
 SUPREME_CSS_FILE = SUPREME_FRONTEND_DIR / "style.css"
 
 
@@ -76,8 +72,7 @@ app = FastAPI(
 # CORE SERVICES
 # ============================================================
 
-ecosystem_api = EcosystemAPI()
-
+ecosystem_api = GlobalEcosystemAPI()
 cloud_api = CloudAPI()
 storage_api = StorageAPI()
 
@@ -89,48 +84,31 @@ wordpress_service = create_wordpress_service()
 # ============================================================
 
 ALLOWED_ORIGINS = [
-
-    # --------------------------------------------------------
     # GITHUB PAGES
-    # --------------------------------------------------------
-
     "https://rajeshkhandelwal.github.io",
     "https://rajeshkhandelwalofficial.github.io",
     "https://drrajeshkhandelwalibc.github.io",
     "https://drrajeshkhandelwalibcofficial.github.io",
 
-    # --------------------------------------------------------
     # MAIN DOMAINS
-    # --------------------------------------------------------
-
     "https://rajeshkhandelwal.com",
     "https://www.rajeshkhandelwal.com",
-
     "https://rajeshkhandelwalofficial.com",
     "https://www.rajeshkhandelwalofficial.com",
-
     "https://drrajeshkhandelwalibc.com",
     "https://www.drrajeshkhandelwalibc.com",
-
     "https://drrajeshkhandelwalibcofficial.com",
     "https://www.drrajeshkhandelwalibcofficial.com",
 
-    # --------------------------------------------------------
     # RENDER DOMAINS
-    # --------------------------------------------------------
-
     "https://rajeshkhandelwal.onrender.com",
     "https://rajeshkhandelwalofficial.onrender.com",
     "https://drrajeshkhandelwalibc.onrender.com",
     "https://drrajeshkhandelwalibcofficial.onrender.com",
 
-    # --------------------------------------------------------
     # SUPREMESETUHUB RENDER
-    # --------------------------------------------------------
-
     "https://supremesetuhub-3v4e.onrender.com",
 ]
-
 
 app.add_middleware(
     CORSMiddleware,
@@ -203,41 +181,23 @@ def _require_ai_store_actor(
 # ============================================================
 
 app.include_router(auth_router)
-
 app.include_router(users_router)
-
 app.include_router(identity_router)
-
 app.include_router(profiles_router)
-
 app.include_router(businesses_router)
-
 app.include_router(projects_router)
-
 app.include_router(opportunities_router)
-
 app.include_router(matching_router)
-
 app.include_router(roles_router)
-
 app.include_router(supreme_router)
-
 app.include_router(dashboard_router)
-
 app.include_router(infrastructure_router)
-
 app.include_router(dns_router)
-
 app.include_router(user_hub_router)
-
 app.include_router(ai_router)
-
 app.include_router(theme_hub_router)
-
 app.include_router(connectors_router)
-
 app.include_router(linksetu_router)
-
 app.include_router(email_router)
 
 
@@ -245,26 +205,16 @@ app.include_router(email_router)
 # GALLARY WOULT
 # ============================================================
 
-app.include_router(
-    gallary_woult_router
-)
+app.include_router(gallary_woult_router)
 
 
 # ============================================================
 # MUKTI MAHAL
 # ============================================================
 
-app.include_router(
-    mukti_mahal_router
-)
-
-app.include_router(
-    mukti_mahal_creation_router
-)
-
-app.include_router(
-    mukti_mahal_media_router
-)
+app.include_router(mukti_mahal_router)
+app.include_router(mukti_mahal_creation_router)
+app.include_router(mukti_mahal_media_router)
 
 
 # ============================================================
@@ -288,12 +238,6 @@ def root():
 
 # ============================================================
 # SUPREME FRONTEND HTML
-#
-# SOURCE:
-# frontend/supreme/index.html
-#
-# API:
-# /api/v1/frontend/supreme
 # ============================================================
 
 @app.get("/api/v1/frontend/supreme")
@@ -313,12 +257,6 @@ def supreme_frontend():
 
 # ============================================================
 # SUPREME FRONTEND CSS
-#
-# SOURCE:
-# frontend/supreme/style.css
-#
-# API:
-# /api/v1/frontend/supreme/style.css
 # ============================================================
 
 @app.get("/api/v1/frontend/supreme/style.css")
@@ -343,7 +281,7 @@ def supreme_frontend_css():
 
 # ============================================================
 # SUPREME FRONTEND STATUS
-# ==============================================================
+# ============================================================
 
 @app.get("/api/v1/frontend/supreme/health")
 def supreme_frontend_health():
@@ -387,19 +325,13 @@ def wordpress_sites():
 
 
 @app.get("/api/v1/wordpress/status/{site_id}")
-def wordpress_status(
-    site_id: str,
-):
+def wordpress_status(site_id: str):
 
-    return wordpress_service.connection_status(
-        site_id
-    )
+    return wordpress_service.connection_status(site_id)
 
 
 @app.get("/api/v1/wordpress/health/{site_id}")
-def wordpress_health(
-    site_id: str,
-):
+def wordpress_health(site_id: str):
 
     result = wordpress_service.connect_site(
         site_id=site_id,
@@ -417,9 +349,7 @@ def wordpress_health(
         "database": result.get("database"),
         "health": result.get("health"),
         "wordpress_tables": (
-            wordpress_service.check_wordpress(
-                site_id
-            )
+            wordpress_service.check_wordpress(site_id)
         ),
     }
 
@@ -440,54 +370,83 @@ def foundation():
 
 
 # ============================================================
-# SUPREME ECOSYSTEM API
+# LEGACY ECOSYSTEM API
+# Existing URLs preserved for backward compatibility
 # ============================================================
 
 @app.get("/api/v1/ecosystem/status")
 def ecosystem_status():
-
     return ecosystem_api.status()
 
 
 @app.get("/api/v1/ecosystem/health")
 def ecosystem_health():
-
     return ecosystem_api.health()
 
 
 @app.get("/api/v1/ecosystem/list")
 def ecosystem_list():
-
     return ecosystem_api.list()
 
 
 @app.get("/api/v1/ecosystem/names")
 def ecosystem_names():
-
     return ecosystem_api.names()
 
 
-@app.get("/api/v1/ecosystem/{ecosystem_id}")
-def ecosystem_get(
-    ecosystem_id: str,
-):
-
-    return ecosystem_api.get(
-        ecosystem_id
-    )
-
-
 @app.get("/api/v1/ecosystem/{ecosystem_id}/exists")
-def ecosystem_exists(
-    ecosystem_id: str,
-):
-
+def ecosystem_exists(ecosystem_id: str):
     return {
         "ecosystem_id": ecosystem_id,
-        "exists": ecosystem_api.exists(
-            ecosystem_id
-        ),
+        "exists": ecosystem_api.exists(ecosystem_id),
     }
+
+
+@app.get("/api/v1/ecosystem/{ecosystem_id}")
+def ecosystem_get(ecosystem_id: str):
+    return ecosystem_api.get(ecosystem_id)
+
+
+# ============================================================
+# GLOBAL ECOSYSTEM API
+# ============================================================
+
+@app.get("/api/v1/global-ecosystem/status")
+def global_ecosystem_status():
+    return ecosystem_api.status()
+
+
+@app.get("/api/v1/global-ecosystem/health")
+def global_ecosystem_health():
+    return ecosystem_api.health()
+
+
+@app.get("/api/v1/global-ecosystem/tree")
+def global_ecosystem_tree():
+    return ecosystem_api.tree()
+
+
+@app.get("/api/v1/global-ecosystem/list")
+def global_ecosystem_list():
+    return ecosystem_api.list()
+
+
+@app.get("/api/v1/global-ecosystem/names")
+def global_ecosystem_names():
+    return ecosystem_api.names()
+
+
+@app.get("/api/v1/global-ecosystem/{ecosystem_id}/exists")
+def global_ecosystem_exists(ecosystem_id: str):
+    return {
+        "ecosystem_id": ecosystem_id,
+        "exists": ecosystem_api.exists(ecosystem_id),
+    }
+
+
+@app.get("/api/v1/global-ecosystem/{ecosystem_id}")
+def global_ecosystem_get(ecosystem_id: str):
+    return ecosystem_api.get(ecosystem_id)
 
 
 # ============================================================
