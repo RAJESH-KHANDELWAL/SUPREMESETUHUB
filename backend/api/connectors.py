@@ -1,4 +1,8 @@
+
 from __future__ import annotations
+
+import os
+import httpx
 
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel, Field
@@ -30,19 +34,11 @@ class ImageGenerateRequest(BaseModel):
 
 
 def register_openai_image_adapter() -> None:
-    """
-    Register the OpenAI Image adapter.
-
-    The API credential is checked only when
-    the connector is actually executed.
-    """
+    """Register the OpenAI Image adapter."""
 
     def generate_image(**payload):
         connector = OpenAIImageConnector()
-
-        return connector.generate(
-            **payload
-        )
+        return connector.generate(**payload)
 
     connector_manager.register_adapter(
         ConnectorAdapter(
@@ -77,10 +73,7 @@ def list_connectors(
 def generate_openai_image(
     payload: ImageGenerateRequest,
 ):
-
-    if not connector_manager.has_adapter(
-        "openai_image"
-    ):
+    if not connector_manager.has_adapter("openai_image"):
         raise HTTPException(
             status_code=503,
             detail="OPENAI_IMAGE_CONNECTOR_NOT_CONFIGURED",
@@ -94,7 +87,6 @@ def generate_openai_image(
             size=payload.size,
             quality=payload.quality,
         )
-
     except Exception as exc:
         raise HTTPException(
             status_code=502,
@@ -105,12 +97,87 @@ def generate_openai_image(
         ) from exc
 
 
-@router.get("/{name}")
-def connector_details(name: str):
+@router.get("/github/status")
+def github_repository_status():
+    repository = os.getenv(
+        "SUPREMESETUHUB_GITHUB_REPOSITORY",
+        "RAJESH-KHANDELWAL/SUPREMESETUHUB",
+    )
 
     try:
-        connector = connector_registry.get(name)
+        response = httpx.get(
+            f"https://api.github.com/repos/{repository}",
+            headers={
+                "Accept": "application/vnd.github+json",
+                "X-GitHub-Api-Version": "2022-11-28",
+            },
+            timeout=8.0,
+        )
 
+        if response.status_code != 200:
+            return {
+                "success": False,
+                "connector": "github",
+                "status": "ERROR",
+                "http_status": response.status_code,
+            }
+
+        data = response.json()
+
+        return {
+            "success": True,
+            "connector": "github",
+            "status": "CONNECTED",
+            "repository": data.get("full_name"),
+            "default_branch": data.get("default_branch"),
+        }
+
+    except httpx.HTTPError as exc:
+        return {
+            "success": False,
+            "connector": "github",
+            "status": "UNAVAILABLE",
+            "error": type(exc).__name__,
+        }
+
+
+@router.get("/google-cloud/status")
+def google_cloud_configuration_status():
+    required = {
+        "project_id": "GOOGLE_CLOUD_PROJECT",
+        "instance_name": "GCP_INSTANCE_NAME",
+        "zone": "GCP_ZONE",
+    }
+
+    settings = {
+        key: bool(os.getenv(variable, "").strip())
+        for key, variable in required.items()
+    }
+
+    missing = [
+        variable
+        for key, variable in required.items()
+        if not settings[key]
+    ]
+
+    return {
+        "success": True,
+        "connector": "google_cloud",
+        "status": (
+            "CONFIGURED"
+            if not missing
+            else "NEEDS_CONFIGURATION"
+        ),
+        "settings": settings,
+        "missing_environment_variables": missing,
+        "ssh_connected": False,
+    }
+
+
+@router.get("/{name}")
+def connector_details(name: str):
+    try:
+        connector = connector_registry.get(name)
     except ValueError as exc:
         raise HTTPException(
             status_code=404,
