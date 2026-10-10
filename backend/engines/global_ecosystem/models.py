@@ -1,50 +1,51 @@
-
 """GLOBAL ECOSYSTEM data models."""
 
+from __future__ import annotations
+
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional
+from datetime import datetime, timezone
+from typing import Any
 
 
 @dataclass
-class GlobalEcosystemIdentity:
-    """Identity and capabilities of a registered GLOBAL ECOSYSTEM."""
+class EcosystemIdentity:
+    """Represent an ecosystem identity."""
 
     ecosystem_id: str
     name: str
     ecosystem_type: str
-
-    parent_id: Optional[str] = None
-    repository_ref: Optional[str] = None
-
+    repository_ref: str | None = None
     status: str = "REGISTERED"
     enabled: bool = True
-
-    capabilities: List[str] = field(
-        default_factory=list
+    capabilities: list[str] = field(default_factory=list)
+    metadata: dict[str, Any] = field(default_factory=dict)
+    message: str | None = None
+    parent_id: str | None = None
+    created_at: str = field(
+        default_factory=lambda: datetime.now(timezone.utc).isoformat()
+    )
+    updated_at: str = field(
+        default_factory=lambda: datetime.now(timezone.utc).isoformat()
     )
 
-    metadata: Dict[str, Any] = field(
-        default_factory=dict
-    )
-
-    message: Optional[str] = None
-
-    def to_dict(self) -> dict:
-        """Convert identity to a JSON-friendly dictionary."""
+    def to_dict(self) -> dict[str, Any]:
+        """Convert the identity to a JSON-compatible dictionary."""
 
         return {
             "ecosystem_id": self.ecosystem_id,
             "name": self.name,
             "ecosystem_type": self.ecosystem_type,
-            "parent_id": self.parent_id,
             "repository_ref": self.repository_ref,
             "status": self.status,
             "enabled": self.enabled,
             "capabilities": list(self.capabilities),
             "metadata": dict(self.metadata),
             "message": self.message,
+            "parent_id": self.parent_id,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at,
         }
 
 
-# Backward compatibility for existing registry imports.
-EcosystemIdentity = GlobalEcosystemIdentity
+# Backward-compatible alias.
+GlobalEcosystemIdentity = EcosystemIdentity
