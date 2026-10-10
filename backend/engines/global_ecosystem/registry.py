@@ -1,344 +1,116 @@
+"""GLOBAL ECOSYSTEM registry."""
 
-"""Registry for GLOBAL ECOSYSTEM and its registered identities."""
+from __future__ import annotations
 
-from typing import Dict, List, Optional
+from typing import Any
 
-from .models import GlobalEcosystemIdentity
-
-GLOBAL_ECOSYSTEM_ID = "GLOBAL-ECOSYSTEM"
-GLOBAL_ECOSYSTEM_NAME = "GLOBAL ECOSYSTEM"
+from backend.engines.global_ecosystem.models import EcosystemIdentity
 
 
 class GlobalEcosystemRegistry:
-    """Central registry for the GLOBAL ECOSYSTEM hierarchy."""
+    """Store and retrieve GLOBAL ECOSYSTEM identities."""
 
     def __init__(self) -> None:
-        self.ecosystems: Dict[str, GlobalEcosystemIdentity] = {}
+        self._records: dict[str, EcosystemIdentity] = {}
 
-        # MASTER PARENT
-        self._register(
-            GLOBAL_ECOSYSTEM_ID,
-            GLOBAL_ECOSYSTEM_NAME,
-            "MASTER",
-            capabilities=[
-                "CENTRAL_REGISTRY",
-                "HIERARCHY",
-                "DISCOVERY",
-                "GOVERNANCE",
-            ],
-        )
+    def register(
+        self,
+        identity: EcosystemIdentity | dict[str, Any],
+    ) -> dict[str, Any]:
+        """Register an identity or update an existing identity."""
 
-        # GLOBAL ECOSYSTEM CATEGORIES
-        categories = [
-            (
-                "GLOBAL-SUPREME-ECOSYSTEM",
-                "GLOBAL SUPREME ECOSYSTEM",
-                "CORE",
-                ["ADMINISTRATION", "PLATFORM_CONTROL", "INTEGRATION"],
-            ),
-            (
-                "GLOBAL-PEOPLE-ECOSYSTEM",
-                "GLOBAL PEOPLE ECOSYSTEM",
-                "AUDIENCE",
-                ["IDENTITY", "PROFILE", "COMMUNITY"],
-            ),
-            (
-                "GLOBAL-BUSINESS-ECOSYSTEM",
-                "GLOBAL BUSINESS ECOSYSTEM",
-                "AUDIENCE",
-                ["ORGANIZATION", "BUSINESS", "TEAM", "PROJECTS"],
-            ),
-            (
-                "GLOBAL-ENTREPRENEUR-ECOSYSTEM",
-                "GLOBAL ENTREPRENEUR ECOSYSTEM",
-                "AUDIENCE",
-                ["STARTUPS", "VENTURES", "BUSINESS_DEVELOPMENT"],
-            ),
-            (
-                "GLOBAL-CLOUD-ECOSYSTEM",
-                "GLOBAL CLOUD ECOSYSTEM",
-                "FUNCTIONAL",
-                ["COMPUTE", "INFRASTRUCTURE", "NETWORKING"],
-            ),
-            (
-                "GLOBAL-CLOUD-STORAGE-ECOSYSTEM",
-                "GLOBAL CLOUD STORAGE ECOSYSTEM",
-                "FUNCTIONAL",
-                ["OBJECT_STORAGE", "FILE_STORAGE", "DATA_STORAGE"],
-            ),
-            (
-                "GLOBAL-STORAGE-ECOSYSTEM",
-                "GLOBAL STORAGE ECOSYSTEM",
-                "FUNCTIONAL",
-                ["STORAGE_CATALOG", "ADAPTERS", "ASSET_METADATA"],
-            ),
-            (
-                "GLOBAL-SERVER-ECOSYSTEM",
-                "GLOBAL SERVER ECOSYSTEM",
-                "FUNCTIONAL",
-                ["SERVER_MANAGEMENT", "DEPLOYMENT", "MONITORING"],
-            ),
-            (
-                "GLOBAL-WEB-HOSTING-ECOSYSTEM",
-                "GLOBAL WEB & HOSTING ECOSYSTEM",
-                "FUNCTIONAL",
-                ["WEBSITES", "DOMAINS", "HOSTING", "CMS"],
-            ),
-            (
-                "GLOBAL-SOCIAL-MEDIA-ECOSYSTEM",
-                "GLOBAL SOCIAL MEDIA ECOSYSTEM",
-                "FUNCTIONAL",
-                ["SOCIAL_NETWORKS", "PUBLISHING", "COMMUNITIES"],
-            ),
-            (
-                "GLOBAL-CREATOR-MEDIA-ECOSYSTEM",
-                "GLOBAL CREATOR & MEDIA ECOSYSTEM",
-                "FUNCTIONAL",
-                ["CREATOR_TOOLS", "MEDIA", "PUBLISHING", "MONETIZATION"],
-            ),
-            (
-                "GLOBAL-ADULT-ENTERTAINMENT-ECOSYSTEM",
-                "GLOBAL ADULT ENTERTAINMENT ECOSYSTEM",
-                "FUNCTIONAL",
-                ["AGE_RESTRICTED_SERVICES", "CREATOR_SERVICES", "PLATFORM_DISCOVERY"],
-            ),
-            (
-                "GLOBAL-AI-AUTOMATION-ECOSYSTEM",
-                "GLOBAL AI & AUTOMATION ECOSYSTEM",
-                "FUNCTIONAL",
-                ["AI_MODELS", "AI_APIS", "AUTOMATION"],
-            ),
-            (
-                "GLOBAL-PAYMENT-COMMERCE-ECOSYSTEM",
-                "GLOBAL PAYMENT & COMMERCE ECOSYSTEM",
-                "FUNCTIONAL",
-                ["PAYMENTS", "BILLING", "SUBSCRIPTIONS", "COMMERCE"],
-            ),
-            (
-                "GLOBAL-IDENTITY-SECURITY-ECOSYSTEM",
-                "GLOBAL IDENTITY & SECURITY ECOSYSTEM",
-                "FUNCTIONAL",
-                ["AUTHENTICATION", "AUTHORIZATION", "PRIVACY"],
-            ),
-            (
-                "GLOBAL-COMMUNICATION-ECOSYSTEM",
-                "GLOBAL COMMUNICATION ECOSYSTEM",
-                "FUNCTIONAL",
-                ["EMAIL", "MESSAGING", "NOTIFICATIONS"],
-            ),
-            (
-                "GLOBAL-DATA-DATABASE-ECOSYSTEM",
-                "GLOBAL DATA & DATABASE ECOSYSTEM",
-                "FUNCTIONAL",
-                ["DATABASES", "DATA_EXCHANGE", "ANALYTICS"],
-            ),
-            (
-                "GLOBAL-DEVELOPER-ECOSYSTEM",
-                "GLOBAL DEVELOPER ECOSYSTEM",
-                "FUNCTIONAL",
-                ["APIS", "SDKS", "REPOSITORIES", "CI_CD"],
-            ),
-        ]
-
-        for ecosystem_id, name, ecosystem_type, capabilities in categories:
-            metadata = {}
-
-            if ecosystem_id == "GLOBAL-ADULT-ENTERTAINMENT-ECOSYSTEM":
-                metadata = {
-                    "age_restricted": True,
-                    "age_verification_required": True,
-                    "consent_and_rights_required": True,
-                    "legal_compliance_required": True,
-                }
-
-            self._register(
-                ecosystem_id,
-                name,
-                ecosystem_type,
-                capabilities=capabilities,
-                parent_id=GLOBAL_ECOSYSTEM_ID,
-                metadata=metadata,
+        if isinstance(identity, dict):
+            identity = EcosystemIdentity(
+                ecosystem_id=str(identity.get("ecosystem_id", "")).strip(),
+                name=str(identity.get("name", "")).strip(),
+                ecosystem_type=str(
+                    identity.get("ecosystem_type", "GENERAL")
+                ).strip(),
+                repository_ref=identity.get("repository_ref"),
+                status=str(identity.get("status", "REGISTERED")),
+                enabled=bool(identity.get("enabled", True)),
+                capabilities=list(identity.get("capabilities", [])),
+                metadata=dict(identity.get("metadata", {})),
+                message=identity.get("message"),
+                parent_id=identity.get("parent_id"),
+                created_at=identity.get(
+                    "created_at",
+                    EcosystemIdentity.__dataclass_fields__["created_at"].default_factory(),
+                ),
             )
 
-        # PRESERVE EXISTING PERSONAL IDENTITIES AND BRANDS
-        self._register(
-            "PERSONAL-RAJESHKHANDELWAL",
-            "RAJESHKHANDELWAL",
-            "PERSONAL",
-            repository_ref=(
-                "RAJESHKHANDELWALOFFICIAL/RAJESHKHANDELWAL"
-            ),
-            capabilities=[
-                "IDENTITY", "PROFILE", "WEBSITE", "DOMAIN", "PROJECTS"
-            ],
-            parent_id="GLOBAL-PEOPLE-ECOSYSTEM",
-        )
+        if not identity.ecosystem_id:
+            raise ValueError("ecosystem_id is required")
 
-        self._register(
-            "PERSONAL-RAJESHKHANDELWALOFFICIAL",
-            "RAJESHKHANDELWALOFFICIAL",
-            "PERSONAL",
-            repository_ref=(
-                "RAJESHKHANDELWALOFFICIAL/MAIN-BASE-FOUNDATION"
-            ),
-            capabilities=[
-                "IDENTITY", "PROFILE", "BUSINESS",
-                "WEBSITE", "DOMAIN", "PROJECTS"
-            ],
-            parent_id="GLOBAL-PEOPLE-ECOSYSTEM",
-        )
+        if not identity.name:
+            raise ValueError("name is required")
 
-        self._register(
-            "PERSONAL-DRRAJESHKANDELWALIBC",
-            "DRRAJESHKANDELWALIBC",
-            "PERSONAL_BRAND",
-            capabilities=[
-                "IDENTITY", "BRAND", "BUSINESS", "WEBSITE", "DOMAIN"
-            ],
-            parent_id="GLOBAL-PEOPLE-ECOSYSTEM",
-        )
+        existing = self._records.get(identity.ecosystem_id)
 
-        self._register(
-            "PERSONAL-DRRAJESHKANDELWALIBCOFFICIAL",
-            "DRRAJESHKANDELWALIBCOFFICIAL",
-            "PERSONAL_BRAND",
-            capabilities=[
-                "IDENTITY", "BRAND", "BUSINESS", "WEBSITE", "DOMAIN"
-            ],
-            parent_id="GLOBAL-PEOPLE-ECOSYSTEM",
-        )
+        if existing:
+            identity.created_at = existing.created_at
 
-        # PRESERVE EXISTING COMPANIES AND COMPANY GROUPS
-        company_capabilities = [
-            "ORGANIZATION",
-            "BUSINESS",
-            "TEAM",
-            "PROJECTS",
-            "WEBSITE",
-            "DOMAIN",
-        ]
+        from datetime import datetime, timezone
 
-        self._register(
-            "COMPANY-KHANDELWALGROUPANDCOMPANY",
-            "KHANDELWALGROUPANDCOMPANY",
-            "COMPANY",
-            capabilities=company_capabilities,
-            parent_id="GLOBAL-BUSINESS-ECOSYSTEM",
-        )
+        identity.updated_at = datetime.now(timezone.utc).isoformat()
+        self._records[identity.ecosystem_id] = identity
 
-        self._register(
-            "COMPANY-KHANDELWALGROUPANDCOMPANYOFFICIAL",
-            "KHANDELWALGROUPANDCOMPANYOFFICIAL",
-            "COMPANY",
-            capabilities=company_capabilities,
-            parent_id="GLOBAL-BUSINESS-ECOSYSTEM",
-        )
+        return identity.to_dict()
 
-        self._register(
-            "COMPANY-KHANDELWALGROUPANDCOMPANIES",
-            "KHANDELWALGROUPANDCOMPANIES",
-            "COMPANY_GROUP",
-            capabilities=company_capabilities,
-            parent_id="GLOBAL-BUSINESS-ECOSYSTEM",
-        )
+    def get(self, ecosystem_id: str) -> dict[str, Any] | None:
+        """Retrieve an identity by ID or exact name."""
 
-        self._register(
-            "COMPANY-KHANDELWALGROUPANDCOMPANIESOFFICIAL",
-            "KHANDELWALGROUPANDCOMPANIESOFFICIAL",
-            "COMPANY_GROUP",
-            capabilities=company_capabilities,
-            parent_id="GLOBAL-BUSINESS-ECOSYSTEM",
-        )
+        search_value = ecosystem_id.strip()
 
-    def _register(
-        self,
-        ecosystem_id: str,
-        name: str,
-        ecosystem_type: str,
-        *,
-        repository_ref: Optional[str] = None,
-        capabilities: Optional[List[str]] = None,
-        parent_id: Optional[str] = None,
-        metadata: Optional[dict] = None,
-        status: str = "REGISTERED",
-        enabled: bool = True,
-    ) -> None:
-        identity = GlobalEcosystemIdentity(
-            ecosystem_id=ecosystem_id,
-            name=name,
-            ecosystem_type=ecosystem_type,
-            repository_ref=repository_ref,
-            capabilities=list(capabilities or []),
-            parent_id=parent_id,
-            metadata=dict(metadata or {}),
-            status=status,
-            enabled=enabled,
-        )
-        self.register(identity)
+        if not search_value:
+            return None
 
-    def register(self, ecosystem: GlobalEcosystemIdentity) -> None:
-        """Register or replace an identity by its unique ID."""
-        key = ecosystem.ecosystem_id.strip().upper()
-        self.ecosystems[key] = ecosystem
+        identity = self._records.get(search_value)
 
-    def get(self, ecosystem_id: str) -> GlobalEcosystemIdentity:
-        """Return one registered identity or raise KeyError."""
-        key = ecosystem_id.strip().upper()
-
-        if key not in self.ecosystems:
-            raise KeyError(
-                f"Unknown GLOBAL ECOSYSTEM identity: {ecosystem_id}"
+        if identity is None:
+            normalized = search_value.casefold()
+            identity = next(
+                (
+                    item
+                    for item in self._records.values()
+                    if item.name.casefold() == normalized
+                ),
+                None,
             )
 
-        return self.ecosystems[key]
+        return identity.to_dict() if identity else None
 
-    def list(
-        self,
-        include_root: bool = True,
-    ) -> List[GlobalEcosystemIdentity]:
-        """List identities, optionally excluding the master root."""
-        entries = list(self.ecosystems.values())
-
-        if not include_root:
-            entries = [
-                entry for entry in entries
-                if entry.parent_id is not None
-            ]
-
-        return entries
-
-    def names(self) -> List[str]:
-        """Return all registered names."""
-        return [entry.name for entry in self.ecosystems.values()]
-
-    def statuses(self) -> List[dict]:
-        """Return all registered identity records."""
-        return [entry.to_dict() for entry in self.ecosystems.values()]
-
-    def exists(self, ecosystem_id: str) -> bool:
-        """Check whether an identity is registered."""
-        return ecosystem_id.strip().upper() in self.ecosystems
-
-    def children(
-        self,
-        parent_id: str = GLOBAL_ECOSYSTEM_ID,
-    ) -> List[GlobalEcosystemIdentity]:
-        """Return direct children of a parent ecosystem."""
-        key = parent_id.strip().upper()
+    def list(self) -> list[dict[str, Any]]:
+        """Return all registered identities."""
 
         return [
-            entry for entry in self.ecosystems.values()
-            if entry.parent_id == key
+            identity.to_dict()
+            for identity in self._records.values()
         ]
 
-    def tree(self) -> dict:
-        """Return the master ecosystem and its direct children."""
-        root = self.get(GLOBAL_ECOSYSTEM_ID).to_dict()
-        root["children"] = [
-            entry.to_dict() for entry in self.children()
+    def names(self) -> list[str]:
+        """Return all registered identity names."""
+
+        return [
+            identity.name
+            for identity in self._records.values()
         ]
-        return root
+
+    def exists(self, ecosystem_id: str) -> bool:
+        """Check whether an identity exists."""
+
+        return self.get(ecosystem_id) is not None
+
+    def count(self) -> int:
+        """Return the number of registered identities."""
+
+        return len(self._records)
+
+    def clear(self) -> None:
+        """Clear all registered identities."""
+
+        self._records.clear()
 
 
-# Backward compatibility for existing imports.
+# Backward-compatible alias.
 EcosystemRegistry = GlobalEcosystemRegistry
