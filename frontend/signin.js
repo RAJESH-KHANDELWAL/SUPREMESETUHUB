@@ -55,7 +55,7 @@ function showSignInMessage(text, type = "error") {
 
 async function authenticateSignIn(username, password) {
     const response = await fetch(
-        `${SIGN_IN_API}/auth/login`,
+        `${SIGN_IN_API}/auth/signin`,
         {
             method: "POST",
             headers: {
