@@ -29,7 +29,7 @@ def test_private_ecosystem_routes_are_not_public_platform_entry_points():
     from backend.api.app import PUBLIC_API_PATHS
 
     assert "/users/register" in PUBLIC_API_PATHS
-    assert "/auth/login" in PUBLIC_API_PATHS
+    assert "/auth/signin" in PUBLIC_API_PATHS
     assert "/identity/register" not in PUBLIC_API_PATHS
     assert "/api/v1/supreme-ecosystem/auth/signup" not in PUBLIC_API_PATHS
     assert "/api/v1/supreme-ecosystem/auth/signin" not in PUBLIC_API_PATHS
