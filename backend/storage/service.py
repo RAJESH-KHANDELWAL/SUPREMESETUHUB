@@ -9,9 +9,11 @@ from backend.infrastructure.storage.service import StorageService as StorageInfr
 
 class StorageService:
     def __init__(self):
-        self.infrastructure = StorageInfrastructureService()
+        self.infrastructure = None
 
     def initialize(self):
+        if self.infrastructure is None:
+            self.infrastructure = StorageInfrastructureService()
         self.infrastructure.initialize()
         return {
             "storage": "MAIN BASE FOUNDATION",
