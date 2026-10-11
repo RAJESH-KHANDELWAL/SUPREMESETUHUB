@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Depends, Header, HTTPException, Query
 
 from supreme_config import (
     APP_NAME,
@@ -8,7 +8,10 @@ from supreme_config import (
     COMPANY_ID,
     PERSON_ID,
     SUPREME_ID,
+    USERNAME,
 )
+
+from backend.auth.service import AuthenticationService
 
 from identity_service import (
     get_supreme_profile,
@@ -17,9 +20,53 @@ from identity_service import (
 )
 
 
+# SUPREME data is private by default. A valid active login session is not
+# enough on its own: these owner-management endpoints require the configured
+# SUPREME owner's account. Friend/member access should be implemented later
+# through explicit resource-level permissions, not public endpoints.
+authentication_service = AuthenticationService()
+
+
+def require_supreme_owner(
+    authorization: str | None = Header(default=None),
+) -> str:
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(
+            status_code=401,
+            detail="AUTHENTICATION_REQUIRED",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    token = authorization[len("Bearer "):].strip()
+    if not token:
+        raise HTTPException(
+            status_code=401,
+            detail="AUTHENTICATION_REQUIRED",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    result = authentication_service.validate_token(token)
+    if not result.get("authenticated"):
+        raise HTTPException(
+            status_code=401,
+            detail=result.get("message", "INVALID_OR_EXPIRED_TOKEN"),
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    username = str(result.get("username", "")).strip()
+    if username.casefold() != USERNAME.casefold():
+        raise HTTPException(
+            status_code=403,
+            detail="SUPREME_OWNER_ACCESS_REQUIRED",
+        )
+
+    return username
+
+
 router = APIRouter(
     prefix="/supreme",
     tags=["SUPREME DASHBOARD"],
+    dependencies=[Depends(require_supreme_owner)],
 )
 
 
