@@ -1,41 +1,40 @@
 # SUPREMESETUHUB — MAIN BASE FOUNDATION
 
-SUPREMESETUHUB is a central foundation for identity, businesses, applications, websites, software, storage, security, and digital services.
+SUPREMESETUHUB is the central foundation for the SUPREME owner-controlled digital ecosystem.
 
-## Project layout
+## Architecture
 
-- `backend/` — primary FastAPI backend, API routers, services, and backend dependencies.
-- `backend/api/app.py` — primary FastAPI application.
-- `backend/start.py` — backend startup entry point.
-- `backend/requirements.txt` — Python dependencies for the primary backend.
-- `app.py` — separate root-level Flask application; it is not the FastAPI entry point.
+- `backend/` — primary FastAPI backend and all runtime services.
+- `backend/supreme/` — SUPREME core package and configuration.
+- `backend/supreme/ecosystem/` — SUPREME ECOSYSTEM modules, connectors, integrations, vault and ownership.
+- `backend/supreme/config.py` — backend-side SUPREME configuration; private IDs and email values come from deployment environment variables.
+- `backend/supreme/identity_service.py` — backend-side SUPREME profile helpers.
+- `backend/api/supreme.py` — authenticated SUPREME API routes.
+- `backend/start.py` — primary API startup entry point.
+- `frontend/supreme/` — SUPREME interface assets served by the backend.
 
-## Run the primary backend locally
+Root-level SUPREME Python application/configuration files have been removed in favor of the backend package. The production Procfile starts the FastAPI backend.
 
-From the repository root, install backend dependencies:
+## Run locally
+
+From the repository root:
 
 ```bash
 python -m pip install -r backend/requirements.txt
-```
-
-Start the FastAPI backend:
-
-```bash
 python -m backend.start
 ```
 
-The server uses `PORT` if set and otherwise defaults to `8000`. Open the API docs at `http://127.0.0.1:8000/docs` and check `http://127.0.0.1:8000/health`.
+API docs: `http://127.0.0.1:8000/docs`  
+Health: `http://127.0.0.1:8000/health`
 
-Equivalent development command:
+## Private environment setup
 
-```bash
-uvicorn backend.api.app:app --reload --host 127.0.0.1 --port 8000
-```
+Copy `backend/.env.example` into your private deployment environment and set the owner identifiers and provider credentials there. Do not commit real emails, OAuth client secrets, WhatsApp tokens, webhook secrets, or AI API keys to GitHub.
+
+## External integrations
+
+The SUPREME ECOSYSTEM is the control plane for authorized Google/Gmail, Microsoft Graph and WhatsApp Business integrations. A provider is not connected merely because it appears in configuration: each requires provider-side registration, OAuth/permissions, secure deployment secrets, and end-to-end tests. WhatsApp automated replies additionally require a verified Meta webhook, valid signature verification, approved messaging permissions and a configured AI responder.
 
 ## Deployment
 
-The root `render.yaml` and `backend/render.yaml` are both retained intentionally. Both currently use the repository-root working directory and the same backend dependency/start commands. Configure only one of these files for a given Render service to avoid creating duplicate services.
-
-## Important
-
-The presence of modules or endpoints does not by itself establish production readiness. Before public production use, verify authentication and authorization, tenant isolation, database migrations and backups, monitoring, secret management, provider integrations, and end-to-end tests.
+Root `render.yaml` and `backend/render.yaml` are retained for compatibility; configure only one Blueprint file per Render service to avoid duplicate services.
