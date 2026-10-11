@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from fastapi import APIRouter, Depends, Header, HTTPException, Query
 
-from supreme_config import (
+from backend.supreme.config import (
     APP_NAME,
     BUSINESS_ID,
     COMPANY_ID,
@@ -13,7 +13,7 @@ from supreme_config import (
 
 from backend.auth.service import AuthenticationService
 
-from identity_service import (
+from backend.supreme.identity_service import (
     get_supreme_profile,
     get_person_profile,
     search_entities,
