@@ -1,17 +1,19 @@
-"""GLOBAL ECOSYSTEM API facade backed by CORE."""
+"""GLOBAL ECOSYSTEM API facade backed by CORE and API modules."""
 
 from __future__ import annotations
 
 from typing import Any
 
+from backend.api.global_ecosystem_modules import GlobalEcosystemModules
 from backend.core.global_ecosystem.manager import GlobalEcosystemManager
 
 
 class GlobalEcosystemAPI:
-    """Backward-compatible API facade for GLOBAL ECOSYSTEM."""
+    """Main API facade for GLOBAL ECOSYSTEM."""
 
     def __init__(self) -> None:
         self.engine = GlobalEcosystemManager()
+        self.modules = GlobalEcosystemModules()
 
     def status(self) -> dict[str, Any]:
         return self.engine.status()
@@ -54,6 +56,18 @@ class GlobalEcosystemAPI:
 
     def connection_map(self) -> dict[str, Any]:
         return self.engine.connection_map()
+
+    def modules_status(self) -> dict[str, Any]:
+        return self.modules.status()
+
+    def list_modules(self) -> dict[str, Any]:
+        return self.modules.list_modules()
+
+    def module_names(self) -> dict[str, Any]:
+        return self.modules.names()
+
+    def get_module(self, module_id: str) -> dict[str, Any]:
+        return self.modules.get_module(module_id)
 
 
 EcosystemAPI = GlobalEcosystemAPI
