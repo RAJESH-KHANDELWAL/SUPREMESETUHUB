@@ -55,3 +55,13 @@ def test_backup_metadata_crud(tmp_path, monkeypatch):
     assert loaded is not None
     assert loaded.name == "Test backup record"
     assert loaded.encrypted is True
+
+
+def test_core_api_service_reports_module_readiness():
+    from backend.api.service import APIService
+
+    service = APIService()
+    initialized = service.initialize()
+    assert initialized["transport"] == "FastAPI"
+    assert initialized["private_routes"] == "AUTHENTICATION_REQUIRED"
+    assert service.health()["healthy"] is True
