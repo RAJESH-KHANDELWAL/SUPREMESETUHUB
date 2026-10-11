@@ -5,7 +5,7 @@ from __future__ import annotations
 
 from copy import deepcopy
 
-from supreme_config import CONNECTED_REPOS
+from backend.supreme.config import CONNECTED_REPOS
 
 ROLE_NAMES = ("SUPREME", "ADMIN", "OWNER")
 
