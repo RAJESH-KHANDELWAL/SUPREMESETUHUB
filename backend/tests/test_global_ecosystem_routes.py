@@ -19,13 +19,13 @@ class TestGlobalEcosystemRoutes(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json()["status"], "healthy")
 
-    def test_ecosystem_status_route(self):
+    def test_ecosystem_status_route_is_private(self):
         response = self.client.get("/api/global-ecosystem/status")
-        self.assertIn(response.status_code, (200, 404))
+        self.assertEqual(response.status_code, 401)
 
-    def test_ecosystem_health_route(self):
+    def test_ecosystem_health_route_is_private(self):
         response = self.client.get("/api/global-ecosystem/health")
-        self.assertIn(response.status_code, (200, 404))
+        self.assertEqual(response.status_code, 401)
 
 
 if __name__ == "__main__":
