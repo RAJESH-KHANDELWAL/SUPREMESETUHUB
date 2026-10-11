@@ -1,3 +1,5 @@
+"""Private SUPREME identity/profile helpers used by backend APIs."""
+
 from backend.supreme.config import (
     PERSON_ID,
     INTERNAL_USER_ID,
@@ -10,10 +12,12 @@ from backend.supreme.config import (
     ALIAS_NAMES,
 )
 
-"""Identity/profile helpers used only by the SUPREME backend."""\n\ndef normalize(value):
+
+def normalize(value: object) -> str:
     return str(value).strip().lower()
 
-def get_supreme_profile():
+
+def get_supreme_profile() -> dict:
     return {
         "supreme_id": SUPREME_ID,
         "owner_person_id": PERSON_ID,
@@ -25,10 +29,11 @@ def get_supreme_profile():
         "emails": EMAILS,
         "aliases": ALIAS_NAMES,
         "role": "SUPREME_OWNER",
-        "status": "active"
+        "status": "active",
     }
 
-def get_person_profile():
+
+def get_person_profile() -> dict:
     return {
         "person_id": PERSON_ID,
         "internal_user_id": INTERNAL_USER_ID,
@@ -40,23 +45,24 @@ def get_person_profile():
         "emails": EMAILS,
         "aliases": ALIAS_NAMES,
         "role": "SUPREME_OWNER",
-        "status": "active"
+        "status": "active",
     }
 
-def search_entities(query):
+
+def search_entities(query: str) -> list[dict]:
     q = normalize(query)
     results = []
 
-    if q in normalize(USERNAME):
+    if q and q in normalize(USERNAME):
         results.append({
             "type": "PERSON",
             "person_id": PERSON_ID,
             "username": USERNAME,
-            "display_name": DISPLAY_NAME
+            "display_name": DISPLAY_NAME,
         })
 
     for alias in ALIAS_NAMES:
-        if q in normalize(alias):
+        if q and q in normalize(alias):
             results.append({
                 "type": "ALIAS",
                 "label": alias,
@@ -64,20 +70,21 @@ def search_entities(query):
                 "supreme_id": SUPREME_ID,
             })
 
+    # Email search only sees private values injected at deployment runtime.
     for email in EMAILS:
-        if q in normalize(email):
+        if q and q in normalize(email):
             results.append({
                 "type": "EMAIL",
                 "email": email,
                 "person_id": PERSON_ID,
-                "supreme_id": SUPREME_ID
+                "supreme_id": SUPREME_ID,
             })
 
     if not results:
         results.append({
             "type": "EMPTY",
             "query": query,
-            "message": "No exact entity match found"
+            "message": "No exact entity match found",
         })
 
     return results
