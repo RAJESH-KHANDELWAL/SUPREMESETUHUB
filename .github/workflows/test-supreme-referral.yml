@@ -1,0 +1,38 @@
+name: SUPREME Referral Stack Tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "backend/supreme/**"
+      - "backend/database/service.py"
+      - "backend/tests/test_supreme_referral_stack.py"
+      - ".github/workflows/test-supreme-referral.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "backend/supreme/**"
+      - "backend/database/service.py"
+      - "backend/tests/test_supreme_referral_stack.py"
+      - ".github/workflows/test-supreme-referral.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  referral-stack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r backend/requirements.txt
+      - name: Test SUPREME referral layers
+        run: python -m pytest -q backend/tests/test_supreme_referral_stack.py
