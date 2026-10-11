@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+from types import SimpleNamespace
+
 import pytest
 from fastapi import HTTPException
+from fastapi.testclient import TestClient
 
 
 def test_logout_revokes_only_authenticated_bearer_token(monkeypatch):
@@ -84,3 +87,54 @@ def test_master_id_only_authentication_is_rejected():
 
     assert error.value.status_code == 403
     assert error.value.detail == "MASTER_ID_ONLY_AUTHENTICATION_DISABLED_USE_PASSWORD_SIGNIN"
+
+
+def test_logout_route_validates_bearer_and_revokes_that_token(monkeypatch):
+    from backend.api import app as app_module
+    from backend.api import auth as auth_module
+    from backend.security import dependencies as security_dependencies
+
+    username = app_module.SUPREME_OWNER_USERNAME
+    monkeypatch.setattr(
+        app_module.authentication_service,
+        "validate_token",
+        lambda token: {
+            "authenticated": True,
+            "username": username,
+            "session_id": "integration-session",
+        },
+    )
+    monkeypatch.setattr(
+        security_dependencies._authentication_service,
+        "validate_token",
+        lambda token: {
+            "authenticated": True,
+            "username": username,
+            "session_id": "integration-session",
+        },
+    )
+    monkeypatch.setattr(
+        security_dependencies._user_controller,
+        "search",
+        lambda requested_username: SimpleNamespace(
+            username=username,
+            user_id="integration-user",
+            role="OWNER",
+            status="ACTIVE",
+        ),
+    )
+    monkeypatch.setattr(
+        auth_module.controller,
+        "logout",
+        lambda **kwargs: {"success": True, **kwargs},
+    )
+
+    with TestClient(app_module.app) as client:
+        response = client.post(
+            app_module.app.url_path_for("logout"),
+            headers={"Authorization": "Bearer integration-token"},
+            json={"token": "integration-token", "session_id": "integration-session"},
+        )
+
+    assert response.status_code == 200
+    assert response.json() == {"success": True, "token": "integration-token"}
