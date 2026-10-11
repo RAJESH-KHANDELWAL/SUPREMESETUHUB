@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - "backend/database/**"
+      - "backend/engines/database/**"
+      - "backend/engines/database/**"
       - "backend/api/service.py"
       - "backend/api/app.py"
       - "backend/api/supreme_ecosystem.py"
