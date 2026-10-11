@@ -10,6 +10,7 @@ on:
       - "backend/api/supreme_ecosystem.py"
       - "backend/api/supreme_whatsapp_ai.py"
       - "backend/core/**"
+      - "backend/supreme/**"
       - "backend/organizations/**"
       - "backend/auth/**"
       - "backend/users/**"
@@ -30,6 +31,7 @@ on:
       - "backend/api/supreme_ecosystem.py"
       - "backend/api/supreme_whatsapp_ai.py"
       - "backend/core/**"
+      - "backend/supreme/**"
       - "backend/organizations/**"
       - "backend/auth/**"
       - "backend/users/**"
@@ -58,4 +60,4 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r backend/requirements.txt
       - name: Run central database service tests
-        run: python -m pytest -q backend/tests/test_database_service.py backend/tests/test_infrastructure_modules.py backend/tests/test_private_ecosystem_access.py
+        run: python -m pytest -q backend/tests/test_database_service.py backend/tests/test_infrastructure_modules.py backend/tests/test_private_ecosystem_access.py backend/tests/test_supreme_referral_stack.py
