@@ -178,6 +178,8 @@ def integration_status():
             "WHATSAPP_PHONE_NUMBER_ID",
             "WHATSAPP_APP_SECRET",
             "WHATSAPP_VERIFY_TOKEN",
+            "WHATSAPP_GRAPH_API_VERSION",
+            "WHATSAPP_OUTREACH_TEMPLATE_NAME",
             "OPENAI_API_KEY",
         )
     )
@@ -198,7 +200,7 @@ def integration_status():
             },
             {
                 "provider": "WHATSAPP_BUSINESS_AI",
-                "status": "CONFIGURED_NEEDS_WEBHOOK_IMPLEMENTATION_AND_TEST" if whatsapp_configured else "NOT_CONFIGURED",
+                "status": "CONFIGURED_NEEDS_META_WEBHOOK_AND_END_TO_END_TEST" if whatsapp_configured else "NOT_CONFIGURED",
                 "connected": False,
             },
         ],
