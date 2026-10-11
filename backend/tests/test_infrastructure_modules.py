@@ -65,3 +65,16 @@ def test_core_api_service_reports_module_readiness():
     assert initialized["transport"] == "FastAPI"
     assert initialized["private_routes"] == "AUTHENTICATION_REQUIRED"
     assert service.health()["healthy"] is True
+
+
+def test_main_base_foundation_bootstraps_core_modules(tmp_path, monkeypatch):
+    monkeypatch.setenv("SUPREME_DB_PATH", str(tmp_path / "foundation.db"))
+    monkeypatch.chdir(tmp_path)
+
+    from backend.core.app import MainBaseFoundation
+
+    result = MainBaseFoundation().start()
+    assert result["database"] is not None
+    assert result["storage"]["status"] == "Ready"
+    assert result["security"]["status"] == "Ready"
+    assert result["api"]["transport"] == "FastAPI"
