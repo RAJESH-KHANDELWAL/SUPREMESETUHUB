@@ -46,14 +46,16 @@ class DatabaseController:
     # ------------------------------------------------------------------
 
     def connect(self) -> dict:
-        """Connect to the central database."""
+        """Connect to the central database and return status."""
 
-        return self.service.connect()
+        self.service.connect()
+        return self.service.status()
 
     def disconnect(self) -> dict:
         """Disconnect from the central database."""
 
-        return self.service.disconnect()
+        self.service.close()
+        return self.service.status()
 
     def initialize(self) -> dict:
         """Initialize the central database and its schema."""
@@ -71,10 +73,11 @@ class DatabaseController:
     ) -> int:
         """Execute one SQL statement."""
 
-        return self.service.execute(
+        cursor = self.service.execute(
             query=query,
             parameters=parameters,
         )
+        return cursor.rowcount
 
     def executemany(
         self,
@@ -83,10 +86,11 @@ class DatabaseController:
     ) -> int:
         """Execute one SQL statement for multiple parameter sets."""
 
-        return self.service.executemany(
+        cursor = self.service.executemany(
             query=query,
             parameters=parameters,
         )
+        return cursor.rowcount
 
     # ------------------------------------------------------------------
     # QUERIES
