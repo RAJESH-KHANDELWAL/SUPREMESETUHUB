@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "backend/database/**"
+      - "backend/api/service.py"
       - "backend/infrastructure/storage/**"
       - "backend/infrastructure/security/**"
       - "backend/infrastructure/backup/**"
