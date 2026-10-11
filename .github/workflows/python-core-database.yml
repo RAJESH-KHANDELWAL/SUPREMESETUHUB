@@ -6,6 +6,15 @@ on:
     paths:
       - "backend/database/**"
       - "backend/api/service.py"
+      - "backend/api/app.py"
+      - "backend/api/supreme_ecosystem.py"
+      - "backend/api/supreme_whatsapp_ai.py"
+      - "backend/core/**"
+      - "backend/organizations/**"
+      - "backend/auth/**"
+      - "backend/users/**"
+      - "backend/identity/**"
+      - "backend/security.py"
       - "backend/infrastructure/storage/**"
       - "backend/infrastructure/security/**"
       - "backend/infrastructure/backup/**"
@@ -17,6 +26,16 @@ on:
     branches: [main]
     paths:
       - "backend/database/**"
+      - "backend/api/app.py"
+      - "backend/api/supreme_ecosystem.py"
+      - "backend/api/supreme_whatsapp_ai.py"
+      - "backend/core/**"
+      - "backend/organizations/**"
+      - "backend/auth/**"
+      - "backend/users/**"
+      - "backend/identity/**"
+      - "backend/security.py"
+      - "backend/security/**"
       - "backend/tests/**"
       - ".github/workflows/python-core-database.yml"
   workflow_dispatch:
@@ -39,4 +58,4 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r backend/requirements.txt
       - name: Run central database service tests
-        run: python -m pytest -q backend/tests/test_database_service.py backend/tests/test_infrastructure_modules.py
+        run: python -m pytest -q backend/tests/test_database_service.py backend/tests/test_infrastructure_modules.py backend/tests/test_private_ecosystem_access.py
