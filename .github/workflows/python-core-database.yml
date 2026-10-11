@@ -7,6 +7,8 @@ on:
       - "backend/database/**"
       - "backend/api/service.py"
       - "backend/api/app.py"
+      - "backend/api/businesses.py"
+      - "backend/businesses/**"
       - "backend/api/supreme_ecosystem.py"
       - "backend/api/supreme_whatsapp_ai.py"
       - "backend/core/**"
@@ -28,6 +30,8 @@ on:
     paths:
       - "backend/database/**"
       - "backend/api/app.py"
+      - "backend/api/businesses.py"
+      - "backend/businesses/**"
       - "backend/api/supreme_ecosystem.py"
       - "backend/api/supreme_whatsapp_ai.py"
       - "backend/core/**"
