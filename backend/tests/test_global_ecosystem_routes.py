@@ -3,6 +3,8 @@
 
 import unittest
 
+from fastapi.testclient import TestClient
+
 from backend.api.app import app
 
 
@@ -10,11 +12,12 @@ class TestGlobalEcosystemRoutes(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.client = app.test_client()
+        cls.client = TestClient(app)
 
     def test_health_route(self):
         response = self.client.get("/health")
         self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json()["status"], "healthy")
 
     def test_ecosystem_status_route(self):
         response = self.client.get("/api/global-ecosystem/status")
