@@ -1,11 +1,13 @@
-# SUPREME ECOSYSTEM Backend
+# SUPREME ECOSYSTEM
 
 This package is the child system under MAIN SUPREME.
 
-The directory layout mirrors the major backend domains to give SUPREME
-ECOSYSTEM its own namespaced implementation. These package initializers are
-scaffolding only: business logic, dependency wiring, database models, routes,
-and tests must be implemented and validated before a module is considered live.
+It contains ecosystem services, connectors, integrations, ownership, vault,
+Mukti Mahal, work/income, and the Global Business Ecosystem.
 
-Existing modules under `backend/supreme/ecosystem/` are preserved during this
-scaffold phase; migrate or connect them deliberately to avoid breaking imports.
+The Global Business Ecosystem has been preserved under:
+`global/ecosystem/global-business-ecosystem/`
+
+This structure is a migration of existing modules, not a claim that every
+integration is configured or that every route has been tested. Provider
+connections remain inactive until configured and validated.
