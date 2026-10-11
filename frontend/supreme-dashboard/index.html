@@ -160,12 +160,12 @@ iframe{
     flex-wrap:wrap;
 }
 
-.login{
+.signin{
     max-width:500px;
     margin:70px auto;
 }
 
-.login input{
+.signin input{
     width:100%;
     padding:13px;
     margin:8px 0 14px;
@@ -187,7 +187,7 @@ iframe{
 
 <div class="shell">
 
-<section id="login" class="hero login">
+<section id="signin" class="hero signin">
 
     <div class="brand">
         👑 DR RAJESH KHANDELWAL IBC 👑
@@ -216,12 +216,12 @@ iframe{
 
     <button
         class="gold"
-        onclick="login()"
+        onclick="signin()"
     >
         ENTER PERSONAL SUPREME
     </button>
 
-    <p id="loginMsg" class="bad"></p>
+    <p id="signinMsg" class="bad"></p>
 
 </section>
 
@@ -466,7 +466,7 @@ function setText(id,t){
 }
 
 
-async function login(){
+async function signin(){
 
     const u =
         username.value.trim();
@@ -474,13 +474,13 @@ async function login(){
     const p =
         password.value;
 
-    loginMsg.textContent = '';
+    signinMsg.textContent = '';
 
     try{
 
         const r =
             await fetch(
-                API + '/auth/login',
+                API + '/auth/signin',
                 {
                     method:'POST',
 
@@ -506,7 +506,7 @@ async function login(){
 
             throw Error(
                 d.message ||
-                'Login failed'
+                'Sign in failed'
             );
 
         }
@@ -524,7 +524,7 @@ async function login(){
     }
     catch(e){
 
-        loginMsg.textContent =
+        signinMsg.textContent =
             e.message;
 
     }
@@ -534,7 +534,7 @@ async function login(){
 
 function start(){
 
-    login.hidden = true;
+    signin.hidden = true;
 
     app.hidden = false;
 
