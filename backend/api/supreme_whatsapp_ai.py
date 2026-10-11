@@ -319,4 +319,3 @@ def whatsapp_ai_status():
         "bulk_messaging": False,
         "automatic_contact_saving": False,
     }
-}
