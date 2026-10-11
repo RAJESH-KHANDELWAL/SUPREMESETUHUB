@@ -38,3 +38,9 @@ The SUPREME ECOSYSTEM is the control plane for authorized Google/Gmail, Microsof
 ## Deployment
 
 Root `render.yaml` and `backend/render.yaml` are retained for compatibility; configure only one Blueprint file per Render service to avoid duplicate services.
+
+## Global platform compatibility
+
+Read [Global Platform Compatibility Standard](docs/GLOBAL_PLATFORM_COMPATIBILITY.md) for the cross-browser, security, accessibility, deployment and release gates. The iOS folder documents the native App Store work still required; it is not a claim that a signed iOS app already exists.
+
+The Android release workflow runs on pushes to `main`, pull requests targeting `main`, and manual dispatch. Passing CI is necessary but does not guarantee app-store approval or prove all live integrations work.
