@@ -30,6 +30,7 @@ from backend.api.profiles import router as profiles_router
 from backend.api.projects import router as projects_router
 from backend.api.roles import router as roles_router
 from backend.api.supreme import router as supreme_router
+from backend.api.supreme_ecosystem import router as supreme_ecosystem_router
 from backend.api.users import router as users_router
 from backend.api.user_hub import router as user_hub_router
 from backend.api.ai import router as ai_router
@@ -142,6 +143,8 @@ PUBLIC_API_PATHS = {
     "/auth/login",
     "/users/register",
     "/identity/register",
+    "/api/v1/supreme-ecosystem/auth/signup",
+    "/api/v1/supreme-ecosystem/auth/signin",
     "/api/v1/frontend/supreme",
     "/api/v1/frontend/supreme/style.css",
     "/api/v1/frontend/supreme/health",
@@ -185,6 +188,9 @@ async def private_by_default(request: Request, call_next):
         )
 
     username = str(result.get("username", "")).strip()
+    if path in {"/api/v1/supreme-ecosystem/account", "/api/v1/supreme-ecosystem/dashboard"}:
+        return await call_next(request)
+
     if username.casefold() != SUPREME_OWNER_USERNAME.casefold():
         return JSONResponse(
             status_code=403,
@@ -264,6 +270,7 @@ app.include_router(opportunities_router)
 app.include_router(matching_router)
 app.include_router(roles_router)
 app.include_router(supreme_router)
+app.include_router(supreme_ecosystem_router)
 app.include_router(dashboard_router)
 app.include_router(infrastructure_router)
 app.include_router(dns_router)
