@@ -1,8 +1,7 @@
-"""
-🔱 SUPREMESETUHUB - UNIFIED SUPREME OWNER CONFIGURATION 🔱
+"""Private-by-configuration SUPREME settings for the backend ecosystem.
 
-Single Supreme Owner with All Names/Aliases
-Connected to All Repositories
+Personal identifiers and contact details are loaded from deployment environment
+variables. Do not commit real emails, credentials, access tokens, or secrets.
 """
 
 import os
@@ -22,11 +21,11 @@ CREATED_AT = "2025-05-23"
 # =========================================================
 
 SUPREME_OWNER = {
-    "person_id": "PRS-7K4M-2Q8N-6T1X",
-    "business_id": "BUS-2M7R-9Q4A-6T8C",
-    "company_id": "CMP-8D3F-6N1Q-4X9K",
-    "supreme_id": "SUP-9C4M-7X2K-6P8R",
-    "internal_user_id": "0194F8A27C317B4E9D218A6F3C5B1E90",
+    "person_id": os.getenv("SUPREME_OWNER_PERSON_ID", ""),
+    "business_id": os.getenv("SUPREME_OWNER_BUSINESS_ID", ""),
+    "company_id": os.getenv("SUPREME_OWNER_COMPANY_ID", ""),
+    "supreme_id": os.getenv("SUPREME_ID", ""),
+    "internal_user_id": os.getenv("SUPREME_OWNER_INTERNAL_USER_ID", ""),
     
     "status": "ACTIVE",
     "role": "SUPREME_OWNER",
@@ -49,8 +48,8 @@ SUPREME_OWNER = {
         "DRRAJESHKHANDELWALIBCOFFICIAL"
     ],
     
-    "primary_username": "RAJESHKHANDELWALOFFICIAL",
-    "primary_display_name": "👑 DR RAJESH KHANDELWAL IBC OFFICIAL 👑",
+    "primary_username": os.getenv("SUPREME_OWNER_USERNAME", "RAJESHKHANDELWALOFFICIAL"),
+    "primary_display_name": os.getenv("SUPREME_OWNER_DISPLAY_NAME", "👑 DR RAJESH KHANDELWAL IBC OFFICIAL 👑"),
     
     "title": "Digital Pioneer | AI Visionary | Supreme Owner",
     "bio": "Creator of SUPREMESETUHUB - Building the next generation of digital ecosystems. Master of Identity, Business, AI, Storage, Security and Digital Innovation.",
