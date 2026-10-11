@@ -41,7 +41,7 @@ class SessionManager(context: Context) {
      * - session_id
      * - user_id
      */
-    fun saveLoginResponse(
+    fun saveSignInResponse(
         responseBody: String
     ): Boolean {
 
