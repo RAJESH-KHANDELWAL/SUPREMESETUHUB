@@ -10,9 +10,11 @@ from backend.infrastructure.security.service import SecurityService as SecurityI
 
 class SecurityService:
     def __init__(self):
-        self.infrastructure = SecurityInfrastructureService()
+        self.infrastructure = None
 
     def initialize(self):
+        if self.infrastructure is None:
+            self.infrastructure = SecurityInfrastructureService()
         self.infrastructure.initialize()
         return {
             "security": "MAIN BASE FOUNDATION",
