@@ -16,14 +16,14 @@ object AuthApi {
 
     /**
      * Existing endpoint:
-     * POST /auth/login
+     * POST /auth/signin
      *
      * Backend accepts:
      * username
      * password
      * master_id
      */
-    fun login(
+    fun signin(
         username: String? = null,
         password: String? = null,
         masterId: String? = null
@@ -45,7 +45,7 @@ object AuthApi {
         }
 
         return ApiClient.post(
-            ApiConfig.AUTH_PATH + "/login",
+            ApiConfig.AUTH_PATH + "/signin",
             body.toString()
         )
     }
