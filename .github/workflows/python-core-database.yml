@@ -5,6 +5,11 @@ on:
     branches: [main]
     paths:
       - "backend/database/**"
+      - "backend/infrastructure/storage/**"
+      - "backend/infrastructure/security/**"
+      - "backend/infrastructure/backup/**"
+      - "backend/storage/**"
+      - "backend/security/**"
       - "backend/tests/**"
       - ".github/workflows/python-core-database.yml"
   pull_request:
@@ -31,4 +36,4 @@ jobs:
       - name: Install test dependency
         run: python -m pip install --upgrade pip pytest
       - name: Run central database service tests
-        run: python -m pytest -q backend/tests/test_database_service.py
+        run: python -m pytest -q backend/tests/test_database_service.py backend/tests/test_infrastructure_modules.py
