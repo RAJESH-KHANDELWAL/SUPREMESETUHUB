@@ -3,12 +3,12 @@ from __future__ import annotations
 
 from typing import Any
 
-from backend.supreme.engines.referral_engine import ReferralEngine
-from backend.supreme.storage.referral_store import ReferralStore
+from backend.engines.referral_engine import ReferralEngine
+from backend.storage.referral_store import ReferralStore
 
 
 class SupremeReferralService:
-    NAME = "SUPREME PEOPLE AND REFERRAL CORE"
+    NAME = "GLOBAL CORE ECOSYSTEM PEOPLE AND REFERRAL CORE"
 
     def __init__(self, store: ReferralStore | None = None, engine: ReferralEngine | None = None) -> None:
         self.store = store or ReferralStore()
@@ -88,7 +88,7 @@ class SupremeReferralService:
         return {
             "success": True,
             "core": self.NAME,
-            "parent": "SUPREME",
+            "parent": "GLOBAL CORE ECOSYSTEM",
             "engine": self.engine.status(),
             "storage": self.store.status(),
             "api": "SEPARATE_LAYER",

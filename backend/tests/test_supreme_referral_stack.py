@@ -3,10 +3,10 @@ from __future__ import annotations
 import unittest
 
 from backend.database.service import DatabaseService
-from backend.supreme.core.referral_service import SupremeReferralService
-from backend.supreme.database.referral_repository import ReferralRepository
-from backend.supreme.engines.referral_engine import ReferralEngine
-from backend.supreme.storage.referral_store import ReferralStore
+from backend.core.global_ecosystem.global_core_ecosystem.referral_service import SupremeReferralService
+from backend.database.referral_repository import ReferralRepository
+from backend.engines.referral_engine import ReferralEngine
+from backend.storage.referral_store import ReferralStore
 
 
 class SupremeReferralStackTests(unittest.TestCase):

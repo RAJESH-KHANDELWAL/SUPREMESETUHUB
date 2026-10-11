@@ -9,7 +9,7 @@ from urllib.parse import urlparse
 
 
 class ReferralEngine:
-    NAME = "SUPREME_REFERRAL_ENGINE"
+    NAME = "GLOBAL_CORE_REFERRAL_ENGINE"
 
     PERSON_STAGES = {
         "NEW",

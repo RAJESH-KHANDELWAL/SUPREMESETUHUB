@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]
     paths:
+      - "backend/core/**"
+      - "backend/engines/**"
+      - "backend/database/**"
+      - "backend/storage/**"
       - "backend/supreme/**"
       - "backend/database/service.py"
       - "backend/tests/test_supreme_referral_stack.py"

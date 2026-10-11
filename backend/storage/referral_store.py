@@ -1,17 +1,17 @@
-"""Storage boundary for SUPREME referral workflows.
+"""Storage boundary for GLOBAL CORE ECOSYSTEM referral workflows.
 
-Business rules stay in engines/core; persistence is delegated to the SUPREME
-repository, which uses the established central DatabaseService.
+Business rules stay in CORE/ENGINE; persistence is delegated to the DATABASE layer
+through the established central DatabaseService.
 """
 from __future__ import annotations
 
 from typing import Any
 
-from backend.supreme.database.referral_repository import ReferralRepository
+from backend.database.referral_repository import ReferralRepository
 
 
 class ReferralStore:
-    NAME = "SUPREME_REFERRAL_STORAGE"
+    NAME = "GLOBAL_CORE_REFERRAL_STORAGE"
 
     def __init__(self, repository: ReferralRepository | None = None) -> None:
         self.repository = repository or ReferralRepository()
