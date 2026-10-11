@@ -41,9 +41,14 @@ def initialize():
 
 @router.post("/signin")
 def signin(request: SignInRequest):
-    # Password-based sign-in remains available through the controller.
-    result = controller.login(
-        master_id=request.master_id,
+    # A master ID identifies an account; it cannot authenticate without a password.
+    if not request.username or not request.password:
+        raise HTTPException(
+            status_code=403,
+            detail="PASSWORD_SIGNIN_REQUIRED",
+        )
+
+    result = controller.signin(
         username=request.username,
         password=request.password,
     )
@@ -71,8 +76,9 @@ def validate_token(request: TokenRequest):
     )
 
 
-@router.post("/logout")
-def logout(
+@router.post("/signout")
+@router.post("/logout", include_in_schema=False)
+def signout(
     request: TokenRequest,
     authorization: str | None = Header(default=None, alias="Authorization"),
     current_user: dict = Depends(get_current_user),
@@ -99,6 +105,6 @@ def logout(
 
     # If legacy clients send a body token, it must match the authenticated token.
     if request.token and not secrets.compare_digest(request.token, bearer_token):
-        raise HTTPException(status_code=403, detail="LOGOUT_TOKEN_MISMATCH")
+        raise HTTPException(status_code=403, detail="SIGNOUT_TOKEN_MISMATCH")
 
-    return controller.logout(token=bearer_token)
+    return controller.signout(token=bearer_token)

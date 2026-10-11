@@ -66,4 +66,4 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r backend/requirements.txt
       - name: Run central database service tests
-        run: python -m pytest -q backend/tests/test_database_service.py backend/tests/test_infrastructure_modules.py backend/tests/test_private_ecosystem_access.py backend/tests/test_supreme_referral_stack.py backend/tests/test_auth_logout_security.py
+        run: python -m pytest -q backend/tests/test_database_service.py backend/tests/test_infrastructure_modules.py backend/tests/test_private_ecosystem_access.py backend/tests/test_supreme_referral_stack.py backend/tests/test_authentication_security.py backend/tests/test_auth_signout_security.py backend/tests/test_signup_route.py

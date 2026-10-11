@@ -12,9 +12,13 @@ class UserController:
     def initialize(self):
         return self.service.initialize()
 
-    def register(self, **kwargs):
+    def signup(self, **kwargs):
         user = self.service.create_user(**kwargs)
         return self.service.save_user(user)
+
+    # Backward-compatible alias for existing internal callers.
+    def register(self, **kwargs):
+        return self.signup(**kwargs)
 
     def get(self, user_id):
         return self.service.get_user(user_id)
