@@ -63,11 +63,19 @@ class MainBaseFoundation:
 
             "database": database,
 
+            # IdentityService.initialize() creates/migrates storage; it does
+            # not create a default person identity. Report readiness without
+            # assuming that an identity record already exists.
             "identity": {
-                "master_id": identity.master_id,
-                "full_name": identity.full_name,
-                "username": identity.primary_username,
-                "status": identity.status,
+                "master_id": getattr(identity, "master_id", None),
+                "full_name": getattr(identity, "full_name", None),
+                "username": getattr(
+                    identity,
+                    "primary_username",
+                    getattr(identity, "username", None),
+                ),
+                "status": getattr(identity, "status", "INITIALIZED"),
+                "record_available": identity is not None,
             },
 
             "authentication": authentication,
