@@ -74,3 +74,13 @@ def test_logout_rejects_missing_bearer_header():
 
     assert error.value.status_code == 401
     assert error.value.detail == "BEARER_TOKEN_REQUIRED"
+
+
+def test_master_id_only_authentication_is_rejected():
+    from backend.api import auth as auth_module
+
+    with pytest.raises(HTTPException) as error:
+        auth_module.authenticate(auth_module.AuthenticateRequest(master_id="public-or-guessed-id"))
+
+    assert error.value.status_code == 403
+    assert error.value.detail == "MASTER_ID_ONLY_AUTHENTICATION_DISABLED_USE_PASSWORD_SIGNIN"
