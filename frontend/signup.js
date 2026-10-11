@@ -114,7 +114,7 @@ if (form) {
             if (!signInLink) {
                 signInLink = document.createElement("a");
                 signInLink.id = "signupSignInLink";
-                signInLink.href = "login.html";
+                signInLink.href = "signin.html";
                 signInLink.textContent = "CONTINUE TO SIGN IN";
                 signInLink.style.display = "inline-block";
                 signInLink.style.marginTop = "16px";
