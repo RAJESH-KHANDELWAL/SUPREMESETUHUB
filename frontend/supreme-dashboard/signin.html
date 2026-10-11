@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SUPREME — SIGN IN</title>
+<style>
+:root{font-family:Georgia,serif;color:#111827;background:#fbfaf6}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:20px}
+main{width:min(100%,500px);padding:32px;background:#fff;border:1px solid #e7e0c8;border-radius:20px;box-shadow:0 18px 55px #11182712}
+.brand{text-align:center;color:#b08a19;font-size:clamp(24px,4vw,36px);font-weight:800}
+h1{text-align:center;font-size:24px}p{line-height:1.5;color:#6b7280}
+label{display:block;margin:16px 0 7px;font-weight:700}input{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:10px;font:inherit}
+button{width:100%;margin-top:20px;padding:14px;border:0;border-radius:10px;background:#b08a19;color:#fff;font:inherit;font-weight:800;cursor:pointer}
+button:disabled{opacity:.6;cursor:wait}#message{overflow-wrap:anywhere;white-space:pre-wrap}.back{display:block;text-align:center;margin-top:18px;color:#123b82}
+</style>
+</head>
+<body>
+<main>
+<div class="brand">👑 DR RAJESH KHANDELWAL IBC 👑</div>
+<h1>SUPREME — SIGN IN</h1>
+<p>This is the private owner sign-in for SUPREME. Public account creation is not available here.</p>
+<form id="signInForm">
+<label for="username">OWNER USERNAME</label>
+<input id="username" name="username" autocomplete="username" required>
+<label for="password">PASSWORD</label>
+<input id="password" name="password" type="password" autocomplete="current-password" required>
+<button id="submitButton" type="submit">SIGN IN TO SUPREME</button>
+<p id="message" role="status" aria-live="polite"></p>
+</form>
+<a class="back" href="../index.html">← BACK TO MAIN BASE FOUNDATION</a>
+</main>
+<script src="signin.js"></script>
+</body>
+</html>
