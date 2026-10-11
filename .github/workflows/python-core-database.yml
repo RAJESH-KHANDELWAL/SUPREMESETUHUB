@@ -34,7 +34,9 @@ jobs:
         uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - name: Install test dependency
-        run: python -m pip install --upgrade pip pytest
+      - name: Install backend dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r backend/requirements.txt
       - name: Run central database service tests
         run: python -m pytest -q backend/tests/test_database_service.py backend/tests/test_infrastructure_modules.py
