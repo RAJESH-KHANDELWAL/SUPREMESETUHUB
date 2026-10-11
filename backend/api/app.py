@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 
 from backend.auth.service import AuthenticationService
-from supreme_config import USERNAME as SUPREME_OWNER_USERNAME
+from backend.supreme.config import USERNAME as SUPREME_OWNER_USERNAME
 
 from backend.api.auth import router as auth_router
 from backend.api.businesses import router as businesses_router
