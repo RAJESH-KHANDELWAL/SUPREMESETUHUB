@@ -94,12 +94,13 @@ def search_user(username: str):
     }
 
 
-@router.post("/register", status_code=201)
-def register_user(payload: UserCreateRequest):
-    """Register an account using full name, Gmail, and password."""
+@router.post("/signup", status_code=201)
+@router.post("/register", status_code=201, include_in_schema=False)
+def signup_user(payload: UserCreateRequest):
+    """Sign up for an account using full name, Gmail, and password."""
 
     try:
-        user = controller.register(
+        user = controller.signup(
             full_name=payload.full_name,
             email=str(payload.email),
             password=payload.password,
@@ -129,7 +130,7 @@ def register_user(payload: UserCreateRequest):
 @router.post("/")
 def create_user(payload: UserCreateRequest):
     """Compatibility endpoint for account creation."""
-    return register_user(payload)
+    return signup_user(payload)
 
 
 @router.post("/verify-password")
