@@ -325,7 +325,7 @@ function hideAuthenticatedWorkspace() {
             () => {
 
                 window.location.href =
-                    "/login.html";
+                    "/signin.html";
 
             };
 
@@ -1728,7 +1728,7 @@ async function logout() {
 
 
         window.location.href =
-            "/login.html";
+            "/signin.html";
 
     }
 
@@ -1763,7 +1763,7 @@ function setupLogoutButton() {
 
 
 /* =========================================================
-   LEGACY LOGIN BUTTON
+   SIGN IN BUTTON
    ========================================================= */
 
 function setupLoginButton() {
@@ -1797,7 +1797,7 @@ function setupLoginButton() {
         () => {
 
             window.location.href =
-                "/login.html";
+                "/signin.html";
 
         }
     );
