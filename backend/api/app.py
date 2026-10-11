@@ -134,19 +134,15 @@ authentication_service = AuthenticationService()
 # PRIVATE-BY-DEFAULT API ACCESS
 # ============================================================
 
-# Public paths are intentionally limited to deployment health, the login and
-# account/identity registration entry points, and frontend assets. All data
-# APIs require a valid session belonging to the configured SUPREME owner.
-# Friend/member access must be added through explicit resource-level
-# permissions before those accounts are allowed to read private API data.
+# Public entry points are limited to platform signup/signin, health checks,
+# and frontend assets. SUPREME and SUPREME ECOSYSTEM are private control
+# systems: their routes must never be used as public customer account APIs.
+# Customer registration/sign-in uses /users/register and /auth/login.
 PUBLIC_API_PATHS = {
     "/health",
     "/auth/initialize",
     "/auth/login",
     "/users/register",
-    "/identity/register",
-    "/api/v1/supreme-ecosystem/auth/signup",
-    "/api/v1/supreme-ecosystem/auth/signin",
     "/api/v1/supreme-ecosystem/whatsapp/webhook",
     "/api/v1/frontend/supreme",
     "/api/v1/frontend/supreme/style.css",
@@ -191,17 +187,42 @@ async def private_by_default(request: Request, call_next):
         )
 
     username = str(result.get("username", "")).strip()
-    if path in {"/api/v1/supreme-ecosystem/account", "/api/v1/supreme-ecosystem/dashboard"}:
+
+    # SUPREME ECOSYSTEM is a private owner-control system. No regular
+    # platform account may use its signup, signin, dashboard, account,
+    # status, or integration endpoints.
+    is_private_ecosystem_path = (
+        path == "/api/v1/supreme-ecosystem"
+        or path.startswith("/api/v1/supreme-ecosystem/")
+    )
+    is_supreme_owner = (
+        username.casefold() == SUPREME_OWNER_USERNAME.casefold()
+    )
+
+    if is_private_ecosystem_path and not is_supreme_owner:
+        return JSONResponse(
+            status_code=403,
+            content={
+                "detail": "SUPREME_ECOSYSTEM_PRIVATE",
+                "message": "SUPREME ECOSYSTEM is reserved for its owner.",
+            },
+        )
+
+    # The user hub has its own token-to-identity ownership check. Allow a
+    # signed-in customer through so the route can return only that customer's
+    # profiles, businesses, and projects. Other data APIs remain owner-only
+    # until their resource-level ownership checks are implemented.
+    if path.startswith("/user-hub/"):
         return await call_next(request)
 
-    if username.casefold() != SUPREME_OWNER_USERNAME.casefold():
+    if not is_supreme_owner:
         return JSONResponse(
             status_code=403,
             content={
                 "detail": "SUPREME_OWNER_ACCESS_REQUIRED",
                 "message": (
-                    "Private data APIs are owner-only until explicit "
-                    "friend/member permissions and data isolation are implemented."
+                    "This API is private until explicit resource-level "
+                    "permissions and data isolation are implemented."
                 ),
             },
         )
