@@ -952,43 +952,66 @@ class StorageEngine(BaseEngine):
         }
 
     def health(self) -> Dict[str, object]:
+        """Check the metadata database, not a physical file-storage provider."""
+
+        try:
+            row = self.database.fetchone("SELECT 1 AS healthy")
+            registry_ready = bool(row and int(row["healthy"]) == 1)
+            tables_ready = all(
+                self.database.table_exists(table_name)
+                for table_name in (
+                    "ai_store_assets",
+                    "ai_store_access",
+                    "ai_store_links",
+                    "ai_store_audit",
+                )
+            )
+        except Exception:
+            registry_ready = False
+            tables_ready = False
+
+        registry_healthy = registry_ready and tables_ready
+        physical_storage_configured = False
 
         return {
             "engine": "AI Storage Engine",
-            "health": "HEALTHY",
-            "database_registry": "READY",
-            "permissions": "READY",
-            "audit_log": "READY",
+            "health": "DEGRADED" if registry_healthy else "UNHEALTHY",
+            "database_registry": "READY" if registry_healthy else "UNAVAILABLE",
+            "physical_storage": "NOT_CONFIGURED",
+            "physical_storage_configured": physical_storage_configured,
+            "permissions": "READY" if registry_healthy else "UNAVAILABLE",
+            "audit_log": "READY" if registry_healthy else "UNAVAILABLE",
             "central_engine": True,
         }
 
     def connect(self) -> Dict[str, object]:
-
-        self.connected = True
-        self.storage_status = "CONNECTED"
-
+        """Confirm metadata registry availability without claiming blob storage is connected."""
+        health = self.health()
+        self.connected = False
+        self.storage_status = (
+            "METADATA_ONLY"
+            if health["database_registry"] == "READY"
+            else "UNAVAILABLE"
+        )
         return self.status()
 
     def disconnect(self) -> Dict[str, object]:
-
+        """No external storage provider is currently configured."""
         self.connected = False
-        self.storage_status = "READY"
-
+        self.storage_status = "METADATA_ONLY"
         return self.status()
 
     def configuration(self) -> Dict[str, object]:
-
         return {
             "engine": "AI Storage Engine",
             "storage_type": self.storage_type,
+            "storage_backend_configured": False,
+            "storage_backend": None,
+            "metadata_backend": "SQLite",
             "central_registry": True,
             "cross_area_access": True,
-            "permission_actions": list(
-                self.ACTIONS
-            ),
-            "content_classes": list(
-                self.CONTENT_CLASSES
-            ),
+            "permission_actions": list(self.ACTIONS),
+            "content_classes": list(self.CONTENT_CLASSES),
             "ai_classification": True,
             "audit_logging": True,
             "soft_delete": True,
