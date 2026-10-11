@@ -264,8 +264,8 @@ function showAuthenticatedWorkspace() {
 
     const signInButton =
         getElement(
-            "loginButton"
-        );
+            "signInButton"
+        ) || getElement("loginButton");
 
     if (signInButton) {
 
@@ -313,8 +313,8 @@ function hideAuthenticatedWorkspace() {
 
     const signInButton =
         getElement(
-            "loginButton"
-        );
+            "signInButton"
+        ) || getElement("loginButton");
 
     if (signInButton) {
 
@@ -1743,8 +1743,8 @@ function setupSignoutButton() {
 
     const button =
         getElement(
-            "logoutButton"
-        );
+            "signOutButton"
+        ) || getElement("logoutButton");
 
 
     if (!button) {
@@ -1770,8 +1770,8 @@ function setupSignInButton() {
 
     const button =
         getElement(
-            "loginButton"
-        );
+            "signInButton"
+        ) || getElement("loginButton");
 
 
     if (!button) {
