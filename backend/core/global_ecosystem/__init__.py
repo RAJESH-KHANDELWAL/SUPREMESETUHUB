@@ -1,24 +1,21 @@
+"""GLOBAL ECOSYSTEM layer under CORE; implementations live in GLOBAL CORE ECOSYSTEM."""
+from importlib import import_module
 
-"""GLOBAL ECOSYSTEM package under CORE."""
+_EXPORTS = {
+    "EcosystemIdentity": "models",
+    "GlobalEcosystemIdentity": "models",
+    "EcosystemManager": "manager",
+    "GlobalEcosystemManager": "manager",
+    "EcosystemRegistry": "registry",
+    "GlobalEcosystemRegistry": "registry",
+}
+__all__ = list(_EXPORTS)
 
-from backend.core.global_ecosystem.manager import (
-    EcosystemManager,
-    GlobalEcosystemManager,
-)
-from backend.core.global_ecosystem.models import (
-    EcosystemIdentity,
-    GlobalEcosystemIdentity,
-)
-from backend.core.global_ecosystem.registry import (
-    EcosystemRegistry,
-    GlobalEcosystemRegistry,
-)
-
-__all__ = [
-    "EcosystemIdentity",
-    "GlobalEcosystemIdentity",
-    "EcosystemManager",
-    "GlobalEcosystemManager",
-    "EcosystemRegistry",
-    "GlobalEcosystemRegistry",
-]
+def __getattr__(name: str):
+    module_name = _EXPORTS.get(name)
+    if module_name is None:
+        raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+    module = import_module(f".global_core_ecosystem.{module_name}", __name__)
+    value = getattr(module, name)
+    globals()[name] = value
+    return value
