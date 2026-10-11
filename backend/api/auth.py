@@ -2,10 +2,13 @@
 
 from __future__ import annotations
 
-from fastapi import APIRouter, HTTPException
+import secrets
+
+from fastapi import APIRouter, Depends, Header, HTTPException
 from pydantic import BaseModel
 
 from backend.auth.controller import AuthenticationController
+from backend.security.dependencies import get_current_user
 
 
 router = APIRouter(
@@ -69,8 +72,33 @@ def validate_token(request: TokenRequest):
 
 
 @router.post("/logout")
-def logout(request: TokenRequest):
-    return controller.logout(
-        token=request.token,
-        session_id=request.session_id,
-    )
+def logout(
+    request: TokenRequest,
+    authorization: str | None = Header(default=None, alias="Authorization"),
+    current_user: dict = Depends(get_current_user),
+):
+    """Revoke only the session authenticated by the Bearer token."""
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(
+            status_code=401,
+            detail="BEARER_TOKEN_REQUIRED",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    bearer_token = authorization[len("Bearer "):].strip()
+    if not bearer_token:
+        raise HTTPException(
+            status_code=401,
+            detail="BEARER_TOKEN_REQUIRED",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    # Request-body identifiers must never select a different session.
+    if request.session_id and request.session_id != current_user.get("session_id"):
+        raise HTTPException(status_code=403, detail="CANNOT_REVOKE_ANOTHER_SESSION")
+
+    # If legacy clients send a body token, it must match the authenticated token.
+    if request.token and not secrets.compare_digest(request.token, bearer_token):
+        raise HTTPException(status_code=403, detail="LOGOUT_TOKEN_MISMATCH")
+
+    return controller.logout(token=bearer_token)
