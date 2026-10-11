@@ -16,7 +16,7 @@ router = APIRouter(
 controller = AuthenticationController()
 
 
-class LoginRequest(BaseModel):
+class SignInRequest(BaseModel):
     username: str | None = None
     password: str | None = None
     master_id: str | None = None
@@ -36,8 +36,8 @@ def initialize():
     return controller.initialize()
 
 
-@router.post("/login")
-def login(request: LoginRequest):
+@router.post("/signin")
+def signin(request: SignInRequest):
     result = controller.login(
         master_id=request.master_id,
         username=request.username,
