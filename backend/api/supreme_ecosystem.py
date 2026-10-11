@@ -198,7 +198,7 @@ def integration_status():
             },
             {
                 "provider": "WHATSAPP_BUSINESS_AI",
-                "status": "CONFIGURED_NEEDS_WEBHOOK_TEST" if whatsapp_configured else "NOT_CONFIGURED",
+                "status": "CONFIGURED_NEEDS_WEBHOOK_IMPLEMENTATION_AND_TEST" if whatsapp_configured else "NOT_CONFIGURED",
                 "connected": False,
             },
         ],
