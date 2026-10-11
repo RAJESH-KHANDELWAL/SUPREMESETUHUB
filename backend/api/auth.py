@@ -41,9 +41,14 @@ def initialize():
 
 @router.post("/signin")
 def signin(request: SignInRequest):
-    # Password-based sign-in remains available through the controller.
+    # A master ID identifies an account; it cannot authenticate without a password.
+    if not request.username or not request.password:
+        raise HTTPException(
+            status_code=403,
+            detail="PASSWORD_SIGNIN_REQUIRED",
+        )
+
     result = controller.signin(
-        master_id=request.master_id,
         username=request.username,
         password=request.password,
     )
