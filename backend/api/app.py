@@ -30,6 +30,7 @@ from backend.api.profiles import router as profiles_router
 from backend.api.projects import router as projects_router
 from backend.api.roles import router as roles_router
 from backend.api.supreme import router as supreme_router
+from backend.api.supreme_personal_ai import router as supreme_personal_ai_router
 from backend.api.supreme_ecosystem import router as supreme_ecosystem_router
 from backend.api.supreme_work_income import router as supreme_work_income_router
 from backend.api.supreme_whatsapp_ai import router as supreme_whatsapp_ai_router
@@ -294,6 +295,7 @@ app.include_router(opportunities_router)
 app.include_router(matching_router)
 app.include_router(roles_router)
 app.include_router(supreme_router)
+app.include_router(supreme_personal_ai_router)
 app.include_router(supreme_ecosystem_router)
 app.include_router(supreme_work_income_router)
 app.include_router(supreme_whatsapp_ai_router)
