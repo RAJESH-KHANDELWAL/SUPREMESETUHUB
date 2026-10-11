@@ -4,18 +4,13 @@ from __future__ import annotations
 
 import os
 
-from fastapi import APIRouter, Header, HTTPException
+from fastapi import APIRouter, Depends, Header, HTTPException
 from pydantic import BaseModel, EmailStr, Field, field_validator
 
 from backend.auth.service import AuthenticationService
 from backend.users.service import UserService
 from backend.supreme.config import USERNAME as SUPREME_OWNER_USERNAME
 
-
-router = APIRouter(
-    prefix="/api/v1/supreme-ecosystem",
-    tags=["SUPREME ECOSYSTEM"],
-)
 
 authentication_service = AuthenticationService()
 user_service = UserService()
@@ -47,6 +42,46 @@ class SignupRequest(BaseModel):
 class SigninRequest(BaseModel):
     username: str = Field(min_length=1, max_length=100)
     password: str = Field(min_length=1, max_length=128)
+
+
+def require_supreme_ecosystem_owner(
+    authorization: str | None = Header(default=None, alias="Authorization"),
+) -> str:
+    """Require an active session for the configured private SUPREME owner."""
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(
+            status_code=401,
+            detail="AUTHENTICATION_REQUIRED",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    token = authorization[len("Bearer "):].strip()
+    if not token:
+        raise HTTPException(status_code=401, detail="AUTHENTICATION_REQUIRED")
+
+    result = authentication_service.validate_token(token)
+    if not isinstance(result, dict) or not result.get("authenticated"):
+        raise HTTPException(
+            status_code=401,
+            detail=result.get("message", "INVALID_OR_EXPIRED_TOKEN")
+            if isinstance(result, dict) else "INVALID_OR_EXPIRED_TOKEN",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    username = str(result.get("username", "")).strip()
+    if username.casefold() != SUPREME_OWNER_USERNAME.casefold():
+        raise HTTPException(
+            status_code=403,
+            detail="SUPREME_ECOSYSTEM_PRIVATE",
+        )
+    return username
+
+
+router = APIRouter(
+    prefix="/api/v1/supreme-ecosystem",
+    tags=["SUPREME ECOSYSTEM"],
+    dependencies=[Depends(require_supreme_ecosystem_owner)],
+)
 
 
 def _current_user(authorization: str | None) -> tuple[str, object]:
