@@ -37,6 +37,8 @@ from backend.api.supreme_whatsapp_ai import router as supreme_whatsapp_ai_router
 from backend.api.users import router as users_router
 from backend.api.user_hub import router as user_hub_router
 from backend.api.ai import router as ai_router
+from backend.api.global_ai_ecosystem import router as global_ai_ecosystem_router
+from backend.api.global_business_ecosystem import router as global_business_ecosystem_router
 from backend.api.global_ecosystem import GlobalEcosystemAPI
 from backend.api.cloud import CloudAPI
 from backend.api.storage import StorageAPI
@@ -304,6 +306,8 @@ app.include_router(infrastructure_router)
 app.include_router(dns_router)
 app.include_router(user_hub_router)
 app.include_router(ai_router)
+app.include_router(global_ai_ecosystem_router)
+app.include_router(global_business_ecosystem_router)
 app.include_router(theme_hub_router)
 app.include_router(connectors_router)
 app.include_router(linksetu_router)

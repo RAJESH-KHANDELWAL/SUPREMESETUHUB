@@ -17,6 +17,8 @@ CORE_MODULES: Final[tuple[str, ...]] = (
     "INTEGRATIONS",
     "OWNERSHIP",
     "VAULT",
+    "SUPREME BUSINESS ECOSYSTEM",
+    "SUPREME AI ECOSYSTEM",
 )
 
 

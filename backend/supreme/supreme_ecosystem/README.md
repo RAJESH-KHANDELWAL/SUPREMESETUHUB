@@ -1,13 +1,18 @@
 # SUPREME ECOSYSTEM
 
-This package is the child system under MAIN SUPREME.
+This is the child ecosystem of **SUPREME**. The hierarchy is:
 
-It contains ecosystem services, connectors, integrations, ownership, vault,
-Mukti Mahal, work/income, and the Global Business Ecosystem.
+`SUPREME → SUPREME ECOSYSTEM → SUPREME BUSINESS ECOSYSTEM → GLOBAL BUSINESS ECOSYSTEM`
 
-The Global Business Ecosystem has been preserved under:
-`global/ecosystem/global-business-ecosystem/`
+`SUPREME → SUPREME ECOSYSTEM → SUPREME AI ECOSYSTEM → GLOBAL AI ECOSYSTEM`
 
-This structure is a migration of existing modules, not a claim that every
-integration is configured or that every route has been tested. Provider
-connections remain inactive until configured and validated.
+The Global Business Ecosystem source now lives at:
+`supreme_business_ecosystem/global_business_ecosystem/`
+
+The existing Global AI API source tree remains under `backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem/` to avoid breaking legacy source paths. It is bridged by `/api/v1/global-ai-ecosystem`, while the existing Central AI and SUPREME PERSONAL AI APIs remain registered.
+
+Private owner-control routes:
+- `/api/v1/supreme-ecosystem/business/status`
+- `/api/v1/supreme-ecosystem/ai/status`
+
+Public API route registration does not imply public data access; the backend's owner-only middleware applies. Provider credentials and live runtime behavior still require deployment configuration and tests.

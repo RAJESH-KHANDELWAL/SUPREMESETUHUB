@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 
 from sqlalchemy import Boolean, Column, DateTime, Integer, String
 
-from database.connection import Base
+from backend.supreme.supreme_ecosystem.supreme_business_ecosystem.global_business_ecosystem.database.connection import Base
 
 
 class User(Base):

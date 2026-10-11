@@ -10,6 +10,8 @@ from pydantic import BaseModel, EmailStr, Field, field_validator
 from backend.auth.service import AuthenticationService
 from backend.users.service import UserService
 from backend.supreme.config import USERNAME as SUPREME_OWNER_USERNAME
+from backend.supreme.supreme_ecosystem.supreme_business_ecosystem import status as business_ecosystem_status
+from backend.supreme.supreme_ecosystem.supreme_ai_ecosystem import status as ai_ecosystem_status
 
 
 authentication_service = AuthenticationService()
@@ -126,6 +128,16 @@ def ecosystem_status():
             "WHATSAPP_AI",
         ],
     }
+
+
+@router.get("/business/status")
+def supreme_business_status():
+    return business_ecosystem_status()
+
+
+@router.get("/ai/status")
+def supreme_ai_status():
+    return ai_ecosystem_status()
 
 
 @router.post("/auth/signup", status_code=201)

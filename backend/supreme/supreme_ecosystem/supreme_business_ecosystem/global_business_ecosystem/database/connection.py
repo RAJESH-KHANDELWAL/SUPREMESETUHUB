@@ -6,7 +6,7 @@ Database Connection
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 
-from config.settings import settings
+from backend.supreme.supreme_ecosystem.supreme_business_ecosystem.global_business_ecosystem.config.settings import settings
 
 
 engine = create_engine(

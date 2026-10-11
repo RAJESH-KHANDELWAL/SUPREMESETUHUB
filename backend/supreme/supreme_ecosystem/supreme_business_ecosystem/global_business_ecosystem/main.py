@@ -5,9 +5,9 @@ Runtime Entry Point
 
 from fastapi import FastAPI
 
-from api.routes import router as api_router
+from backend.api.global_business_ecosystem import router as api_router
 
-from config.settings import settings
+from backend.supreme.supreme_ecosystem.supreme_business_ecosystem.global_business_ecosystem.config.settings import settings
 
 
 app = FastAPI(
