@@ -25,3 +25,16 @@ The existing private-by-default middleware applies. Requests require the configu
 - Automatic WhatsApp messaging requires Meta WhatsApp Business Platform setup, an approved business number, access token, HTTPS webhook verification, signature checks, duplicate-event handling, policy-compliant messaging, and end-to-end testing.
 - No income or hiring outcome is guaranteed.
 - Never pay an employer to unlock a job; never share passwords or OTPs with recruiters.
+
+
+## WhatsApp AI
+
+See [WHATSAPP_AI_SETUP.md](./WHATSAPP_AI_SETUP.md) for official Cloud API setup, required environment variables, webhook configuration, consent-based approved-template outreach, and deployment/testing limitations.
+
+New endpoints:
+- `GET /api/v1/supreme-ecosystem/whatsapp/status`
+- `GET /api/v1/supreme-ecosystem/whatsapp/webhook` (Meta verification)
+- `POST /api/v1/supreme-ecosystem/whatsapp/webhook` (verified incoming message webhook with AI replies)
+- `POST /api/v1/supreme-ecosystem/whatsapp/send-approved-template` (authenticated, one recipient, explicit opt-in, approved template only)
+
+These endpoints are code scaffolding only until credentials are securely configured, Meta webhook subscriptions are completed, and an end-to-end test succeeds.
