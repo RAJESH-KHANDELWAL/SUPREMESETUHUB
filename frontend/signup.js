@@ -71,7 +71,8 @@ if (form) {
                     body: JSON.stringify({
                         full_name,
                         email,
-                        password
+                        password,
+                        confirm_password: confirmPassword
                     })
                 }
             );
