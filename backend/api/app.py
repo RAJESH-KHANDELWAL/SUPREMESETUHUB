@@ -31,6 +31,7 @@ from backend.api.projects import router as projects_router
 from backend.api.roles import router as roles_router
 from backend.api.supreme import router as supreme_router
 from backend.api.supreme_ecosystem import router as supreme_ecosystem_router
+from backend.api.supreme_work_income import router as supreme_work_income_router
 from backend.api.users import router as users_router
 from backend.api.user_hub import router as user_hub_router
 from backend.api.ai import router as ai_router
@@ -271,6 +272,7 @@ app.include_router(matching_router)
 app.include_router(roles_router)
 app.include_router(supreme_router)
 app.include_router(supreme_ecosystem_router)
+app.include_router(supreme_work_income_router)
 app.include_router(dashboard_router)
 app.include_router(infrastructure_router)
 app.include_router(dns_router)
