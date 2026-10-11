@@ -1,6 +1,6 @@
 
 /* =========================================================
-   MAIN BASE FOUNDATION — CREATE ACCOUNT
+   MAIN BASE FOUNDATION — SIGN UP
    SIGNUP + USERNAME HANDOFF TO SIGN IN
    ========================================================= */
 
@@ -55,7 +55,7 @@ if (form) {
         }
 
         submitButton.disabled = true;
-        submitButton.textContent = "CREATING ACCOUNT...";
+        submitButton.textContent = "SIGNING UP...";
 
         showSignupMessage("CONNECTING TO MAIN BASE FOUNDATION...", "loading");
 
@@ -109,7 +109,7 @@ if (form) {
                 "success"
             );
 
-            // Add a Sign In link after successful registration.
+            // Add a Sign In link after successful sign-up.
             let signInLink = document.getElementById("signupSignInLink");
 
             if (!signInLink) {
@@ -131,7 +131,7 @@ if (form) {
             );
         } finally {
             submitButton.disabled = false;
-            submitButton.textContent = "CREATE ACCOUNT";
+            submitButton.textContent = "SIGN UP";
         }
     });
 }
