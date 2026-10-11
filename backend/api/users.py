@@ -108,7 +108,7 @@ def signup_user(payload: UserCreateRequest):
 
         return {
             "message": (
-                "Account created successfully. "
+                "Sign-up successful. "
                 "Email verification is not yet enabled."
             ),
             "data": user.to_dict(),
