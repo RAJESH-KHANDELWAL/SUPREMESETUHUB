@@ -1,4 +1,4 @@
-name: SUPREME Referral Stack Tests
+name: GLOBAL CORE ECOSYSTEM Referral Stack Tests
 
 on:
   push:
@@ -9,14 +9,16 @@ on:
       - "backend/database/**"
       - "backend/storage/**"
       - "backend/supreme/**"
-      - "backend/database/service.py"
       - "backend/tests/test_supreme_referral_stack.py"
       - ".github/workflows/test-supreme-referral.yml"
   pull_request:
     branches: [main]
     paths:
+      - "backend/core/**"
+      - "backend/engines/**"
+      - "backend/database/**"
+      - "backend/storage/**"
       - "backend/supreme/**"
-      - "backend/database/service.py"
       - "backend/tests/test_supreme_referral_stack.py"
       - ".github/workflows/test-supreme-referral.yml"
   workflow_dispatch:
@@ -38,5 +40,5 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r backend/requirements.txt
-      - name: Test SUPREME referral layers
+      - name: Test GLOBAL CORE ECOSYSTEM layers
         run: python -m pytest -q backend/tests/test_supreme_referral_stack.py

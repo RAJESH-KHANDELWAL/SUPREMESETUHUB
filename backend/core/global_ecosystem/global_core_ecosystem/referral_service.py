@@ -1,4 +1,4 @@
-"""Core orchestration for SUPREME people and referral management."""
+"""CORE orchestration for GLOBAL CORE ECOSYSTEM people and referral management."""
 from __future__ import annotations
 
 from typing import Any

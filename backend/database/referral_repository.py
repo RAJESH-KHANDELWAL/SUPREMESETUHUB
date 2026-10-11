@@ -1,4 +1,4 @@
-"""SQLite repository for SUPREME people, referral links, events and commissions.
+"""SQLite repository for GLOBAL CORE ECOSYSTEM people, referral links, events and commissions.
 
 Uses the existing central DatabaseService and creates only namespaced tables.
 It does not delete, replace, or migrate unrelated existing tables.

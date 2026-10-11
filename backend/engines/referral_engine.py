@@ -1,4 +1,4 @@
-"""Business rules for SUPREME people, referral, follow-up and commission workflows.
+"""Business rules for GLOBAL CORE ECOSYSTEM people, referral, follow-up and commission workflows.
 
 This engine does not send messages, claim conversions, or infer a person's mindset.
 It validates explicit user/customer states and enforces safe commission transitions.
