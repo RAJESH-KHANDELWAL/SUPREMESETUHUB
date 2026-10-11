@@ -1,4 +1,4 @@
-""""Authentication API routes.""""
+"""Authentication API routes."""
 
 from __future__ import annotations
 
