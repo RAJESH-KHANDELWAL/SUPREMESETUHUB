@@ -3,11 +3,12 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Optional
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
 
 from backend.auth.service import AuthenticationService
+from supreme_config import USERNAME as SUPREME_OWNER_USERNAME
 
 from backend.api.auth import router as auth_router
 from backend.api.businesses import router as businesses_router
@@ -124,6 +125,79 @@ app.add_middleware(
 # ============================================================
 
 authentication_service = AuthenticationService()
+
+
+# ============================================================
+# PRIVATE-BY-DEFAULT API ACCESS
+# ============================================================
+
+# Public paths are intentionally limited to deployment health, the login and
+# account/identity registration entry points, and frontend assets. All data
+# APIs require a valid session belonging to the configured SUPREME owner.
+# Friend/member access must be added through explicit resource-level
+# permissions before those accounts are allowed to read private API data.
+PUBLIC_API_PATHS = {
+    "/health",
+    "/auth/initialize",
+    "/auth/login",
+    "/users/register",
+    "/identity/register",
+    "/api/v1/frontend/supreme",
+    "/api/v1/frontend/supreme/style.css",
+    "/api/v1/frontend/supreme/health",
+}
+
+
+@app.middleware("http")
+async def private_by_default(request: Request, call_next):
+    path = request.url.path
+
+    if request.method == "OPTIONS" or path in PUBLIC_API_PATHS or path == "/":
+        return await call_next(request)
+
+    authorization = request.headers.get("Authorization", "")
+    if not authorization.startswith("Bearer "):
+        return JSONResponse(
+            status_code=401,
+            content={
+                "detail": "AUTHENTICATION_REQUIRED",
+                "message": "Sign in as the SUPREME owner to access private data.",
+            },
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    token = authorization[len("Bearer "):].strip()
+    if not token:
+        return JSONResponse(
+            status_code=401,
+            content={"detail": "AUTHENTICATION_REQUIRED"},
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    result = authentication_service.validate_token(token)
+    if not result.get("authenticated"):
+        return JSONResponse(
+            status_code=401,
+            content={
+                "detail": result.get("message", "INVALID_OR_EXPIRED_TOKEN"),
+            },
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    username = str(result.get("username", "")).strip()
+    if username.casefold() != SUPREME_OWNER_USERNAME.casefold():
+        return JSONResponse(
+            status_code=403,
+            content={
+                "detail": "SUPREME_OWNER_ACCESS_REQUIRED",
+                "message": (
+                    "Private data APIs are owner-only until explicit "
+                    "friend/member permissions and data isolation are implemented."
+                ),
+            },
+        )
+
+    return await call_next(request)
 
 
 # ============================================================
