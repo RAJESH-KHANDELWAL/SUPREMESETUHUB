@@ -1,39 +1,22 @@
 # SUPREMESETUHUB Backend
 
-This directory contains the primary FastAPI backend, API routers, authentication, and supporting services.
+This directory contains the primary FastAPI backend and all SUPREME runtime modules.
 
-## Run from the repository root (recommended)
+## SUPREME structure
 
-Install dependencies:
+- `supreme/` — SUPREME core, config and owner identity helpers.
+- `supreme/ecosystem/` — ecosystem services, ownership, vault and external provider connector framework.
+- `api/supreme.py` — private SUPREME endpoints.
+- `api/app.py` — central FastAPI app and security middleware.
+- `start.py` — production startup wrapper.
+
+## Run from repository root
 
 ```bash
 python -m pip install -r backend/requirements.txt
-```
-
-Start the API:
-
-```bash
 python -m backend.start
 ```
 
-Then open `http://127.0.0.1:8000/docs` or check `http://127.0.0.1:8000/health`.
+Use `backend/.env.example` as a checklist for deployment variables. Put actual values in private local or hosting environment settings, never in Git commits.
 
-## Development mode
-
-From the repository root:
-
-```bash
-uvicorn backend.api.app:app --reload --host 127.0.0.1 --port 8000
-```
-
-## Deployment configuration
-
-The root `../render.yaml` and this directory's `render.yaml` are both retained. They currently specify the same build and start commands. Use only one Render Blueprint configuration for a given service to avoid duplicate service creation.
-
-## Entry points
-
-- `api/app.py` — FastAPI application and router registration.
-- `start.py` — Uvicorn startup wrapper used by the Render configuration.
-- `requirements.txt` — backend Python dependencies.
-
-The root-level `app.py` is a separate Flask application and is not this backend's FastAPI entry point.
+Google/Gmail, Microsoft and WhatsApp integrations remain `NOT_CONFIGURED` until their official provider apps, authorization, secrets and callbacks/webhooks have been configured and tested.
