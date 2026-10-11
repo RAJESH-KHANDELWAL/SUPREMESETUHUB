@@ -24,7 +24,7 @@ from __future__ import annotations
 
 from typing import List, Optional
 
-from backend.supreme.ecosystem.integration.model import (
+from backend.supreme.supreme_ecosystem.integration.model import (
     EcosystemIntegration,
     IntegrationAccessDecision,
     IntegrationAuthorization,
@@ -32,7 +32,7 @@ from backend.supreme.ecosystem.integration.model import (
     IntegrationProvider,
 )
 
-from backend.supreme.ecosystem.integration.service import (
+from backend.supreme.supreme_ecosystem.integration.service import (
     IntegrationService,
 )
 

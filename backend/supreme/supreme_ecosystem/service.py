@@ -43,34 +43,34 @@ from __future__ import annotations
 
 from typing import Dict, List, Optional, Union
 
-from backend.supreme.ecosystem.media import (
+from backend.supreme.supreme_ecosystem.media import (
     MediaAsset,
 )
 
-from backend.supreme.ecosystem.profile import (
+from backend.supreme.supreme_ecosystem.profile import (
     PersonalProfile,
     ProfessionalProfile,
 )
 
-from backend.supreme.ecosystem.page import (
+from backend.supreme.supreme_ecosystem.page import (
     EcosystemPage,
 )
 
-from backend.supreme.ecosystem.community import (
+from backend.supreme.supreme_ecosystem.community import (
     EcosystemGroup,
     EcosystemChannel,
     EcosystemCommunity,
 )
 
-from backend.supreme.ecosystem.ownership import (
+from backend.supreme.supreme_ecosystem.ownership import (
     OwnershipController,
 )
 
-from backend.supreme.ecosystem.vault import (
+from backend.supreme.supreme_ecosystem.vault import (
     VaultController,
 )
 
-from backend.supreme.ecosystem.integration import (
+from backend.supreme.supreme_ecosystem.integration import (
     IntegrationController,
     IntegrationService,
 )

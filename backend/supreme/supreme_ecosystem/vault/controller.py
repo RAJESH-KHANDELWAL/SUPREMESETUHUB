@@ -21,14 +21,14 @@ from __future__ import annotations
 
 from typing import List, Optional
 
-from backend.supreme.ecosystem.vault.model import (
+from backend.supreme.supreme_ecosystem.vault.model import (
     EcosystemVault,
     VaultAccessDecision,
     VaultIntegrationReference,
     VaultType,
 )
 
-from backend.supreme.ecosystem.vault.service import (
+from backend.supreme.supreme_ecosystem.vault.service import (
     VaultService,
 )
 

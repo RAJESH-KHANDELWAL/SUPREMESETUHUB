@@ -27,7 +27,7 @@ from __future__ import annotations
 
 from typing import Dict, List, Optional
 
-from backend.supreme.ecosystem.ownership.model import (
+from backend.supreme.supreme_ecosystem.ownership.model import (
     AccessDecision,
     EcosystemPermission,
     EcosystemRole,

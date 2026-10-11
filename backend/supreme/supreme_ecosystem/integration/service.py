@@ -27,7 +27,7 @@ from __future__ import annotations
 from datetime import datetime, timezone
 from typing import Dict, List, Optional, Any
 
-from backend.supreme.ecosystem.integration.model import (
+from backend.supreme.supreme_ecosystem.integration.model import (
     EcosystemIntegration,
     IntegrationAccessDecision,
     IntegrationAuthorization,
@@ -37,11 +37,11 @@ from backend.supreme.ecosystem.integration.model import (
     IntegrationType,
 )
 
-from backend.supreme.ecosystem.vault.service import (
+from backend.supreme.supreme_ecosystem.vault.service import (
     VaultService,
 )
 
-from backend.supreme.ecosystem.connectors.manager import (
+from backend.supreme.supreme_ecosystem.connectors.manager import (
     ConnectorManager,
     connector_manager as default_connector_manager,
 )

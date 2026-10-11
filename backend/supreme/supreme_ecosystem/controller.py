@@ -25,26 +25,26 @@ from __future__ import annotations
 
 from typing import List, Optional
 
-from backend.supreme.ecosystem.media import (
+from backend.supreme.supreme_ecosystem.media import (
     MediaAsset,
 )
 
-from backend.supreme.ecosystem.profile import (
+from backend.supreme.supreme_ecosystem.profile import (
     PersonalProfile,
     ProfessionalProfile,
 )
 
-from backend.supreme.ecosystem.page import (
+from backend.supreme.supreme_ecosystem.page import (
     EcosystemPage,
 )
 
-from backend.supreme.ecosystem.community import (
+from backend.supreme.supreme_ecosystem.community import (
     EcosystemGroup,
     EcosystemChannel,
     EcosystemCommunity,
 )
 
-from backend.supreme.ecosystem.service import (
+from backend.supreme.supreme_ecosystem.service import (
     EcosystemService,
 )
 

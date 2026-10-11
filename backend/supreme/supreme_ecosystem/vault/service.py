@@ -24,7 +24,7 @@ from __future__ import annotations
 
 from typing import Dict, List, Optional
 
-from backend.supreme.ecosystem.vault.model import (
+from backend.supreme.supreme_ecosystem.vault.model import (
     EcosystemVault,
     VaultAccessDecision,
     VaultAccessPolicy,
@@ -33,7 +33,7 @@ from backend.supreme.ecosystem.vault.model import (
     VaultType,
 )
 
-from backend.supreme.ecosystem.vault.security import (
+from backend.supreme.supreme_ecosystem.vault.security import (
     VaultSecurity,
 )
 

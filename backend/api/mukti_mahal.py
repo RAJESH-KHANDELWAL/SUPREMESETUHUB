@@ -12,7 +12,7 @@ from typing import Optional
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
-from backend.supreme.ecosystem.mukti_mahal.operations.controller import (
+from backend.supreme.supreme_ecosystem.mukti_mahal.operations.controller import (
     MuktiMahalOperationsController,
 )
 

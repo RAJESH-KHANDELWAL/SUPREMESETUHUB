@@ -20,7 +20,7 @@ from __future__ import annotations
 
 from typing import List, Optional
 
-from backend.supreme.ecosystem.ownership.model import (
+from backend.supreme.supreme_ecosystem.ownership.model import (
     AccessDecision,
     EcosystemPermission,
     EcosystemRole,
@@ -30,7 +30,7 @@ from backend.supreme.ecosystem.ownership.model import (
     PermissionScope,
 )
 
-from backend.supreme.ecosystem.ownership.service import (
+from backend.supreme.supreme_ecosystem.ownership.service import (
     OwnershipService,
 )
 

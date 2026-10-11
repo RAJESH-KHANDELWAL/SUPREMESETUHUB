@@ -23,7 +23,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Dict, Optional
 
-from backend.supreme.ecosystem.media import (
+from backend.supreme.supreme_ecosystem.media import (
     MediaAsset,
 )
 

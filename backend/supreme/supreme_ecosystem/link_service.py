@@ -32,7 +32,7 @@ from __future__ import annotations
 
 from typing import Dict, List, Optional
 
-from backend.supreme.ecosystem.link import (
+from backend.supreme.supreme_ecosystem.link import (
     EcosystemLink,
 )
 
