@@ -30,6 +30,7 @@ class DatabaseService:
         )
 
         self._connection: Optional[sqlite3.Connection] = None
+        self._transaction_active = False
 
     # ==========================================================
     # CONNECTION
@@ -93,7 +94,8 @@ class DatabaseService:
             tuple(parameters),
         )
 
-        connection.commit()
+        if not self._transaction_active:
+            connection.commit()
 
         return cursor
 
@@ -138,6 +140,18 @@ class DatabaseService:
         )
 
         return cursor.fetchall()
+
+    def executemany(
+        self,
+        query: str,
+        parameters: Iterable[Iterable[Any]],
+    ) -> sqlite3.Cursor:
+        """Execute a parameterized statement for multiple rows."""
+        connection = self.connect()
+        cursor = connection.executemany(query, [tuple(row) for row in parameters])
+        if not self._transaction_active:
+            connection.commit()
+        return cursor
 
     # ==========================================================
     # TABLE EXISTS
@@ -412,3 +426,50 @@ class DatabaseService:
         # ------------------------------------------------------
 
         self.connect().commit()
+        return self.status()
+
+    def begin(self) -> dict:
+        """Begin an explicit transaction; subsequent writes stay uncommitted."""
+        connection = self.connect()
+        if not self._transaction_active:
+            connection.execute("BEGIN")
+            self._transaction_active = True
+        return {"success": True, "transaction_active": self._transaction_active}
+
+    def commit(self) -> dict:
+        """Commit the current explicit transaction, if any."""
+        connection = self.connect()
+        connection.commit()
+        self._transaction_active = False
+        return {"success": True, "transaction_active": False}
+
+    def rollback(self) -> dict:
+        """Roll back the current explicit transaction, if any."""
+        connection = self.connect()
+        connection.rollback()
+        self._transaction_active = False
+        return {"success": True, "transaction_active": False}
+
+    def health(self) -> dict:
+        """Check the local database with a lightweight query."""
+        try:
+            row = self.fetchone("SELECT 1 AS healthy")
+            healthy = row is not None and int(row["healthy"]) == 1
+        except (sqlite3.Error, OSError):
+            healthy = False
+        return {
+            "database": "SQLITE",
+            "healthy": healthy,
+            "connected": self._connection is not None,
+            "path": self.db_path,
+        }
+
+    def status(self) -> dict:
+        """Return non-secret connection status for diagnostics."""
+        return {
+            "service": "DatabaseService",
+            "engine": "SQLITE",
+            "connected": self._connection is not None,
+            "transaction_active": self._transaction_active,
+            "path": self.db_path,
+        }
