@@ -213,6 +213,10 @@ class AuthenticationService:
             updated_at=created_at,
         )
 
+    # Backward-compatible alias for older internal callers.
+    def login_with_password(self, username: str, password: str):
+        return self.signin_with_password(username, password)
+
     def signin(
         self,
         master_id=None,
