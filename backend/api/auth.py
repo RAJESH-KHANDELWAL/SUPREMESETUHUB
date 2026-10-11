@@ -1,4 +1,4 @@
-"""Authentication API routes."""
+""""Authentication API routes.""""
 
 from __future__ import annotations
 
@@ -41,6 +41,7 @@ def initialize():
 
 @router.post("/signin")
 def signin(request: SignInRequest):
+    # Password-based sign-in remains available through the controller.
     result = controller.login(
         master_id=request.master_id,
         username=request.username,
@@ -55,14 +56,12 @@ def signin(request: SignInRequest):
 
 @router.post("/authenticate")
 def authenticate(request: AuthenticateRequest):
-    result = controller.authenticate(
-        request.master_id
+    # A master ID is an identifier, not an authentication factor.
+    # Do not issue an authenticated result based on possession of an ID alone.
+    raise HTTPException(
+        status_code=403,
+        detail="MASTER_ID_ONLY_AUTHENTICATION_DISABLED_USE_PASSWORD_SIGNIN",
     )
-
-    if hasattr(result, "to_dict"):
-        return result.to_dict()
-
-    return result
 
 
 @router.post("/validate")
