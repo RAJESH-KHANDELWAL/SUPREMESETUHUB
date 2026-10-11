@@ -140,11 +140,12 @@ authentication_service = AuthenticationService()
 # Public entry points are limited to platform signup/signin, health checks,
 # and frontend assets. SUPREME and SUPREME ECOSYSTEM are private control
 # systems: their routes must never be used as public customer account APIs.
-# Customer registration/sign-in uses /users/register and /auth/signin.
+# Customer sign-up/sign-in uses /users/signup and /auth/signin; legacy registration remains supported.
 PUBLIC_API_PATHS = {
     "/health",
     "/auth/initialize",
     "/auth/signin",
+    "/users/signup",
     "/users/register",
     "/api/v1/supreme-ecosystem/whatsapp/webhook",
     "/api/v1/frontend/supreme",
