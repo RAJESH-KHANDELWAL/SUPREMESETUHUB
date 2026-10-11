@@ -1753,6 +1753,15 @@ function setupSignoutButton() {
 
     }
 
+    button.setAttribute("aria-label", "SIGN OUT");
+    button.setAttribute("title", "SIGN OUT");
+
+    if (
+        button.childElementCount === 0 &&
+        /log\s*out/i.test(button.textContent)
+    ) {
+        button.textContent = "SIGN OUT";
+    }
 
     button.addEventListener(
         "click",
@@ -1780,6 +1789,15 @@ function setupSignInButton() {
 
     }
 
+    button.setAttribute("aria-label", "SIGN IN");
+    button.setAttribute("title", "SIGN IN");
+
+    if (
+        button.childElementCount === 0 &&
+        /log\s*in/i.test(button.textContent)
+    ) {
+        button.textContent = "SIGN IN";
+    }
 
     if (
         isAuthenticated()
