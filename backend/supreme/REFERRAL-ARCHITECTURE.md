@@ -5,8 +5,9 @@ layers at `backend/core`, `backend/engines`, `backend/database` and `backend/sto
 
 ## Layer map
 
-- `backend/supreme/supreme.py`: SUPREME parent metadata and layer registry.
-- `backend/supreme/core/referral_service.py`: orchestration and validation.
+- `backend/supreme.py`: MAIN SUPREME entry point.
+- `backend/supreme/supreme_ecosystem.py`: SUPREME ECOSYSTEM entry module under SUPREME.
+- `backend/supreme/core/referral_service.py`: SUPREME core orchestration and validation.
 - `backend/supreme/engines/referral_engine.py`: explicit person-stage rules, HTTPS referral validation and commission state transitions.
 - `backend/supreme/database/referral_repository.py`: persistent records via the existing `DatabaseService`.
 - `backend/supreme/storage/referral_store.py`: storage boundary between core and repository.

@@ -126,8 +126,9 @@ class ReferralRepository:
             return None
         self.database.execute(
             """UPDATE supreme_people SET response_stage = ?, next_follow_up_at = ?,
+            contact_consent = CASE WHEN ? = 'DO_NOT_CONTACT' THEN 0 ELSE contact_consent END,
             updated_at = CURRENT_TIMESTAMP WHERE person_id = ?""",
-            (stage, next_follow_up_at, person_id),
+            (stage, next_follow_up_at, stage, person_id),
         )
         self.record_event(person_id, None, "PERSON_STAGE_CHANGED", {"from": existing["response_stage"], "to": stage, "next_follow_up_at": next_follow_up_at})
         return self.get_person(person_id)
