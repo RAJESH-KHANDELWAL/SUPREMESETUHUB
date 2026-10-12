@@ -555,9 +555,10 @@
     var nodes=[],node;
     while((node=walker.nextNode())) nodes.push(node);
     nodes.forEach(function(textNode){
-      var original=textNode.nodeValue;
+      if(typeof textNode.__sshOriginalText==="undefined") textNode.__sshOriginalText=textNode.nodeValue;
+      var original=textNode.__sshOriginalText;
       var key=original.trim();
-      if(dictionary[key]) textNode.nodeValue=original.replace(key,dictionary[key]);
+      textNode.nodeValue=dictionary[key]?original.replace(key,dictionary[key]):original;
     });
     var placeholders={
       en:{"Search people, posts, services...":"Search people, posts, services...","Write a comment...":"Write a comment..."},
@@ -565,7 +566,8 @@
       hinglish:{"Search people, posts, services...":"People, posts, services search karo...","Write a comment...":"Comment likho..."}
     }[language]||{};
     hub.querySelectorAll("input[placeholder],textarea[placeholder]").forEach(function(el){
-      var key=el.getAttribute("placeholder");if(placeholders[key])el.setAttribute("placeholder",placeholders[key]);
+      if(typeof el.__sshOriginalPlaceholder==="undefined")el.__sshOriginalPlaceholder=el.getAttribute("placeholder");
+      var key=el.__sshOriginalPlaceholder;el.setAttribute("placeholder",placeholders[key]||key);
     });
     hub.setAttribute("lang",language==="hi"?"hi":language==="en"?"en":"hi-Latn");
   }
