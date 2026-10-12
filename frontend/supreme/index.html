@@ -607,3 +607,132 @@
   });
 })();
 </script>
+
+<!-- GLOBAL LANGUAGE + SPEECH TRANSLATION CONTROLS -->
+<section class="supreme-global-language-tools" aria-label="Global language and speech tools">
+  <div class="sglt-heading"><strong>🌍 GLOBAL LANGUAGE & LIVE SPEECH TRANSLATION</strong><span id="sglt-status" role="status">Loading language catalogue…</span></div>
+  <p class="sglt-note">Select a display language to translate page text. Translation sends text to the configured provider. Voice features require browser microphone permission and supported speech APIs.</p>
+  <div class="sglt-speech">
+    <label for="sglt-source">SPOKEN LANGUAGE</label>
+    <select id="sglt-source"><option value="auto">AUTO DETECT</option><option value="en">ENGLISH</option><option value="hi">हिन्दी</option><option value="gu">ગુજરાતી</option><option value="ar">العربية</option><option value="es">ESPAÑOL</option><option value="fr">FRANÇAIS</option><option value="zh">中文</option><option value="ja">日本語</option></select>
+    <button type="button" id="sglt-start">🎙️ START LIVE VOICE TRANSLATION</button>
+    <button type="button" id="sglt-stop" disabled>STOP</button>
+    <label class="sglt-speak-label"><input id="sglt-speak" type="checkbox" checked> SPEAK TRANSLATION ALOUD</label>
+  </div>
+  <div class="sglt-caption" aria-live="polite"><strong>Original speech</strong><p id="sglt-original">Waiting for microphone input…</p><strong>Translated speech / captions</strong><p id="sglt-translated">Translated captions will appear here.</p></div>
+  <details class="sglt-programming"><summary>⌨️ PROGRAMMING LANGUAGES CATALOGUE</summary><div id="sglt-programming-list">Loading catalogue…</div></details>
+</section>
+<script>
+(function(){
+  "use strict";
+  var languageSelect=document.getElementById("supreme-language");
+  var status=document.getElementById("sglt-status");
+  var originalText=document.getElementById("sglt-original");
+  var translatedText=document.getElementById("sglt-translated");
+  var startButton=document.getElementById("sglt-start");
+  var stopButton=document.getElementById("sglt-stop");
+  var sourceSelect=document.getElementById("sglt-source");
+  var speakToggle=document.getElementById("sglt-speak");
+  var programmingList=document.getElementById("sglt-programming-list");
+  var recognition=null,active=false,translating=false;
+  var originalNodes=[];
+  function targetCode(){return languageSelect.value==="hinglish"?"hi":languageSelect.value;}
+  function safeStatus(message){if(status)status.textContent=message;}
+  function api(path,body){
+    return fetch("/api/v1/languages/"+path,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)}).then(function(response){
+      return response.json().then(function(data){if(!response.ok)throw new Error((data.detail&&data.detail.message)||data.detail||"Translation request failed");return data;});
+    });
+  }
+  function addLanguageOptions(items){
+    if(!languageSelect)return;
+    var existing={};Array.prototype.forEach.call(languageSelect.options,function(o){existing[o.value]=true;});
+    items.forEach(function(item){
+      if(existing[item.code])return;
+      var option=document.createElement("option");option.value=item.code;
+      option.textContent=item.native_name+" — "+item.name;
+      languageSelect.appendChild(option);existing[item.code]=true;
+    });
+  }
+  function collectOriginalNodes(){
+    originalNodes=[];
+    var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(node){
+        var parent=node.parentElement;
+        if(!parent||parent.closest("script,style,noscript,textarea,select,option,code,pre,[contenteditable=true],.sglt-caption,#sglt-status"))return NodeFilter.FILTER_REJECT;
+        if(!node.nodeValue.trim())return NodeFilter.FILTER_REJECT;
+        if(typeof node.__sgltOriginal==="undefined")node.__sgltOriginal=node.nodeValue;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var n;while((n=walker.nextNode()))originalNodes.push(n);
+  }
+  async function translateWholePage(){
+    var target=targetCode();
+    if(target==="en"){
+      collectOriginalNodes();originalNodes.forEach(function(n){n.nodeValue=n.__sgltOriginal;});
+      safeStatus("English selected. Original page text restored.");return;
+    }
+    collectOriginalNodes();
+    safeStatus("Translating page text…");
+    var translatedCount=0;
+    try{
+      for(var i=0;i<originalNodes.length;i+=40){
+        var nodes=originalNodes.slice(i,i+40);
+        var texts=nodes.map(function(n){return n.__sgltOriginal;});
+        var result=await api("translate/batch",{texts:texts,source:"auto",target:target});
+        result.translated_texts.forEach(function(value,index){nodes[index].nodeValue=value;translatedCount++;});
+      }
+      safeStatus("Page text translated ("+translatedCount+" text segments). Dynamic content may need translation again.");
+    }catch(error){
+      safeStatus("Translation unavailable: "+error.message+". Configure SUPREME_TRANSLATION_API_URL on the server.");
+    }
+  }
+  function mapSpeechLanguage(code){
+    var map={hi:"hi-IN",gu:"gu-IN",bn:"bn-IN",ta:"ta-IN",te:"te-IN",mr:"mr-IN",pa:"pa-IN",ur:"ur-PK",ar:"ar-SA",en:"en-US",es:"es-ES",fr:"fr-FR",de:"de-DE",zh:"zh-CN",ja:"ja-JP",ko:"ko-KR",pt:"pt-BR",ru:"ru-RU"};
+    return map[code]||code;
+  }
+  async function translateUtterance(text){
+    originalText.textContent=text;
+    try{
+      var result=await api("translate",{text:text,source:"auto",target:targetCode()});
+      translatedText.textContent=result.translated_text;
+      if(speakToggle.checked&&"speechSynthesis" in window){
+        window.speechSynthesis.cancel();
+        var utterance=new SpeechSynthesisUtterance(result.translated_text);
+        utterance.lang=mapSpeechLanguage(targetCode());window.speechSynthesis.speak(utterance);
+      }
+    }catch(error){translatedText.textContent="Translation unavailable: "+error.message;}
+  }
+  function stopRecognition(){
+    active=false;stopButton.disabled=true;startButton.disabled=false;
+    if(recognition){try{recognition.stop();}catch(error){}}
+    recognition=null;
+  }
+  startButton.addEventListener("click",function(){
+    var SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
+    if(!SpeechRecognition){translatedText.textContent="Live speech recognition is not supported in this browser. Try a current Chrome or Edge browser.";return;}
+    if(!window.isSecureContext){translatedText.textContent="Microphone access requires HTTPS or localhost.";return;}
+    recognition=new SpeechRecognition();recognition.continuous=true;recognition.interimResults=true;
+    recognition.lang=sourceSelect.value==="auto"?"en-US":mapSpeechLanguage(sourceSelect.value);
+    recognition.onresult=function(event){
+      var finalText="";
+      for(var i=event.resultIndex;i<event.results.length;i++){
+        var transcript=event.results[i][0].transcript;
+        if(event.results[i].isFinal)finalText+=transcript;
+        else originalText.textContent=transcript+" …";
+      }
+      if(finalText.trim())translateUtterance(finalText.trim());
+    };
+    recognition.onerror=function(event){translatedText.textContent="Speech recognition: "+event.error;};
+    recognition.onend=function(){if(active){try{recognition.start();}catch(error){stopRecognition();}}};
+    try{recognition.start();active=true;startButton.disabled=true;stopButton.disabled=false;translatedText.textContent="Listening…";}catch(error){translatedText.textContent="Could not start microphone: "+error.message;}
+  });
+  stopButton.addEventListener("click",stopRecognition);
+  if(languageSelect)languageSelect.addEventListener("change",translateWholePage);
+  fetch("/api/v1/languages/catalog").then(function(r){if(!r.ok)throw new Error("Catalogue unavailable");return r.json();}).then(function(data){
+    addLanguageOptions(data.human_languages||[]);
+    if(programmingList)programmingList.textContent=(data.programming_languages||[]).map(function(x){return x.name;}).join(" · ");
+    safeStatus(data.translation_provider_configured?"Language catalogue ready. Translation provider configured.":"Language catalogue ready. Live translation needs a server translation provider.");
+  }).catch(function(){safeStatus("Language catalogue unavailable; built-in options remain available.");});
+})();
+</script>
