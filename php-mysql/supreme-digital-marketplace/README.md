@@ -8,6 +8,7 @@ This is the PHP/MySQL foundation for the **digital-only** SUPREME design store. 
 - `database/schema.sql` — MySQL tables for original digital designs, market-specific prices, trend signals, digital orders, order items, and secure download entitlements.
 - `src/Database.php` — PDO MySQL connection using environment variables.
 - `src/DigitalDesignRepository.php` — prepared-statement catalog query.
+- `public/index.php` — responsive PHP storefront for the published digital catalog with Bharat/Global market switch.
 - `public/api/designs.php` — read-only JSON catalog for published designs.
 - `tests/README.md` — local smoke-test checklist.
 
