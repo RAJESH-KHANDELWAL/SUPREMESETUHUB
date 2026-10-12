@@ -672,6 +672,10 @@
         <a href="#theme-hub">
             🎨 THEME HUB
         </a>
+
+        <a href="#print-on-demand">
+            👕 PRINT ON DEMAND
+        </a>
         
 
         <a href="#settings">
@@ -924,11 +928,111 @@
 
         </article>
 
+        <article class="module-card">
+            <div class="module-icon">👕</div>
+            <h3>SUPREME PRINT ON DEMAND</h3>
+            <p>Custom graphics, regional pricing, standard and premium product tiers, and saved design briefs.</p>
+            <a class="module-link" href="#print-on-demand">OPEN POD STUDIO →</a>
+        </article>
+
     </div>
 
 </section>
 
 
+
+<!-- =========================================================
+     SUPREME PRINT ON DEMAND
+========================================================= -->
+<style>
+    .pod-layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(280px,.85fr); gap:18px; }
+    .pod-panel { background:#fff; border:1px solid #e4e7ec; border-radius:16px; padding:20px; min-width:0; }
+    .pod-fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+    .pod-fields label { display:block; font-size:12px; font-weight:800; color:#475467; margin-bottom:6px; }
+    .pod-fields input,.pod-fields select,.pod-fields textarea { width:100%; border:1px solid #d0d5dd; border-radius:9px; padding:10px; font:inherit; background:#fff; }
+    .pod-fields textarea { min-height:100px; resize:vertical; }
+    .pod-field-wide { grid-column:1/-1; }
+    .pod-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+    .pod-action { border:0; border-radius:9px; padding:11px 14px; background:#155eef; color:#fff; font-weight:800; cursor:pointer; }
+    .pod-action.secondary { background:#eaf2ff; color:#123b82; }
+    .pod-status { margin-top:12px; padding:10px; background:#f8fafc; border-radius:9px; white-space:pre-wrap; overflow-wrap:anywhere; }
+    .pod-product-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:14px; }
+    .pod-product { border:1px solid #e4e7ec; border-radius:12px; padding:12px; background:#fff; }
+    .pod-product strong { display:block; margin-bottom:4px; }
+    .pod-product small { color:#667085; display:block; }
+    .pod-price { color:#155eef; font-weight:900; margin-top:8px; }
+    .pod-notice { color:#667085; font-size:12px; margin-top:12px; }
+    @media(max-width:850px) { .pod-layout { grid-template-columns:1fr; } }
+    @media(max-width:500px) { .pod-fields,.pod-product-grid { grid-template-columns:1fr; } }
+</style>
+
+<section id="print-on-demand" class="platform-section">
+    <div class="section-header">
+        <h2>👕 SUPREME PRINT ON DEMAND</h2>
+        <p>Build original graphic products for Bharat and global customers with cost-aware, demand-adjusted draft pricing.</p>
+    </div>
+
+    <div class="pod-layout">
+        <div class="pod-panel">
+            <h3>DESIGN & PRICE STUDIO</h3>
+            <p class="pod-notice">Sign in to load the catalog, calculate a quote and save your design brief.</p>
+            <div class="pod-fields" style="margin-top:14px">
+                <div>
+                    <label for="podMarket">MARKET</label>
+                    <select id="podMarket"><option value="IN">BHARAT · INR ₹</option><option value="GLOBAL">GLOBAL · USD $</option></select>
+                </div>
+                <div>
+                    <label for="podProduct">PRODUCT</label>
+                    <select id="podProduct"><option value="">Load catalog first</option></select>
+                </div>
+                <div>
+                    <label for="podTier">CUSTOMER TIER</label>
+                    <select id="podTier"><option value="STANDARD">STANDARD</option><option value="PREMIUM">PREMIUM</option></select>
+                </div>
+                <div>
+                    <label for="podDemand">DEMAND SIGNAL · <span id="podDemandValue">3</span>/5</label>
+                    <input id="podDemand" type="range" min="1" max="5" value="3">
+                </div>
+                <div>
+                    <label for="podQuantity">QUANTITY</label>
+                    <input id="podQuantity" type="number" min="1" max="100" value="1">
+                </div>
+                <div class="pod-field-wide">
+                    <label for="podPrompt">DESIGN BRIEF</label>
+                    <textarea id="podPrompt" maxlength="600" placeholder="Describe the original graphic: theme, colours, text, audience and style. Do not copy protected artwork, logos or characters."></textarea>
+                </div>
+                <div class="pod-field-wide">
+                    <label for="podNotes">OPTIONAL NOTES</label>
+                    <input id="podNotes" maxlength="1000" placeholder="Sizes, preferred print placement or personalisation notes">
+                </div>
+            </div>
+            <div class="pod-actions">
+                <button class="pod-action secondary" id="podQuoteButton" type="button">CALCULATE DRAFT PRICE</button>
+                <button class="pod-action" id="podSaveButton" type="button">SAVE DESIGN BRIEF</button>
+            </div>
+            <div class="pod-status" id="podStatus" role="status" aria-live="polite">Sign in to begin. No payment or print-provider order is placed by this draft studio.</div>
+            <div class="pod-notice">Demand score is an internal planning input, not a live sales-trend feed. Prices are estimates until supplier printing, shipping, taxes, payment fees and returns are configured.</div>
+        </div>
+
+        <div class="pod-panel">
+            <h3>PRODUCT STARTERS</h3>
+            <p class="pod-notice">Starter ideas for original artwork—not verified live-trend rankings.</p>
+            <div id="podProductGrid" class="pod-product-grid">
+                <div class="pod-product"><strong>👕 Custom T-Shirt</strong><small>Creator, culture and typography graphics</small></div>
+                <div class="pod-product"><strong>🧥 Premium Hoodie</strong><small>Limited-edition and premium artwork</small></div>
+                <div class="pod-product"><strong>☕ Custom Mug</strong><small>Personalised gifts and illustrations</small></div>
+                <div class="pod-product"><strong>🖼️ Art Poster</strong><small>Original illustration and wall art</small></div>
+            </div>
+            <h3 style="margin-top:22px">DESIGN DIRECTIONS</h3>
+            <div id="podDesignStarters" class="pod-product-grid">
+                <button class="pod-product" type="button" data-pod-prompt="Original Bharat heritage-inspired geometric artwork with a minimal blue and saffron palette; avoid protected symbols.">BHARAT HERITAGE</button>
+                <button class="pod-product" type="button" data-pod-prompt="Original creator and builder mindset typography with a clean high-contrast layout.">CREATOR MINDSET</button>
+                <button class="pod-product" type="button" data-pod-prompt="Original cosmic abstract shapes, calm gradients and print-friendly linework.">COSMIC CALM</button>
+                <button class="pod-product" type="button" data-pod-prompt="Personalised gift design using customer-provided name and date in original typography.">PERSONALISED GIFT</button>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- =========================================================
      DISCOVER
@@ -1397,5 +1501,7 @@ async function checkLinkSetuBackend() {
 document.addEventListener("DOMContentLoaded", checkLinkSetuBackend);
 </script>
     
+    <script src="print-on-demand.js"></script>
+
 </body>
 </html>
