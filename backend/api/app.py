@@ -60,6 +60,7 @@ BASE_DIR = Path(__file__).resolve().parents[2]
 
 FRONTEND_DIR = BASE_DIR / "frontend"
 ROOT_FRONTEND_FILE = FRONTEND_DIR / "index.html"
+POD_JS_FILE = FRONTEND_DIR / "print-on-demand.js"
 
 SUPREME_FRONTEND_DIR = FRONTEND_DIR / "supreme"
 SUPREME_HTML_FILE = SUPREME_FRONTEND_DIR / "index.html"
@@ -144,6 +145,7 @@ authentication_service = AuthenticationService()
 # Customer sign-up/sign-in uses /users/signup and /auth/signin; legacy registration remains supported.
 PUBLIC_API_PATHS = {
     "/health",
+    "/print-on-demand.js",
     "/auth/initialize",
     "/auth/signin",
     "/users/signup",
@@ -355,6 +357,12 @@ def root():
         ROOT_FRONTEND_FILE,
         media_type="text/html",
     )
+
+@app.get("/print-on-demand.js")
+def print_on_demand_frontend_script():
+    if not POD_JS_FILE.is_file():
+        raise HTTPException(status_code=404, detail="Print on Demand frontend script not found")
+    return FileResponse(POD_JS_FILE, media_type="application/javascript")
 
 
 # ============================================================
