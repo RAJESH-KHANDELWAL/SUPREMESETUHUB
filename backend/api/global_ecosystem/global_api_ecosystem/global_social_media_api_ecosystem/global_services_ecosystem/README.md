@@ -1,7 +1,0 @@
-# App Ecosystem — services
-
-This package is the home for verified app ecosystem services metadata and integrations.
-
-Python modules in this folder: `__init__.py`, `routes.py`, `service.py`, and `schemas.py`.
-
-Add real entries only after their details and ownership are verified.

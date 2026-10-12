@@ -90,49 +90,47 @@ ALIAS_NAMES = [
 # =========================================================
 
 CONNECTED_REPOS = {
+    # The central foundation repository. This entry identifies the source of truth;
+    # it does not claim that every external runtime has already been connected.
     "SUPREMESETUHUB": {
         "name": "SUPREMESETUHUB",
         "owner": "RAJESH-KHANDELWAL",
         "url": "https://github.com/RAJESH-KHANDELWAL/SUPREMESETUHUB",
         "homepage": "https://rajesh-khandelwal.github.io/SUPREMESETUHUB/",
-        "type": "MAIN_PLATFORM",
-        "status": "PRIMARY"
+        "type": "MAIN_BASE_FOUNDATION",
+        "status": "PRIMARY",
+        "integration_mode": "CENTRAL_REGISTRY",
+        "runtime_connection": "LOCAL_FOUNDATION"
     },
-    
     "RAJESHKHANDELWAL": {
         "name": "RAJESHKHANDELWAL",
         "owner": "RAJESH-KHANDELWAL",
         "url": "https://github.com/RAJESH-KHANDELWAL/RAJESHKHANDELWAL",
         "homepage": "https://rajesh-khandelwal.github.io/RAJESHKHANDELWAL/",
         "type": "AI_ENGINE",
-        "status": "CONNECTED"
+        "status": "REGISTERED",
+        "integration_mode": "GITHUB_REPOSITORY_REGISTRY",
+        "runtime_connection": "NOT_CONFIGURED"
     },
-    
     "RAJESHKHANDELWALOFFICIAL": {
         "name": "RAJESHKHANDELWALOFFICIAL",
         "owner": "RAJESH-KHANDELWAL-OFFICIAL",
         "url": "https://github.com/RAJESH-KHANDELWAL-OFFICIAL/RAJESHKHANDELWALOFFICIAL",
         "homepage": "https://rajesh-khandelwal-official.github.io/RAJESHKHANDELWALOFFICIAL/",
         "type": "OFFICIAL_BRAND",
-        "status": "CONNECTED"
+        "status": "REGISTERED",
+        "integration_mode": "GITHUB_REPOSITORY_REGISTRY",
+        "runtime_connection": "NOT_CONFIGURED"
     },
-    
     "DRRAJESHKHANDELWALIBC": {
         "name": "DRRAJESHKHANDELWALIBC",
         "owner": "DR-RAJESH-KHANDELWAL-IBC",
         "url": "https://github.com/DR-RAJESH-KHANDELWAL-IBC/DRRAJESHKHANDELWALIBC",
         "homepage": "https://dr-rajesh-khandelwal-ibc.github.io/DRRAJESHKHANDELWALIBC/",
         "type": "SUPREME_IDENTITY",
-        "status": "CONNECTED"
-    },
-    
-    "DRRAJESHKHANDELWALIBCOFFICIAL": {
-        "name": "DRRAJESHKHANDELWALIBCOFFICIAL",
-        "owner": "DR-RAJESH-KHANDELWAL-IBC-OFFICIAL",
-        "url": "https://github.com/DR-RAJESH-KHANDELWAL-IBC-OFFICIAL/DRRAJESHKHANDELWALIBCOFFICIAL",
-        "homepage": "https://dr-rajesh-khandelwal-ibc-official.github.io/DRRAJESHKHANDELWALIBCOFFICIAL/",
-        "type": "PREMIUM_SUPREME",
-        "status": "CONNECTED"
+        "status": "REGISTERED",
+        "integration_mode": "GITHUB_REPOSITORY_REGISTRY",
+        "runtime_connection": "NOT_CONFIGURED"
     }
 }
 
@@ -290,7 +288,7 @@ STARTUP_TASKS = {
     "enable_ai_services": True,
     "setup_homepage": True,
     "configure_branding": True,
-    "sync_all_repos": True
+    "sync_all_repos": False,  # Keep cross-repository sync disabled until verified
 }
 
 # =========================================================
@@ -315,9 +313,9 @@ SYSTEM_INFO = {
 # =========================================================
 
 REPO_SYNC = {
-    "auto_sync_enabled": True,
+    "auto_sync_enabled": False,  # Registry-only mode; no credentials or sync worker are assumed.
     "sync_interval_minutes": 60,
-    "repos_to_sync": list(CONNECTED_REPOS.keys()),
+    "repos_to_sync": [],  # Explicit opt-in after per-repository sync permissions are configured.
     "sync_content": [
         "README",
         "CONFIG",
