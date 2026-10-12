@@ -647,10 +647,15 @@
     if(!languageSelect)return;
     var existing={};Array.prototype.forEach.call(languageSelect.options,function(o){existing[o.value]=true;});
     items.forEach(function(item){
-      if(existing[item.code])return;
-      var option=document.createElement("option");option.value=item.code;
-      option.textContent=item.native_name+" — "+item.name;
-      languageSelect.appendChild(option);existing[item.code]=true;
+      if(!existing[item.code]){
+        var option=document.createElement("option");option.value=item.code;
+        option.textContent=item.native_name+" — "+item.name;
+        languageSelect.appendChild(option);existing[item.code]=true;
+      }
+      if(sourceSelect&&!Array.prototype.some.call(sourceSelect.options,function(o){return o.value===item.code;})){
+        var speechOption=document.createElement("option");speechOption.value=item.code;
+        speechOption.textContent=item.native_name+" — "+item.name;sourceSelect.appendChild(speechOption);
+      }
     });
   }
   function collectOriginalNodes(){
