@@ -6,6 +6,7 @@ from uuid import uuid4
 import json
 
 from backend.database.service import DatabaseService
+from backend.storage.filesystem import LocalFileStorage
 from backend.engines.base import BaseEngine
 
 
@@ -57,7 +58,7 @@ class StorageEngine(BaseEngine):
 
         self.database = DatabaseService()
 
-        self.storage_status = "READY"
+        self.storage_status = "METADATA_ONLY"
         self.storage_type = "ABSTRACT"
         self.connected = False
 
@@ -971,13 +972,21 @@ class StorageEngine(BaseEngine):
             tables_ready = False
 
         registry_healthy = registry_ready and tables_ready
-        physical_storage_configured = False
+        physical = LocalFileStorage().health()
+        physical_storage_configured = bool(physical["writable"])
+        if not registry_healthy:
+            health_status = "UNHEALTHY"
+        elif physical_storage_configured:
+            health_status = "READY"
+        else:
+            health_status = "DEGRADED"
 
         return {
             "engine": "AI Storage Engine",
-            "health": "DEGRADED" if registry_healthy else "UNHEALTHY",
+            "health": health_status,
             "database_registry": "READY" if registry_healthy else "UNAVAILABLE",
-            "physical_storage": "NOT_CONFIGURED",
+            "physical_storage": physical["status"],
+            "physical_storage_backend": physical["backend"],
             "physical_storage_configured": physical_storage_configured,
             "permissions": "READY" if registry_healthy else "UNAVAILABLE",
             "audit_log": "READY" if registry_healthy else "UNAVAILABLE",
@@ -987,12 +996,14 @@ class StorageEngine(BaseEngine):
     def connect(self) -> Dict[str, object]:
         """Confirm metadata registry availability without claiming blob storage is connected."""
         health = self.health()
-        self.connected = False
-        self.storage_status = (
-            "METADATA_ONLY"
-            if health["database_registry"] == "READY"
-            else "UNAVAILABLE"
-        )
+        self.connected = bool(health.get("physical_storage_configured"))
+        self.storage_type = "FILESYSTEM" if self.connected else "ABSTRACT"
+        if health["database_registry"] != "READY":
+            self.storage_status = "UNAVAILABLE"
+        elif self.connected:
+            self.storage_status = "READY"
+        else:
+            self.storage_status = "METADATA_ONLY"
         return self.status()
 
     def disconnect(self) -> Dict[str, object]:
@@ -1005,8 +1016,8 @@ class StorageEngine(BaseEngine):
         return {
             "engine": "AI Storage Engine",
             "storage_type": self.storage_type,
-            "storage_backend_configured": False,
-            "storage_backend": None,
+            "storage_backend_configured": bool(LocalFileStorage().health()["writable"]),
+            "storage_backend": "LOCAL_FILESYSTEM" if LocalFileStorage().health()["writable"] else None,
             "metadata_backend": "SQLite",
             "central_registry": True,
             "cross_area_access": True,

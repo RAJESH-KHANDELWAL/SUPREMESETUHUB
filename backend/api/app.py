@@ -12,6 +12,7 @@ from backend.supreme.config import USERNAME as SUPREME_OWNER_USERNAME
 
 from backend.api.auth import router as auth_router
 from backend.api.core_readiness import router as core_readiness_router
+from backend.api.storage_routes import router as storage_routes_router
 from backend.api.businesses import router as businesses_router
 from backend.api.dashboard import router as dashboard_router
 from backend.api.dns import router as dns_router
@@ -226,6 +227,14 @@ async def private_by_default(request: Request, call_next):
     if path.startswith("/user-hub/"):
         return await call_next(request)
 
+    # Storage APIs enforce per-asset owner permissions in the route layer.
+    # Health endpoints expose only non-secret diagnostics to signed-in users.
+    if path.startswith("/api/v1/storage/") or path in {
+        "/api/v1/database/health",
+        "/api/v1/engines/status",
+    }:
+        return await call_next(request)
+
     # Print-on-demand routes implement user-scoped design briefs and use
     # get_current_user for identity; allow regular signed-in customers here.
     if path.startswith("/api/v1/print-on-demand/"):
@@ -302,6 +311,7 @@ def _require_ai_store_actor(
 
 app.include_router(auth_router)
 app.include_router(core_readiness_router)
+app.include_router(storage_routes_router)
 app.include_router(users_router)
 app.include_router(identity_router)
 app.include_router(profiles_router)
