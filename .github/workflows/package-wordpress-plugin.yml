@@ -1,4 +1,4 @@
-name: Package WordPress Connector
+name: Package WordPress Plugins
 
 on:
   workflow_dispatch:
@@ -6,13 +6,13 @@ on:
     branches:
       - main
     paths:
-      - "wordpress-plugin/supremesetuhub-connector/**"
+      - "wordpress-plugin/**"
       - ".github/workflows/package-wordpress-plugin.yml"
   push:
     branches:
       - main
     paths:
-      - "wordpress-plugin/supremesetuhub-connector/**"
+      - "wordpress-plugin/**"
       - ".github/workflows/package-wordpress-plugin.yml"
 
 permissions:
@@ -20,28 +20,35 @@ permissions:
 
 jobs:
   package:
-    name: Validate and package plugin ZIP
+    name: Validate and package WordPress plugins
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
 
-      - name: Validate plugin files
+      - name: Validate plugin files and PHP syntax
         run: |
-          test -f wordpress-plugin/supremesetuhub-connector/supremesetuhub-connector.php
-          test -f wordpress-plugin/supremesetuhub-connector/readme.md
-          php -l wordpress-plugin/supremesetuhub-connector/supremesetuhub-connector.php
+          set -e
+          for plugin in supremesetuhub-connector supreme-ecosystem-home supreme-print-on-demand; do
+            test -f "wordpress-plugin/$plugin/readme.md"
+            php_file=$(find "wordpress-plugin/$plugin" -maxdepth 1 -name '*.php' -print -quit)
+            test -n "$php_file"
+            php -l "$php_file"
+          done
 
-      - name: Build installable WordPress plugin ZIP
+      - name: Build installable plugin ZIPs
         run: |
+          set -e
           mkdir -p dist
-          zip -r dist/supremesetuhub-connector.zip wordpress-plugin/supremesetuhub-connector
-          unzip -t dist/supremesetuhub-connector.zip
+          for plugin in supremesetuhub-connector supreme-ecosystem-home supreme-print-on-demand; do
+            zip -r "dist/$plugin.zip" "wordpress-plugin/$plugin"
+            unzip -t "dist/$plugin.zip"
+          done
 
-      - name: Upload plugin ZIP
+      - name: Upload WordPress plugin ZIPs
         uses: actions/upload-artifact@v4
         with:
-          name: supremesetuhub-wordpress-plugin
-          path: dist/supremesetuhub-connector.zip
+          name: supremesetuhub-wordpress-plugins
+          path: dist/*.zip
           if-no-files-found: error
           retention-days: 30
