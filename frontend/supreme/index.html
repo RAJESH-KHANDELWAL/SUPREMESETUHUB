@@ -1,41 +1,4 @@
 
-<!-- SUPREME DEFAULT LANGUAGE CONTROL: English / Hindi / Hinglish -->
-<div class="supreme-language-control" role="group" aria-label="Choose language">
-  <label for="supreme-language">🌐 LANGUAGE / भाषा</label>
-  <select id="supreme-language" name="language">
-    <option value="en">ENGLISH</option>
-    <option value="hi">हिन्दी (HINDI)</option>
-    <option value="hinglish" selected>HINGLISH</option>
-  </select>
-</div>
-<script>
-(function () {
-  "use strict";
-  var control = document.getElementById("supreme-language");
-  if (!control) return;
-  var root = document.documentElement;
-  var languageMap = {
-    en: { lang: "en", font: "'Inter', Arial, sans-serif" },
-    hi: { lang: "hi", font: "'Noto Sans Devanagari', 'Mangal', sans-serif" },
-    hinglish: { lang: "hi-Latn", font: "'Inter', 'Noto Sans Devanagari', Arial, sans-serif" }
-  };
-  function applyLanguage(value) {
-    var setting = languageMap[value] || languageMap.hinglish;
-    root.setAttribute("lang", setting.lang);
-    root.setAttribute("data-supreme-language", value);
-    document.body.setAttribute("data-supreme-language", value);
-    document.body.style.setProperty("--supreme-font-family", setting.font);
-    try { localStorage.setItem("supreme-language", value); } catch (error) {}
-  }
-  var saved = "hinglish";
-  try { saved = localStorage.getItem("supreme-language") || "hinglish"; } catch (error) {}
-  if (!languageMap[saved]) saved = "hinglish";
-  control.value = saved;
-  applyLanguage(saved);
-  control.addEventListener("change", function () { applyLanguage(control.value); });
-})();
-</script>
-
 <link rel="stylesheet" href="https://supremesetuhub-3v4e.onrender.com/api/v1/frontend/supreme/style.css">
 
 
@@ -116,13 +79,6 @@
     <h2 class="HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-REAL-ESTATE-COACH">
         &#127969; REAL ESTATE COACH &#127969;
     </h2>
-
-
-    <h2 class="HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-AND-INTIMACY-COACH">
-        &#10084;&#65039; RELATIONSHIP &amp; INTIMACY COACH &#10084;&#65039;
-    </h2>
-
-
 <p class="HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-DESCRIPTION">
 
     &#128640; BUILDING SMART, SCALABLE &amp; FUTURE-READY BUSINESS SYSTEMS
@@ -298,25 +254,7 @@
         </p>
 
     </div>
-
-
-    <div class="HOME-WHAT-I-DO-ITEM">
-
-        <h3 class="HOME-WHAT-I-DO-RELATIONSHIP-AND-INTIMACY-COACH">
-            &#10084;&#65039; RELATIONSHIP &amp; INTIMACY COACH
-        </h3>
-
-        <p>
-            PROVIDING PRIVATE, RESPECTFUL &amp; MATURE
-            GUIDANCE FOR RELATIONSHIPS, COMMUNICATION,
-            INTIMACY, PERSONAL BOUNDARIES &amp;
-            COUPLE-RELATED CONCERNS.
-        </p>
-
-    </div>
-
-
-    <p class="HOME-WHAT-I-DO-CLOSING">
+<p class="HOME-WHAT-I-DO-CLOSING">
         &#127470;&#127475; FROM BHARAT TO THE GLOBAL WORLD —
         CONNECTING BUSINESS, PEOPLE, STRATEGY,
         TECHNOLOGY, OPPORTUNITIES &amp; LONG-TERM VALUE.
@@ -486,32 +424,97 @@
     </h2>
 
 
-    <h2 class="HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-AND-INTIMACY-COACH">
-        &#10084;&#65039; RELATIONSHIP &amp; INTIMACY COACH &#10084;&#65039;
-    </h2>
-
-
-<!-- RELATIONSHIP & INTIMACY COACH -->
-
-<p class="HOME-RELATIONSHIP-INTIMACY-COACH-INTRO">
-    &#10084;&#65039; RELATIONSHIP &amp; INTIMACY COACH —
-    PRIVATE &amp; RESPECTFUL GUIDANCE FOR
-    RELATIONSHIP, COMMUNICATION, INTIMACY,
-    PERSONAL BOUNDARIES &amp; COUPLE-RELATED CONCERNS.
-    CONFIDENTIAL CONSULTATION FOR PEOPLE
-    WHO WANT PRACTICAL &amp; MATURE GUIDANCE.
-</p>
-
-<a
-    href="https://wa.me/917611967229"
-    class="HOME-RELATIONSHIP-INTIMACY-COACH-LINK"
-    target="_blank"
-    rel="noopener noreferrer"
->
-    &#128222; 1 HOUR CONSULTANT — &#8377;999/-
-</a>
-
-
-
-
-    
+<!-- SUPREME SOCIAL HUB: unified social + professional front-end foundation -->
+<section class="supreme-social-hub" id="supreme-social-hub" aria-label="Supreme Social Hub">
+  <header class="ssh-topbar">
+    <a class="ssh-brand" href="#supreme-social-hub">👑 SUPREME SETU HUB</a>
+    <label class="ssh-search"><span aria-hidden="true">🔎</span><input type="search" placeholder="Search people, posts, services..." aria-label="Search people, posts, services"></label>
+    <nav class="ssh-top-actions" aria-label="Main navigation">
+      <button type="button" data-ssh-view="feed">🏠 HOME</button>
+      <button type="button" data-ssh-view="messages">💬 MESSAGES</button>
+      <button type="button" data-ssh-view="network">🤝 NETWORK</button>
+    </nav>
+  </header>
+  <div class="ssh-layout">
+    <aside class="ssh-sidebar">
+      <div class="ssh-profile">
+        <img src="https://rajeshkhandelwalofficial.com/wp-content/uploads/2026/03/DR-RAJESH-KHANDELWAL-IBC-K1-3.jpg" alt="DR RAJESH KHANDELWAL IBC">
+        <strong>DR RAJESH KHANDELWAL IBC</strong>
+        <span>GLOBAL BUSINESS COACH</span>
+        <span>INDEPENDENT BUSINESS CONSULTANT</span>
+      </div>
+      <nav class="ssh-side-nav" aria-label="Social areas">
+        <button type="button" class="is-active" data-ssh-view="feed">🏠 Social Feed</button>
+        <button type="button" data-ssh-view="stories">⭕ Stories</button>
+        <button type="button" data-ssh-view="messages">💬 Messages</button>
+        <button type="button" data-ssh-view="network">💼 Professional Network</button>
+        <button type="button" data-ssh-view="communities">👥 Communities</button>
+        <button type="button" data-ssh-view="services">🛍️ Services & Opportunities</button>
+      </nav>
+      <p class="ssh-note">One connected front-end for social, professional and business discovery.</p>
+    </aside>
+    <main class="ssh-main">
+      <section class="ssh-panel ssh-view is-visible" data-ssh-panel="feed">
+        <div class="ssh-welcome"><div><span class="ssh-eyebrow">YOUR DIGITAL COMMUNITY</span><h2>Connect. Share. Grow.</h2><p>Social updates and professional opportunities in one place.</p></div><span class="ssh-orb">🌐</span></div>
+        <section class="ssh-stories" aria-label="Stories"><h3>STORIES</h3><div class="ssh-story-row">
+          <button type="button" class="ssh-story"><span>＋</span><small>Add story</small></button>
+          <button type="button" class="ssh-story"><span>💡</span><small>Ideas</small></button>
+          <button type="button" class="ssh-story"><span>🚀</span><small>Business</small></button>
+          <button type="button" class="ssh-story"><span>🎓</span><small>Learning</small></button>
+          <button type="button" class="ssh-story"><span>🌍</span><small>Community</small></button>
+        </div></section>
+        <form class="ssh-composer" id="ssh-post-form"><div class="ssh-composer-head"><span class="ssh-avatar">RK</span><label for="ssh-post-text">Share an update, idea or opportunity</label></div><textarea id="ssh-post-text" rows="3" placeholder="What would you like to share with your community?"></textarea><div class="ssh-composer-actions"><span>📷 Media UI · 💼 Professional update</span><button type="submit">＋ PUBLISH POST</button></div><p class="ssh-demo-hint">Front-end preview: posts appear in this browser view only until connected to a secure backend.</p></form>
+        <div class="ssh-feed" id="ssh-feed">
+          <article class="ssh-post"><div class="ssh-post-author"><span class="ssh-avatar">RK</span><div><strong>DR RAJESH KHANDELWAL IBC</strong><small>Business • Community update</small></div><span class="ssh-post-menu">•••</span></div><p>🌍 Building a connected digital ecosystem where people, professionals, businesses, services and opportunities can discover one another.</p><div class="ssh-post-tags">#SUPREMESETUHUB　#DIGITALBHARAT　#BUSINESS</div><div class="ssh-post-actions"><button type="button" data-ssh-react>♡ LIKE <span>0</span></button><button type="button" data-ssh-comment>💬 COMMENT</button><button type="button" data-ssh-share>↗ SHARE</button></div><div class="ssh-comment-box" hidden><input type="text" placeholder="Write a comment..." aria-label="Write a comment"><button type="button" data-ssh-submit-comment>POST</button></div></article>
+          <article class="ssh-post"><div class="ssh-post-author"><span class="ssh-avatar ssh-avatar-blue">SH</span><div><strong>SKILLS & OPPORTUNITIES</strong><small>Community • Starter card</small></div></div><p>💡 Use this space to share useful skills, genuine opportunities, project updates and lessons learned. Be respectful and verify offers before paying anyone.</p><div class="ssh-post-actions"><button type="button" data-ssh-react>♡ LIKE <span>0</span></button><button type="button" data-ssh-comment>💬 COMMENT</button><button type="button" data-ssh-share>↗ SHARE</button></div><div class="ssh-comment-box" hidden><input type="text" placeholder="Write a comment..." aria-label="Write a comment"><button type="button" data-ssh-submit-comment>POST</button></div></article>
+        </div>
+      </section>
+      <section class="ssh-panel ssh-view" data-ssh-panel="stories"><div class="ssh-section-heading"><span>⭕</span><div><h2>Stories</h2><p>Short updates and community moments.</p></div></div><div class="ssh-feature-grid"><article>💡<h3>IDEAS</h3><p>Share a thought or useful lesson.</p></article><article>🚀<h3>BUSINESS</h3><p>Highlight a project or milestone.</p></article><article>🎓<h3>LEARNING</h3><p>Share skills and learning resources.</p></article></div><p class="ssh-demo-hint">Story upload and expiry require backend/media integration.</p></section>
+      <section class="ssh-panel ssh-view" data-ssh-panel="messages"><div class="ssh-section-heading"><span>💬</span><div><h2>Messages</h2><p>Messaging interface foundation.</p></div></div><div class="ssh-message-layout"><div class="ssh-contact-list"><button type="button" class="is-selected">👤 Community inbox <small>Connect messaging service to load chats</small></button><button type="button">💼 Business enquiries <small>Contact and lead conversations</small></button></div><div class="ssh-chat-placeholder"><span>✉️</span><h3>Your conversations will appear here</h3><p>Real-time delivery, private chat and notifications need authenticated backend services.</p></div></div></section>
+      <section class="ssh-panel ssh-view" data-ssh-panel="network"><div class="ssh-section-heading"><span>💼</span><div><h2>Professional Network</h2><p>Profiles, expertise and collaboration opportunities.</p></div></div><div class="ssh-feature-grid"><article>🧑‍💻<h3>PROFESSIONALS</h3><p>Discover people by skills and experience.</p><button type="button" data-ssh-demo>EXPLORE</button></article><article>🏢<h3>BUSINESSES</h3><p>Showcase a business, services and projects.</p><button type="button" data-ssh-demo>EXPLORE</button></article><article>🤝<h3>COLLABORATION</h3><p>Find partners and project opportunities.</p><button type="button" data-ssh-demo>EXPLORE</button></article></div></section>
+      <section class="ssh-panel ssh-view" data-ssh-panel="communities"><div class="ssh-section-heading"><span>👥</span><div><h2>Communities</h2><p>Topic-based spaces for discussion and discovery.</p></div></div><div class="ssh-feature-grid"><article>🌱<h3>STUDENTS & SKILLS</h3><p>Learning, careers and skill development.</p><button type="button" data-ssh-demo>VIEW COMMUNITY</button></article><article>📈<h3>BUSINESS OWNERS</h3><p>Business systems, marketing and growth.</p><button type="button" data-ssh-demo>VIEW COMMUNITY</button></article><article>🌐<h3>DIGITAL BHARAT</h3><p>Technology, digital services and ideas.</p><button type="button" data-ssh-demo>VIEW COMMUNITY</button></article></div></section>
+      <section class="ssh-panel ssh-view" data-ssh-panel="services"><div class="ssh-section-heading"><span>🛍️</span><div><h2>Services & Opportunities</h2><p>Discover professional services and business resources.</p></div></div><div class="ssh-feature-grid"><article>🧠<h3>BUSINESS CONSULTING</h3><p>Strategy, systems and practical business guidance.</p><a href="https://wa.me/917611967229" target="_blank" rel="noopener noreferrer">ENQUIRE ↗</a></article><article>💻<h3>DIGITAL SERVICES</h3><p>Websites and digital business presence.</p><a href="https://rajeshkhandelwalofficial.com/global-business-ecosystem/" target="_blank" rel="noopener noreferrer">EXPLORE ↗</a></article><article>📚<h3>LEARNING RESOURCES</h3><p>Explore learning and entrepreneurship resources.</p><a href="https://www.badabusiness.com/lfp?pp_code=BIRK076336" target="_blank" rel="noopener noreferrer">LEARN MORE ↗</a></article></div></section>
+    </main>
+    <aside class="ssh-rightbar"><section class="ssh-right-card"><span class="ssh-eyebrow">YOUR SPACE</span><h3>Build your presence</h3><p>Complete your profile and connect with relevant communities when account services are integrated.</p><button type="button" data-ssh-view="network">VIEW NETWORK</button></section><section class="ssh-right-card"><span class="ssh-eyebrow">SAFETY FIRST</span><h3>Trust & transparency</h3><p>Keep personal data private. Verify opportunities, report abuse and review permissions before connecting services.</p></section><section class="ssh-right-card ssh-provider-card"><span>🔗</span><div><strong>Connected ecosystem vision</strong><small>Social • Professional • Business</small></div></section></aside>
+  </div>
+  <footer class="ssh-footer">SUPREME SETU HUB · SOCIAL & PROFESSIONAL FRONT-END FOUNDATION</footer>
+</section>
+<script>
+(function(){
+  "use strict";
+  var hub=document.getElementById("supreme-social-hub");
+  if(!hub) return;
+  function showView(name){
+    hub.querySelectorAll("[data-ssh-panel]").forEach(function(p){p.classList.toggle("is-visible",p.getAttribute("data-ssh-panel")===name);});
+    hub.querySelectorAll("[data-ssh-view]").forEach(function(b){b.classList.toggle("is-active",b.getAttribute("data-ssh-view")===name);});
+  }
+  hub.addEventListener("click",function(e){
+    var view=e.target.closest("[data-ssh-view]");
+    if(view){showView(view.getAttribute("data-ssh-view"));return;}
+    var react=e.target.closest("[data-ssh-react]");
+    if(react){var count=react.querySelector("span");var liked=react.classList.toggle("is-liked");count.textContent=String(Math.max(0,Number(count.textContent)+(liked?1:-1)));react.firstChild.textContent=liked?"♥ LIKE ":"♡ LIKE ";return;}
+    var comment=e.target.closest("[data-ssh-comment]");
+    if(comment){var box=comment.closest(".ssh-post").querySelector(".ssh-comment-box");box.hidden=!box.hidden;return;}
+    var submit=e.target.closest("[data-ssh-submit-comment]");
+    if(submit){var input=submit.parentElement.querySelector("input");if(input.value.trim()){var note=document.createElement("p");note.className="ssh-local-comment";note.textContent="You: "+input.value.trim();submit.parentElement.before(note);input.value="";}return;}
+    var share=e.target.closest("[data-ssh-share]");
+    if(share){if(navigator.share){navigator.share({title:"SUPREME SETU HUB",text:"Explore this community update."}).catch(function(){});}else{var old=share.textContent;share.textContent="✓ READY TO SHARE";setTimeout(function(){share.textContent=old;},1600);}return;}
+    var demo=e.target.closest("[data-ssh-demo]");
+    if(demo){demo.textContent="COMING SOON";demo.disabled=true;}
+  });
+  hub.addEventListener("submit",function(e){
+    if(e.target.id!=="ssh-post-form") return;
+    e.preventDefault();
+    var field=hub.querySelector("#ssh-post-text"), value=field.value.trim();
+    if(!value) return;
+    var article=document.createElement("article");article.className="ssh-post";
+    var author=document.createElement("div");author.className="ssh-post-author";
+    var avatar=document.createElement("span");avatar.className="ssh-avatar";avatar.textContent="RK";
+    var info=document.createElement("div");var name=document.createElement("strong");name.textContent="DR RAJESH KHANDELWAL IBC";var meta=document.createElement("small");meta.textContent="Just now · Local preview";info.append(name,meta);author.append(avatar,info);
+    var body=document.createElement("p");body.textContent=value;
+    var actions=document.createElement("div");actions.className="ssh-post-actions";actions.innerHTML='<button type="button" data-ssh-react>♡ LIKE <span>0</span></button><button type="button" data-ssh-comment>💬 COMMENT</button><button type="button" data-ssh-share>↗ SHARE</button>';
+    var comments=document.createElement("div");comments.className="ssh-comment-box";comments.hidden=true;comments.innerHTML='<input type="text" placeholder="Write a comment..." aria-label="Write a comment"><button type="button" data-ssh-submit-comment>POST</button>';
+    article.append(author,body,actions,comments);hub.querySelector("#ssh-feed").prepend(article);field.value="";
+  });
+})();
+</script>
