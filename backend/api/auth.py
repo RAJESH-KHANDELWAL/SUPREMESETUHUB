@@ -54,7 +54,14 @@ def signin(request: SignInRequest):
     )
 
     if hasattr(result, "to_dict"):
-        return result.to_dict()
+        result = result.to_dict()
+
+    if isinstance(result, dict) and not result.get("authenticated", False):
+        raise HTTPException(
+            status_code=401,
+            detail=result.get("message") or "INVALID_USERNAME_OR_PASSWORD",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
 
     return result
 
