@@ -65,4 +65,5 @@ def get_my_design_briefs(
     user_id = str(current_user.get("user_id", "")).strip()
     if not user_id:
         raise HTTPException(status_code=401, detail="AUTHENTICATED_USER_ID_REQUIRED")
-    return {"success": True, "count": len(controller.list_briefs(user_id)), "data": controller.list_briefs(user_id)}
+    briefs = controller.list_briefs(user_id)
+    return {"success": True, "count": len(briefs), "data": briefs}
