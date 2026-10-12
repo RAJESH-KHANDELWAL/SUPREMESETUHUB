@@ -220,6 +220,11 @@ async def private_by_default(request: Request, call_next):
     if path.startswith("/user-hub/"):
         return await call_next(request)
 
+    # Print-on-demand routes implement user-scoped design briefs and use
+    # get_current_user for identity; allow regular signed-in customers here.
+    if path.startswith("/api/v1/print-on-demand/"):
+        return await call_next(request)
+
     if not is_supreme_owner:
         return JSONResponse(
             status_code=403,
