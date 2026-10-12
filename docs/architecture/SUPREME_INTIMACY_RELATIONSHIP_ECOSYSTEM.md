@@ -242,3 +242,17 @@ Users can enter RELATIONSHIP alone or INTIMACY alone if eligible. The combined p
 - Consent is never inferred from relationship status, prior steps, viewing history or purchase history.
 - External providers remain unintegrated until their actual API/affiliate/content licensing permissions and technical contracts are verified.
 - Hosting plan suitability is documented for the intended workload; no video streaming is deployed on a plan the provider says is unsuitable.
+
+## 11. Initial implementation checkpoint
+
+A first, deliberately limited code foundation has now been added on the feature branch:
+
+- `backend/api/product_ecosystem.py` provides non-sensitive product-navigation metadata and a high-level provider-readiness view.
+- `GET /api/v1/products/catalog` exposes the optional RELATIONSHIP → ROMANCE → INTIMACY journey, standalone-access principle, and explicit locked status for INTIMACY 18+.
+- `GET /api/v1/products/provider-readiness` reports only high-level integration status; it exposes no credentials or account secrets.
+- The API router is registered in `backend/api/app.py`; the two metadata routes are explicitly allowlisted because they contain no private user data or adult media.
+- `tests/test_product_ecosystem.py` covers journey order, optional access, closed adult gates, family-safe separation and truthful provider connection status.
+
+**Not implemented by this checkpoint:** identity/age-assurance provider, region enforcement, user entitlements, database migrations, content/performer-rights verification, moderation operations, actual FapHouse API/affiliate integration, Vicetemple account/domain/DNS/server setup, payment checkout, external POD provider connection, product inventory/order fulfillment, adult media storage/streaming, or deployment. INTIMACY stays `LOCKED_PENDING_COMPLIANCE`; provider status is not connected. These APIs are navigation/readiness metadata, not authorization for adult access.
+
+The tests have been added but must run in CI before this checkpoint can be considered validated. Do not deploy adult uploads, catalog items, checkout or playback until security, legal/provider, database, and end-to-end gates are complete.
