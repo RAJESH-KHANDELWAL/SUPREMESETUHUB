@@ -1,13 +1,8 @@
 # GLOBAL PLATFORMS API ECOSYSTEM
 
-FastAPI ecosystem package scaffold.
+Central home for platform records and platform-specific functionality across Bharat and the world.
 
 ## Endpoint
 - `GET /global/platforms/status`
 
-## Subdirectories
-- `companies/`
-- `platforms/`
-- `tools/`
-- `services/`
-- `integrations/`
+The matching `global_platforms_ecosystem/` folder and `global_platforms_ecosystem.py` entry module live together in this package. Companies, tools, services, and integrations are maintained in their own sibling GLOBAL API ECOSYSTEM packages, not duplicated here.
