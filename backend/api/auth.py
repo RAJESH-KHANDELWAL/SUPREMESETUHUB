@@ -2,10 +2,13 @@
 
 from __future__ import annotations
 
-from fastapi import APIRouter
+import secrets
+
+from fastapi import APIRouter, Depends, Header, HTTPException
 from pydantic import BaseModel
 
 from backend.auth.controller import AuthenticationController
+from backend.security.dependencies import get_current_user
 
 
 router = APIRouter(
@@ -38,28 +41,39 @@ def initialize():
 
 @router.post("/signin")
 def signin(request: SignInRequest):
-    result = controller.login(
-        master_id=request.master_id,
+    # A master ID identifies an account; it cannot authenticate without a password.
+    if not request.username or not request.password:
+        raise HTTPException(
+            status_code=403,
+            detail="PASSWORD_SIGNIN_REQUIRED",
+        )
+
+    result = controller.signin(
         username=request.username,
         password=request.password,
     )
 
     if hasattr(result, "to_dict"):
-        return result.to_dict()
+        result = result.to_dict()
+
+    if isinstance(result, dict) and not result.get("authenticated", False):
+        raise HTTPException(
+            status_code=401,
+            detail=result.get("message") or "INVALID_USERNAME_OR_PASSWORD",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
 
     return result
 
 
 @router.post("/authenticate")
 def authenticate(request: AuthenticateRequest):
-    result = controller.authenticate(
-        request.master_id
+    # A master ID is an identifier, not an authentication factor.
+    # Do not issue an authenticated result based on possession of an ID alone.
+    raise HTTPException(
+        status_code=403,
+        detail="MASTER_ID_ONLY_AUTHENTICATION_DISABLED_USE_PASSWORD_SIGNIN",
     )
-
-    if hasattr(result, "to_dict"):
-        return result.to_dict()
-
-    return result
 
 
 @router.post("/validate")
@@ -69,9 +83,35 @@ def validate_token(request: TokenRequest):
     )
 
 
-@router.post("/logout")
-def logout(request: TokenRequest):
-    return controller.logout(
-        token=request.token,
-        session_id=request.session_id,
-    )
+@router.post("/signout")
+@router.post("/logout", include_in_schema=False)
+def signout(
+    request: TokenRequest,
+    authorization: str | None = Header(default=None, alias="Authorization"),
+    current_user: dict = Depends(get_current_user),
+):
+    """Revoke only the session authenticated by the Bearer token."""
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(
+            status_code=401,
+            detail="BEARER_TOKEN_REQUIRED",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    bearer_token = authorization[len("Bearer "):].strip()
+    if not bearer_token:
+        raise HTTPException(
+            status_code=401,
+            detail="BEARER_TOKEN_REQUIRED",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    # Request-body identifiers must never select a different session.
+    if request.session_id and request.session_id != current_user.get("session_id"):
+        raise HTTPException(status_code=403, detail="CANNOT_REVOKE_ANOTHER_SESSION")
+
+    # If legacy clients send a body token, it must match the authenticated token.
+    if request.token and not secrets.compare_digest(request.token, bearer_token):
+        raise HTTPException(status_code=403, detail="SIGNOUT_TOKEN_MISMATCH")
+
+    return controller.signout(token=bearer_token)

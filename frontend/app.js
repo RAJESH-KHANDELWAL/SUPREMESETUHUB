@@ -262,17 +262,17 @@ function showAuthenticatedWorkspace() {
     }
 
 
-    const loginButton =
+    const signInButton =
         getElement(
-            "loginButton"
-        );
+            "signInButton"
+        ) || getElement("loginButton");
 
-    if (loginButton) {
+    if (signInButton) {
 
-        loginButton.textContent =
+        signInButton.textContent =
             "WORKSPACE";
 
-        loginButton.onclick =
+        signInButton.onclick =
             () => {
 
                 const target =
@@ -311,17 +311,17 @@ function hideAuthenticatedWorkspace() {
     }
 
 
-    const loginButton =
+    const signInButton =
         getElement(
-            "loginButton"
-        );
+            "signInButton"
+        ) || getElement("loginButton");
 
-    if (loginButton) {
+    if (signInButton) {
 
-        loginButton.textContent =
+        signInButton.textContent =
             "SIGN IN";
 
-        loginButton.onclick =
+        signInButton.onclick =
             () => {
 
                 window.location.href =
@@ -1679,10 +1679,10 @@ function setupProjectForm() {
 
 
 /* =========================================================
-   LOGOUT
+   SIGN OUT
    ========================================================= */
 
-async function logout() {
+async function signout() {
 
     const token =
         getAuthToken();
@@ -1697,7 +1697,7 @@ async function logout() {
         if (token) {
 
             await publicApiRequest(
-                "/auth/logout",
+                "/auth/signout",
                 {
                     method: "POST",
 
@@ -1718,7 +1718,7 @@ async function logout() {
     } catch (error) {
 
         console.error(
-            "Logout API error:",
+            "Sign out API error:",
             error
         );
 
@@ -1736,15 +1736,15 @@ async function logout() {
 
 
 /* =========================================================
-   SETUP LOGOUT BUTTON
+   SETUP SIGN OUT BUTTON
    ========================================================= */
 
-function setupLogoutButton() {
+function setupSignoutButton() {
 
     const button =
         getElement(
-            "logoutButton"
-        );
+            "signOutButton"
+        ) || getElement("logoutButton");
 
 
     if (!button) {
@@ -1753,10 +1753,19 @@ function setupLogoutButton() {
 
     }
 
+    button.setAttribute("aria-label", "SIGN OUT");
+    button.setAttribute("title", "SIGN OUT");
+
+    if (
+        button.childElementCount === 0 &&
+        /log\s*out/i.test(button.textContent)
+    ) {
+        button.textContent = "SIGN OUT";
+    }
 
     button.addEventListener(
         "click",
-        logout
+        signout
     );
 
 }
@@ -1766,12 +1775,12 @@ function setupLogoutButton() {
    SIGN IN BUTTON
    ========================================================= */
 
-function setupLoginButton() {
+function setupSignInButton() {
 
     const button =
         getElement(
-            "loginButton"
-        );
+            "signInButton"
+        ) || getElement("loginButton");
 
 
     if (!button) {
@@ -1780,6 +1789,15 @@ function setupLoginButton() {
 
     }
 
+    button.setAttribute("aria-label", "SIGN IN");
+    button.setAttribute("title", "SIGN IN");
+
+    if (
+        button.childElementCount === 0 &&
+        /log\s*in/i.test(button.textContent)
+    ) {
+        button.textContent = "SIGN IN";
+    }
 
     if (
         isAuthenticated()
@@ -1824,7 +1842,7 @@ async function initializeAuthenticatedApplication() {
 
     setupProjectForm();
 
-    setupLogoutButton();
+    setupSignoutButton();
 
     await loadProjects();
 
@@ -1846,7 +1864,7 @@ async function initializeApplication() {
     ]);
 
 
-    setupLoginButton();
+    setupSignInButton();
 
 
     await initializeAuthenticatedApplication();

@@ -5,6 +5,8 @@ SUPREMESETUHUB is the central foundation for the SUPREME owner-controlled digita
 ## Architecture
 
 - `backend/` — primary FastAPI backend and all runtime services.
+- `backend/core/global_ecosystem/global_core_ecosystem/catalog.py` — canonical `GLOBAL ECOSYSTEM → GLOBAL CORE ECOSYSTEM` hierarchy, with business, server, database, storage, security, API, AI, search, backup, logging, notifications, and settings core ecosystems registered beneath the core root.
+- `backend/api/global_ecosystem/global_api_ecosystem.py` — parallel API hierarchy; API-layer ecosystems remain separate from core-service ecosystems.
 - `backend/supreme/` — SUPREME core package and configuration.
 - `backend/supreme/ecosystem/` — SUPREME ECOSYSTEM modules, connectors, integrations, vault and ownership.
 - `backend/supreme/config.py` — backend-side SUPREME configuration; private IDs and email values come from deployment environment variables.
@@ -38,3 +40,9 @@ The SUPREME ECOSYSTEM is the control plane for authorized Google/Gmail, Microsof
 ## Deployment
 
 Root `render.yaml` and `backend/render.yaml` are retained for compatibility; configure only one Blueprint file per Render service to avoid duplicate services.
+
+## Global platform compatibility
+
+Read [Global Platform Compatibility Standard](docs/GLOBAL_PLATFORM_COMPATIBILITY.md) for the cross-browser, security, accessibility, deployment and release gates. The iOS folder documents the native App Store work still required; it is not a claim that a signed iOS app already exists.
+
+The Android release workflow runs on pushes to `main`, pull requests targeting `main`, and manual dispatch. Passing CI is necessary but does not guarantee app-store approval or prove all live integrations work.

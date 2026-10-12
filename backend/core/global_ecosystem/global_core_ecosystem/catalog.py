@@ -25,7 +25,7 @@ ROOT: dict[str, Any] = {
 }
 
 
-# 18 original categories + 16 new API, Language, and Video ecosystems.
+# Canonical ecosystem categories, including API, CORE, Language, and Video hierarchies.
 CATEGORIES: tuple[dict[str, Any], ...] = (
     {
         "ecosystem_id": "GLOBAL-SUPREME-ECOSYSTEM",
@@ -149,6 +149,98 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "name": "GLOBAL DEVELOPER ECOSYSTEM",
         "ecosystem_type": "FUNCTIONAL",
         "capabilities": ["APIS", "SDKS", "REPOSITORIES", "CI_CD"],
+    },
+
+    # CORE hierarchy — mirrors the GLOBAL API ECOSYSTEM hierarchy.
+    {
+        "ecosystem_id": "GLOBAL-CORE-ECOSYSTEM",
+        "name": "GLOBAL CORE ECOSYSTEM",
+        "ecosystem_type": "PLATFORM",
+        "capabilities": ["CORE_REGISTRY", "FOUNDATION_SERVICES", "LIFECYCLE"],
+    },
+    {
+        "ecosystem_id": "GLOBAL-DATABASE-CORE-ECOSYSTEM",
+        "name": "GLOBAL DATABASE CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["DATABASE_SERVICE", "MIGRATIONS", "TRANSACTIONS"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+    },
+    {
+        "ecosystem_id": "GLOBAL-STORAGE-CORE-ECOSYSTEM",
+        "name": "GLOBAL STORAGE CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["STORAGE_SERVICE", "ASSET_METADATA", "ADAPTERS"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+    },
+    {
+        "ecosystem_id": "GLOBAL-SECURITY-CORE-ECOSYSTEM",
+        "name": "GLOBAL SECURITY CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["SECURITY_SERVICE", "POLICY_ENFORCEMENT", "AUDIT"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+    },
+    {
+        "ecosystem_id": "GLOBAL-API-CORE-ECOSYSTEM",
+        "name": "GLOBAL API CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["API_SERVICE", "ROUTING", "CONTRACTS"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+    },
+    {
+        "ecosystem_id": "GLOBAL-AI-CORE-ECOSYSTEM",
+        "name": "GLOBAL AI CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["AI_ORCHESTRATION", "MODEL_ADAPTERS", "POLICY_GATES"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+    },
+    {
+        "ecosystem_id": "GLOBAL-SEARCH-CORE-ECOSYSTEM",
+        "name": "GLOBAL SEARCH CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["SEARCH_INDEXING", "DISCOVERY", "QUERY_ROUTING"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+    },
+    {
+        "ecosystem_id": "GLOBAL-BACKUP-CORE-ECOSYSTEM",
+        "name": "GLOBAL BACKUP CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["BACKUP_POLICIES", "RESTORE_WORKFLOWS", "INTEGRITY_CHECKS"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+    },
+    {
+        "ecosystem_id": "GLOBAL-LOGGING-CORE-ECOSYSTEM",
+        "name": "GLOBAL LOGGING CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["STRUCTURED_LOGGING", "CORRELATION_IDS", "AUDIT_EVENTS"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+    },
+    {
+        "ecosystem_id": "GLOBAL-NOTIFICATIONS-CORE-ECOSYSTEM",
+        "name": "GLOBAL NOTIFICATIONS CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["NOTIFICATION_ROUTING", "TEMPLATES", "DELIVERY_STATUS"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+    },
+    {
+        "ecosystem_id": "GLOBAL-SETTINGS-CORE-ECOSYSTEM",
+        "name": "GLOBAL SETTINGS CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["CONFIGURATION", "FEATURE_FLAGS", "ENVIRONMENT_SETTINGS"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+    },
+    {
+        "ecosystem_id": "GLOBAL-BUSINESS-CORE-ECOSYSTEM",
+        "name": "GLOBAL BUSINESS CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["BUSINESS_RULES", "DOMAIN_SERVICES", "WORKFLOWS"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+    },
+    {
+        "ecosystem_id": "GLOBAL-SERVER-CORE-ECOSYSTEM",
+        "name": "GLOBAL SERVER CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["SERVER_LIFECYCLE", "HEALTH_CHECKS", "DEPLOYMENT_COORDINATION"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
     },
 
     # API hierarchy
@@ -411,7 +503,7 @@ def _normalize_record(record: dict[str, Any]) -> dict[str, Any]:
 
 
 def get_catalog() -> list[dict[str, Any]]:
-    """Return the root, all 34 categories, and all 8 registrations."""
+    """Return the root, all categories, and all registrations."""
     records = [
         ROOT,
         *CATEGORIES,
@@ -422,7 +514,7 @@ def get_catalog() -> list[dict[str, Any]]:
 
 
 def get_category_catalog() -> list[dict[str, Any]]:
-    """Return independent copies of all 34 ecosystem categories."""
+    """Return independent copies of all ecosystem categories."""
     return [_normalize_record(record) for record in CATEGORIES]
 
 
