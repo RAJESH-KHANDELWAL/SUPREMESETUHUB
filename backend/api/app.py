@@ -49,6 +49,7 @@ from backend.wordpress.bootstrap import create_wordpress_service
 from backend.api.connectors import router as connectors_router
 from backend.api.linksetu import router as linksetu_router
 from backend.api.email import router as email_router
+from backend.api.print_on_demand import router as print_on_demand_router
 
 
 # ============================================================
@@ -313,6 +314,7 @@ app.include_router(theme_hub_router)
 app.include_router(connectors_router)
 app.include_router(linksetu_router)
 app.include_router(email_router)
+app.include_router(print_on_demand_router)
 
 
 # ============================================================
