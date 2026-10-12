@@ -13,6 +13,7 @@ from backend.integrations.connectors.openai_image import (
     OpenAIImageConnector,
 )
 from backend.integrations.connectors.registry import connector_registry
+from backend.supreme.config import CONNECTED_REPOS
 
 
 router = APIRouter(
@@ -139,6 +140,40 @@ def github_repository_status():
             "status": "UNAVAILABLE",
             "error": type(exc).__name__,
         }
+
+
+@router.get("/github/repositories")
+def github_repository_registry():
+    """List repositories registered under the SUPREMESETUHUB foundation.
+
+    This is a central registry, not proof of live API connectivity or sync.
+    Secrets and repository write credentials are never returned by this route.
+    """
+    repositories = [
+        {
+            "key": key,
+            "name": item["name"],
+            "owner": item["owner"],
+            "url": item["url"],
+            "type": item["type"],
+            "status": item["status"],
+            "integration_mode": item["integration_mode"],
+            "runtime_connection": item["runtime_connection"],
+        }
+        for key, item in CONNECTED_REPOS.items()
+    ]
+    return {
+        "success": True,
+        "foundation": "SUPREMESETUHUB",
+        "mode": "CENTRAL_REPOSITORY_REGISTRY",
+        "live_runtime_sync_enabled": False,
+        "repository_count": len(repositories),
+        "repositories": repositories,
+        "note": (
+            "Registration centralizes project identity only. Configure and "
+            "verify authenticated API/runtime integrations before enabling sync."
+        ),
+    }
 
 
 @router.get("/google-cloud/status")
