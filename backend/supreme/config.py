@@ -306,7 +306,7 @@ STARTUP_TASKS = {
     "enable_ai_services": True,
     "setup_homepage": True,
     "configure_branding": True,
-    "sync_all_repos": True
+    "sync_all_repos": False,  # Keep cross-repository sync disabled until verified
 }
 
 # =========================================================
