@@ -227,6 +227,14 @@ async def private_by_default(request: Request, call_next):
     if path.startswith("/user-hub/"):
         return await call_next(request)
 
+    # Storage APIs enforce per-asset owner permissions in the route layer.
+    # Health endpoints expose only non-secret diagnostics to signed-in users.
+    if path.startswith("/api/v1/storage/") or path in {
+        "/api/v1/database/health",
+        "/api/v1/engines/status",
+    }:
+        return await call_next(request)
+
     # Print-on-demand routes implement user-scoped design briefs and use
     # get_current_user for identity; allow regular signed-in customers here.
     if path.startswith("/api/v1/print-on-demand/"):
