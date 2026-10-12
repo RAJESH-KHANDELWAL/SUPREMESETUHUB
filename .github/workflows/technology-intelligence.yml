@@ -1,6 +1,11 @@
 name: Technology Intelligence Digest
 
 on:
+  pull_request:
+    paths:
+      - "backend/tech_intelligence/**"
+      - "tests/test_tech_intelligence.py"
+      - ".github/workflows/technology-intelligence.yml"
   workflow_dispatch:
   schedule:
     - cron: "23 3 * * *" # Daily at 03:23 UTC
