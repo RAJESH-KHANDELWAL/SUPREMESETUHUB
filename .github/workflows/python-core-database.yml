@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "backend/database/**"
+      - "backend/engines/database/**"
       - "backend/api/service.py"
       - "backend/api/app.py"
       - "backend/api/print_on_demand.py"
@@ -32,7 +33,11 @@ on:
     branches: [main]
     paths:
       - "backend/database/**"
+      - "backend/engines/database/**"
+      - "backend/api/service.py"
       - "backend/api/app.py"
+      - "backend/api/print_on_demand.py"
+      - "backend/print_on_demand/**"
       - "backend/api/auth.py"
       - "backend/api/businesses.py"
       - "backend/businesses/**"
@@ -45,6 +50,10 @@ on:
       - "backend/users/**"
       - "backend/identity/**"
       - "backend/security.py"
+      - "backend/infrastructure/storage/**"
+      - "backend/infrastructure/security/**"
+      - "backend/infrastructure/backup/**"
+      - "backend/storage/**"
       - "backend/security/**"
       - "backend/tests/**"
       - ".github/workflows/python-core-database.yml"
@@ -68,4 +77,4 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r backend/requirements.txt
       - name: Run central database service tests
-        run: python -m pytest -q backend/tests/test_database_service.py backend/tests/test_infrastructure_modules.py backend/tests/test_private_ecosystem_access.py backend/tests/test_supreme_referral_stack.py backend/tests/test_authentication_security.py backend/tests/test_auth_signout_security.py backend/tests/test_signup_route.py backend/tests/test_business_id_generation.py backend/tests/test_print_on_demand.py backend/tests/test_print_on_demand_api.py
+        run: python -m pytest -q backend/tests/test_database_engine.py backend/tests/test_database_service.py backend/tests/test_infrastructure_modules.py backend/tests/test_private_ecosystem_access.py backend/tests/test_supreme_referral_stack.py backend/tests/test_authentication_security.py backend/tests/test_auth_signout_security.py backend/tests/test_signup_route.py backend/tests/test_business_id_generation.py backend/tests/test_print_on_demand.py backend/tests/test_print_on_demand_api.py

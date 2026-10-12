@@ -2,14 +2,15 @@
 MAIN BASE FOUNDATION
 Central Database Engine
 
-Provides persistent database connectivity and
-storage services for MAIN-BASE-FOUNDATION.
+Provides persistent SQLite connectivity for MAIN-BASE-FOUNDATION.
+Other database URL schemes are reported as unsupported until drivers
+and their lifecycle/transaction behavior are implemented.
 """
 
 from datetime import datetime, timezone
 from pathlib import Path
 import sqlite3
-from typing import Any, Dict, Optional
+from typing import Optional
 
 
 class DatabaseEngine:
@@ -18,103 +19,102 @@ class DatabaseEngine:
     def __init__(
         self,
         database_url: str = "sqlite:///main_base_foundation.db",
+        timeout: float = 30.0,
     ):
         self.database_url = database_url
+        self.timeout = timeout
         self._status = "READY"
         self.connected = False
         self.last_check = self._now()
-
         self.connection: Optional[sqlite3.Connection] = None
 
     def _now(self) -> str:
         """Return current UTC timestamp."""
-
         return datetime.now(timezone.utc).isoformat()
 
     def connect(self) -> dict:
-        """Connect to the configured database."""
-
+        """Connect to SQLite, enabling relational integrity by default."""
         if self.connected and self.connection is not None:
             return self.status()
 
         if not self.database_url.startswith("sqlite:///"):
+            self._status = "UNSUPPORTED"
+            self.last_check = self._now()
             raise NotImplementedError(
-                "Only SQLite is currently supported."
+                "Only SQLite is currently supported by DatabaseEngine."
             )
 
-        database_path = self.database_url.replace(
-            "sqlite:///",
-            "",
-            1,
-        )
+        database_path = self.database_url[len("sqlite:///"):]
 
-        path = Path(database_path)
+        # Preserve SQLite's in-memory mode instead of creating a file named
+        # ':memory:' in the current working directory.
+        is_memory = database_path == ":memory:"
+        is_uri = database_path.startswith("file:")
+        if is_memory:
+            target = ":memory:"
+        elif is_uri:
+            target = database_path
+        else:
+            path = Path(database_path)
+            if not path.is_absolute():
+                path = Path.cwd() / path
+            path.parent.mkdir(parents=True, exist_ok=True)
+            target = str(path)
 
-        if not path.is_absolute():
-            path = Path.cwd() / path
+        connection = None
+        try:
+            connection = sqlite3.connect(
+                target,
+                timeout=self.timeout,
+                check_same_thread=False,
+                uri=is_uri,
+            )
+            connection.row_factory = sqlite3.Row
+            connection.execute("PRAGMA foreign_keys = ON")
+            connection.execute(
+                f"PRAGMA busy_timeout = {max(0, int(self.timeout * 1000))}"
+            )
+            # Verify the connection before publishing it as connected.
+            connection.execute("SELECT 1")
+        except Exception:
+            if connection is not None:
+                connection.close()
+            self.connection = None
+            self.connected = False
+            self._status = "ERROR"
+            self.last_check = self._now()
+            raise
 
-        path.parent.mkdir(
-            parents=True,
-            exist_ok=True,
-        )
-
-        self.connection = sqlite3.connect(
-            str(path),
-            check_same_thread=False,
-        )
-
-        self.connection.row_factory = sqlite3.Row
-
+        self.connection = connection
         self.connected = True
         self._status = "CONNECTED"
         self.last_check = self._now()
-
         return self.status()
 
     def disconnect(self) -> dict:
         """Disconnect the database engine."""
-
         if self.connection is not None:
             self.connection.close()
-
         self.connection = None
         self.connected = False
         self._status = "DISCONNECTED"
         self.last_check = self._now()
-
         return self.status()
 
     def ensure_connected(self) -> sqlite3.Connection:
         """Return an active database connection."""
-
         if not self.connected or self.connection is None:
             self.connect()
-
         if self.connection is None:
-            raise RuntimeError(
-                "Database connection could not be established."
-            )
-
+            raise RuntimeError("Database connection could not be established.")
         return self.connection
 
-    def execute(
-        self,
-        query: str,
-        parameters: tuple = (),
-    ) -> sqlite3.Cursor:
-        """Execute a SQL statement."""
-
+    def execute(self, query: str, parameters: tuple = ()) -> sqlite3.Cursor:
+        """Execute a SQL statement and commit it."""
         connection = self.ensure_connected()
-
-        cursor = connection.execute(
-            query,
-            parameters,
-        )
-
+        cursor = connection.execute(query, parameters)
         connection.commit()
-
         self.last_check = self._now()
-
         return cursor
 
     def executemany(
@@ -123,18 +123,10 @@ class DatabaseEngine:
         parameters: list[tuple],
     ) -> sqlite3.Cursor:
         """Execute a SQL statement against multiple parameter sets."""
-
         connection = self.ensure_connected()
-
-        cursor = connection.executemany(
-            query,
-            parameters,
-        )
-
+        cursor = connection.executemany(query, parameters)
         connection.commit()
-
         self.last_check = self._now()
-
         return cursor
 
     def fetch_one(
@@ -143,20 +135,11 @@ class DatabaseEngine:
         parameters: tuple = (),
     ) -> Optional[dict]:
         """Fetch one database record."""
-
         connection = self.ensure_connected()
-
-        cursor = connection.execute(
-            query,
-            parameters,
-        )
-
+        cursor = connection.execute(query, parameters)
+        self.last_check = self._now()
         row = cursor.fetchone()
-
-        if row is None:
-            return None
-
-        return dict(row)
+        return dict(row) if row is not None else None
 
     def fetch_all(
         self,
@@ -164,46 +147,34 @@ class DatabaseEngine:
         parameters: tuple = (),
     ) -> list[dict]:
         """Fetch all database records."""
-
         connection = self.ensure_connected()
+        cursor = connection.execute(query, parameters)
+        self.last_check = self._now()
+        return [dict(row) for row in cursor.fetchall()]
 
-        cursor = connection.execute(
-            query,
-            parameters,
-        )
-
-        return [
-            dict(row)
-            for row in cursor.fetchall()
-        ]
-
-    def create_table(
-        self,
-        query: str,
-    ) -> None:
+    def create_table(self, query: str) -> None:
         """Create a database table."""
-
         self.execute(query)
 
     def health(self) -> dict:
-        """Return database health information."""
-
-        if self.connected:
-            health = "HEALTHY"
-        else:
-            health = "READY"
-
+        """Run a real health query when connected."""
+        healthy = False
+        if self.connected and self.connection is not None:
+            try:
+                self.connection.execute("SELECT 1")
+                healthy = True
+            except sqlite3.Error:
+                healthy = False
         return {
             "database": "MAIN BASE FOUNDATION",
-            "health": health,
-            "connected": self.connected,
+            "health": "HEALTHY" if healthy else "NOT_CONNECTED",
+            "connected": self.connected and healthy,
             "database_url": self._safe_database_url(),
             "last_check": self.last_check,
         }
 
     def status(self) -> dict:
         """Return current database status."""
-
         return {
             "database": "MAIN BASE FOUNDATION",
             "status": self._status,
@@ -214,28 +185,18 @@ class DatabaseEngine:
 
     def ping(self) -> dict:
         """Perform a lightweight database availability check."""
-
-        self.last_check = self._now()
-
-        if not self.connected:
-            return {
-                "database": "MAIN BASE FOUNDATION",
-                "reachable": False,
-                "status": "OFFLINE",
-                "last_check": self.last_check,
-            }
-
         try:
-            self.execute("SELECT 1")
-
+            connection = self.ensure_connected()
+            connection.execute("SELECT 1")
+            self.last_check = self._now()
             return {
                 "database": "MAIN BASE FOUNDATION",
                 "reachable": True,
                 "status": "ONLINE",
                 "last_check": self.last_check,
             }
-
-        except Exception:
+        except (sqlite3.Error, NotImplementedError, RuntimeError, OSError):
+            self.last_check = self._now()
             return {
                 "database": "MAIN BASE FOUNDATION",
                 "reachable": False,
@@ -244,60 +205,44 @@ class DatabaseEngine:
             }
 
     def configuration(self) -> dict:
-        """Return non-secret database configuration."""
-
+        """Return non-secret configuration and actual driver support status."""
+        supported = self.database_url.startswith("sqlite:///")
         return {
             "engine": "DATABASE",
             "database_url": self._safe_database_url(),
-            "driver": self._driver_name(),
+            "driver": "SQLITE" if supported else "UNSUPPORTED",
+            "requested_driver": self._driver_name(),
+            "supported": supported,
             "secret_storage": False,
         }
 
     def _driver_name(self) -> str:
-        """Return the configured database driver."""
-
-        if self.database_url.startswith("sqlite"):
+        """Describe the requested URL scheme without implying it is supported."""
+        if self.database_url.startswith("sqlite:///"):
             return "SQLITE"
-
-        if self.database_url.startswith("postgresql"):
+        if self.database_url.startswith("postgresql://") or self.database_url.startswith("postgres://"):
             return "POSTGRESQL"
-
-        if self.database_url.startswith("mysql"):
+        if self.database_url.startswith("mysql://") or self.database_url.startswith("mysql+pymysql://"):
             return "MYSQL"
-
         return "UNKNOWN"
 
     def _safe_database_url(self) -> str:
-        """Return database URL without exposed credentials."""
-
+        """Avoid exposing credentials or query-string secrets in diagnostics."""
         value = self.database_url
-
-        if "@" in value and "://" in value:
-            prefix, remainder = value.split(
-                "://",
-                1,
-            )
-
-            if "@" in remainder:
-                credentials, host = remainder.split(
-                    "@",
-                    1,
-                )
-
-                if ":" in credentials:
-                    username = credentials.split(
-                        ":",
-                        1,
-                    )[0]
-
-                    return (
-                        f"{prefix}://"
-                        f"{username}:***@{host}"
-                    )
-
-        return value
+        if value.startswith("sqlite:///"):
+            return value
+        if "://" not in value:
+            return "[REDACTED]"
+        scheme, remainder = value.split("://", 1)
+        authority_and_path = remainder.split("?", 1)[0]
+        if "@" in authority_and_path:
+            credentials, host_path = authority_and_path.rsplit("@", 1)
+            username = credentials.split(":", 1)[0]
+            safe_authority = f"{username}:***@{host_path}" if username else "***@" + host_path
+        else:
+            safe_authority = authority_and_path
+        suffix = "?[REDACTED]" if "?" in remainder else ""
+        return f"{scheme}://{safe_authority}{suffix}"
 
 
-__all__ = [
-    "DatabaseEngine",
-]
+__all__ = ["DatabaseEngine"]
