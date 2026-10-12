@@ -25,7 +25,7 @@ ROOT: dict[str, Any] = {
 }
 
 
-# 18 original categories + 16 new API, Language, and Video ecosystems.
+# Canonical ecosystem categories, including API, CORE, Language, and Video hierarchies.
 CATEGORIES: tuple[dict[str, Any], ...] = (
     {
         "ecosystem_id": "GLOBAL-SUPREME-ECOSYSTEM",
@@ -503,7 +503,7 @@ def _normalize_record(record: dict[str, Any]) -> dict[str, Any]:
 
 
 def get_catalog() -> list[dict[str, Any]]:
-    """Return the root, all 34 categories, and all 8 registrations."""
+    """Return the root, all categories, and all registrations."""
     records = [
         ROOT,
         *CATEGORIES,
@@ -514,7 +514,7 @@ def get_catalog() -> list[dict[str, Any]]:
 
 
 def get_category_catalog() -> list[dict[str, Any]]:
-    """Return independent copies of all 34 ecosystem categories."""
+    """Return independent copies of all ecosystem categories."""
     return [_normalize_record(record) for record in CATEGORIES]
 
 
