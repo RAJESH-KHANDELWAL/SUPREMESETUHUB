@@ -1,3 +1,41 @@
+
+<!-- SUPREME DEFAULT LANGUAGE CONTROL: English / Hindi / Hinglish -->
+<div class="supreme-language-control" role="group" aria-label="Choose language">
+  <label for="supreme-language">🌐 LANGUAGE / भाषा</label>
+  <select id="supreme-language" name="language">
+    <option value="en">ENGLISH</option>
+    <option value="hi">हिन्दी (HINDI)</option>
+    <option value="hinglish" selected>HINGLISH</option>
+  </select>
+</div>
+<script>
+(function () {
+  "use strict";
+  var control = document.getElementById("supreme-language");
+  if (!control) return;
+  var root = document.documentElement;
+  var languageMap = {
+    en: { lang: "en", font: "'Inter', Arial, sans-serif" },
+    hi: { lang: "hi", font: "'Noto Sans Devanagari', 'Mangal', sans-serif" },
+    hinglish: { lang: "hi-Latn", font: "'Inter', 'Noto Sans Devanagari', Arial, sans-serif" }
+  };
+  function applyLanguage(value) {
+    var setting = languageMap[value] || languageMap.hinglish;
+    root.setAttribute("lang", setting.lang);
+    root.setAttribute("data-supreme-language", value);
+    document.body.setAttribute("data-supreme-language", value);
+    document.body.style.setProperty("--supreme-font-family", setting.font);
+    try { localStorage.setItem("supreme-language", value); } catch (error) {}
+  }
+  var saved = "hinglish";
+  try { saved = localStorage.getItem("supreme-language") || "hinglish"; } catch (error) {}
+  if (!languageMap[saved]) saved = "hinglish";
+  control.value = saved;
+  applyLanguage(saved);
+  control.addEventListener("change", function () { applyLanguage(control.value); });
+})();
+</script>
+
 <link rel="stylesheet" href="https://supremesetuhub-3v4e.onrender.com/api/v1/frontend/supreme/style.css">
 
 
