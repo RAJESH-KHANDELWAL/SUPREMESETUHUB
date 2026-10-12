@@ -112,30 +112,12 @@ CONNECTED_REPOS = {
         "integration_mode": "GITHUB_REPOSITORY_REGISTRY",
         "runtime_connection": "NOT_CONFIGURED"
     },
-    "SUPREMESETUHUB_DEMO": {
-        "name": "demo-repository",
-        "owner": "RAJESH-KHANDELWAL",
-        "url": "https://github.com/RAJESH-KHANDELWAL/demo-repository",
-        "type": "DEMO_PROJECT",
-        "status": "REGISTERED",
-        "integration_mode": "GITHUB_REPOSITORY_REGISTRY",
-        "runtime_connection": "NOT_CONFIGURED"
-    },
     "RAJESHKHANDELWALOFFICIAL": {
         "name": "RAJESHKHANDELWALOFFICIAL",
         "owner": "RAJESH-KHANDELWAL-OFFICIAL",
         "url": "https://github.com/RAJESH-KHANDELWAL-OFFICIAL/RAJESHKHANDELWALOFFICIAL",
         "homepage": "https://rajesh-khandelwal-official.github.io/RAJESHKHANDELWALOFFICIAL/",
         "type": "OFFICIAL_BRAND",
-        "status": "REGISTERED",
-        "integration_mode": "GITHUB_REPOSITORY_REGISTRY",
-        "runtime_connection": "NOT_CONFIGURED"
-    },
-    "IBC_DEMO": {
-        "name": "demo-repository",
-        "owner": "DR-RAJESH-KHANDELWAL-IBC",
-        "url": "https://github.com/DR-RAJESH-KHANDELWAL-IBC/demo-repository",
-        "type": "DEMO_PROJECT",
         "status": "REGISTERED",
         "integration_mode": "GITHUB_REPOSITORY_REGISTRY",
         "runtime_connection": "NOT_CONFIGURED"
