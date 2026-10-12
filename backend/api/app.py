@@ -49,6 +49,8 @@ from backend.wordpress.bootstrap import create_wordpress_service
 from backend.api.connectors import router as connectors_router
 from backend.api.linksetu import router as linksetu_router
 from backend.api.email import router as email_router
+from backend.api.print_on_demand import router as print_on_demand_router
+from backend.api.digital_marketplace import router as digital_marketplace_router
 
 
 # ============================================================
@@ -59,6 +61,7 @@ BASE_DIR = Path(__file__).resolve().parents[2]
 
 FRONTEND_DIR = BASE_DIR / "frontend"
 ROOT_FRONTEND_FILE = FRONTEND_DIR / "index.html"
+POD_JS_FILE = FRONTEND_DIR / "print-on-demand.js"
 
 SUPREME_FRONTEND_DIR = FRONTEND_DIR / "supreme"
 SUPREME_HTML_FILE = SUPREME_FRONTEND_DIR / "index.html"
@@ -143,6 +146,7 @@ authentication_service = AuthenticationService()
 # Customer sign-up/sign-in uses /users/signup and /auth/signin; legacy registration remains supported.
 PUBLIC_API_PATHS = {
     "/health",
+    "/print-on-demand.js",
     "/auth/initialize",
     "/auth/signin",
     "/users/signup",
@@ -151,6 +155,7 @@ PUBLIC_API_PATHS = {
     "/api/v1/frontend/supreme",
     "/api/v1/frontend/supreme/style.css",
     "/api/v1/frontend/supreme/health",
+    "/api/v1/digital-marketplace/catalog",
 }
 
 
@@ -217,6 +222,11 @@ async def private_by_default(request: Request, call_next):
     # profiles, businesses, and projects. Other data APIs remain owner-only
     # until their resource-level ownership checks are implemented.
     if path.startswith("/user-hub/"):
+        return await call_next(request)
+
+    # Print-on-demand routes implement user-scoped design briefs and use
+    # get_current_user for identity; allow regular signed-in customers here.
+    if path.startswith("/api/v1/print-on-demand/"):
         return await call_next(request)
 
     if not is_supreme_owner:
@@ -313,6 +323,8 @@ app.include_router(theme_hub_router)
 app.include_router(connectors_router)
 app.include_router(linksetu_router)
 app.include_router(email_router)
+app.include_router(print_on_demand_router)
+app.include_router(digital_marketplace_router)
 
 
 # ============================================================
@@ -348,6 +360,12 @@ def root():
         ROOT_FRONTEND_FILE,
         media_type="text/html",
     )
+
+@app.get("/print-on-demand.js")
+def print_on_demand_frontend_script():
+    if not POD_JS_FILE.is_file():
+        raise HTTPException(status_code=404, detail="Print on Demand frontend script not found")
+    return FileResponse(POD_JS_FILE, media_type="application/javascript")
 
 
 # ============================================================
