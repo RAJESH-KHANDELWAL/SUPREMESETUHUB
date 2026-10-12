@@ -157,6 +157,8 @@ PUBLIC_API_PATHS = {
     "/api/v1/frontend/supreme",
     "/api/v1/frontend/supreme/style.css",
     "/api/v1/frontend/supreme/health",
+    "/api/v1/frontend/global-business-ecosystem",
+    "/api/v1/frontend/global-business-ecosystem/health",
     "/api/v1/digital-marketplace/catalog",
     "/api/v1/print-on-demand/public/catalog",
 }
@@ -437,6 +439,31 @@ def supreme_frontend_health():
         "frontend": "supreme",
         "html": SUPREME_HTML_FILE.is_file(),
         "css": SUPREME_CSS_FILE.is_file(),
+    }
+
+
+# ============================================================
+# GLOBAL BUSINESS ECOSYSTEM FRONTEND
+# ============================================================
+
+@app.get("/api/v1/frontend/global-business-ecosystem")
+def global_business_ecosystem_frontend():
+    """Public WordPress-friendly alias for the main ecosystem homepage."""
+    if not ROOT_FRONTEND_FILE.is_file():
+        raise HTTPException(
+            status_code=404,
+            detail="Global business ecosystem frontend HTML not found",
+        )
+    return FileResponse(ROOT_FRONTEND_FILE, media_type="text/html")
+
+
+@app.get("/api/v1/frontend/global-business-ecosystem/health")
+def global_business_ecosystem_frontend_health():
+    return {
+        "success": True,
+        "service": "SUPREMESETUHUB",
+        "frontend": "global-business-ecosystem",
+        "html": ROOT_FRONTEND_FILE.is_file(),
     }
 
 
