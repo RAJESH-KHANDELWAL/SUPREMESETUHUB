@@ -41,8 +41,9 @@ jobs:
           set -e
           mkdir -p dist
           for plugin in supremesetuhub-connector supreme-ecosystem-home supreme-print-on-demand; do
-            zip -r "dist/$plugin.zip" "wordpress-plugin/$plugin"
+            (cd wordpress-plugin && zip -r "../dist/$plugin.zip" "$plugin")
             unzip -t "dist/$plugin.zip"
+            unzip -Z1 "dist/$plugin.zip" | grep -q "^$plugin/[^/]*\.php$"
           done
 
       - name: Upload WordPress plugin ZIPs
