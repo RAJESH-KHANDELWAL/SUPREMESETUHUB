@@ -551,13 +551,21 @@
   };
   function applyHubLanguage(language){
     var dictionary=translations[language]||translations.hinglish;
-    hub.querySelectorAll("[data-ssh-i18n]").forEach(function(el){
-      var key=el.getAttribute("data-ssh-i18n");
-      if(dictionary[key]) el.textContent=dictionary[key];
+    var walker=document.createTreeWalker(hub,NodeFilter.SHOW_TEXT);
+    var nodes=[],node;
+    while((node=walker.nextNode())) nodes.push(node);
+    nodes.forEach(function(textNode){
+      var original=textNode.nodeValue;
+      var key=original.trim();
+      if(dictionary[key]) textNode.nodeValue=original.replace(key,dictionary[key]);
     });
-    hub.querySelectorAll("[data-ssh-placeholder]").forEach(function(el){
-      var key=el.getAttribute("data-ssh-placeholder");
-      if(dictionary[key]) el.setAttribute("placeholder",dictionary[key]);
+    var placeholders={
+      en:{"Search people, posts, services...":"Search people, posts, services...","Write a comment...":"Write a comment..."},
+      hi:{"Search people, posts, services...":"लोग, पोस्ट और सेवाएँ खोजें...","Write a comment...":"कमेंट लिखें..."},
+      hinglish:{"Search people, posts, services...":"People, posts, services search karo...","Write a comment...":"Comment likho..."}
+    }[language]||{};
+    hub.querySelectorAll("input[placeholder],textarea[placeholder]").forEach(function(el){
+      var key=el.getAttribute("placeholder");if(placeholders[key])el.setAttribute("placeholder",placeholders[key]);
     });
     hub.setAttribute("lang",language==="hi"?"hi":language==="en"?"en":"hi-Latn");
   }
