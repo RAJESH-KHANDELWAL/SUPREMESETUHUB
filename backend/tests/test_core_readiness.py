@@ -29,7 +29,7 @@ class FakeStorage:
 def test_readiness_reports_core_database_and_metadata_storage_truthfully():
     result = CoreReadinessService(FakeDatabase(), FakeStorage()).snapshot()
 
-    assert result["overall"] == "HEALTHY"
+    assert result["overall"] == "DEGRADED"
     assert result["components"]["core"]["status"] == "READY"
     assert result["components"]["database"]["status"] == "READY"
     assert result["components"]["storage"]["status"] == "METADATA_ONLY"
