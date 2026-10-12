@@ -2851,3 +2851,35 @@ h1, h2, h3, h4, h5, h6 {
   font-family:'Century Schoolbook','Libre Baskerville',serif !important;
   font-weight:800 !important;
 }
+ 
+
+/* GLOBAL LANGUAGE CATALOGUE, TRANSLATION AND SPEECH CONTROLS */
+.supreme-language-control {display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:12px 0;padding:12px 14px;border:1px solid #d0d5dd;border-radius:12px;background:#fff;color:#172033;font-family:'Century Schoolbook','Libre Baskerville',serif;font-weight:800;}
+.supreme-language-control label {font-size:12px;font-weight:800;}
+.supreme-language-control select {max-width:100%;min-width:190px;border:1px solid #98a2b3;border-radius:8px;padding:9px 12px;background:#fff;color:#172033;font-family:'Century Schoolbook','Libre Baskerville',serif;font-weight:800;}
+.supreme-language-note {font-size:11px;color:#667085;font-weight:800;}
+.supreme-global-language-tools {margin:16px 0;padding:18px;border:1px solid #d0d5dd;border-radius:16px;background:#fff;color:#172033;font-family:'Century Schoolbook','Libre Baskerville',serif;font-weight:800;}
+.sglt-heading {display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.sglt-heading strong {font-size:14px;line-height:1.6;}
+#sglt-status {font-size:11px;color:#175cd3;font-weight:800;}
+.sglt-note {font-size:11px;line-height:1.7;color:#667085;}
+.sglt-speech {display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:14px 0;}
+.sglt-speech label {font-size:11px;font-weight:800;}
+.sglt-speech select {min-width:145px;max-width:100%;padding:9px;border:1px solid #98a2b3;border-radius:8px;background:#fff;font:inherit;font-size:11px;}
+.sglt-speech button {padding:10px 13px;border:0;border-radius:9px;background:#175cd3;color:#fff;font:inherit;font-size:11px;}
+.sglt-speech button:disabled {opacity:.5;cursor:not-allowed;}
+.sglt-speak-label {display:flex;align-items:center;gap:6px;}
+.sglt-caption {padding:14px;border-radius:12px;background:#f4f7fb;border:1px solid #e4e7ec;}
+.sglt-caption strong {font-size:11px;color:#175cd3;}
+.sglt-caption p {font-size:13px;line-height:1.7;overflow-wrap:anywhere;}
+.sglt-programming {margin-top:12px;padding:12px;border:1px solid #e4e7ec;border-radius:10px;}
+.sglt-programming summary {cursor:pointer;font-size:12px;}
+#sglt-programming-list {padding-top:12px;font-size:11px;line-height:2;color:#344054;overflow-wrap:anywhere;}
+@media(max-width:640px){
+ .supreme-language-control{align-items:stretch;flex-direction:column;}
+ .supreme-language-control select{width:100%;min-width:0;}
+ .supreme-global-language-tools{padding:12px;}
+ .sglt-speech{align-items:stretch;flex-direction:column;}
+ .sglt-speech select,.sglt-speech button{width:100%;}
+ .sglt-heading{align-items:flex-start;flex-direction:column;}
+}
