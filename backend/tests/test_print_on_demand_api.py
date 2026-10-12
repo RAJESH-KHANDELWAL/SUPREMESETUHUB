@@ -16,6 +16,7 @@ def test_print_on_demand_quote_route(monkeypatch):
     from backend.api import app as app_module
     from backend.api import print_on_demand as pod_module
 
+    app_module.app.dependency_overrides[pod_module.get_current_user] = lambda: {"user_id": "USR_TEST", "role": "USER"}
     monkeypatch.setattr(
         app_module.authentication_service,
         "validate_token",
