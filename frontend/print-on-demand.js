@@ -89,11 +89,6 @@
                 card.append(title, category, standard, premium);
                 productGrid.append(card);
             });
-            if (data.design_starters) {
-                byId("podDesignStarters").querySelectorAll("[data-pod-prompt]").forEach((button) => {
-                    button.addEventListener("click", () => { prompt.value = button.dataset.podPrompt; });
-                });
-            }
             showStatus("Catalog loaded for " + data.market + ". Select a product and calculate a draft quote. " + data.pricing_notice);
         } catch (error) {
             product.replaceChildren(new Option("Sign in to load catalog", ""));
@@ -153,6 +148,11 @@
             saveButton.disabled = false;
         }
     }
+
+    byId("podDesignStarters").addEventListener("click", (event) => {
+        const button = event.target.closest("[data-pod-prompt]");
+        if (button) prompt.value = button.dataset.podPrompt;
+    });
 
     demand.addEventListener("input", () => {
         byId("podDemandValue").textContent = demand.value;
