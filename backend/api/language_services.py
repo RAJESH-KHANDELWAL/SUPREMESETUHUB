@@ -116,6 +116,11 @@ PROGRAMMING_LANGUAGES = [
 SUPPORTED_CODES = {item["code"] for item in HUMAN_LANGUAGES}
 BASE_CODES = {code.split("-")[0] for code in SUPPORTED_CODES}
 
+class TranslateBatchRequest(BaseModel):
+    texts: list[str] = Field(min_length=1, max_length=40)
+    source: str = Field(default="auto", max_length=16)
+    target: str = Field(min_length=2, max_length=16)
+
 class TranslateRequest(BaseModel):
     text: str = Field(min_length=1, max_length=5000)
     source: str = Field(default="auto", max_length=16)
@@ -132,6 +137,41 @@ def language_catalog():
         "translation_provider_configured": bool(os.getenv("SUPREME_TRANSLATION_API_URL")),
         "speech_translation_note": "Browser speech support varies; real-time translated audio/video requires separate speech recognition, translation and speech synthesis providers.",
     }
+
+@router.post("/translate/batch")
+async def translate_batch(request: TranslateBatchRequest):
+    """Translate a bounded batch of interface strings with one provider request."""
+    if any(not item.strip() or len(item) > 1500 for item in request.texts):
+        raise HTTPException(status_code=422, detail="INVALID_BATCH_TEXT")
+    if request.target not in SUPPORTED_CODES and request.target not in BASE_CODES:
+        raise HTTPException(status_code=422, detail="UNSUPPORTED_TARGET_LANGUAGE")
+    if request.source != "auto" and request.source not in SUPPORTED_CODES and request.source not in BASE_CODES:
+        raise HTTPException(status_code=422, detail="UNSUPPORTED_SOURCE_LANGUAGE")
+    endpoint = os.getenv("SUPREME_TRANSLATION_API_URL", "").strip()
+    if not endpoint:
+        raise HTTPException(status_code=503, detail="TRANSLATION_PROVIDER_NOT_CONFIGURED")
+    if not endpoint.startswith("https://") and not (
+        os.getenv("SUPREME_ALLOW_LOCAL_TRANSLATION_HTTP") == "1"
+        and endpoint.startswith("http://127.0.0.1")
+    ):
+        raise HTTPException(status_code=503, detail="TRANSLATION_PROVIDER_MUST_USE_HTTPS")
+    payload = {"q": request.texts, "source": request.source, "target": request.target, "format": "text"}
+    api_key = os.getenv("SUPREME_TRANSLATION_API_KEY")
+    if api_key:
+        payload["api_key"] = api_key
+    try:
+        async with httpx.AsyncClient(timeout=httpx.Timeout(18.0, connect=4.0)) as client:
+            response = await client.post(endpoint.rstrip("/") + "/translate", json=payload)
+            response.raise_for_status()
+            data = response.json()
+    except (httpx.HTTPError, ValueError) as exc:
+        raise HTTPException(status_code=502, detail="TRANSLATION_PROVIDER_REQUEST_FAILED") from exc
+    translated = data.get("translatedText")
+    if isinstance(translated, str):
+        translated = [translated]
+    if not isinstance(translated, list) or len(translated) != len(request.texts) or not all(isinstance(item, str) for item in translated):
+        raise HTTPException(status_code=502, detail="TRANSLATION_PROVIDER_INVALID_BATCH_RESPONSE")
+    return {"success": True, "source": request.source, "target": request.target, "translated_texts": translated, "provider": "configured_external_translation_service"}
 
 @router.post("/translate")
 async def translate(request: TranslateRequest):
