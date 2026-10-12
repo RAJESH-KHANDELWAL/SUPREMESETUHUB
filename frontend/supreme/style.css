@@ -2670,3 +2670,84 @@
 
 
 
+
+
+/* ==========================================================
+   SUPREME GLOBAL TYPOGRAPHY DEFAULTS
+   English / Hindi / Hinglish language-aware font fallbacks
+   ========================================================== */
+:root {
+  --supreme-font-family: 'Inter', 'Noto Sans Devanagari', Arial, sans-serif;
+  --supreme-font-weight-body: 400;
+  --supreme-font-weight-label: 500;
+  --supreme-font-weight-control: 600;
+  --supreme-font-weight-heading: 700;
+}
+html, body,
+.DR-RAJESH-KHANDELWAL-IBC,
+.DR-RAJESH-KHANDELWAL-IBC-OFFICIAL,
+.RAJESH-KHANDELWAL,
+.RAJESH-KHANDELWAL-OFFICIAL,
+.KHANDELWAL-GROUP-AND-COMPANY,
+.KHANDELWAL-GROUP-AND-COMPANIES,
+.DRRAJESHKHANDELWALIBC,
+.DRRAJESHKHANDELWALIBCOFFICIAL,
+.RAJESHKHANDELWAL,
+.RAJESHKHANDELWALOFFICIAL,
+.KHANDELWALGROUPANDCOMPANY,
+.KHANDELWALGROUPANDCOMPANIES,
+.HOME {
+  font-family: var(--supreme-font-family) !important;
+}
+p, li, blockquote, dd, dt, figcaption {
+  font-weight: var(--supreme-font-weight-body) !important;
+  line-height: 1.7;
+}
+label, small, .caption, .description {
+  font-weight: var(--supreme-font-weight-label) !important;
+}
+button, input, select, textarea, .button, [role="button"] {
+  font-family: var(--supreme-font-family) !important;
+  font-weight: var(--supreme-font-weight-control) !important;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--supreme-font-family) !important;
+  font-weight: var(--supreme-font-weight-heading) !important;
+  line-height: 1.35;
+}
+.supreme-language-control {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 14px;
+  background: #f8fbff;
+  color: #123b82;
+  border-bottom: 1px solid #dbe7ff;
+  box-sizing: border-box;
+  font-family: var(--supreme-font-family);
+  font-size: 14px;
+  font-weight: 600;
+}
+.supreme-language-control label { font-weight: 600 !important; }
+.supreme-language-control select {
+  min-width: 145px;
+  max-width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #bfd2ff;
+  border-radius: 9px;
+  background: #fff;
+  color: #123b82;
+  font: inherit;
+}
+.supreme-language-control select:focus-visible {
+  outline: 3px solid #80aaff;
+  outline-offset: 2px;
+}
+@media (max-width: 480px) {
+  .supreme-language-control { justify-content: center; }
+}
