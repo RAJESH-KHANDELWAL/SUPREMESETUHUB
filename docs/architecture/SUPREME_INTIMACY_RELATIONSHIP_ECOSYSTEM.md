@@ -163,3 +163,49 @@ At minimum:
 ## 8. Current implementation status
 
 This is architecture documentation only. It does not create the proposed API routers, migrations, adult catalog, verification provider, media workers, payment integrations, CDN configuration, moderation console or user-facing product screens. No production readiness or provider approval is implied. Implement and test these components in small reviewed changes against the existing SUPREMESETUHUB foundations before deployment.
+
+## 9. Expanded scope: adult lifestyle commerce, family-safe products, and print-on-demand
+
+The product owner further clarifies that the ecosystem is not limited to couples. The commercial scope may include individual adult customers, partners, adult households, families shopping for appropriate non-explicit products, creators, publishers and licensed studios. **“Family” must not mean minors can access explicit adult material.** Keep any family-friendly education, wellness, books and general lifestyle storefront visibly and technically separate from the 18+ explicit catalog.
+
+### INTIMACY commerce categories (proposed, not implemented)
+
+- **Adult lifestyle products:** lawful adult toys and accessories, with age gating where legally required, accurate product descriptions, safety/use instructions, hygiene/returns rules and region-specific shipping restrictions.
+- **Books and learning:** relationship/intimacy books, adult wellness guides and publisher-authorized digital/print editions. Keep educational content classification distinct from explicit media classification.
+- **Licensed media and creator storefronts:** authorized adult videos, photography and other media only when all performer age/consent, copyright, distribution-rights, moderation and jurisdictional requirements are satisfied.
+- **Print-on-demand (POD):** lawful, rights-cleared posters, photo prints, books and merchandise. Product listing must carry a content classification and permitted sales territories. Never print or distribute stolen images, non-consensual intimate imagery, content featuring minors, or images without the required rights and consent.
+- **Creator/artist sales:** creator onboarding, identity/rights review, takedown path, product proofs, order status, refunds and transparent payout/fee accounting, subject to approved providers.
+- **Search and discovery:** recommendation settings should be explicit and user-controlled. Adult explicit listings must never appear in family-safe surfaces, general search suggestions for minors, or unrelated relationship guidance.
+
+### Family and household separation
+
+- A shared household account must not automatically grant every member access to an adult profile, purchase history, saved media, messages or recommendations.
+- Use separate adult profiles, age/eligibility checks, per-profile entitlements and privacy controls. Do not infer adult eligibility from a family organizer's age.
+- A family-safe storefront may offer general books, non-explicit posters, wellness education and ordinary merchandise. It must use a separate content classification and merchandising policy.
+- Explicit adult products and media remain 18+ (or the stricter local legal threshold), and must be unavailable to minors. Do not offer a family bundle that bypasses this separation.
+
+### Commerce services and data model extensions (design only)
+
+Reuse the existing commerce/provider architecture if present; inspect the actual repository before choosing schemas. Potential logical entities include:
+- `commerce_products`, `product_variants`, `product_classifications`, `product_regions`, `product_rights`;
+- `catalog_publishers`, `creator_storefronts`, `creator_payout_accounts` (store provider references, never raw banking credentials);
+- `pod_designs`, `pod_print_proofs`, `pod_provider_jobs`, `pod_fulfillment_orders`, `order_items`, `shipment_events`, `refund_cases`;
+- `catalog_visibility_rules` and `profile_entitlements` for strict adult/family-safe surface separation.
+
+These are proposals, not created migrations. Product/order services must enforce region, age/eligibility, rights, stock/fulfillment, provider terms and refund rules. Minimize retention of purchase details; never put sensitive adult purchase data in public profile pages or general analytics. Access to invoices and order history must be owner-scoped.
+
+### POD and provider approval
+
+POD, payment, shipping, advertising and marketplace providers may prohibit explicit adult imagery or certain product categories even where local law permits them. Before enabling a provider, document written policy eligibility for the exact product type, image category, geography and fulfillment route. If a provider rejects explicit content, route only permitted non-explicit products to it; do not disguise product descriptions or evade moderation. Provide a compliant alternative provider only after its own policy review.
+
+### Global rollout: Bharat, Los Angeles, and other markets
+
+“Global” means region-aware availability, not universal availability. Before selling or streaming in India/Bharat, Los Angeles/California, or any other market, obtain qualified local review of applicable adult-content, age-assurance, privacy, consumer-protection, copyright, performer/creator, tax, import/shipping and payment requirements. Apply region-specific catalog, checkout, delivery and access rules; block products/services that are not approved in that market. Los Angeles is a potential market, not a claim that the product or any provider is approved there.
+
+### Additional acceptance criteria
+
+- Adult and family-safe catalog queries, recommendations, search autocomplete, caches, feeds and marketing surfaces are tested for cross-contamination.
+- Minors cannot enter the explicit catalog or buy age-restricted products; household membership never bypasses the gate.
+- Every POD design has an auditable rights/consent decision and approved print proof before fulfillment.
+- Provider policy eligibility is recorded per category and region; provider policy changes can disable affected listings or checkout.
+- Orders, payouts, returns and shipping use existing secure commerce foundations where suitable, with no duplicate CORE, database or storage platform.
