@@ -157,6 +157,7 @@ PUBLIC_API_PATHS = {
     "/api/v1/frontend/supreme/style.css",
     "/api/v1/frontend/supreme/health",
     "/api/v1/digital-marketplace/catalog",
+    "/api/v1/print-on-demand/public/catalog",
 }
 
 
