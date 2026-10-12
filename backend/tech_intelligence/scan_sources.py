@@ -90,7 +90,7 @@ def render_report(entries: list[Entry], errors: list[tuple[str, str]]) -> str:
         "- Mode: READ-ONLY",
         "- Scope: configured public feeds only; not an exhaustive scan of the internet.", "",
         "## Decision guidance", "",
-        "Discovery does not prove an update is safe or necessary. Verify official release notes, compatibility, security, costs, licensing, privacy, staging tests, backup and rollback.", "",
+        "Discovery does not prove an update is safe or necessary. This report does not authorize a production update. Verify official release notes, compatibility, security, costs, licensing, privacy, staging tests, backup and rollback.", "",
         "## Findings", ""
     ]
     if not entries:
