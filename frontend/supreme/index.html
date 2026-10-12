@@ -15,7 +15,7 @@
   if(!control) return;
   var labels={en:{lang:"en"},hi:{lang:"hi"},hinglish:{lang:"hi-Latn"}};
   function apply(value){
-    var item=labels[value]||labels.hinglish;
+    var item=labels[value]||{lang:value};
     document.documentElement.setAttribute("lang",item.lang);
     document.documentElement.setAttribute("data-supreme-language",value);
     if(document.body) document.body.setAttribute("data-supreme-language",value);
@@ -639,7 +639,7 @@
   function targetCode(){return languageSelect.value==="hinglish"?"hi":languageSelect.value;}
   function safeStatus(message){if(status)status.textContent=message;}
   function api(path,body){
-    return fetch("/api/v1/languages/"+path,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)}).then(function(response){
+    return fetch("https://supremesetuhub-3v4e.onrender.com/api/v1/languages/"+path,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)}).then(function(response){
       return response.json().then(function(data){if(!response.ok)throw new Error((data.detail&&data.detail.message)||data.detail||"Translation request failed");return data;});
     });
   }
@@ -734,7 +734,7 @@
   });
   stopButton.addEventListener("click",stopRecognition);
   if(languageSelect)languageSelect.addEventListener("change",translateWholePage);
-  fetch("/api/v1/languages/catalog").then(function(r){if(!r.ok)throw new Error("Catalogue unavailable");return r.json();}).then(function(data){
+  fetch("https://supremesetuhub-3v4e.onrender.com/api/v1/languages/catalog").then(function(r){if(!r.ok)throw new Error("Catalogue unavailable");return r.json();}).then(function(data){
     addLanguageOptions(data.human_languages||[]);
     if(programmingList)programmingList.textContent=(data.programming_languages||[]).map(function(x){return x.name;}).join(" · ");
     safeStatus(data.translation_provider_configured?"Language catalogue ready. Translation provider configured.":"Language catalogue ready. Live translation needs a server translation provider.");
