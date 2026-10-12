@@ -1,0 +1,37 @@
+name: Technology Intelligence Digest
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 3 * * *" # Daily at 03:23 UTC
+
+permissions:
+  contents: read
+
+concurrency:
+  group: technology-intelligence-digest
+  cancel-in-progress: true
+
+jobs:
+  scan-public-feeds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test scanner
+        run: python -m unittest tests.test_tech_intelligence
+      - name: Run read-only scanner
+        run: python -m backend.tech_intelligence.scan_sources --output artifacts/technology-intelligence.md
+      - name: Upload digest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: technology-intelligence-digest
+          path: artifacts/technology-intelligence.md
+          if-no-files-found: warn
+          retention-days: 30
