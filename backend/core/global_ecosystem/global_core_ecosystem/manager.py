@@ -15,7 +15,7 @@ class GlobalEcosystemManager:
     ROOT_ID = ROOT_ID
     ROOT_NAME = "GLOBAL ECOSYSTEM"
     VERSION = "1.0.0"
-    CORE_ID = "GLOBAL-SUPREME-ECOSYSTEM"
+    CORE_ID = "GLOBAL-CORE-ECOSYSTEM"
 
     def __init__(self) -> None:
         self.registry = GlobalEcosystemRegistry()
