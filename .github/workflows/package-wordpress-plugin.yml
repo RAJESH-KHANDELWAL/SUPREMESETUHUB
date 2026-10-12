@@ -1,0 +1,41 @@
+name: Package WordPress Connector
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "wordpress-plugin/supremesetuhub-connector/**"
+      - ".github/workflows/package-wordpress-plugin.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    name: Validate and package plugin ZIP
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Validate plugin files
+        run: |
+          test -f wordpress-plugin/supremesetuhub-connector/supremesetuhub-connector.php
+          test -f wordpress-plugin/supremesetuhub-connector/readme.md
+          php -l wordpress-plugin/supremesetuhub-connector/supremesetuhub-connector.php
+
+      - name: Build installable WordPress plugin ZIP
+        run: |
+          mkdir -p dist
+          zip -r dist/supremesetuhub-connector.zip wordpress-plugin/supremesetuhub-connector
+          unzip -t dist/supremesetuhub-connector.zip
+
+      - name: Upload plugin ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: supremesetuhub-wordpress-plugin
+          path: dist/supremesetuhub-connector.zip
+          if-no-files-found: error
+          retention-days: 30
