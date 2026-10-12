@@ -1,144 +1,165 @@
-# SUPREMESETUHUB Intimacy, Relationship Guidance and Couples Privacy Architecture
+# SUPREMESETUHUB — INTIMACY + RELATIONSHIP PRODUCT ARCHITECTURE
 
-## 1. Purpose and scope
+## 1. Product decision
 
-This design covers all three owner-selected areas:
-1. Relationship guidance, communication skills and couple-counselling resources.
-2. Consensual adult intimacy education and wellbeing information.
-3. Private partner/couple communication features with explicit consent and privacy controls.
+The product owner has clarified that **INTIMACY** is intended as an adult-only explicit-content entertainment platform, comparable in product category to established adult video subscription/user-generated-content services. This architecture describes platform systems and safety controls, not explicit sexual content itself.
 
-This is an architecture proposal, not a claim that these product features or their database/API implementations are already live. SUPREMESETUHUB remains the single foundation. Reuse the existing authentication, CORE, database, storage, security and provider registry; do not create a duplicate core, user system, database or storage service.
+**RELATIONSHIP** is a separate product for relationship guidance, communication, couples resources and consensual adult intimacy education/wellbeing. They must work independently and may also be presented together as a bundle. Shared identity, CORE, API gateway, provider registry and infrastructure do not mean their content, permissions, recommendation history or private records should be merged.
 
-## 2. Product boundaries
+This document is a design specification only. It does not mean adult-content features are implemented, lawful in every jurisdiction, approved by hosting/payment providers, or available in production.
 
-- Educational material is general information, not a diagnosis, medical treatment, legal opinion or substitute for a qualified professional.
-- Adult intimacy education must be age-gated according to applicable law and platform policy. Do not target minors with sexual content. Keep general healthy-relationship and safety education age-appropriate.
-- Partner features require separate, explicit, revocable consent from each participant. One partner cannot grant consent for another.
-- Do not expose a partner's private messages, preferences, relationship history, health disclosures or usage to the other partner by default. A shared space must show exactly what is shared before submission.
-- No covert tracking, forced account linking, secret recording, non-consensual intimate imagery, coercion tools, or impersonation/voice cloning.
-- Offer report, block, disconnect, delete/export, privacy and safety controls. Make leaving a shared space possible without the other partner's permission.
-- Crisis, abuse, coercion or immediate danger disclosures should be handled with supportive, safety-first guidance and region-appropriate referral information; do not promise confidentiality beyond the actual service policy or legal obligations.
+## 2. Product boundaries and navigation
 
-## 3. Layer-by-layer architecture
+- `INTIMACY`: adult-only media discovery, licensed/authorized video catalog, creator/studio pages, subscriptions where supported, captions/audio-language tracks, user library, content reports and creator/content rights workflows.
+- `RELATIONSHIP`: educational resources, communication tools, optional couple spaces, wellbeing information and independently consented partner messaging.
+- `SUPREME PLUS` (optional bundle concept): one purchase/access plan that can include both products only where law, payment provider terms and user eligibility allow it. Separate product access flags, policies, receipts, cancellation controls and entitlements must remain explicit.
+- Keep the two products visually and functionally distinct. Users must know which product they are entering and which terms/data policy apply. No automatic sharing of activity or sensitive data between them.
+- No content involving minors, sexual exploitation, trafficking, coercion, non-consensual intimate imagery, hidden-camera material, or content lacking verifiable performer consent and distribution rights. Any suspected illegal content requires a defined safety escalation and legally compliant reporting process.
+- Do not bypass DRM, scrape protected services, or republish third-party content without authorization. Creator uploads require rights/consent attestations plus verification and review controls; attestations alone are not sufficient for high-risk content.
+- Applicable age/identity/consent checks must be designed with qualified legal and compliance review for every launch region. Do not treat a simple self-declared birthday as universally sufficient age assurance.
 
-### API layer
+## 3. Shared architecture across existing SUPREMESETUHUB layers
 
-Add a versioned, authenticated router only after the underlying owner-scoped services and migrations exist. Suggested route groups:
+### API / gateway
 
-- `GET /api/v1/relationships/resources` — list published relationship communication and wellbeing resources with locale and age-appropriate filtering.
-- `GET /api/v1/relationships/resources/{resource_id}` — fetch a published resource.
-- `POST /api/v1/relationships/consent` — record a user's own consent choice for a clearly described purpose and version of terms.
-- `GET /api/v1/relationships/consent` — read the caller's consent records only.
-- `DELETE /api/v1/relationships/consent/{consent_id}` — revoke the caller's revocable consent; trigger downstream access revocation and applicable data cleanup.
-- `POST /api/v1/couples/invitations` — create a short-lived, single-use invitation initiated by an authenticated adult account where required.
-- `POST /api/v1/couples/invitations/{token}/accept` — the invitee independently accepts after seeing the data-sharing scope.
-- `GET /api/v1/couples/spaces/{space_id}` — read only a space the caller is an active member of.
-- `POST /api/v1/couples/spaces/{space_id}/messages` and `GET .../messages` — private communication with per-member authorization, abuse controls and clear retention rules.
-- `POST /api/v1/couples/spaces/{space_id}/leave` — leave/revoke membership without partner approval.
-- `POST /api/v1/safety/reports` — submit a safety/abuse report with minimal necessary evidence.
+Create separate, authenticated, versioned API namespaces only after policy, migrations, provider contracts and authorization tests are ready:
 
-Do not mark these routes public in the application's public-path allowlist. Use the existing authentication dependency and enforce authorization in the service layer for every object, not just at the route prefix. Invitation tokens must be random, short-lived, single-use, stored hashed, and never logged.
+**INTIMACY namespace (proposed, not implemented)**
+- `GET /api/v1/intimacy/catalog` — list only reviewed, region-eligible catalog metadata.
+- `GET /api/v1/intimacy/titles/{title_id}` — authorized title details and available language tracks.
+- `GET /api/v1/intimacy/titles/{title_id}/playback` — issue a short-lived playback grant only after entitlement, age/region, rights and session checks.
+- `GET /api/v1/intimacy/library` — current user's saved items only.
+- `POST /api/v1/intimacy/reports` — report a title/creator or rights/safety concern.
+- `POST /api/v1/intimacy/creator-submissions` — submit a content/rights review package, not instant publication.
+- `GET /api/v1/intimacy/localization/{job_id}` and related job endpoints — only for media the platform has permission to process and distribute.
 
-### CORE layer
+**RELATIONSHIP namespace (proposed, not implemented)**
+- `GET /api/v1/relationships/resources` and `GET /api/v1/relationships/resources/{resource_id}` — reviewed localized resources.
+- `POST /api/v1/relationships/consent` and `DELETE /api/v1/relationships/consent/{consent_id}` — record/revoke the caller's consent for a stated purpose.
+- `POST /api/v1/couples/invitations`, `POST /api/v1/couples/invitations/{token}/accept`, `GET /api/v1/couples/spaces/{space_id}/messages`, `POST /api/v1/couples/spaces/{space_id}/messages`, and `POST /api/v1/couples/spaces/{space_id}/leave` — two-sided, private couple functionality.
+- `POST /api/v1/relationships/reports` — report abuse or unsafe content.
 
-Create a domain service (for example `RelationshipSafetyService`) within the existing CORE patterns. It should:
+Never add these paths to a public unauthenticated allowlist. Playback grants and invitations must be short-lived and unguessable. Enforce authorization at the resource/service layer, not only by checking a route prefix. Avoid logging sensitive query strings, tokens or private message bodies.
 
-- apply age/eligibility gates, account status, per-user permissions and regional policy;
-- evaluate explicit consent per purpose, content category, partner space and provider transfer;
-- enforce per-resource and per-message ownership/membership checks;
-- orchestrate revocation, disconnect, retention, export and deletion workflows;
-- use idempotent operations and audit events without recording intimate message content in audit logs;
-- fail closed when identity, consent, membership or policy state is missing.
+### CORE / policy orchestration
 
-CORE is the policy authority. API handlers and engines must not invent their own consent rules.
+Use the existing CORE and security conventions; do not create a parallel identity system or second CORE.
 
-### ENGINES layer
+CORE must decide whether an operation is allowed based on user/session status, age/eligibility result, region, product entitlement, content classification, distribution rights, performer consent status, account restrictions, consent scope, and provider policy. It orchestrates upload review, media processing, playback grants, subscription entitlements, takedowns, reports, consent revocation, export and deletion.
 
-Use pluggable adapters behind existing engine/provider conventions:
+Fail closed if verification, rights, region, entitlement, consent or moderation state is missing. Never allow an engine or UI to override policy decisions. Keep INTIMACY access flags separate from RELATIONSHIP access flags; bundle access is an explicit entitlement mapping, not an implicit permission escalation.
 
-- `relationship_resource_search`: search and rank reviewed educational resources by locale and topic;
-- `relationship_guidance`: generate general communication prompts and reflective exercises, with clear AI disclosure and safety filters;
-- `content_moderation`: detect threats, harassment, coercion, abuse, non-consensual intimate imagery attempts and policy violations;
-- `translation`: localize resources and, only with explicit user action, translate a message for the recipient's chosen language;
-- `notification`: send privacy-minimal notifications without revealing message contents on lock screens or email subject lines by default.
+### ENGINES / provider adapters
 
-Engines must receive only the minimum data required for a task. External AI or translation providers are disabled until their data retention, training use, region, cost, supported languages and contractual terms are reviewed. Do not send intimate messages or sensitive relationship/health disclosures to a provider by default. Prefer local processing or an explicitly disclosed opt-in flow. Generated guidance must not present itself as a licensed therapist or clinician.
+Register provider-neutral capabilities through the existing engine conventions:
+- catalog search and metadata indexing;
+- media validation, transcoding and adaptive playback packaging;
+- speech recognition, translation, subtitle generation, dubbed audio and timestamp alignment for authorized media;
+- age/identity assurance adapters selected after legal/provider review;
+- content safety classification, human-review queues and rights/takedown processing;
+- subscriptions/entitlement checks and payment adapters only for processors whose written terms permit the business category;
+- relationship resource search, relationship-guidance assistance and optional opt-in message translation;
+- moderation/report triage and privacy-minimal notifications.
 
-### DATABASE layer
+Do not assume a general-purpose hosting, AI, payment, app-store or CDN provider permits adult-content use. Obtain and document approval for the exact service, geography, storage/streaming pattern and payment flow. Never send private couple messages, identity documents, payment data or intimate media to an AI/translation provider unless the processing is necessary, contractually permitted, disclosed and explicitly authorized. Provider capability metadata may be stored in the registry; credentials belong in deployment secret management.
 
-Use the existing `DatabaseService`/migration conventions after inspecting them; do not add a parallel database. Proposed logical entities (exact schema is subject to repository migration conventions):
+### DATABASE
 
-- `relationship_resources`: resource id, locale, topic, age category, content, review status, source/reviewer, publication state and version.
-- `relationship_consents`: user id, purpose, scope, policy/terms version, consent state, captured/revoked timestamps and optional expiry.
-- `couple_spaces`: id, status, creation time, policy version and deletion/retention deadline.
-- `couple_memberships`: space id, user id, role, invite/accept timestamps, membership state and revocation time. Enforce unique active membership rules.
-- `couple_invitations`: token hash, inviter id, intended scope, expiry, use timestamp and revocation state.
-- `couple_messages`: space id, sender id, encrypted or otherwise protected content, creation time, deletion state and retention deadline. Do not duplicate plaintext into analytics tables.
-- `message_translations`: message id, target user/language, translated body, provider/model, status and expiry; keep original content authoritative and allow deletion of translations.
-- `safety_reports`: reporter id, restricted case state, minimum necessary evidence reference, access policy and timestamps.
-- `privacy_audit_events`: actor, action, object reference, policy result, timestamp and request correlation id; never log message body, intimate images, access tokens or secrets.
+Reuse the repository's existing database/migration conventions after reviewing the actual schema. Logical entities to consider (not yet created):
 
-Apply foreign keys, indexes, migrations, data minimization, encryption at rest where supported, and strict per-user/per-space access checks. Sensitive fields require documented retention and deletion semantics. Use pseudonymous identifiers in logs/metrics.
+**INTIMACY**
+- `intimacy_titles`: title metadata, classification, publication/review state, region availability, duration and language metadata.
+- `intimacy_assets`: private storage references, track type, codec, language, checksum, processing state and retention/rights status.
+- `intimacy_creators`: verified creator/studio identity reference and account state; isolate highly sensitive verification data from general profile data.
+- `performer_verifications`: restricted verification provider/reference, status, reviewer, timestamps and audit reference; store as little raw identity evidence as possible and apply strict retention.
+- `content_rights`: title/asset, rights-holder, territory, license window, permitted distribution and takedown state.
+- `performer_consents`: content/production scope, participant reference, evidence reference, verification state, timestamps and revocation/legal-review workflow.
+- `intimacy_entitlements`: user, plan/product, region, status, start/end dates and provider transaction reference (never card data).
+- `intimacy_reports` and `moderation_cases`: restricted report/case state, evidence references, reviewer actions, legal hold and retention.
+- `media_localization_jobs` and `media_tracks`: authorized source reference, source/target languages, transcript/caption/audio track references, job state, provider usage and costs.
 
-### STORAGE layer
+**RELATIONSHIP**
+- `relationship_resources`, `relationship_consents`, `couple_spaces`, `couple_memberships`, `couple_invitations`, `couple_messages`, `message_translations`, `relationship_reports` and privacy-minimal `privacy_audit_events`.
 
-- Reuse the existing private storage abstraction; no public bucket or public media URL for private relationship data.
-- Intimate images/videos should not be part of the initial release. If future scope is approved, require strong age/consent checks, upload scanning, private access, short-lived signed URLs, strict download auditing and a separate abuse-response process.
-- Store resource illustrations separately from private user content.
-- Never put storage keys, invitation tokens or signed URLs in public frontend code, logs or analytics.
-- Deletion jobs must remove derived translations, exports and provider copies where contractually possible; accurately disclose copies that cannot be recalled from an external provider.
+**Shared platform**
+- Reuse existing users, authentication, provider registry and entitlement foundations where possible. Add explicit `product_id`/scope to entitlements and consent records where needed. Do not combine adult-viewing history with relationship records or use it for relationship recommendations by default.
 
-### SERVER / operations layer
+Use migrations, foreign keys, least-privilege access, owner-scoped queries, indexes, retention jobs and documented deletion semantics. Never store payment-card details directly. Do not copy private message bodies, identity documents or raw verification evidence into logs or analytics.
 
-- Enforce TLS, secure cookies/token handling, secret management, request size limits, rate limits, anti-spam controls, CSRF protections where cookie auth is used, and safe error messages.
-- Run deletion/export/consent-revocation workflows asynchronously when necessary, with durable job status and retries.
-- Keep private message content out of application logs, traces, crash reports and analytics. Restrict operator access and audit privileged access.
-- Configure backups with retention and documented deletion limitations; test restore and deletion workflows.
-- Add alerts for invitation abuse, mass scraping, repeated harassment reports, unexpected provider data transfer and unusual access patterns.
+### STORAGE / CDN
 
-### SUPREME ECOSYSTEM layer
+- Reuse the existing storage abstraction but place adult media assets in a separately policy-controlled private namespace/bucket and use an approved CDN/streaming provider only after written policy review.
+- Keep original uploads, review evidence, public catalog thumbnails, subtitle tracks and generated dubbed audio in distinct storage classes with different access/retention rules.
+- Use encryption, checksums, malware scanning, content-type validation, short-lived signed URLs/playback grants, watermarking where appropriate, download restrictions and access logs that do not expose secrets.
+- Private verification evidence and moderation evidence must never be placed in public asset storage. Restrict operator access and audit it.
+- Provide verified rights-holder takedown and emergency disable workflows. Expired rights must block new playback grants and trigger the defined distribution/retention policy.
+- Do not promise that every platform can dub every movie. Media localization is available only for content the service is authorized to process, with supported providers and valid source assets.
 
-- Register relationship guidance, moderation, translation and notification capabilities in the existing provider/engine registry rather than binding the product to one vendor.
-- Evaluate provider compatibility, language coverage, privacy terms, region/data residency, latency, quality, availability and cost.
-- Provider changes require review and explicit approval when they alter sensitive-data handling, regions, cost ceilings or retention.
-- The ecosystem registry stores capability metadata and references to secret-managed configuration only; never store provider credentials in source code or client-visible responses.
-- Integrate with the existing CORE, security, database and storage services. Do not make the private owner-control SUPREME ECOSYSTEM endpoints into public relationship APIs.
+### SERVER / operations
 
-## 4. User experience and consent flow
+- Run transcoding, speech-to-text, translation, dubbing and caption alignment as asynchronous queue/worker jobs with quotas, idempotency, retries, cancellation, dead-letter handling and usage/cost tracking.
+- Enforce TLS, secret management, secure session handling, rate limits, anti-bot controls, abuse detection, backup retention and incident response.
+- Isolate media-processing workloads from the API process and restrict access to original assets. Add monitoring for failed verification, suspicious uploads, report spikes, rights expiry, provider-policy changes, data exfiltration and unusual playback scraping.
+- Publish privacy notices, retention schedules, user export/deletion processes, moderation appeals and a rights-holder contact workflow before launch.
 
-1. Explain the feature and privacy model in the user's selected language.
-2. Apply applicable age/eligibility gates before adult intimacy education is displayed.
-3. Keep general educational browsing separate from private couple spaces.
-4. Before creating a shared space, show what can be shared, who can see it, what AI/translation providers may receive, and how to leave/delete.
-5. Require the invitee to accept independently. No implicit linking through contacts or a partner's assertion.
-6. Keep message translation opt-in and recipient-language-specific; show the original text and label machine translation. Never silently alter the authoritative original.
-7. Make block/report, disconnect, export and delete controls discoverable.
-8. Provide a neutral notification mode that does not expose intimate topics or message text on shared devices.
+### SUPREME ECOSYSTEM
 
-## 5. Security and privacy acceptance criteria
+- Register INTIMACY and RELATIONSHIP as separate product capabilities connected to the same platform foundation.
+- Registry metadata should include provider capabilities, approved business category, permitted regions, supported languages, data residency, costs, latency, reliability, contractual status and last review date.
+- Changes to hosting, payments, CDN, AI, identity verification or media processing that affect adult-content handling require explicit owner/compliance approval and a rollback plan.
+- Do not expose private owner-control ecosystem APIs to end users. Product-facing APIs use regular authentication and per-resource authorization.
 
-- A user cannot read, edit, export or delete another user's private records without explicit authorized shared scope.
-- An invitation cannot be reused, guessed, or accepted after expiry/revocation.
-- Consent revocation immediately blocks future processing and starts applicable cleanup; status is visible to the user.
-- A partner leaving a space loses access; the remaining member does not inherit private content outside the documented shared-space policy.
-- Logs and analytics contain no raw intimate messages, sexual/health disclosures, invitation tokens or credentials.
-- Translation/provider transfer is opt-in, disclosed, minimized and auditable without storing sensitive message content in audit records.
-- API tests cover unauthenticated access, cross-user IDOR, revoked membership, expired invitations, revoked consent, deletion, rate limits and provider failure.
-- Resource content has provenance/review status and does not make unsupported clinical claims.
-- Production deployment remains blocked until migrations, authorization tests, abuse handling, privacy notice, retention/deletion policies and legal/platform review are complete.
+## 4. Consent, safety, and legal readiness gates
 
-## 6. Phased implementation plan
+Before accepting any adult upload or making any adult title playable, require a region-specific, legally reviewed policy covering age assurance, creator/studio onboarding, performer age and consent verification, rights and releases, prohibited content, moderation, complaint/takedown timelines, record retention, law-enforcement requests, privacy/data protection, payment processing and incident response. Requirements differ by jurisdiction; this document is not legal advice.
 
-**Phase A — foundation and policy:** review existing database, security, CORE and engine conventions; document data map, threat model, age policy, retention, provider review and resource editorial standards.
+At minimum:
+- no publication until required age/identity, consent, rights and safety reviews are complete;
+- no upload-to-publication automatic path;
+- report/block/appeal and emergency disable controls;
+- documented access controls for restricted identity and consent evidence;
+- region-aware access restrictions and entitlement checks;
+- independent, explicit consent for each couple-space participant;
+- separate consent for third-party processing and optional message translation;
+- deletion/export/revocation behavior documented, including any lawful retention exceptions;
+- adult-content product must not be marketed or exposed to minors.
 
-**Phase B — low-risk resources:** publish reviewed relationship communication/wellbeing resources with localization and feedback/reporting. No private messages or intimate media.
+## 5. Product experience: separate, together, or bundle
 
-**Phase C — consent and couple spaces:** implement migrations, invitations, two-sided consent, private messages, membership authorization, block/report, deletion/export and security tests.
+- Main navigation may show separate entries: **INTIMACY 18+** and **RELATIONSHIP**.
+- INTIMACY must display age/eligibility gating and region-specific availability before adult catalog access.
+- RELATIONSHIP remains available as a distinct product with its own resources, privacy settings and content policy.
+- A combined landing page or optional bundle can introduce both products, but users must select/consent to each product's terms and data usage separately.
+- Do not cross-recommend adult titles based on private relationship messages, relationship difficulties, health disclosures or couple-space activity.
+- Language settings can localize interface, captions and authorized dubbed tracks. Keep original audio and source-language labels available; show when audio/subtitles are machine-generated.
 
-**Phase D — optional AI and translation:** add provider adapters behind explicit opt-in, disclosure, budget/rate controls and data-processing review; keep original messages visible and authoritative.
+## 6. Phased delivery plan
 
-**Phase E — production readiness:** security review, cross-account authorization tests, abuse drills, accessibility/localization review, data deletion verification, provider failure tests and staged rollout.
+**Phase A — feasibility and compliance:** inventory current repo database/storage/auth patterns; confirm legal regions, age-assurance requirements, rights workflows, hosting/CDN and payment-provider eligibility. Do not build around providers that prohibit the business category.
 
-## 7. Implementation status
+**Phase B — separated product foundations:** product registry, product-specific access flags, policies, age/region gate design, resource catalog and admin review workflow. No public adult uploads yet.
 
-This file is an architecture design only. It does not create API routes, database tables, storage buckets, background workers, adult verification, moderation engines, provider connections or user-facing intimacy screens. Those require deliberate implementation, tests, migrations and deployment verification. Do not claim the feature is live until those steps pass.
+**Phase C — licensed catalog MVP:** ingest only rights-cleared content; implement verified metadata, private storage, playback authorization, reports/takedowns and audit controls.
+
+**Phase D — creator submissions and monetization:** only after verification, consent, rights, moderation, payment-provider approval and abuse-response testing are complete.
+
+**Phase E — authorized media localization:** add subtitle translation and dubbed audio jobs with approved speech providers, rights checks, privacy disclosures and end-to-end media tests.
+
+**Phase F — RELATIONSHIP features and optional bundle:** implement reviewed resources first, then two-sided-consent couple spaces, optional translation, independent entitlements and explicit bundle mapping.
+
+## 7. Acceptance criteria
+
+- No minor, unverified/unauthorized performer, rights-ineligible title, restricted region or missing entitlement can access or publish adult content.
+- Cross-user authorization tests prove one account cannot read another account's private data or verification evidence.
+- Expired rights and revoked content states block new playback grants.
+- Takedown and emergency disable workflows are auditable and tested.
+- Payment, hosting, CDN and AI providers are documented as approved for the intended business category before production configuration.
+- Relationship data and adult-viewing history remain isolated by default.
+- Consent revocation blocks future optional processing and initiates documented cleanup.
+- Translation/dubbing APIs never report ready until output assets are actually generated and validated.
+- Tests cover authentication, age/region gates, entitlement, rights expiry, consent, upload validation, provider failure, takedown, deletion, rate limits and cross-account access.
+- Production release is blocked until legal/compliance review, security review, migrations, provider approval, incident response and end-to-end tests pass.
+
+## 8. Current implementation status
+
+This is architecture documentation only. It does not create the proposed API routers, migrations, adult catalog, verification provider, media workers, payment integrations, CDN configuration, moderation console or user-facing product screens. No production readiness or provider approval is implied. Implement and test these components in small reviewed changes against the existing SUPREMESETUHUB foundations before deployment.
