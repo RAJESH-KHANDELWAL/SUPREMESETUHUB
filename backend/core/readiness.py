@@ -45,10 +45,19 @@ class CoreReadinessService:
             storage_registry_ready = False
 
         core_ready = database_ready and storage_registry_ready
+        physical_storage_ready = bool(
+            storage_health.get("physical_storage_configured", False)
+        )
+        if not core_ready:
+            overall = "UNHEALTHY"
+        elif not physical_storage_ready:
+            overall = "DEGRADED"
+        else:
+            overall = "HEALTHY"
         return {
             "service": "MAIN BASE FOUNDATION",
             "core": "READY" if core_ready else "DEGRADED",
-            "overall": "HEALTHY" if core_ready else "UNHEALTHY",
+            "overall": overall,
             "components": {
                 "core": {"status": "READY" if core_ready else "DEGRADED"},
                 "database": {
