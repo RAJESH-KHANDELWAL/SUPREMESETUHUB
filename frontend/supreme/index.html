@@ -1,3 +1,34 @@
+<!-- SUPREME LANGUAGE SELECTOR: English / Hindi / Hinglish -->
+<div class="supreme-language-control" role="group" aria-label="Choose language">
+  <label for="supreme-language">🌐 LANGUAGE / भाषा</label>
+  <select id="supreme-language" name="language">
+    <option value="en">ENGLISH</option>
+    <option value="hi">हिन्दी (HINDI)</option>
+    <option value="hinglish" selected>HINGLISH</option>
+  </select>
+  <span class="supreme-language-note">Language preference · भाषा विकल्प</span>
+</div>
+<script>
+(function(){
+  "use strict";
+  var control=document.getElementById("supreme-language");
+  if(!control) return;
+  var labels={en:{lang:"en"},hi:{lang:"hi"},hinglish:{lang:"hi-Latn"}};
+  function apply(value){
+    var item=labels[value]||labels.hinglish;
+    document.documentElement.setAttribute("lang",item.lang);
+    document.documentElement.setAttribute("data-supreme-language",value);
+    if(document.body) document.body.setAttribute("data-supreme-language",value);
+    try{localStorage.setItem("supreme-language",value);}catch(error){}
+  }
+  var saved="hinglish";
+  try{saved=localStorage.getItem("supreme-language")||"hinglish";}catch(error){}
+  if(!labels[saved]) saved="hinglish";
+  control.value=saved;apply(saved);
+  control.addEventListener("change",function(){apply(control.value);});
+})();
+</script>
+
 
 <link rel="stylesheet" href="https://supremesetuhub-3v4e.onrender.com/api/v1/frontend/supreme/style.css">
 
