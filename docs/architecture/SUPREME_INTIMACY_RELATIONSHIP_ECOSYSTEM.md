@@ -209,3 +209,36 @@ POD, payment, shipping, advertising and marketplace providers may prohibit expli
 - Every POD design has an auditable rights/consent decision and approved print proof before fulfillment.
 - Provider policy eligibility is recorded per category and region; provider policy changes can disable affected listings or checkout.
 - Orders, payouts, returns and shipping use existing secure commerce foundations where suitable, with no duplicate CORE, database or storage platform.
+## 10. Combined journey: RELATIONSHIP first, INTIMACY second
+
+The combined experience should introduce connection and relationship before offering any adult-only experience. This is a product navigation and discovery sequence, not a required progression, not a claim about every user's preferences, and not permission to infer sexual consent.
+
+**Suggested combined journey (design only):**
+
+1. **RELATIONSHIP — connection:** communication, trust, dating/relationship guidance, emotional connection and mutual boundaries.
+2. **ROMANCE — affection:** opt-in romantic ideas, date planning, books, stories and non-explicit romantic content, with personal preference controls.
+3. **INTIMACY 18+ — adult choice:** only after a separate age/eligibility and region gate, users who actively choose the adult product may browse permitted adult education, wellness products, licensed media and other allowed categories.
+4. **Aftercare and continued relationship:** return to relationship communication, mutual comfort, wellbeing resources and personal controls. Never assume that prior browsing, purchases or relationship status imply consent to any later activity.
+
+Users can enter RELATIONSHIP alone or INTIMACY alone if eligible. The combined path is optional and each transition must be clearly labeled. Do not use relationship messages, private couple-space activity or sensitive disclosures to target adult content. Provide easy exit, privacy controls, report/block features and separate product preferences.
+
+### Provider integration: FapHouse and Vicetemple (research status)
+
+- **FapHouse:** treat as an external adult-content platform/provider candidate only. Do not assume a public API, OAuth, catalog feed, content syndication, embedding or distribution license exists. Before integrating, obtain written confirmation of the supported integration method, permitted data, affiliate/referral rules, commercial use and rights to display or stream any content. Until then, only a clearly disclosed outbound link or approved affiliate link may be considered, after its terms and destination are verified.
+- **Vicetemple:** its public site advertises adult web hosting and adult website development, and its published prohibited-content policy bans, among other things, underage/child sexual content, coercion, trafficking and non-consensual sexual content. Its adult web-hosting page states that ordinary hosting plans are not suitable for a video-streaming website and that a VPS is needed for that use case. Therefore, do not assume a basic shared-hosting plan can power SUPREMESETUHUB's streaming service. Ask Vicetemple to confirm in writing the suitable VPS/dedicated/video infrastructure, bandwidth/traffic limits, storage, backup, security, data-center region, payment acceptance, migration terms and the exact adult-content business model before purchasing.
+- Keep FapHouse and Vicetemple as separate provider registry entries with distinct capability flags, contracts, terms-review dates and credential scopes. One is not automatically an API/content source for the other. Never reuse credentials, scrape protected content, bypass access controls, mirror content or imply an official partnership without written authorization.
+- Provider setup is not complete until a real account/contract is approved, domain and DNS are configured by the owner, the target plan is suitable, legal/provider checks pass, and deployment plus security tests succeed. No domain, hosting account, provider partnership or production service is claimed to have been purchased or configured by this document.
+
+### Provider references checked for this design
+
+- Vicetemple adult web hosting: https://vicetemple.com/adult-web-hosting
+- Vicetemple prohibited content policy: https://vicetemple.com/prohibited-content-list
+- Vicetemple terms of service: https://vicetemple.com/terms-of-service
+- FapHouse platform terms reference surfaced at https://faphouse.com/pages/terms (review current full terms and obtain written integration authorization before use).
+
+### Additional acceptance criteria
+
+- The combined journey defaults to RELATIONSHIP, then optional ROMANCE, then a separate opt-in INTIMACY 18+ gate, without forcing the sequence on standalone product users.
+- Consent is never inferred from relationship status, prior steps, viewing history or purchase history.
+- External providers remain unintegrated until their actual API/affiliate/content licensing permissions and technical contracts are verified.
+- Hosting plan suitability is documented for the intended workload; no video streaming is deployed on a plan the provider says is unsuitable.
