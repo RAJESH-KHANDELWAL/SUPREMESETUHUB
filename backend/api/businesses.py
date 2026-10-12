@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from typing import Any
+from uuid import uuid4
 
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
@@ -95,7 +96,7 @@ def create_business(
         raise HTTPException(status_code=401, detail="AUTHENTICATED_USER_ID_REQUIRED")
 
     # Never trust client-supplied owner_id, status, or verified values.
-    business_id = f"BUS-{len(controller.list()) + 1:06d}"
+    business_id = f"BUS-{uuid4().hex.upper()}"
     business = controller.create(
         business_id=business_id,
         owner_id=owner_id,
