@@ -11,9 +11,7 @@ one canonical record for each repository visible to the connected GitHub account
 |---|---|---|
 | `SUPREMESETUHUB` | [RAJESH-KHANDELWAL/SUPREMESETUHUB](https://github.com/RAJESH-KHANDELWAL/SUPREMESETUHUB) | Main base foundation |
 | `RAJESHKHANDELWAL` | [RAJESH-KHANDELWAL/RAJESHKHANDELWAL](https://github.com/RAJESH-KHANDELWAL/RAJESHKHANDELWAL) | AI engine project |
-| `SUPREMESETUHUB_DEMO` | [RAJESH-KHANDELWAL/demo-repository](https://github.com/RAJESH-KHANDELWAL/demo-repository) | Demo project |
 | `RAJESHKHANDELWALOFFICIAL` | [RAJESH-KHANDELWAL-OFFICIAL/RAJESHKHANDELWALOFFICIAL](https://github.com/RAJESH-KHANDELWAL-OFFICIAL/RAJESHKHANDELWALOFFICIAL) | Official brand project |
-| `IBC_DEMO` | [DR-RAJESH-KHANDELWAL-IBC/demo-repository](https://github.com/DR-RAJESH-KHANDELWAL-IBC/demo-repository) | Demo project |
 | `DRRAJESHKHANDELWALIBC` | [DR-RAJESH-KHANDELWAL-IBC/DRRAJESHKHANDELWALIBC](https://github.com/DR-RAJESH-KHANDELWAL-IBC/DRRAJESHKHANDELWALIBC) | IBC identity project |
 
 ## API
