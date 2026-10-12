@@ -97,7 +97,7 @@ class AuthenticationService:
             status=identity.status,
         )
 
-    def login_with_password(
+    def signin_with_password(
         self,
         username: str,
         password: str,
@@ -213,7 +213,11 @@ class AuthenticationService:
             updated_at=created_at,
         )
 
-    def login(
+    # Backward-compatible alias for older internal callers.
+    def login_with_password(self, username: str, password: str):
+        return self.signin_with_password(username, password)
+
+    def signin(
         self,
         master_id=None,
         username=None,
@@ -227,7 +231,7 @@ class AuthenticationService:
                     "message": "Username and password are required",
                 }
 
-            return self.login_with_password(
+            return self.signin_with_password(
                 username,
                 password,
             )
@@ -239,6 +243,14 @@ class AuthenticationService:
             "authenticated": False,
             "message": "Authentication credentials required",
         }
+
+    # Backward-compatible alias for existing internal callers.
+    def login(self, master_id=None, username=None, password=None):
+        return self.signin(
+            master_id=master_id,
+            username=username,
+            password=password,
+        )
 
     def validate_token(self, token: str):
         """Validate an active authentication token."""
@@ -334,7 +346,7 @@ class AuthenticationService:
             "expires_at": session["expires_at"],
         }
 
-    def logout(
+    def signout(
         self,
         token: str | None = None,
         session_id: str | None = None,
@@ -420,8 +432,12 @@ class AuthenticationService:
 
         return {
             "authenticated": False,
-            "message": "Logout Successful",
+            "message": "Signout successful",
         }
+
+    # Backward-compatible alias for existing internal callers.
+    def logout(self, token: str | None = None, session_id: str | None = None):
+        return self.signout(token=token, session_id=session_id)
 
     def initialize(self):
         """Return authentication subsystem status."""

@@ -1,6 +1,6 @@
 
 /* =========================================================
-   MAIN BASE FOUNDATION — CREATE ACCOUNT
+   MAIN BASE FOUNDATION — SIGN UP
    SIGNUP + USERNAME HANDOFF TO SIGN IN
    ========================================================= */
 
@@ -55,13 +55,13 @@ if (form) {
         }
 
         submitButton.disabled = true;
-        submitButton.textContent = "CREATING ACCOUNT...";
+        submitButton.textContent = "SIGNING UP...";
 
         showSignupMessage("CONNECTING TO MAIN BASE FOUNDATION...", "loading");
 
         try {
             const response = await fetch(
-                `${SIGNUP_API}/users/register`,
+                `${SIGNUP_API}/users/signup`,
                 {
                     method: "POST",
                     headers: {
@@ -71,7 +71,8 @@ if (form) {
                     body: JSON.stringify({
                         full_name,
                         email,
-                        password
+                        password,
+                        confirm_password: confirmPassword
                     })
                 }
             );
@@ -82,7 +83,7 @@ if (form) {
                 throw new Error(
                     result.detail ||
                     result.message ||
-                    "ACCOUNT CREATION FAILED."
+                    "SIGN UP FAILED."
                 );
             }
 
@@ -104,11 +105,11 @@ if (form) {
             );
 
             showSignupMessage(
-                `ACCOUNT CREATED SUCCESSFULLY!\nYOUR USERNAME: ${username}\nPLEASE USE THIS USERNAME AND YOUR PASSWORD TO SIGN IN.`,
+                `SIGN UP SUCCESSFUL!\nYOUR USERNAME: ${username}\nPLEASE USE THIS USERNAME AND YOUR PASSWORD TO SIGN IN.`,
                 "success"
             );
 
-            // Add a Sign In link after successful registration.
+            // Add a Sign In link after successful sign-up.
             let signInLink = document.getElementById("signupSignInLink");
 
             if (!signInLink) {
@@ -126,11 +127,11 @@ if (form) {
 
         } catch (error) {
             showSignupMessage(
-                error.message || "UNABLE TO CREATE ACCOUNT. PLEASE TRY AGAIN."
+                error.message || "SIGN UP FAILED. PLEASE TRY AGAIN."
             );
         } finally {
             submitButton.disabled = false;
-            submitButton.textContent = "CREATE ACCOUNT";
+            submitButton.textContent = "SIGN UP";
         }
     });
 }
