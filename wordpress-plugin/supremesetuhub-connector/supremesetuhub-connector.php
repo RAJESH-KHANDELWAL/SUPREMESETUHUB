@@ -25,6 +25,16 @@ final class SUPREMESETUHUB_Connector {
         add_shortcode('supremesetuhub_status', array(__CLASS__, 'status_shortcode'));
         add_shortcode('supremesetuhub_pod_catalog', array(__CLASS__, 'pod_catalog_shortcode'));
         add_shortcode('supremesetuhub_digital_catalog', array(__CLASS__, 'digital_catalog_shortcode'));
+
+        // Keep ecosystem features inside this existing DR RAJESH KHANDELWAL IBC plugin.
+        add_shortcode('supreme_ecosystem_home', array(__CLASS__, 'ecosystem_home_shortcode'));
+        add_shortcode('supreme_snippet_home', array(__CLASS__, 'ecosystem_home_shortcode'));
+        add_shortcode('supreme_global_business_ecosystem', array(__CLASS__, 'global_business_ecosystem_shortcode'));
+        add_shortcode('supreme_contact', array(__CLASS__, 'contact_shortcode'));
+        add_shortcode('supreme_youtag_wellness', array(__CLASS__, 'youtag_wellness_shortcode'));
+        add_shortcode('supreme_bada_business', array(__CLASS__, 'bada_business_shortcode'));
+        add_shortcode('supreme_print_on_demand', array(__CLASS__, 'pod_catalog_shortcode'));
+        add_shortcode('supreme_backend_status', array(__CLASS__, 'status_shortcode'));
     }
 
     private static function options() {
@@ -236,6 +246,88 @@ final class SUPREMESETUHUB_Connector {
         $html .= '</div><p>' . esc_html__('Checkout and paid download delivery are not enabled yet. Contact the site owner for availability.', 'supremesetuhub-connector') . '</p>';
         return $html;
     }
+
+    /**
+     * Single-plugin ecosystem landing page. Styling is scoped to this component.
+     */
+    public static function ecosystem_home_shortcode($atts = array()) {
+        $atts = shortcode_atts(array(
+            'pod_url' => home_url('/print-on-demand/'),
+            'digital_url' => home_url('/digital-store/'),
+            'services_url' => home_url('/services/'),
+            'about_url' => home_url('/about/'),
+        ), $atts, 'supreme_ecosystem_home');
+        $cards = array(
+            array('icon' => '🎨', 'title' => 'SUPREME PRINT ON DEMAND', 'desc' => 'Explore customizable products and creative merchandise.', 'url' => $atts['pod_url'], 'cta' => 'EXPLORE POD'),
+            array('icon' => '💻', 'title' => 'DIGITAL STORE', 'desc' => 'Discover digital products and creative resources as they become available.', 'url' => $atts['digital_url'], 'cta' => 'EXPLORE DIGITAL'),
+            array('icon' => '🚀', 'title' => 'DIGITAL SERVICES', 'desc' => 'Explore website, online presence and digital business services.', 'url' => $atts['services_url'], 'cta' => 'VIEW SERVICES'),
+            array('icon' => '🌍', 'title' => 'OUR MISSION', 'desc' => 'One connected digital ecosystem bringing ideas and services together.', 'url' => $atts['about_url'], 'cta' => 'LEARN MORE'),
+        );
+        ob_start(); ?>
+        <section class="suph-ecosystem" aria-label="SUPREME ECOSYSTEM">
+          <style>
+            .suph-ecosystem{--se-blue:#0b5cff;--se-ink:#101828;--se-muted:#475467;color:var(--se-ink);font-family:inherit}
+            .suph-ecosystem *{box-sizing:border-box}.suph-ecosystem-hero{padding:clamp(28px,6vw,64px);border-radius:24px;background:linear-gradient(135deg,#071b49,#0b5cff 65%,#62a5ff);color:#fff;overflow:hidden}
+            .suph-ecosystem-hero h1{color:#fff;font-size:clamp(2rem,5vw,3.5rem);line-height:1.08;margin:.7rem 0 1rem}.suph-ecosystem-hero p{max-width:760px;font-size:1.08rem;line-height:1.7;margin:0 0 22px}
+            .suph-eco-btn{display:inline-block;background:#fff;color:#0b45bd!important;padding:12px 18px;border-radius:12px;font-weight:900;text-decoration:none!important;margin:4px 8px 4px 0}
+            .suph-eco-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:16px;margin-top:16px}.suph-eco-card{padding:22px;border:1px solid #dce5f2;border-radius:18px;background:#fff;box-shadow:0 8px 28px rgba(16,24,40,.05);display:flex;flex-direction:column;align-items:flex-start;min-height:210px}
+            .suph-eco-card h2{font-size:1.08rem;line-height:1.4;margin:12px 0 8px}.suph-eco-card p{color:var(--se-muted);line-height:1.65;margin:0 0 18px}.suph-eco-card a{margin-top:auto;color:var(--se-blue);font-weight:900;text-decoration:none}
+            .suph-eco-note{margin-top:18px;padding:14px 16px;background:#f2f6ff;border-radius:12px;color:#344054;font-size:.93rem}
+          </style>
+          <div class="suph-ecosystem-hero">
+            <div><strong>ONE CONNECTED DIGITAL WORLD</strong></div>
+            <h1>👑 SUPREME ECOSYSTEM</h1>
+            <p>Welcome to SUPREMESETUHUB — a growing digital platform connecting products, creative ideas and online services.</p>
+            <a class="suph-eco-btn" href="<?php echo esc_url($atts['pod_url']); ?>">🎨 SUPREME PRINT ON DEMAND</a>
+            <a class="suph-eco-btn" href="<?php echo esc_url($atts['services_url']); ?>">🚀 EXPLORE SERVICES</a>
+          </div>
+          <h2>EXPLORE THE ECOSYSTEM</h2>
+          <div class="suph-eco-grid">
+          <?php foreach ($cards as $card) : ?>
+            <article class="suph-eco-card"><div aria-hidden="true" style="font-size:2rem"><?php echo esc_html($card['icon']); ?></div>
+              <h2><?php echo esc_html($card['title']); ?></h2><p><?php echo esc_html($card['desc']); ?></p>
+              <a href="<?php echo esc_url($card['url']); ?>"><?php echo esc_html($card['cta']); ?> →</a>
+            </article>
+          <?php endforeach; ?>
+          </div>
+          <p class="suph-eco-note"><strong>Important:</strong> Catalog listings and displayed prices may be estimates. Checkout, payment and fulfilment are not enabled merely by displaying this page.</p>
+        </section>
+        <?php
+        return ob_get_clean();
+    }
+
+    /**
+     * Embed the backend-served ecosystem frontend using the saved HTTPS API base.
+     */
+    public static function global_business_ecosystem_shortcode() {
+        $base = self::api_base();
+        if (!$base || !wp_http_validate_url($base)) {
+            return '<p class="suph-catalog-error">' . esc_html__('Set the backend HTTPS URL under Settings → SUPREMESETUHUB first.', 'supremesetuhub-connector') . '</p>';
+        }
+        $src = $base . '/api/v1/frontend/global-business-ecosystem';
+        return '<div class="suph-global-ecosystem" style="width:100%;overflow:hidden"><iframe title="SUPREME Global Business Ecosystem" src="' . esc_url($src) . '" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="display:block;width:100%;min-height:850px;border:0;border-radius:16px" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe></div>';
+    }
+
+    public static function contact_shortcode() {
+        $html = '<section class="suph-brand-panel" style="padding:24px;border:1px solid #d8e2f0;border-radius:16px;background:#f7faff">';
+        $html .= '<h2>' . esc_html__('CONTACT DR RAJESH KHANDELWAL IBC', 'supremesetuhub-connector') . '</h2>';
+        $html .= '<p>' . esc_html__('For business enquiries, website projects and collaboration, use the contact options published on this website.', 'supremesetuhub-connector') . '</p>';
+        $html .= '<a href="' . esc_url(home_url('/contact/')) . '" style="display:inline-block;padding:11px 16px;background:#0b5cff;color:#fff;border-radius:10px;text-decoration:none;font-weight:700">' . esc_html__('OPEN CONTACT PAGE', 'supremesetuhub-connector') . '</a></section>';
+        return $html;
+    }
+
+    public static function youtag_wellness_shortcode() {
+        return '<section class="suph-brand-panel" style="padding:24px;border:1px solid #d8e2f0;border-radius:16px"><h2>YOUTAG WELLNESS</h2><p>' .
+            esc_html__('Explore the YOUTAG WELLNESS business information and available offerings. Confirm current plans, terms and prices with the provider before making a purchase.', 'supremesetuhub-connector') .
+            '</p></section>';
+    }
+
+    public static function bada_business_shortcode() {
+        return '<section class="suph-brand-panel" style="padding:24px;border:1px solid #d8e2f0;border-radius:16px"><h2>BADA BUSINESS</h2><p>' .
+            esc_html__('Business learning and entrepreneurship resources. Review the provider’s current program details, fees and terms directly before enrolling.', 'supremesetuhub-connector') .
+            '</p></section>';
+    }
+
 }
 
 SUPREMESETUHUB_Connector::init();
