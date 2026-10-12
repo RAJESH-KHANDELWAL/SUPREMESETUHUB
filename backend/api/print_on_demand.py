@@ -23,6 +23,21 @@ class DesignBriefRequest(QuoteRequest):
     design_prompt: str = Field(min_length=1, max_length=600)
     notes: str = Field(default="", max_length=1000)
 
+@router.get("/public/catalog")
+def get_public_catalog(
+    market: Literal["IN", "GLOBAL"] = Query(default="IN"),
+):
+    """Public, read-only product catalog for the WordPress storefront.
+
+    Prices are explicitly estimates; this endpoint cannot create orders,
+    access customer briefs, or initiate payments.
+    """
+    try:
+        return {"success": True, "data": controller.catalog(market)}
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+
 @router.get("/catalog")
 def get_catalog(
     market: Literal["IN", "GLOBAL"] = Query(default="IN"),
