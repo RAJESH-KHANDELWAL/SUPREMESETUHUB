@@ -2,6 +2,12 @@ name: Package WordPress Connector
 
 on:
   workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "wordpress-plugin/supremesetuhub-connector/**"
+      - ".github/workflows/package-wordpress-plugin.yml"
   push:
     branches:
       - main
