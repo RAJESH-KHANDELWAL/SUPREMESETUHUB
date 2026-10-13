@@ -63,3 +63,48 @@ def test_controller_lifecycle_and_status(tmp_path):
 
     disconnected = controller.disconnect()
     assert disconnected["connected"] is False
+
+
+
+def test_database_path_uses_environment_override(monkeypatch, tmp_path):
+    configured_path = tmp_path / "persistent" / "supreme.db"
+    monkeypatch.setenv("SUPREME_DB_PATH", str(configured_path))
+
+    service = DatabaseService()
+    try:
+        service.execute(
+            "CREATE TABLE persistence_check (id INTEGER PRIMARY KEY, value TEXT NOT NULL)"
+        )
+        service.execute(
+            "INSERT INTO persistence_check (value) VALUES (?)",
+            ("saved",),
+        )
+        assert configured_path.exists()
+    finally:
+        service.close()
+
+    # A fresh service instance must read the same on-disk data.
+    reopened = DatabaseService()
+    try:
+        row = reopened.fetchone(
+            "SELECT value FROM persistence_check WHERE id = ?",
+            (1,),
+        )
+        assert row is not None
+        assert row["value"] == "saved"
+    finally:
+        reopened.close()
+
+
+def test_database_service_default_path_can_be_overridden_by_constructor(
+    monkeypatch, tmp_path
+):
+    monkeypatch.setenv("SUPREME_DB_PATH", str(tmp_path / "env.db"))
+    explicit_path = tmp_path / "explicit.db"
+    service = DatabaseService(str(explicit_path))
+    try:
+        service.execute("CREATE TABLE sample (value TEXT NOT NULL)")
+        assert explicit_path.exists()
+        assert not (tmp_path / "env.db").exists()
+    finally:
+        service.close()
