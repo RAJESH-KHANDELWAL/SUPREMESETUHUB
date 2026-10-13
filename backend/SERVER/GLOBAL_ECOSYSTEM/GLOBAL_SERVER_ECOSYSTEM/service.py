@@ -1,4 +1,15 @@
-"""GLOBAL_SERVER_ECOSYSTEM service facade; providers are not yet connected."""
-from .registry import list_providers
+"""Read-only service facade for GLOBAL SERVER ECOSYSTEM."""
+
+from .registry import list_providers, list_service_types
+
+
 class EcosystemService:
-    def describe(self): return {"ecosystem": "GLOBAL_SERVER_ECOSYSTEM", "providers": list_providers(), "live_connections_enabled": False}
+    """Describe catalog contents without claiming live provider connections."""
+
+    def describe(self) -> dict:
+        return {
+            "ecosystem": "GLOBAL_SERVER_ECOSYSTEM",
+            "providers": list_providers(),
+            "service_types": list_service_types(),
+            "live_connections_enabled": False,
+        }
