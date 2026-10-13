@@ -67,6 +67,21 @@ EMAILS = [
     if item.strip()
 ]
 PRIMARY_EMAIL = os.getenv("SUPREME_OWNER_PRIMARY_EMAIL", "")
+SECONDARY_EMAIL = os.getenv("SUPREME_OWNER_SECONDARY_EMAIL", "")
+RECOVERY_EMAIL = os.getenv("SUPREME_OWNER_RECOVERY_EMAIL", "")
+
+# Private owner/admin contact registry. Values must be set in deployment secrets;
+# never expose this object from public status endpoints or commit real addresses.
+OWNER_EMAIL_IDENTITIES = {
+    "owner_admin_primary": PRIMARY_EMAIL,
+    "owner_admin_secondary": SECONDARY_EMAIL,
+    "security_recovery": RECOVERY_EMAIL,
+}
+OWNER_ADMIN_EMAILS = list(dict.fromkeys(
+    email.strip().casefold()
+    for email in (PRIMARY_EMAIL, SECONDARY_EMAIL)
+    if email.strip()
+))
 
 # =========================================================
 # 📛 ALL ALIAS NAMES & USERNAMES
