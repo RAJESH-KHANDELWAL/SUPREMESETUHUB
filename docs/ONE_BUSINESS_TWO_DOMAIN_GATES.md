@@ -11,6 +11,27 @@ SUPREMESETUHUB is **one business and one shared platform**, reached through two 
 - The hostname may determine branding/display identity only. It must not silently create a second customer, business record, permission system, or database.
 - Authentication, authorization, validation, and business rules belong in the shared backend, not in domain-specific frontend code.
 
+## Brand gates and business-category routing
+
+These four brand identities are presentation and service-discovery gates inside the same business ecosystem. They are not separate databases or unrelated businesses. Audience scope for each is Bharat (India) and global users, limited to related work and business categories.
+
+1. **DR RAJESH KHANDELWAL IBC** — `drrajeshkhandelwalibc.com` / `DRRAJESHKHANDELWALIBC`. Primary positioning: **GLOBAL BUSINESS COACH | INDEPENDENT BUSINESS CONSULTANT**. Business coaching, consulting, entrepreneurship, business growth, income-opportunity and business-building work.
+2. **DR RAJESH KHANDELWAL IBC OFFICIAL** — `drrajeshkhandelwalibcofficial.com` / `DRRAJESHKHANDELWALIBCOFFICIAL`. Primary positioning: **BUSINESS ADVISOR | FOUNDER & CEO**. Business advisory, company setup, leadership, operations, strategy and professional business matters.
+3. **RAJESH KHANDELWAL OFFICIAL** — `rajeshkhandelwalofficial.com` / `RAJESHKHANDELWALOFFICIAL`. Primary positioning: **REAL ESTATE COACH | RELATIONSHIP & INTIMACY COACH**. Real estate, relationships, couples, intimacy education/coaching and relevant personal-development services.
+4. **RAJESH KHANDELWAL** — `rajeshkhandelwal.com` / `RAJESHKHANDELWAL`. General/personal gate for career, jobs, student guidance, family, personal and professional development, mental wellbeing, physical/body-health information, relationships, intimacy education and other personal matters.
+
+### Shared service-area rule
+
+All areas belong to **one shared service/business ecosystem**, but every enquiry, service, project or opportunity should be tagged to its relevant category and linked to the appropriate brand gate. Categories may cross-link when a person's need spans multiple areas. A gate is a discovery/branding entry point, not a separate user account or isolated data silo.
+
+Examples:
+- Students and job seekers: career/jobs guidance through the general gate; business-building or income-business needs through IBC coaching.
+- Housewives and home-based workers: route by the actual need—business/income, personal/family, or relationship-related.
+- Business owners: coaching/consulting through IBC; founder/CEO and company advisory through IBC OFFICIAL; real-estate needs through the real-estate gate.
+- Couples: relationship/intimacy coaching through RAJESH KHANDELWAL OFFICIAL; general family/personal guidance through the general gate.
+
+Do not infer needs from a person's identity or occupation alone. Ask what they need and categorize the enquiry. Health and mental-wellbeing material is informational/coaching scope, not a claim of medical diagnosis or treatment.
+
 ## Request flow
 
 ```text
