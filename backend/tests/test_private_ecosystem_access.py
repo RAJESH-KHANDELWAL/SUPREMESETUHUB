@@ -107,3 +107,26 @@ def test_business_list_is_filtered_to_authenticated_owner(monkeypatch):
     result = api.get_businesses(current_user={"user_id": "user-1", "role": "USER"})
     assert result["count"] == 1
     assert [item["owner_id"] for item in result["data"]] == ["user-1"]
+
+def test_regular_user_can_reach_scoped_linksetu_social_routes_but_not_legacy_routes(monkeypatch):
+    from backend.api import app as app_module
+
+    monkeypatch.setattr(
+        app_module.authentication_service,
+        "validate_token",
+        lambda _token: {"authenticated": True, "username": "REGULAR_CUSTOMER"},
+    )
+
+    async def call_next(_request):
+        return Response("route reached", status_code=200)
+
+    social = asyncio.run(
+        app_module.private_by_default(_request("/api/v1/linksetu/posts"), call_next)
+    )
+    legacy = asyncio.run(
+        app_module.private_by_default(_request("/api/v1/linksetu/story/feed/ram"), call_next)
+    )
+
+    assert social.status_code == 200
+    assert legacy.status_code == 403
+
