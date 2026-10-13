@@ -48,6 +48,15 @@ def create_wordpress_service() -> WordPressService:
             registry.register(
                 site
             )
+        elif (
+            site.database_name
+            and existing.database_name != site.database_name
+        ):
+            # Refresh verified non-secret connection metadata for an already
+            # registered site without overwriting its current connection status.
+            existing.database_name = site.database_name
+            existing.table_prefix = site.table_prefix
+            registry.update(existing)
 
     return service
 
