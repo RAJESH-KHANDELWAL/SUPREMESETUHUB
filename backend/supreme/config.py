@@ -210,15 +210,17 @@ BRANDING = {
 # =========================================================
 # 📊 SUPREME OWNER STATISTICS
 # =========================================================
+# These values are unknown until backed by live platform data.
+# Keep them unset rather than presenting unverified numbers as facts.
 
 STATISTICS = {
-    "followers": "1.2M+",
-    "following": "456K",
-    "posts": "2.3K+",
-    "platform_users": "500K+",
-    "daily_active_users": "100K+",
-    "communities": "1000+",
-    "verified_users": "50K+"
+    "followers": None,
+    "following": None,
+    "posts": None,
+    "platform_users": None,
+    "daily_active_users": None,
+    "communities": None,
+    "verified_users": None,
 }
 
 # =========================================================
