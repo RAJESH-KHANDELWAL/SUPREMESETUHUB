@@ -519,10 +519,23 @@ def wordpress_status(site_id: str):
 
 @app.get("/api/v1/wordpress/health/{site_id}")
 def wordpress_health(site_id: str):
+    # Each WordPress gate has its own hosting database credentials.
+    # Shared platform/customer data remains in SUPREME_DB_PATH.
+    environment_prefixes = {
+        "rajeshkhandelwalofficial": "WORDPRESS",
+        "drrajeshkhandelwalibc": "WORDPRESS_IBC",
+    }
+    environment_prefix = environment_prefixes.get(site_id)
+    if environment_prefix is None:
+        return {
+            "success": False,
+            "status": "UNKNOWN_SITE",
+            "site_id": site_id,
+        }
 
     result = wordpress_service.connect_site(
         site_id=site_id,
-        environment_prefix="WORDPRESS",
+        environment_prefix=environment_prefix,
     )
 
     if not result.get("success"):
