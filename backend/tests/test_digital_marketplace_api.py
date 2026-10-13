@@ -11,9 +11,9 @@ def test_digital_marketplace_catalog_is_public_and_marks_checkout_disabled():
 
     assert response.status_code == 200
     data = response.json()["data"]
-    assert data["product_model"] == "DIGITAL_DOWNLOADS_ONLY"
-    assert data["checkout_status"] == "DISABLED_UNTIL_MERCHANT_APPROVAL_AND_PAYMENT_VERIFICATION"
-    assert data["delivery_status"] == "PRIVATE_DOWNLOAD_DELIVERY_NOT_YET_IMPLEMENTED"
+    assert data["product_model"] == "FLEXIBLE_DIGITAL_ASSETS_ONLY"
+    assert data["checkout_status"] == "DISABLED_UNTIL_PAYMENT_PROVIDER_AND_SIGNED_WEBHOOKS_ARE_CONFIGURED"
+    assert data["delivery_status"] == "PRIVATE_PAID_DOWNLOAD_FLOW_NOT_YET_ENABLED"
 
 
 def test_digital_marketplace_catalog_rejects_unknown_market():
