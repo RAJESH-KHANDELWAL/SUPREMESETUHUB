@@ -274,6 +274,7 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "ecosystem_type": "BUSINESS_API",
         "capabilities": ["AFFILIATE_TRACKING", "REFERRALS", "COMMISSIONS"],
         "parent_id": "GLOBAL-BUSINESS-API-ECOSYSTEM",
+        "metadata": {"partner_program_registry": "backend/core/global_ecosystem/global_core_ecosystem/partner_programs.py"},
     },
     {
         "ecosystem_id": "GLOBAL-ECOMMERCE-API-ECOSYSTEM",
