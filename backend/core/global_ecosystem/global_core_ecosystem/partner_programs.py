@@ -4,13 +4,13 @@ from copy import deepcopy
 from typing import Any
 
 HOSTINGER_REFERRAL_PROGRAM: dict[str, Any] = {
-    "program_id": "HOSTINGER-REFERRAL-RAJESHIBCGLOBAL",
+    "program_id": "HOSTINGER-REFERRAL-RAJESHIBCGROWTH",
     "provider_id": "HOSTINGER",
     "provider_name": "Hostinger",
     "program_type": "REFERRAL",
     "ecosystem_id": "GLOBAL-AFFILIATE-MARKETING-API-ECOSYSTEM",
     "owner_brand": "DR RAJESH KHANDELWAL IBC",
-    "referral_url": "https://www.hostinger.com/in?REFERRALCODE=RAJESHIBCGLOBAL",
+    "referral_url": "https://www.hostinger.com/in?REFERRALCODE=RAJESHIBCGROWTH",
     "provider_advertised_reward": "Up to USD 180 per eligible referral",
     "referred_friend_offer": "20% off the first plan (as displayed in the supplied account screenshot; re-check current terms)",
     "currency_context": "Account billing currency shown as INR; advertised referral reward shown in USD",

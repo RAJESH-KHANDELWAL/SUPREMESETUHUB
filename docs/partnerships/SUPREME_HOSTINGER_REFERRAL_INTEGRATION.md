@@ -2,11 +2,11 @@
 
 **Record date:** Tuesday, 13 October 2026  
 **Time zone for application events:** Store timestamps in UTC; display in Asia/Kolkata for the India owner.  
-**Status:** Repository configuration and frontend CTA proposed in this branch; production deployment and purchase-level tracking are not verified.
+**Status:** Repository configuration and frontend CTA are committed in the repository; production deployment and purchase-level tracking are not verified.
 
 ## Owner-supplied program details
 - Provider: Hostinger
-- Exact referral URL: https://www.hostinger.com/in?REFERRALCODE=RAJESHIBCGLOBAL
+- Exact referral URL: https://www.hostinger.com/in?REFERRALCODE=RAJESHIBCGROWTH
 - Account screenshot states: up to USD 180 per eligible referral; friend gets 20% off the first plan.
 - These are account-screen claims and may change. Re-check current Hostinger terms, eligibility, payout conditions, exclusions and tax treatment before promotion.
 - Account billing currency shown: INR; reward shown in USD. These are not the same balance.
