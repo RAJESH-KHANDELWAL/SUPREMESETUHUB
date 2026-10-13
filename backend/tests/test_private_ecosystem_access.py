@@ -59,7 +59,7 @@ def test_private_middleware_returns_401_when_validator_returns_non_dict(monkeypa
         app_module.private_by_default(_request("/api/v1/private/resource"), call_next)
     )
     assert response.status_code == 401
-    assert response.json()["detail"] == "INVALID_OR_EXPIRED_TOKEN"
+    assert json.loads(response.body)["detail"] == "INVALID_OR_EXPIRED_TOKEN"
 
 def test_private_ecosystem_routes_are_not_public_platform_entry_points():
     from backend.api.app import PUBLIC_API_PATHS
