@@ -93,6 +93,11 @@ class DigitalMarketplaceService:
             raise ValueError("PRIVATE_STORAGE_KEY_REQUIRED")
         design_id = str(payload.get("design_id") or uuid.uuid4().hex)
         slug = self._slug(str(payload.get("slug") or title))
+        slug_owner = self.database.fetchall(
+            "SELECT design_id FROM digital_designs WHERE slug = ? LIMIT 1", (slug,)
+        )
+        if slug_owner and str(slug_owner[0]["design_id"]) != design_id:
+            raise ValueError("SLUG_ALREADY_IN_USE")
         asset_type = str(payload.get("asset_type", "IMAGE")).strip().upper()
         file_format = str(payload.get("file_format", "PNG")).strip().upper()
         if not re.fullmatch(r"[A-Z0-9_-]{1,32}", asset_type):
@@ -146,6 +151,12 @@ class DigitalMarketplaceService:
         """, (design_id, slug, title, description, category, preview_url, storage_key,
               license_label, status, status, asset_type, file_format,
               json.dumps(clean_tags), prompt_notes))
+        # A save replaces the listing's active market set; omitted markets must
+        # not retain stale prices from an earlier version of the listing.
+        self.database.execute(
+            "UPDATE digital_design_prices SET is_active = 0 WHERE design_id = ?",
+            (design_id,),
+        )
         for market, currency, amount in normalized_prices:
             self.database.execute("""
                 INSERT INTO digital_design_prices
