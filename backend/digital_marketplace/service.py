@@ -124,7 +124,10 @@ class DigitalMarketplaceService:
                 normalized_prices.append((market, currency, amount))
         if not normalized_prices:
             raise ValueError("AT_LEAST_ONE_MARKET_PRICE_REQUIRED")
-        published_at = "CURRENT_TIMESTAMP" if status == "PUBLISHED" else None
+        if status == "PUBLISHED" and not preview_url:
+            raise ValueError("PUBLISHED_DESIGN_REQUIRES_HTTPS_PREVIEW_URL")
+        if storage_key.startswith(("http://", "https://")):
+            raise ValueError("PRIVATE_STORAGE_KEY_MUST_NOT_BE_A_PUBLIC_URL")
         self.database.execute("""
             INSERT INTO digital_designs
                 (design_id, slug, title, description, category, preview_url,
