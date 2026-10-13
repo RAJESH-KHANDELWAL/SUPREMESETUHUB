@@ -236,9 +236,27 @@ def integration_status():
         "privacy": "PRIVATE_BY_DEFAULT",
         "integrations": [
             {
-                "provider": "GOOGLE_GMAIL",
+                "provider": "GOOGLE_WORKSPACE_AND_GOOGLE_SERVICES",
                 "status": "CONFIGURED_NEEDS_OAUTH_FLOW" if google_configured else "NOT_CONFIGURED",
                 "connected": False,
+                "capabilities": [
+                    "GOOGLE_SIGN_IN_OIDC",
+                    "GMAIL",
+                    "GOOGLE_DRIVE",
+                    "GOOGLE_CALENDAR",
+                    "GOOGLE_CONTACTS",
+                    "GOOGLE_SHEETS",
+                    "GOOGLE_DOCS",
+                    "GOOGLE_FORMS",
+                    "GOOGLE_MEET",
+                    "GOOGLE_MAPS",
+                    "YOUTUBE",
+                    "GOOGLE_CLOUD",
+                    "GOOGLE_ANALYTICS",
+                    "GOOGLE_SEARCH_CONSOLE",
+                    "GOOGLE_ADS",
+                ],
+                "authorization_policy": "EXPLICIT_USER_CONSENT_AND_LEAST_PRIVILEGE",
             },
             {
                 "provider": "MICROSOFT_GRAPH",
