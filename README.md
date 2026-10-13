@@ -35,7 +35,7 @@ Copy `backend/.env.example` into your private deployment environment and set the
 
 ## SUPREME owner/admin Google identities
 
-SUPREME supports two separate private owner/admin Gmail identities and a separate security-recovery email through deployment environment variables. Configure `SUPREME_OWNER_PRIMARY_EMAIL`, `SUPREME_OWNER_SECONDARY_EMAIL`, and `SUPREME_OWNER_RECOVERY_EMAIL` in the private Render/service environment. The account identities supplied by the owner are the primary `drrajeshkhandelwalibc@gmail.com` and secondary `drrajeshkhandelwalibcofficial@gmail.com`; the recovery address from the earlier account details is `RAJESHKHANDELWAL468@GMAIL.COM`. Do not publish these in frontend HTML, public APIs, logs, or Git-tracked environment files. The two owner/admin identities are contact/identity records only and do not independently grant login, owner permissions, or access to Google data.
+SUPREME supports two separate private owner/admin Gmail identities and a separate security-recovery email through deployment environment variables. Configure `SUPREME_OWNER_PRIMARY_EMAIL`, `SUPREME_OWNER_SECONDARY_EMAIL`, and `SUPREME_OWNER_RECOVERY_EMAIL` in the private Render/service environment. Use the two owner Gmail addresses and the separately designated recovery address already supplied by the owner when configuring those variables. Do not publish these in frontend HTML, public APIs, logs, or Git-tracked environment files. The two owner/admin identities are contact/identity records only and do not independently grant login, owner permissions, or access to Google data.
 
 ## External integrations
 
