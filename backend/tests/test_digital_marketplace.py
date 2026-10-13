@@ -38,7 +38,7 @@ def test_catalog_returns_only_published_designs_and_never_private_storage_key(tm
     result = service.catalog("IN")
 
     assert result["currency"] == "INR"
-    assert result["product_model"] == "DIGITAL_DOWNLOADS_ONLY"
+    assert result["product_model"] == "FLEXIBLE_DIGITAL_ASSETS_ONLY"
     assert result["count"] == 1
     assert result["designs"][0]["price"] == "499.00"
     assert "private_storage_key" not in result["designs"][0]
