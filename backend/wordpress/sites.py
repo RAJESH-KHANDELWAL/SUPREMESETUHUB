@@ -43,15 +43,37 @@ RAJESH_KHANDELWAL_OFFICIAL = WordPressSite(
 
 
 # ==============================================================
+# DR RAJESH KHANDELWAL IBC
+# ==============================================================
+
+DR_RAjesh_KHANDELWAL_IBC = WordPressSite(
+    site_id="drrajeshkhandelwalibc",
+    domain="drrajeshkhandelwalibc.com",
+    site_url="https://drrajeshkhandelwalibc.com",
+    provider="Hostinger",
+    database_name=None,  # Fill only after verifying the live Hostinger database name.
+    table_prefix="wp_",
+    status="PENDING_CONNECTION",
+    environment="production",
+    description=(
+        "Second independent domain gate for SUPREMESETUHUB; "
+        "database credentials must be configured as private environment variables."
+    ),
+)
+
+
+# ==============================================================
 # REGISTERED WORDPRESS SITES
 # ==============================================================
 
 WORDPRESS_SITES = [
     RAJESH_KHANDELWAL_OFFICIAL,
+    DR_RAjesh_KHANDELWAL_IBC,
 ]
 
 
 __all__ = [
     "RAJESH_KHANDELWAL_OFFICIAL",
+    "DR_RAjesh_KHANDELWAL_IBC",
     "WORDPRESS_SITES",
 ]
