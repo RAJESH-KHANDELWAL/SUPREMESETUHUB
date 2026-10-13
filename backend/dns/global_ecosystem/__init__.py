@@ -1,0 +1,1 @@
+"""Global DNS ecosystem namespace."""
