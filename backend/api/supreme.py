@@ -75,21 +75,52 @@ IDENTITIES = [
         "display_name": "👑 RAJESH KHANDELWAL 👑",
         "username": "RAJESHKHANDELWAL",
         "domain": "https://rajeshkhandelwal.com",
+        "primary_roles": ["PERSONAL AND PROFESSIONAL GUIDANCE"],
+        "service_categories": [
+            "CAREER", "JOBS", "STUDENT GUIDANCE", "FAMILY",
+            "PERSONAL DEVELOPMENT", "PROFESSIONAL DEVELOPMENT",
+            "MENTAL WELLBEING INFORMATION", "PHYSICAL AND BODY HEALTH INFORMATION",
+            "RELATIONSHIPS", "INTIMACY EDUCATION", "GENERAL LIFE GUIDANCE"
+        ],
+        "audience_scope": ["BHARAT", "GLOBAL"],
+        "shared_ecosystem": True,
     },
     {
         "display_name": "👑 RAJESH KHANDELWAL OFFICIAL 👑",
         "username": "RAJESHKHANDELWALOFFICIAL",
         "domain": "https://rajeshkhandelwalofficial.com",
+        "primary_roles": ["REAL ESTATE COACH", "RELATIONSHIP AND INTIMACY COACH"],
+        "service_categories": [
+            "REAL ESTATE", "RELATIONSHIPS", "COUPLES", "INTIMACY EDUCATION",
+            "PERSONAL DEVELOPMENT"
+        ],
+        "audience_scope": ["BHARAT", "GLOBAL"],
+        "shared_ecosystem": True,
     },
     {
         "display_name": "👑 DR RAJESH KHANDELWAL IBC 👑",
         "username": "DRRAJESHKHANDELWALIBC",
         "domain": "https://drrajeshkhandelwalibc.com",
+        "primary_roles": ["GLOBAL BUSINESS COACH", "INDEPENDENT BUSINESS CONSULTANT"],
+        "service_categories": [
+            "BUSINESS COACHING", "BUSINESS CONSULTING", "ENTREPRENEURSHIP",
+            "BUSINESS GROWTH", "BUSINESS BUILDING", "INCOME OPPORTUNITIES"
+        ],
+        "audience_scope": ["BHARAT", "GLOBAL"],
+        "shared_ecosystem": True,
     },
     {
         "display_name": "👑 DR RAJESH KHANDELWAL IBC OFFICIAL 👑",
         "username": "DRRAJESHKHANDELWALIBCOFFICIAL",
         "domain": "https://drrajeshkhandelwalibcofficial.com",
+        "primary_roles": ["BUSINESS ADVISOR", "FOUNDER AND CEO"],
+        "service_categories": [
+            "BUSINESS ADVISORY", "FOUNDER AND CEO", "COMPANY SETUP",
+            "LEADERSHIP", "OPERATIONS", "BUSINESS STRATEGY",
+            "PROFESSIONAL BUSINESS SERVICES"
+        ],
+        "audience_scope": ["BHARAT", "GLOBAL"],
+        "shared_ecosystem": True,
     },
 ]
 
