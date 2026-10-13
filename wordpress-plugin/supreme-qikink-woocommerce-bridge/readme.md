@@ -8,7 +8,7 @@ This plugin is a guarded integration between WooCommerce and Qikink's Open API. 
 - Every product or variation must have an exact Qikink SKU saved in its product data.
 - If you use a design supplied through the Qikink "My Products" catalogue, leave all optional design fields empty. If using a custom design API flow, supply the design code, publicly accessible HTTPS design and mockup URLs, placement SKU, and positive width/height in inches.
 - COD is not enabled by this initial bridge. Do not enable COD checkout expecting automatic Qikink submission.
-- The plugin marks a submission as in progress before sending it and intentionally does not automatically retry ambiguous failures, to reduce duplicate orders. Check Qikink's dashboard before any manual recovery.
+- The plugin atomically claims an order by adding its `submitting` status before sending the supplier request, preventing concurrent payment-complete hooks from both submitting the same order. It intentionally does not automatically retry ambiguous failures. Check Qikink's dashboard before any manual recovery.
 - The integration must first be tested with Qikink Sandbox credentials. Qikink may require sandbox test orders and approval before issuing Live API access.
 - No live order is sent unless `SUPREME_QIKINK_ENABLE_ORDERS` is explicitly set to boolean `true`.
 
