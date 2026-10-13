@@ -1,3 +1,37 @@
+<!-- SUPREME LANGUAGE SELECTOR: English / Hindi / Hinglish -->
+<div class="supreme-language-control" role="group" aria-label="Choose language">
+  <label for="supreme-language">🌐 LANGUAGE / भाषा</label>
+  <select id="supreme-language" name="language">
+    <option value="en">ENGLISH</option>
+    <option value="hi">हिन्दी (HINDI)</option>
+    <option value="hinglish" selected>HINGLISH</option>
+  </select>
+  <span class="supreme-language-note">Language preference · भाषा विकल्प</span>
+</div>
+<script>
+(function(){
+  "use strict";
+  var control=document.getElementById("supreme-language");
+  if(!control) return;
+  var labels={en:{lang:"en"},hi:{lang:"hi"},hinglish:{lang:"hi-Latn"}};
+  function apply(value){
+    var item=labels[value]||{lang:value};
+    document.documentElement.setAttribute("lang",item.lang);
+    document.documentElement.setAttribute("data-supreme-language",value);
+    if(document.body) document.body.setAttribute("data-supreme-language",value);
+    try{localStorage.setItem("supreme-language",value);}catch(error){}
+  }
+  var saved="hinglish";
+  try{saved=localStorage.getItem("supreme-language")||"hinglish";}catch(error){}
+  if(!labels[saved]) saved="hinglish";
+  control.value=saved;apply(saved);
+  control.addEventListener("change",function(){apply(control.value);document.dispatchEvent(new CustomEvent("supreme:languagechange",{detail:{language:control.value}}));});
+  document.addEventListener("DOMContentLoaded",function(){document.dispatchEvent(new CustomEvent("supreme:languagechange",{detail:{language:control.value}}));});
+  document.dispatchEvent(new CustomEvent("supreme:languagechange",{detail:{language:control.value}}));
+})();
+</script>
+
+
 <link rel="stylesheet" href="https://supremesetuhub-3v4e.onrender.com/api/v1/frontend/supreme/style.css">
 
 
@@ -78,13 +112,6 @@
     <h2 class="HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-REAL-ESTATE-COACH">
         &#127969; REAL ESTATE COACH &#127969;
     </h2>
-
-
-    <h2 class="HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-AND-INTIMACY-COACH">
-        &#10084;&#65039; RELATIONSHIP &amp; INTIMACY COACH &#10084;&#65039;
-    </h2>
-
-
 <p class="HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-DESCRIPTION">
 
     &#128640; BUILDING SMART, SCALABLE &amp; FUTURE-READY BUSINESS SYSTEMS
@@ -268,25 +295,7 @@
         </p>
 
     </div>
-
-
-    <div class="HOME-WHAT-I-DO-ITEM">
-
-        <h3 class="HOME-WHAT-I-DO-RELATIONSHIP-AND-INTIMACY-COACH">
-            &#10084;&#65039; RELATIONSHIP &amp; INTIMACY COACH
-        </h3>
-
-        <p>
-            PROVIDING PRIVATE, RESPECTFUL &amp; MATURE
-            GUIDANCE FOR RELATIONSHIPS, COMMUNICATION,
-            INTIMACY, PERSONAL BOUNDARIES &amp;
-            COUPLE-RELATED CONCERNS.
-        </p>
-
-    </div>
-
-
-    <p class="HOME-WHAT-I-DO-CLOSING">
+<p class="HOME-WHAT-I-DO-CLOSING">
         &#127470;&#127475; FROM BHARAT TO THE GLOBAL WORLD —
         CONNECTING BUSINESS, PEOPLE, STRATEGY,
         TECHNOLOGY, OPPORTUNITIES &amp; LONG-TERM VALUE.
@@ -456,32 +465,287 @@
     </h2>
 
 
-    <h2 class="HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-AND-INTIMACY-COACH">
-        &#10084;&#65039; RELATIONSHIP &amp; INTIMACY COACH &#10084;&#65039;
-    </h2>
+<!-- SUPREME SOCIAL HUB: unified social + professional front-end foundation -->
+<section class="supreme-social-hub" id="supreme-social-hub" aria-label="Supreme Social Hub">
+  <header class="ssh-topbar">
+    <a class="ssh-brand" href="#supreme-social-hub">👑 SUPREME SETU HUB</a>
+    <label class="ssh-search"><span aria-hidden="true">🔎</span><input type="search" placeholder="Search people, posts, services..." aria-label="Search people, posts, services"></label>
+    <nav class="ssh-top-actions" aria-label="Main navigation">
+      <button type="button" data-ssh-view="feed">🏠 HOME</button>
+      <button type="button" data-ssh-view="messages">💬 MESSAGES</button>
+      <button type="button" data-ssh-view="network">🤝 NETWORK</button>
+    </nav>
+  </header>
+  <div class="ssh-layout">
+    <aside class="ssh-sidebar">
+      <div class="ssh-profile">
+        <img src="https://rajeshkhandelwalofficial.com/wp-content/uploads/2026/03/DR-RAJESH-KHANDELWAL-IBC-K1-3.jpg" alt="DR RAJESH KHANDELWAL IBC">
+        <strong>DR RAJESH KHANDELWAL IBC</strong>
+        <span>GLOBAL BUSINESS COACH</span>
+        <span>INDEPENDENT BUSINESS CONSULTANT</span>
+      </div>
+      <nav class="ssh-side-nav" aria-label="Social areas">
+        <button type="button" class="is-active" data-ssh-view="feed">🏠 Social Feed</button>
+        <button type="button" data-ssh-view="stories">⭕ Stories</button>
+        <button type="button" data-ssh-view="messages">💬 Messages</button>
+        <button type="button" data-ssh-view="network">💼 Professional Network</button>
+        <button type="button" data-ssh-view="communities">👥 Communities</button>
+        <button type="button" data-ssh-view="services">🛍️ Services & Opportunities</button>
+      </nav>
+      <p class="ssh-note">One connected front-end for social, professional and business discovery.</p>
+    </aside>
+    <main class="ssh-main">
+      <section class="ssh-panel ssh-view is-visible" data-ssh-panel="feed">
+        <div class="ssh-welcome"><div><span class="ssh-eyebrow">YOUR DIGITAL COMMUNITY</span><h2>Connect. Share. Grow.</h2><p>Social updates and professional opportunities in one place.</p></div><span class="ssh-orb">🌐</span></div>
+        <section class="ssh-stories" aria-label="Stories"><h3>STORIES</h3><div class="ssh-story-row">
+          <button type="button" class="ssh-story"><span>＋</span><small>Add story</small></button>
+          <button type="button" class="ssh-story"><span>💡</span><small>Ideas</small></button>
+          <button type="button" class="ssh-story"><span>🚀</span><small>Business</small></button>
+          <button type="button" class="ssh-story"><span>🎓</span><small>Learning</small></button>
+          <button type="button" class="ssh-story"><span>🌍</span><small>Community</small></button>
+        </div></section>
+        <form class="ssh-composer" id="ssh-post-form"><div class="ssh-composer-head"><span class="ssh-avatar">RK</span><label for="ssh-post-text">Share an update, idea or opportunity</label></div><textarea id="ssh-post-text" rows="3" placeholder="What would you like to share with your community?"></textarea><div class="ssh-composer-actions"><span>📷 Media UI · 💼 Professional update</span><button type="submit">＋ PUBLISH POST</button></div><p class="ssh-demo-hint">Front-end preview: posts appear in this browser view only until connected to a secure backend.</p></form>
+        <div class="ssh-feed" id="ssh-feed">
+          <article class="ssh-post"><div class="ssh-post-author"><span class="ssh-avatar">RK</span><div><strong>DR RAJESH KHANDELWAL IBC</strong><small>Business • Community update</small></div><span class="ssh-post-menu">•••</span></div><p>🌍 Building a connected digital ecosystem where people, professionals, businesses, services and opportunities can discover one another.</p><div class="ssh-post-tags">#SUPREMESETUHUB　#DIGITALBHARAT　#BUSINESS</div><div class="ssh-post-actions"><button type="button" data-ssh-react>♡ LIKE <span>0</span></button><button type="button" data-ssh-comment>💬 COMMENT</button><button type="button" data-ssh-share>↗ SHARE</button></div><div class="ssh-comment-box" hidden><input type="text" placeholder="Write a comment..." aria-label="Write a comment"><button type="button" data-ssh-submit-comment>POST</button></div></article>
+          <article class="ssh-post"><div class="ssh-post-author"><span class="ssh-avatar ssh-avatar-blue">SH</span><div><strong>SKILLS & OPPORTUNITIES</strong><small>Community • Starter card</small></div></div><p>💡 Use this space to share useful skills, genuine opportunities, project updates and lessons learned. Be respectful and verify offers before paying anyone.</p><div class="ssh-post-actions"><button type="button" data-ssh-react>♡ LIKE <span>0</span></button><button type="button" data-ssh-comment>💬 COMMENT</button><button type="button" data-ssh-share>↗ SHARE</button></div><div class="ssh-comment-box" hidden><input type="text" placeholder="Write a comment..." aria-label="Write a comment"><button type="button" data-ssh-submit-comment>POST</button></div></article>
+        </div>
+      </section>
+      <section class="ssh-panel ssh-view" data-ssh-panel="stories"><div class="ssh-section-heading"><span>⭕</span><div><h2>Stories</h2><p>Short updates and community moments.</p></div></div><div class="ssh-feature-grid"><article>💡<h3>IDEAS</h3><p>Share a thought or useful lesson.</p></article><article>🚀<h3>BUSINESS</h3><p>Highlight a project or milestone.</p></article><article>🎓<h3>LEARNING</h3><p>Share skills and learning resources.</p></article></div><p class="ssh-demo-hint">Story upload and expiry require backend/media integration.</p></section>
+      <section class="ssh-panel ssh-view" data-ssh-panel="messages"><div class="ssh-section-heading"><span>💬</span><div><h2>Messages</h2><p>Messaging interface foundation.</p></div></div><div class="ssh-message-layout"><div class="ssh-contact-list"><button type="button" class="is-selected">👤 Community inbox <small>Connect messaging service to load chats</small></button><button type="button">💼 Business enquiries <small>Contact and lead conversations</small></button></div><div class="ssh-chat-placeholder"><span>✉️</span><h3>Your conversations will appear here</h3><p>Real-time delivery, private chat and notifications need authenticated backend services.</p></div></div></section>
+      <section class="ssh-panel ssh-view" data-ssh-panel="network"><div class="ssh-section-heading"><span>💼</span><div><h2>Professional Network</h2><p>Profiles, expertise and collaboration opportunities.</p></div></div><div class="ssh-feature-grid"><article>🧑‍💻<h3>PROFESSIONALS</h3><p>Discover people by skills and experience.</p><button type="button" data-ssh-demo>EXPLORE</button></article><article>🏢<h3>BUSINESSES</h3><p>Showcase a business, services and projects.</p><button type="button" data-ssh-demo>EXPLORE</button></article><article>🤝<h3>COLLABORATION</h3><p>Find partners and project opportunities.</p><button type="button" data-ssh-demo>EXPLORE</button></article></div></section>
+      <section class="ssh-panel ssh-view" data-ssh-panel="communities"><div class="ssh-section-heading"><span>👥</span><div><h2>Communities</h2><p>Topic-based spaces for discussion and discovery.</p></div></div><div class="ssh-feature-grid"><article>🌱<h3>STUDENTS & SKILLS</h3><p>Learning, careers and skill development.</p><button type="button" data-ssh-demo>VIEW COMMUNITY</button></article><article>📈<h3>BUSINESS OWNERS</h3><p>Business systems, marketing and growth.</p><button type="button" data-ssh-demo>VIEW COMMUNITY</button></article><article>🌐<h3>DIGITAL BHARAT</h3><p>Technology, digital services and ideas.</p><button type="button" data-ssh-demo>VIEW COMMUNITY</button></article></div></section>
+      <section class="ssh-panel ssh-view" data-ssh-panel="services"><div class="ssh-section-heading"><span>🛍️</span><div><h2>Services & Opportunities</h2><p>Discover professional services and business resources.</p></div></div><div class="ssh-feature-grid"><article>🧠<h3>BUSINESS CONSULTING</h3><p>Strategy, systems and practical business guidance.</p><a href="https://wa.me/917611967229" target="_blank" rel="noopener noreferrer">ENQUIRE ↗</a></article><article>💻<h3>DIGITAL SERVICES</h3><p>Websites and digital business presence.</p><a href="https://rajeshkhandelwalofficial.com/global-business-ecosystem/" target="_blank" rel="noopener noreferrer">EXPLORE ↗</a></article><article>📚<h3>LEARNING RESOURCES</h3><p>Explore learning and entrepreneurship resources.</p><a href="https://www.badabusiness.com/lfp?pp_code=BIRK076336" target="_blank" rel="noopener noreferrer">LEARN MORE ↗</a></article></div></section>
+    </main>
+    <aside class="ssh-rightbar"><section class="ssh-right-card"><span class="ssh-eyebrow">YOUR SPACE</span><h3>Build your presence</h3><p>Complete your profile and connect with relevant communities when account services are integrated.</p><button type="button" data-ssh-view="network">VIEW NETWORK</button></section><section class="ssh-right-card"><span class="ssh-eyebrow">SAFETY FIRST</span><h3>Trust & transparency</h3><p>Keep personal data private. Verify opportunities, report abuse and review permissions before connecting services.</p></section><section class="ssh-right-card ssh-provider-card"><span>🔗</span><div><strong>Connected ecosystem vision</strong><small>Social • Professional • Business</small></div></section></aside>
+  </div>
+  <footer class="ssh-footer">SUPREME SETU HUB · SOCIAL & PROFESSIONAL FRONT-END FOUNDATION</footer>
+</section>
+<script>
+(function(){
+  "use strict";
+  var hub=document.getElementById("supreme-social-hub");
+  if(!hub) return;
+  var translations={
+    en:{
+      "YOUR DIGITAL COMMUNITY":"YOUR DIGITAL COMMUNITY","Connect. Share. Grow.":"Connect. Share. Grow.","Social updates and professional opportunities in one place.":"Social updates and professional opportunities in one place.",
+      "STORIES":"STORIES","Add story":"Add story","Ideas":"Ideas","Business":"Business","Learning":"Learning","Community":"Community",
+      "Share an update, idea or opportunity":"Share an update, idea or opportunity","What would you like to share with your community?":"What would you like to share with your community?",
+      "PUBLISH POST":"PUBLISH POST","Front-end preview: posts appear in this browser view only until connected to a secure backend.":"Front-end preview: posts appear in this browser view only until connected to a secure backend.",
+      "Social Feed":"Social Feed","Professional Network":"Professional Network","Services & Opportunities":"Services & Opportunities","Messages":"Messages","Communities":"Communities","🏠 Social Feed":"🏠 Social Feed","⭕ Stories":"⭕ Stories","💬 Messages":"💬 Messages","💼 Professional Network":"💼 Professional Network","👥 Communities":"👥 Communities","🛍️ Services & Opportunities":"🛍️ Services & Opportunities",
+      "Messages":"Messages","Messaging interface foundation.":"Messaging interface foundation.","Your conversations will appear here":"Your conversations will appear here",
+      "Real-time delivery, private chat and notifications need authenticated backend services.":"Real-time delivery, private chat and notifications need authenticated backend services.",
+      "Build your presence":"Build your presence","Trust & transparency":"Trust & transparency","Connect a business, services and projects":"Connect a business, services and projects"
+    },
+    hi:{
+      "YOUR DIGITAL COMMUNITY":"आपका डिजिटल समुदाय","Connect. Share. Grow.":"जुड़ें। साझा करें। आगे बढ़ें।","Social updates and professional opportunities in one place.":"सोशल अपडेट और प्रोफेशनल अवसर—एक ही जगह।",
+      "STORIES":"स्टोरीज़","Add story":"स्टोरी जोड़ें","Ideas":"विचार","Business":"व्यवसाय","Learning":"सीखना","Community":"समुदाय",
+      "Share an update, idea or opportunity":"अपडेट, विचार या अवसर साझा करें","What would you like to share with your community?":"आप अपने समुदाय के साथ क्या साझा करना चाहेंगे?",
+      "PUBLISH POST":"पोस्ट प्रकाशित करें","Front-end preview: posts appear in this browser view only until connected to a secure backend.":"फ्रंटएंड प्रीव्यू: सुरक्षित बैकएंड से जुड़ने तक पोस्ट केवल इसी ब्राउज़र में दिखेंगी।",
+      "Social Feed":"सोशल फ़ीड","Professional Network":"प्रोफेशनल नेटवर्क","Services & Opportunities":"सेवाएँ और अवसर","Messages":"संदेश","Communities":"समुदाय","🏠 Social Feed":"🏠 सोशल फ़ीड","⭕ Stories":"⭕ स्टोरीज़","💬 Messages":"💬 संदेश","💼 Professional Network":"💼 प्रोफेशनल नेटवर्क","👥 Communities":"👥 समुदाय","🛍️ Services & Opportunities":"🛍️ सेवाएँ और अवसर",
+      "Messaging interface foundation.":"मैसेजिंग इंटरफ़ेस का आधार।","Your conversations will appear here":"आपकी बातचीत यहाँ दिखाई देगी",
+      "Real-time delivery, private chat and notifications need authenticated backend services.":"रीयल-टाइम संदेश, निजी चैट और नोटिफ़िकेशन के लिए सुरक्षित लॉगिन वाला बैकएंड चाहिए।",
+      "Build your presence":"अपनी पहचान बनाएँ","Trust & transparency":"विश्वास और पारदर्शिता"
+    },
+    hinglish:{
+      "YOUR DIGITAL COMMUNITY":"AAPKI DIGITAL COMMUNITY","Connect. Share. Grow.":"CONNECT KARO. SHARE KARO. GROW KARO.","Social updates and professional opportunities in one place.":"Social updates aur professional opportunities — ek hi jagah.",
+      "STORIES":"STORIES","Add story":"Story add karo","Ideas":"Ideas","Business":"Business","Learning":"Learning","Community":"Community",
+      "Share an update, idea or opportunity":"Update, idea ya opportunity share karo","What would you like to share with your community?":"Apni community ke saath kya share karna chahoge?",
+      "PUBLISH POST":"POST PUBLISH KARO","Front-end preview: posts appear in this browser view only until connected to a secure backend.":"Front-end preview: secure backend connect hone tak posts sirf isi browser mein dikhenge.",
+      "Social Feed":"Social Feed","Professional Network":"Professional Network","Services & Opportunities":"Services & Opportunities","Messages":"Messages","Communities":"Communities",
+      "Messaging interface foundation.":"Messaging interface ka foundation.","Your conversations will appear here":"Aapki conversations yahan dikhenge",
+      "Real-time delivery, private chat and notifications need authenticated backend services.":"Real-time messages, private chat aur notifications ke liye secure login wala backend chahiye.",
+      "Build your presence":"Apni presence build karo","Trust & transparency":"Trust aur transparency"
+    }
+  };
+  function applyHubLanguage(language){
+    var dictionary=translations[language]||translations.hinglish;
+    var walker=document.createTreeWalker(hub,NodeFilter.SHOW_TEXT);
+    var nodes=[],node;
+    while((node=walker.nextNode())) nodes.push(node);
+    nodes.forEach(function(textNode){
+      if(typeof textNode.__sshOriginalText==="undefined") textNode.__sshOriginalText=textNode.nodeValue;
+      var original=textNode.__sshOriginalText;
+      var key=original.trim();
+      textNode.nodeValue=dictionary[key]?original.replace(key,dictionary[key]):original;
+    });
+    var placeholders={
+      en:{"Search people, posts, services...":"Search people, posts, services...","Write a comment...":"Write a comment..."},
+      hi:{"Search people, posts, services...":"लोग, पोस्ट और सेवाएँ खोजें...","Write a comment...":"कमेंट लिखें..."},
+      hinglish:{"Search people, posts, services...":"People, posts, services search karo...","Write a comment...":"Comment likho..."}
+    }[language]||{};
+    hub.querySelectorAll("input[placeholder],textarea[placeholder]").forEach(function(el){
+      if(typeof el.__sshOriginalPlaceholder==="undefined")el.__sshOriginalPlaceholder=el.getAttribute("placeholder");
+      var key=el.__sshOriginalPlaceholder;el.setAttribute("placeholder",placeholders[key]||key);
+    });
+    hub.setAttribute("lang",language==="hi"?"hi":language==="en"?"en":"hi-Latn");
+  }
+  document.addEventListener("supreme:languagechange",function(e){applyHubLanguage(e.detail&&e.detail.language);});
+  var currentLanguage="hinglish";try{currentLanguage=localStorage.getItem("supreme-language")||"hinglish";}catch(error){}applyHubLanguage(currentLanguage);
+  function showView(name){
+    hub.querySelectorAll("[data-ssh-panel]").forEach(function(p){p.classList.toggle("is-visible",p.getAttribute("data-ssh-panel")===name);});
+    hub.querySelectorAll("[data-ssh-view]").forEach(function(b){b.classList.toggle("is-active",b.getAttribute("data-ssh-view")===name);});
+  }
+  hub.addEventListener("click",function(e){
+    var view=e.target.closest("[data-ssh-view]");
+    if(view){showView(view.getAttribute("data-ssh-view"));return;}
+    var react=e.target.closest("[data-ssh-react]");
+    if(react){var count=react.querySelector("span");var liked=react.classList.toggle("is-liked");count.textContent=String(Math.max(0,Number(count.textContent)+(liked?1:-1)));react.firstChild.textContent=liked?"♥ LIKE ":"♡ LIKE ";return;}
+    var comment=e.target.closest("[data-ssh-comment]");
+    if(comment){var box=comment.closest(".ssh-post").querySelector(".ssh-comment-box");box.hidden=!box.hidden;return;}
+    var submit=e.target.closest("[data-ssh-submit-comment]");
+    if(submit){var input=submit.parentElement.querySelector("input");if(input.value.trim()){var note=document.createElement("p");note.className="ssh-local-comment";note.textContent="You: "+input.value.trim();submit.parentElement.before(note);input.value="";}return;}
+    var share=e.target.closest("[data-ssh-share]");
+    if(share){if(navigator.share){navigator.share({title:"SUPREME SETU HUB",text:"Explore this community update."}).catch(function(){});}else{var old=share.textContent;share.textContent="✓ READY TO SHARE";setTimeout(function(){share.textContent=old;},1600);}return;}
+    var demo=e.target.closest("[data-ssh-demo]");
+    if(demo){demo.textContent="COMING SOON";demo.disabled=true;}
+  });
+  hub.addEventListener("submit",function(e){
+    if(e.target.id!=="ssh-post-form") return;
+    e.preventDefault();
+    var field=hub.querySelector("#ssh-post-text"), value=field.value.trim();
+    if(!value) return;
+    var article=document.createElement("article");article.className="ssh-post";
+    var author=document.createElement("div");author.className="ssh-post-author";
+    var avatar=document.createElement("span");avatar.className="ssh-avatar";avatar.textContent="RK";
+    var info=document.createElement("div");var name=document.createElement("strong");name.textContent="DR RAJESH KHANDELWAL IBC";var meta=document.createElement("small");meta.textContent="Just now · Local preview";info.append(name,meta);author.append(avatar,info);
+    var body=document.createElement("p");body.textContent=value;
+    var actions=document.createElement("div");actions.className="ssh-post-actions";actions.innerHTML='<button type="button" data-ssh-react>♡ LIKE <span>0</span></button><button type="button" data-ssh-comment>💬 COMMENT</button><button type="button" data-ssh-share>↗ SHARE</button>';
+    var comments=document.createElement("div");comments.className="ssh-comment-box";comments.hidden=true;comments.innerHTML='<input type="text" placeholder="Write a comment..." aria-label="Write a comment"><button type="button" data-ssh-submit-comment>POST</button>';
+    article.append(author,body,actions,comments);hub.querySelector("#ssh-feed").prepend(article);field.value="";
+  });
+})();
+</script>
 
-
-<!-- RELATIONSHIP & INTIMACY COACH -->
-
-<p class="HOME-RELATIONSHIP-INTIMACY-COACH-INTRO">
-    &#10084;&#65039; RELATIONSHIP &amp; INTIMACY COACH —
-    PRIVATE &amp; RESPECTFUL GUIDANCE FOR
-    RELATIONSHIP, COMMUNICATION, INTIMACY,
-    PERSONAL BOUNDARIES &amp; COUPLE-RELATED CONCERNS.
-    CONFIDENTIAL CONSULTATION FOR PEOPLE
-    WHO WANT PRACTICAL &amp; MATURE GUIDANCE.
-</p>
-
-<a
-    href="https://wa.me/917611967229"
-    class="HOME-RELATIONSHIP-INTIMACY-COACH-LINK"
-    target="_blank"
-    rel="noopener noreferrer"
->
-    &#128222; 1 HOUR CONSULTANT — &#8377;999/-
-</a>
-
-
-
-
-    
+<!-- GLOBAL LANGUAGE + SPEECH TRANSLATION CONTROLS -->
+<section class="supreme-global-language-tools" aria-label="Global language and speech tools">
+  <div class="sglt-heading"><strong>🌍 GLOBAL LANGUAGE & LIVE SPEECH TRANSLATION</strong><span id="sglt-status" role="status">Loading language catalogue…</span></div>
+  <p class="sglt-note">Select a display language to translate page text. Translation sends text to the configured provider. Voice features require browser microphone permission and supported speech APIs.</p>
+  <div class="sglt-speech">
+    <label for="sglt-source">SPOKEN LANGUAGE</label>
+    <select id="sglt-source"><option value="auto">AUTO DETECT</option><option value="en">ENGLISH</option><option value="hi">हिन्दी</option><option value="gu">ગુજરાતી</option><option value="ar">العربية</option><option value="es">ESPAÑOL</option><option value="fr">FRANÇAIS</option><option value="zh">中文</option><option value="ja">日本語</option></select>
+    <button type="button" id="sglt-start">🎙️ START LIVE VOICE TRANSLATION</button>
+    <button type="button" id="sglt-stop" disabled>STOP</button>
+    <label class="sglt-speak-label"><input id="sglt-speak" type="checkbox" checked> SPEAK TRANSLATION ALOUD</label>
+  </div>
+  <div class="sglt-caption" aria-live="polite"><strong>Original speech</strong><p id="sglt-original">Waiting for microphone input…</p><strong>Translated speech / captions</strong><p id="sglt-translated">Translated captions will appear here.</p></div>
+  <details class="sglt-programming"><summary>⌨️ PROGRAMMING LANGUAGES CATALOGUE</summary><div id="sglt-programming-list">Loading catalogue…</div></details>
+</section>
+<script>
+(function(){
+  "use strict";
+  var languageSelect=document.getElementById("supreme-language");
+  var status=document.getElementById("sglt-status");
+  var originalText=document.getElementById("sglt-original");
+  var translatedText=document.getElementById("sglt-translated");
+  var startButton=document.getElementById("sglt-start");
+  var stopButton=document.getElementById("sglt-stop");
+  var sourceSelect=document.getElementById("sglt-source");
+  var speakToggle=document.getElementById("sglt-speak");
+  var programmingList=document.getElementById("sglt-programming-list");
+  var recognition=null,active=false,translating=false;
+  var originalNodes=[];
+  function targetCode(){return languageSelect.value==="hinglish"?"hi":languageSelect.value;}
+  function safeStatus(message){if(status)status.textContent=message;}
+  function api(path,body){
+    return fetch("https://supremesetuhub-3v4e.onrender.com/api/v1/languages/"+path,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)}).then(function(response){
+      return response.json().then(function(data){if(!response.ok)throw new Error((data.detail&&data.detail.message)||data.detail||"Translation request failed");return data;});
+    });
+  }
+  function addLanguageOptions(items){
+    if(!languageSelect)return;
+    var existing={};Array.prototype.forEach.call(languageSelect.options,function(o){existing[o.value]=true;});
+    items.forEach(function(item){
+      if(!existing[item.code]){
+        var option=document.createElement("option");option.value=item.code;
+        option.textContent=item.native_name+" — "+item.name;
+        languageSelect.appendChild(option);existing[item.code]=true;
+      }
+      if(sourceSelect&&!Array.prototype.some.call(sourceSelect.options,function(o){return o.value===item.code;})){
+        var speechOption=document.createElement("option");speechOption.value=item.code;
+        speechOption.textContent=item.native_name+" — "+item.name;sourceSelect.appendChild(speechOption);
+      }
+    });
+  }
+  function collectOriginalNodes(){
+    originalNodes=[];
+    var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(node){
+        var parent=node.parentElement;
+        if(!parent||parent.closest("script,style,noscript,textarea,select,option,code,pre,[contenteditable=true],.sglt-caption,#sglt-status"))return NodeFilter.FILTER_REJECT;
+        if(!node.nodeValue.trim())return NodeFilter.FILTER_REJECT;
+        if(typeof node.__sgltOriginal==="undefined")node.__sgltOriginal=node.nodeValue;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var n;while((n=walker.nextNode()))originalNodes.push(n);
+  }
+  async function translateWholePage(){
+    var target=targetCode();
+    if(target==="en"){
+      collectOriginalNodes();originalNodes.forEach(function(n){n.nodeValue=n.__sgltOriginal;});
+      safeStatus("English selected. Original page text restored.");return;
+    }
+    collectOriginalNodes();
+    safeStatus("Translating page text…");
+    var translatedCount=0;
+    try{
+      for(var i=0;i<originalNodes.length;i+=40){
+        var nodes=originalNodes.slice(i,i+40);
+        var texts=nodes.map(function(n){return n.__sgltOriginal;});
+        var result=await api("translate/batch",{texts:texts,source:"auto",target:target});
+        result.translated_texts.forEach(function(value,index){nodes[index].nodeValue=value;translatedCount++;});
+      }
+      safeStatus("Page text translated ("+translatedCount+" text segments). Dynamic content may need translation again.");
+    }catch(error){
+      safeStatus("Translation unavailable: "+error.message+". Configure SUPREME_TRANSLATION_API_URL on the server.");
+    }
+  }
+  function mapSpeechLanguage(code){
+    var map={hi:"hi-IN",gu:"gu-IN",bn:"bn-IN",ta:"ta-IN",te:"te-IN",mr:"mr-IN",pa:"pa-IN",ur:"ur-PK",ar:"ar-SA",en:"en-US",es:"es-ES",fr:"fr-FR",de:"de-DE",zh:"zh-CN",ja:"ja-JP",ko:"ko-KR",pt:"pt-BR",ru:"ru-RU"};
+    return map[code]||code;
+  }
+  async function translateUtterance(text){
+    originalText.textContent=text;
+    try{
+      var result=await api("translate",{text:text,source:"auto",target:targetCode()});
+      translatedText.textContent=result.translated_text;
+      if(speakToggle.checked&&"speechSynthesis" in window){
+        window.speechSynthesis.cancel();
+        var utterance=new SpeechSynthesisUtterance(result.translated_text);
+        utterance.lang=mapSpeechLanguage(targetCode());window.speechSynthesis.speak(utterance);
+      }
+    }catch(error){translatedText.textContent="Translation unavailable: "+error.message;}
+  }
+  function stopRecognition(){
+    active=false;stopButton.disabled=true;startButton.disabled=false;
+    if(recognition){try{recognition.stop();}catch(error){}}
+    recognition=null;
+  }
+  startButton.addEventListener("click",function(){
+    var SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
+    if(!SpeechRecognition){translatedText.textContent="Live speech recognition is not supported in this browser. Try a current Chrome or Edge browser.";return;}
+    if(!window.isSecureContext){translatedText.textContent="Microphone access requires HTTPS or localhost.";return;}
+    recognition=new SpeechRecognition();recognition.continuous=true;recognition.interimResults=true;
+    recognition.lang=sourceSelect.value==="auto"?"en-US":mapSpeechLanguage(sourceSelect.value);
+    recognition.onresult=function(event){
+      var finalText="";
+      for(var i=event.resultIndex;i<event.results.length;i++){
+        var transcript=event.results[i][0].transcript;
+        if(event.results[i].isFinal)finalText+=transcript;
+        else originalText.textContent=transcript+" …";
+      }
+      if(finalText.trim())translateUtterance(finalText.trim());
+    };
+    recognition.onerror=function(event){translatedText.textContent="Speech recognition: "+event.error;};
+    recognition.onend=function(){if(active){try{recognition.start();}catch(error){stopRecognition();}}};
+    try{recognition.start();active=true;startButton.disabled=true;stopButton.disabled=false;translatedText.textContent="Listening…";}catch(error){translatedText.textContent="Could not start microphone: "+error.message;}
+  });
+  stopButton.addEventListener("click",stopRecognition);
+  if(languageSelect)languageSelect.addEventListener("change",translateWholePage);
+  fetch("https://supremesetuhub-3v4e.onrender.com/api/v1/languages/catalog").then(function(r){if(!r.ok)throw new Error("Catalogue unavailable");return r.json();}).then(function(data){
+    addLanguageOptions(data.human_languages||[]);
+    if(programmingList)programmingList.textContent=(data.programming_languages||[]).map(function(x){return x.name;}).join(" · ");
+    safeStatus(data.translation_provider_configured?"Language catalogue ready. Translation provider configured.":"Language catalogue ready. Live translation needs a server translation provider.");
+  }).catch(function(){safeStatus("Language catalogue unavailable; built-in options remain available.");});
+})();
+</script>

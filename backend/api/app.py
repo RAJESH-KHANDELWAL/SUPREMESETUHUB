@@ -11,6 +11,8 @@ from backend.auth.service import AuthenticationService
 from backend.supreme.config import USERNAME as SUPREME_OWNER_USERNAME
 
 from backend.api.auth import router as auth_router
+from backend.api.language_services import router as language_services_router
+from backend.api.product_ecosystem import router as product_ecosystem_router
 from backend.api.core_readiness import router as core_readiness_router
 from backend.api.storage_routes import router as storage_routes_router
 from backend.api.businesses import router as businesses_router
@@ -160,6 +162,8 @@ PUBLIC_API_PATHS = {
     "/api/v1/frontend/global-business-ecosystem",
     "/api/v1/frontend/global-business-ecosystem/health",
     "/api/v1/digital-marketplace/catalog",
+    "/api/v1/products/catalog",
+    "/api/v1/products/provider-readiness",
     "/api/v1/print-on-demand/public/catalog",
 }
 
@@ -312,6 +316,8 @@ def _require_ai_store_actor(
 # ============================================================
 
 app.include_router(auth_router)
+app.include_router(language_services_router)
+app.include_router(product_ecosystem_router)
 app.include_router(core_readiness_router)
 app.include_router(storage_routes_router)
 app.include_router(users_router)
