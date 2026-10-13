@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SUPREME Consented Behavioural Signal",
+  "description": "One authorised event or aggregate signal. Not a complete person profile or proof of intent.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["event_id", "event_type", "source_type", "purpose", "observed_at", "permission", "retention"],
+  "properties": {
+    "event_id": { "type": "string", "minLength": 1 },
+    "subject_pseudonymous_id": { "type": "string" },
+    "event_type": {
+      "type": "string",
+      "enum": ["interest_selected", "search_on_supreme", "product_view_on_supreme", "add_to_cart_on_supreme", "verified_purchase", "content_like_on_supreme", "share_on_supreme", "survey_answer", "feedback_submitted", "provider_aggregate_trend"]
+    },
+    "source_type": { "type": "string", "enum": ["supreme_first_party", "authorised_merchant", "official_platform_api", "user_import", "voluntary_research", "provider_aggregate"] },
+    "provider": { "type": "string" },
+    "purpose": { "type": "string", "minLength": 1 },
+    "observed_at": { "type": "string", "format": "date-time" },
+    "timezone": { "type": "string" },
+    "category": { "type": "string", "description": "Broad non-sensitive category only." },
+    "confidence": { "type": "string", "enum": ["explicit_user_choice", "high", "medium", "low", "aggregate_only", "unknown"] },
+    "permission": {
+      "type": "object",
+      "required": ["consent_or_authorisation_id", "purpose_authorised", "scope_authorised"],
+      "properties": {
+        "consent_or_authorisation_id": { "type": "string" },
+        "purpose_authorised": { "type": "boolean" },
+        "scope_authorised": { "type": "boolean" },
+        "provider_policy_checked_at": { "type": "string", "format": "date-time" },
+        "revoked": { "type": "boolean", "default": false }
+      },
+      "additionalProperties": false
+    },
+    "retention": {
+      "type": "object",
+      "required": ["delete_after"],
+      "properties": {
+        "delete_after": { "type": "string", "format": "date-time" },
+        "deleted_at": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "sensitive": { "type": "boolean", "default": false, "description": "Sensitive signals are excluded from marketing profiles and targeting." },
+    "aggregate_only": { "type": "boolean", "default": false },
+    "provenance_reference": { "type": "string" }
+  }
+}
