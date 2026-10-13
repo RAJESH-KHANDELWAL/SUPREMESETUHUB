@@ -6,13 +6,13 @@ This workflow deploys **only** the SUPREMESETUHUB Connector plugin files to an a
 
 In **Repository → Settings → Secrets and variables → Actions**, create these repository/environment secrets under the `production` environment:
 
-- `HOSTINGER_FTP_SERVER`: the FTP server hostname shown in Hostinger hPanel.
-- `HOSTINGER_FTP_USERNAME`: the FTP username shown in hPanel.
+- `HOSTINGER_FTP_SERVER`: `147.93.17.121` (enter the hostname/IP only; do not include `ftp://`).
+- `HOSTINGER_FTP_USERNAME`: `u664492673`.
 - `HOSTINGER_FTP_PASSWORD`: the FTP password (never commit or paste it into chat).
   
 Create this Actions variable under the same scope:
 
-- `HOSTINGER_WP_PLUGIN_DIR`: the exact remote directory from the FTP account's root, ending in `/wp-content/plugins/supremesetuhub-connector/`. Example only: `public_html/wp-content/plugins/supremesetuhub-connector/`. Use the actual path shown by Hostinger; do not assume the example is correct.
+- `HOSTINGER_WP_PLUGIN_DIR`: the exact remote directory from the FTP account's root, ending in `/wp-content/plugins/supremesetuhub-connector/`. For the FTP account shown in hPanel, start with `public_html/wp-content/plugins/supremesetuhub-connector/` because hPanel lists `public_html` as the upload folder. Confirm the FTP account's root mapping before the first production upload; do not use the absolute `/home/...` filesystem path as the FTP remote path.
 
 Use FTPS where supported. Do not enable this workflow until a current WordPress backup exists and the FTP path has been confirmed to be the correct site's plugin directory.
 
