@@ -1,13 +1,60 @@
-"""Metadata-only provider registry; no network calls are made."""
+"""Canonical provider and service-type registry for GLOBAL SERVER ECOSYSTEM.
+
+This module is metadata-only. It does not provision servers, establish VPNs,
+or connect to provider accounts.
+"""
+
+ROOT_ECOSYSTEM_ID = "GLOBAL-ECOSYSTEM"
+SERVER_ECOSYSTEM_ID = "GLOBAL-SERVER-ECOSYSTEM"
+
 PROVIDERS = [
- {"provider_id":"hostinger","name":"Hostinger Servers","status":"not_configured"},
- {"provider_id":"aws","name":"AWS Compute","status":"not_configured"},
- {"provider_id":"google","name":"Google Cloud Compute","status":"not_configured"},
- {"provider_id":"digitalocean","name":"DigitalOcean","status":"not_configured"},
- {"provider_id":"azure","name":"Microsoft Azure","status":"not_configured"},
+    {"provider_id": "hostinger", "ecosystem_id": "HOSTINGER-SERVER-ECOSYSTEM", "name": "HOSTINGER SERVER ECOSYSTEM", "parent_ecosystem_id": SERVER_ECOSYSTEM_ID, "provider_type": "web_hosting", "capabilities": ["wordpress-hosting", "domains", "mysql", "web-hosting"], "status": "not_configured"},
+    {"provider_id": "google", "ecosystem_id": "GOOGLE-SERVER-ECOSYSTEM", "name": "GOOGLE SERVER ECOSYSTEM", "parent_ecosystem_id": SERVER_ECOSYSTEM_ID, "provider_type": "cloud_compute", "capabilities": ["cloud-run", "compute-engine", "cloud-deployment"], "status": "not_configured"},
+    {"provider_id": "aws", "ecosystem_id": "AWS-SERVER-ECOSYSTEM", "name": "AWS SERVER ECOSYSTEM", "parent_ecosystem_id": SERVER_ECOSYSTEM_ID, "provider_type": "cloud_compute", "capabilities": ["compute", "containers", "cloud-deployment"], "status": "not_configured"},
+    {"provider_id": "microsoft", "ecosystem_id": "MICROSOFT-SERVER-ECOSYSTEM", "name": "MICROSOFT SERVER ECOSYSTEM", "parent_ecosystem_id": SERVER_ECOSYSTEM_ID, "provider_type": "cloud_compute", "capabilities": ["azure-virtual-machines", "azure-app-service", "cloud-deployment"], "status": "not_configured"},
+    {"provider_id": "oracle", "ecosystem_id": "ORACLE-SERVER-ECOSYSTEM", "name": "ORACLE SERVER ECOSYSTEM", "parent_ecosystem_id": SERVER_ECOSYSTEM_ID, "provider_type": "cloud_compute", "capabilities": ["compute", "virtual-machines", "cloud-deployment"], "status": "not_configured"},
+    {"provider_id": "digitalocean", "ecosystem_id": "DIGITALOCEAN-SERVER-ECOSYSTEM", "name": "DIGITALOCEAN SERVER ECOSYSTEM", "parent_ecosystem_id": SERVER_ECOSYSTEM_ID, "provider_type": "cloud_compute", "capabilities": ["droplets", "app-platform", "cloud-deployment"], "status": "not_configured"},
+    {"provider_id": "proton", "ecosystem_id": "PROTON-STORAGE-ECOSYSTEM", "name": "PROTON STORAGE ECOSYSTEM", "parent_ecosystem_id": SERVER_ECOSYSTEM_ID, "provider_type": "privacy_storage_service", "capabilities": ["proton-drive", "encrypted-file-storage"], "status": "catalog_only", "notes": "Storage/privacy service; not a general-purpose application server provider."},
+    {"provider_id": "mega", "ecosystem_id": "MEGA-STORAGE-ECOSYSTEM", "name": "MEGA STORAGE ECOSYSTEM", "parent_ecosystem_id": SERVER_ECOSYSTEM_ID, "provider_type": "cloud_file_storage", "capabilities": ["cloud-file-storage", "file-sharing"], "status": "catalog_only", "notes": "Cloud file-storage service; not a general-purpose application server provider."},
 ]
-def list_providers(): return [dict(p) for p in PROVIDERS]
+
+SERVICE_TYPES = [
+    {"service_type_id": "VPN-SERVER", "name": "VPN SERVER", "parent_ecosystem_id": SERVER_ECOSYSTEM_ID, "category": "networking", "capabilities": ["encrypted-tunnel", "remote-access", "site-to-site-vpn"], "status": "catalog_only"},
+    {"service_type_id": "VPS-SERVER", "name": "VPS SERVER", "parent_ecosystem_id": SERVER_ECOSYSTEM_ID, "category": "virtual_compute", "capabilities": ["virtual-machine", "root-or-admin-control", "self-managed-services"], "status": "catalog_only"},
+    {"service_type_id": "CLOUD-SERVER", "name": "CLOUD SERVER", "parent_ecosystem_id": SERVER_ECOSYSTEM_ID, "category": "cloud_compute", "capabilities": ["on-demand-compute", "scaling", "cloud-networking"], "status": "catalog_only"},
+    {"service_type_id": "WEB-SERVER", "name": "WEB SERVER", "parent_ecosystem_id": SERVER_ECOSYSTEM_ID, "category": "web-serving", "capabilities": ["http", "https", "reverse-proxy", "static-content"], "status": "catalog_only"},
+    {"service_type_id": "CLOUD-WEB-SERVER", "name": "CLOUD WEB SERVER", "parent_ecosystem_id": SERVER_ECOSYSTEM_ID, "category": "cloud-web-hosting", "capabilities": ["managed-web-deployment", "tls", "autoscaling-where-supported"], "status": "catalog_only"},
+]
+
+
+def _copy_record(record):
+    """Return an independent record and capabilities list."""
+    return {**record, "capabilities": list(record["capabilities"])}
+
+
+def list_providers():
+    """Return a copy of all hosting/storage provider metadata."""
+    return [_copy_record(provider) for provider in PROVIDERS]
+
+
 def get_provider(provider_id):
- for p in PROVIDERS:
-  if p["provider_id"] == provider_id.strip().lower(): return dict(p)
- raise KeyError(f"Unknown SERVER provider: {provider_id!r}")
+    """Return provider metadata by stable provider ID."""
+    normalized_id = provider_id.strip().lower()
+    for provider in PROVIDERS:
+        if provider["provider_id"] == normalized_id:
+            return _copy_record(provider)
+    raise KeyError(f"Unknown server provider: {provider_id!r}")
+
+
+def list_service_types():
+    """Return a copy of all server service-type metadata."""
+    return [_copy_record(service_type) for service_type in SERVICE_TYPES]
+
+
+def get_service_type(service_type_id):
+    """Return service-type metadata by stable ID."""
+    normalized_id = service_type_id.strip().upper().replace("_", "-")
+    for service_type in SERVICE_TYPES:
+        if service_type["service_type_id"] == normalized_id:
+            return _copy_record(service_type)
+    raise KeyError(f"Unknown server service type: {service_type_id!r}")
