@@ -33,6 +33,10 @@ Health: `http://127.0.0.1:8000/health`
 
 Copy `backend/.env.example` into your private deployment environment and set the owner identifiers and provider credentials there. Do not commit real emails, OAuth client secrets, WhatsApp tokens, webhook secrets, or AI API keys to GitHub.
 
+## SUPREME owner/admin Google identities
+
+SUPREME supports two separate private owner/admin Gmail identities and a separate security-recovery email through deployment environment variables. Configure `SUPREME_OWNER_PRIMARY_EMAIL`, `SUPREME_OWNER_SECONDARY_EMAIL`, and `SUPREME_OWNER_RECOVERY_EMAIL` in the private Render/service environment. Use the two owner Gmail addresses and the separately designated recovery address already supplied by the owner when configuring those variables. Do not publish these in frontend HTML, public APIs, logs, or Git-tracked environment files. The two owner/admin identities are contact/identity records only and do not independently grant login, owner permissions, or access to Google data.
+
 ## External integrations
 
 The SUPREME ECOSYSTEM is the control plane for authorized Google/Gmail, Microsoft Graph and WhatsApp Business integrations. A provider is not connected merely because it appears in configuration: each requires provider-side registration, OAuth/permissions, secure deployment secrets, and end-to-end tests. WhatsApp automated replies additionally require a verified Meta webhook, valid signature verification, approved messaging permissions and a configured AI responder.
