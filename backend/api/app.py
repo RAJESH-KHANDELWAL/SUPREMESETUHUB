@@ -194,13 +194,22 @@ async def private_by_default(request: Request, call_next):
             headers={"WWW-Authenticate": "Bearer"},
         )
 
-    result = authentication_service.validate_token(token)
-    if not result.get("authenticated"):
+    # Treat malformed tokens and validation-service failures as unauthenticated.
+    # Never let an invalid credential turn an auth check into an HTTP 500.
+    try:
+        result = authentication_service.validate_token(token)
+    except Exception:
+        result = None
+
+    if not isinstance(result, dict) or not result.get("authenticated"):
+        message = (
+            result.get("message", "INVALID_OR_EXPIRED_TOKEN")
+            if isinstance(result, dict)
+            else "INVALID_OR_EXPIRED_TOKEN"
+        )
         return JSONResponse(
             status_code=401,
-            content={
-                "detail": result.get("message", "INVALID_OR_EXPIRED_TOKEN"),
-            },
+            content={"detail": message},
             headers={"WWW-Authenticate": "Bearer"},
         )
 
