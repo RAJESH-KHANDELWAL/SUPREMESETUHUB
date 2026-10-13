@@ -246,6 +246,15 @@ async def private_by_default(request: Request, call_next):
     if path.startswith("/api/v1/print-on-demand/"):
         return await call_next(request)
 
+    # LINKSETU social endpoints use get_current_user and derive the actor from
+    # the validated token. Do not open the legacy experience routes to customers.
+    if (
+        path.startswith("/api/v1/linksetu/posts")
+        or path.startswith("/api/v1/linksetu/users/")
+        or path.startswith("/api/v1/linksetu/notifications")
+    ):
+        return await call_next(request)
+
     if not is_supreme_owner:
         return JSONResponse(
             status_code=403,
