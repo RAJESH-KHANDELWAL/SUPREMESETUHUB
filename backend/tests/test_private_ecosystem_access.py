@@ -26,6 +26,40 @@ def _request(path: str, token: str = "test-token") -> Request:
     )
 
 
+
+def test_private_middleware_returns_401_when_token_validation_raises(monkeypatch):
+    from backend.api import app as app_module
+
+    def broken_validator(_token):
+        raise RuntimeError("validation backend unavailable")
+
+    monkeypatch.setattr(app_module.authentication_service, "validate_token", broken_validator)
+
+    async def call_next(_request):
+        return Response("should not reach route", status_code=200)
+
+    response = asyncio.run(
+        app_module.private_by_default(_request("/api/v1/private/resource"), call_next)
+    )
+    assert response.status_code == 401
+    assert response.json()["detail"] == "INVALID_OR_EXPIRED_TOKEN"
+    assert response.headers["www-authenticate"] == "Bearer"
+
+
+def test_private_middleware_returns_401_when_validator_returns_non_dict(monkeypatch):
+    from backend.api import app as app_module
+
+    monkeypatch.setattr(app_module.authentication_service, "validate_token", lambda _token: None)
+
+    async def call_next(_request):
+        return Response("should not reach route", status_code=200)
+
+    response = asyncio.run(
+        app_module.private_by_default(_request("/api/v1/private/resource"), call_next)
+    )
+    assert response.status_code == 401
+    assert response.json()["detail"] == "INVALID_OR_EXPIRED_TOKEN"
+
 def test_private_ecosystem_routes_are_not_public_platform_entry_points():
     from backend.api.app import PUBLIC_API_PATHS
     assert "/users/register" in PUBLIC_API_PATHS
