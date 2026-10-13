@@ -75,3 +75,49 @@ def test_invalid_market_and_pagination_are_rejected(tmp_path):
             assert str(exc) == expected
         else:
             raise AssertionError(f"Expected {expected}")
+
+
+
+def test_save_design_rejects_slug_collision_with_another_design(tmp_path):
+    service = make_service(tmp_path)
+    seed_design(service)
+    try:
+        service.save_design({
+            "design_id": "DSN-002",
+            "title": "Different title",
+            "slug": "blue-bharat-poster",
+            "category": "poster",
+            "private_storage_key": "private/designs/original-002.zip",
+            "preview_url": "https://cdn.example.test/previews/second.webp",
+            "status": "PUBLISHED",
+            "prices": {"IN": 19900},
+        })
+    except ValueError as exc:
+        assert str(exc) == "SLUG_ALREADY_IN_USE"
+    else:
+        raise AssertionError("Expected slug collision to be rejected")
+
+
+def test_saving_design_replaces_active_market_price_set(tmp_path):
+    service = make_service(tmp_path)
+    base = {
+        "design_id": "DSN-NEW",
+        "title": "Flexible Asset",
+        "category": "template",
+        "private_storage_key": "private/assets/flexible.zip",
+        "preview_url": "https://cdn.example.test/previews/flexible.webp",
+        "asset_type": "TEMPLATE",
+        "file_format": "ZIP",
+        "status": "PUBLISHED",
+        "prices": {"IN": 49900, "GLOBAL": 599},
+    }
+    service.save_design(base)
+    assert service.catalog("GLOBAL")["count"] == 1
+
+    updated = {**base, "prices": {"IN": 29900}}
+    service.save_design(updated)
+
+    assert service.catalog("GLOBAL")["designs"] == []
+    result = service.catalog("IN")
+    assert result["count"] == 1
+    assert result["designs"][0]["price"] == "299.00"
