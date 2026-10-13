@@ -240,7 +240,10 @@ final class Supreme_Qikink_WooCommerce_Bridge {
             ),
         );
 
-        update_post_meta($order_id, self::META_STATUS, 'submitting');
+        // Atomically claim this order before any outbound request. A plain
+        // read-then-write allows two concurrent payment-complete hooks to submit
+        // duplicate supplier orders.
+        if (!add_post_meta($order_id, self::META_STATUS, 'submitting', true)) { return; }
         try {
             $token = self::token($config);
             $response = wp_remote_post($config['base_url'] . '/api/order/create', array(
