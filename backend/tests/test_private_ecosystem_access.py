@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import json
 
 import pytest
 from fastapi import HTTPException
@@ -42,7 +43,7 @@ def test_private_middleware_returns_401_when_token_validation_raises(monkeypatch
         app_module.private_by_default(_request("/api/v1/private/resource"), call_next)
     )
     assert response.status_code == 401
-    assert response.json()["detail"] == "INVALID_OR_EXPIRED_TOKEN"
+    assert json.loads(response.body)["detail"] == "INVALID_OR_EXPIRED_TOKEN"
     assert response.headers["www-authenticate"] == "Bearer"
 
 
