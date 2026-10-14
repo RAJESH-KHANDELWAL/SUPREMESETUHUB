@@ -39,6 +39,7 @@ from backend.api.supreme_ecosystem import router as supreme_ecosystem_router
 from backend.api.supreme_work_income import router as supreme_work_income_router
 from backend.api.supreme_whatsapp_ai import router as supreme_whatsapp_ai_router
 from backend.api.users import router as users_router
+from backend.api.organizations import router as organizations_router
 from backend.api.user_hub import router as user_hub_router
 from backend.api.ai import router as ai_router
 from backend.api.global_ai_ecosystem import router as global_ai_ecosystem_router
@@ -70,6 +71,9 @@ POD_JS_FILE = FRONTEND_DIR / "print-on-demand.js"
 SUPREME_FRONTEND_DIR = FRONTEND_DIR / "supreme"
 SUPREME_HTML_FILE = SUPREME_FRONTEND_DIR / "index.html"
 SUPREME_CSS_FILE = SUPREME_FRONTEND_DIR / "style.css"
+SUPREME_ECOSYSTEM_HTML_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem.html"
+SUPREME_ECOSYSTEM_CSS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem.css"
+SUPREME_ECOSYSTEM_JS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem.js"
 
 
 # ============================================================
@@ -159,6 +163,10 @@ PUBLIC_API_PATHS = {
     "/api/v1/frontend/supreme",
     "/api/v1/frontend/supreme/style.css",
     "/api/v1/frontend/supreme/health",
+    "/api/v1/frontend/supreme-ecosystem",
+    "/api/v1/frontend/supreme-ecosystem/style.css",
+    "/api/v1/frontend/supreme-ecosystem/script.js",
+    "/api/v1/frontend/supreme-ecosystem/health",
     "/api/v1/frontend/global-business-ecosystem",
     "/api/v1/frontend/global-business-ecosystem/health",
     "/api/v1/digital-marketplace/catalog",
@@ -330,6 +338,7 @@ app.include_router(product_ecosystem_router)
 app.include_router(core_readiness_router)
 app.include_router(storage_routes_router)
 app.include_router(users_router)
+app.include_router(organizations_router)
 app.include_router(identity_router)
 app.include_router(profiles_router)
 app.include_router(businesses_router)
@@ -454,6 +463,43 @@ def supreme_frontend_health():
         "frontend": "supreme",
         "html": SUPREME_HTML_FILE.is_file(),
         "css": SUPREME_CSS_FILE.is_file(),
+    }
+
+
+# ============================================================
+# SUPREME ECOSYSTEM FRONTEND
+# ============================================================
+
+@app.get("/api/v1/frontend/supreme-ecosystem")
+def supreme_ecosystem_frontend():
+    if not SUPREME_ECOSYSTEM_HTML_FILE.is_file():
+        raise HTTPException(status_code=404, detail="SUPREME ECOSYSTEM frontend HTML not found")
+    return FileResponse(SUPREME_ECOSYSTEM_HTML_FILE, media_type="text/html")
+
+
+@app.get("/api/v1/frontend/supreme-ecosystem/style.css")
+def supreme_ecosystem_frontend_css():
+    if not SUPREME_ECOSYSTEM_CSS_FILE.is_file():
+        raise HTTPException(status_code=404, detail="SUPREME ECOSYSTEM frontend CSS not found")
+    return FileResponse(SUPREME_ECOSYSTEM_CSS_FILE, media_type="text/css")
+
+
+@app.get("/api/v1/frontend/supreme-ecosystem/script.js")
+def supreme_ecosystem_frontend_js():
+    if not SUPREME_ECOSYSTEM_JS_FILE.is_file():
+        raise HTTPException(status_code=404, detail="SUPREME ECOSYSTEM frontend JavaScript not found")
+    return FileResponse(SUPREME_ECOSYSTEM_JS_FILE, media_type="application/javascript")
+
+
+@app.get("/api/v1/frontend/supreme-ecosystem/health")
+def supreme_ecosystem_frontend_health():
+    return {
+        "success": True,
+        "service": "SUPREMESETUHUB",
+        "frontend": "supreme-ecosystem",
+        "html": SUPREME_ECOSYSTEM_HTML_FILE.is_file(),
+        "css": SUPREME_ECOSYSTEM_CSS_FILE.is_file(),
+        "javascript": SUPREME_ECOSYSTEM_JS_FILE.is_file(),
     }
 
 
