@@ -3700,3 +3700,19 @@ section.HOME {
     margin-right: auto !important;
     overflow-x: clip !important;
 }
+
+/* HOME-CONTENT INNER WRAPPER — no duplicate frame */
+.HOME-CONTENT {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    box-sizing: border-box !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
