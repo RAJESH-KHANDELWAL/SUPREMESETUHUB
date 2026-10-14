@@ -5,10 +5,10 @@ from __future__ import annotations
 import secrets
 
 from fastapi import APIRouter, Depends, Header, HTTPException
-from pydantic import BaseModel
 
 from backend.auth.controller import AuthenticationController
 from backend.security.dependencies import get_current_user
+from backend.schemas.auth import AuthenticateRequest, SignInRequest, TokenRequest
 
 
 router = APIRouter(
@@ -18,20 +18,6 @@ router = APIRouter(
 
 controller = AuthenticationController()
 
-
-class SignInRequest(BaseModel):
-    username: str | None = None
-    password: str | None = None
-    master_id: str | None = None
-
-
-class AuthenticateRequest(BaseModel):
-    master_id: str
-
-
-class TokenRequest(BaseModel):
-    token: str | None = None
-    session_id: str | None = None
 
 
 @router.get("/initialize")

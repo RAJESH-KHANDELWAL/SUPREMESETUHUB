@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SUPREME ECOSYSTEM — a structured workspace for identity, organizations, business resources, and connected platform modules.">
+  <meta name="theme-color" content="#0b1b38">
+  <title>SUPREME ECOSYSTEM | SUPREMESETUHUB</title>
+  <link rel="stylesheet" href="/api/v1/frontend/supreme-ecosystem/style.css">
+  <script src="/api/v1/frontend/supreme-ecosystem/script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/api/v1/frontend/supreme-ecosystem" aria-label="SUPREME ECOSYSTEM home">
+      <span class="brand-mark" aria-hidden="true">S</span>
+      <span><strong>SUPREME ECOSYSTEM</strong><small>SUPREMESETUHUB FOUNDATION</small></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#foundation">FOUNDATION</a>
+      <a href="#modules">MODULES</a>
+      <a href="#api">API ROUTES</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> ONE BASE · CONNECTED MODULES</p>
+        <h1>SUPREME<br><span>ECOSYSTEM</span></h1>
+        <p class="lead">A clear foundation for authentication, people, organizations, businesses, and connected digital services — organized without creating duplicate core systems.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#modules">EXPLORE MODULES <span aria-hidden="true">↘</span></a>
+          <a class="button secondary" href="#api">VIEW API ROUTES</a>
+        </div>
+      </div>
+      <div class="hero-panel" aria-label="Foundation overview">
+        <div class="panel-heading"><span>FOUNDATION MAP</span><span class="panel-icon">⌘</span></div>
+        <div class="foundation-node main-node"><span class="node-icon">S</span><span><b>SUPREME ECOSYSTEM</b><small>Central foundation</small></span></div>
+        <div class="node-connector"></div>
+        <div class="node-grid">
+          <div class="foundation-node"><span class="mini-icon">ID</span><span><b>AUTH</b><small>Identity & sessions</small></span></div>
+          <div class="foundation-node"><span class="mini-icon">OR</span><span><b>ORGANIZATIONS</b><small>Registered entities</small></span></div>
+          <div class="foundation-node"><span class="mini-icon">BU</span><span><b>BUSINESSES</b><small>Business resources</small></span></div>
+          <div class="foundation-node"><span class="mini-icon">SC</span><span><b>SCHEMAS</b><small>Validated data</small></span></div>
+        </div>
+        <p class="panel-footnote">STRUCTURE OVERVIEW · NOT A LIVE SERVICE STATUS</p>
+      </div>
+    </section>
+
+    <section id="foundation" class="intro section-wrap">
+      <p class="eyebrow">THE BASE FOUNDATION</p>
+      <h2>One foundation. Clear responsibilities.</h2>
+      <p>Each module has a defined purpose. Authentication remains connected to the existing password and Bearer-token flow; organization and business data use their own validated request schemas.</p>
+    </section>
+
+    <section id="modules" class="modules section-wrap" aria-labelledby="modules-heading">
+      <div class="section-heading">
+        <div><p class="eyebrow">CORE MODULES</p><h2 id="modules-heading">Built around the existing system</h2></div>
+        <span class="section-index">01 — 04</span>
+      </div>
+      <div class="module-grid">
+        <article class="module-card"><span class="card-number">01</span><span class="card-icon">◈</span><h3>AUTHENTICATION</h3><p>Sign-in, token validation, and sign-out through the existing canonical authentication API.</p><code>/auth/signin</code></article>
+        <article class="module-card"><span class="card-number">02</span><span class="card-icon">▦</span><h3>ORGANIZATIONS</h3><p>Create, list, view, update, and delete organization records with owner-aware access checks.</p><code>/organizations/</code></article>
+        <article class="module-card"><span class="card-number">03</span><span class="card-icon">◇</span><h3>BUSINESS RESOURCES</h3><p>Use shared request validation for business records and their status updates.</p><code>/businesses/</code></article>
+        <article class="module-card"><span class="card-number">04</span><span class="card-icon">⌗</span><h3>DATA SCHEMAS</h3><p>Keep user, authentication, business, and organization request structures explicit and reusable.</p><code>backend/schemas/</code></article>
+      </div>
+    </section>
+
+    <section id="api" class="api-section">
+      <div class="section-wrap api-inner">
+        <div><p class="eyebrow">DEVELOPER REFERENCE</p><h2>API route map</h2><p class="api-description">These are route paths in the application. Protected endpoints require valid authentication; this page does not expose account data.</p></div>
+        <div class="api-list">
+          <div class="api-row"><span>AUTHENTICATION</span><code>/auth/signin</code><button type="button" data-copy="/auth/signin">COPY</button></div>
+          <div class="api-row"><span>USER ACCOUNTS</span><code>/users/signup</code><button type="button" data-copy="/users/signup">COPY</button></div>
+          <div class="api-row"><span>ORGANIZATIONS</span><code>/organizations/</code><button type="button" data-copy="/organizations/">COPY</button></div>
+          <div class="api-row"><span>BUSINESSES</span><code>/businesses/</code><button type="button" data-copy="/businesses/">COPY</button></div>
+          <div class="api-row"><span>HEALTH CHECK</span><code>/health</code><button type="button" data-copy="/health">COPY</button></div>
+        </div>
+        <p id="copy-feedback" class="copy-feedback" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>SUPREME ECOSYSTEM</span>
+    <span>ONE BASE FOUNDATION · MODULAR BY DESIGN</span>
+  </footer>
+</body>
+</html>
