@@ -9,3 +9,29 @@ button{cursor:pointer}
 button:disabled{opacity:.6;cursor:wait}
 input{max-width:100%}
 :focus-visible{outline:3px solid #6ea8ff;outline-offset:3px}
+
+/* =========================================================
+   SUPREME ECOSYSTEM — DEFAULT OWNER / BRAND IDENTITY SECTIONS
+   Shared baseline for the official brand and group class names.
+   Keep detailed page-specific styling in each page stylesheet.
+   ========================================================= */
+:is(
+  section.DR-RAJESH-KHANDELWAL-IBC,
+  section.DRRAJESHKHANDELWALIBC,
+  section.DR-RAJESH-KHANDELWAL-IBC-OFFICIAL,
+  section.DRRAJESHKHANDELWALIBCOFFICIAL,
+  section.RAJESH-KHANDELWAL,
+  section.RAJESHKHANDELWAL,
+  section.RAJESH-KHANDELWAL-OFFICIAL,
+  section.RAJESHKHANDELWALOFFICIAL,
+  section.KHANDELWAL-GROUP-AND-COMPANY,
+  section.KHANDELWALGROUPANDCOMPANY,
+  section.KHANDELWAL-GROUP-AND-COMPANIES,
+  section.KHANDELWALGROUPANDCOMPANIES
+) {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
