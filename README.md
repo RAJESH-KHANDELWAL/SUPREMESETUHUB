@@ -8,7 +8,7 @@ SUPREMESETUHUB is the central foundation for the SUPREME owner-controlled digita
 - `backend/core/global_ecosystem/global_core_ecosystem/catalog.py` — canonical `GLOBAL ECOSYSTEM → GLOBAL CORE ECOSYSTEM` hierarchy, with business, server, database, storage, security, API, AI, search, backup, logging, notifications, and settings core ecosystems registered beneath the core root.
 - `backend/api/global_ecosystem/global_api_ecosystem.py` — parallel API hierarchy; API-layer ecosystems remain separate from core-service ecosystems.
 - `backend/supreme/` — SUPREME core package and configuration.
-- `backend/supreme/ecosystem/` — SUPREME ECOSYSTEM modules, connectors, integrations, vault and ownership.
+- `backend/supreme/supreme_ecosystem/` — SUPREME ECOSYSTEM modules, connectors, integrations, vault and ownership.
 - `backend/supreme/config.py` — backend-side SUPREME configuration; private IDs and email values come from deployment environment variables.
 - `backend/supreme/identity_service.py` — backend-side SUPREME profile helpers.
 - `backend/api/supreme.py` — authenticated SUPREME API routes.
