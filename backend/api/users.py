@@ -3,14 +3,13 @@
 
 from __future__ import annotations
 
-import re
 import sqlite3
 from typing import Optional
 
 from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel, EmailStr, Field, field_validator
 
 from backend.users.controller import UserController
+from backend.schemas.user import PasswordVerifyRequest, UserCreateRequest, UserUpdateRequest
 
 
 router = APIRouter(
@@ -19,59 +18,6 @@ router = APIRouter(
 )
 
 controller = UserController()
-
-
-class UserCreateRequest(BaseModel):
-    """Request model for account creation."""
-
-    full_name: str = Field(..., min_length=1, max_length=120)
-    email: EmailStr
-    password: str = Field(..., min_length=8, max_length=128)
-    confirm_password: str = Field(..., min_length=8, max_length=128)
-
-    @field_validator("full_name")
-    @classmethod
-    def validate_full_name(cls, value: str) -> str:
-        value = value.strip()
-        if not value:
-            raise ValueError("Full name is required.")
-        return value
-
-    @field_validator("email")
-    @classmethod
-    def validate_gmail(cls, value: EmailStr) -> str:
-        email = str(value).strip().lower()
-        if not re.fullmatch(r"[a-zA-Z0-9._%+-]+@gmail\.com", email):
-            raise ValueError("Please enter a valid Gmail address.")
-        return email
-
-    @field_validator("confirm_password")
-    @classmethod
-    def validate_password_match(cls, value: str, info):
-        password = info.data.get("password")
-        if password and value != password:
-            raise ValueError("Passwords do not match.")
-        return value
-
-
-class UserUpdateRequest(BaseModel):
-    """Request model for updating user profile."""
-
-    full_name: Optional[str] = None
-    username: Optional[str] = None
-    email: Optional[EmailStr] = None
-    phone: Optional[str] = None
-    phone_no: Optional[str] = None
-    mobile_no: Optional[str] = None
-    whatsapp_no: Optional[str] = None
-    password: Optional[str] = None
-    role: Optional[str] = None
-    status: Optional[str] = None
-
-
-class PasswordVerifyRequest(BaseModel):
-    username: str
-    password: str
 
 
 @router.get("/")
