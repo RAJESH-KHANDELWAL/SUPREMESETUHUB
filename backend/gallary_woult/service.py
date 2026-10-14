@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import mimetypes
+import os
 import sqlite3
 import uuid
 from datetime import datetime, timezone
@@ -37,10 +38,10 @@ class GalleryWoultService:
 
     def __init__(
         self,
-        db_path: str = "main_base_foundation.db",
+        db_path: Optional[str] = None,
         storage_root: Optional[str] = None,
     ):
-        self.db_path = db_path
+        self.db_path = db_path or os.getenv("SUPREME_DB_PATH") or "main_base_foundation.db"
         self.object_store = GalleryWoultObjectStore(
             root=storage_root
         )
