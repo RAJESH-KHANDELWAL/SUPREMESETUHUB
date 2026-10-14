@@ -69,11 +69,12 @@ ROOT_FRONTEND_FILE = FRONTEND_DIR / "index.html"
 POD_JS_FILE = FRONTEND_DIR / "print-on-demand.js"
 
 SUPREME_FRONTEND_DIR = FRONTEND_DIR / "supreme"
-SUPREME_HTML_FILE = SUPREME_FRONTEND_DIR / "index.html"
-SUPREME_CSS_FILE = SUPREME_FRONTEND_DIR / "style.css"
+SUPREME_HTML_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "home-html.html"
+SUPREME_CSS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "home-css.css"
+SUPREME_JS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "home-js.js"
 SUPREME_ECOSYSTEM_HTML_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "supreme-ecosystem.html"
 SUPREME_ECOSYSTEM_CSS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "supreme-ecosystem.css"
-SUPREME_ECOSYSTEM_JS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem.js"
+SUPREME_ECOSYSTEM_JS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "supreme-ecosystem.js"
 
 
 # ============================================================
@@ -162,6 +163,7 @@ PUBLIC_API_PATHS = {
     "/api/v1/supreme-ecosystem/whatsapp/webhook",
     "/api/v1/frontend/supreme",
     "/api/v1/frontend/supreme/style.css",
+    "/api/v1/frontend/supreme/script.js",
     "/api/v1/frontend/supreme/health",
     "/api/v1/frontend/supreme-ecosystem",
     "/api/v1/frontend/supreme-ecosystem/style.css",
@@ -450,6 +452,13 @@ def supreme_frontend_css():
     )
 
 
+@app.get("/api/v1/frontend/supreme/script.js")
+def supreme_frontend_js():
+    if not SUPREME_JS_FILE.is_file():
+        raise HTTPException(status_code=404, detail="SUPREME frontend JavaScript not found")
+    return FileResponse(SUPREME_JS_FILE, media_type="application/javascript")
+
+
 # ============================================================
 # SUPREME FRONTEND STATUS
 # ============================================================
@@ -463,6 +472,7 @@ def supreme_frontend_health():
         "frontend": "supreme",
         "html": SUPREME_HTML_FILE.is_file(),
         "css": SUPREME_CSS_FILE.is_file(),
+        "javascript": SUPREME_JS_FILE.is_file(),
     }
 
 
