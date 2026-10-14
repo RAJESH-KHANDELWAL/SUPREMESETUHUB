@@ -3692,6 +3692,7 @@ section.HOME .HOME-PAGE-NAV a[aria-current="page"] {
 /* The outer section and inner .HOME both matched the shared root rule.
    Keep the gold frame on the inner .HOME only; prevent the outer section
    from creating a second frame or adding border width beyond the viewport. */
+section.HOME,
 section.DR-RAJESH-KHANDELWAL-IBC {
     width: 100% !important;
     max-width: 100% !important;
