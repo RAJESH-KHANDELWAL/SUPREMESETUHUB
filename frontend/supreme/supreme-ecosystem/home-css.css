@@ -53,7 +53,7 @@ section .DR-RAJESH-KHANDELWAL-IBC,
     font-size:60px !important;
     line-height:1.8 !important;
     letter-spacing:1.8px !important;
-    padding:40px !important;
+    padding:28px !important;
     width:100% !important;
     margin-left:0px !important;
     margin-right:0px !important;
@@ -78,7 +78,7 @@ section .DR-RAJESH-KHANDELWAL-IBC,
     width:100% !important;
     flex-direction:column !important;
     align-items:center !important;
-    padding:20px 20px !important;
+    padding:18px 18px !important;
     box-sizing:border-box !important;
     white-space:normal !important;
     word-break:break-word !important;
@@ -117,7 +117,7 @@ text-transform: uppercase !important;
 font-size:60px !important;                          
 line-height:1.8 !important;                         
 letter-spacing:1.8px !important;                    
-padding:40px !important;                            
+padding:28px !important;                            
 width:100% !important;                              
 margin-left:0px !important;                         
 margin-right:0px !important;                        
@@ -144,7 +144,7 @@ display:flex !important;
 width:100% !important;                             
 flex-direction:column !important;                  
 align-items:center !important;                     
-padding:20px 20px !important;                      
+padding:18px 18px !important;                      
 box-sizing:border-box !important;                  
 white-space:normal !important;                     
 word-break:break-word !important;                  
@@ -184,7 +184,7 @@ text-transform: uppercase !important;
 font-size:60px !important;                          
 line-height:1.8 !important;                         
 letter-spacing:1.8px !important;                    
-padding:40px !important;                            
+padding:28px !important;                            
 width:100% !important;                               
 margin-left:0px !important;                         
 margin-right:0px !important;                        
@@ -212,7 +212,7 @@ display:flex !important;
 width:100% !important;                             
 flex-direction:column !important;                  
 align-items:center !important;                     
-padding:20px 20px !important;                      
+padding:18px 18px !important;                      
 box-sizing:border-box !important;                  
 white-space:normal !important;                     
 word-break:break-word !important;                  
@@ -501,7 +501,7 @@ scroll-behavior:smooth !important;
 
 
 width:88% !important;                           
-padding:48px !important;                        
+padding:28px !important;                        
 border-radius:48px !important;                 
 border:4px solid rgba(0,0,0,.08) !important;   
 box-shadow:0 48px 100px rgba(0,0,0,.1) !important; 
@@ -607,7 +607,7 @@ letter-spacing:1.8px !important;
 text-align:center !important;                
 align-items:center !important;               
 max-width:800px !important;                  
-margin:48px auto 0 auto !important;          
+margin:28px auto 0 auto !important;          
 padding-top:28px !important;                 
 border-top:2px solid #D4AF37 !important;     
         max-width: 1240px !important;
@@ -628,7 +628,7 @@ border-top:2px solid #D4AF37 !important;
 
         width: 100% !important;
 
-        padding: 40px 25px !important;
+        padding: 28px 28px !important;
 
         border-radius: 28px !important;
 
@@ -679,7 +679,7 @@ border-top:2px solid #D4AF37 !important;
         font-weight: 800 !important;
         letter-spacing: 1.8px !important;
         line-height: 1.8 !important;
-        padding: 28px 20px !important;
+        padding: 28px 18px !important;
 
     }
 
@@ -697,7 +697,7 @@ border-top:2px solid #D4AF37 !important;
 
         width: 100% !important;
 
-        padding: 28px 12px !important;
+        padding: 28px 8px !important;
 
         border-width: 4px !important;
 
@@ -718,7 +718,7 @@ border-top:2px solid #D4AF37 !important;
 
         white-space: normal !important;
 
-        margin-bottom: 20px !important;
+        margin-bottom: 18px !important;
 
     }
 
@@ -758,7 +758,7 @@ border-top:2px solid #D4AF37 !important;
 
         margin-top: 28px !important;
 
-        padding: 22px 12px !important;
+        padding: 18px 8px !important;
 
         font-size: 15px !important;
 
@@ -803,9 +803,9 @@ border-top:2px solid #D4AF37 !important;
 
     box-sizing: border-box !important;
 
-    padding: 20px 40px !important;
+    padding: 18px 28px !important;
 
-    margin: 20px auto !important;
+    margin: 18px auto !important;
 
     background: #ffffff !important;
 
@@ -851,7 +851,7 @@ border-top:2px solid #D4AF37 !important;
 
         width: 90% !important;
 
-        padding: 16px 20px !important;
+        padding: 18px 18px !important;
 
         font-size: 18px !important;
 
@@ -876,7 +876,7 @@ border-top:2px solid #D4AF37 !important;
 
     display: block !important;
 
-    margin: 45px 0 !important;
+    margin: 28px 0 !important;
     padding: 0 !important;
 
     box-sizing: border-box !important;
@@ -974,7 +974,7 @@ border-top:2px solid #D4AF37 !important;
 
     .DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE {
 
-        margin: 55px 0 !important;
+        margin: 28px 0 !important;
 
         border-radius: 26px !important;
 
@@ -997,7 +997,7 @@ border-top:2px solid #D4AF37 !important;
 
     .DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE {
 
-        margin: 40px 0 !important;
+        margin: 28px 0 !important;
 
         border-radius: 20px !important;
 
@@ -1022,7 +1022,7 @@ border-top:2px solid #D4AF37 !important;
 
         width: 100% !important;
 
-        margin: 30px 0 !important;
+        margin: 28px 0 !important;
 
         border-radius: 15px !important;
 
@@ -1066,8 +1066,8 @@ border-top:2px solid #D4AF37 !important;
     width: 88% !important;
     max-width: 1480px !important;
 
-    margin: 40px auto !important;
-    padding: 48px !important;
+    margin: 28px auto !important;
+    padding: 28px !important;
 
     display: flex !important;
     flex-direction: column !important;
@@ -1326,9 +1326,9 @@ border-top:2px solid #D4AF37 !important;
 
         width: 88% !important;
 
-        margin: 35px auto !important;
+        margin: 28px auto !important;
 
-        padding: 40px 25px !important;
+        padding: 28px 28px !important;
 
         border-radius: 28px !important;
 
@@ -1399,9 +1399,9 @@ border-top:2px solid #D4AF37 !important;
 
         width: 94% !important;
 
-        margin: 25px auto !important;
+        margin: 28px auto !important;
 
-        padding: 28px 12px !important;
+        padding: 28px 8px !important;
 
         border-width: 4px !important;
 
@@ -1419,7 +1419,7 @@ border-top:2px solid #D4AF37 !important;
 
     letter-spacing: 1.8px !important;
 
-        margin-bottom: 20px !important;
+        margin-bottom: 18px !important;
 
     }
 
@@ -1433,7 +1433,7 @@ border-top:2px solid #D4AF37 !important;
 
     letter-spacing: 1.8px !important;
 
-        margin-bottom: 20px !important;
+        margin-bottom: 18px !important;
 
     }
 
@@ -1480,8 +1480,8 @@ border-top:2px solid #D4AF37 !important;
     width: 88% !important;
     max-width: 1480px !important;
 
-    margin: 35px auto 20px auto !important;
-    padding: 28px 35px !important;
+    margin: 28px auto 18px auto !important;
+    padding: 28px 28px !important;
 
     box-sizing: border-box !important;
 
@@ -1525,8 +1525,8 @@ border-top:2px solid #D4AF37 !important;
 
     width: auto !important;
 
-    margin: 10px auto 45px auto !important;
-    padding: 18px 35px !important;
+    margin: 8px auto 28px auto !important;
+    padding: 18px 28px !important;
 
     box-sizing: border-box !important;
 
@@ -1580,8 +1580,8 @@ border-top:2px solid #D4AF37 !important;
     width: 88% !important;
     max-width: 1480px !important;
 
-    margin: 35px auto 20px auto !important;
-    padding: 28px 35px !important;
+    margin: 28px auto 18px auto !important;
+    padding: 28px 28px !important;
 
     box-sizing: border-box !important;
 
@@ -1625,8 +1625,8 @@ border-top:2px solid #D4AF37 !important;
 
     width: auto !important;
 
-    margin: 10px auto 45px auto !important;
-    padding: 18px 35px !important;
+    margin: 8px auto 28px auto !important;
+    padding: 18px 28px !important;
 
     box-sizing: border-box !important;
 
@@ -1682,7 +1682,7 @@ border-top:2px solid #D4AF37 !important;
 
         width: 88% !important;
 
-        padding: 25px 22px !important;
+        padding: 28px 18px !important;
 
         font-size: 22px !important;
 
@@ -1696,7 +1696,7 @@ border-top:2px solid #D4AF37 !important;
 
         font-size: 21px !important;
 
-        padding: 16px 28px !important;
+        padding: 18px 28px !important;
 
     }
 
@@ -1714,9 +1714,9 @@ border-top:2px solid #D4AF37 !important;
 
         width: 94% !important;
 
-        margin: 25px auto 18px auto !important;
+        margin: 28px auto 18px auto !important;
 
-        padding: 22px 14px !important;
+        padding: 18px 18px !important;
 
         font-size: 18px !important;
 
@@ -1736,9 +1736,9 @@ border-top:2px solid #D4AF37 !important;
 
         width: 90% !important;
 
-        margin: 8px auto 30px auto !important;
+        margin: 8px auto 28px auto !important;
 
-        padding: 15px 15px !important;
+        padding: 18px 18px !important;
 
         font-size: 17px !important;
 
@@ -1764,8 +1764,8 @@ border-top:2px solid #D4AF37 !important;
     width: 88% !important;
     max-width: 1480px !important;
 
-    margin: 35px auto 20px auto !important;
-    padding: 28px 35px !important;
+    margin: 28px auto 18px auto !important;
+    padding: 28px 28px !important;
 
     box-sizing: border-box !important;
 
@@ -1811,8 +1811,8 @@ border-top:2px solid #D4AF37 !important;
 
     width: auto !important;
 
-    margin: 10px auto 45px auto !important;
-    padding: 18px 35px !important;
+    margin: 8px auto 28px auto !important;
+    padding: 18px 28px !important;
 
     box-sizing: border-box !important;
 
@@ -1867,7 +1867,7 @@ border-top:2px solid #D4AF37 !important;
 
         width: 88% !important;
 
-        padding: 25px 22px !important;
+        padding: 28px 18px !important;
 
         font-size: 22px !important;
 
@@ -1880,7 +1880,7 @@ border-top:2px solid #D4AF37 !important;
 
         font-size: 21px !important;
 
-        padding: 16px 28px !important;
+        padding: 18px 28px !important;
 
     }
 
@@ -1897,9 +1897,9 @@ border-top:2px solid #D4AF37 !important;
 
         width: 94% !important;
 
-        margin: 25px auto 18px auto !important;
+        margin: 28px auto 18px auto !important;
 
-        padding: 22px 14px !important;
+        padding: 18px 18px !important;
 
         font-size: 18px !important;
 
@@ -1918,9 +1918,9 @@ border-top:2px solid #D4AF37 !important;
 
         width: 90% !important;
 
-        margin: 8px auto 30px auto !important;
+        margin: 8px auto 28px auto !important;
 
-        padding: 15px !important;
+        padding: 18px !important;
 
         font-size: 17px !important;
 
@@ -1946,8 +1946,8 @@ border-top:2px solid #D4AF37 !important;
     width: 88% !important;
     max-width: 1480px !important;
 
-    margin: 35px auto 20px auto !important;
-    padding: 28px 35px !important;
+    margin: 28px auto 18px auto !important;
+    padding: 28px 28px !important;
 
     box-sizing: border-box !important;
 
@@ -1993,8 +1993,8 @@ border-top:2px solid #D4AF37 !important;
 
     width: auto !important;
 
-    margin: 10px auto 45px auto !important;
-    padding: 18px 35px !important;
+    margin: 8px auto 28px auto !important;
+    padding: 18px 28px !important;
 
     box-sizing: border-box !important;
 
@@ -2049,7 +2049,7 @@ border-top:2px solid #D4AF37 !important;
 
         width: 88% !important;
 
-        padding: 25px 22px !important;
+        padding: 28px 18px !important;
 
         font-size: 22px !important;
 
@@ -2062,7 +2062,7 @@ border-top:2px solid #D4AF37 !important;
 
         font-size: 21px !important;
 
-        padding: 16px 28px !important;
+        padding: 18px 28px !important;
 
     }
 
@@ -2079,9 +2079,9 @@ border-top:2px solid #D4AF37 !important;
 
         width: 94% !important;
 
-        margin: 25px auto 18px auto !important;
+        margin: 28px auto 18px auto !important;
 
-        padding: 22px 14px !important;
+        padding: 18px 18px !important;
 
         font-size: 18px !important;
 
@@ -2100,9 +2100,9 @@ border-top:2px solid #D4AF37 !important;
 
         width: 90% !important;
 
-        margin: 8px auto 30px auto !important;
+        margin: 8px auto 28px auto !important;
 
-        padding: 15px !important;
+        padding: 18px !important;
 
         font-size: 17px !important;
 
@@ -2128,8 +2128,8 @@ border-top:2px solid #D4AF37 !important;
     width: 88% !important;
     max-width: 1480px !important;
 
-    margin: 35px auto 20px auto !important;
-    padding: 28px 35px !important;
+    margin: 28px auto 18px auto !important;
+    padding: 28px 28px !important;
 
     box-sizing: border-box !important;
 
@@ -2175,8 +2175,8 @@ border-top:2px solid #D4AF37 !important;
 
     width: auto !important;
 
-    margin: 10px auto 45px auto !important;
-    padding: 18px 35px !important;
+    margin: 8px auto 28px auto !important;
+    padding: 18px 28px !important;
 
     box-sizing: border-box !important;
 
@@ -2231,7 +2231,7 @@ border-top:2px solid #D4AF37 !important;
 
         width: 88% !important;
 
-        padding: 25px 22px !important;
+        padding: 28px 18px !important;
 
         font-size: 22px !important;
 
@@ -2244,7 +2244,7 @@ border-top:2px solid #D4AF37 !important;
 
         font-size: 21px !important;
 
-        padding: 16px 28px !important;
+        padding: 18px 28px !important;
 
     }
 
@@ -2261,9 +2261,9 @@ border-top:2px solid #D4AF37 !important;
 
         width: 94% !important;
 
-        margin: 25px auto 18px auto !important;
+        margin: 28px auto 18px auto !important;
 
-        padding: 22px 14px !important;
+        padding: 18px 18px !important;
 
         font-size: 18px !important;
 
@@ -2282,9 +2282,9 @@ border-top:2px solid #D4AF37 !important;
 
         width: 90% !important;
 
-        margin: 8px auto 30px auto !important;
+        margin: 8px auto 28px auto !important;
 
-        padding: 15px !important;
+        padding: 18px !important;
 
         font-size: 17px !important;
 
@@ -2310,8 +2310,8 @@ border-top:2px solid #D4AF37 !important;
     width: 88% !important;
     max-width: 1480px !important;
 
-    margin: 35px auto 20px auto !important;
-    padding: 28px 35px !important;
+    margin: 28px auto 18px auto !important;
+    padding: 28px 28px !important;
 
     box-sizing: border-box !important;
 
@@ -2358,8 +2358,8 @@ border-top:2px solid #D4AF37 !important;
 
     width: auto !important;
 
-    margin: 10px auto 45px auto !important;
-    padding: 18px 35px !important;
+    margin: 8px auto 28px auto !important;
+    padding: 18px 28px !important;
 
     box-sizing: border-box !important;
 
@@ -2419,7 +2419,7 @@ border-top:2px solid #D4AF37 !important;
 
         width: 88% !important;
 
-        padding: 25px 22px !important;
+        padding: 28px 18px !important;
 
         font-size: 22px !important;
 
@@ -2432,7 +2432,7 @@ border-top:2px solid #D4AF37 !important;
 
         font-size: 21px !important;
 
-        padding: 16px 28px !important;
+        padding: 18px 28px !important;
 
     }
 
@@ -2449,9 +2449,9 @@ border-top:2px solid #D4AF37 !important;
 
         width: 94% !important;
 
-        margin: 25px auto 18px auto !important;
+        margin: 28px auto 18px auto !important;
 
-        padding: 22px 14px !important;
+        padding: 18px 18px !important;
 
         font-size: 18px !important;
 
@@ -2470,9 +2470,9 @@ border-top:2px solid #D4AF37 !important;
 
         width: 90% !important;
 
-        margin: 8px auto 30px auto !important;
+        margin: 8px auto 28px auto !important;
 
-        padding: 15px !important;
+        padding: 18px !important;
 
         font-size: 17px !important;
 
@@ -2496,8 +2496,8 @@ border-top:2px solid #D4AF37 !important;
 .HOME-FOUNDER-CEO-INTRO {
     width: 88% !important;
     max-width: 1480px !important;
-    margin: 35px auto 20px auto !important;
-    padding: 28px 35px !important;
+    margin: 28px auto 18px auto !important;
+    padding: 28px 28px !important;
     box-sizing: border-box !important;
 
     background: #ffffff !important;
@@ -2536,8 +2536,8 @@ border-top:2px solid #D4AF37 !important;
 
     width: auto !important;
 
-    margin: 10px auto 45px auto !important;
-    padding: 18px 35px !important;
+    margin: 8px auto 28px auto !important;
+    padding: 18px 28px !important;
     box-sizing: border-box !important;
 
     background: #D4AF37 !important;
@@ -2582,8 +2582,8 @@ border-top:2px solid #D4AF37 !important;
 .HOME-RELATIONSHIP-INTIMACY-COACH-INTRO {
     width: 88% !important;
     max-width: 1480px !important;
-    margin: 35px auto 20px auto !important;
-    padding: 28px 35px !important;
+    margin: 28px auto 18px auto !important;
+    padding: 28px 28px !important;
     box-sizing: border-box !important;
 
     background: #ffffff !important;
@@ -2622,8 +2622,8 @@ border-top:2px solid #D4AF37 !important;
 
     width: auto !important;
 
-    margin: 10px auto 45px auto !important;
-    padding: 18px 35px !important;
+    margin: 8px auto 28px auto !important;
+    padding: 18px 28px !important;
     box-sizing: border-box !important;
 
     background: #D4AF37 !important;
@@ -2670,7 +2670,7 @@ border-top:2px solid #D4AF37 !important;
     .HOME-FOUNDER-CEO-INTRO,
     .HOME-RELATIONSHIP-INTIMACY-COACH-INTRO {
         width: 88% !important;
-        padding: 25px 22px !important;
+        padding: 28px 18px !important;
         font-size: 22px !important;
         line-height: 1.8 !important;
     }
@@ -2678,7 +2678,7 @@ border-top:2px solid #D4AF37 !important;
     .HOME-FOUNDER-CEO-LINK,
     .HOME-RELATIONSHIP-INTIMACY-COACH-LINK {
         font-size: 21px !important;
-        padding: 16px 28px !important;
+        padding: 18px 28px !important;
     }
 }
 
@@ -2693,8 +2693,8 @@ border-top:2px solid #D4AF37 !important;
     .HOME-RELATIONSHIP-INTIMACY-COACH-INTRO {
         width: 94% !important;
 
-        margin: 25px auto 18px auto !important;
-        padding: 22px 14px !important;
+        margin: 28px auto 18px auto !important;
+        padding: 18px 18px !important;
 
         font-size: 18px !important;
         line-height: 1.8 !important;
@@ -2708,8 +2708,8 @@ border-top:2px solid #D4AF37 !important;
     .HOME-RELATIONSHIP-INTIMACY-COACH-LINK {
         width: 90% !important;
 
-        margin: 8px auto 30px auto !important;
-        padding: 15px !important;
+        margin: 8px auto 28px auto !important;
+        padding: 18px !important;
 
         font-size: 17px !important;
         line-height: 1.6 !important;
@@ -2730,8 +2730,8 @@ border-top:2px solid #D4AF37 !important;
     width: 88% !important;
     max-width: 1480px !important;
 
-    margin: 45px auto 55px auto !important;
-    padding: 40px 45px !important;
+    margin: 28px auto 28px auto !important;
+    padding: 28px 28px !important;
 
     box-sizing: border-box !important;
 
@@ -2760,7 +2760,7 @@ border-top:2px solid #D4AF37 !important;
 
 .HOME-WHAT-I-DO-TITLE {
 
-    margin: 0 0 25px 0 !important;
+    margin: 0 0 28px 0 !important;
 
     color: #111111 !important;
 
@@ -2787,7 +2787,7 @@ border-top:2px solid #D4AF37 !important;
 
 .HOME-WHAT-I-DO-INTRO {
 
-    margin: 0 auto 35px auto !important;
+    margin: 0 auto 28px auto !important;
 
     max-width: 1200px !important;
 
@@ -2812,8 +2812,8 @@ border-top:2px solid #D4AF37 !important;
 
     width: 100% !important;
 
-    margin: 22px auto !important;
-    padding: 25px 30px !important;
+    margin: 18px auto !important;
+    padding: 28px 28px !important;
 
     box-sizing: border-box !important;
 
@@ -2833,7 +2833,7 @@ border-top:2px solid #D4AF37 !important;
 
 .HOME-WHAT-I-DO-ITEM h3 {
 
-    margin: 0 0 12px 0 !important;
+    margin: 0 0 8px 0 !important;
 
     color: #111111 !important;
 
@@ -2888,8 +2888,8 @@ border-top:2px solid #D4AF37 !important;
 
 .HOME-WHAT-I-DO-CLOSING {
 
-    margin: 35px auto 0 auto !important;
-    padding: 25px 30px !important;
+    margin: 28px auto 0 auto !important;
+    padding: 28px 28px !important;
 
     box-sizing: border-box !important;
 
@@ -2927,7 +2927,7 @@ border-top:2px solid #D4AF37 !important;
 
         width: 88% !important;
 
-        padding: 32px 25px !important;
+        padding: 28px 28px !important;
 
     }
 
@@ -2945,7 +2945,7 @@ border-top:2px solid #D4AF37 !important;
 
     .HOME-WHAT-I-DO-ITEM {
 
-        padding: 22px 20px !important;
+        padding: 18px 18px !important;
 
     }
 
@@ -2980,9 +2980,9 @@ border-top:2px solid #D4AF37 !important;
 
         width: 94% !important;
 
-        margin: 30px auto 40px auto !important;
+        margin: 28px auto 28px auto !important;
 
-        padding: 25px 15px !important;
+        padding: 28px 18px !important;
 
         border-width: 3px !important;
         border-radius: 22px !important;
@@ -2992,7 +2992,7 @@ border-top:2px solid #D4AF37 !important;
 
     .HOME-WHAT-I-DO-TITLE {
 
-        margin-bottom: 20px !important;
+        margin-bottom: 18px !important;
 
         font-size: 25px !important;
 
@@ -3005,7 +3005,7 @@ border-top:2px solid #D4AF37 !important;
 
     .HOME-WHAT-I-DO-INTRO {
 
-        margin-bottom: 25px !important;
+        margin-bottom: 28px !important;
 
         font-size: 17px !important;
 
@@ -3016,9 +3016,9 @@ border-top:2px solid #D4AF37 !important;
 
     .HOME-WHAT-I-DO-ITEM {
 
-        margin: 16px auto !important;
+        margin: 18px auto !important;
 
-        padding: 20px 13px !important;
+        padding: 18px 8px !important;
 
         border-width: 2px !important;
         border-radius: 17px !important;
@@ -3048,9 +3048,9 @@ border-top:2px solid #D4AF37 !important;
 
     .HOME-WHAT-I-DO-CLOSING {
 
-        margin-top: 25px !important;
+        margin-top: 28px !important;
 
-        padding: 20px 12px !important;
+        padding: 18px 8px !important;
 
         font-size: 16px !important;
 
