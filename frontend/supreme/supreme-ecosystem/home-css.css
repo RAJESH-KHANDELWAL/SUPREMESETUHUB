@@ -3631,3 +3631,59 @@ section.HOME textarea {
         transition-duration: 0.01ms !important;
     }
 }
+
+
+/* HOME PAGE NAVIGATION — HOME / ABOUT / CONTACT */
+section.HOME .HOME-PAGE-NAV {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 12px !important;
+    margin: 8px auto 20px !important;
+    box-sizing: border-box !important;
+}
+section.HOME .HOME-PAGE-NAV a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 120px !important;
+    max-width: 100% !important;
+    padding: 12px 22px !important;
+    border: 2px solid #D4AF37 !important;
+    border-radius: 999px !important;
+    background: #0B2C59 !important;
+    color: #FFFFFF !important;
+    font-size: 16px !important;
+    font-weight: 800 !important;
+    line-height: 1.4 !important;
+    letter-spacing: 1px !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    overflow-wrap: anywhere !important;
+    transition: background-color .2s ease, transform .2s ease !important;
+}
+section.HOME .HOME-PAGE-NAV a:hover,
+section.HOME .HOME-PAGE-NAV a:focus-visible {
+    background: #164B8F !important;
+    transform: translateY(-1px) !important;
+}
+section.HOME .HOME-PAGE-NAV a[aria-current="page"] {
+    background: #D4AF37 !important;
+    color: #07152D !important;
+}
+@media (max-width: 768px) {
+    section.HOME .HOME-PAGE-NAV { gap: 8px !important; padding: 8px !important; }
+    section.HOME .HOME-PAGE-NAV a { min-width: 100px !important; padding: 11px 16px !important; font-size: 14px !important; }
+}
+@media (max-width: 480px) {
+    section.HOME .HOME-PAGE-NAV { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
+    section.HOME .HOME-PAGE-NAV a { min-width: 0 !important; width: 100% !important; padding: 10px 8px !important; font-size: 13px !important; letter-spacing: .5px !important; }
+    section.HOME .HOME-PAGE-NAV a:first-child { grid-column: 1 / -1 !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+    section.HOME .HOME-PAGE-NAV a { transition: none !important; }
+}
