@@ -3,18 +3,48 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SUPREME ECOSYSTEM — PRIVATE DASHBOARD</title>
+<meta name="robots" content="noindex,nofollow">
+<title>SUPREME DASHBOARD — PRIVATE OWNER CONTROL</title>
 <link rel="stylesheet" href="bydefault.css">
 <link rel="stylesheet" href="index.css">
 </head>
-<body><div class="wrap">
-<header><h1>SUPREME ECOSYSTEM</h1><p>PRIVATE OWNER DASHBOARD</p><small>Owner-only access • Public signup disabled</small></header>
-<div class="grid">
-<section class="card"><h2>STATUS</h2><pre id="status">Loading…</pre></section>
-<section class="card"><h2>OWNER ACCOUNT</h2><pre id="account">Loading…</pre></section>
-<section class="card"><h2>INTEGRATIONS</h2><pre id="integrations">Loading…</pre></section>
-</div>
-<button id="signOut">SIGN OUT</button>
+<body>
+<div class="wrap">
+<header class="hero">
+  <div><p class="eyebrow">PRIVATE OWNER CONTROL CENTER</p><h1>SUPREME DASHBOARD</h1><p>One private place to review SUPREME ECOSYSTEM, backend, GitHub, WordPress and hosting connections.</p></div>
+  <div class="hero-actions"><span id="lastUpdated">NOT CHECKED YET</span><button id="refreshAll" type="button">REFRESH LIVE STATUS</button></div>
+</header>
+
+<section class="section">
+  <div class="section-title"><div><p class="eyebrow">LIVE SYSTEM CHECKS</p><h2>Connected services</h2></div><span class="hint">A check is not the same as account access</span></div>
+  <div class="grid systems-grid">
+    <article class="card system-card"><div class="card-top"><span class="service-icon">API</span><span id="apiBadge" class="badge pending">CHECKING</span></div><h3>SUPREMESETUHUB API</h3><p id="apiDetail">Checking backend health endpoint…</p><a href="https://supremesetuhub-3v4e.onrender.com/health" target="_blank" rel="noopener noreferrer">OPEN HEALTH ENDPOINT ↗</a></article>
+    <article class="card system-card"><div class="card-top"><span class="service-icon">GH</span><span id="githubBadge" class="badge pending">CHECKING</span></div><h3>GITHUB REPOSITORY</h3><p id="githubDetail">Checking repository metadata…</p><a href="https://github.com/RAJESH-KHANDELWAL/SUPREMESETUHUB" target="_blank" rel="noopener noreferrer">OPEN REPOSITORY ↗</a></article>
+    <article class="card system-card"><div class="card-top"><span class="service-icon">WP</span><span id="wordpressBadge" class="badge pending">NEEDS URL</span></div><h3>WORDPRESS WEBSITE</h3><p id="wordpressDetail">Enter your WordPress website URL below to run a public reachability check.</p><div class="url-check"><input id="wordpressUrl" type="url" placeholder="https://your-wordpress-domain.com" aria-label="WordPress website URL"><button id="checkWordPress" type="button">CHECK</button></div></article>
+    <article class="card system-card"><div class="card-top"><span class="service-icon">H</span><span id="hostingerBadge" class="badge pending">NOT CONNECTED</span></div><h3>HOSTINGER</h3><p id="hostingerDetail">Hosting account, billing and server details require a supported Hostinger API connection configured on the backend. Never enter API secrets here.</p><span class="subtle">SERVER-SIDE CONNECTION REQUIRED</span></article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><div><p class="eyebrow">MAIN SUPREME</p><h2>Dashboard modules</h2></div></div>
+  <div class="grid modules-grid">
+    <a class="card module-link" href="supreme-ecosystem.html"><span class="service-icon">S</span><h3>SUPREME ECOSYSTEM</h3><p>Open the foundation overview, core modules and API route map.</p><span>OPEN FOUNDATION ↗</span></a>
+    <a class="card module-link" href="signin.html"><span class="service-icon">ID</span><h3>OWNER SIGN-IN</h3><p>Return to the private owner authentication screen.</p><span>OPEN SIGN-IN ↗</span></a>
+    <article class="card module-link"><span class="service-icon">🔒</span><h3>PRIVATE ACCESS</h3><p>Dashboard data is requested through the existing owner-authenticated API. Public uptime checks do not expose private account data.</p><span>OWNER AUTH REQUIRED</span></article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><div><p class="eyebrow">OWNER SESSION</p><h2>Private account and integrations</h2></div></div>
+  <div class="grid">
+    <section class="card"><h3>SUPREME STATUS</h3><pre id="status">Loading…</pre></section>
+    <section class="card"><h3>OWNER ACCOUNT</h3><pre id="account">Loading…</pre></section>
+    <section class="card"><h3>INTEGRATIONS</h3><pre id="integrations">Loading…</pre></section>
+  </div>
+</section>
+<footer><span>SUPREMESETUHUB · PRIVATE OWNER DASHBOARD</span><button id="signOut" type="button" class="secondary">SIGN OUT</button></footer>
 </div>
 <script src="bydefault.js" defer></script>
-<script src="index.js" defer></script></body></html>
+<script src="index.js" defer></script>
+</body>
+</html>
