@@ -16,6 +16,7 @@ if (!defined('ABSPATH')) {
 
 final class SUPREMESETUHUB_Connector {
     const OPTION = 'supremesetuhub_connector_options';
+    const DEFAULT_API_BASE = 'https://api.rajeshkhandelwalofficial.com';
     const CACHE_TTL = 300;
 
     public static function init() {
@@ -45,6 +46,9 @@ final class SUPREMESETUHUB_Connector {
     private static function api_base() {
         $options = self::options();
         $base = isset($options['api_base']) ? trim((string) $options['api_base']) : '';
+        if ($base === '') {
+            $base = self::DEFAULT_API_BASE;
+        }
         $base = esc_url_raw($base, array('https'));
         return untrailingslashit($base);
     }
@@ -100,7 +104,7 @@ final class SUPREMESETUHUB_Connector {
         register_setting('suph_connector_settings', self::OPTION, array(
             'type' => 'array',
             'sanitize_callback' => array(__CLASS__, 'sanitize_options'),
-            'default' => array('api_base' => ''),
+            'default' => array('api_base' => self::DEFAULT_API_BASE),
         ));
     }
 
@@ -134,7 +138,7 @@ final class SUPREMESETUHUB_Connector {
                     <tr>
                         <th scope="row"><label for="suph-api-base"><?php esc_html_e('Backend API Base URL', 'supremesetuhub-connector'); ?></label></th>
                         <td>
-                            <input id="suph-api-base" class="regular-text" type="url" name="<?php echo esc_attr(self::OPTION); ?>[api_base]" value="<?php echo esc_attr(isset($options['api_base']) ? $options['api_base'] : ''); ?>" placeholder="https://api.your-domain.com" required />
+                            <input id="suph-api-base" class="regular-text" type="url" name="<?php echo esc_attr(self::OPTION); ?>[api_base]" value="<?php echo esc_attr(!empty($options['api_base']) ? $options['api_base'] : self::DEFAULT_API_BASE); ?>" placeholder="https://api.rajeshkhandelwalofficial.com" required />
                             <p class="description"><?php esc_html_e('Do not include a trailing slash or an endpoint path.', 'supremesetuhub-connector'); ?></p>
                         </td>
                     </tr>
