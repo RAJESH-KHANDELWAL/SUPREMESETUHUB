@@ -56,6 +56,7 @@ from backend.api.linksetu import router as linksetu_router
 from backend.api.email import router as email_router
 from backend.api.print_on_demand import router as print_on_demand_router
 from backend.api.digital_marketplace import router as digital_marketplace_router
+from backend.supreme.supreme_ecosystem.api.registry import build_api_router
 
 
 # ============================================================
@@ -329,57 +330,51 @@ def _require_ai_store_actor(
 
 
 # ============================================================
-# CORE API ROUTERS
+# SUPREME API ECOSYSTEM — CENTRAL ROUTE REGISTRY
 # ============================================================
+# Keep endpoint implementations in their existing modules. The central
+# registry composes them once and preserves their current URL prefixes.
 
-app.include_router(auth_router)
-app.include_router(language_services_router)
-app.include_router(product_ecosystem_router)
-app.include_router(core_readiness_router)
-app.include_router(storage_routes_router)
-app.include_router(users_router)
-app.include_router(organizations_router)
-app.include_router(identity_router)
-app.include_router(profiles_router)
-app.include_router(businesses_router)
-app.include_router(projects_router)
-app.include_router(opportunities_router)
-app.include_router(matching_router)
-app.include_router(roles_router)
-app.include_router(supreme_router)
-app.include_router(supreme_personal_ai_router)
-app.include_router(supreme_ecosystem_router)
-app.include_router(supreme_work_income_router)
-app.include_router(supreme_whatsapp_ai_router)
-app.include_router(dashboard_router)
-app.include_router(infrastructure_router)
-app.include_router(dns_router)
-app.include_router(user_hub_router)
-app.include_router(ai_router)
-app.include_router(global_ai_ecosystem_router)
-app.include_router(global_business_ecosystem_router)
-app.include_router(theme_hub_router)
-app.include_router(connectors_router)
-app.include_router(linksetu_router)
-app.include_router(email_router)
-app.include_router(print_on_demand_router)
-app.include_router(digital_marketplace_router)
+supreme_api_router = build_api_router([
+    auth_router,
+    language_services_router,
+    product_ecosystem_router,
+    core_readiness_router,
+    storage_routes_router,
+    users_router,
+    organizations_router,
+    identity_router,
+    profiles_router,
+    businesses_router,
+    projects_router,
+    opportunities_router,
+    matching_router,
+    roles_router,
+    supreme_router,
+    supreme_personal_ai_router,
+    supreme_ecosystem_router,
+    supreme_work_income_router,
+    supreme_whatsapp_ai_router,
+    dashboard_router,
+    infrastructure_router,
+    dns_router,
+    user_hub_router,
+    ai_router,
+    global_ai_ecosystem_router,
+    global_business_ecosystem_router,
+    theme_hub_router,
+    connectors_router,
+    linksetu_router,
+    email_router,
+    print_on_demand_router,
+    digital_marketplace_router,
+    gallary_woult_router,
+    mukti_mahal_router,
+    mukti_mahal_creation_router,
+    mukti_mahal_media_router,
+])
+app.include_router(supreme_api_router)
 
-
-# ============================================================
-# GALLARY WOULT
-# ============================================================
-
-app.include_router(gallary_woult_router)
-
-
-# ============================================================
-# MUKTI MAHAL
-# ============================================================
-
-app.include_router(mukti_mahal_router)
-app.include_router(mukti_mahal_creation_router)
-app.include_router(mukti_mahal_media_router)
 
 
 # ============================================================
