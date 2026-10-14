@@ -36,8 +36,6 @@ final class SUPREMESETUHUB_Connector {
         add_shortcode('supreme_bada_business', array(__CLASS__, 'bada_business_shortcode'));
         add_shortcode('supreme_print_on_demand', array(__CLASS__, 'pod_catalog_shortcode'));
         add_shortcode('supreme_backend_status', array(__CLASS__, 'status_shortcode'));
-        add_shortcode('supreme_main_home', array(__CLASS__, 'supreme_main_home_shortcode'));
-        add_shortcode('supreme_owner_dashboard', array(__CLASS__, 'supreme_owner_dashboard_shortcode'));
     }
 
     private static function options() {
@@ -312,34 +310,6 @@ final class SUPREMESETUHUB_Connector {
         }
         $src = $base . '/api/v1/frontend/global-business-ecosystem';
         return '<div class="suph-global-ecosystem" style="width:100%;overflow:hidden"><iframe title="SUPREME Global Business Ecosystem" src="' . esc_url($src) . '" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="display:block;width:100%;min-height:850px;border:0;border-radius:16px" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe></div>';
-    }
-
-    /**
-     * Embed the public SUPREME homepage served from frontend/supreme/index.html.
-     */
-    public static function supreme_main_home_shortcode($atts = array()) {
-        $base = self::api_base();
-        if (!$base || !wp_http_validate_url($base)) {
-            return '<p class="suph-catalog-error">' . esc_html__('Set the backend HTTPS URL under Settings → SUPREMESETUHUB first.', 'supremesetuhub-connector') . '</p>';
-        }
-        $src = $base . '/api/v1/frontend/supreme';
-        return '<div class="suph-supreme-home" style="width:100%;overflow:hidden"><iframe title="SUPREME Homepage" src="' . esc_url($src) . '" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="display:block;width:100%;min-height:1000px;border:0" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe></div>';
-    }
-
-    /**
-     * Embed the owner dashboard only for WordPress administrators.
-     * The dashboard keeps its separate SUPREME ECOSYSTEM token sign-in flow.
-     */
-    public static function supreme_owner_dashboard_shortcode($atts = array()) {
-        if (!is_user_logged_in() || !current_user_can('manage_options')) {
-            return '<p class="suph-private-notice">' . esc_html__('This dashboard is restricted to WordPress administrators. Sign in to WordPress with an administrator account first.', 'supremesetuhub-connector') . '</p>';
-        }
-        $base = self::api_base();
-        if (!$base || !wp_http_validate_url($base)) {
-            return '<p class="suph-catalog-error">' . esc_html__('Set the backend HTTPS URL under Settings → SUPREMESETUHUB first.', 'supremesetuhub-connector') . '</p>';
-        }
-        $src = $base . '/api/v1/frontend/supreme-owner-dashboard/';
-        return '<div class="suph-owner-dashboard" style="width:100%;overflow:hidden"><iframe title="SUPREME ECOSYSTEM Private Owner Dashboard" src="' . esc_url($src) . '" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="display:block;width:100%;min-height:850px;border:0" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe></div>';
     }
 
     public static function contact_shortcode() {
