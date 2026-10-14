@@ -373,7 +373,6 @@ supreme_api_router = build_api_router([
     mukti_mahal_creation_router,
     mukti_mahal_media_router,
 ])
-app.include_router(supreme_api_router)
 
 
 
@@ -381,7 +380,7 @@ app.include_router(supreme_api_router)
 # ROOT HOME PAGE
 # ============================================================
 
-@app.get("/")
+@supreme_api_router.get("/")
 def root():
 
     if not ROOT_FRONTEND_FILE.is_file():
@@ -395,7 +394,7 @@ def root():
         media_type="text/html",
     )
 
-@app.get("/print-on-demand.js")
+@supreme_api_router.get("/print-on-demand.js")
 def print_on_demand_frontend_script():
     if not POD_JS_FILE.is_file():
         raise HTTPException(status_code=404, detail="Print on Demand frontend script not found")
@@ -406,7 +405,7 @@ def print_on_demand_frontend_script():
 # SUPREME FRONTEND HTML
 # ============================================================
 
-@app.get("/api/v1/frontend/supreme")
+@supreme_api_router.get("/api/v1/frontend/supreme")
 def supreme_frontend():
 
     if not SUPREME_HTML_FILE.is_file():
@@ -425,7 +424,7 @@ def supreme_frontend():
 # SUPREME FRONTEND CSS
 # ============================================================
 
-@app.get("/api/v1/frontend/supreme/style.css")
+@supreme_api_router.get("/api/v1/frontend/supreme/style.css")
 def supreme_frontend_css():
 
     if not SUPREME_CSS_FILE.is_file():
@@ -449,7 +448,7 @@ def supreme_frontend_css():
 # SUPREME FRONTEND STATUS
 # ============================================================
 
-@app.get("/api/v1/frontend/supreme/health")
+@supreme_api_router.get("/api/v1/frontend/supreme/health")
 def supreme_frontend_health():
 
     return {
@@ -465,28 +464,28 @@ def supreme_frontend_health():
 # SUPREME ECOSYSTEM FRONTEND
 # ============================================================
 
-@app.get("/api/v1/frontend/supreme-ecosystem")
+@supreme_api_router.get("/api/v1/frontend/supreme-ecosystem")
 def supreme_ecosystem_frontend():
     if not SUPREME_ECOSYSTEM_HTML_FILE.is_file():
         raise HTTPException(status_code=404, detail="SUPREME ECOSYSTEM frontend HTML not found")
     return FileResponse(SUPREME_ECOSYSTEM_HTML_FILE, media_type="text/html")
 
 
-@app.get("/api/v1/frontend/supreme-ecosystem/style.css")
+@supreme_api_router.get("/api/v1/frontend/supreme-ecosystem/style.css")
 def supreme_ecosystem_frontend_css():
     if not SUPREME_ECOSYSTEM_CSS_FILE.is_file():
         raise HTTPException(status_code=404, detail="SUPREME ECOSYSTEM frontend CSS not found")
     return FileResponse(SUPREME_ECOSYSTEM_CSS_FILE, media_type="text/css")
 
 
-@app.get("/api/v1/frontend/supreme-ecosystem/script.js")
+@supreme_api_router.get("/api/v1/frontend/supreme-ecosystem/script.js")
 def supreme_ecosystem_frontend_js():
     if not SUPREME_ECOSYSTEM_JS_FILE.is_file():
         raise HTTPException(status_code=404, detail="SUPREME ECOSYSTEM frontend JavaScript not found")
     return FileResponse(SUPREME_ECOSYSTEM_JS_FILE, media_type="application/javascript")
 
 
-@app.get("/api/v1/frontend/supreme-ecosystem/health")
+@supreme_api_router.get("/api/v1/frontend/supreme-ecosystem/health")
 def supreme_ecosystem_frontend_health():
     return {
         "success": True,
@@ -502,7 +501,7 @@ def supreme_ecosystem_frontend_health():
 # GLOBAL BUSINESS ECOSYSTEM FRONTEND
 # ============================================================
 
-@app.get("/api/v1/frontend/global-business-ecosystem")
+@supreme_api_router.get("/api/v1/frontend/global-business-ecosystem")
 def global_business_ecosystem_frontend():
     """Public WordPress-friendly alias for the main ecosystem homepage."""
     if not ROOT_FRONTEND_FILE.is_file():
@@ -513,7 +512,7 @@ def global_business_ecosystem_frontend():
     return FileResponse(ROOT_FRONTEND_FILE, media_type="text/html")
 
 
-@app.get("/api/v1/frontend/global-business-ecosystem/health")
+@supreme_api_router.get("/api/v1/frontend/global-business-ecosystem/health")
 def global_business_ecosystem_frontend_health():
     return {
         "success": True,
@@ -527,7 +526,7 @@ def global_business_ecosystem_frontend_health():
 # HEALTH CHECK
 # ============================================================
 
-@app.get("/health")
+@supreme_api_router.get("/health")
 def health():
 
     return {
@@ -540,7 +539,7 @@ def health():
 # WORDPRESS STATUS
 # ============================================================
 
-@app.get("/api/v1/wordpress/sites")
+@supreme_api_router.get("/api/v1/wordpress/sites")
 def wordpress_sites():
 
     return {
@@ -552,13 +551,13 @@ def wordpress_sites():
     }
 
 
-@app.get("/api/v1/wordpress/status/{site_id}")
+@supreme_api_router.get("/api/v1/wordpress/status/{site_id}")
 def wordpress_status(site_id: str):
 
     return wordpress_service.connection_status(site_id)
 
 
-@app.get("/api/v1/wordpress/health/{site_id}")
+@supreme_api_router.get("/api/v1/wordpress/health/{site_id}")
 def wordpress_health(site_id: str):
     # Each WordPress gate has its own hosting database credentials.
     # Shared platform/customer data remains in SUPREME_DB_PATH.
@@ -599,7 +598,7 @@ def wordpress_health(site_id: str):
 # FOUNDATION STATUS API
 # ============================================================
 
-@app.get("/api/v1/foundation")
+@supreme_api_router.get("/api/v1/foundation")
 def foundation():
 
     return {
@@ -615,27 +614,27 @@ def foundation():
 # Existing URLs preserved for backward compatibility
 # ============================================================
 
-@app.get("/api/v1/ecosystem/status")
+@supreme_api_router.get("/api/v1/ecosystem/status")
 def ecosystem_status():
     return ecosystem_api.status()
 
 
-@app.get("/api/v1/ecosystem/health")
+@supreme_api_router.get("/api/v1/ecosystem/health")
 def ecosystem_health():
     return ecosystem_api.health()
 
 
-@app.get("/api/v1/ecosystem/list")
+@supreme_api_router.get("/api/v1/ecosystem/list")
 def ecosystem_list():
     return ecosystem_api.list()
 
 
-@app.get("/api/v1/ecosystem/names")
+@supreme_api_router.get("/api/v1/ecosystem/names")
 def ecosystem_names():
     return ecosystem_api.names()
 
 
-@app.get("/api/v1/ecosystem/{ecosystem_id}/exists")
+@supreme_api_router.get("/api/v1/ecosystem/{ecosystem_id}/exists")
 def ecosystem_exists(ecosystem_id: str):
     return {
         "ecosystem_id": ecosystem_id,
@@ -643,7 +642,7 @@ def ecosystem_exists(ecosystem_id: str):
     }
 
 
-@app.get("/api/v1/ecosystem/{ecosystem_id}")
+@supreme_api_router.get("/api/v1/ecosystem/{ecosystem_id}")
 def ecosystem_get(ecosystem_id: str):
     return ecosystem_api.get(ecosystem_id)
 
@@ -652,32 +651,32 @@ def ecosystem_get(ecosystem_id: str):
 # GLOBAL ECOSYSTEM API
 # ============================================================
 
-@app.get("/api/v1/global-ecosystem/status")
+@supreme_api_router.get("/api/v1/global-ecosystem/status")
 def global_ecosystem_status():
     return ecosystem_api.status()
 
 
-@app.get("/api/v1/global-ecosystem/health")
+@supreme_api_router.get("/api/v1/global-ecosystem/health")
 def global_ecosystem_health():
     return ecosystem_api.health()
 
 
-@app.get("/api/v1/global-ecosystem/tree")
+@supreme_api_router.get("/api/v1/global-ecosystem/tree")
 def global_ecosystem_tree():
     return ecosystem_api.tree()
 
 
-@app.get("/api/v1/global-ecosystem/list")
+@supreme_api_router.get("/api/v1/global-ecosystem/list")
 def global_ecosystem_list():
     return ecosystem_api.list()
 
 
-@app.get("/api/v1/global-ecosystem/names")
+@supreme_api_router.get("/api/v1/global-ecosystem/names")
 def global_ecosystem_names():
     return ecosystem_api.names()
 
 
-@app.get("/api/v1/global-ecosystem/{ecosystem_id}/exists")
+@supreme_api_router.get("/api/v1/global-ecosystem/{ecosystem_id}/exists")
 def global_ecosystem_exists(ecosystem_id: str):
     return {
         "ecosystem_id": ecosystem_id,
@@ -685,7 +684,7 @@ def global_ecosystem_exists(ecosystem_id: str):
     }
 
 
-@app.get("/api/v1/global-ecosystem/{ecosystem_id}")
+@supreme_api_router.get("/api/v1/global-ecosystem/{ecosystem_id}")
 def global_ecosystem_get(ecosystem_id: str):
     return ecosystem_api.get(ecosystem_id)
 
@@ -694,17 +693,17 @@ def global_ecosystem_get(ecosystem_id: str):
 # GLOBAL CLOUD ECOSYSTEM
 # ============================================================
 
-@app.get("/api/v1/global-cloud/status")
+@supreme_api_router.get("/api/v1/global-cloud/status")
 def global_cloud_status():
     return cloud_api.status()
 
 
-@app.get("/api/v1/global-cloud/health")
+@supreme_api_router.get("/api/v1/global-cloud/health")
 def global_cloud_health():
     return cloud_api.health()
 
 
-@app.get("/api/v1/global-cloud/providers")
+@supreme_api_router.get("/api/v1/global-cloud/providers")
 def global_cloud_providers():
     return {
         "success": True,
@@ -716,17 +715,17 @@ def global_cloud_providers():
 # GLOBAL CLOUD STORAGE
 # ============================================================
 
-@app.get("/api/v1/global-cloud-storage/status")
+@supreme_api_router.get("/api/v1/global-cloud-storage/status")
 def global_cloud_storage_status():
     return storage_api.status()
 
 
-@app.get("/api/v1/global-cloud-storage/health")
+@supreme_api_router.get("/api/v1/global-cloud-storage/health")
 def global_cloud_storage_health():
     return storage_api.health()
 
 
-@app.get("/api/v1/global-cloud-storage/configuration")
+@supreme_api_router.get("/api/v1/global-cloud-storage/configuration")
 def global_cloud_storage_configuration():
     return storage_api.configuration()
 
@@ -735,7 +734,7 @@ def global_cloud_storage_configuration():
 # GLOBAL STORAGE ECOSYSTEM
 # ============================================================
 
-@app.get("/api/v1/global-storage-ecosystem/status")
+@supreme_api_router.get("/api/v1/global-storage-ecosystem/status")
 def global_storage_ecosystem_status():
     return {
         "success": True,
@@ -746,3 +745,7 @@ def global_storage_ecosystem_status():
         "external_storage_connected": False,
         "google_cloud_setup": "DEFERRED",
     }
+
+
+# Register after all route decorators so every existing route is included.
+app.include_router(supreme_api_router)
