@@ -869,7 +869,7 @@ border-top:2px solid #D4AF37 !important;
    ========================================================= */
 
 
-.DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE {
+.HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE {
 
     width: 100% !important;
     max-width: 100% !important;
@@ -912,7 +912,7 @@ border-top:2px solid #D4AF37 !important;
    IMAGE
    ========================================================= */
 
-.DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE img {
+.HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE img {
 
     display: block !important;
 
@@ -946,7 +946,7 @@ border-top:2px solid #D4AF37 !important;
    LIGHT GOLD → SLIGHT DARK GOLD
    ========================================================= */
 
-.DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE:hover {
+.HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE:hover {
 
     transform: translateY(-5px) !important;
 
@@ -959,7 +959,7 @@ border-top:2px solid #D4AF37 !important;
 }
 
 
-.DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE:hover img {
+.HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE:hover img {
 
     transform: scale(1.015) !important;
 
@@ -972,7 +972,7 @@ border-top:2px solid #D4AF37 !important;
 
 @media (min-width: 1025px) {
 
-    .DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE {
+    .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE {
 
         margin: 28px 0 !important;
 
@@ -980,7 +980,7 @@ border-top:2px solid #D4AF37 !important;
 
     }
 
-    .DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE img {
+    .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE img {
 
         border-radius: 22px !important;
 
@@ -995,7 +995,7 @@ border-top:2px solid #D4AF37 !important;
 
 @media (min-width: 769px) and (max-width: 1024px) {
 
-    .DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE {
+    .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE {
 
         margin: 28px 0 !important;
 
@@ -1003,7 +1003,7 @@ border-top:2px solid #D4AF37 !important;
 
     }
 
-    .DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE img {
+    .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE img {
 
         border-radius: 17px !important;
 
@@ -1018,7 +1018,7 @@ border-top:2px solid #D4AF37 !important;
 
 @media (max-width: 768px) {
 
-    .DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE {
+    .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE {
 
         width: 100% !important;
 
@@ -1028,7 +1028,7 @@ border-top:2px solid #D4AF37 !important;
 
     }
 
-    .DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE img {
+    .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE img {
 
         width: 100% !important;
 
@@ -1045,8 +1045,8 @@ border-top:2px solid #D4AF37 !important;
 
 @media (prefers-reduced-motion: reduce) {
 
-    .DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE,
-    .DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE img {
+    .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE,
+    .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE img {
 
         transition: none !important;
 
