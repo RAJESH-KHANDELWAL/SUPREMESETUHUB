@@ -72,6 +72,12 @@ SUPREME_FRONTEND_DIR = FRONTEND_DIR / "supreme"
 SUPREME_HTML_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "home-html.html"
 SUPREME_CSS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "home-css.css"
 SUPREME_JS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "home-js.js"
+ABOUT_HTML_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "about-html.html"
+ABOUT_CSS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "about-css.css"
+ABOUT_JS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "about-js.js"
+CONTACT_HTML_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "contact-html.html"
+CONTACT_CSS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "contact-css.css"
+CONTACT_JS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "contact-js.js"
 SUPREME_ECOSYSTEM_HTML_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "supreme-ecosystem.html"
 SUPREME_ECOSYSTEM_CSS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "supreme-ecosystem.css"
 SUPREME_ECOSYSTEM_JS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "supreme-ecosystem.js"
@@ -486,6 +492,52 @@ def supreme_frontend_js():
 # ============================================================
 # SUPREME FRONTEND STATUS
 # ============================================================
+
+# ============================================================
+# SUPREME ABOUT AND CONTACT PAGES
+# ============================================================
+
+@app.get("/api/v1/frontend/supreme/about")
+def supreme_about_frontend():
+    if not ABOUT_HTML_FILE.is_file():
+        raise HTTPException(status_code=404, detail="SUPREME ABOUT page not found")
+    return FileResponse(ABOUT_HTML_FILE, media_type="text/html", headers={"Cache-Control": "no-cache"})
+
+
+@app.get("/api/v1/frontend/supreme/about/style.css")
+def supreme_about_frontend_css():
+    if not ABOUT_CSS_FILE.is_file():
+        raise HTTPException(status_code=404, detail="SUPREME ABOUT CSS not found")
+    return FileResponse(ABOUT_CSS_FILE, media_type="text/css")
+
+
+@app.get("/api/v1/frontend/supreme/about/script.js")
+def supreme_about_frontend_js():
+    if not ABOUT_JS_FILE.is_file():
+        raise HTTPException(status_code=404, detail="SUPREME ABOUT JavaScript not found")
+    return FileResponse(ABOUT_JS_FILE, media_type="application/javascript")
+
+
+@app.get("/api/v1/frontend/supreme/contact")
+def supreme_contact_frontend():
+    if not CONTACT_HTML_FILE.is_file():
+        raise HTTPException(status_code=404, detail="SUPREME CONTACT page not found")
+    return FileResponse(CONTACT_HTML_FILE, media_type="text/html", headers={"Cache-Control": "no-cache"})
+
+
+@app.get("/api/v1/frontend/supreme/contact/style.css")
+def supreme_contact_frontend_css():
+    if not CONTACT_CSS_FILE.is_file():
+        raise HTTPException(status_code=404, detail="SUPREME CONTACT CSS not found")
+    return FileResponse(CONTACT_CSS_FILE, media_type="text/css")
+
+
+@app.get("/api/v1/frontend/supreme/contact/script.js")
+def supreme_contact_frontend_js():
+    if not CONTACT_JS_FILE.is_file():
+        raise HTTPException(status_code=404, detail="SUPREME CONTACT JavaScript not found")
+    return FileResponse(CONTACT_JS_FILE, media_type="application/javascript")
+
 
 @app.get("/api/v1/frontend/supreme/health")
 def supreme_frontend_health():
