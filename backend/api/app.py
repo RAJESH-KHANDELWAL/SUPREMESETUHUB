@@ -71,8 +71,8 @@ POD_JS_FILE = FRONTEND_DIR / "print-on-demand.js"
 SUPREME_FRONTEND_DIR = FRONTEND_DIR / "supreme"
 SUPREME_HTML_FILE = SUPREME_FRONTEND_DIR / "index.html"
 SUPREME_CSS_FILE = SUPREME_FRONTEND_DIR / "style.css"
-SUPREME_ECOSYSTEM_HTML_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem.html"
-SUPREME_ECOSYSTEM_CSS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem.css"
+SUPREME_ECOSYSTEM_HTML_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "supreme-ecosystem.html"
+SUPREME_ECOSYSTEM_CSS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "supreme-ecosystem.css"
 SUPREME_ECOSYSTEM_JS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem.js"
 
 
