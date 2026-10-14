@@ -3612,3 +3612,43 @@ section.HOME .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADV
     }
 }
 
+
+/* ==========================================================
+   HOME TOP WRAPPER — matches home-html.html exactly
+   Groups NAVIGATION, WELCOME, BRAND, ECOSYSTEM LINK and HERO IMAGE.
+   ========================================================== */
+section.HOME .HOME-CONTENT > .HOME-TOP-SECTION {
+    display: flex !important;
+    flex: 0 0 auto !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: clamp(12px, 1.8vw, 24px) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+}
+
+section.HOME .HOME-TOP-SECTION > .HOME-PAGE-NAV,
+section.HOME .HOME-TOP-SECTION > .HOME-MOST-WELCOME,
+section.HOME .HOME-TOP-SECTION > .DR-RAJESH-KHANDELWAL-IBC,
+section.HOME .HOME-TOP-SECTION > .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-TITLE,
+section.HOME .HOME-TOP-SECTION > .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD,
+section.HOME .HOME-TOP-SECTION > .HOME-GLOBAL-BUSINESS-ECOSYSTEM-LINK-BUTTON,
+section.HOME .HOME-TOP-SECTION > .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE {
+    flex: 0 0 auto !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+@media screen and (max-width: 480px) {
+    section.HOME .HOME-CONTENT > .HOME-TOP-SECTION {
+        gap: 11px !important;
+    }
+}
+
