@@ -1,0 +1,11 @@
+/* Shared defaults for SUPREME ECOSYSTEM owner pages */
+:root{font-family:Arial,sans-serif;color:#0f172a;background:#f4f7fb}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:#f4f7fb;color:#0f172a;line-height:1.55}
+a{color:#123b82}
+button,input{font:inherit}
+button{cursor:pointer}
+button:disabled{opacity:.6;cursor:wait}
+input{max-width:100%}
+:focus-visible{outline:3px solid #6ea8ff;outline-offset:3px}
