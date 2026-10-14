@@ -80,7 +80,9 @@ def create_organization(
 ):
     _initialize()
     organization_id = f"ORG-{uuid4().hex.upper()}"
-    owner_id = str(current_user.get("user_id") or current_user.get("username") or "")
+    owner_id = str(current_user.get("user_id") or "").strip()
+    if not owner_id:
+        raise HTTPException(status_code=401, detail="AUTHENTICATED_USER_ID_REQUIRED")
     organization = service.create_organization(
         organization_id=organization_id,
         organization_name=payload.organization_name.strip(),
