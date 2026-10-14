@@ -1,89 +1,476 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="SUPREME ECOSYSTEM — a structured workspace for identity, organizations, business resources, and connected platform modules.">
-  <meta name="theme-color" content="#0b1b38">
-  <title>SUPREME ECOSYSTEM | SUPREMESETUHUB</title>
-  <link rel="stylesheet" href="/api/v1/frontend/supreme/supreme-ecosystem/home-css.css">
-  <script src="/api/v1/frontend/supreme/supreme-ecosystem/home-js.js" defer></script>
-</head>
-<body>
-  <header class="topbar">
-    <a class="brand" href="/api/v1/frontend/supreme/supreme-ecosystem/home-html.html" aria-label="SUPREME ECOSYSTEM home">
-      <span class="brand-mark" aria-hidden="true">S</span>
-      <span><strong>SUPREME ECOSYSTEM</strong><small>SUPREMESETUHUB FOUNDATION</small></span>
-    </a>
-    <nav aria-label="Main navigation">
-      <a href="#foundation">FOUNDATION</a>
-      <a href="#modules">MODULES</a>
-      <a href="#api">API ROUTES</a>
-    </nav>
-  </header>
+<script src="https://raw.githubusercontent.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/main/frontend/supreme/index.js"></script>
 
-  <main>
-    <section class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="status-dot"></span> ONE BASE · CONNECTED MODULES</p>
-        <h1>SUPREME<br><span>ECOSYSTEM</span></h1>
-        <p class="lead">A clear foundation for authentication, people, organizations, businesses, and connected digital services — organized without creating duplicate core systems.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#modules">EXPLORE MODULES <span aria-hidden="true">↘</span></a>
-          <a class="button secondary" href="#api">VIEW API ROUTES</a>
-        </div>
-      </div>
-      <div class="hero-panel" aria-label="Foundation overview">
-        <div class="panel-heading"><span>FOUNDATION MAP</span><span class="panel-icon">⌘</span></div>
-        <div class="foundation-node main-node"><span class="node-icon">S</span><span><b>SUPREME ECOSYSTEM</b><small>Central foundation</small></span></div>
-        <div class="node-connector"></div>
-        <div class="node-grid">
-          <div class="foundation-node"><span class="mini-icon">ID</span><span><b>AUTH</b><small>Identity & sessions</small></span></div>
-          <div class="foundation-node"><span class="mini-icon">OR</span><span><b>ORGANIZATIONS</b><small>Registered entities</small></span></div>
-          <div class="foundation-node"><span class="mini-icon">BU</span><span><b>BUSINESSES</b><small>Business resources</small></span></div>
-          <div class="foundation-node"><span class="mini-icon">SC</span><span><b>SCHEMAS</b><small>Validated data</small></span></div>
-        </div>
-        <p class="panel-footnote">STRUCTURE OVERVIEW · NOT A LIVE SERVICE STATUS</p>
-      </div>
-    </section>
 
-    <section id="foundation" class="intro section-wrap">
-      <p class="eyebrow">THE BASE FOUNDATION</p>
-      <h2>One foundation. Clear responsibilities.</h2>
-      <p>Each module has a defined purpose. Authentication remains connected to the existing password and Bearer-token flow; organization and business data use their own validated request schemas.</p>
-    </section>
 
-    <section id="modules" class="modules section-wrap" aria-labelledby="modules-heading">
-      <div class="section-heading">
-        <div><p class="eyebrow">CORE MODULES</p><h2 id="modules-heading">Built around the existing system</h2></div>
-        <span class="section-index">01 — 04</span>
-      </div>
-      <div class="module-grid">
-        <article class="module-card"><span class="card-number">01</span><span class="card-icon">◈</span><h3>AUTHENTICATION</h3><p>Sign-in, token validation, and sign-out through the existing canonical authentication API.</p><code>/auth/signin</code></article>
-        <article class="module-card"><span class="card-number">02</span><span class="card-icon">▦</span><h3>ORGANIZATIONS</h3><p>Create, list, view, update, and delete organization records with owner-aware access checks.</p><code>/organizations/</code></article>
-        <article class="module-card"><span class="card-number">03</span><span class="card-icon">◇</span><h3>BUSINESS RESOURCES</h3><p>Use shared request validation for business records and their status updates.</p><code>/businesses/</code></article>
-        <article class="module-card"><span class="card-number">04</span><span class="card-icon">⌗</span><h3>DATA SCHEMAS</h3><p>Keep user, authentication, business, and organization request structures explicit and reusable.</p><code>backend/schemas/</code></article>
-      </div>
-    </section>
 
-    <section id="api" class="api-section">
-      <div class="section-wrap api-inner">
-        <div><p class="eyebrow">DEVELOPER REFERENCE</p><h2>API route map</h2><p class="api-description">These are route paths in the application. Protected endpoints require valid authentication; this page does not expose account data.</p></div>
-        <div class="api-list">
-          <div class="api-row"><span>AUTHENTICATION</span><code>/auth/signin</code><button type="button" data-copy="/auth/signin">COPY</button></div>
-          <div class="api-row"><span>USER ACCOUNTS</span><code>/users/signup</code><button type="button" data-copy="/users/signup">COPY</button></div>
-          <div class="api-row"><span>ORGANIZATIONS</span><code>/organizations/</code><button type="button" data-copy="/organizations/">COPY</button></div>
-          <div class="api-row"><span>BUSINESSES</span><code>/businesses/</code><button type="button" data-copy="/businesses/">COPY</button></div>
-          <div class="api-row"><span>HEALTH CHECK</span><code>/health</code><button type="button" data-copy="/health">COPY</button></div>
-        </div>
-        <p id="copy-feedback" class="copy-feedback" role="status" aria-live="polite"></p>
-      </div>
-    </section>
-  </main>
+<div id="SUPREMESETUHUB-HOME"></div>
 
-  <footer class="footer">
-    <span>SUPREME ECOSYSTEM</span>
-    <span>ONE BASE FOUNDATION · MODULAR BY DESIGN</span>
-  </footer>
-</body>
-</html>
+<script>
+fetch("https://supremesetuhub-supreme-owner-admin.onrender.com/api/v1/frontend/supreme")
+    .then(response => response.text())
+    .then(html => {
+        document.getElementById("SUPREMESETUHUB-HOME").innerHTML = html;
+    })
+    .catch(error => {
+        console.error("SUPREMESETUHUB LOAD ERROR:", error);
+    });
+</script>
+
+
+
+
+<div class="DR-RAJESH-KHANDELWAL-IBC
+DR-RAJESH-KHANDELWAL-IBC-OFFICIAL
+RAJESH-KHANDELWAL
+RAJESH-KHANDELWAL-OFFICIAL
+KHANDELWAL-GROUP-AND-COMPANY
+KHANDELWAL-GROUP-AND-COMPANIES
+HOME">
+
+
+    
+
+    <section class="HOME">
+
+        <div class="HOME">
+
+
+            <!-- MOST WELCOME -->
+
+            <div class="MOST-WELCOME">
+                <h1 class="MOST-WELCOME-TITLE">
+                    &#128081; MOST WELCOME &#128081;
+                </h1>
+            </div>
+
+
+            <!-- DR RAJESH KHANDELWAL IBC BRAND -->
+
+            <h1 class="GLOBAL-BRAND-EMPIRE-LEGACY">
+                &#128081; DR RAJESH KHANDELWAL IBC &#128081;
+            </h1>
+
+
+            <!-- GLOBAL BUSINESS COACH & CONSULTANT & ADVISOR TITLE -->
+
+            <h1 class="GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-TITLE">
+                &#127757; GLOBAL BUSINESS COACH & CONSULTANT & ADVISOR &#127757;
+            </h1>
+
+
+<div class="GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD">
+
+    <h1 class="GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-NAME">
+        &#128081; DR RAJESH KHANDELWAL IBC &#128081;
+    </h1>
+
+
+    <h2 class="GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-GLOBAL-BUSINESS-COACH">
+        &#127758; GLOBAL BUSINESS COACH &#127758;
+    </h2>
+
+
+    <h2 class="GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-INDEPENDENT-BUSINESS-CONSULTANT">
+        &#129504; INDEPENDENT BUSINESS CONSULTANT &amp; BUSINESS ADVISOR &#129504;
+    </h2>
+
+
+    <h2 class="GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-FOUNDER-CEO">
+        &#127970; FOUNDER &amp; CEO &#127970;
+    </h2>
+
+
+    <h2 class="GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-REAL-ESTATE-COACH">
+        &#127969; REAL ESTATE COACH &#127969;
+    </h2>
+
+
+    <h2 class="GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-INTIMACY-COACH">
+        &#10084;&#65039; RELATIONSHIP &amp; INTIMACY COACH &#10084;&#65039;
+    </h2>
+
+
+
+<p class="GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-DESCRIPTION">
+
+    &#128640; BUILDING SMART, SCALABLE &amp; FUTURE-READY BUSINESS SYSTEMS
+    THROUGH DIGITAL TECHNOLOGY, AI, AUTOMATION, STRATEGIC BUSINESS DEVELOPMENT,
+    DIGITAL TRANSFORMATION &amp; GLOBAL BUSINESS CONNECTIONS FOR LONG-TERM
+    VALUE CREATION.
+
+    <br><br>
+
+    &#129302; INTEGRATING BUSINESS, TECHNOLOGY, ARTIFICIAL INTELLIGENCE,
+    AUTOMATION, DIGITAL INFRASTRUCTURE, ENTREPRENEURSHIP &amp; GLOBAL MARKET
+    OPPORTUNITIES INTO ONE CONNECTED, SYSTEM-DRIVEN &amp; FUTURE-READY
+    BUSINESS ECOSYSTEM.
+
+    <br><br>
+
+    &#128200; SUPPORTING ENTREPRENEURS, PROFESSIONALS &amp; BUSINESSES WITH
+    STRATEGIC THINKING, BUSINESS CONSULTING, ADVISORY, COACHING,
+    SYSTEMIZATION, DIGITAL SOLUTIONS, SCALABLE BUSINESS MODELS,
+    COLLABORATION &amp; BUSINESS GROWTH OPPORTUNITIES.
+
+    <br><br>
+
+    &#127470;&#127475; BUILDING FROM BHARAT TO THE GLOBAL WORLD —
+    CONNECTING PEOPLE, ENTREPRENEURS, PROFESSIONALS, BUSINESSES,
+    PROJECTS, SERVICES, TECHNOLOGY &amp; OPPORTUNITIES ACROSS
+    DIGITAL, NATIONAL &amp; INTERNATIONAL MARKETS.
+
+    <br><br>
+
+    &#127919; TRANSFORMING IDEAS INTO STRATEGY, STRATEGY INTO SYSTEMS,
+    SYSTEMS INTO SCALABLE BUSINESS MODELS, AND SCALABLE BUSINESS MODELS
+    INTO STRONGER GLOBAL BUSINESS OPPORTUNITIES.
+
+    <br><br>
+
+    &#128737;&#65039; FOCUSING ON RESPONSIBLE BUSINESS DEVELOPMENT,
+    STRATEGIC BUSINESS ASSETS, SYSTEMIZATION, DIGITAL TRANSFORMATION,
+    OPERATIONAL CONTINUITY, RISK-AWARE BUSINESS THINKING
+    &amp; LONG-TERM VALUE CREATION.
+
+    <br><br>
+
+    &#128081; DEVELOPING SUSTAINABLE BUSINESS VALUE, STRATEGIC WEALTH
+    CREATION, MULTI-GENERATIONAL BUSINESS THINKING, LONG-TERM ASSET
+    DEVELOPMENT &amp; SIX-GENERATION LEGACY VISION.
+
+    <br><br>
+
+    &#127758; CREATING A GLOBAL BUSINESS ECOSYSTEM WHERE BUSINESS,
+    TECHNOLOGY, AI, DIGITAL INFRASTRUCTURE, ENTREPRENEURSHIP,
+    COLLABORATION &amp; INTERNATIONAL OPPORTUNITIES CONNECT
+    INTO ONE LONG-TERM VISION.
+
+    <br><br>
+
+    &#128640; FROM IDEA TO STRATEGY,
+    FROM STRATEGY TO SYSTEM,
+    FROM SYSTEM TO SCALE,
+    FROM SCALE TO GLOBAL BUSINESS,
+    AND FROM GLOBAL BUSINESS TO LONG-TERM BUSINESS LEGACY.
+
+    <br><br>
+
+    &#127758; GLOBAL BUSINESS COACH &amp; CONSULTANT &amp; ADVISOR —
+    CONNECTING VISION, STRATEGY, SYSTEMS, OPPORTUNITIES
+    &amp; GLOBAL BUSINESS GROWTH. &#127758;
+
+</p>
+
+
+</div>
+
+
+<a
+    href="https://rajeshkhandelwalofficial.com/global-business-ecosystem/"
+    class="GLOBAL-BUSINESS-ECOSYSTEM-LINK-BUTTON"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    &#127758; GLOBAL BUSINESS ECOSYSTEM &#127758;
+</a>
+
+
+<div class="DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE">
+
+    
+    <img
+        src="https://rajeshkhandelwalofficial.com/wp-content/uploads/2026/03/DR-RAJESH-KHANDELWAL-IBC-K1-3.jpg"
+        alt="DR RAJESH KHANDELWAL IBC GLOBAL BUSINESS COACH CONSULTANT ADVISOR"
+    >   
+
+</div>
+
+
+<!-- WHAT I DO -->
+
+<div class="HOME-WHAT-I-DO-CARD">
+
+    <h2 class="HOME-WHAT-I-DO-TITLE">
+        &#127919; WHAT I DO &#127919;
+    </h2>
+
+
+    <p class="HOME-WHAT-I-DO-INTRO">
+        &#127758; I WORK ACROSS BUSINESS, CONSULTING, ADVISORY,
+        COACHING, DIGITAL TECHNOLOGY, ENTREPRENEURSHIP,
+        REAL ESTATE, RELATIONSHIPS &amp; GLOBAL BUSINESS
+        DEVELOPMENT.
+    </p>
+
+
+    <div class="HOME-WHAT-I-DO-ITEM">
+
+        <h3 class="HOME-WHAT-I-DO-GLOBAL-BUSINESS-COACH">
+            &#127758; GLOBAL BUSINESS COACH
+        </h3>
+
+        <p>
+            GUIDING ENTREPRENEURS, PROFESSIONALS &amp; BUSINESSES
+            WITH BUSINESS THINKING, STRATEGY, GROWTH &amp;
+            FUTURE-READY BUSINESS DEVELOPMENT.
+        </p>
+
+    </div>
+
+
+    <div class="HOME-WHAT-I-DO-ITEM">
+
+        <h3 class="HOME-WHAT-I-DO-INDEPENDENT-BUSINESS-CONSULTANT">
+            &#129504; INDEPENDENT BUSINESS CONSULTANT &amp; BUSINESS ADVISOR
+        </h3>
+
+        <p>
+            PROVIDING PRACTICAL BUSINESS CONSULTING,
+            ADVISORY &amp; SOLUTIONS FOR NEW &amp; EXISTING
+            BUSINESSES, BUSINESS PROBLEMS, SYSTEMS,
+            STRATEGY &amp; GROWTH.
+        </p>
+
+    </div>
+
+
+    <div class="HOME-WHAT-I-DO-ITEM">
+
+        <h3 class="HOME-WHAT-I-DO-FOUNDER-CEO">
+            &#127970; FOUNDER &amp; CEO
+        </h3>
+
+        <p>
+            BUILDING, LEADING &amp; DEVELOPING BUSINESS
+            VISION, SYSTEMS, PEOPLE, PROJECTS &amp;
+            LONG-TERM BUSINESS VALUE.
+        </p>
+
+    </div>
+
+
+    <div class="HOME-WHAT-I-DO-ITEM">
+
+        <h3 class="HOME-WHAT-I-DO-REAL-ESTATE-COACH">
+            &#127969; REAL ESTATE COACH
+        </h3>
+
+        <p>
+            SUPPORTING PEOPLE WITH REAL ESTATE THINKING,
+            PROPERTY-RELATED BUSINESS UNDERSTANDING,
+            STRATEGY &amp; OPPORTUNITY-FOCUSED GUIDANCE.
+        </p>
+
+    </div>
+
+
+    <div class="HOME-WHAT-I-DO-ITEM">
+
+        <h3 class="HOME-WHAT-I-DO-RELATIONSHIP-INTIMACY-COACH">
+            &#10084;&#65039; RELATIONSHIP &amp; INTIMACY COACH
+        </h3>
+
+        <p>
+            PROVIDING PRIVATE, RESPECTFUL &amp; MATURE
+            GUIDANCE FOR RELATIONSHIPS, COMMUNICATION,
+            INTIMACY, PERSONAL BOUNDARIES &amp;
+            COUPLE-RELATED CONCERNS.
+        </p>
+
+    </div>
+
+
+    <p class="HOME-WHAT-I-DO-CLOSING">
+        &#127470;&#127475; FROM BHARAT TO THE GLOBAL WORLD —
+        CONNECTING BUSINESS, PEOPLE, STRATEGY,
+        TECHNOLOGY, OPPORTUNITIES &amp; LONG-TERM VALUE.
+    </p>
+
+</div>
+
+            
+
+<div class="HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD">
+
+    <h1 class="HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-NAME">
+        &#128081; DR RAJESH KHANDELWAL IBC &#128081;
+    </h1>
+
+            <h1 class="HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-TITLE">
+                &#127757; GLOBAL BUSINESS COACH & CONSULTANT & ADVISOR &#127757;
+            </h1>
+
+
+<!-- LFP -->
+
+<p class="HOME-LFP-INTRO">
+    &#128640; BUSINESS GROWTH OPPORTUNITY FOR BUSINESS OWNERS
+    WITH AN ANNUAL TURNOVER OF &#8377;1 CR TO &#8377;10 CR.
+    &#127758; EXPLORE LFP FOR STRUCTURED BUSINESS GROWTH,
+    DEVELOPMENT &amp; SCALE.
+</p>
+
+<a
+    href="https://www.badabusiness.com/lfp?pp_code=BIRK076336"
+    class="HOME-LFP-LINK"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    &#127758; EXPLORE LFP &#127758;
+</a>
+
+
+<!-- CASH GROWTH PROFIT -->
+
+<p class="HOME-CASH-GROWTH-PROFIT-INTRO">
+    &#128200; CASH GROWTH PROFIT —
+    FOCUSING ON BUSINESS PROFITABILITY,
+    CASH FLOW, GROWTH &amp; BUSINESS PERFORMANCE.
+</p>
+
+<a
+    href="https://www.badabusiness.com/cash-growth-profit?pp_code=BIRK076336"
+    class="HOME-CASH-GROWTH-PROFIT-LINK"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    &#128200; EXPLORE CASH GROWTH PROFIT &#128200;
+</a>
+
+
+<!-- IDEA TO IPO -->
+
+<p class="HOME-IDEA-TO-IPO-INTRO">
+    &#128200; BUSINESS GROWTH &amp; SCALE-UP OPPORTUNITY —
+    LEARN STRATEGIES, FRAMEWORKS &amp; ACTION POINTS
+    TO BUILD A BUSINESS READY FOR THE NEXT LEVEL.
+</p>
+
+<a
+    href="https://www.badabusiness.com/ideatoipo?pp_code=BIRK076336"
+    class="HOME-IDEA-TO-IPO-LINK"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    &#128200; EXPLORE IDEA TO IPO &#128200;
+</a>
+    
+    
+<!-- SOLUTIONS CONSULTANT -->
+
+<p class="HOME-SOLUTIONS-CONSULTANT-INTRO">
+    &#128200; PRACTICAL BUSINESS SOLUTIONS CONSULTING
+    FOR NORMAL OLD &amp; NEW BUSINESSES —
+    IDENTIFYING, ANALYSING &amp; SOLVING BUSINESS PROBLEMS
+    FROM A TO Z.
+</p>
+
+<a
+    href="https://wa.me/917611967229"
+    class="HOME-SOLUTIONS-CONSULTANT-LINK"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    &#128222; 1 HOUR BUSINESS CONSULTATION — &#8377;999/- &#128222;
+</a>
+    
+    
+    <h2 class="HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-GLOBAL-BUSINESS-COACH">
+        &#127758; GLOBAL BUSINESS COACH &#127758;
+    </h2>
+
+
+<!-- DIGITAL DUKAN -->
+
+<p class="HOME-DIGITAL-DUKAN-INTRO">
+    &#128241; DIGITAL DUKAN — DIGITAL BUSINESS &amp; ONLINE BUSINESS OPPORTUNITY.
+</p>
+
+<a
+    href="https://www.badabusiness.com/digitaldukan/BIRK076336"
+    class="HOME-DIGITAL-DUKAN-LINK"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    &#128241; EXPLORE DIGITAL DUKAN &#128241;
+</a>
+
+
+<!-- IDIGITALPRENEUR -->
+
+<p class="HOME-IDIGITALPRENEUR-INTRO">
+    &#128250; DIGITAL BUSINESS, SKILLS, TRAINING &amp;
+    ENTREPRENEURSHIP OPPORTUNITY —
+    EXPLORE THE DETAILED PRESENTATION AND UNDERSTAND
+    THE COMPLETE BUSINESS OPPORTUNITY.
+</p>
+
+<a
+    href="https://idigitalpreneur.com/affiliate/shared-video-form?videoid=4&amp;userid=kHKllSWY0B3z6I6yXuFLfFJ34Yd2Hdra"
+    class="HOME-IDIGITALPRENEUR-LINK"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    &#128250; WATCH DETAILED PRESENTATION &#128250;
+</a>
+    
+
+    <h2 class="HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-INDEPENDENT-BUSINESS-CONSULTANT">
+        &#129504; INDEPENDENT BUSINESS CONSULTANT &amp; BUSINESS ADVISOR &#129504;
+    </h2>
+
+
+    <h2 class="HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-FOUNDER-CEO">
+        &#127970; FOUNDER &amp; CEO &#127970;
+    </h2>
+
+
+<!-- FOUNDER & CEO -->
+
+<p class="HOME-FOUNDER-CEO-INTRO">
+    &#127970; FOUNDER &amp; CEO —
+    BUILDING, LEADING &amp; DEVELOPING
+    BUSINESS VISION, SYSTEMS, PEOPLE &amp; LONG-TERM VALUE.
+</p>
+
+<a
+    href="https://wa.me/917611967229"
+    class="HOME-FOUNDER-CEO-LINK"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    &#128222; 1 HOUR CONSULTANT — &#8377;999/-
+</a>
+    
+
+    <h2 class="HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-REAL-ESTATE-COACH">
+        &#127969; REAL ESTATE COACH &#127969;
+    </h2>
+
+
+    <h2 class="HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-INTIMACY-COACH">
+        &#10084;&#65039; RELATIONSHIP &amp; INTIMACY COACH &#10084;&#65039;
+    </h2>
+
+
+<!-- RELATIONSHIP & INTIMACY COACH -->
+
+<p class="HOME-RELATIONSHIP-INTIMACY-COACH-INTRO">
+    &#10084;&#65039; RELATIONSHIP &amp; INTIMACY COACH —
+    PRIVATE &amp; RESPECTFUL GUIDANCE FOR
+    RELATIONSHIP, COMMUNICATION, INTIMACY,
+    PERSONAL BOUNDARIES &amp; COUPLE-RELATED CONCERNS.
+    CONFIDENTIAL CONSULTATION FOR PEOPLE
+    WHO WANT PRACTICAL &amp; MATURE GUIDANCE.
+</p>
+
+<a
+    href="https://wa.me/917611967229"
+    class="HOME-RELATIONSHIP-INTIMACY-COACH-LINK"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    &#128222; 1 HOUR CONSULTANT — &#8377;999/-
+</a>
+
+
