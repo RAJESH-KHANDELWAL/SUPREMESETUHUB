@@ -5,7 +5,7 @@ This directory contains the primary FastAPI backend and all SUPREME runtime modu
 ## SUPREME structure
 
 - `supreme/` — SUPREME core, config and owner identity helpers.
-- `supreme/ecosystem/` — ecosystem services, ownership, vault and external provider connector framework.
+- `supreme/supreme_ecosystem/` — ecosystem services, ownership, vault and external provider connector framework.
 - `api/supreme.py` — private SUPREME endpoints.
 - `api/app.py` — central FastAPI app and security middleware.
 - `start.py` — production startup wrapper.
