@@ -1,0 +1,40 @@
+name: Deploy to Hostinger VPS
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "backend/**"
+      - ".github/workflows/hostinger-vps.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hostinger-vps-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy SUPREME MUKTI MAHAL ECOSYSTEM
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Verify deployment files
+        run: |
+          test -f backend/Dockerfile
+          test -f backend/docker-compose.yml
+          test -f backend/requirements.txt
+
+      - name: Deploy to Hostinger VPS
+        uses: hostinger/deploy-on-vps@v2
+        with:
+          api-key: ${{ secrets.HOSTINGER_API_KEY }}
+          virtual-machine: ${{ vars.HOSTINGER_VM_ID }}
+          project-name: supreme-mukti-mahal-ecosystem
+          docker-compose-path: backend/docker-compose.yml
