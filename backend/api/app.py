@@ -75,6 +75,12 @@ SUPREME_ECOSYSTEM_HTML_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem.html"
 SUPREME_ECOSYSTEM_CSS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem.css"
 SUPREME_ECOSYSTEM_JS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem.js"
 
+# Private owner dashboard frontend files (kept separate from the public SUPREME homepage).
+SUPREME_OWNER_DASHBOARD_DIR = FRONTEND_DIR / "supreme-ecosystem"
+SUPREME_OWNER_DASHBOARD_HTML_FILE = SUPREME_OWNER_DASHBOARD_DIR / "index.html"
+SUPREME_OWNER_SIGNIN_HTML_FILE = SUPREME_OWNER_DASHBOARD_DIR / "signin.html"
+SUPREME_OWNER_SIGNIN_JS_FILE = SUPREME_OWNER_DASHBOARD_DIR / "signin.js"
+
 
 # ============================================================
 # MAIN APPLICATION
@@ -506,6 +512,32 @@ def supreme_ecosystem_frontend_health():
 # ============================================================
 # GLOBAL BUSINESS ECOSYSTEM FRONTEND
 # ============================================================
+
+# ============================================================
+# SUPREME OWNER DASHBOARD FRONTEND (private sign-in flow)
+# ============================================================
+
+@app.get("/api/v1/frontend/supreme-owner-dashboard/")
+@app.get("/api/v1/frontend/supreme-owner-dashboard/index.html")
+def supreme_owner_dashboard_frontend():
+    if not SUPREME_OWNER_DASHBOARD_HTML_FILE.is_file():
+        raise HTTPException(status_code=404, detail="SUPREME owner dashboard HTML not found")
+    return FileResponse(SUPREME_OWNER_DASHBOARD_HTML_FILE, media_type="text/html")
+
+
+@app.get("/api/v1/frontend/supreme-owner-dashboard/signin.html")
+def supreme_owner_dashboard_signin():
+    if not SUPREME_OWNER_SIGNIN_HTML_FILE.is_file():
+        raise HTTPException(status_code=404, detail="SUPREME owner sign-in HTML not found")
+    return FileResponse(SUPREME_OWNER_SIGNIN_HTML_FILE, media_type="text/html")
+
+
+@app.get("/api/v1/frontend/supreme-owner-dashboard/signin.js")
+def supreme_owner_dashboard_signin_js():
+    if not SUPREME_OWNER_SIGNIN_JS_FILE.is_file():
+        raise HTTPException(status_code=404, detail="SUPREME owner sign-in script not found")
+    return FileResponse(SUPREME_OWNER_SIGNIN_JS_FILE, media_type="application/javascript")
+
 
 @app.get("/api/v1/frontend/global-business-ecosystem")
 def global_business_ecosystem_frontend():
