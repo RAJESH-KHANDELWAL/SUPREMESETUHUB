@@ -89,7 +89,7 @@ section .DR-RAJESH-KHANDELWAL-IBC,
 }
 
 
-.GLOBAL-BRAND-EMPIRE-LEGACY {
+.HOME-DR-RAJESH-KHANDELWAL-IBC {
 
 
 display: flex !important;                           
@@ -113,7 +113,7 @@ text-transform: uppercase !important;
 
 @media (min-width:1025px){
 
-.GLOBAL-BRAND-EMPIRE-LEGACY {
+.HOME-DR-RAJESH-KHANDELWAL-IBC {
 font-size:60px !important;                          
 line-height:1.8 !important;                         
 letter-spacing:1.8px !important;                    
@@ -132,7 +132,7 @@ border-radius:18px !important;
 
 @media (max-width:1024px){
 
-.GLOBAL-BRAND-EMPIRE-LEGACY {
+.HOME-DR-RAJESH-KHANDELWAL-IBC {
 
 
 font-size:20px !important;                         
