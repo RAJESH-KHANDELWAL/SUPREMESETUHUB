@@ -1,5 +1,18 @@
 /* Shared defaults for SUPREME ECOSYSTEM owner pages */
-:root{font-family:Arial,sans-serif;color:#0f172a;background:#f4f7fb}
+:root,
+html,
+body {
+  font-family: "Century Schoolbook", "Libre Baskerville", serif !important;
+}
+
+:root {
+  color: #0f172a;
+  background: #f4f7fb;
+}
+
+body {
+  font-weight: 800 !important; /* EXTRA BOLD */
+}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;min-height:100vh;background:#f4f7fb;color:#0f172a;line-height:1.55}
