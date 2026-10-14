@@ -3688,20 +3688,15 @@ section.HOME .HOME-PAGE-NAV a[aria-current="page"] {
     section.HOME .HOME-PAGE-NAV a { transition: none !important; }
 }
 
-/* SUPREME HOME ROOT SCROLL / DOUBLE-BORDER FIX */
-/* The outer section and inner .HOME both matched the shared root rule.
-   Keep the gold frame on the inner .HOME only; prevent the outer section
-   from creating a second frame or adding border width beyond the viewport. */
-section.HOME,
-section.DR-RAJESH-KHANDELWAL-IBC {
+/* SUPREME HOME ROOT — MATCH HTML CLASS STRUCTURE */
+/* The outer <section> is the single HOME root. The inner content wrapper
+   uses HOME-CONTENT so the shared .HOME border is applied only once. */
+section.HOME {
     width: 100% !important;
     max-width: 100% !important;
+    min-width: 0 !important;
     box-sizing: border-box !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    background: transparent !important;
-    overflow: visible !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    overflow-x: clip !important;
 }
