@@ -3309,3 +3309,52 @@ section.HOME .HOME-PAGE-NAV a[aria-current="page"] {
         transition-duration: .01ms !important;
     }
 }
+
+/* =========================================================
+   HTML/CSS CLASS-NAME AUDIT — EXPLICIT HTML CLASS COVERAGE
+   Every class used in home-html.html has a corresponding
+   selector here or in the existing rules above.
+   ========================================================= */
+
+/* Root identity aliases present on the HOME section in HTML. */
+section.HOME.DRRAJESHKHANDELWALIBC,
+section.HOME.DRRAJESHKHANDELWALIBCOFFICIAL,
+section.HOME.RAJESHKHANDELWAL,
+section.HOME.RAJESHKHANDELWALOFFICIAL,
+section.HOME.KHANDELWALGROUPANDCOMPANY,
+section.HOME.KHANDELWALGROUPANDCOMPANIES {
+    min-width: 0 !important;
+    max-width: 100% !important;
+}
+
+/* Welcome title class used by the HTML heading. */
+section.HOME .HOME-MOST-WELCOME-TITLE {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    text-align: center !important;
+    color: var(--HOME-GOLD) !important;
+    overflow-wrap: anywhere !important;
+}
+
+/* Explicit class selectors for the WHAT I DO heading classes. */
+section.HOME .HOME-WHAT-I-DO-FOUNDER-CEO,
+section.HOME .HOME-WHAT-I-DO-GLOBAL-BUSINESS-COACH,
+section.HOME .HOME-WHAT-I-DO-INDEPENDENT-BUSINESS-CONSULTANT,
+section.HOME .HOME-WHAT-I-DO-REAL-ESTATE-COACH,
+section.HOME .HOME-WHAT-I-DO-RELATIONSHIP-INTIMACY-COACH {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 0 8px 0 !important;
+    text-align: center !important;
+    color: #111111 !important;
+    font-family: var(--HOME-FONT-FAMILY) !important;
+    font-weight: 900 !important;
+    line-height: 1.5 !important;
+    overflow-wrap: anywhere !important;
+    text-transform: uppercase !important;
+}
