@@ -3239,3 +3239,395 @@ section.HOME .HOME-RELATIONSHIP-INTIMACY-COACH-INTRO {
         height: auto !important;
     }
 }
+
+
+/* =========================================================
+   HOME RESPONSIVE MASTER LAYER
+   Target: ultra-wide screens, desktop PCs, laptops, tablets,
+   phones and compact phones. Keep main identity class names
+   unchanged; these rules apply only to the HOME page section.
+   ========================================================= */
+
+/* Shared responsive safeguards for every viewport */
+section.HOME,
+section.HOME * {
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+}
+
+section.HOME {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: clip !important;
+    overflow-wrap: anywhere !important;
+}
+
+section.HOME h1,
+section.HOME h2,
+section.HOME h3,
+section.HOME h4,
+section.HOME p,
+section.HOME a,
+section.HOME li,
+section.HOME span {
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+    word-wrap: break-word !important;
+}
+
+section.HOME img,
+section.HOME picture,
+section.HOME video,
+section.HOME iframe,
+section.HOME canvas,
+section.HOME svg {
+    max-width: 100% !important;
+}
+
+section.HOME img,
+section.HOME video,
+section.HOME iframe {
+    height: auto !important;
+}
+
+section.HOME button,
+section.HOME input,
+section.HOME select,
+section.HOME textarea {
+    max-width: 100% !important;
+}
+
+/* Ultra-wide monitors / 2K / 4K screens: 1920px and above */
+@media screen and (min-width: 1920px) {
+    section.HOME {
+        padding: 36px !important;
+        gap: 32px !important;
+    }
+
+    section.HOME .HOME-WHAT-I-DO-CARD,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD,
+    section.HOME .HOME-WHAT-I-DO-ITEM {
+        width: min(100%, 1600px) !important;
+        max-width: 1600px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    section.HOME h1 {
+        font-size: clamp(32px, 2.2vw, 60px) !important;
+    }
+
+    section.HOME h2 {
+        font-size: clamp(24px, 1.55vw, 42px) !important;
+    }
+}
+
+/* Desktop PCs / standard large monitors: 1200px–1919px */
+@media screen and (min-width: 1200px) and (max-width: 1919px) {
+    section.HOME {
+        padding: 28px !important;
+        gap: 28px !important;
+    }
+
+    section.HOME .HOME-WHAT-I-DO-CARD,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD,
+    section.HOME .HOME-WHAT-I-DO-ITEM {
+        max-width: 1400px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    section.HOME h1 {
+        font-size: clamp(30px, 2.5vw, 54px) !important;
+    }
+
+    section.HOME h2 {
+        font-size: clamp(22px, 1.8vw, 36px) !important;
+    }
+}
+
+/* Laptops / compact desktop: 1025px–1199px */
+@media screen and (min-width: 1025px) and (max-width: 1199px) {
+    section.HOME {
+        padding: 18px !important;
+        gap: 18px !important;
+    }
+
+    section.HOME .HOME-WHAT-I-DO-CARD,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD,
+    section.HOME .HOME-WHAT-I-DO-ITEM {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 12px auto !important;
+        padding: 18px !important;
+    }
+
+    section.HOME h1 {
+        font-size: clamp(26px, 3vw, 40px) !important;
+    }
+
+    section.HOME h2 {
+        font-size: clamp(20px, 2.2vw, 30px) !important;
+    }
+}
+
+/* Tablets in landscape / smaller laptops: 769px–1024px */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    section.HOME {
+        padding: 16px !important;
+        gap: 16px !important;
+    }
+
+    section.HOME .HOME-WHAT-I-DO-CARD,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD,
+    section.HOME .HOME-WHAT-I-DO-ITEM,
+    section.HOME .HOME-DIGITAL-DUKAN-INTRO,
+    section.HOME .HOME-IDIGITALPRENEUR-INTRO,
+    section.HOME .HOME-FOUNDER-CEO-INTRO,
+    section.HOME .HOME-RELATIONSHIP-INTIMACY-COACH-INTRO {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 10px auto !important;
+        padding: 16px !important;
+    }
+
+    section.HOME h1 {
+        font-size: clamp(24px, 3.4vw, 34px) !important;
+    }
+
+    section.HOME h2 {
+        font-size: clamp(19px, 2.7vw, 26px) !important;
+    }
+
+    section.HOME img,
+    section.HOME video,
+    section.HOME iframe {
+        max-width: 100% !important;
+    }
+}
+
+/* Tablets in portrait / large phones: 600px–768px */
+@media screen and (min-width: 600px) and (max-width: 768px) {
+    section.HOME {
+        padding: 12px !important;
+        gap: 12px !important;
+    }
+
+    section.HOME .HOME-WHAT-I-DO-CARD,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD,
+    section.HOME .HOME-WHAT-I-DO-ITEM,
+    section.HOME .HOME-DIGITAL-DUKAN-INTRO,
+    section.HOME .HOME-IDIGITALPRENEUR-INTRO,
+    section.HOME .HOME-FOUNDER-CEO-INTRO,
+    section.HOME .HOME-RELATIONSHIP-INTIMACY-COACH-INTRO {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 8px auto !important;
+        padding: 14px !important;
+        border-radius: 14px !important;
+    }
+
+    section.HOME h1 {
+        font-size: clamp(23px, 4.2vw, 32px) !important;
+    }
+
+    section.HOME h2 {
+        font-size: clamp(18px, 3.2vw, 25px) !important;
+    }
+
+    section.HOME p,
+    section.HOME li,
+    section.HOME a {
+        font-size: 16px !important;
+    }
+}
+
+/* Mobile phones: 481px–599px */
+@media screen and (min-width: 481px) and (max-width: 599px) {
+    section.HOME {
+        padding: 10px !important;
+        gap: 10px !important;
+        border-width: 3px !important;
+    }
+
+    section.HOME .HOME-WHAT-I-DO-CARD,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD,
+    section.HOME .HOME-WHAT-I-DO-ITEM,
+    section.HOME .HOME-DIGITAL-DUKAN-INTRO,
+    section.HOME .HOME-IDIGITALPRENEUR-INTRO,
+    section.HOME .HOME-FOUNDER-CEO-INTRO,
+    section.HOME .HOME-RELATIONSHIP-INTIMACY-COACH-INTRO {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 7px auto !important;
+        padding: 12px !important;
+        border-radius: 12px !important;
+    }
+
+    section.HOME h1 {
+        font-size: clamp(22px, 5vw, 29px) !important;
+    }
+
+    section.HOME h2 {
+        font-size: clamp(18px, 4vw, 23px) !important;
+    }
+
+    section.HOME p,
+    section.HOME li,
+    section.HOME a {
+        font-size: 15px !important;
+    }
+}
+
+/* Standard and small mobile phones: 361px–480px */
+@media screen and (min-width: 361px) and (max-width: 480px) {
+    section.HOME {
+        padding: 8px !important;
+        gap: 8px !important;
+        border-width: 2px !important;
+    }
+
+    section.HOME .HOME-WHAT-I-DO-CARD,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD,
+    section.HOME .HOME-WHAT-I-DO-ITEM,
+    section.HOME .HOME-DIGITAL-DUKAN-INTRO,
+    section.HOME .HOME-IDIGITALPRENEUR-INTRO,
+    section.HOME .HOME-FOUNDER-CEO-INTRO,
+    section.HOME .HOME-RELATIONSHIP-INTIMACY-COACH-INTRO {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 6px auto !important;
+        padding: 10px !important;
+        border-radius: 10px !important;
+    }
+
+    section.HOME h1 {
+        font-size: clamp(20px, 5.6vw, 26px) !important;
+        line-height: 1.45 !important;
+        letter-spacing: 1px !important;
+    }
+
+    section.HOME h2 {
+        font-size: clamp(17px, 4.6vw, 21px) !important;
+        line-height: 1.5 !important;
+        letter-spacing: 0.7px !important;
+    }
+
+    section.HOME p,
+    section.HOME li,
+    section.HOME a {
+        font-size: 14px !important;
+        line-height: 1.65 !important;
+        letter-spacing: 0.4px !important;
+    }
+}
+
+/* Compact phones: 320px–360px */
+@media screen and (min-width: 320px) and (max-width: 360px) {
+    section.HOME {
+        padding: 6px !important;
+        gap: 6px !important;
+        border-width: 2px !important;
+    }
+
+    section.HOME .HOME-WHAT-I-DO-CARD,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD,
+    section.HOME .HOME-WHAT-I-DO-ITEM,
+    section.HOME .HOME-DIGITAL-DUKAN-INTRO,
+    section.HOME .HOME-IDIGITALPRENEUR-INTRO,
+    section.HOME .HOME-FOUNDER-CEO-INTRO,
+    section.HOME .HOME-RELATIONSHIP-INTIMACY-COACH-INTRO {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 5px auto !important;
+        padding: 8px !important;
+        border-radius: 8px !important;
+    }
+
+    section.HOME h1 {
+        font-size: 20px !important;
+        line-height: 1.4 !important;
+        letter-spacing: 0.6px !important;
+    }
+
+    section.HOME h2 {
+        font-size: 17px !important;
+        line-height: 1.45 !important;
+        letter-spacing: 0.4px !important;
+    }
+
+    section.HOME p,
+    section.HOME li,
+    section.HOME a {
+        font-size: 13px !important;
+        line-height: 1.6 !important;
+        letter-spacing: 0.2px !important;
+    }
+}
+
+/* Very narrow / older phones: below 320px */
+@media screen and (max-width: 319px) {
+    section.HOME {
+        padding: 4px !important;
+        gap: 4px !important;
+        border-width: 1px !important;
+    }
+
+    section.HOME .HOME-WHAT-I-DO-CARD,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD,
+    section.HOME .HOME-WHAT-I-DO-ITEM,
+    section.HOME .HOME-DIGITAL-DUKAN-INTRO,
+    section.HOME .HOME-IDIGITALPRENEUR-INTRO,
+    section.HOME .HOME-FOUNDER-CEO-INTRO,
+    section.HOME .HOME-RELATIONSHIP-INTIMACY-COACH-INTRO {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 4px auto !important;
+        padding: 6px !important;
+        border-radius: 6px !important;
+    }
+
+    section.HOME h1 {
+        font-size: 18px !important;
+        line-height: 1.35 !important;
+        letter-spacing: 0.2px !important;
+    }
+
+    section.HOME h2 {
+        font-size: 15px !important;
+        line-height: 1.4 !important;
+        letter-spacing: 0 !important;
+    }
+
+    section.HOME p,
+    section.HOME li,
+    section.HOME a {
+        font-size: 12px !important;
+        line-height: 1.55 !important;
+        letter-spacing: 0 !important;
+    }
+}
+
+/* Landscape phones: protect layout when viewport height is limited */
+@media screen and (max-width: 900px) and (orientation: landscape) {
+    section.HOME {
+        padding: 8px !important;
+        gap: 8px !important;
+    }
+
+    section.HOME h1,
+    section.HOME h2 {
+        line-height: 1.4 !important;
+    }
+}
+
+/* Accessibility: respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    section.HOME,
+    section.HOME * {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
