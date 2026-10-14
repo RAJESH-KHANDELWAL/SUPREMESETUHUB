@@ -5,7 +5,7 @@ from typing import Optional
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 
 from backend.auth.service import AuthenticationService
 from backend.supreme.config import USERNAME as SUPREME_OWNER_USERNAME
@@ -415,17 +415,41 @@ def print_on_demand_frontend_script():
 
 @app.get("/api/v1/frontend/supreme")
 def supreme_frontend():
-
     if not SUPREME_HTML_FILE.is_file():
         raise HTTPException(
             status_code=404,
             detail="SUPREME frontend HTML not found",
         )
 
-    return FileResponse(
-        SUPREME_HTML_FILE,
-        media_type="text/html",
+    html = SUPREME_HTML_FILE.read_text(encoding="utf-8")
+
+    # The original Fluent Snippet contains a loader that fetches this same endpoint.
+    # Strip that loader from the rendered response to prevent recursive self-embedding.
+    html = html.replace(
+        '<script src="https://raw.githubusercontent.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/main/frontend/supreme/index.js"></script>',
+        "",
     )
+    loader_marker = '<div id="SUPREMESETUHUB-HOME"></div>'
+    loader_start = html.find(loader_marker)
+    if loader_start != -1:
+        script_start = html.find("<script>", loader_start)
+        script_end = html.find("</script>", script_start) if script_start != -1 else -1
+        if script_start != -1 and script_end != -1:
+            html = html[:loader_start] + html[script_end + len("</script>"):]
+
+    document = (
+        '<!doctype html><html lang="en"><head>'
+        '<meta charset="utf-8">'
+        '<meta name="viewport" content="width=device-width, initial-scale=1">'
+        '<meta name="robots" content="index, follow">'
+        '<title>DR RAJESH KHANDELWAL IBC | HOME</title>'
+        '<link rel="stylesheet" href="/api/v1/frontend/supreme/style.css">'
+        '<script src="/api/v1/frontend/supreme/script.js" defer></script>'
+        '</head><body>'
+        + html +
+        '</body></html>'
+    )
+    return HTMLResponse(content=document, headers={"Cache-Control": "no-cache, no-store, must-revalidate"})
 
 
 # ============================================================
