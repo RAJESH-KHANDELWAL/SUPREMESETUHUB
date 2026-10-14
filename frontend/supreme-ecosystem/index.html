@@ -4,15 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SUPREME ECOSYSTEM — PRIVATE DASHBOARD</title>
-<style>
-:root{font-family:Arial,sans-serif;color:#0f172a;background:#f4f7fb}
-*{box-sizing:border-box}body{margin:0;padding:24px}.wrap{max-width:1100px;margin:auto}
-header,.card{background:#fff;border:1px solid #dbe4f0;border-radius:16px;padding:22px;margin-bottom:16px}
-h1{color:#123b82;margin-top:0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f8fafc;padding:12px;border-radius:10px}
-button{padding:11px 15px;border:0;border-radius:9px;background:#123b82;color:#fff;font-weight:700;cursor:pointer}
-small{color:#64748b}
-</style>
+<link rel="stylesheet" href="bydefault.css">
+<link rel="stylesheet" href="index.css">
 </head>
 <body><div class="wrap">
 <header><h1>SUPREME ECOSYSTEM</h1><p>PRIVATE OWNER DASHBOARD</p><small>Owner-only access • Public signup disabled</small></header>
@@ -23,24 +16,5 @@ small{color:#64748b}
 </div>
 <button id="signOut">SIGN OUT</button>
 </div>
-<script>
-"use strict";
-const API="https://supremesetuhub-3v4e.onrender.com";
-const token=localStorage.getItem("supreme_ecosystem_token");
-if(!token){window.location.replace("signin.html");}
-async function loadPrivate(path,target){
-  const el=document.getElementById(target);
-  try{
-    const r=await fetch(API+path,{headers:{Authorization:"Bearer "+token,Accept:"application/json"}});
-    const data=await r.json().catch(()=>({}));
-    if(!r.ok)throw new Error(data.detail||"REQUEST FAILED: "+r.status);
-    el.textContent=JSON.stringify(data,null,2);
-  }catch(e){el.textContent=e.message; if(/AUTHENTICATION_REQUIRED|INVALID_OR_EXPIRED_TOKEN|SUPREME_ECOSYSTEM_PRIVATE/.test(e.message)){localStorage.removeItem("supreme_ecosystem_token");}}
-}
-if(token){
-  loadPrivate("/api/v1/supreme-ecosystem/status","status");
-  loadPrivate("/api/v1/supreme-ecosystem/account","account");
-  loadPrivate("/api/v1/supreme-ecosystem/integrations","integrations");
-}
-document.getElementById("signOut").addEventListener("click",()=>{localStorage.removeItem("supreme_ecosystem_token");window.location.replace("signin.html");});
-</script></body></html>
+<script src="bydefault.js" defer></script>
+<script src="index.js" defer></script></body></html>
