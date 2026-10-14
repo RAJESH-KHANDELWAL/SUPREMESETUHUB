@@ -2,6 +2,19 @@
 
 This repository has a FastAPI backend in `backend/` and a WordPress connector plugin in `wordpress-plugin/supremesetuhub-connector/`. GitHub is source control; it does not automatically install a plugin into a live WordPress website.
 
+
+## Production domain roles
+
+Keep the three hostnames separate:
+
+- `https://supremesetuhub-3v4e.onrender.com` — temporary Render-hosted application/API hostname.
+- `https://rajeshkhandelwalofficial.com` — the primary website hosted in WordPress on Hostinger.
+- `https://api.rajeshkhandelwalofficial.com` — the intended dedicated API hostname for the backend, and the default configured in the WordPress connector.
+
+The API hostname is only live when DNS for the subdomain points to a host that runs the FastAPI backend and HTTPS/reverse-proxy routing is configured. Setting the hostname in the plugin does not create DNS, deploy Python, or connect the subdomain automatically.
+
+For a Hostinger shared WordPress plan, keep WordPress on the main domain and run FastAPI on a supported Python host (or Hostinger VPS). Configure the API subdomain's DNS and TLS/reverse proxy to that backend, then confirm `GET https://api.rajeshkhandelwalofficial.com/health` returns HTTP 200 JSON. The WordPress connector uses server-side HTTPS requests, so browser CORS settings are not required for that plugin-to-API request.
+
 ## Required order
 1. Deploy the FastAPI backend to a runtime that supports a persistent Python web process (a Hostinger VPS or another supported Python host). Standard WordPress shared hosting should not be assumed to run the FastAPI service.
 2. Configure persistent database storage for the backend. The current main application uses SQLite; ensure the database directory is on persistent disk and is backed up.
