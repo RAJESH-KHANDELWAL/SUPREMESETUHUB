@@ -3361,63 +3361,254 @@ section.HOME .HOME-WHAT-I-DO-RELATIONSHIP-INTIMACY-COACH {
 
 
 /* ==========================================================
-   HTML CLASS MATCHING — explicit shared baseline for every HTML class
-   Class names below are copied exactly from home-html.html.
+   HOME TOP SECTION — navigation, welcome, brand headings,
+   brand card, ecosystem link and hero image.
+   Scoped to the actual HTML structure; responsive values below
+   override earlier legacy rules without renaming HTML classes.
    ========================================================== */
-.DR-RAJESH-KHANDELWAL-IBC,
-.DR-RAJESH-KHANDELWAL-IBC-OFFICIAL,
-.DRRAJESHKHANDELWALIBC,
-.DRRAJESHKHANDELWALIBCOFFICIAL,
-.HOME,
-.HOME-CASH-GROWTH-PROFIT-INTRO,
-.HOME-CASH-GROWTH-PROFIT-LINK,
-.HOME-CONTENT,
-.HOME-DIGITAL-DUKAN-INTRO,
-.HOME-DIGITAL-DUKAN-LINK,
-.HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE,
-.HOME-FOUNDER-CEO-INTRO,
-.HOME-FOUNDER-CEO-LINK,
-.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD,
-.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-DESCRIPTION,
-.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-NAME,
-.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-FOUNDER-CEO,
-.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-GLOBAL-BUSINESS-COACH,
-.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-INDEPENDENT-BUSINESS-CONSULTANT,
-.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-REAL-ESTATE-COACH,
-.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-INTIMACY-COACH,
-.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-TITLE,
-.HOME-GLOBAL-BUSINESS-ECOSYSTEM-LINK-BUTTON,
-.HOME-IDEA-TO-IPO-INTRO,
-.HOME-IDEA-TO-IPO-LINK,
-.HOME-IDIGITALPRENEUR-INTRO,
-.HOME-IDIGITALPRENEUR-LINK,
-.HOME-LFP-INTRO,
-.HOME-LFP-LINK,
-.HOME-MOST-WELCOME,
-.HOME-MOST-WELCOME-TITLE,
-.HOME-PAGE-NAV,
-.HOME-RELATIONSHIP-INTIMACY-COACH-INTRO,
-.HOME-RELATIONSHIP-INTIMACY-COACH-LINK,
-.HOME-SOLUTIONS-CONSULTANT-INTRO,
-.HOME-SOLUTIONS-CONSULTANT-LINK,
-.HOME-WHAT-I-DO-CARD,
-.HOME-WHAT-I-DO-CLOSING,
-.HOME-WHAT-I-DO-FOUNDER-CEO,
-.HOME-WHAT-I-DO-GLOBAL-BUSINESS-COACH,
-.HOME-WHAT-I-DO-INDEPENDENT-BUSINESS-CONSULTANT,
-.HOME-WHAT-I-DO-INTRO,
-.HOME-WHAT-I-DO-ITEM,
-.HOME-WHAT-I-DO-REAL-ESTATE-COACH,
-.HOME-WHAT-I-DO-RELATIONSHIP-INTIMACY-COACH,
-.HOME-WHAT-I-DO-TITLE,
-.KHANDELWAL-GROUP-AND-COMPANIES,
-.KHANDELWAL-GROUP-AND-COMPANY,
-.KHANDELWALGROUPANDCOMPANIES,
-.KHANDELWALGROUPANDCOMPANY,
-.RAJESH-KHANDELWAL,
-.RAJESH-KHANDELWAL-OFFICIAL,
-.RAJESHKHANDELWAL,
-.RAJESHKHANDELWALOFFICIAL
-{
-  box-sizing: border-box;
+
+section.HOME .HOME-CONTENT {
+    gap: clamp(14px, 2vw, 26px) !important;
 }
+
+section.HOME .HOME-PAGE-NAV {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 8px 0 !important;
+}
+
+section.HOME .HOME-PAGE-NAV a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    min-width: 100px !important;
+    max-width: 100% !important;
+    min-height: 44px !important;
+    padding: 10px 20px !important;
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    letter-spacing: .25px !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    box-sizing: border-box !important;
+}
+
+section.HOME .HOME-MOST-WELCOME {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    text-align: center !important;
+}
+
+section.HOME .HOME-MOST-WELCOME-TITLE {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: clamp(10px, 1.5vw, 22px) !important;
+    font-size: clamp(24px, 3.5vw, 46px) !important;
+    line-height: 1.25 !important;
+    letter-spacing: clamp(.2px, .1vw, 1.2px) !important;
+    text-align: center !important;
+    overflow-wrap: anywhere !important;
+}
+
+section.HOME .DR-RAJESH-KHANDELWAL-IBC,
+section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-TITLE {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    padding: clamp(8px, 1.4vw, 20px) !important;
+    font-size: clamp(24px, 3.1vw, 48px) !important;
+    line-height: 1.3 !important;
+    letter-spacing: clamp(.2px, .08vw, 1px) !important;
+    text-align: center !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+    box-sizing: border-box !important;
+}
+
+section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: clamp(10px, 1.4vw, 20px) !important;
+    width: 100% !important;
+    max-width: 1480px !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    padding: clamp(14px, 2.4vw, 34px) !important;
+    border: 3px solid #D4AF37 !important;
+    border-radius: clamp(14px, 2vw, 30px) !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+}
+
+section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-NAME {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    font-size: clamp(24px, 3vw, 46px) !important;
+    line-height: 1.3 !important;
+    letter-spacing: clamp(.2px, .08vw, 1px) !important;
+    text-align: center !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+}
+
+section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-GLOBAL-BUSINESS-COACH,
+section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-INDEPENDENT-BUSINESS-CONSULTANT,
+section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-FOUNDER-CEO,
+section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-REAL-ESTATE-COACH,
+section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-INTIMACY-COACH {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    font-size: clamp(17px, 1.8vw, 28px) !important;
+    line-height: 1.45 !important;
+    letter-spacing: clamp(0px, .04vw, .5px) !important;
+    text-align: center !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+}
+
+section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-DESCRIPTION {
+    display: block !important;
+    width: 100% !important;
+    max-width: 1120px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    font-size: clamp(14px, 1vw, 17px) !important;
+    line-height: 1.75 !important;
+    letter-spacing: 0 !important;
+    text-align: center !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+}
+
+section.HOME .HOME-GLOBAL-BUSINESS-ECOSYSTEM-LINK-BUTTON {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    padding: 12px 22px !important;
+    font-size: clamp(14px, 1.1vw, 17px) !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    box-sizing: border-box !important;
+}
+
+section.HOME .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+section.HOME .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE img {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: min(100%, 900px) !important;
+    object-fit: contain !important;
+    margin: 0 auto !important;
+}
+
+/* Tablet: tighten spacing and keep all upper headings readable. */
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+    section.HOME .HOME-PAGE-NAV { gap: 8px !important; }
+    section.HOME .HOME-PAGE-NAV a { padding: 10px 14px !important; font-size: 14px !important; }
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD { padding: 18px !important; }
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-DESCRIPTION { font-size: 15px !important; }
+}
+
+/* Small phones: avoid oversized text, horizontal overflow and cramped navigation. */
+@media screen and (max-width: 480px) {
+    section.HOME .HOME-CONTENT { gap: 12px !important; }
+    section.HOME .HOME-PAGE-NAV {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 7px !important;
+    }
+    section.HOME .HOME-PAGE-NAV a {
+        width: 100% !important;
+        min-width: 0 !important;
+        min-height: 40px !important;
+        padding: 9px 5px !important;
+        font-size: 12px !important;
+    }
+    section.HOME .HOME-PAGE-NAV a:first-child { grid-column: 1 / -1 !important; }
+    section.HOME .HOME-MOST-WELCOME-TITLE { font-size: 23px !important; padding: 8px 4px !important; }
+    section.HOME .DR-RAJESH-KHANDELWAL-IBC,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-TITLE {
+        font-size: clamp(19px, 5.7vw, 25px) !important;
+        line-height: 1.35 !important;
+        padding: 8px 4px !important;
+    }
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD {
+        padding: 12px 9px !important;
+        gap: 10px !important;
+        border-width: 2px !important;
+        border-radius: 14px !important;
+    }
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-NAME {
+        font-size: clamp(20px, 5.8vw, 27px) !important;
+        line-height: 1.35 !important;
+        letter-spacing: 0 !important;
+    }
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-GLOBAL-BUSINESS-COACH,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-INDEPENDENT-BUSINESS-CONSULTANT,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-FOUNDER-CEO,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-REAL-ESTATE-COACH,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-INTIMACY-COACH {
+        font-size: 15px !important;
+        line-height: 1.5 !important;
+        letter-spacing: 0 !important;
+    }
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-DESCRIPTION {
+        font-size: 13px !important;
+        line-height: 1.65 !important;
+    }
+    section.HOME .HOME-GLOBAL-BUSINESS-ECOSYSTEM-LINK-BUTTON {
+        width: 100% !important;
+        padding: 11px 8px !important;
+        font-size: 13px !important;
+    }
+    section.HOME .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE img {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
