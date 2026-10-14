@@ -3688,3 +3688,37 @@ section.HOME .HOME-WHAT-I-DO-RELATIONSHIP-INTIMACY-COACH {
     overflow-wrap: anywhere !important;
     text-transform: uppercase !important;
 }
+
+
+/* FINAL RESPONSIVE OVERRIDE — MOST WELCOME: fluid sizing from small mobile to ultrawide desktop */
+section.HOME .HOME-TOP-SECTION > .HOME-MOST-WELCOME {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+section.HOME .HOME-MOST-WELCOME-TITLE {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: clamp(6px, 1.2vw, 22px) clamp(4px, 1.5vw, 24px) !important;
+    box-sizing: border-box !important;
+    color: var(--HOME-GOLD, #D4AF37) !important;
+    font-family: var(--HOME-FONT-FAMILY, "Century Schoolbook", "Libre Baskerville", serif) !important;
+    font-size: clamp(18px, calc(16px + 2vw), 52px) !important;
+    font-weight: 900 !important;
+    line-height: 1.2 !important;
+    letter-spacing: clamp(0px, .08vw, 1.2px) !important;
+    text-align: center !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+}
