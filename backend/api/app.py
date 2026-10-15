@@ -49,7 +49,7 @@ from backend.api.cloud import CloudAPI
 from backend.api.storage import StorageAPI
 from backend.api.theme_hub import router as theme_hub_router
 
-from backend.wordpress.bootstrap import create_wordpress_service
+from backend.api.wordpress import router as wordpress_router
 
 from backend.api.connectors import router as connectors_router
 from backend.api.linksetu import router as linksetu_router
@@ -101,7 +101,6 @@ ecosystem_api = GlobalEcosystemAPI()
 cloud_api = CloudAPI()
 storage_api = StorageAPI()
 
-wordpress_service = create_wordpress_service()
 
 
 # ============================================================
@@ -372,6 +371,7 @@ app.include_router(linksetu_router)
 app.include_router(email_router)
 app.include_router(print_on_demand_router)
 app.include_router(digital_marketplace_router)
+app.include_router(wordpress_router)
 
 
 # ============================================================
