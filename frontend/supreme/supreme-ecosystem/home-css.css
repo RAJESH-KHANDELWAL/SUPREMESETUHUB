@@ -3984,21 +3984,6 @@ section.HOME .HOME-MOST-WELCOME-TITLE {
     }
 }
 
-/* HOME document: hide the visible vertical scrollbar without disabling scrolling.
-   Scoped to documents containing the standalone HOME section; does not clip content. */
-html:has(> body > section.HOME),
-body:has(> section.HOME) {
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-}
-
-html:has(> body > section.HOME)::-webkit-scrollbar,
-body:has(> section.HOME)::-webkit-scrollbar {
-    width: 0 !important;
-    height: 0 !important;
-    display: none !important;
-}
-
 /* HOME MOST WELCOME — visible gentle floating animation */
 .HOME .HOME-MOST-WELCOME {
     position: relative !important;
@@ -4038,43 +4023,44 @@ body:has(> section.HOME)::-webkit-scrollbar {
     }
 }
 
-/* FIX: hide scrollbars even when HOME is rendered inside a wrapper/iframe.
-   Scrolling remains enabled; only the scrollbar track/thumb is hidden. */
-html:has(section.HOME),
-body:has(section.HOME),
-section.HOME,
-section.HOME * {
+
+/* =========================================================
+   HOME VIEWPORT — Fluent-Snippets-style single, scoped rule
+   Prevent the HOME document from creating a page scrollbar.
+   ========================================================= */
+html:has(body > section.HOME),
+body:has(> section.HOME) {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
 }
 
-html:has(section.HOME)::-webkit-scrollbar,
-body:has(section.HOME)::-webkit-scrollbar,
-section.HOME::-webkit-scrollbar,
-section.HOME *::-webkit-scrollbar {
+html:has(body > section.HOME)::-webkit-scrollbar,
+body:has(> section.HOME)::-webkit-scrollbar {
+    display: none !important;
     width: 0 !important;
     height: 0 !important;
-    display: none !important;
 }
 
-/* HOME PAGE: remove scrolling entirely as requested. */
-html:has(section.HOME),
-body:has(section.HOME) {
-    height: 100% !important;
-    overflow: hidden !important;
-}
-
-body:has(> section.HOME) > section.HOME,
-body:has(section.HOME) section.HOME {
+body > section.HOME {
+    box-sizing: border-box !important;
+    width: 100% !important;
     height: 100vh !important;
+    height: 100dvh !important;
     max-height: 100vh !important;
+    max-height: 100dvh !important;
+    margin: 0 !important;
     overflow: hidden !important;
 }
 
-body:has(section.HOME) > section.HOME > .HOME-CONTENT,
-section.HOME > .HOME-CONTENT {
+body > section.HOME > .HOME-CONTENT {
+    box-sizing: border-box !important;
     height: 100% !important;
     max-height: 100% !important;
+    min-height: 0 !important;
     overflow: hidden !important;
 }
-
