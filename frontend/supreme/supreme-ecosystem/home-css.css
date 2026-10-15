@@ -4038,3 +4038,22 @@ body:has(> section.HOME)::-webkit-scrollbar {
     }
 }
 
+/* FIX: hide scrollbars even when HOME is rendered inside a wrapper/iframe.
+   Scrolling remains enabled; only the scrollbar track/thumb is hidden. */
+html:has(section.HOME),
+body:has(section.HOME),
+section.HOME,
+section.HOME * {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
+html:has(section.HOME)::-webkit-scrollbar,
+body:has(section.HOME)::-webkit-scrollbar,
+section.HOME::-webkit-scrollbar,
+section.HOME *::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none !important;
+}
+
