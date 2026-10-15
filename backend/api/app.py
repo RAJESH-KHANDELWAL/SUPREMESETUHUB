@@ -49,7 +49,7 @@ from backend.api.cloud import CloudAPI
 from backend.api.storage import StorageAPI
 from backend.api.theme_hub import router as theme_hub_router
 
-from backend.api.wordpress import router as wordpress_router
+from backend.api.wordpress import router as wordpress_router, wordpress_service, require_wordpress_owner
 
 from backend.api.connectors import router as connectors_router
 from backend.api.linksetu import router as linksetu_router
@@ -645,13 +645,15 @@ def wordpress_sites():
 
 
 @app.get("/api/v1/wordpress/status/{site_id}")
-def wordpress_status(site_id: str):
+def wordpress_status(site_id: str, request: Request):
 
+    require_wordpress_owner(request.headers.get("authorization"))
     return wordpress_service.connection_status(site_id)
 
 
 @app.get("/api/v1/wordpress/health/{site_id}")
-def wordpress_health(site_id: str):
+def wordpress_health(site_id: str, request: Request):
+    require_wordpress_owner(request.headers.get("authorization"))
     # Each WordPress gate has its own hosting database credentials.
     # Shared platform/customer data remains in SUPREME_DB_PATH.
     environment_prefixes = {
