@@ -29,3 +29,16 @@ The repository contains deployment workflow drafts under `backend/.github/workfl
 
 ## WordPress database
 Do not share database passwords in chat or commit them to GitHub. The plugin does not need direct database access: it connects to the public read-only API over HTTPS. Keep the existing WordPress database separate from the backend's SQLite database unless a deliberate, tested migration is planned.
+
+
+## Direct WordPress database connector (backend)
+
+For the separate read-only MySQL connection, create a private file named `backend/.env` on the VPS (the file is git-ignored and excluded from the Docker image). Docker Compose passes it to the running backend container through the optional `env_file` entry in `backend/docker-compose.yml`. Do not create or commit this file in the repository.
+
+Start from `backend/.env.example`, then fill the real database host, database username and password from Hostinger hPanel / the WordPress installation configuration. The known database names in the template are metadata only; confirm each one against its site's `wp-config.php` and backup before using it. The table prefix must also match the actual `$table_prefix` setting.
+
+The first site uses `WORDPRESS_DB_HOST`, `WORDPRESS_DB_NAME`, `WORDPRESS_DB_USER`, `WORDPRESS_DB_PASSWORD`, `WORDPRESS_DB_PORT`, `WORDPRESS_DB_SSL_ENABLED`, and `WORDPRESS_TABLE_PREFIX`. The IBC site uses the same suffixes with the `WORDPRESS_IBC_` prefix.
+
+Before testing, allow the VPS's outbound IP in Hostinger's remote MySQL access settings. Then sign in as the SUPREME owner and call `POST /api/v1/wordpress/sites/rajeshkhandelwalofficial/connect` and `POST /api/v1/wordpress/sites/drrajeshkhandelwalibc/connect` separately. The connect route only reports success when both a harmless `SELECT 1` and the expected WordPress core tables (`options`, `posts`, `users`, `usermeta`) are verified. The operation is read-only and does not import or synchronize backup data.
+
+The VPS deployment workflow also requires GitHub Actions secret `HOSTINGER_API_KEY` and variable `HOSTINGER_VM_ID`. These are separate from the WordPress database variables. Configure them in the repository's Actions secrets/variables before expecting deployment to succeed.
