@@ -4080,7 +4080,6 @@ body > section.HOME *::after {
 
 body > section.HOME img,
 body > section.HOME video,
-body > section.HOME iframe,
 body > section.HOME table {
     max-width: 100% !important;
 }
