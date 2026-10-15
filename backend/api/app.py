@@ -449,7 +449,7 @@ def supreme_frontend():
         '<meta name="viewport" content="width=device-width, initial-scale=1">'
         '<meta name="robots" content="index, follow">'
         '<title>DR RAJESH KHANDELWAL IBC | HOME</title>'
-        '<link rel="stylesheet" href="/api/v1/frontend/supreme/style.css">'
+        '<link rel="stylesheet" href="/api/v1/frontend/supreme/style.css?v=20261015-most-welcome">'
         '<script src="/api/v1/frontend/supreme/script.js" defer></script>'
         '</head><body>'
         + html +
