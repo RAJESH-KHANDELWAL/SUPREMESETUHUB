@@ -134,138 +134,25 @@ function dr_rajesh_khandelwal_ibc_status() {
 
 /*
 |--------------------------------------------------------------------------
-| SUPREME HOME SHORTCODE
+| SUPREME HOME SHORTCODE — NO EMBEDDED FRAME
 |--------------------------------------------------------------------------
 |
 | Use:
-|
 | [dr_rajesh_supreme_home]
 |
-| This displays the actual SUPREME Home Page inside WordPress.
+| The Home page opens as a normal page so there is no nested scroll area.
 |
 */
 
 function dr_rajesh_khandelwal_ibc_supreme_home() {
-
-    $home_url =
-        esc_url(
-            DR_RAJESH_KHANDELWAL_IBC_HOME_URL
-        );
-
-
-    ob_start();
-
-    ?>
-
-    <div
-        id="dr-rajesh-supreme-home"
-        style="
-            width:100%;
-            max-width:100%;
-            margin:0 auto;
-            padding:0;
-            overflow:hidden;
-            background:#ffffff;
-        "
-    >
-
-        <iframe
-            id="dr-rajesh-supreme-home-frame"
-            src="<?php echo $home_url; ?>"
-            title="👑 DR RAJESH KHANDELWAL IBC 👑 SUPREME HOME"
-            loading="eager"
-            style="
-                display:block;
-                width:100%;
-                min-height:100vh;
-                height:100vh;
-                border:0;
-                margin:0;
-                padding:0;
-                background:#ffffff;
-            "
-        ></iframe>
-
-    </div>
-
-    <script>
-
-    (function(){
-
-        const frame =
-            document.getElementById(
-                'dr-rajesh-supreme-home-frame'
-            );
-
-        if (!frame) {
-            return;
-        }
-
-        /*
-         * The iframe is served from Render and WordPress is a different origin.
-         * The browser correctly blocks parent access to contentDocument.
-         * Receive the child's measured height through a validated postMessage.
-         */
-        let expectedOrigin = '';
-
-        try {
-            expectedOrigin = new URL(frame.src, window.location.href).origin;
-        } catch (error) {
-            return;
-        }
-
-        window.addEventListener('message', function(event) {
-            if (event.source !== frame.contentWindow) {
-                return;
-            }
-
-            if (event.origin !== expectedOrigin) {
-                return;
-            }
-
-            const data = event.data;
-
-            if (!data || data.type !== 'SUPREME_HOME_HEIGHT') {
-                return;
-            }
-
-            const height = Number(data.height);
-
-            if (!Number.isFinite(height) || height < 200 || height > 50000) {
-                return;
-            }
-
-            frame.style.height = Math.ceil(height) + 'px';
-            frame.style.minHeight = '0';
-        });
-
-        function requestFrameHeight() {
-            if (!frame.contentWindow || !expectedOrigin) {
-                return;
-            }
-
-            frame.contentWindow.postMessage(
-                { type: 'SUPREME_HOME_REQUEST_HEIGHT' },
-                expectedOrigin
-            );
-        }
-
-        frame.addEventListener('load', function() {
-            requestFrameHeight();
-            setTimeout(requestFrameHeight, 150);
-            setTimeout(requestFrameHeight, 600);
-            setTimeout(requestFrameHeight, 1500);
-        });
-
-        window.addEventListener('resize', requestFrameHeight);
-
-    })();
-
-    </script>
-
-    <?php
-
-    return ob_get_clean();
+    $home_url = esc_url(DR_RAJESH_KHANDELWAL_IBC_HOME_URL);
+    $html  = '<section id="dr-rajesh-supreme-home" style="box-sizing:border-box;width:100%;max-width:100%;margin:0 auto;padding:clamp(24px,5vw,64px);background:#fff;color:#101828;border:1px solid #e5e7eb;border-radius:20px;text-align:center;">';
+    $html .= '<div style="font-size:clamp(1.6rem,4vw,3rem);font-weight:900;line-height:1.2;">👑 DR RAJESH KHANDELWAL IBC 👑</div>';
+    $html .= '<h1 style="font-size:clamp(1.3rem,3vw,2rem);margin:18px 0 10px;">SUPREME HOME</h1>';
+    $html .= '<p style="max-width:720px;margin:0 auto 22px;line-height:1.7;">Open the live SUPREME Home page directly. It uses the full browser page instead of an embedded frame, avoiding a second internal scrollbar.</p>';
+    $html .= '<a href="' . $home_url . '" style="display:inline-block;max-width:100%;box-sizing:border-box;padding:13px 20px;border-radius:12px;background:#0b5cff;color:#fff;text-decoration:none;font-weight:800;">🌍 OPEN SUPREME HOME</a>';
+    $html .= '</section>';
+    return $html;
 }
 
 
