@@ -4026,10 +4026,10 @@ section.HOME .HOME-MOST-WELCOME-TITLE {
     }
 }
 
-/* FLUENT SNIPPETS HOME BASE — faithful layout adaptation for GitHub markup.
-   Fluent Snippets styles both its outer .HOME section and inner .HOME wrapper.
-   GitHub uses section.HOME > .HOME-CONTENT, so apply the same base layout there.
-   Keep normal document flow: no fixed positioning, clipping, or scrollbar hiding. */
+/* FLUENT SNIPPETS HOME BASE — adapted to the GitHub HOME structure.
+   The Fluent Snippet has a nested .HOME wrapper; GitHub uses .HOME-CONTENT.
+   Port the sizing and normal-flow behavior while retaining GitHub's single outer border.
+   Do not hide, clip, or lock the page scrollbar. */
 
 html,
 body {
@@ -4050,21 +4050,13 @@ body {
 body > section.HOME {
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important;
+    align-items: stretch !important;
     justify-content: flex-start !important;
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
-    background: #ffffff !important;
-    color: #000000 !important;
-    border: 4px solid #D4AF37 !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
-    font-family: "Century Schoolbook", "Libre Baskerville", serif !important;
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
-    scroll-behavior: smooth !important;
 }
 
 body > section.HOME > .HOME-CONTENT {
@@ -4077,14 +4069,15 @@ body > section.HOME > .HOME-CONTENT {
     min-width: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
-    background: #ffffff !important;
-    color: #000000 !important;
-    border: 4px solid #D4AF37 !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
-    font-family: "Century Schoolbook", "Libre Baskerville", serif !important;
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
-    scroll-behavior: smooth !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+body > section.HOME *,
+body > section.HOME *::before,
+body > section.HOME *::after {
+    box-sizing: border-box !important;
 }
 
 body > section.HOME img,
@@ -4102,5 +4095,6 @@ body > section.HOME video {
 body > section.HOME .HOME-CONTENT > *,
 body > section.HOME .HOME-CONTENT * {
     min-width: 0;
+    max-width: 100%;
 }
 
