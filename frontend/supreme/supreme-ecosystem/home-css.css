@@ -4026,3 +4026,59 @@ section.HOME .HOME-MOST-WELCOME-TITLE {
     }
 }
 
+/* FLUENT SNIPPETS HOME BASE — adapted to the GitHub HOME markup.
+   Keep the content in normal document flow; do not hide or clip page scrolling. */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body > section.HOME {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body > section.HOME > .HOME-CONTENT {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body > section.HOME *,
+body > section.HOME *::before,
+body > section.HOME *::after {
+    box-sizing: border-box;
+}
+
+/* Responsive children must be allowed to shrink within the viewport. */
+body > section.HOME img,
+body > section.HOME video,
+body > section.HOME iframe,
+body > section.HOME table {
+    max-width: 100%;
+}
+
+body > section.HOME img,
+body > section.HOME video {
+    height: auto;
+}
+
