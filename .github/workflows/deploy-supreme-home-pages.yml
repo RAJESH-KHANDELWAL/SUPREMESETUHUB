@@ -1,0 +1,84 @@
+name: Deploy SUPREME HOME to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "frontend/supreme/supreme-ecosystem/home-html.html"
+      - "frontend/supreme/supreme-ecosystem/home-css.css"
+      - "frontend/supreme/supreme-ecosystem/home-js.js"
+      - "backend/wordpress/wp-content/plugins/dr-rajesh-khandelwal-ibc/dr-rajesh-khandelwal-ibc.php"
+      - ".github/workflows/deploy-supreme-home-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Prepare published site
+        shell: bash
+        run: |
+          mkdir -p site/supreme
+          cp -R frontend/. site/
+          {
+            cat <<'HTML_HEAD'
+          <!doctype html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>SUPREME HOME | DR RAJESH KHANDELWAL IBC</title>
+            <link rel="stylesheet" href="supreme-ecosystem/home-css.css">
+            <style>
+              html, body { width:100%; max-width:100%; margin:0; padding:0; box-sizing:border-box; }
+              *, *::before, *::after { box-sizing:border-box; }
+              body { overflow-x:hidden; }
+              img, video, iframe, table { max-width:100%; }
+            </style>
+          </head>
+          <body>
+          HTML_HEAD
+            sed 's|href="/api/v1/frontend/supreme"|href="/SUPREMESETUHUB/supreme/home.html"|g; s|href="/api/v1/frontend/supreme/about"|href="/SUPREMESETUHUB/supreme/about.html"|g; s|href="/api/v1/frontend/supreme/contact"|href="/SUPREMESETUHUB/supreme/contact.html"|g' frontend/supreme/supreme-ecosystem/home-html.html
+            cat <<'HTML_FOOT'
+          <script src="supreme-ecosystem/home-js.js" defer></script>
+          </body>
+          </html>
+          HTML_FOOT
+          } > site/supreme/home.html
+          # Publish matching standalone About and Contact pages from the same repository source.
+          for page in about contact; do
+            if [ -f "frontend/supreme/supreme-ecosystem/${page}-html.html" ]; then
+              {
+                cat <<HTML_HEAD
+          <!doctype html>
+          <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SUPREME ${page^^} | DR RAJESH KHANDELWAL IBC</title><link rel="stylesheet" href="supreme-ecosystem/${page}-css.css"><style>html,body{width:100%;max-width:100%;margin:0;padding:0;box-sizing:border-box}*,*::before,*::after{box-sizing:border-box}body{overflow-x:hidden}</style></head><body>
+          HTML_HEAD
+                sed 's|href="/api/v1/frontend/supreme"|href="/SUPREMESETUHUB/supreme/home.html"|g; s|href="/api/v1/frontend/supreme/about"|href="/SUPREMESETUHUB/supreme/about.html"|g; s|href="/api/v1/frontend/supreme/contact"|href="/SUPREMESETUHUB/supreme/contact.html"|g' "frontend/supreme/supreme-ecosystem/${page}-html.html"
+                printf '<script src="supreme-ecosystem/%s-js.js" defer></script></body></html>\n' "$page"
+              } > "site/supreme/${page}.html"
+            fi
+          done
+          touch site/.nojekyll
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
