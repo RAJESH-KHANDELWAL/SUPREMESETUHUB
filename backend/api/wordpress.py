@@ -60,7 +60,7 @@ def wordpress_status(authorization: Optional[str] = Header(default=None)):
 
 @router.get("/sites")
 def wordpress_sites(authorization: Optional[str] = Header(default=None)):
-    _require_owner(authorization)
+    require_wordpress_owner(authorization)
     return {
         "success": True,
         "sites": [site.to_dict() for site in wordpress_service.list_sites()],
@@ -72,7 +72,7 @@ def connect_wordpress_site(
     site_id: str,
     authorization: Optional[str] = Header(default=None),
 ):
-    _require_owner(authorization)
+    require_wordpress_owner(authorization)
     prefix = SITE_ENV_PREFIXES.get(site_id)
     if prefix is None:
         raise HTTPException(status_code=404, detail="WORDPRESS_SITE_NOT_REGISTERED")
@@ -95,7 +95,7 @@ def wordpress_site_health(
     site_id: str,
     authorization: Optional[str] = Header(default=None),
 ):
-    _require_owner(authorization)
+    require_wordpress_owner(authorization)
     if site_id not in SITE_ENV_PREFIXES:
         raise HTTPException(status_code=404, detail="WORDPRESS_SITE_NOT_REGISTERED")
     return wordpress_service.health(site_id)
@@ -159,7 +159,7 @@ def wordpress_site_tables(
     site_id: str,
     authorization: Optional[str] = Header(default=None),
 ):
-    _require_owner(authorization)
+    require_wordpress_owner(authorization)
     if site_id not in SITE_ENV_PREFIXES:
         raise HTTPException(status_code=404, detail="WORDPRESS_SITE_NOT_REGISTERED")
     result = wordpress_service.check_wordpress(site_id)
@@ -173,7 +173,7 @@ def disconnect_wordpress_site(
     site_id: str,
     authorization: Optional[str] = Header(default=None),
 ):
-    _require_owner(authorization)
+    require_wordpress_owner(authorization)
     if site_id not in SITE_ENV_PREFIXES:
         raise HTTPException(status_code=404, detail="WORDPRESS_SITE_NOT_REGISTERED")
     return wordpress_service.disconnect_site(site_id)
