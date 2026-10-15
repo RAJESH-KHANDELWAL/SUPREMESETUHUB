@@ -3,7 +3,7 @@
  * Plugin Name: 👑 DR RAJESH KHANDELWAL IBC 👑
  * Plugin URI: https://www.rajeshkhandelwal.com
  * Description: 👑 DR RAJESH KHANDELWAL IBC 👑 — Personal Supreme + WordPress Home integration.
- * Version: 1.2.0
+ * Version: 1.3.0
  * Author: 👑 DR RAJESH KHANDELWAL IBC 👑
  * Author URI: https://www.rajeshkhandelwal.com
  * License: GPL-2.0-or-later
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define(
     'DR_RAJESH_KHANDELWAL_IBC_VERSION',
-    '1.2.0'
+    '1.3.0'
 );
 
 define(
@@ -134,7 +134,7 @@ function dr_rajesh_khandelwal_ibc_status() {
 
 /*
 |--------------------------------------------------------------------------
-| SUPREME HOME SHORTCODE — NO EMBEDDED FRAME
+| SUPREME HOME SHORTCODE — DIRECT PAGE LINK
 |--------------------------------------------------------------------------
 |
 | Use:
