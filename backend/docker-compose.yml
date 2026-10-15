@@ -7,6 +7,12 @@ services:
     container_name: supreme-foundation
     restart: unless-stopped
 
+    # Optional private file on the VPS: backend/.env (never commit it).
+    # It is read by Compose at runtime, not baked into the Docker image.
+    env_file:
+      - path: .env
+        required: false
+
     environment:
       PORT: "8000"
       PYTHONUNBUFFERED: "1"
