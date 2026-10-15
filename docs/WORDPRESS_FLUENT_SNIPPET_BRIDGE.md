@@ -23,6 +23,6 @@ Shortcodes:
 
 ## Security and launch limitations
 
-The Fluent Snippets export's generated `index.php`, `.htaccess`, and secret-type configuration value are not copied into the plugin. The stale nested Home fetch was removed to avoid recursive/duplicate homepage loading. Imported snippets render inside sandboxed iframes to isolate legacy CSS.
+The Fluent Snippets export's generated `index.php`, `.htaccess`, and secret-type configuration value are not copied into the plugin. The stale nested Home fetch was removed to avoid recursive/duplicate homepage loading. Imported snippets render directly in the page with scoped styles; embedded frames are not used.
 
 POD catalog pricing is indicative only. This plugin does not implement checkout, payment capture, order creation, refunds or supplier fulfilment. Do not accept payments until those flows are implemented and tested. The backend must be deployed and reachable over HTTPS; a GitHub merge alone does not deploy code to Render or install the plugin on Hostinger.
