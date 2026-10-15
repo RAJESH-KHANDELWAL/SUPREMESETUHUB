@@ -43,7 +43,7 @@ define(
 
 define(
     'DR_RAJESH_KHANDELWAL_IBC_HOME_URL',
-    'https://supremesetuhub-3v4e.onrender.com/api/v1/frontend/supreme'
+    'https://rajesh-khandelwal.github.io/SUPREMESETUHUB/supreme/home.html'
 );
 
 
