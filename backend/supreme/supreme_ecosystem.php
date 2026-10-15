@@ -5,9 +5,9 @@
  * Uses the canonical HOME HTML and CSS files in:
  *   frontend/supreme/supreme-ecosystem/
  *
- * The markup and stylesheet are loaded directly (no iframe), so the page can
- * grow naturally with its content instead of being constrained to a fixed
- * iframe height. The source HTML/CSS files remain unchanged.
+ * The markup and stylesheet are loaded directly into the page so it can
+ * grow naturally with its content and does not create a nested scroll area.
+ * The source HTML/CSS files remain unchanged.
  */
 
 declare(strict_types=1);
