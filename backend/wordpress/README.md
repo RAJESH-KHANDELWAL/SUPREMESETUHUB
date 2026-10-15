@@ -13,6 +13,29 @@ SUPREMESETUHUB API (FastAPI)
 
 The WordPress database remains on the hosting provider. GitHub stores the connector code only; never commit real database passwords or WordPress application passwords.
 
+## Connect to the existing live WordPress installation
+
+The real WordPress site remains installed on its current WordPress/Hostinger hosting. The Python backend does not run WordPress PHP core itself; it connects to that real installation over HTTPS using WordPress REST API + an Application Password.
+
+Configure these values in the backend host's private Environment/Secrets (not in GitHub):
+
+- `WORDPRESS_SITE_URL=https://rajeshkhandelwalofficial.com`
+- `WORDPRESS_USERNAME=<WordPress admin/editor username>`
+- `WORDPRESS_APPLICATION_PASSWORD=<Application Password generated in WordPress profile>`
+- `WORDPRESS_IBC_SITE_URL=https://drrajeshkhandelwalibc.com`
+- `WORDPRESS_IBC_USERNAME=<WordPress username for the IBC site>`
+- `WORDPRESS_IBC_APPLICATION_PASSWORD=<Application Password generated in that WordPress profile>`
+
+Create Application Passwords in the respective WordPress admin user profile. Do not use the normal account password. Keep these values private and never commit them.
+
+Live API endpoints (all require the SUPREME owner Bearer token):
+
+- `GET /api/v1/wordpress/sites/{site_id}/live-health`
+- `GET /api/v1/wordpress/sites/{site_id}/live-posts?per_page=10`
+- `GET /api/v1/wordpress/sites/{site_id}/live-pages?per_page=10`
+
+The `site_id` values are `rajeshkhandelwalofficial` and `drrajeshkhandelwalibc`. These endpoints query the existing WordPress installation. A successful GitHub commit alone does not prove the live connection; the backend must be deployed and the private environment variables configured.
+
 ## Registered WordPress sites
 
 - `rajeshkhandelwalofficial` — `https://rajeshkhandelwalofficial.com`
