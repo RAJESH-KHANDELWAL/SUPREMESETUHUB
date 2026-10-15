@@ -301,15 +301,15 @@ final class SUPREMESETUHUB_Connector {
     }
 
     /**
-     * Embed the backend-served ecosystem frontend using the saved HTTPS API base.
+     * Link to the backend-served ecosystem as a normal page, without an embedded frame.
      */
     public static function global_business_ecosystem_shortcode() {
         $base = self::api_base();
         if (!$base || !wp_http_validate_url($base)) {
             return '<p class="suph-catalog-error">' . esc_html__('Set the backend HTTPS URL under Settings → SUPREMESETUHUB first.', 'supremesetuhub-connector') . '</p>';
         }
-        $src = $base . '/api/v1/frontend/global-business-ecosystem';
-        return '<div class="suph-global-ecosystem" style="width:100%;overflow:hidden"><iframe title="SUPREME Global Business Ecosystem" src="' . esc_url($src) . '" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="display:block;width:100%;min-height:850px;border:0;border-radius:16px" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe></div>';
+        $url = $base . '/api/v1/frontend/global-business-ecosystem';
+        return '<section class="suph-global-ecosystem" style="box-sizing:border-box;width:100%;max-width:100%;padding:clamp(20px,4vw,40px);border:1px solid #d8e2f0;border-radius:16px;background:#f7faff"><h2>' . esc_html__('SUPREME GLOBAL BUSINESS ECOSYSTEM', 'supremesetuhub-connector') . '</h2><p>' . esc_html__('Open the live ecosystem as a normal page, without an embedded frame or nested scrollbar.', 'supremesetuhub-connector') . '</p><a href="' . esc_url($url) . '" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:12px 18px;border-radius:10px;background:#0b5cff;color:#fff;text-decoration:none;font-weight:800">' . esc_html__('OPEN GLOBAL BUSINESS ECOSYSTEM', 'supremesetuhub-connector') . ' →</a></section>';
     }
 
     public static function contact_shortcode() {
