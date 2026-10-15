@@ -7,8 +7,6 @@ on:
       - "backend/database/**"
       - "backend/wordpress/**"
       - "backend/api/wordpress.py"
-      - "backend/wordpress/**"
-      - "backend/api/wordpress.py"
       - "backend/engines/storage/**"
       - "backend/engines/database/**"
       - "backend/api/service.py"
@@ -38,6 +36,8 @@ on:
     branches: [main]
     paths:
       - "backend/database/**"
+      - "backend/wordpress/**"
+      - "backend/api/wordpress.py"
       - "backend/engines/database/**"
       - "backend/api/service.py"
       - "backend/api/app.py"
