@@ -384,25 +384,16 @@ iframe{
 
         <button
             class="gold"
-            onclick="loadLiveHome()"
-        >
-            🔄 LIVE REFRESH
-        </button>
-
-        <button
-            class="light"
             onclick="openLiveHome()"
         >
-            🌍 OPEN LIVE
+            🌍 OPEN LIVE HOME PAGE
         </button>
 
     </div>
 
-    <iframe
-        id="livePreview"
-        title="Live Supreme Home Page"
-        scrolling="no"
-    ></iframe>
+    <p class="muted">
+        Live HOME opens directly in its own page. No embedded iframe.
+    </p>
 
 </div>
 
@@ -418,10 +409,11 @@ iframe{
         it to GitHub.
     </p>
 
-    <iframe
+    <pre
         id="preview"
-        title="Draft Home Page Preview"
-    ></iframe>
+        aria-label="Draft Home Page Preview"
+        style="white-space:pre-wrap;overflow-wrap:anywhere;max-height:520px;overflow:auto;padding:16px;border:1px solid var(--line);border-radius:16px;background:#0f172a;color:#f8fafc;font:13px/1.5 Consolas,monospace;"
+    >Draft preview will appear here after you click PREVIEW.</pre>
 
 </div>
 
@@ -737,20 +729,6 @@ const LIVE_HOME =
     '/api/v1/frontend/supreme';
 
 
-function loadLiveHome(){
-
-    document
-        .getElementById(
-            'livePreview'
-        )
-        .src =
-            LIVE_HOME +
-            '?t=' +
-            Date.now();
-
-}
-
-
 function openLiveHome(){
 
     window.open(
@@ -764,13 +742,14 @@ function openLiveHome(){
 
 function preview(){
 
-    const frame =
+    const previewBox =
         document.getElementById(
             'preview'
         );
 
-    frame.srcdoc =
-        editor.value;
+    previewBox.textContent =
+        editor.value ||
+        'Draft preview is empty.';
 
 }
 
