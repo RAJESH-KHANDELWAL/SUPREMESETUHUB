@@ -7,12 +7,14 @@ on:
       - main
     paths:
       - "wordpress-plugin/**"
+      - "backend/wordpress/wp-content/plugins/dr-rajesh-khandelwal-ibc/**"
       - ".github/workflows/package-wordpress-plugin.yml"
   push:
     branches:
       - main
     paths:
       - "wordpress-plugin/**"
+      - "backend/wordpress/wp-content/plugins/dr-rajesh-khandelwal-ibc/**"
       - ".github/workflows/package-wordpress-plugin.yml"
 
 permissions:
@@ -35,6 +37,7 @@ jobs:
             test -n "$php_file"
             php -l "$php_file"
           done
+          php -l backend/wordpress/wp-content/plugins/dr-rajesh-khandelwal-ibc/dr-rajesh-khandelwal-ibc.php
 
       - name: Build installable plugin ZIPs
         run: |
@@ -45,6 +48,11 @@ jobs:
             unzip -t "dist/$plugin.zip"
             unzip -Z1 "dist/$plugin.zip" | grep -q "^$plugin/[^/]*\.php$"
           done
+          mkdir -p dist/package-root
+          cp -R backend/wordpress/wp-content/plugins/dr-rajesh-khandelwal-ibc dist/package-root/
+          (cd dist/package-root && zip -r ../dr-rajesh-khandelwal-ibc.zip dr-rajesh-khandelwal-ibc)
+          unzip -t dist/dr-rajesh-khandelwal-ibc.zip
+          unzip -Z1 dist/dr-rajesh-khandelwal-ibc.zip | grep -q "^dr-rajesh-khandelwal-ibc/dr-rajesh-khandelwal-ibc.php$"
 
       - name: Upload WordPress plugin ZIPs
         uses: actions/upload-artifact@v4
