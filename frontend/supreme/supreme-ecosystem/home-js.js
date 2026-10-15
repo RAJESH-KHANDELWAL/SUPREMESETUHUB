@@ -60,7 +60,20 @@ document.addEventListener("DOMContentLoaded", () => {
     scheduleReport();
   }
 
+  window.addEventListener("message", (event) => {
+    if (event.source === window.parent &&
+        event.data &&
+        event.data.type === "SUPREME_HOME_REQUEST_HEIGHT") {
+      lastHeight = 0;
+      scheduleReport();
+    }
+  });
+
   window.addEventListener("load", scheduleReport);
+  // Retry briefly so a fast initial render cannot race the parent listener.
+  [150, 600, 1500, 3000].forEach((delay) => {
+    window.setTimeout(scheduleReport, delay);
+  });
   window.addEventListener("resize", scheduleReport);
 
   if ("ResizeObserver" in window) {
