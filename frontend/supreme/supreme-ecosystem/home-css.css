@@ -73,13 +73,15 @@ section .DR-RAJESH-KHANDELWAL-IBC,
 @media screen and (min-width: 2560px) {
 
  .HOME-MOST-WELCOME {
-        padding:  48px !important;
-        margin: 48px auto !important;
+        padding:  28px !important;
+        margin: 28px auto !important;
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
     }
 
      
      .HOME-MOST-WELCOME-TITLE {
-         font-size: 64px !important;
+         font-size: 60px !important;
          font-weight: 800 !important;
          line-height: 1.8 !important;
          letter-spacing: 1.8px !important;
@@ -90,13 +92,16 @@ section .DR-RAJESH-KHANDELWAL-IBC,
 /* LARGE DESKTOP — 1920px to 2559px */
 @media screen and (min-width: 1920px) and (max-width: 2559px) {
  .HOME-MOST-WELCOME {
-        padding:  48px !important;
-        margin: 48px auto !important;
+        padding:  28px !important;
+        margin: 28px auto !important;
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+
     }
 
      
      .HOME-MOST-WELCOME-TITLE {
-         font-size: 64px !important;
+         font-size: 60px !important;
          font-weight: 800 !important;
          line-height: 1.8 !important;
          letter-spacing: 1.8px !important;
@@ -108,11 +113,14 @@ section .DR-RAJESH-KHANDELWAL-IBC,
  .HOME-MOST-WELCOME {
         padding:  28px !important;
         margin: 28px auto !important;
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+
     }
 
      
      .HOME-MOST-WELCOME-TITLE {
-         font-size: 64px !important;
+         font-size: 60px !important;
          font-weight: 800 !important;
          line-height: 1.8 !important;
          letter-spacing: 1.8px !important;
@@ -124,11 +132,14 @@ section .DR-RAJESH-KHANDELWAL-IBC,
  .HOME-MOST-WELCOME {
         padding:  28px !important;
         margin: 28px auto !important;
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+
     }
 
      
      .HOME-MOST-WELCOME-TITLE {
-         font-size: 64px !important;
+         font-size: 60px !important;
          font-weight: 800 !important;
          line-height: 1.8 !important;
          letter-spacing: 1.8px !important;
@@ -140,11 +151,14 @@ section .DR-RAJESH-KHANDELWAL-IBC,
  .HOME-MOST-WELCOME {
         padding:  28px !important;
         margin: 28px auto !important;
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+
     }
 
      
      .HOME-MOST-WELCOME-TITLE {
-         font-size: 64px !important;
+         font-size: 60px !important;
          font-weight: 800 !important;
          line-height: 1.8 !important;
          letter-spacing: 1.8px !important;
@@ -156,6 +170,9 @@ section .DR-RAJESH-KHANDELWAL-IBC,
  .HOME-MOST-WELCOME {
         padding:  18px !important;
         margin: 18px auto !important;
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+
     }
 
      
@@ -172,6 +189,9 @@ section .DR-RAJESH-KHANDELWAL-IBC,
  .HOME-MOST-WELCOME {
         padding:  8px !important;
         margin: 8px auto !important;
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+
     }
 
      
@@ -188,6 +208,9 @@ section .DR-RAJESH-KHANDELWAL-IBC,
  .HOME-MOST-WELCOME {
         padding:  8px !important;
         margin: 8px auto !important;
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+
     }
 
      
@@ -204,6 +227,9 @@ section .DR-RAJESH-KHANDELWAL-IBC,
  .HOME-MOST-WELCOME {
         padding:  8px !important;
         margin: 8px auto !important;
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+
     }
 
      
