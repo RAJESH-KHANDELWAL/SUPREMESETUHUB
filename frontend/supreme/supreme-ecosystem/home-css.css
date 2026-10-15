@@ -3361,15 +3361,13 @@ section.HOME p {
 section.HOME img,
 section.HOME picture,
 section.HOME video,
-section.HOME iframe,
 section.HOME canvas,
 section.HOME svg {
     max-width: 100% !important;
 }
 
 section.HOME img,
-section.HOME video,
-section.HOME iframe {
+section.HOME video {
     height: auto !important;
 }
 
