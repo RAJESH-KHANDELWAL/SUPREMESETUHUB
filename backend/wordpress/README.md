@@ -29,6 +29,7 @@ For `rajeshkhandelwalofficial.com`:
 - `WORDPRESS_DB_PASSWORD`
 - `WORDPRESS_DB_PORT` (usually `3306`)
 - `WORDPRESS_TABLE_PREFIX` (often `wp_`, verify in `wp-config.php`)
+- `WORDPRESS_DB_SSL_ENABLED=true` (TLS requested by default; only disable if Hostinger confirms TLS is unsupported and the network is otherwise protected)
 
 For `drrajeshkhandelwalibc.com`:
 - `WORDPRESS_IBC_DB_HOST`
@@ -37,6 +38,7 @@ For `drrajeshkhandelwalibc.com`:
 - `WORDPRESS_IBC_DB_PASSWORD`
 - `WORDPRESS_IBC_DB_PORT` (usually `3306`)
 - `WORDPRESS_IBC_TABLE_PREFIX` (often `wp_`, verify in `wp-config.php`)
+- `WORDPRESS_IBC_DB_SSL_ENABLED=true` (TLS requested by default)
 
 Hostinger must permit remote MySQL access from the backend server's outbound IP. Use the database host shown by Hostinger, not the website domain unless Hostinger explicitly documents it as the database host. Grant only the permissions required by the operations you intend to run. Current connector operations are connection health and read-only table existence checks; do not grant broad write privileges unnecessarily.
 
@@ -78,3 +80,10 @@ This integration connects the backend to each site's existing database; it does 
 ## SUPREME HOME WordPress plugin
 
 The shortcode remains `[dr_rajesh_supreme_home]`. It loads the canonical `home-html.html`, `home-css.css`, and `home-js.js` source files from GitHub Raw. These frontend source files are intentionally untouched by the database integration.
+
+
+## Backup files and restore boundary
+
+A Hostinger `.tar.gz` site backup and `.sql.gz` database export are **backup/restore inputs**, not live database connection credentials. Do not add either archive to this Git repository: the files can contain private user data, password hashes, session/token material, uploads, and site configuration. The backend connection code does not import these archives or alter a live WordPress database.
+
+If a restore is required, first confirm the archive's source domain, database name, table prefix, and backup timestamp; take a fresh backup of the destination; then restore the SQL dump to the intended WordPress database using Hostinger's supported database tools and restore site files through the hosting file manager/backup tooling. Update the live site's `wp-config.php` only through the hosting workflow. After restoration, configure the backend's private environment variables and verify with the read-only health and core-table endpoints. Never import an unknown dump directly into a production database without confirming the target and taking a backup.
