@@ -101,6 +101,59 @@ def wordpress_site_health(
     return wordpress_service.health(site_id)
 
 
+@router.get("/sites/{site_id}/live-health")
+def live_wordpress_health(
+    site_id: str,
+    authorization: Optional[str] = Header(default=None),
+):
+    """Check the real installed WordPress site through its REST API."""
+    require_wordpress_owner(authorization)
+    from backend.wordpress.rest_api import WordPressRestClient, WordPressRestConfig
+    try:
+        client = WordPressRestClient(WordPressRestConfig.from_environment(site_id))
+        return client.health()
+    except PermissionError as exc:
+        raise HTTPException(status_code=403, detail=str(exc)) from exc
+    except (RuntimeError, ValueError) as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+
+
+@router.get("/sites/{site_id}/live-posts")
+def live_wordpress_posts(
+    site_id: str,
+    per_page: int = 10,
+    authorization: Optional[str] = Header(default=None),
+):
+    """Read posts from the actual WordPress installation."""
+    require_wordpress_owner(authorization)
+    from backend.wordpress.rest_api import WordPressRestClient, WordPressRestConfig
+    try:
+        client = WordPressRestClient(WordPressRestConfig.from_environment(site_id))
+        return {"success": True, "site_id": site_id, "posts": client.list_posts(per_page)}
+    except PermissionError as exc:
+        raise HTTPException(status_code=403, detail=str(exc)) from exc
+    except (RuntimeError, ValueError) as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+
+
+@router.get("/sites/{site_id}/live-pages")
+def live_wordpress_pages(
+    site_id: str,
+    per_page: int = 10,
+    authorization: Optional[str] = Header(default=None),
+):
+    """Read pages from the actual WordPress installation."""
+    require_wordpress_owner(authorization)
+    from backend.wordpress.rest_api import WordPressRestClient, WordPressRestConfig
+    try:
+        client = WordPressRestClient(WordPressRestConfig.from_environment(site_id))
+        return {"success": True, "site_id": site_id, "pages": client.list_pages(per_page)}
+    except PermissionError as exc:
+        raise HTTPException(status_code=403, detail=str(exc)) from exc
+    except (RuntimeError, ValueError) as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+
+
 @router.get("/sites/{site_id}/tables")
 def wordpress_site_tables(
     site_id: str,
