@@ -4029,8 +4029,7 @@ section.HOME .HOME-MOST-WELCOME-TITLE {
    Port the sizing and normal-flow behavior while retaining GitHub's single outer border.
    Do not hide, clip, or lock the page scrollbar. */
 
-html,
-body {
+#dr-rajesh-supreme-home {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
@@ -4039,13 +4038,13 @@ body {
     box-sizing: border-box !important;
 }
 
-*,
-*::before,
-*::after {
+#dr-rajesh-supreme-home *,
+#dr-rajesh-supreme-home *::before,
+#dr-rajesh-supreme-home *::after {
     box-sizing: border-box !important;
 }
 
-body > section.HOME {
+#dr-rajesh-supreme-home > section.HOME {
     display: flex !important;
     flex-direction: column !important;
     align-items: stretch !important;
@@ -4057,7 +4056,7 @@ body > section.HOME {
     padding: 0 !important;
 }
 
-body > section.HOME > .HOME-CONTENT {
+#dr-rajesh-supreme-home > section.HOME > .HOME-CONTENT {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -4072,25 +4071,25 @@ body > section.HOME > .HOME-CONTENT {
     box-shadow: none !important;
 }
 
-body > section.HOME *,
-body > section.HOME *::before,
-body > section.HOME *::after {
+#dr-rajesh-supreme-home > section.HOME *,
+#dr-rajesh-supreme-home > section.HOME *::before,
+#dr-rajesh-supreme-home > section.HOME *::after {
     box-sizing: border-box !important;
 }
 
-body > section.HOME img,
-body > section.HOME video,
-body > section.HOME table {
+#dr-rajesh-supreme-home > section.HOME img,
+#dr-rajesh-supreme-home > section.HOME video,
+#dr-rajesh-supreme-home > section.HOME table {
     max-width: 100% !important;
 }
 
-body > section.HOME img,
-body > section.HOME video {
+#dr-rajesh-supreme-home > section.HOME img,
+#dr-rajesh-supreme-home > section.HOME video {
     height: auto;
 }
 
-body > section.HOME .HOME-CONTENT > *,
-body > section.HOME .HOME-CONTENT * {
+#dr-rajesh-supreme-home > section.HOME .HOME-CONTENT > *,
+#dr-rajesh-supreme-home > section.HOME .HOME-CONTENT * {
     min-width: 0;
     max-width: 100%;
 }
