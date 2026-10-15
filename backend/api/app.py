@@ -447,6 +447,7 @@ def supreme_frontend():
         '<!doctype html><html lang="en"><head>'
         '<meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width, initial-scale=1">'
+        '<style>html,body{width:100%;max-width:100%;margin:0;padding:0;box-sizing:border-box}*,*::before,*::after{box-sizing:border-box}</style>'
         '<meta name="robots" content="index, follow">'
         '<title>DR RAJESH KHANDELWAL IBC | HOME</title>'
         '<link rel="stylesheet" href="/api/v1/frontend/supreme/style.css?v=20261015-most-welcome">'
