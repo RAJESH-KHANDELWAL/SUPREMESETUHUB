@@ -20,11 +20,11 @@ authentication_service = AuthenticationService()
 # Explicit allow-list prevents callers from choosing arbitrary environment names.
 SITE_ENV_PREFIXES = {
     "rajeshkhandelwalofficial": "WORDPRESS",
-    "drrajeshkhandelwalibc": "DRRAJESHKHANDELWALIBC",
+    "drrajeshkhandelwalibc": "WORDPRESS_IBC",
 }
 
 
-def _require_owner(authorization: Optional[str]) -> None:
+def require_wordpress_owner(authorization: Optional[str]) -> None:
     """Require a valid bearer token belonging to the SUPREME owner."""
     if not authorization or not authorization.startswith("Bearer "):
         raise HTTPException(status_code=401, detail="AUTHENTICATION_REQUIRED")
@@ -48,7 +48,7 @@ def _require_owner(authorization: Optional[str]) -> None:
 
 @router.get("/status")
 def wordpress_status(authorization: Optional[str] = Header(default=None)):
-    _require_owner(authorization)
+    require_wordpress_owner(authorization)
     return {
         "success": True,
         "service": "SUPREMESETUHUB WordPress Bridge",
@@ -126,4 +126,4 @@ def disconnect_wordpress_site(
     return wordpress_service.disconnect_site(site_id)
 
 
-__all__ = ["router", "wordpress_service"]
+__all__ = ["router", "wordpress_service", "require_wordpress_owner"]
