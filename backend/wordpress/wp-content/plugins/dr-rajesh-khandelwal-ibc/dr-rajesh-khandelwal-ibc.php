@@ -48,6 +48,16 @@ define(
 );
 
 define(
+    'DR_RAJESH_KHANDELWAL_IBC_HOME_CSS_URL',
+    'https://raw.githubusercontent.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/main/frontend/supreme/supreme-ecosystem/home-css.css'
+);
+
+define(
+    'DR_RAJESH_KHANDELWAL_IBC_HOME_JS_URL',
+    'https://raw.githubusercontent.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/main/frontend/supreme/supreme-ecosystem/home-js.js'
+);
+
+define(
     'DR_RAJESH_KHANDELWAL_IBC_HOME_URL',
     'https://rajesh-khandelwal.github.io/SUPREMESETUHUB/supreme/home.html'
 );
@@ -155,10 +165,9 @@ function dr_rajesh_khandelwal_ibc_supreme_home() {
      * Render the actual HTML maintained in GitHub directly inside WordPress.
      * No Render URL, no GitHub blob viewer, and no iframe.
      */
-    $base = 'https://raw.githubusercontent.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/main/frontend/supreme/supreme-ecosystem/';
-    $html_response = wp_remote_get($base . 'home-html.html', array('timeout' => 15));
-    $css_response  = wp_remote_get($base . 'home-css.css', array('timeout' => 15));
-    $js_response   = wp_remote_get($base . 'home-js.js', array('timeout' => 15));
+    $html_response = wp_remote_get(DR_RAJESH_KHANDELWAL_IBC_BACKEND_URL, array('timeout' => 15, 'redirection' => 3));
+    $css_response  = wp_remote_get(DR_RAJESH_KHANDELWAL_IBC_HOME_CSS_URL, array('timeout' => 15, 'redirection' => 3));
+    $js_response   = wp_remote_get(DR_RAJESH_KHANDELWAL_IBC_HOME_JS_URL, array('timeout' => 15, 'redirection' => 3));
 
     if (is_wp_error($html_response) || wp_remote_retrieve_response_code($html_response) !== 200) {
         return '<section id="dr-rajesh-supreme-home-error"><p>SUPREME HOME GitHub source could not be loaded. Please try again shortly.</p></section>';
@@ -183,7 +192,7 @@ function dr_rajesh_khandelwal_ibc_supreme_home() {
         $home_html
     );
 
-    $output  = '<div id="dr-rajesh-supreme-home" style="width:100%;max-width:100%;min-width:0;box-sizing:border-box;overflow-x:clip;">';
+    $output  = '<div id="SUPREMESETUHUB-HOME" class="SUPREMESETUHUB-HOME" style="width:100%;max-width:100%;min-width:0;box-sizing:border-box;overflow-x:clip;">';
     if ($home_css !== '') {
         $output .= '<style id="dr-rajesh-supreme-home-css">' . $home_css . '</style>';
     }
