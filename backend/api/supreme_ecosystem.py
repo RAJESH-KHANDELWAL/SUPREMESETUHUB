@@ -8,6 +8,7 @@ from fastapi import APIRouter, Depends, Header, HTTPException
 from pydantic import BaseModel, EmailStr, Field, field_validator
 
 from backend.auth.service import AuthenticationService
+from backend.supreme.capability_registry import get_capability_catalog
 from backend.users.service import UserService
 from backend.supreme.config import USERNAME as SUPREME_OWNER_USERNAME
 from backend.supreme.supreme_ecosystem.supreme_business_ecosystem import status as business_ecosystem_status
@@ -270,4 +271,16 @@ def integration_status():
             },
         ],
         "note": "Environment variables alone do not establish a live provider connection.",
+    }
+
+
+@router.get("/capabilities")
+def ecosystem_capabilities():
+    """Expose the same shared backend capability catalog from SUPREME ECOSYSTEM."""
+    catalog = get_capability_catalog()
+    return {
+        **catalog,
+        "dashboard": "SUPREME ECOSYSTEM",
+        "parent": "SUPREME",
+        "access": "SUPREME_OWNER",
     }
