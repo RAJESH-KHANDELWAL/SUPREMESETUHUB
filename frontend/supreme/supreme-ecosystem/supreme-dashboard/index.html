@@ -454,6 +454,14 @@ textarea{
 const API =
     'https://supremesetuhub-3v4e.onrender.com';
 
+// Canonical GitHub Home file supplied by the owner.
+const HOME_SOURCE_VIEW =
+    'https://github.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/blob/main/frontend/supreme/supreme-ecosystem/home-html.html';
+
+// Raw URL is used for fetching file contents; the blob URL above is the human-facing GitHub file link.
+const HOME_SOURCE_RAW =
+    'https://raw.githubusercontent.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/main/frontend/supreme/supreme-ecosystem/home-html.html';
+
 let token =
     localStorage.getItem('supreme_token');
 
@@ -595,10 +603,8 @@ async function loadStatus(){
         );
 
 
-        const g =
-            await authFetch(
-                API + '/supreme/github/home'
-            );
+        // Check the real GitHub Home source directly; do not use Render for Home reads.
+        const g = await fetch(HOME_SOURCE_RAW, { cache: 'no-store' });
 
         setText(
             'gh',
@@ -688,36 +694,29 @@ async function loadIdentities(){
 async function loadHome(){
 
     saveMsg.textContent =
-        'Loading from GitHub...';
+        'Loading Home HTML directly from GitHub...';
 
     try{
 
-        const r =
-            await authFetch(
-                API +
-                '/supreme/github/home'
-            );
-
-        const d =
-            await r.json();
+        // GitHub blob page (canonical source):
+        // https://github.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/blob/main/frontend/supreme/supreme-ecosystem/home-html.html
+        // Fetch the raw file contents, not the GitHub viewer and not a Render-served page.
+        const r = await fetch(HOME_SOURCE_RAW, { cache: 'no-store' });
 
         if(!r.ok){
-
-            throw Error(
-                d.detail ||
-                'GitHub read failed'
-            );
-
+            throw Error('GitHub Home HTML load failed: HTTP ' + r.status);
         }
 
-        editor.value =
-            d.content;
+        const content = await r.text();
+        if(!content.trim()){
+            throw Error('GitHub Home HTML is empty');
+        }
 
+        editor.value = content;
         preview();
 
         saveMsg.textContent =
-            'Loaded from GitHub • ' +
-            d.path;
+            'Loaded directly from GitHub • frontend/supreme/supreme-ecosystem/home-html.html';
 
     }
     catch(e){
@@ -731,8 +730,7 @@ async function loadHome(){
 
 
 const LIVE_HOME =
-    API +
-    '/api/v1/frontend/supreme';
+    'https://rajesh-khandelwal.github.io/SUPREMESETUHUB/supreme/home.html';
 
 
 function openLiveHome(){
