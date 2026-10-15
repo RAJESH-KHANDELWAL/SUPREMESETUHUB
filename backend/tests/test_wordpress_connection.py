@@ -178,3 +178,54 @@ def test_connection_failure_does_not_leak_driver_error(monkeypatch):
     assert "error_type" in result
     assert "password" not in str(result).lower()
     assert "secret host" not in str(result).lower()
+
+
+def test_service_requires_wordpress_core_tables_before_connecting(monkeypatch, tmp_path):
+    from backend.database.service import DatabaseService
+    from backend.wordpress.registry import WordPressRegistry, WordPressSite
+    from backend.wordpress.service import WordPressService
+
+    set_db_env(monkeypatch)
+    registry = WordPressRegistry(DatabaseService(str(tmp_path / "registry.db")))
+    registry.register(WordPressSite(
+        site_id="rajeshkhandelwalofficial",
+        domain="rajeshkhandelwalofficial.com",
+        site_url="https://rajeshkhandelwalofficial.com",
+    ))
+
+    class ReachableButNotWordPress:
+        def __init__(self, config):
+            self.closed = False
+        def health(self):
+            return {"success": True, "status": "CONNECTED"}
+        def check_wordpress_tables(self):
+            return {"success": False, "status": "WORDPRESS_TABLES_MISSING",
+                    "missing_tables": ["wp_options", "wp_posts"]}
+        def disconnect(self):
+            self.closed = True
+
+    monkeypatch.setattr("backend.wordpress.service.WordPressDatabaseConnection", ReachableButNotWordPress)
+    service = WordPressService(registry)
+    result = service.connect_site("rajeshkhandelwalofficial", "WORDPRESS")
+
+    assert result["success"] is False
+    assert result["status"] == "WORDPRESS_CORE_TABLES_NOT_VERIFIED"
+    assert service.connection_status("rajeshkhandelwalofficial")["database_connected"] is False
+    assert registry.get("rajeshkhandelwalofficial").status == "CONNECTION_FAILED"
+
+
+def test_bootstrap_resets_stale_connected_status(monkeypatch, tmp_path):
+    from backend.wordpress.bootstrap import create_wordpress_service
+    from backend.wordpress.registry import WordPressRegistry
+    from backend.wordpress.sites import WORDPRESS_SITES
+
+    monkeypatch.setenv("SUPREME_DB_PATH", str(tmp_path / "supreme-registry.db"))
+    registry = WordPressRegistry()
+    for configured_site in WORDPRESS_SITES:
+        registry.register(configured_site)
+    registry.set_status(WORDPRESS_SITES[0].site_id, "CONNECTED")
+
+    service = create_wordpress_service()
+    refreshed = service.get_site(WORDPRESS_SITES[0].site_id)
+    assert refreshed is not None
+    assert refreshed.status == "REGISTERED"
