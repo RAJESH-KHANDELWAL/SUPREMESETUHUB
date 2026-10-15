@@ -632,18 +632,6 @@ def health():
 # WORDPRESS STATUS
 # ============================================================
 
-@app.get("/api/v1/wordpress/sites")
-def wordpress_sites():
-
-    return {
-        "success": True,
-        "sites": [
-            site.to_dict()
-            for site in wordpress_service.list_sites()
-        ],
-    }
-
-
 @app.get("/api/v1/wordpress/status/{site_id}")
 def wordpress_status(site_id: str, request: Request):
 
