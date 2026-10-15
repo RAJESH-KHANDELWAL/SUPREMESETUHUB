@@ -12,6 +12,7 @@ from backend.supreme.config import (
 )
 
 from backend.auth.service import AuthenticationService
+from backend.supreme.capability_registry import get_capability_catalog
 
 from backend.supreme.identity_service import (
     get_supreme_profile,
@@ -258,4 +259,15 @@ def companies_list():
                 "display_name": "👑 DR RAJESH KHANDELWAL IBC 👑",
             }
         ],
+    }
+
+
+@router.get("/capabilities")
+def supreme_capabilities():
+    """Expose the shared backend capability catalog in the owner SUPREME dashboard."""
+    catalog = get_capability_catalog()
+    return {
+        **catalog,
+        "dashboard": "SUPREME",
+        "access": "SUPREME_OWNER",
     }
