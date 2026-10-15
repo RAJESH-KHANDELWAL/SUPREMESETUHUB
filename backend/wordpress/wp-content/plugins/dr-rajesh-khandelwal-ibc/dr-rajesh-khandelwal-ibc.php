@@ -201,90 +201,63 @@ function dr_rajesh_khandelwal_ibc_supreme_home() {
             return;
         }
 
-        function resizeFrame() {
+        /*
+         * The iframe is served from Render and WordPress is a different origin.
+         * The browser correctly blocks parent access to contentDocument.
+         * Receive the child's measured height through a validated postMessage.
+         */
+        let expectedOrigin = '';
 
-            try {
-
-                if (
-                    frame.contentWindow &&
-                    frame.contentDocument
-                ) {
-
-                    const body =
-                        frame.contentDocument.body;
-
-                    const html =
-                        frame.contentDocument.documentElement;
-
-                    const height =
-                        Math.max(
-                            body
-                                ? body.scrollHeight
-                                : 0,
-
-                            body
-                                ? body.offsetHeight
-                                : 0,
-
-                            html
-                                ? html.clientHeight
-                                : 0,
-
-                            html
-                                ? html.scrollHeight
-                                : 0,
-
-                            html
-                                ? html.offsetHeight
-                                : 0
-                        );
-
-                    if (height > 0) {
-
-                        frame.style.height =
-                            height + 'px';
-
-                    }
-
-                }
-
-            }
-            catch (error) {
-
-                /*
-                 * Cross-origin protection may prevent
-                 * reading iframe height.
-                 *
-                 * The fixed 100vh height remains active.
-                 */
-
-            }
-
+        try {
+            expectedOrigin = new URL(frame.src, window.location.href).origin;
+        } catch (error) {
+            return;
         }
 
-        frame.addEventListener(
-            'load',
-            function(){
-
-                resizeFrame();
-
-                setTimeout(
-                    resizeFrame,
-                    1000
-                );
-
-                setTimeout(
-                    resizeFrame,
-                    3000
-                );
-
+        window.addEventListener('message', function(event) {
+            if (event.source !== frame.contentWindow) {
+                return;
             }
-        );
 
-        window.addEventListener(
-            'resize',
-            resizeFrame
-        );
+            if (event.origin !== expectedOrigin) {
+                return;
+            }
+
+            const data = event.data;
+
+            if (!data || data.type !== 'SUPREME_HOME_HEIGHT') {
+                return;
+            }
+
+            const height = Number(data.height);
+
+            if (!Number.isFinite(height) || height < 200 || height > 50000) {
+                return;
+            }
+
+            frame.style.height = Math.ceil(height) + 'px';
+            frame.style.minHeight = '0';
+        });
+
+        function requestFrameHeight() {
+            if (!frame.contentWindow || !expectedOrigin) {
+                return;
+            }
+
+            frame.contentWindow.postMessage(
+                { type: 'SUPREME_HOME_REQUEST_HEIGHT' },
+                expectedOrigin
+            );
+        }
+
+        frame.addEventListener('load', function() {
+            requestFrameHeight();
+            setTimeout(requestFrameHeight, 150);
+            setTimeout(requestFrameHeight, 600);
+            setTimeout(requestFrameHeight, 1500);
+        });
+
+        window.addEventListener('resize', requestFrameHeight);
 
     })();
 
