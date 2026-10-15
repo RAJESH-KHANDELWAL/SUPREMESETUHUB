@@ -13,7 +13,6 @@ from dataclasses import dataclass
 from typing import Any, Optional
 
 import mysql.connector
-from mysql.connector import Error
 
 
 _ALLOWED_ENV_PREFIXES = {"WORDPRESS", "WORDPRESS_IBC"}
@@ -134,6 +133,9 @@ class WordPressDatabaseConnection:
         if self.connection is not None:
             try:
                 self.connection.close()
+            except Exception:
+                # Cleanup must not mask the original connection/health error.
+                pass
             finally:
                 self.connection = None
 
