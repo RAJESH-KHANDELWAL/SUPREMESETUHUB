@@ -1,53 +1,39 @@
 """
-MAIN BASE FOUNDATION
-WORDPRESS CONNECTION
+Secure direct MySQL/MariaDB connector for the existing live WordPress sites.
 
-Central connection configuration for WordPress sites.
-
-IMPORTANT:
-- Live WordPress database remains on the hosting/provider.
-- Credentials are NEVER stored in source code.
-- GitHub stores the backend code.
-- Runtime environment variables provide credentials.
-- This module only manages an authorized WordPress database connection.
-
-Architecture:
-
-GITHUB BACKEND
-      ↓
-WORDPRESS CONNECTION
-      ↓
-HOSTING DATABASE
-      ↓
-WORDPRESS SITE
+WordPress/PHP stays on its current hosting. This module opens a separate
+backend-to-database connection and performs read-only health/schema checks.
+It never imports a SQL dump or changes WordPress content.
 """
-
 from __future__ import annotations
 
 import os
+import re
 from dataclasses import dataclass
-from typing import Optional
+from typing import Any, Optional
 
 import mysql.connector
 from mysql.connector import Error
 
 
-@dataclass
+_ALLOWED_ENV_PREFIXES = {"WORDPRESS", "WORDPRESS_IBC"}
+_SAFE_TABLE_PREFIX = re.compile(r"^[A-Za-z0-9_]{1,64}$")
+
+
+@dataclass(frozen=True)
 class WordPressConnectionConfig:
-    """Configuration required to connect to one WordPress database."""
+    """Private runtime configuration for one allow-listed WordPress site."""
 
     site_id: str
     domain: str
-
     database_host: str
     database_name: str
     database_user: str
     database_password: str
-
     database_port: int = 3306
     table_prefix: str = "wp_"
-
     ssl_enabled: bool = True
+    connect_timeout: int = 10
 
     @classmethod
     def from_environment(
@@ -56,112 +42,78 @@ class WordPressConnectionConfig:
         domain: str,
         prefix: str = "WORDPRESS",
     ) -> "WordPressConnectionConfig":
-        """
-        Load WordPress database configuration from
-        environment variables.
+        if prefix not in _ALLOWED_ENV_PREFIXES:
+            raise ValueError("WORDPRESS_ENVIRONMENT_PREFIX_NOT_ALLOWED")
 
-        Example:
+        def clean(name: str) -> str:
+            return os.getenv(name, "").strip()
 
-        WORDPRESS_DB_HOST
-        WORDPRESS_DB_NAME
-        WORDPRESS_DB_USER
-        WORDPRESS_DB_PASSWORD
-        WORDPRESS_DB_PORT
-        WORDPRESS_TABLE_PREFIX
-        """
+        host = clean(f"{prefix}_DB_HOST")
+        name = clean(f"{prefix}_DB_NAME")
+        user = clean(f"{prefix}_DB_USER")
+        # Do not strip the password: spaces can be part of a valid secret.
+        password = os.getenv(f"{prefix}_DB_PASSWORD", "")
+        port_text = clean(f"{prefix}_DB_PORT") or "3306"
+        table_prefix = clean(f"{prefix}_TABLE_PREFIX") or "wp_"
 
-        host = os.getenv(
-            f"{prefix}_DB_HOST"
-        )
-
-        name = os.getenv(
-            f"{prefix}_DB_NAME"
-        )
-
-        user = os.getenv(
-            f"{prefix}_DB_USER"
-        )
-
-        password = os.getenv(
-            f"{prefix}_DB_PASSWORD"
-        )
-
-        port = os.getenv(
-            f"{prefix}_DB_PORT",
-            "3306",
-        )
-
-        table_prefix = os.getenv(
-            f"{prefix}_TABLE_PREFIX",
-            "wp_",
-        )
-
-        missing = []
-
-        if not host:
-            missing.append(
-                f"{prefix}_DB_HOST"
-            )
-
-        if not name:
-            missing.append(
-                f"{prefix}_DB_NAME"
-            )
-
-        if not user:
-            missing.append(
-                f"{prefix}_DB_USER"
-            )
-
-        if not password:
-            missing.append(
-                f"{prefix}_DB_PASSWORD"
-            )
-
+        required = {
+            f"{prefix}_DB_HOST": host,
+            f"{prefix}_DB_NAME": name,
+            f"{prefix}_DB_USER": user,
+            f"{prefix}_DB_PASSWORD": password,
+        }
+        missing = [key for key, value in required.items() if not value]
         if missing:
             raise RuntimeError(
-                "Missing WordPress database "
-                "environment variables: "
-                + ", ".join(missing)
+                "MISSING_WORDPRESS_DATABASE_SETTINGS: " + ", ".join(missing)
             )
+
+        try:
+            port = int(port_text)
+        except (TypeError, ValueError) as exc:
+            raise ValueError(f"{prefix}_DB_PORT_MUST_BE_INTEGER") from exc
+        if not 1 <= port <= 65535:
+            raise ValueError(f"{prefix}_DB_PORT_OUT_OF_RANGE")
+
+        if not _SAFE_TABLE_PREFIX.fullmatch(table_prefix):
+            raise ValueError(f"{prefix}_TABLE_PREFIX_INVALID")
+
+        ssl_text = clean(f"{prefix}_DB_SSL_ENABLED").lower()
+        ssl_enabled = ssl_text not in {"0", "false", "no", "off"}
 
         return cls(
             site_id=site_id,
             domain=domain,
-
             database_host=host,
             database_name=name,
             database_user=user,
             database_password=password,
-
-            database_port=int(port),
-
+            database_port=port,
             table_prefix=table_prefix,
+            ssl_enabled=ssl_enabled,
         )
 
 
 class WordPressDatabaseConnection:
-    """
-    Authorized MySQL connection to a WordPress database.
-    """
+    """A single live database connection for one registered WordPress site."""
 
-    def __init__(
-        self,
-        config: WordPressConnectionConfig,
-    ) -> None:
-
+    def __init__(self, config: WordPressConnectionConfig) -> None:
         self.config = config
-        self.connection = None
-
-    # ==============================================================
-    # CONNECT
-    # ==============================================================
+        self.connection: Optional[Any] = None
 
     def connect(self):
-        """Open the WordPress database connection."""
-
+        """Open or recover the configured connection."""
         if self.connection is not None:
-            return self.connection
+            try:
+                if self.connection.is_connected():
+                    self.connection.ping(reconnect=True, attempts=1, delay=0)
+                    return self.connection
+            except Exception:
+                try:
+                    self.connection.close()
+                except Exception:
+                    pass
+                self.connection = None
 
         self.connection = mysql.connector.connect(
             host=self.config.database_host,
@@ -169,165 +121,123 @@ class WordPressDatabaseConnection:
             database=self.config.database_name,
             user=self.config.database_user,
             password=self.config.database_password,
-            connection_timeout=30,
+            connection_timeout=self.config.connect_timeout,
+            ssl_disabled=not self.config.ssl_enabled,
+            charset="utf8mb4",
+            use_unicode=True,
+            autocommit=True,
         )
-
         return self.connection
 
-    # ==============================================================
-    # DISCONNECT
-    # ==============================================================
-
     def disconnect(self) -> None:
-        """Close the database connection."""
-
+        """Close the connection and clear the local handle."""
         if self.connection is not None:
-            self.connection.close()
-
-        self.connection = None
-
-    # ==============================================================
-    # HEALTH
-    # ==============================================================
+            try:
+                self.connection.close()
+            finally:
+                self.connection = None
 
     def health(self) -> dict:
-        """Check WordPress database connectivity."""
-
+        """Run a harmless connectivity probe without exposing credentials/errors."""
+        cursor = None
         try:
             connection = self.connect()
-
             cursor = connection.cursor()
-
-            cursor.execute(
-                "SELECT 1"
-            )
-
-            cursor.fetchone()
-
-            cursor.close()
-
+            cursor.execute("SELECT 1")
+            row = cursor.fetchone()
             return {
-                "success": True,
-                "status": "CONNECTED",
-
+                "success": bool(row and row[0] == 1),
+                "status": "CONNECTED" if row and row[0] == 1 else "HEALTH_CHECK_FAILED",
                 "site_id": self.config.site_id,
                 "domain": self.config.domain,
-
                 "database": self.config.database_name,
-
-                "table_prefix": (
-                    self.config.table_prefix
-                ),
+                "table_prefix": self.config.table_prefix,
+                "tls_requested": self.config.ssl_enabled,
             }
-
-        except Error as exc:
-
+        except Exception as exc:
+            # Do not return exception text: some drivers include host/user details.
             return {
                 "success": False,
                 "status": "CONNECTION_FAILED",
-
                 "site_id": self.config.site_id,
                 "domain": self.config.domain,
-
-                "error": str(exc),
+                "error_type": type(exc).__name__,
             }
-
-    # ==============================================================
-    # WORDPRESS TABLE CHECK
-    # ==============================================================
+        finally:
+            if cursor is not None:
+                try:
+                    cursor.close()
+                except Exception:
+                    pass
 
     def check_wordpress_tables(self) -> dict:
-        """
-        Verify that the connected database contains
-        essential WordPress tables.
-        """
+        """Read-only verification of the four core WordPress tables."""
+        cursor = None
+        required_suffixes = ("options", "posts", "users", "usermeta")
+        found: list[str] = []
+        missing: list[str] = []
+        try:
+            connection = self.connect()
+            cursor = connection.cursor()
+            for suffix in required_suffixes:
+                table_name = f"{self.config.table_prefix}{suffix}"
+                cursor.execute(
+                    """
+                    SELECT COUNT(*)
+                    FROM information_schema.tables
+                    WHERE table_schema = %s AND table_name = %s
+                    """,
+                    (self.config.database_name, table_name),
+                )
+                row = cursor.fetchone()
+                if row and int(row[0]) > 0:
+                    found.append(table_name)
+                else:
+                    missing.append(table_name)
 
-        connection = self.connect()
-
-        cursor = connection.cursor()
-
-        required_tables = [
-            "options",
-            "posts",
-            "users",
-            "usermeta",
-        ]
-
-        found = []
-        missing = []
-
-        for table in required_tables:
-
-            full_table = (
-                self.config.table_prefix
-                + table
-            )
-
-            cursor.execute(
-                """
-                SELECT COUNT(*)
-                FROM information_schema.tables
-                WHERE table_schema = %s
-                AND table_name = %s
-                """,
-                (
-                    self.config.database_name,
-                    full_table,
-                ),
-            )
-
-            exists = cursor.fetchone()[0] > 0
-
-            if exists:
-                found.append(full_table)
-            else:
-                missing.append(full_table)
-
-        cursor.close()
-
-        return {
-            "success": len(missing) == 0,
-
-            "site_id": self.config.site_id,
-            "domain": self.config.domain,
-
-            "database": self.config.database_name,
-
-            "found_tables": found,
-            "missing_tables": missing,
-        }
-
-    # ==============================================================
-    # STATUS
-    # ==============================================================
+            return {
+                "success": not missing,
+                "status": "WORDPRESS_TABLES_VERIFIED" if not missing else "WORDPRESS_TABLES_MISSING",
+                "site_id": self.config.site_id,
+                "domain": self.config.domain,
+                "database": self.config.database_name,
+                "table_prefix": self.config.table_prefix,
+                "found_tables": found,
+                "missing_tables": missing,
+            }
+        except Exception as exc:
+            return {
+                "success": False,
+                "status": "TABLE_CHECK_FAILED",
+                "site_id": self.config.site_id,
+                "domain": self.config.domain,
+                "error_type": type(exc).__name__,
+                "found_tables": found,
+                "missing_tables": missing,
+            }
+        finally:
+            if cursor is not None:
+                try:
+                    cursor.close()
+                except Exception:
+                    pass
 
     def status(self) -> dict:
-        """Return safe connection status."""
-
+        """Return connection state without credentials."""
+        connected = False
+        if self.connection is not None:
+            try:
+                connected = bool(self.connection.is_connected())
+            except Exception:
+                connected = False
         return {
-            "service": (
-                "WordPressDatabaseConnection"
-            ),
-
+            "service": "WordPressDatabaseConnection",
             "site_id": self.config.site_id,
-
             "domain": self.config.domain,
-
-            "database": (
-                self.config.database_name
-            ),
-
-            "connected": (
-                self.connection is not None
-            ),
-
-            "table_prefix": (
-                self.config.table_prefix
-            ),
+            "database": self.config.database_name,
+            "table_prefix": self.config.table_prefix,
+            "connected": connected,
         }
 
 
-__all__ = [
-    "WordPressConnectionConfig",
-    "WordPressDatabaseConnection",
-]
+__all__ = ["WordPressConnectionConfig", "WordPressDatabaseConnection"]
