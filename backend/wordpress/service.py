@@ -70,6 +70,21 @@ class WordPressService:
                     "health": health,
                 }
 
+            # A successful SELECT 1 proves only that MySQL is reachable.
+            # Verify core WordPress tables before treating this as a WP DB.
+            tables = candidate.check_wordpress_tables()
+            if not tables.get("success"):
+                candidate.disconnect()
+                self.registry.set_status(site_id, "CONNECTION_FAILED")
+                return {
+                    "success": False,
+                    "status": "WORDPRESS_CORE_TABLES_NOT_VERIFIED",
+                    "site_id": site_id,
+                    "domain": site.domain,
+                    "health": health,
+                    "wordpress_tables": tables,
+                }
+
             self._connections[site_id] = candidate
             self.registry.set_status(site_id, "CONNECTED")
             return {
@@ -79,6 +94,7 @@ class WordPressService:
                 "domain": site.domain,
                 "database": config.database_name,
                 "health": health,
+                "wordpress_tables": tables,
             }
         except Exception as exc:
             if candidate is not None:
