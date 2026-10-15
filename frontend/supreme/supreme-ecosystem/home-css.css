@@ -24,7 +24,7 @@ section .DR-RAJESH-KHANDELWAL-IBC,
     font-weight: 800 !important;
     text-transform: uppercase !important;
     border: 4px solid #D4AF37 !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1) !important;
     -webkit-font-smoothing: antialiased !important;
     -moz-osx-font-smoothing: grayscale !important;
     text-rendering: optimizeLegibility !important;
@@ -78,115 +78,147 @@ section .DR-RAJESH-KHANDELWAL-IBC,
 
 /* ULTRA-WIDE MONITOR — 2560px+ */
 @media screen and (min-width: 2560px) {
-    section.HOME .HOME-MOST-WELCOME-TITLE {
-        font-size: 72px !important;
-        line-height: 1.2 !important;
-        letter-spacing: 2px !important;
+
+ .HOME-MOST-WELCOME {
+        padding:  48px !important;
+        margin: 48px auto !important;
     }
 
-    section.HOME .HOME-TOP-SECTION > .HOME-MOST-WELCOME {
-        padding: 32px 48px !important;
-        margin: 28px auto !important;
+     
+     .HOME-MOST-WELCOME-TITLE {
+         font-size: 68px !important;
+         font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
     }
+
 }
 
 /* LARGE DESKTOP — 1920px to 2559px */
 @media screen and (min-width: 1920px) and (max-width: 2559px) {
-    section.HOME .HOME-MOST-WELCOME-TITLE {
-        font-size: 60px !important;
-        line-height: 1.25 !important;
-        letter-spacing: 1.8px !important;
+ .HOME-MOST-WELCOME {
+        padding:  48px !important;
+        margin: 48px auto !important;
+    }
+
+     
+     .HOME-MOST-WELCOME-TITLE {
+         font-size: 68px !important;
+         font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
     }
 }
 
 /* DESKTOP / PC — 1440px to 1919px */
 @media screen and (min-width: 1440px) and (max-width: 1919px) {
-    section.HOME .HOME-MOST-WELCOME-TITLE {
-        font-size: 52px !important;
-        line-height: 1.25 !important;
-        letter-spacing: 1.4px !important;
+ .HOME-MOST-WELCOME {
+        padding:  28px !important;
+        margin: 28px auto !important;
+    }
+
+     
+     .HOME-MOST-WELCOME-TITLE {
+         font-size: 68px !important;
+         font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
     }
 }
 
 /* LAPTOP — 1200px to 1439px */
 @media screen and (min-width: 1200px) and (max-width: 1439px) {
-    section.HOME .HOME-MOST-WELCOME-TITLE {
-        font-size: 46px !important;
-        line-height: 1.25 !important;
-        letter-spacing: 1.1px !important;
+ .HOME-MOST-WELCOME {
+        padding:  28px !important;
+        margin: 28px auto !important;
+    }
+
+     
+     .HOME-MOST-WELCOME-TITLE {
+         font-size: 68px !important;
+         font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
     }
 }
 
 /* SMALL LAPTOP — 1025px to 1199px */
 @media screen and (min-width: 1025px) and (max-width: 1199px) {
-    section.HOME .HOME-MOST-WELCOME-TITLE {
-        font-size: 40px !important;
-        line-height: 1.25 !important;
-        letter-spacing: 0.8px !important;
+ .HOME-MOST-WELCOME {
+        padding:  28px !important;
+        margin: 28px auto !important;
     }
 
-    section.HOME .HOME-TOP-SECTION > .HOME-MOST-WELCOME {
-        padding: 14px 16px !important;
+     
+     .HOME-MOST-WELCOME-TITLE {
+         font-size: 68px !important;
+         font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
     }
 }
 
 /* TABLET — 769px to 1024px */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-    section.HOME .HOME-MOST-WELCOME-TITLE {
-        font-size: 34px !important;
-        line-height: 1.3 !important;
-        letter-spacing: 0.5px !important;
+ .HOME-MOST-WELCOME {
+        padding:  18px !important;
+        margin: 18px auto !important;
     }
 
-    section.HOME .HOME-TOP-SECTION > .HOME-MOST-WELCOME {
-        width: calc(100% - 20px) !important;
-        padding: 14px 12px !important;
-        margin: 12px auto !important;
+     
+     .HOME-MOST-WELCOME-TITLE {
+         font-size: 28px !important;
+         font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
     }
 }
 
 /* MOBILE / SMALL TABLET — 481px to 768px */
 @media screen and (min-width: 481px) and (max-width: 768px) {
-    section.HOME .HOME-MOST-WELCOME-TITLE {
-        font-size: 28px !important;
-        line-height: 1.3 !important;
-        letter-spacing: 0.3px !important;
+ .HOME-MOST-WELCOME {
+        padding:  8px !important;
+        margin: 8px auto !important;
     }
 
-    section.HOME .HOME-TOP-SECTION > .HOME-MOST-WELCOME {
-        width: calc(100% - 16px) !important;
-        padding: 12px 8px !important;
-        margin: 10px auto !important;
+     
+     .HOME-MOST-WELCOME-TITLE {
+         font-size: 18px !important;
+         font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
     }
 }
 
 /* MOBILE — 361px to 480px */
 @media screen and (min-width: 361px) and (max-width: 480px) {
-    section.HOME .HOME-MOST-WELCOME-TITLE {
-        font-size: 23px !important;
-        line-height: 1.3 !important;
-        letter-spacing: 0.1px !important;
+ .HOME-MOST-WELCOME {
+        padding:  8px !important;
+        margin: 8px auto !important;
     }
 
-    section.HOME .HOME-TOP-SECTION > .HOME-MOST-WELCOME {
-        width: calc(100% - 12px) !important;
-        padding: 10px 6px !important;
-        margin: 8px auto !important;
+     
+     .HOME-MOST-WELCOME-TITLE {
+         font-size: 18px !important;
+         font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
     }
 }
 
 /* SMALL MOBILE — 360px and below */
 @media screen and (max-width: 360px) {
-    section.HOME .HOME-MOST-WELCOME-TITLE {
-        font-size: 20px !important;
-        line-height: 1.3 !important;
-        letter-spacing: 0 !important;
+ .HOME-MOST-WELCOME {
+        padding:  8px !important;
+        margin: 8px auto !important;
     }
 
-    section.HOME .HOME-TOP-SECTION > .HOME-MOST-WELCOME {
-        width: calc(100% - 8px) !important;
-        padding: 8px 4px !important;
-        margin: 6px auto !important;
+     
+     .HOME-MOST-WELCOME-TITLE {
+         font-size: 18px !important;
+         font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
     }
 }
 
