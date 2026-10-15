@@ -2,7 +2,7 @@
 /**
  * Plugin Name: SUPREMESETUHUB Connector
  * Description: Connects a WordPress storefront to the SUPREMESETUHUB public API catalog and health endpoint.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Requires at least: 6.2
  * Requires PHP: 7.4
  * Author: DR RAJESH KHANDELWAL IBC
