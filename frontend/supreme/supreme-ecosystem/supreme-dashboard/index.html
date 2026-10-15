@@ -16,6 +16,22 @@
     --danger:#b91c1c;
 }
 
+/* Hide visible scrollbar tracks across the dashboard while keeping scrolling usable. */
+html,
+body,
+*{
+    scrollbar-width:none !important;
+    -ms-overflow-style:none !important;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar{
+    width:0 !important;
+    height:0 !important;
+    display:none !important;
+}
+
 *{
     box-sizing:border-box;
 }
@@ -534,8 +550,6 @@ function start(){
     loadStatus();
 
     loadIdentities();
-
-    loadLiveHome();
 
     loadHome();
 
