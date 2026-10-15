@@ -44,12 +44,12 @@ define(
 
 define(
     'DR_RAJESH_KHANDELWAL_IBC_BACKEND_URL',
-    'https://github.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/blob/main/frontend/supreme/supreme-ecosystem/home-html.html'
+    'https://raw.githubusercontent.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/main/frontend/supreme/supreme-ecosystem/home-html.html'
 );
 
 define(
     'DR_RAJESH_KHANDELWAL_IBC_HOME_URL',
-    'https://github.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/blob/main/frontend/supreme/supreme-ecosystem/home-html.html'
+    'https://rajesh-khandelwal.github.io/SUPREMESETUHUB/supreme/home.html'
 );
 
 
@@ -151,14 +151,49 @@ function dr_rajesh_khandelwal_ibc_status() {
 */
 
 function dr_rajesh_khandelwal_ibc_supreme_home() {
-    $home_url = esc_url(DR_RAJESH_KHANDELWAL_IBC_HOME_URL);
-    $html  = '<section id="dr-rajesh-supreme-home" style="box-sizing:border-box;width:100%;max-width:100%;margin:0 auto;padding:clamp(24px,5vw,64px);background:#fff;color:#101828;border:1px solid #e5e7eb;border-radius:20px;text-align:center;">';
-    $html .= '<div style="font-size:clamp(1.6rem,4vw,3rem);font-weight:900;line-height:1.2;">👑 DR RAJESH KHANDELWAL IBC 👑</div>';
-    $html .= '<h1 style="font-size:clamp(1.3rem,3vw,2rem);margin:18px 0 10px;">SUPREME HOME</h1>';
-    $html .= '<p style="max-width:720px;margin:0 auto 22px;line-height:1.7;">Open the live SUPREME Home page directly. It uses the full browser page instead of an embedded frame, avoiding a second internal scrollbar.</p>';
-    $html .= '<a href="' . $home_url . '" style="display:inline-block;max-width:100%;box-sizing:border-box;padding:13px 20px;border-radius:12px;background:#0b5cff;color:#fff;text-decoration:none;font-weight:800;">🌍 OPEN SUPREME HOME</a>';
-    $html .= '</section>';
-    return $html;
+    /*
+     * Render the actual HTML maintained in GitHub directly inside WordPress.
+     * No Render URL, no GitHub blob viewer, and no iframe.
+     */
+    $base = 'https://raw.githubusercontent.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/main/frontend/supreme/supreme-ecosystem/';
+    $html_response = wp_remote_get($base . 'home-html.html', array('timeout' => 15));
+    $css_response  = wp_remote_get($base . 'home-css.css', array('timeout' => 15));
+    $js_response   = wp_remote_get($base . 'home-js.js', array('timeout' => 15));
+
+    if (is_wp_error($html_response) || wp_remote_retrieve_response_code($html_response) !== 200) {
+        return '<section id="dr-rajesh-supreme-home-error"><p>SUPREME HOME GitHub source could not be loaded. Please try again shortly.</p></section>';
+    }
+
+    $home_html = wp_remote_retrieve_body($html_response);
+    $home_css  = (!is_wp_error($css_response) && wp_remote_retrieve_response_code($css_response) === 200) ? wp_remote_retrieve_body($css_response) : '';
+    $home_js   = (!is_wp_error($js_response) && wp_remote_retrieve_response_code($js_response) === 200) ? wp_remote_retrieve_body($js_response) : '';
+
+    // Replace old Render API navigation links so the page never routes back to Render.
+    $home_html = str_replace(
+        array(
+            'href="/api/v1/frontend/supreme"',
+            'href="/api/v1/frontend/supreme/about"',
+            'href="/api/v1/frontend/supreme/contact"'
+        ),
+        array(
+            'href="https://rajesh-khandelwal.github.io/SUPREMESETUHUB/supreme/home.html"',
+            'href="https://rajesh-khandelwal.github.io/SUPREMESETUHUB/supreme/about.html"',
+            'href="https://rajesh-khandelwal.github.io/SUPREMESETUHUB/supreme/contact.html"'
+        ),
+        $home_html
+    );
+
+    $output  = '<div id="dr-rajesh-supreme-home" style="width:100%;max-width:100%;min-width:0;box-sizing:border-box;overflow-x:clip;">';
+    if ($home_css !== '') {
+        $output .= '<style id="dr-rajesh-supreme-home-css">' . $home_css . '</style>';
+    }
+    $output .= $home_html;
+    if ($home_js !== '') {
+        $output .= '<script id="dr-rajesh-supreme-home-js">' . $home_js . '</script>';
+    }
+    $output .= '</div>';
+
+    return $output;
 }
 
 
