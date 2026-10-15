@@ -549,18 +549,15 @@ function openAsset(asset) {
 
         viewerContent.innerHTML = `
             <h2>${title}</h2>
-            <iframe
-                src="${escapeAttribute(url)}"
-                style="
-                    width:100%;
-                    height:70vh;
-                    border:0;
-                    border-radius:12px;
-                    background:#000;
-                "
-                allowfullscreen>
-            </iframe>
             <p>${description}</p>
+            <p>Games open directly in a separate browser tab so the page does not create an embedded scrolling area.</p>
+            <a
+                href="${escapeAttribute(url)}"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="display:inline-block;padding:12px 18px;background:#fff;color:#000;border-radius:8px;text-decoration:none;font-weight:800;">
+                🎮 OPEN GAME
+            </a>
         `;
 
     } else {
