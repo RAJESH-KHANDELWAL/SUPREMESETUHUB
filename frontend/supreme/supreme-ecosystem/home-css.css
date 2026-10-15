@@ -3916,3 +3916,18 @@ section.HOME .HOME-MOST-WELCOME-TITLE {
         margin: 6px auto !important;
     }
 }
+
+/* HOME document: hide the visible vertical scrollbar without disabling scrolling.
+   Scoped to documents containing the standalone HOME section; does not clip content. */
+html:has(> body > section.HOME),
+body:has(> section.HOME) {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
+html:has(> body > section.HOME)::-webkit-scrollbar,
+body:has(> section.HOME)::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none !important;
+}
