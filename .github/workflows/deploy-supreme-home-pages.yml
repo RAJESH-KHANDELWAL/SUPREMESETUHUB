@@ -7,6 +7,7 @@ on:
       - "frontend/supreme/supreme-ecosystem/home-html.html"
       - "frontend/supreme/supreme-ecosystem/home-css.css"
       - "frontend/supreme/supreme-ecosystem/home-js.js"
+      - "frontend/supreme/supreme-ecosystem/supreme-dashboard/index.html"
       - "backend/wordpress/wp-content/plugins/dr-rajesh-khandelwal-ibc/dr-rajesh-khandelwal-ibc.php"
       - ".github/workflows/deploy-supreme-home-pages.yml"
   workflow_dispatch:
