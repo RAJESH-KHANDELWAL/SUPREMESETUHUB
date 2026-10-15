@@ -3722,3 +3722,76 @@ section.HOME .HOME-MOST-WELCOME-TITLE {
     overflow-wrap: anywhere !important;
     word-break: normal !important;
 }
+
+
+/* WORDPRESS HOME MOST WELCOME CSS — PORTED FROM rajeshkhandelwalofficial.com */
+/* Source WordPress classes: .MOST-WELCOME and its desktop/tablet-mobile media rules.
+   Mapped to this GitHub system's .HOME-MOST-WELCOME and .HOME-MOST-WELCOME-TITLE. */
+section.HOME .HOME-MOST-WELCOME {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    background-color: transparent !important;
+    border: none !important;
+    color: #D4AF37 !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+}
+
+@media (min-width: 1025px) {
+    section.HOME .HOME-MOST-WELCOME {
+        font-size: 60px !important;
+        line-height: 1.8 !important;
+        letter-spacing: 1.8px !important;
+        padding: 40px !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-top: 18px !important;
+        margin-bottom: 18px !important;
+        border-radius: 18px !important;
+    }
+
+    section.HOME .HOME-MOST-WELCOME-TITLE {
+        font-size: 60px !important;
+        line-height: 1.8 !important;
+        letter-spacing: 1.8px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    section.HOME .HOME-MOST-WELCOME {
+        font-size: 20px !important;
+        font-weight: 800 !important;
+        line-height: 1.8 !important;
+        letter-spacing: 1.8px !important;
+        text-align: center !important;
+        display: flex !important;
+        width: 100% !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 20px 20px !important;
+        box-sizing: border-box !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+        justify-content: center !important;
+    }
+
+    section.HOME .HOME-MOST-WELCOME-TITLE {
+        font-size: 20px !important;
+        font-weight: 800 !important;
+        line-height: 1.8 !important;
+        letter-spacing: 1.8px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        text-align: center !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+    }
+}
