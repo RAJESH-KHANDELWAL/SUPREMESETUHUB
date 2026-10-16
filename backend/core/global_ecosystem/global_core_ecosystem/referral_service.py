@@ -29,15 +29,17 @@ class SupremeReferralService:
             raise ValueError("Unsupported preferred_channel")
         return self.store.create_person(payload)
 
+    def get_person(self, person_id: str) -> dict[str, Any] | None:
+        return self.store.get_person(person_id)
+
+    def list_people(self, response_stage: str | None = None, limit: int = 100) -> list[dict[str, Any]]:
+        return self.store.list_people(response_stage=response_stage, limit=limit)
+
     def set_person_stage(self, person_id: str, stage: str, next_follow_up_at: str | None = None) -> dict[str, Any] | None:
         normalized = self.engine.validate_person_stage(stage)
         result = self.store.update_person_stage(person_id, normalized, next_follow_up_at)
         if result is None:
             return None
-        if normalized == "DO_NOT_CONTACT":
-            # Keep the consent flag off for future outbound communications.
-            # This does not delete the contact's record or prior audit history.
-            pass
         return result
 
     def create_referral_link(self, data: dict[str, Any]) -> dict[str, Any]:
@@ -52,6 +54,9 @@ class SupremeReferralService:
             raise ValueError("ownership_type must be PERSONAL or TEAM")
         return self.store.create_referral_link({**data, "referral_url": referral_url, "ownership_type": ownership})
 
+    def list_referral_links(self, platform: str | None = None, active_only: bool = False) -> list[dict[str, Any]]:
+        return self.store.list_referral_links(platform=platform, active_only=active_only)
+
     def record_event(self, person_id: str | None, referral_id: str | None, event_type: str, metadata: dict[str, Any] | None = None) -> dict[str, Any]:
         if person_id and self.store.get_person(person_id) is None:
             raise ValueError("person_id not found")
@@ -60,6 +65,9 @@ class SupremeReferralService:
         if not event_type.strip():
             raise ValueError("event_type is required")
         return self.store.record_event(person_id, referral_id, event_type, metadata)
+
+    def list_events(self, person_id: str | None = None, limit: int = 100) -> list[dict[str, Any]]:
+        return self.store.list_events(person_id=person_id, limit=limit)
 
     def create_commission(self, data: dict[str, Any]) -> dict[str, Any]:
         amount_paise = int(data.get("amount_paise", -1))
@@ -76,6 +84,9 @@ class SupremeReferralService:
         if referral_id and self.store.get_referral_link(referral_id) is None:
             raise ValueError("referral_id not found")
         return self.store.create_commission({**data, "amount_paise": amount_paise})
+
+    def list_commissions(self, status: str | None = None, limit: int = 100) -> list[dict[str, Any]]:
+        return self.store.list_commissions(status=status, limit=limit)
 
     def update_commission_status(self, commission_id: str, status: str) -> dict[str, Any] | None:
         existing = self.store.get_commission(commission_id)
