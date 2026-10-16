@@ -9,6 +9,8 @@ on:
       - "backend/api/gallary_woult.py"
       - "backend/api/dashboard.py"
       - "backend/api/people.py"
+      - "backend/api/payee_verification.py"
+      - "backend/core/payments/**"
       - "backend/wordpress/**"
       - "backend/api/wordpress.py"
       - "backend/engines/storage/**"
