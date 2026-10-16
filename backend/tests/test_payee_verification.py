@@ -57,3 +57,26 @@ def test_upi_qr_parses_payee_but_does_not_trust_embedded_name():
 def test_unsupported_qr_payload_is_rejected():
     with pytest.raises(ValueError, match="UNSUPPORTED_QR_FORMAT"):
         parse_upi_qr("https://example.com/fake-qr")
+
+
+def test_global_methods_fail_closed_when_provider_not_configured():
+    from backend.api.payee_verification import PayeePrecheckRequest, precheck
+
+    response = precheck(
+        PayeePrecheckRequest(
+            payment_method="IBAN",
+            country_code="DE",
+            payee_identifier="DE89370400440532013000",
+        )
+    )
+    assert response["data"]["country_code"] == "DE"
+    assert response["data"]["verification_status"] == "NOT_CONFIGURED"
+    assert response["data"]["verified"] is False
+    assert response["data"]["account_holder_name"] is None
+
+
+def test_provider_registry_is_empty_until_authorized_adapter_is_configured():
+    from backend.core.payments.provider_registry import configured_providers, find_provider
+
+    assert configured_providers() == []
+    assert find_provider(country_code="IN", payment_method="UPI_ID") is None
