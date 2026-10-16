@@ -70,9 +70,9 @@ jobs:
           for page in about contact; do
             if [ -f "frontend/supreme/supreme-ecosystem/${page}-html.html" ]; then
               {
-                printf '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SUPREME %s | DR RAJESH KHANDELWAL IBC</title><link rel="stylesheet" href="%s-css.css"></head><body>\n' "${page^^}" "${page}"
+                printf '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SUPREME %s | DR RAJESH KHANDELWAL IBC</title><link rel="stylesheet" href="supreme-ecosystem/%s-css.css"></head><body>\n' "${page^^}" "${page}"
                 sed 's|href="/api/v1/frontend/supreme"|href="home.html"|g; s|href="/api/v1/frontend/supreme/about"|href="about.html"|g; s|href="/api/v1/frontend/supreme/contact"|href="contact.html"|g' "frontend/supreme/supreme-ecosystem/${page}-html.html"
-                printf '\n<script src="%s-js.js" defer></script></body></html>\n' "${page}"
+                printf '\n<script src="supreme-ecosystem/%s-js.js" defer></script></body></html>\n' "${page}"
               } > "site/supreme/${page}.html"
             fi
           done
