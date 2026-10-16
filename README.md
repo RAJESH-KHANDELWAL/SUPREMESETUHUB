@@ -50,3 +50,7 @@ Root `render.yaml` and `backend/render.yaml` are retained for compatibility; con
 Read [Global Platform Compatibility Standard](docs/GLOBAL_PLATFORM_COMPATIBILITY.md) for the cross-browser, security, accessibility, deployment and release gates. The iOS folder documents the native App Store work still required; it is not a claim that a signed iOS app already exists.
 
 The Android release workflow runs on pushes to `main`, pull requests targeting `main`, and manual dispatch. Passing CI is necessary but does not guarantee app-store approval or prove all live integrations work.
+
+## Provider-neutral hosting and storage
+
+GitHub is the source of truth for code and CI. Render is a temporary runtime, not permanent storage. See [Hosting and Storage Architecture](docs/HOSTING_STORAGE_ARCHITECTURE.md) and [provider status registry](backend/storage/provider_registry.py). The provider catalog records intended targets, but Google Drive, Microsoft Graph/OneDrive, MEGA, AWS S3 and Hostinger-specific storage are not treated as connected until their adapters and end-to-end tests exist.
