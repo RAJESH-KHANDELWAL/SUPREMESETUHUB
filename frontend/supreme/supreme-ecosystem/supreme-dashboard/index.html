@@ -381,10 +381,10 @@ textarea{
 
     <p class="muted">
 
-        This is the actual Supreme Home Page served by
-        SUPREMESETUHUB, using the same
-        <b>index.html + style.css + index.js</b>
-        source.
+        Canonical live Home Page on the primary WordPress site.
+        The page is WordPress Page ID 700 and is set as the front page.
+        The shared GitHub source remains
+        <b>frontend/supreme/supreme-ecosystem/home-html.html</b>.
 
     </p>
 
@@ -394,13 +394,27 @@ textarea{
             class="gold"
             onclick="openLiveHome()"
         >
-            🌍 OPEN LIVE HOME PAGE
+            🌍 OPEN LIVE WORDPRESS HOME
+        </button>
+
+        <button
+            class="light"
+            onclick="window.open('https://rajeshkhandelwalofficial.com/wp-admin/post.php?post=700&action=edit','_blank','noopener')"
+        >
+            ✏️ EDIT WORDPRESS HOME
+        </button>
+
+        <button
+            class="light"
+            onclick="window.open(HOME_SOURCE_VIEW,'_blank','noopener')"
+        >
+            🧩 OPEN CANONICAL GITHUB SOURCE
         </button>
 
     </div>
 
     <p class="muted">
-        Live HOME opens directly in its own page.
+        Public Home: rajeshkhandelwalofficial.com · WordPress editor: Page ID 700 · Source of truth: canonical GitHub Home HTML.
     </p>
 
 </div>
@@ -729,8 +743,9 @@ async function loadHome(){
 }
 
 
+// The public WordPress front page is the canonical live destination.
 const LIVE_HOME =
-    'https://rajesh-khandelwal.github.io/SUPREMESETUHUB/supreme/home.html';
+    'https://rajeshkhandelwalofficial.com/';
 
 
 function openLiveHome(){
