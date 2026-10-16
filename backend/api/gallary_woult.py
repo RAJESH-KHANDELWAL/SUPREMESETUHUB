@@ -7,6 +7,8 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 from backend.auth.service import AuthenticationService
+from backend.users.service import UserService
+from backend.gallary_woult.object_store import UploadTooLargeError
 from backend.gallary_woult.service import GalleryWoultService
 
 
@@ -16,6 +18,7 @@ router = APIRouter(
 )
 
 authentication_service = AuthenticationService()
+user_service = UserService()
 gallary_woult_service = GalleryWoultService()
 
 
@@ -62,7 +65,10 @@ def require_actor(
             detail="AUTHENTICATED_USERNAME_NOT_FOUND",
         )
 
-    return username
+    user = user_service.search_user_by_username(username)
+    if user is None or not str(getattr(user, "user_id", "")).strip():
+        raise HTTPException(status_code=401, detail="AUTHENTICATED_USER_RECORD_NOT_FOUND")
+    return str(user.user_id)
 
 
 class FolderRequest(BaseModel):
@@ -107,6 +113,10 @@ def create_folder(
             parent_id=request.parent_id,
         )
 
+    except UploadTooLargeError as exc:
+        raise HTTPException(status_code=413, detail=str(exc)) from exc
+    except RuntimeError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
     except PermissionError as exc:
         raise HTTPException(
             status_code=403,
