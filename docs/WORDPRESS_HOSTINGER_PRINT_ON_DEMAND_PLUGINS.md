@@ -68,9 +68,10 @@ Install only the plugins required by the actual site features. Avoid activating 
 
 ## Print-on-demand (POD)
 
-### Provider options already discussed
-- Qikink — WooCommerce order bridge foundation is recorded in the repository; production order submission remains gated on provider approval, correct product/SKU mapping, authorized credentials, and sandbox/test orders.
-- Printify — setup documentation exists; live store connection, product publishing, order sync, and fulfillment are not confirmed.
+### Current provider decision
+
+- **Qikink only** — selected provider for this launch. The WooCommerce bridge source exists, but live account authorization, exact SKU mapping, shipping, payment, and end-to-end fulfillment remain unverified.
+- **Printify is on hold** — do not connect it, install its integration, or publish products through it unless the owner explicitly changes this decision.
 
 ### Required end-to-end path
 1. Set up WooCommerce and the approved POD provider account.
