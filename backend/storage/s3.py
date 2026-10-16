@@ -103,9 +103,10 @@ class S3ObjectStorage:
         output = tempfile.TemporaryFile(mode="w+b")
         digest = hashlib.sha256()
         try:
-            for chunk in body.iter_chunks(chunk_size=1024 * 1024):
+            while True:
+                chunk = body.read(1024 * 1024)
                 if not chunk:
-                    continue
+                    break
                 output.write(chunk)
                 digest.update(chunk)
             if expected and digest.hexdigest() != expected:
