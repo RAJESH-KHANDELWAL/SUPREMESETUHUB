@@ -1,17 +1,11 @@
 <?php
 /**
  * Plugin Name: 👑 DR RAJESH KHANDELWAL IBC 👑
- * Plugin URI: https://www.rajeshkhandelwal.com
- * Plugin URI: https://www.rajeshkhandelwalofficial.com
- * Plugin URI: https://www.drrajeshkhandelwalibc.com
- * Plugin URI: https://www.drrajeshkhandelwalibcofficial.com
+ * Plugin URI: https://github.com/RAJESH-KHANDELWAL/SUPREMESETUHUB
  * Description: 👑 DR RAJESH KHANDELWAL IBC 👑 — Personal Supreme + WordPress Home integration.
  * Version: 1.3.1
  * Author: 👑 DR RAJESH KHANDELWAL IBC 👑
- * Author URI: https://www.rajeshkhandelwal.com
- * Plugin URI: https://www.rajeshkhandelwalofficial.com
- * Plugin URI: https://www.drrajeshkhandelwalibc.com
- * Plugin URI: https://www.drrajeshkhandelwalibcofficial.com
+ * Author URI: https://rajeshkhandelwalofficial.com
  * License: GPL-2.0-or-later
  * Text Domain: dr-rajesh-khandelwal-ibc
  */
@@ -59,7 +53,7 @@ define(
 
 define(
     'DR_RAJESH_KHANDELWAL_IBC_HOME_URL',
-    'https://rajesh-khandelwal.github.io/SUPREMESETUHUB/supreme/home.html'
+    'https://rajeshkhandelwalofficial.com/'
 );
 
 
