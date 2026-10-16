@@ -3,7 +3,8 @@ from __future__ import annotations
 from typing import Optional
 
 from fastapi import APIRouter, Depends, File, Header, HTTPException, UploadFile
-from fastapi.responses import FileResponse
+from fastapi.responses import StreamingResponse
+from starlette.background import BackgroundTask
 from pydantic import BaseModel
 
 from backend.auth.service import AuthenticationService
@@ -292,13 +293,15 @@ def download(
 ):
 
     try:
-        path = gallary_woult_service.get_download_path(
+        stream, obj = gallary_woult_service.get_download_stream(
             object_id=object_id,
             actor_id=actor_id,
         )
-
-        return FileResponse(
-            path=path,
+        return StreamingResponse(
+            stream,
+            media_type=obj.get("mime_type") or "application/octet-stream",
+            headers={"Content-Disposition": f'attachment; filename="{obj["name"].replace(chr(34), "")}"'},
+            background=BackgroundTask(stream.close),
         )
 
     except FileNotFoundError as exc:
