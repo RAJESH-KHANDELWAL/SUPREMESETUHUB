@@ -98,7 +98,28 @@ class S3ObjectStorage:
         if not self.health()["writable"]:
             raise RuntimeError("STORAGE_BACKEND_NOT_CONFIGURED_OR_WRITABLE")
         response = self._client.get_object(Bucket=self.bucket, Key=key)
-        return BytesIO(response["Body"].read())
+        body = response["Body"]
+        expected = str(response.get("Metadata", {}).get("sha256", "")).lower()
+        output = tempfile.TemporaryFile(mode="w+b")
+        digest = hashlib.sha256()
+        try:
+            for chunk in body.iter_chunks(chunk_size=1024 * 1024):
+                if not chunk:
+                    continue
+                output.write(chunk)
+                digest.update(chunk)
+            if expected and digest.hexdigest() != expected:
+                raise RuntimeError("AWS_S3_CHECKSUM_MISMATCH")
+            output.seek(0)
+            return output
+        except Exception:
+            output.close()
+            raise
+        finally:
+            try:
+                body.close()
+            except Exception:
+                pass
 
     def exists_key(self, storage_key: str) -> bool:
         key = self._validate_key(storage_key)
