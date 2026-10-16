@@ -19,15 +19,9 @@ The hPanel shows `public_html` as the upload folder. Before first deployment, co
 
 The workflow validates PHP syntax and deploys only these two SUPREME-owned plugin directories. It does not install or activate plugins, configure provider accounts, publish products, or enable Qikink order submission. Remote cleanup is disabled.
 
-## Printify → WooCommerce
+## Printify → WooCommerce (ON HOLD)
 
-1. In WordPress, Settings → Permalinks; choose anything except Plain and save.
-2. In Printify, Manage my stores → Connect/Add new store → WooCommerce.
-3. Enter the canonical website URL exactly as WordPress Settings → General / Visit Site shows (no `/shop` or page path) and approve the connection.
-4. Install/activate Printify for WooCommerce shipping plugin only if required by Printify's current instructions. Check currency: Printify shipping rates are USD; for a non-USD WooCommerce store, use an explicitly configured shipping strategy rather than assuming conversion.
-5. Publish one test product from Printify. Check product, variants, images, price, shipping and order sync before opening the store.
-
-Official guide: https://help.printify.com/hc/en-us/articles/4483637152401-How-can-I-connect-my-WooCommerce-store-to-Printify
+Do not connect or configure Printify for this launch. The owner selected Qikink as the only POD provider. This section is retained only to prevent older setup notes from being treated as current instructions.
 
 ## Qikink → WooCommerce
 
