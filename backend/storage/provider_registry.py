@@ -81,8 +81,10 @@ def get_storage_provider_status(provider_id: str | None = None) -> dict:
         state = "ADAPTER_NOT_IMPLEMENTED"
     elif selected == "local":
         state = "LOCAL_BACKEND_REQUIRES_STORAGE_CONFIGURATION"
+    elif missing:
+        state = "CONFIGURATION_REQUIRED"
     else:
-        state = "READY"
+        state = "CONFIGURED_NOT_CONNECTED"
 
     configured = not missing
     if selected == "local":
