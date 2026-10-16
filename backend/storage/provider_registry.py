@@ -84,12 +84,16 @@ def get_storage_provider_status(provider_id: str | None = None) -> dict:
     else:
         state = "READY"
 
+    configured = not missing
+    if selected == "local":
+        configured = bool(os.getenv("SUPREME_FILE_STORAGE_DIR", "").strip() or os.getenv("GALLERY_WOULT_STORAGE_ROOT", "").strip())
+
     return {
         "selected_provider": selected,
         "display_name": catalog["display_name"],
         "status": state,
         "implemented": catalog["implemented"],
-        "configured": not missing,
+        "configured": configured,
         "connected": False,
         "missing_environment": missing,
         "purpose": catalog["purpose"],
