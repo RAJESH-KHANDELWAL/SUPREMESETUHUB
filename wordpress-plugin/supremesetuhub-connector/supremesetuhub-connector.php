@@ -2,7 +2,7 @@
 /**
  * Plugin Name: SUPREMESETUHUB Connector
  * Description: Connects a WordPress storefront to the SUPREMESETUHUB public API catalog and health endpoint.
- * Version: 1.1.0
+ * Version: 1.2.0
  * Requires at least: 6.2
  * Requires PHP: 7.4
  * Author: DR RAJESH KHANDELWAL IBC
@@ -53,16 +53,18 @@ final class SUPREMESETUHUB_Connector {
         return untrailingslashit($base);
     }
 
-    private static function request_json($path) {
+    private static function request_json($path, $use_cache = true) {
         $base = self::api_base();
         if (!$base || !wp_http_validate_url($base) || strpos($base, 'https://') !== 0) {
             return new WP_Error('suph_api_url_missing', __('Set a valid HTTPS API base URL in Settings → SUPREMESETUHUB.', 'supremesetuhub-connector'));
         }
 
         $cache_key = 'suph_' . md5($base . '|' . $path);
-        $cached = get_transient($cache_key);
-        if ($cached !== false) {
-            return $cached;
+        if ($use_cache) {
+            $cached = get_transient($cache_key);
+            if ($cached !== false) {
+                return $cached;
+            }
         }
 
         $response = wp_remote_get($base . $path, array(
@@ -86,7 +88,9 @@ final class SUPREMESETUHUB_Connector {
             return new WP_Error('suph_api_invalid_json', __('The API response was not valid JSON.', 'supremesetuhub-connector'));
         }
 
-        set_transient($cache_key, $decoded, self::CACHE_TTL);
+        if ($use_cache) {
+            set_transient($cache_key, $decoded, self::CACHE_TTL);
+        }
         return $decoded;
     }
 
@@ -172,13 +176,27 @@ final class SUPREMESETUHUB_Connector {
             wp_die(esc_html__('You are not allowed to test this connection.', 'supremesetuhub-connector'));
         }
         check_admin_referer('suph_connector_test');
-        $result = self::request_json('/health');
-        $message = is_wp_error($result)
-            ? 'Connection failed: ' . $result->get_error_message()
-            : 'Connection successful: ' . (isset($result['status']) ? sanitize_text_field((string) $result['status']) : 'HTTP 200');
+        // Bypass the transient cache so this button reports current server state.
+        $health = self::request_json('/health', false);
+        if (is_wp_error($health)) {
+            $message = 'Health check failed: ' . $health->get_error_message();
+        } elseif (!isset($health['status']) || strtolower((string) $health['status']) !== 'healthy') {
+            $health_status = isset($health['status']) ? sanitize_text_field((string) $health['status']) : 'missing';
+            $message = 'Health endpoint responded, but status is not healthy (status: ' . $health_status . '). Check backend logs and deployment.';
+        } else {
+            $catalog = self::request_json('/api/v1/print-on-demand/public/catalog?market=IN', false);
+            if (is_wp_error($catalog)) {
+                $message = 'Backend health OK; POD catalog check failed: ' . $catalog->get_error_message();
+            } elseif (!isset($catalog['data']['products']) || !is_array($catalog['data']['products'])) {
+                $message = 'Backend health OK; POD catalog endpoint responded but its data.products field is missing. Check the deployed API version.';
+            } else {
+                $product_count = count($catalog['data']['products']);
+                $message = 'Connection successful: API healthy; POD catalog endpoint OK (' . $product_count . ' product records). Prices are estimates, and checkout/fulfilment are separate launch gates.';
+            }
+        }
         wp_safe_redirect(add_query_arg(array(
             'page' => 'supremesetuhub-connector',
-            'suph_test' => rawurlencode($message),
+            'suph_test' => $message,
         ), admin_url('options-general.php')));
         exit;
     }
