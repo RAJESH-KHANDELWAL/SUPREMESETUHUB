@@ -14,7 +14,6 @@ on:
       - "frontend/supreme/supreme-ecosystem/contact-html.html"
       - "frontend/supreme/supreme-ecosystem/contact-css.css"
       - "frontend/supreme/supreme-ecosystem/contact-js.js"
-      - ".github/workflows/deploy-infinityfree.yml"
 
 permissions:
   contents: read
