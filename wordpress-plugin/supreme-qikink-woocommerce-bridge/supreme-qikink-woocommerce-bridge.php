@@ -48,8 +48,37 @@ final class Supreme_Qikink_WooCommerce_Bridge {
     public static function configuration_notice() {
         if (!current_user_can('manage_woocommerce')) { return; }
         $c = self::config();
+
+        // POD orders need a usable WooCommerce shipping method before checkout
+        // can safely proceed. This is a diagnostic only; it never changes zones.
+        if (!self::has_enabled_shipping_method()) {
+            $shipping_url = admin_url('admin.php?page=wc-settings&tab=shipping');
+            echo '<div class="notice notice-error"><p><strong>SUPREME QIKINK:</strong> No enabled WooCommerce shipping method was found in the configured zones. Configure and test a shipping method for the countries you intend to serve before opening POD checkout. <a href="' . esc_url($shipping_url) . '">Open WooCommerce shipping settings</a>. This notice checks configuration only; it does not configure shipping automatically.</p></div>';
+        }
+
         if ($c['enabled'] && $c['mode'] === 'live' && $c['client_id'] !== '' && $c['client_secret'] !== '') { return; }
         echo '<div class="notice notice-warning"><p><strong>SUPREME QIKINK:</strong> order submission is disabled or not fully configured. Set credentials and mode as described in the plugin readme. Do not enable live orders until a sandbox test and product mapping are complete.</p></div>';
+    }
+
+    private static function has_enabled_shipping_method() {
+        if (!class_exists('WC_Shipping_Zones') || !class_exists('WC_Shipping_Zone')) { return false; }
+
+        $zone_ids = array(0); // WooCommerce default/rest-of-world zone.
+        foreach (WC_Shipping_Zones::get_zones() as $zone_data) {
+            if (isset($zone_data['id'])) {
+                $zone_ids[] = (int) $zone_data['id'];
+            }
+        }
+
+        foreach (array_unique($zone_ids) as $zone_id) {
+            $zone = new WC_Shipping_Zone($zone_id);
+            foreach ($zone->get_shipping_methods(true) as $method) {
+                if (isset($method->enabled) && $method->enabled === 'yes') {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     private static function field($key, $label, $description = '', $type = 'text') {
