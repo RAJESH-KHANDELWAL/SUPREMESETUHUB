@@ -12,3 +12,17 @@ services:
     envVars:
       - key: SUPREME_CONTROL_TOKEN
         sync: false
+      - key: SUPREME_DB_PATH
+        sync: false
+      - key: SUPREME_DB_PERSISTENCE_ACKNOWLEDGED
+        sync: false
+      - key: SUPREME_FILE_STORAGE_DIR
+        sync: false
+      - key: SUPREME_FILE_STORAGE_DURABILITY_ACKNOWLEDGED
+        sync: false
+      - key: GALLERY_WOULT_STORAGE_ROOT
+        sync: false
+      - key: GALLERY_WOULT_STORAGE_DURABILITY_ACKNOWLEDGED
+        sync: false
+      - key: GALLERY_WOULT_MAX_UPLOAD_BYTES
+        value: "104857600"

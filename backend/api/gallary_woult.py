@@ -7,6 +7,7 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 from backend.auth.service import AuthenticationService
+from backend.gallary_woult.object_store import UploadTooLargeError
 from backend.gallary_woult.service import GalleryWoultService
 
 
@@ -164,6 +165,12 @@ async def upload_file(
             parent_id=parent_id,
             content_class=content_class,
         )
+
+    except UploadTooLargeError as exc:
+        raise HTTPException(status_code=413, detail=str(exc)) from exc
+
+    except RuntimeError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
 
     except PermissionError as exc:
         raise HTTPException(
