@@ -61,7 +61,9 @@ class GalleryWoultObjectStore:
 
     def status(self) -> dict:
         shared_status = self.storage.health()
-        if self.hosted_environment and not self.writes_allowed:
+        if self.provider_status.get("selected_provider") != "local":
+            state = "ADAPTER_NOT_IMPLEMENTED"
+        elif self.hosted_environment and not self.writes_allowed:
             state = "PERSISTENCE_NOT_VERIFIED"
         elif not self.explicit_root:
             state = "LOCAL_DEVELOPMENT_DEFAULT" if not self.hosted_environment else "PERSISTENCE_NOT_VERIFIED"
@@ -78,6 +80,7 @@ class GalleryWoultObjectStore:
             "durability_verified": False,
             "hosted_environment": self.hosted_environment,
             "max_upload_bytes": self.max_upload_bytes,
+            "writable": self.writes_allowed,
             "provider": self.provider_status,
         }
 
