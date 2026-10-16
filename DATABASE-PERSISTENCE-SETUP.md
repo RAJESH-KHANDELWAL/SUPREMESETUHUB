@@ -29,7 +29,9 @@ A Render service's ordinary filesystem may be ephemeral. If this application is 
 SUPREME_DB_PATH=/var/data/supreme.db
 ```
 
-The mount path must match the actual persistent-disk mount path configured for that service. Do not set this value unless that disk is attached and mounted. If a persistent disk is not available, use a managed database instead.
+The mount path must match the actual persistent-disk mount path configured for that service. Do not set this value unless that disk is attached and mounted. If a persistent disk is not available, this repository's current DatabaseService does not automatically switch to a managed database: it currently implements SQLite. A PostgreSQL or other managed database requires an explicit database adapter/migration before it can be used. Do not assume that setting a database URL alone is supported.
+
+The Render blueprint in this repository keeps the free plan and does not attach a persistent disk. Therefore, the blueprint by itself does not guarantee durable database storage.
 
 ## Important scaling limitation
 
@@ -37,7 +39,8 @@ SQLite is suitable for a single-instance deployment with modest write concurrenc
 
 ## Verification checklist
 
-- [ ] `SUPREME_DB_PATH` points to the intended persistent volume or managed database configuration.
+- [ ] `SUPREME_DB_PATH` points to the intended persistent volume.
+- [ ] On Render, `SUPREME_DB_PERSISTENCE_ACKNOWLEDGED=true` is set only after verifying the actual `/var/data` persistent disk mount.
 - [ ] The application process can create/open the configured database file.
 - [ ] A test record remains available after closing and reopening a new `DatabaseService` instance.
 - [ ] A staging redeploy/restart confirms that data persists on the configured storage.
