@@ -7,6 +7,7 @@ on:
       - "backend/database/**"
       - "backend/gallary_woult/**"
       - "backend/api/gallary_woult.py"
+      - "backend/api/dashboard.py"
       - "backend/wordpress/**"
       - "backend/api/wordpress.py"
       - "backend/engines/storage/**"
