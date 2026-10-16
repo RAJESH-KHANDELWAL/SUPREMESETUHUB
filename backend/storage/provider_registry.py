@@ -26,9 +26,9 @@ PROVIDER_CATALOG = {
     },
     "aws_s3": {
         "display_name": "Amazon Web Services S3",
-        "implemented": False,
+        "implemented": True,
         "purpose": "Durable object storage for uploads and backups",
-        "credential_env": ("AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY", "AWS_S3_BUCKET"),
+        "credential_env": ("AWS_S3_BUCKET",),
     },
     "google_drive": {
         "display_name": "Google Drive",
@@ -81,8 +81,10 @@ def get_storage_provider_status(provider_id: str | None = None) -> dict:
         state = "ADAPTER_NOT_IMPLEMENTED"
     elif selected == "local":
         state = "LOCAL_BACKEND_REQUIRES_STORAGE_CONFIGURATION"
+    elif missing:
+        state = "CONFIGURATION_REQUIRED"
     else:
-        state = "READY"
+        state = "CONFIGURED_NOT_CONNECTED"
 
     configured = not missing
     if selected == "local":

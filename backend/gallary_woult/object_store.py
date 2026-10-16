@@ -8,6 +8,7 @@ from typing import BinaryIO
 
 from backend.storage.filesystem import LocalFileStorage
 from backend.storage.provider_registry import get_storage_provider_status
+from backend.storage.s3 import S3ObjectStorage
 
 
 class UploadTooLargeError(ValueError):
@@ -17,9 +18,8 @@ class UploadTooLargeError(ValueError):
 class GalleryWoultObjectStore:
     """GALLARY WOULT adapter to the shared STORAGE infrastructure.
 
-    This class creates platform-safe object keys and delegates file bytes to
-    LocalFileStorage. GALLARY WOULT owns file-management behavior and metadata;
-    the shared STORAGE service owns filesystem persistence.
+    GALLARY WOULT owns file-management behavior and metadata; provider adapters
+    own file bytes. Selecting a cloud provider never silently falls back to disk.
     """
 
     def __init__(self, root: str | None = None, max_upload_bytes: int | None = None):
@@ -45,12 +45,15 @@ class GalleryWoultObjectStore:
         self.max_upload_bytes = max(1, configured_limit)
         self.provider_status = get_storage_provider_status()
         self.storage = LocalFileStorage(root_dir=configured_root or None)
+        self.s3_storage = S3ObjectStorage() if self.provider_status.get("selected_provider") == "aws_s3" else None
         self.root = self.storage.root
 
     @property
     def writes_allowed(self) -> bool:
-        # Never silently route a cloud-provider selection into local disk.
-        if self.provider_status.get("selected_provider") != "local":
+        selected = self.provider_status.get("selected_provider")
+        if selected == "aws_s3":
+            return bool(self.s3_storage and self.s3_storage.health().get("writable"))
+        if selected != "local":
             return False
         if not self.hosted_environment:
             return self.storage.root is not None
@@ -60,8 +63,20 @@ class GalleryWoultObjectStore:
         )
 
     def status(self) -> dict:
+        selected = self.provider_status.get("selected_provider")
+        if selected == "aws_s3":
+            backend_status = self.s3_storage.health() if self.s3_storage else {}
+            return {
+                **backend_status,
+                "backend": "AWS_S3",
+                "status": backend_status.get("status", "AWS_S3_CONNECTION_FAILED"),
+                "writable": bool(backend_status.get("writable")),
+                "max_upload_bytes": self.max_upload_bytes,
+                "provider": self.provider_status,
+                "durability_verified": False,
+            }
         shared_status = self.storage.health()
-        if self.provider_status.get("selected_provider") != "local":
+        if selected != "local":
             state = "ADAPTER_NOT_IMPLEMENTED"
         elif self.hosted_environment and not self.writes_allowed:
             state = "PERSISTENCE_NOT_VERIFIED"
@@ -110,8 +125,9 @@ class GalleryWoultObjectStore:
 
     def save_stream(self, stream: BinaryIO, storage_key: str) -> tuple[int, str]:
         self._ensure_writes_allowed()
+        backend = self.s3_storage if self.provider_status.get("selected_provider") == "aws_s3" else self.storage
         try:
-            return self.storage.save_stream_at_key(stream, storage_key, max_bytes=self.max_upload_bytes)
+            return backend.save_stream_at_key(stream, storage_key, max_bytes=self.max_upload_bytes)
         except ValueError as exc:
             if str(exc) == "MAX_UPLOAD_SIZE_EXCEEDED":
                 raise UploadTooLargeError(str(exc)) from exc
@@ -121,15 +137,22 @@ class GalleryWoultObjectStore:
         return self.save_stream(BytesIO(data), storage_key)
 
     def open(self, storage_key: str) -> BinaryIO:
+        if self.provider_status.get("selected_provider") == "aws_s3":
+            if not self.s3_storage:
+                raise RuntimeError("PERSISTENT_STORAGE_NOT_CONFIGURED_OR_VERIFIED")
+            return self.s3_storage.open_key(storage_key)
         return self.storage.open_key(storage_key)
 
     def exists(self, storage_key: str) -> bool:
+        if self.provider_status.get("selected_provider") == "aws_s3":
+            return bool(self.s3_storage and self.s3_storage.exists_key(storage_key))
         return self.storage.exists_key(storage_key)
 
     def copy(self, source_storage_key: str, target_storage_key: str) -> tuple[int, str]:
         self._ensure_writes_allowed()
+        backend = self.s3_storage if self.provider_status.get("selected_provider") == "aws_s3" else self.storage
         try:
-            return self.storage.copy_key(source_storage_key, target_storage_key)
+            return backend.copy_key(source_storage_key, target_storage_key)
         except ValueError as exc:
             if str(exc) == "MAX_UPLOAD_SIZE_EXCEEDED":
                 raise UploadTooLargeError(str(exc)) from exc
@@ -137,4 +160,6 @@ class GalleryWoultObjectStore:
 
     def delete(self, storage_key: str) -> bool:
         self._ensure_writes_allowed()
+        if self.provider_status.get("selected_provider") == "aws_s3":
+            return bool(self.s3_storage and self.s3_storage.delete_key(storage_key))
         return self.storage.delete_key(storage_key)
