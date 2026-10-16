@@ -86,6 +86,34 @@ jobs:
           test -s site/supreme/supreme-ecosystem/home-js.js
           echo "Static site package is ready. Backend/API remains on Render."
 
+      - name: Validate required InfinityFree secrets
+        shell: bash
+        env:
+          FTP_SERVER: ${{ secrets.INFINITYFREE_FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.INFINITYFREE_FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.INFINITYFREE_FTP_PASSWORD }}
+          FTP_SERVER_DIR: ${{ secrets.INFINITYFREE_FTP_SERVER_DIR }}
+        run: |
+          set -euo pipefail
+          missing=0
+          for item in FTP_SERVER FTP_USERNAME FTP_PASSWORD FTP_SERVER_DIR; do
+            if [ -z "${!item:-}" ]; then
+              case "$item" in
+                FTP_SERVER) echo "::error::Missing repository secret: INFINITYFREE_FTP_SERVER" ;;
+                FTP_USERNAME) echo "::error::Missing repository secret: INFINITYFREE_FTP_USERNAME" ;;
+                FTP_PASSWORD) echo "::error::Missing repository secret: INFINITYFREE_FTP_PASSWORD" ;;
+                FTP_SERVER_DIR) echo "::error::Missing repository secret: INFINITYFREE_FTP_SERVER_DIR" ;;
+              esac
+              missing=1
+            else
+              echo "$item is configured"
+            fi
+          done
+          if [ "$missing" -ne 0 ]; then
+            echo "Add or update the missing values under Settings > Secrets and variables > Actions, then rerun this workflow."
+            exit 1
+          fi
+
       - name: Upload to InfinityFree over FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
