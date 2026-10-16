@@ -13,7 +13,8 @@ router = APIRouter(prefix="/dashboard", tags=["Dashboard"])
 # Only fixed, repository-owned table names are used in SQL. If a table is not
 # installed, report None rather than pretending its count is zero.
 TABLE_CANDIDATES: dict[str, tuple[str, ...]] = {
-    "users": ("supreme_people", "users"),
+    "users": ("users",),
+    "people": ("supreme_people",),
     "projects": ("projects", "project_records"),
     "businesses": ("businesses", "business_records"),
     "works": ("works", "work_items"),
@@ -90,6 +91,7 @@ def statistics():
         "dashboard": "PEOPLE DASHBOARD",
         "statistics": {
             "users": _legacy_count(metrics, "users"),
+            "people": _legacy_count(metrics, "people"),
             "projects": _legacy_count(metrics, "projects"),
             "businesses": _legacy_count(metrics, "businesses"),
             "works": _legacy_count(metrics, "works"),
