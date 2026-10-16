@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from typing import Optional
+from urllib.parse import quote
 
 from fastapi import APIRouter, Depends, File, Header, HTTPException, UploadFile
 from fastapi.responses import StreamingResponse
@@ -16,6 +17,14 @@ router = APIRouter(
     prefix="/gallary-woult",
     tags=["GALLARY WOULT"],
 )
+
+
+def _stream_chunks(stream, chunk_size: int = 1024 * 1024):
+    while True:
+        chunk = stream.read(chunk_size)
+        if not chunk:
+            break
+        yield chunk
 
 authentication_service = AuthenticationService()
 gallary_woult_service = GalleryWoultService()
@@ -298,9 +307,9 @@ def download(
             actor_id=actor_id,
         )
         return StreamingResponse(
-            stream,
+            _stream_chunks(stream),
             media_type=obj.get("mime_type") or "application/octet-stream",
-            headers={"Content-Disposition": f'attachment; filename="{obj["name"].replace(chr(34), "")}"'},
+            headers={"Content-Disposition": f"attachment; filename*=UTF-8''{quote(obj['name'])}"},
             background=BackgroundTask(stream.close),
         )
 
