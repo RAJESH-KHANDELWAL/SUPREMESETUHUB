@@ -9,17 +9,20 @@ The database path is selected in this order:
 2. `SUPREME_DB_PATH` environment variable.
 3. Relative local-development default `data/supreme.db`.
 
-The service creates the parent directory when opening the database. A relative path is relative to the process working directory, so it must not be treated as persistent storage in a hosted deployment by itself.
+A relative path is relative to the process working directory and must not be treated as persistent storage in a hosted deployment by itself.
 
 ## Local development
 
-Set `SUPREME_DB_PATH` to a local file path that is excluded from version control, for example:
+Set `SUPREME_DB_PATH` to a local file path excluded from version control, for example:
 
 ```dotenv
 SUPREME_DB_PATH=data/supreme.db
+SUPREME_FILE_STORAGE_DIR=data/shared_storage
+GALLERY_WOULT_STORAGE_ROOT=data/shared_storage
+GALLERY_WOULT_MAX_UPLOAD_BYTES=104857600
 ```
 
-Keep database files and backups out of Git. Do not commit real user data, credentials, or production database files.
+Keep database files, uploads, backups, and credentials out of Git.
 
 ## Render deployment
 
@@ -27,24 +30,30 @@ A Render service's ordinary filesystem may be ephemeral. If this application is 
 
 ```dotenv
 SUPREME_DB_PATH=/var/data/supreme.db
+SUPREME_DB_PERSISTENCE_ACKNOWLEDGED=true
+SUPREME_FILE_STORAGE_DIR=/var/data/files
+SUPREME_FILE_STORAGE_DURABILITY_ACKNOWLEDGED=true
+GALLERY_WOULT_STORAGE_ROOT=/var/data/files
+GALLERY_WOULT_STORAGE_DURABILITY_ACKNOWLEDGED=true
+GALLERY_WOULT_MAX_UPLOAD_BYTES=104857600
 ```
 
-The mount path must match the actual persistent-disk mount path configured for that service. Do not set this value unless that disk is attached and mounted. If a persistent disk is not available, this repository's current DatabaseService does not automatically switch to a managed database: it currently implements SQLite. A PostgreSQL or other managed database requires an explicit database adapter/migration before it can be used. Do not assume that setting a database URL alone is supported.
+Only set the acknowledgement variables after checking that the actual persistent disk is attached and mounted at the configured path. These variables are operator assertions, not proof that a volume exists. The application reports persistence as unverified; confirm it with a staging upload, restart/redeploy, checksum check, and restore test.
 
-The Render blueprint in this repository keeps the free plan and does not attach a persistent disk. Therefore, the blueprint by itself does not guarantee durable database storage.
+The current Render blueprint uses the free plan and does not attach a persistent disk. The blueprint alone therefore does not guarantee durable database or file storage. This repository's current database service uses SQLite; setting a database URL does not convert it to PostgreSQL. A managed database requires an explicit adapter/migration.
 
 ## Important scaling limitation
 
-SQLite is suitable for a single-instance deployment with modest write concurrency. Do not run multiple application instances against independent local SQLite files and expect shared accounts/sessions. For multiple instances or higher write concurrency, migrate to a managed server database (for example PostgreSQL) and configure backups, migrations, and connection pooling.
+SQLite and the current database-backed rate limiter are intended for a single application instance with modest write concurrency. Do not run multiple instances against separate local SQLite files and expect shared accounts, sessions, metadata, or rate limits. For horizontal scale, migrate to a shared managed database and a distributed atomic rate-limit store, and configure backups, migrations, and connection pooling.
 
 ## Verification checklist
 
-- [ ] `SUPREME_DB_PATH` points to the intended persistent volume.
-- [ ] On Render, `SUPREME_DB_PERSISTENCE_ACKNOWLEDGED=true` is set only after verifying the actual `/var/data` persistent disk mount.
-- [ ] The application process can create/open the configured database file.
-- [ ] A test record remains available after closing and reopening a new `DatabaseService` instance.
-- [ ] A staging redeploy/restart confirms that data persists on the configured storage.
+- [ ] `SUPREME_DB_PATH` points to the actual mounted persistent volume.
+- [ ] `SUPREME_FILE_STORAGE_DIR` and `GALLERY_WOULT_STORAGE_ROOT` point to the intended persistent storage path.
+- [ ] Persistence acknowledgement is enabled only after verifying the host's mounted volume.
+- [ ] A test database record survives service restart/recreation.
+- [ ] A test file survives application restart and redeployment with matching checksum.
 - [ ] Backup restore has been tested before production launch.
-- [ ] Production database files and secrets are not committed to Git.
+- [ ] Production database files, uploaded files, and secrets are not committed to Git.
 
-Passing local tests verifies SQLite file persistence across service instances. It does **not** prove that a hosted deployment has a persistent disk attached; that must be verified in the hosting dashboard and by a staging redeploy.
+Passing local tests does not prove a hosted deployment has a persistent disk attached. Verify the hosting configuration and run a staging recovery test.
