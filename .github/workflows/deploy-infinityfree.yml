@@ -1,0 +1,98 @@
+name: Deploy SUPREME temporary frontend to InfinityFree
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "frontend/supreme/supreme-ecosystem/home-html.html"
+      - "frontend/supreme/supreme-ecosystem/home-css.css"
+      - "frontend/supreme/supreme-ecosystem/home-js.js"
+      - "frontend/supreme/supreme-ecosystem/about-html.html"
+      - "frontend/supreme/supreme-ecosystem/about-css.css"
+      - "frontend/supreme/supreme-ecosystem/about-js.js"
+      - "frontend/supreme/supreme-ecosystem/contact-html.html"
+      - "frontend/supreme/supreme-ecosystem/contact-css.css"
+      - "frontend/supreme/supreme-ecosystem/contact-js.js"
+      - ".github/workflows/deploy-infinityfree.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: infinityfree-temporary-frontend
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Build and upload static frontend
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout canonical GitHub source
+        uses: actions/checkout@v4
+
+      - name: Build static website
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p site
+          cp -R frontend/. site/
+
+          # Generate the public root page from the canonical SUPREME home source.
+          {
+            cat <<'HTML_HEAD'
+          <!doctype html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="robots" content="noindex,nofollow">
+            <title>DR RAJESH KHANDELWAL IBC | SUPREME HOME</title>
+            <link rel="stylesheet" href="supreme/supreme-ecosystem/home-css.css">
+            <style>
+              html, body { width:100%; max-width:100%; margin:0; padding:0; box-sizing:border-box; }
+              *, *::before, *::after { box-sizing:border-box; }
+              body { overflow-x:hidden; }
+              img, video, iframe, table { max-width:100%; }
+            </style>
+          </head>
+          <body>
+          HTML_HEAD
+            sed 's|href="/api/v1/frontend/supreme"|href="supreme/home.html"|g; s|href="/api/v1/frontend/supreme/about"|href="supreme/about.html"|g; s|href="/api/v1/frontend/supreme/contact"|href="supreme/contact.html"|g' frontend/supreme/supreme-ecosystem/home-html.html
+            printf '\n<script src="supreme/supreme-ecosystem/home-js.js" defer></script>\n</body>\n</html>\n'
+          } > site/index.html
+
+          # Also publish a stable /supreme/ landing URL for navigation.
+          mkdir -p site/supreme
+          cp site/index.html site/supreme/home.html
+          sed -i 's|href="supreme/supreme-ecosystem/home-css.css"|href="supreme-ecosystem/home-css.css"|g; s|src="supreme/supreme-ecosystem/home-js.js"|src="supreme-ecosystem/home-js.js"|g; s|href="supreme/home.html"|href="home.html"|g; s|href="supreme/about.html"|href="about.html"|g; s|href="supreme/contact.html"|href="contact.html"|g' site/supreme/home.html
+
+          for page in about contact; do
+            if [ -f "frontend/supreme/supreme-ecosystem/${page}-html.html" ]; then
+              {
+                printf '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SUPREME %s | DR RAJESH KHANDELWAL IBC</title><link rel="stylesheet" href="%s-css.css"></head><body>\n' "${page^^}" "${page}"
+                sed 's|href="/api/v1/frontend/supreme"|href="home.html"|g; s|href="/api/v1/frontend/supreme/about"|href="about.html"|g; s|href="/api/v1/frontend/supreme/contact"|href="contact.html"|g' "frontend/supreme/supreme-ecosystem/${page}-html.html"
+                printf '\n<script src="%s-js.js" defer></script></body></html>\n' "${page}"
+              } > "site/supreme/${page}.html"
+            fi
+          done
+
+          touch site/.nojekyll
+
+      - name: Validate deployment package
+        shell: bash
+        run: |
+          test -s site/index.html
+          test -s site/supreme/supreme-ecosystem/home-css.css
+          test -s site/supreme/supreme-ecosystem/home-js.js
+          echo "Static site package is ready. Backend/API remains on Render."
+
+      - name: Upload to InfinityFree over FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.INFINITYFREE_FTP_SERVER }}
+          username: ${{ secrets.INFINITYFREE_FTP_USERNAME }}
+          password: ${{ secrets.INFINITYFREE_FTP_PASSWORD }}
+          server-dir: ${{ secrets.INFINITYFREE_FTP_SERVER_DIR }}
+          local-dir: ./site/
+          dangerous-clean-slate: false
