@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import BinaryIO
 
 from backend.storage.filesystem import LocalFileStorage
+from backend.storage.provider_registry import get_storage_provider_status
 
 
 class UploadTooLargeError(ValueError):
@@ -42,11 +43,15 @@ class GalleryWoultObjectStore:
         except (TypeError, ValueError):
             configured_limit = 100 * 1024 * 1024
         self.max_upload_bytes = max(1, configured_limit)
+        self.provider_status = get_storage_provider_status()
         self.storage = LocalFileStorage(root_dir=configured_root or None)
         self.root = self.storage.root
 
     @property
     def writes_allowed(self) -> bool:
+        # Never silently route a cloud-provider selection into local disk.
+        if self.provider_status.get("selected_provider") != "local":
+            return False
         if not self.hosted_environment:
             return self.storage.root is not None
         return (
@@ -73,6 +78,7 @@ class GalleryWoultObjectStore:
             "durability_verified": False,
             "hosted_environment": self.hosted_environment,
             "max_upload_bytes": self.max_upload_bytes,
+            "provider": self.provider_status,
         }
 
     def _ensure_writes_allowed(self) -> None:
