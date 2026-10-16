@@ -26,9 +26,9 @@ PROVIDER_CATALOG = {
     },
     "aws_s3": {
         "display_name": "Amazon Web Services S3",
-        "implemented": False,
+        "implemented": True,
         "purpose": "Durable object storage for uploads and backups",
-        "credential_env": ("AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY", "AWS_S3_BUCKET"),
+        "credential_env": ("AWS_S3_BUCKET",),
     },
     "google_drive": {
         "display_name": "Google Drive",
