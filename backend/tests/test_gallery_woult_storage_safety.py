@@ -76,3 +76,27 @@ def test_gallery_woult_uses_central_database_service_and_reopens_data(tmp_path, 
     recovered = second.get(uploaded["object_id"], "canonical-user-1")
     assert recovered["name"] == "note.txt"
     assert second.get_download_path(uploaded["object_id"], "canonical-user-1").read_bytes() == b"central database + separate object bytes"
+
+
+
+def test_cloud_provider_selection_does_not_fall_back_to_local_disk(tmp_path, monkeypatch):
+    monkeypatch.delenv("RENDER", raising=False)
+    monkeypatch.delenv("RENDER_SERVICE_ID", raising=False)
+    monkeypatch.setenv("SUPREME_STORAGE_PROVIDER", "aws_s3")
+    monkeypatch.setenv("SUPREME_FILE_STORAGE_DIR", str(tmp_path / "local"))
+    monkeypatch.setenv("GALLERY_WOULT_STORAGE_ROOT", str(tmp_path / "local"))
+    store = GalleryWoultObjectStore(root=str(tmp_path / "local"))
+    assert store.status()["status"] == "ADAPTER_NOT_IMPLEMENTED"
+    assert store.status()["writable"] is False
+    with pytest.raises(RuntimeError, match="PERSISTENT_STORAGE_NOT_CONFIGURED_OR_VERIFIED"):
+        store.save_stream(BytesIO(b"do not silently store locally"), "u/f/file.txt")
+
+
+def test_provider_catalog_does_not_claim_unimplemented_cloud_providers_are_connected(monkeypatch):
+    monkeypatch.setenv("SUPREME_STORAGE_PROVIDER", "google_drive")
+    from backend.storage.provider_registry import get_storage_provider_status
+
+    status = get_storage_provider_status()
+    assert status["implemented"] is False
+    assert status["connected"] is False
+    assert status["status"] == "ADAPTER_NOT_IMPLEMENTED"
