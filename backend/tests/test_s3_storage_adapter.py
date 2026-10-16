@@ -25,7 +25,8 @@ class FakeS3:
 
     def get_object(self, *, Bucket, Key):
         from io import BytesIO
-        return {"Body": BytesIO(self.objects[(Bucket, Key)]["body"])}
+        item = self.objects[(Bucket, Key)]
+        return {"Body": BytesIO(item["body"]), "Metadata": dict(item["metadata"])}
 
     def head_object(self, *, Bucket, Key):
         item = self.objects.get((Bucket, Key))
