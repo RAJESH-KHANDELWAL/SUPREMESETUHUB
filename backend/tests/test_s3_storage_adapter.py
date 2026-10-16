@@ -15,10 +15,11 @@ class FakeS3:
     def head_bucket(self, **kwargs):
         return {}
 
-    def put_object(self, *, Bucket, Key, Body, Metadata, ServerSideEncryption):
+    def put_object(self, *, Bucket, Key, Body, Metadata=None, ServerSideEncryption=None):
+        raw_body = Body if isinstance(Body, bytes) else Body.read()
         self.objects[(Bucket, Key)] = {
-            "body": Body.read(),
-            "metadata": dict(Metadata),
+            "body": raw_body,
+            "metadata": dict(Metadata or {}),
             "encryption": ServerSideEncryption,
         }
 
