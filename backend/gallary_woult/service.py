@@ -8,6 +8,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
+from backend.engines.storage.manager import StorageEngine
 from backend.database.service import DatabaseService
 from backend.gallary_woult.object_store import GalleryWoultObjectStore
 
@@ -40,9 +41,8 @@ class GalleryWoultService:
         db_path: Optional[str] = None,
         storage_root: Optional[str] = None,
     ):
-        # GALLARY WOULT owns platform behavior and metadata schema, but it does
-        # not create an independent database connection/path. DatabaseService
-        # is the central connection boundary for MAIN BASE FOUNDATION.
+        # GALLARY WOULT owns file metadata and workflows while using the
+        # shared MAIN BASE FOUNDATION database connection service.
         self.database = DatabaseService(db_path=db_path)
         self.db_path = self.database.db_path
         self.object_store = GalleryWoultObjectStore(root=storage_root)
@@ -54,7 +54,7 @@ class GalleryWoultService:
     # =========================================================
 
     def _connect(self):
-        """Return the central DatabaseService connection, never a private DB."""
+        """Use the central DatabaseService connection for platform metadata."""
         return self.database.connect()
 
     @staticmethod
@@ -255,34 +255,48 @@ class GalleryWoultService:
 
         now = self._now()
 
-        try:
-            with self._connect() as db:
-                db.execute(
-                    """
-                    INSERT INTO gallery_woult_objects
-                    (
-                        object_id, owner_id, parent_id, name, object_type,
-                        storage_key, mime_type, size, sha256, content_class,
-                        status, locked, metadata, created_at, updated_at
-                    )
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                    """,
-                    (
-                        object_id, actor_id, parent_id, filename, "FILE",
-                        storage_key, detected_mime, size, sha256, content_class,
-                        "ACTIVE", 0,
-                        json.dumps(metadata or {}, ensure_ascii=False),
-                        now, now,
-                    ),
+        with self._connect() as db:
+            db.execute(
+                """
+                INSERT INTO gallery_woult_objects
+                (
+                    object_id,
+                    owner_id,
+                    parent_id,
+                    name,
+                    object_type,
+                    storage_key,
+                    mime_type,
+                    size,
+                    sha256,
+                    content_class,
+                    status,
+                    locked,
+                    metadata,
+                    created_at,
+                    updated_at
                 )
-                db.commit()
-        except Exception:
-            # Do not leave an unreferenced binary object when metadata commit fails.
-            try:
-                self.object_store.delete(storage_key)
-            except Exception:
-                pass
-            raise
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    object_id,
+                    actor_id,
+                    parent_id,
+                    name,
+                    "FOLDER",
+                    None,
+                    None,
+                    0,
+                    None,
+                    "GENERAL",
+                    "ACTIVE",
+                    0,
+                    "{}",
+                    now,
+                    now,
+                ),
+            )
+            db.commit()
 
         self._audit(
             object_id,
@@ -364,51 +378,34 @@ class GalleryWoultService:
 
         now = self._now()
 
-        with self._connect() as db:
-            db.execute(
-                """
-                INSERT INTO gallery_woult_objects
-                (
-                    object_id,
-                    owner_id,
-                    parent_id,
-                    name,
-                    object_type,
-                    storage_key,
-                    mime_type,
-                    size,
-                    sha256,
-                    content_class,
-                    status,
-                    locked,
-                    metadata,
-                    created_at,
-                    updated_at
-                )
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                """,
-                (
-                    object_id,
-                    actor_id,
-                    parent_id,
-                    filename,
-                    "FILE",
-                    storage_key,
-                    detected_mime,
-                    size,
-                    sha256,
-                    content_class,
-                    "ACTIVE",
-                    0,
-                    json.dumps(
-                        metadata or {},
-                        ensure_ascii=False,
+        try:
+            with self._connect() as db:
+                db.execute(
+                    """
+                    INSERT INTO gallery_woult_objects
+                    (
+                        object_id, owner_id, parent_id, name, object_type,
+                        storage_key, mime_type, size, sha256, content_class,
+                        status, locked, metadata, created_at, updated_at
+                    )
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        object_id, actor_id, parent_id, filename, "FILE",
+                        storage_key, detected_mime, size, sha256, content_class,
+                        "ACTIVE", 0,
+                        json.dumps(metadata or {}, ensure_ascii=False),
+                        now, now,
                     ),
-                    now,
-                    now,
-                ),
-            )
-            db.commit()
+                )
+                db.commit()
+        except Exception:
+            # Roll back the binary object if metadata could not be committed.
+            try:
+                self.object_store.delete(storage_key)
+            except Exception:
+                pass
+            raise
 
         self._audit(
             object_id,
@@ -1149,13 +1146,14 @@ class GalleryWoultService:
             ).fetchone()[0]
 
         storage_status = self.object_store.status()
-        state = "READY"
-        if storage_status.get("hosted_environment") and not storage_status.get("writable"):
-            state = "DEGRADED"
+        hosted_unavailable = bool(
+            storage_status.get("hosted_environment")
+            and not storage_status.get("writable")
+        )
         return {
             "system": "GALLARY WOULT",
-            "status": state,
-            "storage": storage_status.get("status"),
+            "status": "DEGRADED" if hosted_unavailable else "READY",
+            "storage": storage_status.get("status", "UNKNOWN"),
             "storage_configuration": storage_status,
             "objects": objects,
             "files": files,
