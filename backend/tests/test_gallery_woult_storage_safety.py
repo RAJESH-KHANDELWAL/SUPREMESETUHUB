@@ -86,7 +86,7 @@ def test_cloud_provider_selection_does_not_fall_back_to_local_disk(tmp_path, mon
     monkeypatch.setenv("SUPREME_FILE_STORAGE_DIR", str(tmp_path / "local"))
     monkeypatch.setenv("GALLERY_WOULT_STORAGE_ROOT", str(tmp_path / "local"))
     store = GalleryWoultObjectStore(root=str(tmp_path / "local"))
-    assert store.status()["status"] == "ADAPTER_NOT_IMPLEMENTED"
+    assert store.status()["status"] == "NOT_CONFIGURED"
     assert store.status()["writable"] is False
     with pytest.raises(RuntimeError, match="PERSISTENT_STORAGE_NOT_CONFIGURED_OR_VERIFIED"):
         store.save_stream(BytesIO(b"do not silently store locally"), "u/f/file.txt")
