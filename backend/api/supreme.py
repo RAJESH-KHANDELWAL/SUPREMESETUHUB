@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends, Header, HTTPException, Query
+from pydantic import BaseModel, Field
 
 from backend.supreme.config import (
     APP_NAME,
@@ -13,6 +14,8 @@ from backend.supreme.config import (
 
 from backend.auth.service import AuthenticationService
 from backend.supreme.capability_registry import get_capability_catalog
+from backend.supreme.control import SupremeControlService
+from backend.supreme.controller import SupremeController
 
 from backend.supreme.identity_service import (
     get_supreme_profile,
@@ -270,4 +273,43 @@ def supreme_capabilities():
         **catalog,
         "dashboard": "SUPREME",
         "access": "SUPREME_OWNER",
+    }
+
+class SupremeControlCommandRequest(BaseModel):
+    command: str = Field(min_length=1, max_length=80)
+    payload: dict = Field(default_factory=dict)
+
+
+@router.get("/control/status")
+def supreme_control_status():
+    """Owner-only status for the SUPREME personal control plane."""
+    controller = SupremeController()
+    status = SupremeControlService.get_status(controller)
+    return {
+        "success": status["status"] == "READY",
+        "control_plane": "SUPREME",
+        "status": status,
+    }
+
+
+@router.post("/control/commands")
+def supreme_control_command(
+    request: SupremeControlCommandRequest,
+    x_supreme_control_token: str | None = Header(default=None),
+):
+    """Run an allowlisted, read-only SUPREME control command."""
+    if SupremeControlService._configured_token() and not SupremeControlService.validate_token(
+        x_supreme_control_token
+    ):
+        raise HTTPException(status_code=401, detail="SUPREME_CONTROL_TOKEN_REQUIRED")
+    try:
+        result = SupremeControlService.execute_command(
+            SupremeController(), request.command, request.payload
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return {
+        "success": True,
+        "control_plane": "SUPREME",
+        "result": result,
     }
