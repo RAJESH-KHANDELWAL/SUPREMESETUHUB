@@ -9,6 +9,8 @@ from pydantic import BaseModel, EmailStr, Field, field_validator
 
 from backend.auth.service import AuthenticationService
 from backend.supreme.capability_registry import get_capability_catalog
+from backend.supreme.control import SupremeControlService
+from backend.supreme.controller import SupremeController
 from backend.users.service import UserService
 from backend.supreme.config import USERNAME as SUPREME_OWNER_USERNAME
 from backend.supreme.supreme_ecosystem.supreme_business_ecosystem import status as business_ecosystem_status
@@ -45,6 +47,11 @@ class SignupRequest(BaseModel):
 class SigninRequest(BaseModel):
     username: str = Field(min_length=1, max_length=100)
     password: str = Field(min_length=1, max_length=128)
+
+
+class EcosystemControlCommandRequest(BaseModel):
+    command: str = Field(min_length=1, max_length=80)
+    payload: dict = Field(default_factory=dict)
 
 
 def require_supreme_ecosystem_owner(
@@ -283,4 +290,50 @@ def ecosystem_capabilities():
         "dashboard": "SUPREME ECOSYSTEM",
         "parent": "SUPREME",
         "access": "SUPREME_OWNER",
+    }
+
+class EcosystemControlCommandRequest(BaseModel):
+    command: str = Field(min_length=1, max_length=80)
+    payload: dict = Field(default_factory=dict)
+
+
+@router.get("/control/status")
+def ecosystem_control_status():
+    """Expose the shared SUPREME owner-control status inside the ecosystem."""
+    control = SupremeControlService.get_status(SupremeController())
+    business = business_ecosystem_status()
+    ai = ai_ecosystem_status()
+    return {
+        "success": control.get("status") == "READY",
+        "control_plane": "SUPREME ECOSYSTEM",
+        "parent_control_plane": "SUPREME",
+        "status": control,
+        "ecosystem_modules": {
+            "business": business,
+            "ai": ai,
+        },
+    }
+
+
+@router.post("/control/commands")
+def ecosystem_control_command(
+    request: EcosystemControlCommandRequest,
+    x_supreme_control_token: str | None = Header(default=None, alias="X-Supreme-Control-Token"),
+):
+    """Run the same safe allowlisted control commands from SUPREME ECOSYSTEM."""
+    if SupremeControlService._configured_token() and not SupremeControlService.validate_token(
+        x_supreme_control_token
+    ):
+        raise HTTPException(status_code=401, detail="SUPREME_CONTROL_TOKEN_REQUIRED")
+    try:
+        result = SupremeControlService.execute_command(
+            SupremeController(), request.command, request.payload
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return {
+        "success": True,
+        "control_plane": "SUPREME ECOSYSTEM",
+        "parent_control_plane": "SUPREME",
+        "result": result,
     }
