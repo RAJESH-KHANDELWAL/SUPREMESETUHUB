@@ -450,6 +450,30 @@ class DatabaseService:
         self._transaction_active = False
         return {"success": True, "transaction_active": False}
 
+    def persistence_status(self) -> dict:
+        """Report whether hosted SQLite persistence is explicitly configured.
+
+        Application code cannot independently prove a host mounted a durable
+        volume. The acknowledgement is an operator assertion only.
+        """
+        hosted = bool(os.getenv("RENDER") or os.getenv("RENDER_SERVICE_ID"))
+        path = str(Path(self.db_path).expanduser())
+        acknowledged = os.getenv("SUPREME_DB_PERSISTENCE_ACKNOWLEDGED", "").strip().casefold() == "true"
+        mounted_path_convention = path.startswith("/var/data/")
+        if not hosted:
+            status = "LOCAL_DEVELOPMENT"
+        elif mounted_path_convention and acknowledged:
+            status = "OPERATOR_ACKNOWLEDGED_PERSISTENT_PATH"
+        else:
+            status = "PERSISTENCE_UNVERIFIED"
+        return {
+            "status": status,
+            "hosted_environment": hosted,
+            "path_uses_var_data": mounted_path_convention,
+            "operator_acknowledged": acknowledged,
+            "note": "Application code cannot prove a persistent volume is mounted; verify host configuration and test recovery.",
+        }
+
     def health(self) -> dict:
         """Check the local database with a lightweight query."""
         try:
@@ -462,6 +486,8 @@ class DatabaseService:
             "healthy": healthy,
             "connected": self._connection is not None,
             "path": self.db_path,
+            "persistence": self.persistence_status(),
+            "durability_verified": False,
         }
 
     def status(self) -> dict:
