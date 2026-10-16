@@ -10,6 +10,7 @@ from __future__ import annotations
 import hashlib
 import os
 import tempfile
+from uuid import uuid4
 from io import BytesIO
 from typing import BinaryIO
 
@@ -38,11 +39,22 @@ class S3ObjectStorage:
             return {"configured": False, "writable": False, "connected": False, "status": "NOT_CONFIGURED", "backend": "AWS_S3"}
         if self._client is None:
             return {"configured": True, "writable": False, "connected": False, "status": "AWS_SDK_UNAVAILABLE", "backend": "AWS_S3"}
+        probe_key = f".supreme-health-check/{uuid4().hex}"
         try:
             self._client.head_bucket(Bucket=self.bucket)
+            # Confirm write + delete permissions with a tiny temporary object.
+            self._client.put_object(
+                Bucket=self.bucket, Key=probe_key, Body=b"ok",
+                ServerSideEncryption="AES256",
+            )
+            self._client.delete_object(Bucket=self.bucket, Key=probe_key)
             return {"configured": True, "writable": True, "connected": True, "status": "READY", "backend": "AWS_S3", "bucket": self.bucket, "region": self.region}
         except Exception:
             # Do not expose cloud error details, bucket existence, or credentials.
+            try:
+                self._client.delete_object(Bucket=self.bucket, Key=probe_key)
+            except Exception:
+                pass
             return {"configured": True, "writable": False, "connected": False, "status": "AWS_S3_CONNECTION_FAILED", "backend": "AWS_S3", "bucket": self.bucket, "region": self.region}
 
     @staticmethod
