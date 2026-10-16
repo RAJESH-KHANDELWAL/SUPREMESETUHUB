@@ -185,9 +185,9 @@ function dr_rajesh_khandelwal_ibc_supreme_home() {
             'href="/api/v1/frontend/supreme/contact"'
         ),
         array(
-            'href="https://rajesh-khandelwal.github.io/SUPREMESETUHUB/supreme/home.html"',
-            'href="https://rajesh-khandelwal.github.io/SUPREMESETUHUB/supreme/about.html"',
-            'href="https://rajesh-khandelwal.github.io/SUPREMESETUHUB/supreme/contact.html"'
+            'href="https://rajeshkhandelwalofficial.com/"',
+            'href="https://rajeshkhandelwalofficial.com/about/"',
+            'href="https://rajeshkhandelwalofficial.com/contact/"'
         ),
         $home_html
     );
