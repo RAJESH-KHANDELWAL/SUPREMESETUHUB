@@ -92,6 +92,8 @@ jobs:
           server: ${{ secrets.INFINITYFREE_FTP_SERVER }}
           username: ${{ secrets.INFINITYFREE_FTP_USERNAME }}
           password: ${{ secrets.INFINITYFREE_FTP_PASSWORD }}
+          protocol: ftp
+          port: 21
           server-dir: ${{ secrets.INFINITYFREE_FTP_SERVER_DIR }}
           local-dir: ./site/
           dangerous-clean-slate: false
