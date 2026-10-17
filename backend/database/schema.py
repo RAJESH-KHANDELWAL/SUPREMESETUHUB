@@ -15,6 +15,7 @@ class DatabaseSchema:
     BUSINESS
     USERS
     CUSTOMERS
+    FREELANCER ECOSYSTEM
     """
 
     # ==========================================================
@@ -33,6 +34,7 @@ class DatabaseSchema:
         "business",
         "users",
         "customers",
+        "freelancer",
     )
 
     # ==========================================================
