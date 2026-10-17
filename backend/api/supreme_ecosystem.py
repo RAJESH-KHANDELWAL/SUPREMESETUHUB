@@ -137,6 +137,7 @@ def ecosystem_status():
             "WHATSAPP_AI",
             "SUPREME_OWNER_ADMIN",
             "WORDPRESS_OWNER_CONTROL",
+            "GOOGLE_OWNER_ACCOUNT_CONTROL",
         ],
     }
 
@@ -155,6 +156,19 @@ def supreme_owner_admin_owned_platforms():
         "success": True,
         "privacy": "OWNER_ONLY",
         "owned_platforms": service.owned_platforms(),
+    }
+
+
+@router.get("/owner-admin/google-accounts")
+def supreme_owner_admin_google_accounts():
+    """List owner-approved Google identities and their safe connection readiness."""
+    service = SupremeOwnerAdminService()
+    return {
+        "success": True,
+        "privacy": "OWNER_ONLY",
+        "accounts": service.google_owner_accounts(),
+        "live_connection_verified": False,
+        "note": "Allowlisting is not OAuth consent. Gmail/Drive use remains disabled until secure OAuth token storage and live API verification are implemented.",
     }
 
 
