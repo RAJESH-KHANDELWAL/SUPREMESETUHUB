@@ -1,10 +1,11 @@
 from typing import Any, Dict
 
 from ..base import IntegrationProvider
+from .readiness import provider_health
 
 
 class AppleProvider(IntegrationProvider):
-    """Apple platform integration metadata; not a live Apple account connection."""
+    """Apple Sign in and App Store Connect configuration readiness adapter."""
 
     name = "APPLE"
     category = "IDENTITY_DEVICE_SERVICES"
@@ -12,17 +13,34 @@ class AppleProvider(IntegrationProvider):
     def metadata(self) -> Dict[str, Any]:
         return {
             **super().metadata(),
-            "official_api": "Apple Developer APIs",
-            "capabilities": ["SIGN_IN_WITH_APPLE", "IOS", "IPADOS", "MACOS", "APP_STORE_CONNECT"],
-            "authentication": "APPLE_DEVELOPER_CREDENTIALS_OR_OAUTH_WHERE_SUPPORTED",
-            "connection": "NOT_CONNECTED",
+            "official_api": "Sign in with Apple / App Store Connect API",
+            "capabilities": ["SIGN_IN_WITH_APPLE", "APP_STORE_CONNECT", "IOS", "IPADOS", "MACOS"],
+            "authentication": "Apple Services ID and/or App Store Connect API key, depending on feature",
+            "connection": "NOT_TESTED",
+            "setup_guide": "docs/GOOGLE_MICROSOFT_AWS_APPLE_SETUP.md",
         }
 
     def health(self) -> Dict[str, Any]:
-        return {
-            "provider": self.name,
-            "category": self.category,
-            "status": "READY",
-            "authentication": "NOT_CONFIGURED",
-            "connection": "NOT_CONNECTED",
-        }
+        import os
+        # Apple Sign in and App Store Connect use different credentials. This
+        # checks for either complete setup, not for a live connection.
+        sign_in_configured = all(os.getenv(key, "").strip() for key in (
+            "APPLE_SERVICES_ID", "APPLE_TEAM_ID", "APPLE_KEY_ID",
+            "APPLE_PRIVATE_KEY", "APPLE_REDIRECT_URI",
+        ))
+        app_store_configured = all(os.getenv(key, "").strip() for key in (
+            "APPLE_ISSUER_ID", "APPLE_APP_STORE_KEY_ID", "APPLE_APP_STORE_PRIVATE_KEY",
+        ))
+        configured = sign_in_configured or app_store_configured
+        required = [
+            "APPLE_SERVICES_ID", "APPLE_TEAM_ID", "APPLE_KEY_ID",
+            "APPLE_PRIVATE_KEY", "APPLE_REDIRECT_URI",
+        ]
+        return provider_health(
+            provider=self.name,
+            category=self.category,
+            configured=configured,
+            auth_method="Sign in with Apple or App Store Connect API key",
+            required_configuration=required,
+            capabilities=["SIGN_IN_WITH_APPLE", "APP_STORE_CONNECT", "APPLE_PLATFORM_APIS"],
+        )
