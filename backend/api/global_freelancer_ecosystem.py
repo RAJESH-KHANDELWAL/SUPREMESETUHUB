@@ -1,8 +1,8 @@
 """GLOBAL FREELANCER ECOSYSTEM API.
 
-This first foundation release provides catalog/status plus owner-scoped metadata
-records. It does not create jobs, submit applications, handle payments, or claim
-that external marketplace providers are connected.
+Provides provider readiness discovery plus authenticated owner-scoped freelancer
+metadata records. External provider connections are not considered live until
+provider-specific authorization and health checks have been implemented.
 """
 from __future__ import annotations
 
@@ -12,6 +12,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel, Field
 
 from backend.engines.freelancer_ecosystem.manager import FreelancerEcosystemEngine
+from backend.engines.freelancer_ecosystem.providers import get_freelancer_provider_status
 from backend.security.dependencies import get_current_user
 
 
@@ -48,6 +49,12 @@ def freelancer_ecosystem_status() -> dict[str, Any]:
 @router.get("/catalog")
 def freelancer_ecosystem_catalog() -> dict[str, Any]:
     return {"success": True, **_engine().catalog()}
+
+
+@router.get("/providers")
+def freelancer_provider_catalog() -> dict[str, Any]:
+    """Expose safe readiness metadata, never credential values or tokens."""
+    return get_freelancer_provider_status()
 
 
 @router.get("/records")
