@@ -22,20 +22,17 @@ class AppleProvider(IntegrationProvider):
 
     def health(self) -> Dict[str, Any]:
         import os
-        # Apple Sign in and App Store Connect use different credentials. This
-        # checks for either complete setup, not for a live connection.
-        sign_in_configured = all(os.getenv(key, "").strip() for key in (
-            "APPLE_SERVICES_ID", "APPLE_TEAM_ID", "APPLE_KEY_ID",
-            "APPLE_PRIVATE_KEY", "APPLE_REDIRECT_URI",
-        ))
-        app_store_configured = all(os.getenv(key, "").strip() for key in (
-            "APPLE_ISSUER_ID", "APPLE_APP_STORE_KEY_ID", "APPLE_APP_STORE_PRIVATE_KEY",
-        ))
-        configured = sign_in_configured or app_store_configured
-        required = [
+        sign_in_required = [
             "APPLE_SERVICES_ID", "APPLE_TEAM_ID", "APPLE_KEY_ID",
             "APPLE_PRIVATE_KEY", "APPLE_REDIRECT_URI",
         ]
+        app_store_required = [
+            "APPLE_ISSUER_ID", "APPLE_APP_STORE_KEY_ID", "APPLE_APP_STORE_PRIVATE_KEY",
+        ]
+        sign_in_configured = all(os.getenv(key, "").strip() for key in sign_in_required)
+        app_store_configured = all(os.getenv(key, "").strip() for key in app_store_required)
+        configured = sign_in_configured or app_store_configured
+        required = sign_in_required if not app_store_configured else app_store_required
         return provider_health(
             provider=self.name,
             category=self.category,
