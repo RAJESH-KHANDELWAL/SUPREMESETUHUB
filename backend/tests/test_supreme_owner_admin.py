@@ -150,3 +150,36 @@ def test_social_registry_lists_platforms_without_exposing_secret_values(monkeypa
     assert all(item["publishing_enabled"] is False for item in payload["platforms"])
     assert "must-never-be-returned" not in repr(payload)
 
+
+
+
+def test_role_governance_catalog_covers_leadership_permissions_and_workflows():
+    from backend.supreme.role_governance import role_governance_catalog
+
+    payload = role_governance_catalog()
+    roles = {role["role_id"]: role for role in payload["role_templates"]}
+    assert {"PRIMARY_OWNER", "OWNER", "FOUNDER", "CO_FOUNDER", "CEO", "CMD", "MD", "CMA", "ADMIN", "MANAGER", "MEMBER", "CUSTOM"} <= set(roles)
+    assert payload["roles_are_permissions"] is False
+    assert "finance.approve_payments" in payload["permission_catalog"]
+    assert "work.assign" in payload["permission_catalog"]
+    assert "promotion.approve" in payload["permission_catalog"]
+    assert {"WORK", "PROGRESS", "PROMOTION", "LEARNING", "EARNING", "VERIFICATION"} <= set(payload["workflow_sections"])
+    assert roles["CMA"]["category"] == "PROFESSIONAL_DESIGNATION"
+    assert roles["CMA"]["default_permissions"] == []
+    assert roles["FOUNDER"]["can_transfer_ownership"] is False
+    assert payload["persistence_status"] == "TEMPLATE_CATALOG_ONLY"
+    assert payload["assignment_enforcement_status"] == "NOT_IMPLEMENTED_IN_THIS_CATALOG"
+
+
+def test_role_governance_endpoint_is_owner_protected():
+    routes = {
+        route.path: route
+        for route in supreme_ecosystem_router.routes
+        if getattr(route, "methods", None)
+    }
+    path = "/api/v1/supreme-ecosystem/owner-admin/role-governance"
+    assert path in routes
+    assert any(
+        dependency.call is require_supreme_ecosystem_owner
+        for dependency in routes[path].dependant.dependencies
+    )
