@@ -4,15 +4,20 @@ from __future__ import annotations
 
 from typing import Any, Optional
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
 
 from backend.profiles.controller import ProfileController
+from backend.security.dependencies import require_admin
 
 
 router = APIRouter(
     prefix="/profiles",
     tags=["Profiles"],
+    # Profiles include private metadata and arbitrary master_id references. Until
+    # per-owner authorization and opt-in public visibility are implemented, keep
+    # all reads and writes behind the admin/owner boundary.
+    dependencies=[Depends(require_admin)],
 )
 
 controller = ProfileController()
