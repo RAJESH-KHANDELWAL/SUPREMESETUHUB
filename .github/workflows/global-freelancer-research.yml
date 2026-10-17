@@ -1,0 +1,88 @@
+name: GLOBAL FREELANCER RESEARCH
+
+on:
+  workflow_dispatch:
+    inputs:
+      query:
+        description: "Skill or work to research (for example translation, retyping, copywriting)"
+        required: true
+        default: "translation retyping copywriting"
+        type: string
+      market:
+        description: "Target market"
+        required: true
+        default: "bharat"
+        type: choice
+        options:
+          - bharat
+          - global
+      category:
+        description: "Research category"
+        required: true
+        default: "freelance_work"
+        type: choice
+        options:
+          - freelance_work
+          - clients
+          - business
+          - research
+      limit:
+        description: "Maximum results (1-20)"
+        required: true
+        default: "10"
+        type: choice
+        options:
+          - "5"
+          - "10"
+          - "15"
+          - "20"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: global-freelancer-research
+  cancel-in-progress: false
+
+jobs:
+  research:
+    name: Search public freelance leads
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
+      GOOGLE_CSE_API_KEY: ${{ secrets.GOOGLE_CSE_API_KEY }}
+      GOOGLE_CSE_CX: ${{ secrets.GOOGLE_CSE_CX }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install research engine dependency
+        run: python -m pip install --upgrade pip httpx
+
+      - name: Run public-source research
+        env:
+          RESEARCH_QUERY: ${{ inputs.query }}
+          RESEARCH_MARKET: ${{ inputs.market }}
+          RESEARCH_CATEGORY: ${{ inputs.category }}
+          RESEARCH_LIMIT: ${{ inputs.limit }}
+        run: |
+          python -m backend.scripts.run_freelancer_research \
+            --query "$RESEARCH_QUERY" \
+            --market "$RESEARCH_MARKET" \
+            --category "$RESEARCH_CATEGORY" \
+            --limit "$RESEARCH_LIMIT"
+
+      - name: Upload research report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: freelancer-research-report
+          path: research-output/
+          if-no-files-found: warn
+          retention-days: 14
