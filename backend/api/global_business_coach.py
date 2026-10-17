@@ -5,6 +5,7 @@ from __future__ import annotations
 from fastapi import APIRouter
 
 from backend.supreme.supreme_owner_admin.service import SupremeOwnerAdminService
+from backend.supreme.keyword_foundation import keyword_foundation
 
 router = APIRouter(
     prefix="/api/v1/global-business-coach",
@@ -50,3 +51,9 @@ def public_business_coach_profile() -> dict:
 def global_business_coach_profile():
     """Public business contact card for Bharat and global inquiries."""
     return public_business_coach_profile()
+
+
+@router.get("/keywords")
+def global_business_coach_keywords():
+    """Return concise keyword groups for Bharat and global content planning."""
+    return keyword_foundation()
