@@ -15,6 +15,7 @@ from backend.users.service import UserService
 from backend.supreme.config import USERNAME as SUPREME_OWNER_USERNAME
 from backend.supreme.supreme_ecosystem.supreme_business_ecosystem import status as business_ecosystem_status
 from backend.supreme.supreme_ecosystem.supreme_ai_ecosystem import status as ai_ecosystem_status
+from backend.supreme.supreme_owner_admin.service import SupremeOwnerAdminService
 
 
 authentication_service = AuthenticationService()
@@ -134,8 +135,33 @@ def ecosystem_status():
             "GOOGLE_GMAIL",
             "MICROSOFT",
             "WHATSAPP_AI",
+            "SUPREME_OWNER_ADMIN",
+            "WORDPRESS_OWNER_CONTROL",
         ],
     }
+
+
+@router.get("/owner-admin/status")
+def supreme_owner_admin_status():
+    """Private owner-only governance status for the SUPREME control plane."""
+    return SupremeOwnerAdminService().owner_status()
+
+
+@router.get("/owner-admin/owned-platforms")
+def supreme_owner_admin_owned_platforms():
+    """List the owner's registered platforms, including WordPress sites."""
+    service = SupremeOwnerAdminService()
+    return {
+        "success": True,
+        "privacy": "OWNER_ONLY",
+        "owned_platforms": service.owned_platforms(),
+    }
+
+
+@router.get("/owner-admin/governance")
+def supreme_owner_admin_governance():
+    """Return owner governance rules and safe integration readiness metadata."""
+    return SupremeOwnerAdminService().governance()
 
 
 @router.get("/business/status")
