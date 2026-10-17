@@ -16,6 +16,24 @@ def test_owner_admin_is_single_owner_private_control_plane():
     assert "GOOGLE ACCOUNTS AND SERVICES" in status["controlled_domains"]
 
 
+def test_global_business_coach_contact_covers_bharat_and_global_business_audience(monkeypatch):
+    monkeypatch.delenv("GLOBAL_BUSINESS_COACH_EMAIL", raising=False)
+    profile = SupremeOwnerAdminService().global_business_coach_profile()
+    assert profile["contact_email"] == "drrajeshkhandelwalibc@gmail.com"
+    assert profile["role"] == "GLOBAL BUSINESS COACH AND INDEPENDENT BUSINESS CONSULTANT"
+    assert "BHARAT AND GLOBAL WORLD" in profile["audience"]
+    assert "ENTREPRENEURS AND STARTUP FOUNDERS" in profile["audience"]
+    assert "BUSINESS NETWORKING AND COLLABORATION" in profile["scope"]
+    assert profile["automatic_forwarding_enabled"] is False
+    assert profile["mailbox_connection_verified"] is False
+
+
+def test_global_business_coach_contact_can_be_configured(monkeypatch):
+    monkeypatch.setenv("GLOBAL_BUSINESS_COACH_EMAIL", "DRRAJESHKHANDELWALIBC@GMAIL.COM")
+    profile = SupremeOwnerAdminService().global_business_coach_profile()
+    assert profile["contact_email"] == "drrajeshkhandelwalibc@gmail.com"
+
+
 def test_wordpress_sites_are_in_owner_platform_registry(monkeypatch):
     monkeypatch.setenv("WORDPRESS_SITE_URL", "https://example.test")
     monkeypatch.setenv("WORDPRESS_USERNAME", "owner")
@@ -74,6 +92,7 @@ def test_supreme_ecosystem_router_guards_owner_admin_endpoints():
         "/api/v1/supreme-ecosystem/owner-admin/status",
         "/api/v1/supreme-ecosystem/owner-admin/owned-platforms",
         "/api/v1/supreme-ecosystem/owner-admin/google-accounts",
+        "/api/v1/supreme-ecosystem/owner-admin/business-coach-profile",
         "/api/v1/supreme-ecosystem/owner-admin/governance",
     }
     routes = {
