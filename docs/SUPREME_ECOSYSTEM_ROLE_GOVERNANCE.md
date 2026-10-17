@@ -2,9 +2,9 @@
 
 ## Dashboard placement
 
-- **SUPREME Dashboard:** show SUPREME ECOSYSTEM as one top-level module.
-- **SUPREME ECOSYSTEM Dashboard:** show businesses/companies and their people, roles, permissions, work, progress, promotion, learning, earnings, verification, and audit sections separately.
-- SUPREME remains the private master control plane. Business roles are scoped to the assigned organization/business/team and never automatically grant SUPREME owner authority.
+- This is reusable backend platform functionality for businesses, companies, teams, and people who use SUPREMESETUHUB; it is not a private owner-dashboard feature.
+- The private SUPREME OWNER ADMIN control plane remains separate and is only for the platform owner’s own system governance.
+- Business/company roles are scoped to the relevant organization/business/team/resource and never automatically grant platform-owner authority.
 
 ## Default role/title templates
 
@@ -37,10 +37,10 @@ The catalog defines fields for a future custom-role form: custom title, category
 
 ## Current implementation status
 
-The owner-only endpoint is:
+The authenticated platform-user endpoint is:
 
-`GET /api/v1/supreme-ecosystem/owner-admin/role-governance`
+`GET /api/v1/businesses/role-governance/catalog`
 
-It returns default role templates, permission descriptions, workflow sections, custom-role fields, and verification rules. It is protected by the existing SUPREME ECOSYSTEM owner dependency.
+It returns default role templates, permission descriptions, workflow sections, custom-role fields, and verification rules to signed-in platform users. It is protected by the standard authenticated-user dependency, not the private SUPREME owner dependency. The catalog is shared metadata; any later role assignment or permission grant must be enforced against the authenticated user’s own business/company scope.
 
-**Current limitation:** this change adds a template catalog only. It does not yet persist company records, custom roles, role assignments, individual permission grants, tasks, promotion decisions, learning progress, earnings, or verification events, and it does not enforce those permissions at runtime. Those require persistent data models, scoped authorization checks on each operation, audit logging, and tests before production use.
+**Current limitation:** this change adds a shared template catalog only. It does not yet persist company records, custom roles, role assignments, individual permission grants, tasks, promotion decisions, learning progress, earnings, or verification events, and it does not enforce those permissions at runtime. Those require persistent data models, scoped authorization checks on each operation, audit logging, and tests before production use.
