@@ -16,6 +16,7 @@ from backend.supreme.config import USERNAME as SUPREME_OWNER_USERNAME
 from backend.supreme.supreme_ecosystem.supreme_business_ecosystem import status as business_ecosystem_status
 from backend.supreme.supreme_ecosystem.supreme_ai_ecosystem import status as ai_ecosystem_status
 from backend.supreme.supreme_owner_admin.service import SupremeOwnerAdminService
+from backend.supreme.social_media_control.registry import social_platform_status
 
 
 authentication_service = AuthenticationService()
@@ -170,6 +171,12 @@ def supreme_owner_admin_google_accounts():
         "live_connection_verified": False,
         "note": "Allowlisting is not OAuth consent. Gmail/Drive use remains disabled until secure OAuth token storage and live API verification are implemented.",
     }
+
+
+@router.get("/owner-admin/social-platforms")
+def supreme_owner_admin_social_platforms():
+    """Return private social platform registry and safe connection readiness."""
+    return social_platform_status()
 
 
 @router.get("/owner-admin/business-coach-profile")
