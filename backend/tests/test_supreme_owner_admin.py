@@ -1,5 +1,6 @@
 from backend.api.supreme_ecosystem import require_supreme_ecosystem_owner, router as supreme_ecosystem_router
-from backend.api.global_business_coach import public_business_coach_profile
+from backend.api.global_business_coach import public_business_coach_profile, global_business_coach_keywords
+from backend.supreme.social_media_control.registry import social_platform_status
 from backend.supreme.supreme_owner_admin.service import (
     OWNER_CONTROLLED_DOMAINS,
     SupremeOwnerAdminService,
@@ -127,3 +128,25 @@ def test_supreme_ecosystem_router_guards_owner_admin_endpoints():
             dependency.call is require_supreme_ecosystem_owner
             for dependency in routes[path].dependant.dependencies
         )
+
+
+def test_keyword_foundation_is_short_and_covers_bharat_and_global_intent():
+    payload = global_business_coach_keywords()
+    assert payload["success"] is True
+    assert payload["audience"] == ["BHARAT", "GLOBAL WORLD"]
+    assert payload["search_volume_verified"] is False
+    assert "business coach" in payload["groups"]["CORE_BRAND"]
+    assert "freelance work India" in payload["groups"]["BHARAT_INTENT"]
+    assert "global consulting" in payload["groups"]["GLOBAL_INTENT"]
+    assert all(len(keyword.split()) <= 4 for group in payload["groups"].values() for keyword in group)
+
+
+def test_social_registry_lists_platforms_without_exposing_secret_values(monkeypatch):
+    monkeypatch.setenv("META_ACCESS_TOKEN", "must-never-be-returned")
+    payload = social_platform_status()
+    ids = {item["platform_id"] for item in payload["platforms"]}
+    assert {"FACEBOOK", "INSTAGRAM", "LINKEDIN", "X", "WHATSAPP", "YOUTUBE", "TELEGRAM"} <= ids
+    assert all(item["connected"] is False for item in payload["platforms"])
+    assert all(item["publishing_enabled"] is False for item in payload["platforms"])
+    assert "must-never-be-returned" not in repr(payload)
+
