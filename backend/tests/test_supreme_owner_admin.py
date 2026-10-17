@@ -11,6 +11,7 @@ def test_owner_admin_is_single_owner_private_control_plane():
     assert status["privacy"] == "OWNER_ONLY"
     assert status["single_owner_policy"] is True
     assert status["self_service_owner_signup"] is False
+    assert status["google_owner_account_tier"] == "ALL_PRIMARY"
     assert "WORDPRESS SITES" in status["controlled_domains"]
     assert "GOOGLE ACCOUNTS AND SERVICES" in status["controlled_domains"]
 
@@ -27,21 +28,23 @@ def test_wordpress_sites_are_in_owner_platform_registry(monkeypatch):
     assert "application_password" not in by_id["rajeshkhandelwalofficial"]
 
 
-def test_google_owner_accounts_read_from_private_environment(monkeypatch):
-    monkeypatch.setenv("SUPREME_OWNER_PRIMARY_EMAIL", "owner-one@example.test")
-    monkeypatch.setenv("SUPREME_OWNER_SECONDARY_EMAIL", "owner-two@example.test")
-    monkeypatch.delenv("GOOGLE_CLIENT_ID", raising=False)
-    monkeypatch.delenv("GOOGLE_CLIENT_SECRET", raising=False)
-    monkeypatch.delenv("GOOGLE_REDIRECT_URI", raising=False)
+def test_all_google_owner_emails_are_primary_and_can_scale_to_many_accounts(monkeypatch):
+    monkeypatch.setenv(
+        "GOOGLE_OWNER_ACCOUNT_EMAILS",
+        "rajeshkhandelwal1996@gmail.com;rajeshkhandelwalofficial1996@gmail.com;third@example.test",
+    )
+    monkeypatch.setenv("SUPREME_OWNER_EMAILS", "fourth@example.test")
+    monkeypatch.setenv("SUPREME_OWNER_PRIMARY_EMAIL", "owner@example.test")
+    monkeypatch.setenv("SUPREME_OWNER_SECONDARY_EMAIL", "owner@example.test")
+    monkeypatch.setenv("SUPREME_OWNER_RECOVERY_EMAIL", "recovery@example.test")
     accounts = SupremeOwnerAdminService().google_owner_accounts()
-    assert [account["email"] for account in accounts] == [
-        "owner-one@example.test",
-        "owner-two@example.test",
-    ]
-    assert all("GMAIL" in account["approved_services"] for account in accounts)
-    assert all("GOOGLE_DRIVE" in account["approved_services"] for account in accounts)
-    assert all(account["connected"] is False for account in accounts)
-    assert all(account["token_storage_status"] == "NOT_IMPLEMENTED" for account in accounts)
+    by_email = {account["email"]: account for account in accounts}
+    assert len(accounts) == 6
+    assert by_email["rajeshkhandelwal1996@gmail.com"]["owner_account_tier"] == "PRIMARY"
+    assert by_email["rajeshkhandelwalofficial1996@gmail.com"]["owner_account_tier"] == "PRIMARY"
+    assert all(account["owner_account_tier"] == "PRIMARY" for account in accounts)
+    assert all("BANKING_AND_FINANCIAL_NOTIFICATIONS" in account["purposes"] for account in accounts)
+    assert all("SENSITIVE_DOCUMENTS_AND_RECORDS" in account["purposes"] for account in accounts)
 
 
 def test_google_owner_accounts_deduplicate_and_never_expose_oauth_secrets(monkeypatch):
@@ -50,6 +53,7 @@ def test_google_owner_accounts_deduplicate_and_never_expose_oauth_secrets(monkey
     monkeypatch.setenv("GOOGLE_CLIENT_SECRET", "secret-do-not-return")
     payload = SupremeOwnerAdminService().governance()
     assert len(payload["google_owner_accounts"]) == 1
+    assert payload["google_owner_accounts"][0]["owner_account_tier"] == "PRIMARY"
     assert "secret-do-not-return" not in repr(payload)
 
 
