@@ -172,6 +172,16 @@ def supreme_owner_admin_google_accounts():
     }
 
 
+@router.get("/owner-admin/business-coach-profile")
+def supreme_owner_admin_business_coach_profile():
+    """Return the registered global business coaching contact profile."""
+    return {
+        "success": True,
+        "privacy": "OWNER_ONLY",
+        "profile": SupremeOwnerAdminService().global_business_coach_profile(),
+    }
+
+
 @router.get("/owner-admin/governance")
 def supreme_owner_admin_governance():
     """Return owner governance rules and safe integration readiness metadata."""
