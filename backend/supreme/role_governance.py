@@ -193,9 +193,9 @@ def role_governance_catalog() -> dict[str, Any]:
     """Return default role templates, explicit permission definitions and workflow views."""
     return {
         "success": True,
-        "system": "SUPREME ECOSYSTEM ROLE GOVERNANCE",
+        "system": "BUSINESS AND COMPANY ROLE GOVERNANCE",
         "parent_control_plane": "SUPREME",
-        "privacy": "OWNER_ONLY",
+        "access_model": "AUTHENTICATED_BUSINESS_WORKSPACE",
         "roles_are_permissions": False,
         "permission_model": "EXPLICIT_LEAST_PRIVILEGE_SCOPED_GRANTS",
         "scope_dimensions": ["organization_id", "business_id", "team_id", "resource_type", "resource_id"],
@@ -220,4 +220,5 @@ def role_governance_catalog() -> dict[str, Any]:
         ],
         "persistence_status": "TEMPLATE_CATALOG_ONLY",
         "assignment_enforcement_status": "NOT_IMPLEMENTED_IN_THIS_CATALOG",
+        "intended_consumers": ["BUSINESS_OWNERS", "COMPANY_ADMINS", "AUTHORIZED_MANAGERS", "TEAM_MEMBERS"],
     }
