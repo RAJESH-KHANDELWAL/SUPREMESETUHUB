@@ -13,6 +13,10 @@ from backend.infrastructure.servers.controller import ServerController
 from backend.infrastructure.ipam.controller import IPAMController
 from backend.infrastructure.network.controller import NetworkController
 from backend.infrastructure.dns.controller import DNSController
+from backend.infrastructure.hostinger_catalog import (
+    hostinger_catalog,
+    hostinger_readiness,
+)
 
 
 router = APIRouter(
@@ -61,6 +65,18 @@ def infrastructure_status():
             "dns": "READY",
         },
     }
+
+
+@router.get("/providers/hostinger/catalog")
+def list_hostinger_catalog():
+    """List Hostinger service categories; this does not claim live connectivity."""
+    return hostinger_catalog()
+
+
+@router.get("/providers/hostinger/readiness")
+def hostinger_provider_readiness():
+    """Return safe configuration readiness without exposing credentials."""
+    return hostinger_readiness()
 
 
 @router.get("/domains")
