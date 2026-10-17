@@ -10,6 +10,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from backend.businesses.controller import BusinessController
 from backend.schemas.business import BusinessCreateRequest, BusinessStatusRequest
 from backend.security.dependencies import get_current_user
+from backend.supreme.role_governance import role_governance_catalog
 
 
 router = APIRouter(
@@ -18,6 +19,23 @@ router = APIRouter(
 )
 
 controller = BusinessController()
+
+
+@router.get("/role-governance/catalog")
+def get_role_governance_catalog(
+    current_user: dict[str, Any] = Depends(get_current_user),
+):
+    """Return reusable role/permission templates to authenticated platform users.
+
+    This catalog is for businesses and companies using the platform, not for the
+    private SUPREME OWNER ADMIN dashboard. It does not itself grant permissions.
+    """
+    catalog = role_governance_catalog()
+    return {
+        **catalog,
+        "authenticated_user_id": str(current_user.get("user_id", "")),
+        "note": "Templates are available to authenticated users; assignments and business-scoped permission enforcement require separate implemented workflows.",
+    }
 
 
 def _is_admin(user: dict[str, Any]) -> bool:

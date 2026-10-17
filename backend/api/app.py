@@ -44,6 +44,7 @@ from backend.api.user_hub import router as user_hub_router
 from backend.api.ai import router as ai_router
 from backend.api.global_ai_ecosystem import router as global_ai_ecosystem_router
 from backend.api.global_business_ecosystem import router as global_business_ecosystem_router
+from backend.api.global_business_coach import router as global_business_coach_router
 from backend.api.global_freelancer_ecosystem import router as global_freelancer_ecosystem_router
 from backend.api.global_ecosystem import GlobalEcosystemAPI
 from backend.api.cloud import CloudAPI
@@ -179,6 +180,7 @@ PUBLIC_API_PATHS = {
     "/api/v1/frontend/supreme-ecosystem/health",
     "/api/v1/frontend/global-business-ecosystem",
     "/api/v1/frontend/global-business-ecosystem/health",
+    "/api/v1/global-business-coach/profile",
     "/api/v1/digital-marketplace/catalog",
     "/api/v1/products/catalog",
     "/api/v1/products/provider-readiness",
@@ -374,6 +376,7 @@ app.include_router(user_hub_router)
 app.include_router(ai_router)
 app.include_router(global_ai_ecosystem_router)
 app.include_router(global_business_ecosystem_router)
+app.include_router(global_business_coach_router)
 app.include_router(global_freelancer_ecosystem_router)
 app.include_router(theme_hub_router)
 app.include_router(connectors_router)

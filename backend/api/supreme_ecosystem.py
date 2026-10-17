@@ -15,6 +15,8 @@ from backend.users.service import UserService
 from backend.supreme.config import USERNAME as SUPREME_OWNER_USERNAME
 from backend.supreme.supreme_ecosystem.supreme_business_ecosystem import status as business_ecosystem_status
 from backend.supreme.supreme_ecosystem.supreme_ai_ecosystem import status as ai_ecosystem_status
+from backend.supreme.supreme_owner_admin.service import SupremeOwnerAdminService
+from backend.supreme.social_media_control.registry import social_platform_status
 
 
 authentication_service = AuthenticationService()
@@ -134,8 +136,63 @@ def ecosystem_status():
             "GOOGLE_GMAIL",
             "MICROSOFT",
             "WHATSAPP_AI",
+            "SUPREME_OWNER_ADMIN",
+            "WORDPRESS_OWNER_CONTROL",
+            "GOOGLE_OWNER_ACCOUNT_CONTROL",
         ],
     }
+
+
+@router.get("/owner-admin/status")
+def supreme_owner_admin_status():
+    """Private owner-only governance status for the SUPREME control plane."""
+    return SupremeOwnerAdminService().owner_status()
+
+
+@router.get("/owner-admin/owned-platforms")
+def supreme_owner_admin_owned_platforms():
+    """List the owner's registered platforms, including WordPress sites."""
+    service = SupremeOwnerAdminService()
+    return {
+        "success": True,
+        "privacy": "OWNER_ONLY",
+        "owned_platforms": service.owned_platforms(),
+    }
+
+
+@router.get("/owner-admin/google-accounts")
+def supreme_owner_admin_google_accounts():
+    """List owner-approved Google identities and their safe connection readiness."""
+    service = SupremeOwnerAdminService()
+    return {
+        "success": True,
+        "privacy": "OWNER_ONLY",
+        "accounts": service.google_owner_accounts(),
+        "live_connection_verified": False,
+        "note": "Allowlisting is not OAuth consent. Gmail/Drive use remains disabled until secure OAuth token storage and live API verification are implemented.",
+    }
+
+
+@router.get("/owner-admin/social-platforms")
+def supreme_owner_admin_social_platforms():
+    """Return private social platform registry and safe connection readiness."""
+    return social_platform_status()
+
+
+@router.get("/owner-admin/business-coach-profile")
+def supreme_owner_admin_business_coach_profile():
+    """Return the registered global business coaching contact profile."""
+    return {
+        "success": True,
+        "privacy": "OWNER_ONLY",
+        "profile": SupremeOwnerAdminService().global_business_coach_profile(),
+    }
+
+
+@router.get("/owner-admin/governance")
+def supreme_owner_admin_governance():
+    """Return owner governance rules and safe integration readiness metadata."""
+    return SupremeOwnerAdminService().governance()
 
 
 @router.get("/business/status")
