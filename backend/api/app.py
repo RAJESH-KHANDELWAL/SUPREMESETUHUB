@@ -44,6 +44,7 @@ from backend.api.user_hub import router as user_hub_router
 from backend.api.ai import router as ai_router
 from backend.api.global_ai_ecosystem import router as global_ai_ecosystem_router
 from backend.api.global_business_ecosystem import router as global_business_ecosystem_router
+from backend.api.global_freelancer_ecosystem import router as global_freelancer_ecosystem_router
 from backend.api.global_ecosystem import GlobalEcosystemAPI
 from backend.api.cloud import CloudAPI
 from backend.api.storage import StorageAPI
@@ -252,6 +253,12 @@ async def private_by_default(request: Request, call_next):
             },
         )
 
+    # GLOBAL FREELANCER ECOSYSTEM uses authenticated owner-scoped records.
+    # Its API routes enforce per-user record ownership; do not apply the
+    # general owner-only restriction to these routes.
+    if path == "/api/v1/global-freelancer-ecosystem" or path.startswith("/api/v1/global-freelancer-ecosystem/"):
+        return await call_next(request)
+
     # The user hub has its own token-to-identity ownership check. Allow a
     # signed-in customer through so the route can return only that customer's
     # profiles, businesses, and projects. Other data APIs remain owner-only
@@ -367,6 +374,7 @@ app.include_router(user_hub_router)
 app.include_router(ai_router)
 app.include_router(global_ai_ecosystem_router)
 app.include_router(global_business_ecosystem_router)
+app.include_router(global_freelancer_ecosystem_router)
 app.include_router(theme_hub_router)
 app.include_router(connectors_router)
 app.include_router(linksetu_router)
