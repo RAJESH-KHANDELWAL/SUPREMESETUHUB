@@ -81,6 +81,21 @@ class IntegrationRegistry:
 
         self.register(
             IntegrationDefinition(
+                provider="ESA",
+                category="SPACE_AND_EARTH_OBSERVATION",
+                official_api="ESA Open Access / Copernicus Data Space APIs (dataset-specific)",
+                authentication="PUBLIC_OR_ACCOUNT_BASED_DEPENDING_ON_DATASET",
+                capabilities=[
+                    "EARTH_OBSERVATION_CATALOGS",
+                    "SATELLITE_MISSION_METADATA",
+                    "COPERNICUS_DATA_DISCOVERY",
+                    "SPACE_RESEARCH_DATA",
+                ],
+            )
+        )
+
+        self.register(
+            IntegrationDefinition(
                 provider="GITHUB",
                 category="DEVELOPER_PLATFORM",
                 official_api="GitHub REST / GraphQL APIs",
