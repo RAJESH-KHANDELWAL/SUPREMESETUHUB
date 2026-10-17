@@ -32,6 +32,24 @@ WORDPRESS_SITES: tuple[dict[str, str], ...] = (
     },
 )
 
+GOOGLE_OWNER_ACCOUNT_ENV_VARS = (
+    "SUPREME_OWNER_PRIMARY_EMAIL",
+    "SUPREME_OWNER_SECONDARY_EMAIL",
+    "SUPREME_OWNER_RECOVERY_EMAIL",
+)
+GOOGLE_OWNER_SERVICES = (
+    "GMAIL",
+    "GOOGLE_DRIVE",
+    "GOOGLE_CALENDAR",
+    "GOOGLE_DOCS",
+    "GOOGLE_SHEETS",
+    "GOOGLE_CONTACTS",
+    "GOOGLE_TASKS",
+    "GOOGLE_MEET",
+    "YOUTUBE",
+    "GOOGLE_ANALYTICS",
+)
+
 OWNER_CONTROLLED_DOMAINS = (
     "IDENTITY",
     "SUPREME ECOSYSTEM",
@@ -40,16 +58,64 @@ OWNER_CONTROLLED_DOMAINS = (
     "FILES AND STORAGE",
     "SECURITY AND ACCESS CONTROL",
     "API AND INTEGRATION SETTINGS",
+    "GOOGLE ACCOUNTS AND SERVICES",
     "WORDPRESS SITES",
     "DASHBOARD AND AUDIT",
 )
 
 
 class SupremeOwnerAdminService:
-    """Describe the private owner boundary and WordPress resources."""
+    """Describe the private owner boundary and registered owner resources."""
+
+    @staticmethod
+    def _google_oauth_configured() -> bool:
+        return all(
+            os.getenv(name, "").strip()
+            for name in ("GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET", "GOOGLE_REDIRECT_URI")
+        )
+
+    def google_owner_accounts(self) -> list[dict[str, Any]]:
+        """Return owner-approved Google identities from deployment environment only.
+
+        Account allowlisting is not OAuth consent and does not imply that Gmail or Drive
+        has been connected. OAuth callback/state validation, encrypted token storage,
+        and provider API verification must be completed separately.
+        """
+        emails: list[str] = []
+        # Optional consolidated list supports deployments with more than two accounts.
+        consolidated = os.getenv("GOOGLE_OWNER_ACCOUNT_EMAILS", "")
+        for email in consolidated.replace(";", ",").split(","):
+            normalized = email.strip().casefold()
+            if normalized and normalized not in emails:
+                emails.append(normalized)
+
+        for env_name in GOOGLE_OWNER_ACCOUNT_ENV_VARS:
+            normalized = os.getenv(env_name, "").strip().casefold()
+            if normalized and normalized not in emails:
+                emails.append(normalized)
+
+        oauth_configured = self._google_oauth_configured()
+        return [
+            {
+                "account_id": f"google-owner-{index + 1}",
+                "email": email,
+                "provider": "GOOGLE",
+                "ownership_scope": "SUPREME_OWNER_PRIVATE",
+                "approved_services": list(GOOGLE_OWNER_SERVICES),
+                "oauth_app_configured": oauth_configured,
+                "authorization_status": (
+                    "CONSENT_REQUIRED" if oauth_configured else "OAUTH_APP_NOT_CONFIGURED"
+                ),
+                "connected": False,
+                "live_connection_verified": False,
+                "token_storage_status": "NOT_IMPLEMENTED",
+            }
+            for index, email in enumerate(emails)
+        ]
 
     def owner_status(self) -> dict[str, Any]:
         configured_username = str(SUPREME_OWNER_USERNAME or "").strip()
+        google_accounts = self.google_owner_accounts()
         return {
             "success": True,
             "control_plane": "SUPREME_OWNER_ADMIN",
@@ -65,6 +131,8 @@ class SupremeOwnerAdminService:
                 "ADMIN/OWNER roles in other systems do not automatically grant SUPREME owner access."
             ),
             "controlled_domains": list(OWNER_CONTROLLED_DOMAINS),
+            "google_owner_account_count": len(google_accounts),
+            "google_oauth_app_configured": self._google_oauth_configured(),
             "wordpress_site_count": len(WORDPRESS_SITES),
             "wordpress_sites_configured": sum(
                 bool(os.getenv(site["url_env"], "").strip())
@@ -102,11 +170,14 @@ class SupremeOwnerAdminService:
         return {
             "success": True,
             "owner": self.owner_status(),
+            "google_owner_accounts": self.google_owner_accounts(),
             "owned_platforms": self.owned_platforms(),
             "security_rules": [
                 "No public SUPREME owner dashboard or owner-management endpoints",
                 "Owner identity is determined by the configured backend username and a valid session token",
-                "WordPress credentials stay in private backend deployment secrets",
+                "WordPress credentials and Google OAuth client secrets stay in private backend deployment secrets",
+                "Google account allowlisting is not OAuth consent and does not prove Gmail or Drive is connected",
+                "Google OAuth tokens must not be exposed in API responses and require encrypted persistent storage before live use",
                 "External WordPress connectivity must be verified separately per site",
                 "Never expose passwords, OAuth secrets, tokens, or database credentials in API responses",
             ],
