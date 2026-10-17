@@ -1,4 +1,6 @@
 from backend.api.supreme_ecosystem import require_supreme_ecosystem_owner, router as supreme_ecosystem_router
+from backend.api.businesses import router as businesses_router
+from backend.security.dependencies import get_current_user
 from backend.api.global_business_coach import public_business_coach_profile, global_business_coach_keywords
 from backend.supreme.social_media_control.registry import social_platform_status
 from backend.supreme.supreme_owner_admin.service import (
@@ -171,15 +173,21 @@ def test_role_governance_catalog_covers_leadership_permissions_and_workflows():
     assert payload["assignment_enforcement_status"] == "NOT_IMPLEMENTED_IN_THIS_CATALOG"
 
 
-def test_role_governance_endpoint_is_owner_protected():
+def test_role_governance_catalog_is_for_authenticated_business_platform_users():
     routes = {
         route.path: route
+        for route in businesses_router.routes
+        if getattr(route, "methods", None)
+    }
+    path = "/role-governance/catalog"
+    assert path in routes
+    assert any(
+        dependency.call is get_current_user
+        for dependency in routes[path].dependant.dependencies
+    )
+    owner_admin_routes = {
+        route.path
         for route in supreme_ecosystem_router.routes
         if getattr(route, "methods", None)
     }
-    path = "/api/v1/supreme-ecosystem/owner-admin/role-governance"
-    assert path in routes
-    assert any(
-        dependency.call is require_supreme_ecosystem_owner
-        for dependency in routes[path].dependant.dependencies
-    )
+    assert "/api/v1/supreme-ecosystem/owner-admin/role-governance" not in owner_admin_routes
