@@ -1,3 +1,4 @@
+from backend.api.supreme_ecosystem import require_supreme_ecosystem_owner, router as supreme_ecosystem_router
 from backend.supreme.supreme_owner_admin.service import (
     OWNER_CONTROLLED_DOMAINS,
     SupremeOwnerAdminService,
@@ -31,3 +32,26 @@ def test_owner_status_never_returns_private_credentials(monkeypatch):
     rendered = repr(payload)
     assert "do-not-return" not in rendered
     assert "WORDPRESS SITES" in OWNER_CONTROLLED_DOMAINS
+
+
+def test_supreme_ecosystem_router_guards_owner_admin_endpoints():
+    assert any(
+        dependency.dependency is require_supreme_ecosystem_owner
+        for dependency in supreme_ecosystem_router.dependencies
+    )
+    protected_paths = {
+        "/api/v1/supreme-ecosystem/owner-admin/status",
+        "/api/v1/supreme-ecosystem/owner-admin/owned-platforms",
+        "/api/v1/supreme-ecosystem/owner-admin/governance",
+    }
+    routes = {
+        route.path: route
+        for route in supreme_ecosystem_router.routes
+        if getattr(route, "methods", None)
+    }
+    assert protected_paths <= set(routes)
+    for path in protected_paths:
+        assert any(
+            dependency.call is require_supreme_ecosystem_owner
+            for dependency in routes[path].dependant.dependencies
+        )
