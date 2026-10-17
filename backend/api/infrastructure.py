@@ -13,6 +13,16 @@ from backend.infrastructure.servers.controller import ServerController
 from backend.infrastructure.ipam.controller import IPAMController
 from backend.infrastructure.network.controller import NetworkController
 from backend.infrastructure.dns.controller import DNSController
+from backend.infrastructure.hostinger_catalog import (
+    hostinger_catalog,
+    hostinger_readiness,
+)
+from backend.infrastructure.hostinger_api import (
+    connection_status as hostinger_connection_status,
+    list_vps_instances as hostinger_list_vps_instances,
+    list_websites as hostinger_list_websites,
+    HostingerAPIError,
+)
 
 
 router = APIRouter(
@@ -61,6 +71,50 @@ def infrastructure_status():
             "dns": "READY",
         },
     }
+
+
+@router.get("/providers/hostinger/catalog")
+def list_hostinger_catalog():
+    """List Hostinger service categories; this does not claim live connectivity."""
+    return hostinger_catalog()
+
+
+@router.get("/providers/hostinger/readiness")
+def hostinger_provider_readiness():
+    """Return safe configuration readiness without exposing credentials."""
+    return hostinger_readiness()
+
+
+@router.get("/providers/hostinger/connection")
+def hostinger_live_connection_status():
+    """Test the Hostinger token using a read-only website inventory request."""
+    return hostinger_connection_status()
+
+
+@router.get("/providers/hostinger/websites")
+def hostinger_websites(page: int = 1):
+    """Read websites from the connected Hostinger account."""
+    if page < 1:
+        from fastapi import HTTPException
+        raise HTTPException(status_code=422, detail="PAGE_MUST_BE_POSITIVE")
+    try:
+        return hostinger_list_websites(page=page)
+    except HostingerAPIError as exc:
+        from fastapi import HTTPException
+        raise HTTPException(status_code=502, detail=str(exc)) from exc
+
+
+@router.get("/providers/hostinger/vps")
+def hostinger_vps_instances(page: int = 1):
+    """Read VPS instances from the connected Hostinger account."""
+    if page < 1:
+        from fastapi import HTTPException
+        raise HTTPException(status_code=422, detail="PAGE_MUST_BE_POSITIVE")
+    try:
+        return hostinger_list_vps_instances(page=page)
+    except HostingerAPIError as exc:
+        from fastapi import HTTPException
+        raise HTTPException(status_code=502, detail=str(exc)) from exc
 
 
 @router.get("/domains")
