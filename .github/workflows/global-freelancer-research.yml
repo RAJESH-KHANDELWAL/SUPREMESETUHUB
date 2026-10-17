@@ -72,7 +72,7 @@ jobs:
           RESEARCH_CATEGORY: ${{ inputs.category }}
           RESEARCH_LIMIT: ${{ inputs.limit }}
         run: |
-          python backend/scripts/run_freelancer_research.py \
+          python -m backend.scripts.run_freelancer_research \
             --query "$RESEARCH_QUERY" \
             --market "$RESEARCH_MARKET" \
             --category "$RESEARCH_CATEGORY" \
