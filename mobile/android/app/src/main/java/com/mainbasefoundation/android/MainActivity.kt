@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity() {
         val host = uri.host?.lowercase()
 
         // Only the production HTTPS site is allowed to navigate inside the app.
-        if (scheme == "https" && host in internalHosts) {
+        if (scheme == "https" && host != null && host in internalHosts) {
             return false
         }
 
