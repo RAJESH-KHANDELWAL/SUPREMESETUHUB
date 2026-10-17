@@ -44,6 +44,7 @@ from backend.api.user_hub import router as user_hub_router
 from backend.api.ai import router as ai_router
 from backend.api.global_ai_ecosystem import router as global_ai_ecosystem_router
 from backend.api.global_api_ecosystem_routes import router as global_api_ecosystem_router
+from backend.api.global_subsystem_ecosystem import router as global_subsystem_ecosystem_router
 from backend.api.global_business_ecosystem import router as global_business_ecosystem_router
 from backend.api.global_business_coach import router as global_business_coach_router
 from backend.api.global_freelancer_ecosystem import router as global_freelancer_ecosystem_router
@@ -378,6 +379,7 @@ app.include_router(user_hub_router)
 app.include_router(ai_router)
 app.include_router(global_ai_ecosystem_router)
 app.include_router(global_api_ecosystem_router)
+app.include_router(global_subsystem_ecosystem_router)
 app.include_router(global_business_ecosystem_router)
 app.include_router(global_business_coach_router)
 app.include_router(global_freelancer_ecosystem_router)
