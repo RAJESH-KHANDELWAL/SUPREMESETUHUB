@@ -7,6 +7,15 @@ analytics, maps, media, commerce, identity, and security products. It is designe
 a broad catalog of major products and API families, not a guarantee that every Google
 product has a public API or that a user account is connected.
 
+## Entry points
+
+- `service.py`: canonical product catalog and status service.
+- `google.py`: Python facade exposing `list_products()`, `get_product()`, and
+  `get_status()`.
+- `google.php`: read-only PHP client that calls the authenticated SUPREMESETUHUB API.
+  It requires server-side `SUPREMESETUHUB_API_BASE_URL` and
+  `SUPREMESETUHUB_ADMIN_TOKEN` environment variables and PHP cURL.
+
 ## API
 
 - `GET /api/v1/google-ecosystem/status`
@@ -14,6 +23,15 @@ product has a public API or that a user account is connected.
 - `GET /api/v1/google-ecosystem/products/{product_id}`
 
 All endpoints require a SUPREMESETUHUB ADMIN/OWNER bearer session.
+
+## Included catalog areas
+
+The catalog includes Gmail, Drive, Calendar, Docs, Sheets, Slides, Meet, Contacts,
+Tasks, Forms, Google Workspace Admin, Google Cloud, Firebase, Maps, Search Console,
+Analytics, Tag Manager, Ads, Gemini, Vertex AI, BigQuery, Cloud Storage, YouTube,
+Photos, Play, Business Profile, Translate, speech services, Vision, Document AI,
+Identity, Wallet, Pay, and other Google products. The live catalog in `service.py`
+is the source of truth.
 
 ## Connection and security boundary
 
