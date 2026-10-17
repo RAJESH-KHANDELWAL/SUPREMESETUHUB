@@ -101,6 +101,11 @@ CATEGORY_ECOSYSTEMS: tuple[dict[str, str], ...] = (
         "folder": "global_social_media_api_ecosystem",
     },
     {
+        "id": "freelancer",
+        "name": "GLOBAL FREELANCER API ECOSYSTEM",
+        "folder": "global_freelancer_api_ecosystem",
+    },
+    {
         "id": "database",
         "name": "GLOBAL DATABASE API ECOSYSTEM",
         "folder": "global_database_api_ecosystem",
