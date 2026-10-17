@@ -20,12 +20,17 @@ def test_global_business_coach_contact_covers_bharat_and_global_business_audienc
     monkeypatch.delenv("GLOBAL_BUSINESS_COACH_EMAIL", raising=False)
     profile = SupremeOwnerAdminService().global_business_coach_profile()
     assert profile["contact_email"] == "drrajeshkhandelwalibc@gmail.com"
+    assert profile["website"] == "https://drrajeshkhandelwalibc.com"
     assert profile["role"] == "GLOBAL BUSINESS COACH AND INDEPENDENT BUSINESS CONSULTANT"
     assert "BHARAT AND GLOBAL WORLD" in profile["audience"]
     assert "ENTREPRENEURS AND STARTUP FOUNDERS" in profile["audience"]
     assert "BUSINESS NETWORKING AND COLLABORATION" in profile["scope"]
     assert profile["automatic_forwarding_enabled"] is False
     assert profile["mailbox_connection_verified"] is False
+    assert profile["social_identity"]["intended_username"] == "DRRAJESHKHANDELWALIBC"
+    assert profile["social_identity"]["username_availability_verified"] is False
+    assert profile["contact_channels"]["whatsapp"]["url"] == "https://wa.me/917611967229"
+    assert profile["contact_channels"]["website_form"]["configured"] is False
 
 
 def test_global_business_coach_contact_can_be_configured(monkeypatch):
