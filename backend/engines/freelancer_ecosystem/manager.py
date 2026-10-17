@@ -9,6 +9,7 @@ from backend.database.freelancer_ecosystem import (
 )
 from backend.engines.storage import StorageEngine
 from backend.storage.provider_registry import get_storage_provider_status
+from backend.engines.freelancer_ecosystem.providers import get_freelancer_provider_status
 
 
 ECOSYSTEM_ID = "GLOBAL-FREELANCER-ECOSYSTEM"
@@ -24,6 +25,7 @@ class FreelancerEcosystemEngine:
 
     @staticmethod
     def catalog() -> dict[str, Any]:
+        provider_status = get_freelancer_provider_status()
         return {
             "ecosystem_id": ECOSYSTEM_ID,
             "name": ECOSYSTEM_NAME,
@@ -38,14 +40,9 @@ class FreelancerEcosystemEngine:
                 "WORK_HISTORY",
                 "CENTRAL_DATABASE_METADATA",
                 "CENTRAL_STORAGE_ASSET_REFERENCES",
+                "MULTI_PROVIDER_READINESS_CATALOG",
             ],
-            "provider_hierarchy": [
-                {"provider": "Google", "position": 1, "status": "PLANNED_NOT_VERIFIED"},
-                {"provider": "Google Cloud", "position": 2, "status": "PLANNED_NOT_VERIFIED"},
-                {"provider": "Microsoft", "position": 3, "status": "PLANNED_NOT_VERIFIED"},
-                {"provider": "AWS", "position": 4, "status": "ADAPTER_STATUS_REQUIRES_LIVE_VERIFICATION"},
-                {"provider": "Other approved providers", "position": 5, "status": "ADAPTER_SPECIFIC"},
-            ],
+            "provider_integrations": provider_status["providers"],
             "runtime_policy": {
                 "render": "TEMPORARY_TEST_RUNTIME_ONLY",
                 "production_data_migration": "NOT_APPROVED",
@@ -54,6 +51,7 @@ class FreelancerEcosystemEngine:
 
     def status(self) -> dict[str, Any]:
         storage = get_storage_provider_status()
+        freelancer_providers = get_freelancer_provider_status()
         return {
             "success": True,
             "ecosystem_id": ECOSYSTEM_ID,
@@ -71,12 +69,7 @@ class FreelancerEcosystemEngine:
                 "asset_api": "/api/v1/storage/files",
                 "note": "File bytes stay in the storage engine; this ecosystem stores authorized asset references.",
             },
-            "provider_integrations": {
-                "google_drive": "NOT_IMPLEMENTED",
-                "google_cloud_storage": "SCAFFOLD_ONLY",
-                "microsoft_onedrive": "NOT_IMPLEMENTED",
-                "aws_s3": "ADAPTER_EXISTS_LIVE_CONNECTION_NOT_VERIFIED",
-            },
+            "provider_integrations": freelancer_providers,
             "production_ready": False,
         }
 
