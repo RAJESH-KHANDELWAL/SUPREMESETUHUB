@@ -177,6 +177,7 @@ def hostinger_catalog() -> dict[str, Any]:
             "Service availability and included features vary by country, plan and account.",
             "Prices and promotional offers are intentionally not hard-coded because they change.",
             "Catalog entries are not proof that a domain or hosting plan is purchased or connected.",
+            "Read-only account inventory can use the official Hostinger API when a valid token is configured.",
             "Live provisioning must use supported official APIs or an explicitly configured, authorized deployment workflow.",
         ],
     }
@@ -184,13 +185,13 @@ def hostinger_catalog() -> dict[str, Any]:
 
 def hostinger_readiness() -> dict[str, Any]:
     """Report only whether optional deployment settings exist; never expose values."""
-    required = {
-        "hostinger_api_key_present": "HOSTINGER_API_KEY",
-        "hostinger_vps_id_present": "HOSTINGER_VPS_ID",
-    }
+    token_present = bool(
+        os.getenv("HOSTINGER_API_TOKEN", "").strip()
+        or os.getenv("HOSTINGER_API_KEY", "").strip()
+    )
     checks = {
-        public_name: bool(os.getenv(env_name, "").strip())
-        for public_name, env_name in required.items()
+        "hostinger_api_token_present": token_present,
+        "hostinger_vps_id_present": bool(os.getenv("HOSTINGER_VPS_ID", "").strip()),
     }
     return {
         "success": True,
