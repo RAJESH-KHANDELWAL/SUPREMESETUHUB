@@ -4,6 +4,7 @@ from .providers.aws import AWSProvider
 from .providers.google import GoogleProvider
 from .providers.microsoft import MicrosoftProvider
 from .providers.apple import AppleProvider
+from .providers.esa import ESAProvider
 from .providers.generic import GenericWebProvider
 
 
@@ -16,6 +17,7 @@ class IntegrationRegistry:
             "MICROSOFT": MicrosoftProvider(),
             "AWS": AWSProvider(),
             "APPLE": AppleProvider(),
+            "ESA": ESAProvider(),
             "GENERIC_WEB": GenericWebProvider(),
         }
 
