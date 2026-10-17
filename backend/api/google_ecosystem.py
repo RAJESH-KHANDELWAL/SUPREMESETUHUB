@@ -3,12 +3,12 @@ from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException
 
-from backend.GOOGLE.GOOGLE_ECOSYSTEM.service import GoogleEcosystemService
+from backend.google.google_ecosystem.service import GoogleEcosystemService
 from backend.security.dependencies import require_admin
 
 router = APIRouter(
     prefix="/api/v1/google-ecosystem",
-    tags=["Google Ecosystem"],
+    tags=["google ecosystem"],
     dependencies=[Depends(require_admin)],
 )
 
@@ -26,7 +26,7 @@ def google_ecosystem_products():
     """List Google products registered under the shared ecosystem."""
     return {
         "success": True,
-        "ecosystem": "GOOGLE_ECOSYSTEM",
+        "ecosystem": "google_ecosystem",
         "products": service.catalog(),
     }
 
