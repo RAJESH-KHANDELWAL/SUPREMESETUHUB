@@ -20,8 +20,8 @@ class MicrosoftProvider(IntegrationProvider):
 
     def health(self) -> Dict[str, Any]:
         import os
-        required = ["AZURE_CLIENT_ID", "AZURE_TENANT_ID", "AZURE_CLIENT_SECRET", "AZURE_REDIRECT_URI"]
-        configured = all(os.getenv(key, "").strip() for key in required)
+        required = ["MICROSOFT_CLIENT_ID", "MICROSOFT_CLIENT_SECRET", "MICROSOFT_REDIRECT_URI"]
+        configured = all(os.getenv(key, "").strip() for key in required) and bool(os.getenv("MICROSOFT_TENANT_ID", "common").strip())
         return provider_health(
             provider=self.name,
             category=self.category,
