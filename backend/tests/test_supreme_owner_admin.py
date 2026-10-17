@@ -1,4 +1,5 @@
 from backend.api.supreme_ecosystem import require_supreme_ecosystem_owner, router as supreme_ecosystem_router
+from backend.api.global_business_coach import public_business_coach_profile
 from backend.supreme.supreme_owner_admin.service import (
     OWNER_CONTROLLED_DOMAINS,
     SupremeOwnerAdminService,
@@ -37,6 +38,21 @@ def test_global_business_coach_contact_can_be_configured(monkeypatch):
     monkeypatch.setenv("GLOBAL_BUSINESS_COACH_EMAIL", "DRRAJESHKHANDELWALIBC@GMAIL.COM")
     profile = SupremeOwnerAdminService().global_business_coach_profile()
     assert profile["contact_email"] == "drrajeshkhandelwalibc@gmail.com"
+
+
+def test_public_global_business_coach_profile_exposes_only_public_contact_data(monkeypatch):
+    monkeypatch.setenv("GLOBAL_BUSINESS_COACH_EMAIL", "DRRAJESHKHANDELWALIBC@GMAIL.COM")
+    monkeypatch.setenv("GLOBAL_BUSINESS_COACH_WEBSITE", "https://drrajeshkhandelwalibc.com")
+    monkeypatch.setenv("GLOBAL_BUSINESS_COACH_SOCIAL_USERNAME", "DRRAJESHKHANDELWALIBC")
+    monkeypatch.setenv("GLOBAL_BUSINESS_COACH_WHATSAPP_NUMBER", "917611967229")
+    payload = public_business_coach_profile()
+    assert payload["success"] is True
+    assert payload["contact"]["email"] == "drrajeshkhandelwalibc@gmail.com"
+    assert payload["contact"]["whatsapp_url"] == "https://wa.me/917611967229"
+    assert payload["social"]["handle"] == "@DRRAJESHKHANDELWALIBC"
+    assert payload["social"]["profile_urls_verified"] is False
+    assert "oauth" not in repr(payload).casefold()
+    assert "application_password" not in repr(payload).casefold()
 
 
 def test_wordpress_sites_are_in_owner_platform_registry(monkeypatch):
