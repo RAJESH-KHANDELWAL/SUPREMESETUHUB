@@ -138,11 +138,57 @@ class SupremeOwnerAdminService:
             "GLOBAL_BUSINESS_COACH_EMAIL",
             "drrajeshkhandelwalibc@gmail.com",
         ).strip().casefold()
+        social_username = os.getenv(
+            "GLOBAL_BUSINESS_COACH_SOCIAL_USERNAME",
+            "DRRAJESHKHANDELWALIBC",
+        ).strip().lstrip("@")
+        website = os.getenv(
+            "GLOBAL_BUSINESS_COACH_WEBSITE",
+            "https://drrajeshkhandelwalibc.com",
+        ).strip().rstrip("/")
+        website_form = os.getenv("GLOBAL_BUSINESS_COACH_WEBSITE_FORM_URL", "").strip()
+        whatsapp_number = os.getenv("GLOBAL_BUSINESS_COACH_WHATSAPP_NUMBER", "917611967229").strip()
+        whatsapp_digits = "".join(character for character in whatsapp_number if character.isdigit())
         return {
             "profile_id": "dr-rajesh-khandelwal-ibc-global-business-coach",
             "brand": "DR RAJESH KHANDELWAL IBC",
             "role": "GLOBAL BUSINESS COACH AND INDEPENDENT BUSINESS CONSULTANT",
             "contact_email": email or None,
+            "website": website or None,
+            "contact_channels": {
+                "email": {
+                    "address": email or None,
+                    "mailto_url": f"mailto:{email}" if email else None,
+                    "configured": bool(email),
+                    "delivery_verified": False,
+                },
+                "whatsapp": {
+                    "url": f"https://wa.me/{whatsapp_digits}" if whatsapp_digits else None,
+                    "number_configured": bool(whatsapp_digits),
+                    "delivery_verified": False,
+                },
+                "website_form": {
+                    "url": website_form or None,
+                    "configured": bool(website_form),
+                    "delivery_verified": False,
+                },
+            },
+            "social_identity": {
+                "intended_username": social_username or None,
+                "handle": f"@{social_username}" if social_username else None,
+                "platforms_requested": [
+                    "FACEBOOK",
+                    "INSTAGRAM",
+                    "LINKEDIN",
+                    "YOUTUBE",
+                    "X",
+                    "THREADS",
+                    "TELEGRAM",
+                ],
+                "profile_urls_verified": False,
+                "username_availability_verified": False,
+                "note": "This registers the requested handle in the ecosystem profile; it does not create or edit third-party social accounts.",
+            },
             "audience": [
                 "BHARAT AND GLOBAL WORLD",
                 "BUSINESS OWNERS AND PROFESSIONALS",
