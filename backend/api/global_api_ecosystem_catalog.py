@@ -40,6 +40,11 @@ GLOBAL_API_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
     {"ecosystem_id": "VIDEO", "name": "GLOBAL VIDEO API ECOSYSTEM", "path": "backend/api/global_ecosystem/global_api_ecosystem/global_video_api_ecosystem", "purpose": "Video creation, hosting, streaming and processing APIs"},
     {"ecosystem_id": "WEB", "name": "GLOBAL WEB API ECOSYSTEM", "path": "backend/api/global_ecosystem/global_api_ecosystem/global_web_api_ecosystem", "purpose": "Web search, browsing, web analytics and web-platform APIs"},
     {"ecosystem_id": "WEBSITE", "name": "GLOBAL WEBSITE API ECOSYSTEM", "path": "backend/api/global_ecosystem/global_api_ecosystem/global_website_api_ecosystem", "purpose": "Website management, CMS, publishing and website operations APIs"},
+    {"ecosystem_id": "CORE", "name": "GLOBAL CORE API ECOSYSTEM", "path": "backend/engines/core", "purpose": "Shared application foundation and core readiness APIs"},
+    {"ecosystem_id": "ENGINE", "name": "GLOBAL ENGINE API ECOSYSTEM", "path": "backend/engines", "purpose": "Runtime engines, registries, lifecycle and orchestration APIs"},
+    {"ecosystem_id": "VPS", "name": "GLOBAL VPS API ECOSYSTEM", "path": "backend/engines/cloud", "purpose": "Virtual server inventory, provisioning adapters and server operations APIs"},
+    {"ecosystem_id": "VPN", "name": "GLOBAL VPN API ECOSYSTEM", "path": "backend/engines/connectivity", "purpose": "VPN configuration and connectivity lifecycle API boundaries"},
+    {"ecosystem_id": "DNS", "name": "GLOBAL DNS API ECOSYSTEM", "path": "backend/api/dns.py", "purpose": "DNS zones, records, domain routing and registrar APIs"},
 )
 
 # Provider records are catalog/architecture links, not live-connectivity claims.
