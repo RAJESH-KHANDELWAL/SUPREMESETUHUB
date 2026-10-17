@@ -1,8 +1,7 @@
 """GLOBAL FREELANCER ECOSYSTEM API.
 
-Provides provider readiness discovery plus authenticated owner-scoped freelancer
-metadata records. External provider connections are not considered live until
-provider-specific authorization and health checks have been implemented.
+Provides provider readiness, owner-scoped freelancer records, and public-source
+research for freelance work, prospective clients, and business opportunities.
 """
 from __future__ import annotations
 
@@ -13,6 +12,9 @@ from pydantic import BaseModel, Field
 
 from backend.engines.freelancer_ecosystem.manager import FreelancerEcosystemEngine
 from backend.engines.freelancer_ecosystem.providers import get_freelancer_provider_status
+from backend.freelancer.global_freelancer_ecosystem.research_engine import (
+    FreelancerResearchEngine,
+)
 from backend.security.dependencies import get_current_user
 
 
@@ -41,6 +43,10 @@ def _engine() -> FreelancerEcosystemEngine:
     return FreelancerEcosystemEngine()
 
 
+def _research_engine() -> FreelancerResearchEngine:
+    return FreelancerResearchEngine()
+
+
 @router.get("/status")
 def freelancer_ecosystem_status() -> dict[str, Any]:
     return _engine().status()
@@ -55,6 +61,43 @@ def freelancer_ecosystem_catalog() -> dict[str, Any]:
 def freelancer_provider_catalog() -> dict[str, Any]:
     """Expose safe readiness metadata, never credential values or tokens."""
     return get_freelancer_provider_status()
+
+
+@router.get("/research/status")
+def freelancer_research_status() -> dict[str, Any]:
+    """Return provider readiness without revealing API key values."""
+    return _research_engine().status()
+
+
+@router.get("/research/search")
+def search_freelance_opportunities(
+    q: str = Query(min_length=2, max_length=220, description="Skill, service, or opportunity keyword"),
+    market: str = Query(default="global", pattern="^(bharat|global)$"),
+    category: str = Query(default="freelance_work", pattern="^(freelance_work|clients|business|research)$"),
+    limit: int = Query(default=10, ge=1, le=20),
+    current_user: dict[str, Any] = Depends(get_current_user),
+) -> dict[str, Any]:
+    """Search public web indexes for source-backed leads; authentication is required."""
+    _actor_id(current_user)
+    try:
+        result = _research_engine().search(
+            query=q,
+            market=market,
+            category=category,
+            limit=limit,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    if result.get("status") == "SEARCH_PROVIDER_CONFIGURATION_REQUIRED":
+        raise HTTPException(
+            status_code=503,
+            detail={
+                "code": "SEARCH_PROVIDER_CONFIGURATION_REQUIRED",
+                "message": "Configure BRAVE_SEARCH_API_KEY or GOOGLE_CSE_API_KEY plus GOOGLE_CSE_CX in the backend environment.",
+                "provider_status": result.get("provider_status", []),
+            },
+        )
+    return result
 
 
 @router.get("/records")
