@@ -57,6 +57,6 @@ def test_freelancer_engine_does_not_claim_production_ready(tmp_path, monkeypatch
     providers = status["provider_integrations"]["providers"]
     google_drive = next(item for item in providers if item["provider_id"] == "google_drive")
     apple_sign_in = next(item for item in providers if item["provider_id"] == "apple_sign_in")
-    assert google_drive["implementation_status"] == "SCAFFOLD_ONLY"
+    assert google_drive["implementation_status"] == "API_ADAPTER_AVAILABLE_OAUTH_FLOW_PENDING"
     assert apple_sign_in["category"] == "IDENTITY"
     assert apple_sign_in["connected"] is False
