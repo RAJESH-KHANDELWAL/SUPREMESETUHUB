@@ -1,7 +1,7 @@
 """Private SUPREME OWNER ADMIN control-plane metadata.
 
-This module centralizes the owner's governance boundary and owned-platform registry.
-It never returns credentials or claims external platforms are live-connected.
+Every configured owner Google account is treated as a PRIMARY owner account.
+No Google account is classified as secondary by this registry.
 """
 from __future__ import annotations
 
@@ -32,7 +32,10 @@ WORDPRESS_SITES: tuple[dict[str, str], ...] = (
     },
 )
 
-GOOGLE_OWNER_ACCOUNT_ENV_VARS = (
+# Legacy variables are accepted as email sources for compatibility only.
+# They do not establish a primary/secondary hierarchy in this registry.
+GOOGLE_OWNER_EMAIL_SOURCE_VARS = (
+    "SUPREME_OWNER_EMAILS",
     "SUPREME_OWNER_PRIMARY_EMAIL",
     "SUPREME_OWNER_SECONDARY_EMAIL",
     "SUPREME_OWNER_RECOVERY_EMAIL",
@@ -48,6 +51,12 @@ GOOGLE_OWNER_SERVICES = (
     "GOOGLE_MEET",
     "YOUTUBE",
     "GOOGLE_ANALYTICS",
+)
+GOOGLE_OWNER_PURPOSES = (
+    "BANKING_AND_FINANCIAL_NOTIFICATIONS",
+    "SENSITIVE_DOCUMENTS_AND_RECORDS",
+    "PLATFORM_OWNERSHIP_AND_ADMINISTRATION",
+    "GOOGLE_WORKSPACE_AND_PRODUCTIVITY",
 )
 
 OWNER_CONTROLLED_DOMAINS = (
@@ -75,24 +84,26 @@ class SupremeOwnerAdminService:
         )
 
     def google_owner_accounts(self) -> list[dict[str, Any]]:
-        """Return owner-approved Google identities from deployment environment only.
+        """List all configured owner Google accounts at equal PRIMARY tier.
 
-        Account allowlisting is not OAuth consent and does not imply that Gmail or Drive
-        has been connected. OAuth callback/state validation, encrypted token storage,
-        and provider API verification must be completed separately.
+        The list is an allowlist only. It is not OAuth consent or proof that Gmail,
+        Drive, banking systems, or other platforms are connected. Never place banking
+        passwords, card data, recovery codes, or provider tokens in this registry.
         """
         emails: list[str] = []
-        # Optional consolidated list supports deployments with more than two accounts.
-        consolidated = os.getenv("GOOGLE_OWNER_ACCOUNT_EMAILS", "")
-        for email in consolidated.replace(";", ",").split(","):
-            normalized = email.strip().casefold()
-            if normalized and normalized not in emails:
-                emails.append(normalized)
 
-        for env_name in GOOGLE_OWNER_ACCOUNT_ENV_VARS:
-            normalized = os.getenv(env_name, "").strip().casefold()
-            if normalized and normalized not in emails:
-                emails.append(normalized)
+        def add_emails(raw: str) -> None:
+            for item in raw.replace(";", ",").split(","):
+                normalized = item.strip().casefold()
+                if normalized and normalized not in emails:
+                    emails.append(normalized)
+
+        # Canonical variable supports any number of owner-controlled Gmail accounts.
+        add_emails(os.getenv("GOOGLE_OWNER_ACCOUNT_EMAILS", ""))
+
+        # Include all configured owner emails; legacy variable names do not imply rank.
+        for env_name in GOOGLE_OWNER_EMAIL_SOURCE_VARS:
+            add_emails(os.getenv(env_name, ""))
 
         oauth_configured = self._google_oauth_configured()
         return [
@@ -100,7 +111,9 @@ class SupremeOwnerAdminService:
                 "account_id": f"google-owner-{index + 1}",
                 "email": email,
                 "provider": "GOOGLE",
+                "owner_account_tier": "PRIMARY",
                 "ownership_scope": "SUPREME_OWNER_PRIVATE",
+                "purposes": list(GOOGLE_OWNER_PURPOSES),
                 "approved_services": list(GOOGLE_OWNER_SERVICES),
                 "oauth_app_configured": oauth_configured,
                 "authorization_status": (
@@ -132,6 +145,7 @@ class SupremeOwnerAdminService:
             ),
             "controlled_domains": list(OWNER_CONTROLLED_DOMAINS),
             "google_owner_account_count": len(google_accounts),
+            "google_owner_account_tier": "ALL_PRIMARY",
             "google_oauth_app_configured": self._google_oauth_configured(),
             "wordpress_site_count": len(WORDPRESS_SITES),
             "wordpress_sites_configured": sum(
@@ -174,10 +188,12 @@ class SupremeOwnerAdminService:
             "owned_platforms": self.owned_platforms(),
             "security_rules": [
                 "No public SUPREME owner dashboard or owner-management endpoints",
+                "All configured owner Google accounts are equal PRIMARY accounts; no secondary tier is assigned by this registry",
                 "Owner identity is determined by the configured backend username and a valid session token",
                 "WordPress credentials and Google OAuth client secrets stay in private backend deployment secrets",
                 "Google account allowlisting is not OAuth consent and does not prove Gmail or Drive is connected",
-                "Google OAuth tokens must not be exposed in API responses and require encrypted persistent storage before live use",
+                "Banking passwords, payment credentials, recovery codes, and OAuth tokens must not be stored in the account registry",
+                "Google OAuth tokens require encrypted persistent storage before live use",
                 "External WordPress connectivity must be verified separately per site",
                 "Never expose passwords, OAuth secrets, tokens, or database credentials in API responses",
             ],
