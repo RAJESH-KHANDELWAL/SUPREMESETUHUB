@@ -68,6 +68,7 @@ OWNER_CONTROLLED_DOMAINS = (
     "SECURITY AND ACCESS CONTROL",
     "API AND INTEGRATION SETTINGS",
     "GOOGLE ACCOUNTS AND SERVICES",
+    "GLOBAL BUSINESS COACHING AND CONSULTING",
     "WORDPRESS SITES",
     "DASHBOARD AND AUDIT",
 )
@@ -126,6 +127,43 @@ class SupremeOwnerAdminService:
             for index, email in enumerate(emails)
         ]
 
+    def global_business_coach_profile(self) -> dict[str, Any]:
+        """Describe the public-facing global coaching and consulting contact.
+
+        This registry entry does not itself forward messages or prove that the
+        mailbox is connected. Lead intake, forwarding, and delivery need separate
+        setup and end-to-end verification.
+        """
+        email = os.getenv(
+            "GLOBAL_BUSINESS_COACH_EMAIL",
+            "drrajeshkhandelwalibc@gmail.com",
+        ).strip().casefold()
+        return {
+            "profile_id": "dr-rajesh-khandelwal-ibc-global-business-coach",
+            "brand": "DR RAJESH KHANDELWAL IBC",
+            "role": "GLOBAL BUSINESS COACH AND INDEPENDENT BUSINESS CONSULTANT",
+            "contact_email": email or None,
+            "audience": [
+                "BHARAT AND GLOBAL WORLD",
+                "BUSINESS OWNERS AND PROFESSIONALS",
+                "ENTREPRENEURS AND STARTUP FOUNDERS",
+                "ENTREPRENEURSHIP AND BUSINESS BUILDERS",
+                "FREELANCERS AND INDEPENDENT CONSULTANTS",
+                "PEOPLE SEEKING BUSINESS COLLABORATIONS",
+                "WORK, SERVICE, AND PARTNERSHIP OPPORTUNITIES",
+            ],
+            "scope": [
+                "BUSINESS COACHING AND CONSULTING",
+                "BUSINESS NETWORKING AND COLLABORATION",
+                "ENTREPRENEURSHIP AND STARTUP CONNECTIONS",
+                "FREELANCE, WORK, AND SERVICE LEADS",
+                "AUTHORIZED ECOSYSTEM AND PLATFORM INQUIRIES",
+            ],
+            "intake_status": "CONTACT_REGISTERED_NOT_LIVE_VERIFIED",
+            "automatic_forwarding_enabled": False,
+            "mailbox_connection_verified": False,
+        }
+
     def owner_status(self) -> dict[str, Any]:
         configured_username = str(SUPREME_OWNER_USERNAME or "").strip()
         google_accounts = self.google_owner_accounts()
@@ -145,6 +183,7 @@ class SupremeOwnerAdminService:
             ),
             "controlled_domains": list(OWNER_CONTROLLED_DOMAINS),
             "google_owner_account_count": len(google_accounts),
+            "global_business_coach_contact_registered": bool(self.global_business_coach_profile()["contact_email"]),
             "google_owner_account_tier": "ALL_PRIMARY",
             "google_oauth_app_configured": self._google_oauth_configured(),
             "wordpress_site_count": len(WORDPRESS_SITES),
@@ -185,6 +224,7 @@ class SupremeOwnerAdminService:
             "success": True,
             "owner": self.owner_status(),
             "google_owner_accounts": self.google_owner_accounts(),
+            "global_business_coach_profile": self.global_business_coach_profile(),
             "owned_platforms": self.owned_platforms(),
             "security_rules": [
                 "No public SUPREME owner dashboard or owner-management endpoints",
@@ -192,6 +232,7 @@ class SupremeOwnerAdminService:
                 "Owner identity is determined by the configured backend username and a valid session token",
                 "WordPress credentials and Google OAuth client secrets stay in private backend deployment secrets",
                 "Google account allowlisting is not OAuth consent and does not prove Gmail or Drive is connected",
+                "Global business coach contact registration does not itself enable email forwarding or verify mailbox delivery",
                 "Banking passwords, payment credentials, recovery codes, and OAuth tokens must not be stored in the account registry",
                 "Google OAuth tokens require encrypted persistent storage before live use",
                 "External WordPress connectivity must be verified separately per site",
