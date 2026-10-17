@@ -2,15 +2,11 @@
 from __future__ import annotations
 
 import os
-from typing import Iterable
 
 
-def present_any(*groups: Iterable[str]) -> bool:
+def present_any(*groups: tuple[str, ...]) -> bool:
     """Return true when at least one complete credential/configuration group exists."""
-    return any(
-        all(os.getenv(key, "").strip() for key in group)
-        for group in groups
-    )
+    return any(all(os.getenv(key, "").strip() for key in group) for group in groups)
 
 
 def provider_health(
@@ -22,15 +18,10 @@ def provider_health(
     required_configuration: list[str],
     capabilities: list[str],
 ) -> dict:
-    """Report configuration state without implying a live connection.
-
-    Never return environment values, credential fragments, or private keys.
-    A real adapter must run an authorized provider-specific probe before it may
-    report a connected state.
-    """
+    """Report configuration without implying live connectivity or exposing secrets."""
     missing = [
         key for key in required_configuration
-        if not os.getenv(key, "").strip()
+        if key.isidentifier() and not os.getenv(key, "").strip()
     ]
     return {
         "provider": provider,
@@ -43,8 +34,8 @@ def provider_health(
         "capabilities": capabilities,
         "missing_configuration": missing,
         "note": (
-            "Credentials are detected but no live provider operation has been verified."
+            "Configuration is present, but no live provider operation has been verified."
             if configured else
-            "Set the required server-side environment variables; never commit secrets."
+            "Set required server-side environment variables; never commit secrets."
         ),
     }
