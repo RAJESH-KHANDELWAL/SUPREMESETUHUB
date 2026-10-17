@@ -78,7 +78,7 @@ PROVIDER_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
 
 
 AI_API_PROVIDER_IDS = {
-    "openai", "google", "microsoft", "aws", "anthropic", "meta",
+    "openai", "google", "microsoft", "aws", "nsfwinfra", "anthropic", "meta",
     "nvidia", "huggingface", "deepseek", "mistral", "cohere", "oracle", "ibm",
 }
 
