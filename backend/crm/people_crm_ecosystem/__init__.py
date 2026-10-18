@@ -1,0 +1,1 @@
+"""People-facing CRM ecosystem, separate from the owner's private CRM."""\n\nfrom .service import PeopleCRMEcosystem\n\n__all__ = ["PeopleCRMEcosystem"]\n
