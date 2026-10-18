@@ -104,7 +104,7 @@ def list_contacts(
 def create_contact(
     request: ContactCreate,
     user: dict[str, Any] = Depends(get_current_user),
-    service: CRMService = Depends(_service_for_request),
+    service: CRMService = Depends(get_crm_service),
 ) -> dict[str, Any]:
     try:
         record = service.create_contact(_actor(user), _actor(user), request.model_dump())
@@ -117,7 +117,7 @@ def create_contact(
 def get_contact(
     contact_id: str,
     user: dict[str, Any] = Depends(get_current_user),
-    service: CRMService = Depends(_service_for_request),
+    service: CRMService = Depends(get_crm_service),
 ) -> dict[str, Any]:
     record = service.get_contact(_actor(user), contact_id)
     if record is None:
@@ -130,7 +130,7 @@ def update_contact(
     contact_id: str,
     request: ContactUpdate,
     user: dict[str, Any] = Depends(get_current_user),
-    service: CRMService = Depends(_service_for_request),
+    service: CRMService = Depends(get_crm_service),
 ) -> dict[str, Any]:
     try:
         record = service.update_contact(_actor(user), _actor(user), contact_id, request.model_dump(exclude_unset=True))
@@ -145,7 +145,7 @@ def update_contact(
 def delete_contact(
     contact_id: str,
     user: dict[str, Any] = Depends(get_current_user),
-    service: CRMService = Depends(_service_for_request),
+    service: CRMService = Depends(get_crm_service),
 ) -> dict[str, Any]:
     if not service.delete_contact(_actor(user), _actor(user), contact_id):
         raise HTTPException(status_code=404, detail="CRM_CONTACT_NOT_FOUND")
@@ -155,7 +155,7 @@ def delete_contact(
 @router.get("/ai/duplicates")
 def ai_duplicate_suggestions(
     user: dict[str, Any] = Depends(get_current_user),
-    service: CRMService = Depends(_service_for_request),
+    service: CRMService = Depends(get_crm_service),
 ) -> dict[str, Any]:
     return {"success": True, "method": "RULES_BASED_MATCHING", "auto_merge": False,
             "human_review_required": True, "data": service.duplicate_candidates(_actor(user))}
@@ -164,7 +164,7 @@ def ai_duplicate_suggestions(
 @router.get("/ai/categories")
 def ai_category_suggestions(
     user: dict[str, Any] = Depends(get_current_user),
-    service: CRMService = Depends(_service_for_request),
+    service: CRMService = Depends(get_crm_service),
 ) -> dict[str, Any]:
     return {"success": True, "method": "TRANSPARENT_RULES", "auto_apply": False,
             "human_approval_required": True, "data": service.category_suggestions(_actor(user))}
@@ -173,7 +173,7 @@ def ai_category_suggestions(
 @router.get("/ai/follow-ups")
 def ai_follow_up_suggestions(
     user: dict[str, Any] = Depends(get_current_user),
-    service: CRMService = Depends(_service_for_request),
+    service: CRMService = Depends(get_crm_service),
 ) -> dict[str, Any]:
     return {"success": True, "auto_message_sent": False, "data": service.follow_up_suggestions(_actor(user))}
 
@@ -181,7 +181,7 @@ def ai_follow_up_suggestions(
 @router.get("/reports/summary")
 def report_summary(
     user: dict[str, Any] = Depends(get_current_user),
-    service: CRMService = Depends(_service_for_request),
+    service: CRMService = Depends(get_crm_service),
 ) -> dict[str, Any]:
     return service.report(_actor(user))
 
@@ -191,7 +191,7 @@ def create_message_draft(
     contact_id: str,
     request: MessageDraftRequest,
     user: dict[str, Any] = Depends(get_current_user),
-    service: CRMService = Depends(_service_for_request),
+    service: CRMService = Depends(get_crm_service),
 ) -> dict[str, Any]:
     try:
         draft = service.draft_message(_actor(user), contact_id, request.purpose, request.tone)
@@ -239,7 +239,7 @@ def commit_import(
 def list_audit_events(
     limit: int = Query(default=100, ge=1, le=500),
     user: dict[str, Any] = Depends(get_current_user),
-    service: CRMService = Depends(_service_for_request),
+    service: CRMService = Depends(get_crm_service),
 ) -> dict[str, Any]:
     role = str(user.get("role", "USER")).upper()
     if role not in {"OWNER", "ADMIN"}:
