@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102a56">
+<title>SUPREME CRM | Contact Intelligence & Daily Work</title>
+<link rel="stylesheet" href="crm.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <p class="eyebrow">SUPREMESETUHUB · PEOPLE CRM</p>
+    <h1>Contact Intelligence</h1>
+    <p class="muted">Contact quality, follow-ups and daily work — one view.</p>
+  </div>
+  <div class="top-actions">
+    <a class="button secondary" href="index.html">← SUPREME Dashboard</a>
+    <button id="refreshBtn" class="button primary">Refresh data</button>
+    <button id="logoutBtn" class="button secondary">Sign out</button>
+  </div>
+</header>
+<main class="wrap">
+  <div id="notice" class="notice" role="status">Checking your secure session…</div>
+  <section class="stats" aria-label="CRM summary">
+    <article class="stat"><span>Total contacts</span><strong id="totalContacts">—</strong><small>Contacts in your account</small></article>
+    <article class="stat"><span>Needs review</span><strong id="flaggedContacts">—</strong><small>Missing or suspicious fields</small></article>
+    <article class="stat"><span>Unverified</span><strong id="unverifiedContacts">—</strong><small>Format is not proof of identity</small></article>
+    <article class="stat"><span>Overdue follow-ups</span><strong id="overdueFollowups">—</strong><small>Check next action</small></article>
+  </section>
+
+  <section class="panel">
+    <div class="section-heading"><div><p class="eyebrow">DATA QUALITY</p><h2>Contact review queue</h2></div><span class="pill warning">Human review before decisions</span></div>
+    <p class="muted">Rows here have a missing field, a format issue or a verification concern. The score measures completeness/format, not whether the person is real.</p>
+    <div class="table-scroll"><table><thead><tr><th>Contact</th><th>Score</th><th>Flag reasons</th><th>Next action</th></tr></thead><tbody id="qualityRows"><tr><td colspan="4">Loading review queue…</td></tr></tbody></table></div>
+  </section>
+
+  <div class="columns">
+    <section class="panel">
+      <div class="section-heading"><div><p class="eyebrow">YOUR DAY</p><h2>Daily work</h2></div><button id="reloadBriefing" class="button secondary">Refresh</button></div>
+      <div id="dailySummary" class="daily-summary">Loading tasks…</div>
+      <form id="taskForm" class="form-grid">
+        <label>Task title<input id="taskTitle" required maxlength="200" placeholder="e.g. Call agent about proposal"></label>
+        <label>Type<select id="taskType"><option value="TASK">Task</option><option value="CALL">Call</option><option value="MEETING">Meeting</option><option value="FOLLOW_UP">Follow-up</option><option value="NOTE">Note</option><option value="PERSONAL">Personal</option></select></label>
+        <label>Due date/time<input id="taskDue" type="datetime-local"></label>
+        <label>Link contact (optional)<select id="taskContact"><option value="">No contact linked</option></select></label>
+        <label class="span-2">Details<textarea id="taskDetails" rows="2" maxlength="4000" placeholder="Context and next step"></textarea></label>
+        <button class="button primary span-2" type="submit">+ Add to daily work</button>
+      </form>
+      <div id="taskRows" class="task-list"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading"><div><p class="eyebrow">RELATIONSHIP HISTORY</p><h2>Log contact activity</h2></div></div>
+      <form id="activityForm" class="form-grid">
+        <label class="span-2">Contact<select id="activityContact" required><option value="">Choose contact</option></select></label>
+        <label>Activity type<select id="activityType"><option value="CALL">Call</option><option value="MEETING">Meeting</option><option value="EMAIL">Email</option><option value="WHATSAPP">WhatsApp</option><option value="NOTE">Note</option><option value="TASK">Task</option><option value="STATUS_CHANGE">Status change</option><option value="OTHER">Other</option></select></label>
+        <label>Summary<input id="activitySummary" required maxlength="200" placeholder="What happened?"></label>
+        <label class="span-2">Details<textarea id="activityDetails" rows="2" maxlength="4000" placeholder="Useful context, no passwords or unnecessary sensitive data"></textarea></label>
+        <label class="span-2">Outcome<input id="activityOutcome" maxlength="1000" placeholder="e.g. Requested a proposal"></label>
+        <label class="span-2">Next follow-up<input id="activityFollowup" type="datetime-local"></label>
+        <button class="button primary span-2" type="submit">Save activity to timeline</button>
+      </form>
+      <div class="timeline-heading"><h3>Recent activity</h3><button id="loadTimeline" class="button secondary">Load selected contact</button></div>
+      <div id="timelineRows" class="timeline"><p class="muted">Choose a contact and load its history.</p></div>
+    </section>
+  </div>
+
+  <section class="panel">
+    <div class="section-heading"><div><p class="eyebrow">CONTACT DIRECTORY</p><h2>Your contacts</h2></div><input id="contactSearch" class="search" placeholder="Search name, company, city…" aria-label="Search contacts"></div>
+    <div class="table-scroll"><table><thead><tr><th>Name</th><th>Company</th><th>Phone</th><th>Email</th><th>City</th><th>Verification</th></tr></thead><tbody id="contactRows"><tr><td colspan="6">Loading contacts…</td></tr></tbody></table></div>
+    <p class="footnote">Contact details are private to the signed-in user. This page does not automatically send messages or independently verify contact ownership.</p>
+  </section>
+</main>
+<script src="crm.js"></script>
+</body>
+</html>
