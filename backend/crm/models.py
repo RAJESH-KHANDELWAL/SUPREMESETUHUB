@@ -20,6 +20,8 @@ class Contact:
     tags: tuple[str, ...] = field(default_factory=tuple)
     consent_to_contact: bool = False
     contact_status: str = "ACTIVE"
+    category: str = "UNCATEGORIZED"
+    follow_up_at: str | None = None
 
     def to_dict(self) -> dict[str, Any]:
         result = asdict(self)
