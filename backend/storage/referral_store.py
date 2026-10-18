@@ -52,6 +52,9 @@ class ReferralStore:
     def update_commission_status(self, commission_id: str, status: str) -> dict[str, Any] | None:
         return self.repository.update_commission_status(commission_id, status)
 
+    def summary_counts(self) -> dict[str, int]:
+        return self.repository.summary_counts()
+
     def list_commissions(self, status: str | None = None, limit: int = 100) -> list[dict[str, Any]]:
         return self.repository.list_commissions(status, limit)
 
