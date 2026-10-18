@@ -18,6 +18,8 @@ class CRMRepository:
         "pincode": "TEXT NOT NULL DEFAULT ''",
         "designation": "TEXT NOT NULL DEFAULT ''",
         "verification_status": "TEXT NOT NULL DEFAULT 'UNVERIFIED'",
+        "verification_evidence": "TEXT NOT NULL DEFAULT ''",
+        "verified_at": "TEXT",
     }
 
     def __init__(self, database: DatabaseService | None = None) -> None:
@@ -39,6 +41,8 @@ class CRMRepository:
                 pincode TEXT NOT NULL DEFAULT '',
                 designation TEXT NOT NULL DEFAULT '',
                 verification_status TEXT NOT NULL DEFAULT 'UNVERIFIED',
+                verification_evidence TEXT NOT NULL DEFAULT '',
+                verified_at TEXT,
                 source TEXT NOT NULL DEFAULT 'MANUAL',
                 external_id TEXT NOT NULL DEFAULT '',
                 notes TEXT NOT NULL DEFAULT '',
@@ -117,16 +121,16 @@ class CRMRepository:
             """INSERT INTO crm_contacts
             (contact_id, owner_user_id, full_name, email, phone, whatsapp_phone,
              organization, address, city, pincode, designation, verification_status,
-             source, external_id, notes, tags_json, consent_to_contact,
-             contact_status, category, follow_up_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+             verification_evidence, verified_at, source, external_id, notes, tags_json,
+             consent_to_contact, contact_status, category, follow_up_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
             (
                 contact_id, owner_user_id, data["full_name"], data.get("email", ""),
                 data.get("phone", ""), data.get("whatsapp_phone", ""),
                 data.get("organization", ""), data.get("address", ""),
                 data.get("city", ""), data.get("pincode", ""),
                 data.get("designation", ""), data.get("verification_status", "UNVERIFIED"),
-                data.get("source", "MANUAL"), data.get("external_id", ""),
+                data.get("verification_evidence", ""), data.get("verified_at"), data.get("source", "MANUAL"), data.get("external_id", ""),
                 data.get("notes", ""), json.dumps(data.get("tags", [])),
                 int(bool(data.get("consent_to_contact", False))),
                 data.get("contact_status", "ACTIVE"),
@@ -167,6 +171,7 @@ class CRMRepository:
             "whatsapp_phone": "whatsapp_phone", "organization": "organization",
             "address": "address", "city": "city", "pincode": "pincode",
             "designation": "designation", "verification_status": "verification_status",
+            "verification_evidence": "verification_evidence", "verified_at": "verified_at",
             "source": "source", "external_id": "external_id", "notes": "notes",
             "tags": "tags_json", "consent_to_contact": "consent_to_contact",
             "contact_status": "contact_status", "category": "category", "follow_up_at": "follow_up_at",
