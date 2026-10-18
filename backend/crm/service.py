@@ -62,7 +62,7 @@ class CRMService:
         existing = self.repository.get_contact(owner, contact_id)
         if existing is None:
             return None
-        changes = dict(changes)
+        changes = {key: value for key, value in changes.items() if value is not None or key == "follow_up_at"}
         if "full_name" in changes and changes["full_name"] is not None:
             changes["full_name"] = changes["full_name"].strip()
         merged = dict(existing)
