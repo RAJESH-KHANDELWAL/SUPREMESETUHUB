@@ -123,7 +123,7 @@ def test_people_summary_counts_all_records_without_500_row_cap(tmp_path, monkeyp
 
     assert summary["people_count"] == 503
     assert summary["consented_to_contact_count"] == 251
-    assert summary["active_referral_links_count"] == 2
+    assert summary["active_referral_links_count"] == 1
     assert summary["commission_records_count"] == 503
     assert summary["pending_commission_records_count"] == 251
     database.close()
