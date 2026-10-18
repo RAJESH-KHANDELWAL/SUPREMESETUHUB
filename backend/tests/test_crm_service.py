@@ -69,3 +69,26 @@ def test_invalid_do_not_contact_consent_combination_is_rejected(crm):
         crm.update_contact("u", "u", record["contact_id"], {
             "contact_status": "DO_NOT_CONTACT", "consent_to_contact": True,
         })
+
+
+def test_import_preview_does_not_write_and_commit_requires_confirmation(crm):
+    rows = [{"Name": "Imported Person", "Email": "imported@example.com"}]
+    preview = crm.preview_import("u", "GOOGLE_SHEETS", rows)
+    assert preview["ready_count"] == 1
+    assert preview["records_written"] == 0
+    assert preview["no_data_written"] is True
+    assert crm.repository.counts("u")["total_contacts"] == 0
+    with pytest.raises(PermissionError, match="HUMAN_IMPORT_CONFIRMATION_REQUIRED"):
+        crm.commit_import("u", "u", "GOOGLE_SHEETS", rows, confirm_import=False)
+    result = crm.commit_import("u", "u", "GOOGLE_SHEETS", rows, confirm_import=True)
+    assert result["records_imported"] == 1
+    assert crm.repository.counts("u")["total_contacts"] == 1
+
+
+def test_import_preview_flags_existing_duplicate_for_human_review(crm):
+    crm.create_contact("u", "u", {"full_name": "Existing", "email": "same@example.com"})
+    preview = crm.preview_import("u", "GOOGLE_SHEETS", [
+        {"Name": "Incoming", "Email": "same@example.com"}
+    ])
+    assert preview["duplicate_review_count"] == 1
+    assert preview["records_written"] == 0
