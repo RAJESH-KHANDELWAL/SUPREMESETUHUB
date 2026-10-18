@@ -1,0 +1,1 @@
+"""CRM domain modules; private and people-facing CRM boundaries stay separate."""\n
