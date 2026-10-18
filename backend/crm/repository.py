@@ -62,7 +62,9 @@ class CRMRepository:
         return item
 
     def create_contact(self, owner_user_id: str, data: dict[str, Any]) -> dict[str, Any]:
-        contact_id = data.get("contact_id") or f"CRM-{uuid4().hex}"
+        contact_id = data.get("contact_id")
+        if not contact_id or contact_id == "pending":
+            contact_id = f"CRM-{uuid4().hex}"
         self.database.execute(
             """INSERT INTO crm_contacts
             (contact_id, owner_user_id, full_name, email, phone, organization,
