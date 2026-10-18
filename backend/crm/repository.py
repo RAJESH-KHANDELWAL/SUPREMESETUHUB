@@ -76,6 +76,19 @@ class CRMRepository:
                 updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
             )""",
             "CREATE INDEX IF NOT EXISTS idx_crm_daily_items_owner_due ON crm_daily_items(owner_user_id, status, due_at)",
+            """CREATE TABLE IF NOT EXISTS crm_contact_activities (
+                activity_id TEXT PRIMARY KEY,
+                owner_user_id TEXT NOT NULL,
+                actor_user_id TEXT NOT NULL,
+                contact_id TEXT NOT NULL,
+                activity_type TEXT NOT NULL,
+                summary TEXT NOT NULL,
+                details TEXT NOT NULL DEFAULT '',
+                outcome TEXT NOT NULL DEFAULT '',
+                next_follow_up_at TEXT,
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+            )""",
+            "CREATE INDEX IF NOT EXISTS idx_crm_activities_owner_contact_time ON crm_contact_activities(owner_user_id, contact_id, created_at DESC)",
         )
         for statement in statements:
             self.database.execute(statement)
@@ -211,6 +224,38 @@ class CRMRepository:
                 item["details"] = {}
             events.append(item)
         return events
+
+
+    def create_activity(self, owner_user_id: str, actor_user_id: str, data: dict[str, Any]) -> dict[str, Any]:
+        activity_id = f"CRM-ACT-{uuid4().hex}"
+        self.database.execute(
+            """INSERT INTO crm_contact_activities
+            (activity_id, owner_user_id, actor_user_id, contact_id, activity_type,
+             summary, details, outcome, next_follow_up_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            (activity_id, owner_user_id, actor_user_id, data["contact_id"],
+             data.get("activity_type", "NOTE"), data["summary"], data.get("details", ""),
+             data.get("outcome", ""), data.get("next_follow_up_at")),
+        )
+        self.log_event(owner_user_id, actor_user_id, "CONTACT_ACTIVITY_LOGGED", data["contact_id"],
+                       {"activity_id": activity_id, "activity_type": data.get("activity_type", "NOTE")})
+        return self.get_activity(owner_user_id, activity_id)  # type: ignore[return-value]
+
+    def get_activity(self, owner_user_id: str, activity_id: str) -> dict[str, Any] | None:
+        row = self.database.fetchone(
+            "SELECT * FROM crm_contact_activities WHERE owner_user_id = ? AND activity_id = ?",
+            (owner_user_id, activity_id),
+        )
+        return dict(row) if row is not None else None
+
+    def list_activities(self, owner_user_id: str, contact_id: str, limit: int = 100) -> list[dict[str, Any]]:
+        rows = self.database.fetchall(
+            """SELECT * FROM crm_contact_activities
+               WHERE owner_user_id = ? AND contact_id = ?
+               ORDER BY created_at DESC LIMIT ?""",
+            (owner_user_id, contact_id, limit),
+        )
+        return [dict(row) for row in rows]
 
     def create_daily_item(self, owner_user_id: str, actor_user_id: str, data: dict[str, Any]) -> dict[str, Any]:
         item_id = f"CRM-WORK-{uuid4().hex}"
