@@ -23,10 +23,6 @@ def _actor(user: dict[str, Any]) -> str:
     return str(user.get("user_id") or user.get("username") or "")
 
 
-def _service_for_request() -> CRMService:
-    return get_crm_service()
-
-
 class ContactCreate(BaseModel):
     full_name: str = Field(min_length=1, max_length=200)
     email: str = Field(default="", max_length=320)
@@ -88,7 +84,7 @@ def list_contacts(
     contact_status: str | None = None,
     limit: int = Query(default=100, ge=1, le=500),
     user: dict[str, Any] = Depends(get_current_user),
-    service: CRMService = Depends(_service_for_request),
+    service: CRMService = Depends(get_crm_service),
 ) -> dict[str, Any]:
     records = service.list_contacts(_actor(user), category=category, contact_status=contact_status, limit=limit)
     return {"success": True, "count": len(records), "data": records}
