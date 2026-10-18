@@ -12,7 +12,7 @@ def test_provider_registry_imports_and_contains_requested_ecosystems():
 def test_apple_provider_is_implemented_and_does_not_claim_connection():
     provider = AppleProvider()
     assert provider.metadata()["name"] == "APPLE"
-    assert provider.health()["connection"] == "NOT_CONNECTED"
+    assert provider.health()["connection"] == "NOT_TESTED"
 
 
 def test_esa_provider_is_catalog_only_until_connected():

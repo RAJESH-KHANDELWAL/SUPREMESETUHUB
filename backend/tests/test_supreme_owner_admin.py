@@ -179,7 +179,7 @@ def test_role_governance_catalog_is_for_authenticated_business_platform_users():
         for route in businesses_router.routes
         if getattr(route, "methods", None)
     }
-    path = "/role-governance/catalog"
+    path = "/businesses/role-governance/catalog"
     assert path in routes
     assert any(
         dependency.call is get_current_user
