@@ -30,3 +30,15 @@ Private owner-control routes:
 - `/api/v1/supreme-ecosystem/ai/status`
 
 Public API route registration does not imply public data access; the backend's owner-only middleware applies. Provider credentials and live runtime behavior still require deployment configuration and tests.
+
+
+## CRM Ecosystem boundary
+
+The shared people-facing CRM domain is implemented in `backend/crm/`. The CRM
+Ecosystem integration point is `backend/supreme/supreme_ecosystem/crm.py` and
+belongs only to this Supreme Ecosystem layer. Do not create a nested
+`backend/crm/people_crm_ecosystem/` package or merge the owner's private CRM data.
+
+Google Contacts and Google Sheets must remain NOT_CONNECTED until OAuth,
+least-privilege scopes, secure token storage, provider adapters, sync policies,
+and integration tests are complete. Read-only preview is not live synchronization.
