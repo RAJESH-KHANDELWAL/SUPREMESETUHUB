@@ -135,3 +135,17 @@ def test_daily_work_items_are_user_scoped_and_audited(crm):
     assert crm.daily_briefing("u1")["summary"]["done"] == 1
     assert any(event["action"] == "DAILY_ITEM_STATUS_CHANGED"
                for event in crm.repository.list_audit_events("u1"))
+
+
+def test_contact_activity_timeline_is_user_scoped_and_audited(crm):
+    contact = crm.create_contact("u1", "u1", {"full_name": "Asha", "phone": "9876543210"})
+    activity = crm.log_activity("u1", "u1", {
+        "contact_id": contact["contact_id"], "activity_type": "CALL",
+        "summary": "Discussed requested service", "outcome": "Asked for proposal",
+        "next_follow_up_at": "2026-10-19T11:00:00",
+    })
+    assert activity["activity_type"] == "CALL"
+    assert crm.contact_timeline("u1", contact["contact_id"])[0]["activity_id"] == activity["activity_id"]
+    assert crm.contact_timeline("u2", contact["contact_id"]) is None
+    assert any(event["action"] == "CONTACT_ACTIVITY_LOGGED"
+               for event in crm.repository.list_audit_events("u1"))
