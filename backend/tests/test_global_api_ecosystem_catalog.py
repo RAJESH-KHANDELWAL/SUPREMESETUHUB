@@ -40,3 +40,21 @@ def test_existing_global_api_ecosystem_modules_are_registered():
 
 def test_unknown_provider_returns_none():
     assert get_provider_ecosystem("not-a-provider") is None
+
+
+def test_google_provider_links_existing_cross_subsystem_modules():
+    google = get_provider_ecosystem("google")
+    paths = set(google["related_ecosystem_paths"])
+    assert {
+        "backend/google.py",
+        "backend/google.php",
+        "backend/google/google_ecosystem.py",
+        "backend/google/google_ecosystem.php",
+        "backend/google/google_ecosystem/service.py",
+        "backend/api/google_ecosystem.py",
+        "backend/cloud/global_ecosystem/global_cloud_ecosystem/google_cloud/service.py",
+        "backend/database/global_ecosystem/global_database_ecosystem/google_database_ecosystem/service.py",
+        "backend/dns/global_ecosystem/global_dns_ecosystem/google_dns/service.py",
+        "backend/server/global_ecosystem/global_server_ecosystem/google_server/service.py",
+        "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage/service.py",
+    } <= paths
