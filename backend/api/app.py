@@ -189,6 +189,15 @@ PUBLIC_API_PATHS = {
     "/api/v1/frontend/supreme-ecosystem/style.css",
     "/api/v1/frontend/supreme-ecosystem/script.js",
     "/api/v1/frontend/supreme-ecosystem/health",
+    # Static dashboard assets must load before the owner can sign in.
+    # CRM data/API endpoints remain protected by the private-by-default middleware.
+    "/api/v1/frontend/supreme-dashboard/",
+    "/api/v1/frontend/supreme-dashboard/index.html",
+    "/api/v1/frontend/supreme-dashboard/signin.html",
+    "/api/v1/frontend/supreme-dashboard/signin.js",
+    "/api/v1/frontend/supreme-dashboard/crm.html",
+    "/api/v1/frontend/supreme-dashboard/crm.css",
+    "/api/v1/frontend/supreme-dashboard/crm.js",
     "/api/v1/frontend/global-business-ecosystem",
     "/api/v1/frontend/global-business-ecosystem/health",
     "/api/v1/global-business-coach/profile",
