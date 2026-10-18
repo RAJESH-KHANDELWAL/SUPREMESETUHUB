@@ -281,6 +281,26 @@ class CRMService:
                 "unverified_count": sum(item["verification_status"] != "VERIFIED" for item in assessed),
                 "data": flagged, "note": "Valid formats do not prove a real person owns the contact details."}
 
+    def log_activity(self, owner: str, actor: str, data: dict[str, Any]) -> dict[str, Any]:
+        contact_id = str(data.get("contact_id") or "").strip()
+        if not contact_id or self.repository.get_contact(owner, contact_id) is None:
+            raise ValueError("CRM_CONTACT_NOT_FOUND")
+        summary = str(data.get("summary") or "").strip()
+        if not summary:
+            raise ValueError("summary is required")
+        activity_type = str(data.get("activity_type") or "NOTE").upper()
+        if activity_type not in {"CALL", "MEETING", "EMAIL", "WHATSAPP", "NOTE", "TASK", "STATUS_CHANGE", "OTHER"}:
+            raise ValueError("Unsupported activity_type")
+        return self.repository.create_activity(owner, actor, {
+            **data, "contact_id": contact_id, "summary": summary[:200],
+            "activity_type": activity_type,
+        })
+
+    def contact_timeline(self, owner: str, contact_id: str, limit: int = 100) -> list[dict[str, Any]] | None:
+        if self.repository.get_contact(owner, contact_id) is None:
+            return None
+        return self.repository.list_activities(owner, contact_id, limit=limit)
+
     def create_daily_item(self, owner: str, actor: str, data: dict[str, Any]) -> dict[str, Any]:
         if data.get("contact_id") and self.repository.get_contact(owner, data["contact_id"]) is None:
             raise ValueError("CRM_CONTACT_NOT_FOUND")
