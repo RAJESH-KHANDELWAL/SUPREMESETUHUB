@@ -84,3 +84,46 @@ def test_people_api_router_requires_admin_dependency():
         dependency.dependency.__name__ == "require_admin"
         for dependency in people_api.router.dependencies
     )
+
+
+
+def test_people_summary_counts_all_records_without_500_row_cap(tmp_path, monkeypatch):
+    service, database = _service(tmp_path)
+    monkeypatch.setattr(people_api, "service", service)
+
+    database.executemany(
+        """INSERT INTO supreme_people
+           (person_id, display_name, source_platform, need_category, contact_consent)
+           VALUES (?, ?, ?, ?, ?)""",
+        [
+            (f"PER-{index}", f"Person {index}", "TEST", "GENERAL", int(index % 2 == 0))
+            for index in range(1, 504)
+        ],
+    )
+    database.executemany(
+        """INSERT INTO supreme_referral_links
+           (referral_id, platform, program_name, referral_url, active)
+           VALUES (?, ?, ?, ?, ?)""",
+        [
+            (f"REF-{index}", "TEST", f"Program {index}", f"https://example.com/{index}", int(index % 2 == 0))
+            for index in range(1, 4)
+        ],
+    )
+    database.executemany(
+        """INSERT INTO supreme_commissions
+           (commission_id, partner_name, order_reference, amount_paise, status)
+           VALUES (?, ?, ?, ?, ?)""",
+        [
+            (f"COM-{index}", "Test Partner", f"ORDER-{index}", 100, "PENDING" if index % 2 == 0 else "APPROVED")
+            for index in range(1, 504)
+        ],
+    )
+
+    summary = people_api.people_summary()
+
+    assert summary["people_count"] == 503
+    assert summary["consented_to_contact_count"] == 251
+    assert summary["active_referral_links_count"] == 2
+    assert summary["commission_records_count"] == 503
+    assert summary["pending_commission_records_count"] == 251
+    database.close()

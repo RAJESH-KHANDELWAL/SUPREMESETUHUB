@@ -225,6 +225,30 @@ class ReferralRepository:
         self.record_event(existing.get("person_id"), existing.get("referral_id"), "COMMISSION_STATUS_CHANGED", {"commission_id": commission_id, "from": existing["status"], "to": status})
         return self.get_commission(commission_id)
 
+    def summary_counts(self) -> dict[str, int]:
+        """Return exact aggregate counts without pagination caps."""
+        people = self.database.fetchone(
+            """SELECT COUNT(*) AS total,
+                      COALESCE(SUM(contact_consent = 1), 0) AS consented
+               FROM supreme_people"""
+        )
+        links = self.database.fetchone(
+            """SELECT COALESCE(SUM(active = 1), 0) AS active
+               FROM supreme_referral_links"""
+        )
+        commissions = self.database.fetchone(
+            """SELECT COUNT(*) AS total,
+                      COALESCE(SUM(status = 'PENDING'), 0) AS pending
+               FROM supreme_commissions"""
+        )
+        return {
+            "people_count": int(people["total"] or 0),
+            "consented_to_contact_count": int(people["consented"] or 0),
+            "active_referral_links_count": int(links["active"] or 0),
+            "commission_records_count": int(commissions["total"] or 0),
+            "pending_commission_records_count": int(commissions["pending"] or 0),
+        }
+
     def list_commissions(self, status: str | None = None, limit: int = 100) -> list[dict[str, Any]]:
         safe_limit = max(1, min(int(limit), 500))
         if status:

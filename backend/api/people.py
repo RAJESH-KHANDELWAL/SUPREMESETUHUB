@@ -69,18 +69,9 @@ def _call_or_422(callable_, *args, **kwargs):
 @router.get("/summary")
 def people_summary() -> dict[str, Any]:
     """Return privacy-safe counts; no contact records are exposed here."""
-    people = service.list_people(limit=500)
-    links = service.list_referral_links()
-    commissions = service.list_commissions(limit=500)
     return {
         "success": True,
-        "people_count": len(people),
-        "consented_to_contact_count": sum(bool(item.get("contact_consent")) for item in people),
-        "active_referral_links_count": sum(bool(item.get("active")) for item in links),
-        "commission_records_count": len(commissions),
-        "pending_commission_records_count": sum(
-            str(item.get("status", "")).upper() == "PENDING" for item in commissions
-        ),
+        **service.summary_counts(),
         "note": "Commission records are not proof of collected revenue or payout.",
     }
 

@@ -85,6 +85,9 @@ class SupremeReferralService:
             raise ValueError("referral_id not found")
         return self.store.create_commission({**data, "amount_paise": amount_paise})
 
+    def summary_counts(self) -> dict[str, int]:
+        return self.store.summary_counts()
+
     def list_commissions(self, status: str | None = None, limit: int = 100) -> list[dict[str, Any]]:
         return self.store.list_commissions(status=status, limit=limit)
 
