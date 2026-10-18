@@ -28,6 +28,8 @@ owner's private CRM must use a separate module, storage boundary, and permission
 - `/api/v1/crm/contacts/{contact_id}/message-draft`
 - `/api/v1/crm/audit` (OWNER/ADMIN)
 - `/api/v1/crm/integrations/sync-preview`
+- `/api/v1/crm/imports/preview` (normalizes and checks duplicates; no writes)
+- `/api/v1/crm/imports/commit` (requires explicit `confirm_import: true`)
 
 ## Not yet live
 
