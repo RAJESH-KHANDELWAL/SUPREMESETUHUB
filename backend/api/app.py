@@ -61,6 +61,7 @@ from backend.api.email import router as email_router
 from backend.api.google_ecosystem import router as google_ecosystem_router
 from backend.api.print_on_demand import router as print_on_demand_router
 from backend.api.people import router as people_engine_router
+from backend.api.crm import router as crm_router
 from backend.api.payee_verification import router as payee_verification_router
 from backend.api.digital_marketplace import router as digital_marketplace_router
 
@@ -390,6 +391,7 @@ app.include_router(email_router)
 app.include_router(google_ecosystem_router)
 app.include_router(print_on_demand_router)
 app.include_router(people_engine_router)
+app.include_router(crm_router)
 app.include_router(payee_verification_router)
 app.include_router(digital_marketplace_router)
 app.include_router(wordpress_router)
