@@ -116,12 +116,15 @@ def test_contact_profile_saves_whatsapp_address_and_verification(crm):
         "whatsapp_phone": "9876543210", "address": "Main Road",
         "city": "Jaipur", "pincode": "302001", "designation": "Agent",
         "verification_status": "VERIFIED",
+        "verification_evidence": "Human called and confirmed identity",
+        "verified_at": "2026-10-18T12:00:00Z",
     })
     assert record["whatsapp_phone"] == "9876543210"
     assert record["address"] == "Main Road"
     assert record["verification_status"] == "VERIFIED"
     assessment = crm.assess_contact("u", record["contact_id"])
-    assert assessment["claims_real_world_validity"] is True
+    assert assessment["verification_evidence_recorded"] is True
+    assert assessment["claims_real_world_validity"] is False
 
 
 def test_daily_work_items_are_user_scoped_and_audited(crm):
@@ -149,3 +152,14 @@ def test_contact_activity_timeline_is_user_scoped_and_audited(crm):
     assert crm.contact_timeline("u2", contact["contact_id"]) is None
     assert any(event["action"] == "CONTACT_ACTIVITY_LOGGED"
                for event in crm.repository.list_audit_events("u1"))
+
+
+def test_verified_status_without_evidence_is_downgraded(crm):
+    record = crm.create_contact("u", "u", {
+        "full_name": "Ravi", "phone": "9876543210",
+        "verification_status": "VERIFIED",
+    })
+    assessment = crm.assess_contact("u", record["contact_id"])
+    assert assessment["verification_status"] == "UNVERIFIED"
+    assert assessment["verification_evidence_recorded"] is False
+    assert "VERIFICATION_EVIDENCE_MISSING" in {flag["code"] for flag in assessment["flags"]}
