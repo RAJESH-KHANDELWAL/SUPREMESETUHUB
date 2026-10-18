@@ -20,6 +20,8 @@ class Contact:
     pincode: str = ""
     designation: str = ""
     verification_status: str = "UNVERIFIED"
+    verification_evidence: str = ""
+    verified_at: str | None = None
     source: str = "MANUAL"
     external_id: str = ""
     notes: str = ""
