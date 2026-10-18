@@ -92,3 +92,46 @@ def test_import_preview_flags_existing_duplicate_for_human_review(crm):
     ])
     assert preview["duplicate_review_count"] == 1
     assert preview["records_written"] == 0
+
+
+def test_quality_checker_flags_bad_and_missing_contact_fields(crm):
+    from backend.crm.quality import assess_contact_quality
+
+    result = assess_contact_quality({
+        "full_name": "Test", "phone": "12345", "email": "bad-email",
+        "whatsapp_phone": "", "organization": "", "address": "", "city": "",
+        "verification_status": "UNVERIFIED",
+    })
+    codes = {flag["code"] for flag in result["flags"]}
+    assert result["quality_label"] == "REVIEW_REQUIRED"
+    assert "PHONE_FORMAT_INVALID" in codes
+    assert "EMAIL_FORMAT_INVALID" in codes
+    assert "WHATSAPP_NOT_PROVIDED" in codes
+    assert result["claims_real_world_validity"] is False
+
+
+def test_contact_profile_saves_whatsapp_address_and_verification(crm):
+    record = crm.create_contact("u", "u", {
+        "full_name": "Asha", "phone": "9876543210",
+        "whatsapp_phone": "9876543210", "address": "Main Road",
+        "city": "Jaipur", "pincode": "302001", "designation": "Agent",
+        "verification_status": "VERIFIED",
+    })
+    assert record["whatsapp_phone"] == "9876543210"
+    assert record["address"] == "Main Road"
+    assert record["verification_status"] == "VERIFIED"
+    assessment = crm.assess_contact("u", record["contact_id"])
+    assert assessment["claims_real_world_validity"] is True
+
+
+def test_daily_work_items_are_user_scoped_and_audited(crm):
+    item = crm.create_daily_item("u1", "u1", {
+        "title": "Call lead", "item_type": "CALL", "due_at": "2026-10-19T10:00:00"
+    })
+    assert item["status"] == "OPEN"
+    assert crm.repository.get_daily_item("u2", item["item_id"]) is None
+    updated = crm.update_daily_item("u1", "u1", item["item_id"], "DONE")
+    assert updated["status"] == "DONE"
+    assert crm.daily_briefing("u1")["summary"]["done"] == 1
+    assert any(event["action"] == "DAILY_ITEM_STATUS_CHANGED"
+               for event in crm.repository.list_audit_events("u1"))
