@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException
 
+from backend.google.google_ecosystem.cloud.connection import check_cloud_connection
 from backend.google.google_ecosystem.service import GoogleEcosystemService
 from backend.security.dependencies import require_admin
 
@@ -38,3 +39,9 @@ def google_ecosystem_product(product_id: str):
     if product is None:
         raise HTTPException(status_code=404, detail="GOOGLE_PRODUCT_NOT_FOUND")
     return {"success": True, "product": product}
+
+
+@router.get("/cloud/connection")
+def google_cloud_connection():
+    """Perform a read-only Google Cloud project access check."""
+    return check_cloud_connection()
