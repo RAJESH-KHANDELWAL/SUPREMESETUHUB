@@ -30,7 +30,13 @@ class ContactCreate(BaseModel):
     full_name: str = Field(min_length=1, max_length=200)
     email: str = Field(default="", max_length=320)
     phone: str = Field(default="", max_length=64)
+    whatsapp_phone: str = Field(default="", max_length=64)
     organization: str = Field(default="", max_length=200)
+    address: str = Field(default="", max_length=1000)
+    city: str = Field(default="", max_length=120)
+    pincode: str = Field(default="", max_length=20)
+    designation: str = Field(default="", max_length=160)
+    verification_status: Literal["UNVERIFIED", "PENDING", "VERIFIED", "INVALID", "DO_NOT_USE"] = "UNVERIFIED"
     source: Literal["MANUAL", "GOOGLE_CONTACTS", "GOOGLE_SHEETS", "IMPORT"] = "MANUAL"
     external_id: str = Field(default="", max_length=500)
     notes: str = Field(default="", max_length=4000)
@@ -45,13 +51,31 @@ class ContactUpdate(BaseModel):
     full_name: str | None = Field(default=None, min_length=1, max_length=200)
     email: str | None = Field(default=None, max_length=320)
     phone: str | None = Field(default=None, max_length=64)
+    whatsapp_phone: str | None = Field(default=None, max_length=64)
     organization: str | None = Field(default=None, max_length=200)
+    address: str | None = Field(default=None, max_length=1000)
+    city: str | None = Field(default=None, max_length=120)
+    pincode: str | None = Field(default=None, max_length=20)
+    designation: str | None = Field(default=None, max_length=160)
+    verification_status: Literal["UNVERIFIED", "PENDING", "VERIFIED", "INVALID", "DO_NOT_USE"] | None = None
     notes: str | None = Field(default=None, max_length=4000)
     tags: list[str] | None = Field(default=None, max_length=30)
     consent_to_contact: bool | None = None
     contact_status: Literal["ACTIVE", "DO_NOT_CONTACT", "ARCHIVED"] | None = None
     category: str | None = Field(default=None, max_length=80)
     follow_up_at: str | None = Field(default=None, max_length=80)
+
+
+class DailyItemCreate(BaseModel):
+    title: str = Field(min_length=1, max_length=200)
+    details: str = Field(default="", max_length=4000)
+    contact_id: str | None = Field(default=None, max_length=200)
+    item_type: Literal["TASK", "CALL", "MEETING", "FOLLOW_UP", "NOTE", "PERSONAL"] = "TASK"
+    due_at: str | None = Field(default=None, max_length=80)
+
+
+class DailyItemUpdate(BaseModel):
+    status: Literal["OPEN", "IN_PROGRESS", "DONE", "CANCELLED"]
 
 
 class ImportPreviewRequest(BaseModel):
@@ -150,6 +174,75 @@ def delete_contact(
     if not service.delete_contact(_actor(user), _actor(user), contact_id):
         raise HTTPException(status_code=404, detail="CRM_CONTACT_NOT_FOUND")
     return {"success": True, "deleted": True}
+
+
+@router.get("/quality/review-queue")
+def quality_review_queue(
+    limit: int = Query(default=200, ge=1, le=500),
+    user: dict[str, Any] = Depends(get_current_user),
+    service: CRMService = Depends(get_crm_service),
+) -> dict[str, Any]:
+    return service.quality_review_queue(_actor(user), limit=limit)
+
+
+@router.get("/contacts/{contact_id}/quality")
+def contact_quality(
+    contact_id: str,
+    user: dict[str, Any] = Depends(get_current_user),
+    service: CRMService = Depends(get_crm_service),
+) -> dict[str, Any]:
+    result = service.assess_contact(_actor(user), contact_id)
+    if result is None:
+        raise HTTPException(status_code=404, detail="CRM_CONTACT_NOT_FOUND")
+    return {"success": True, "data": result}
+
+
+@router.get("/daily/briefing")
+def daily_briefing(
+    user: dict[str, Any] = Depends(get_current_user),
+    service: CRMService = Depends(get_crm_service),
+) -> dict[str, Any]:
+    return service.daily_briefing(_actor(user))
+
+
+@router.get("/daily/items")
+def list_daily_items(
+    status: Literal["OPEN", "IN_PROGRESS", "DONE", "CANCELLED"] | None = None,
+    limit: int = Query(default=200, ge=1, le=500),
+    user: dict[str, Any] = Depends(get_current_user),
+    service: CRMService = Depends(get_crm_service),
+) -> dict[str, Any]:
+    items = service.repository.list_daily_items(_actor(user), status=status, limit=limit)
+    return {"success": True, "count": len(items), "data": items}
+
+
+@router.post("/daily/items", status_code=201)
+def create_daily_item(
+    request: DailyItemCreate,
+    user: dict[str, Any] = Depends(get_current_user),
+    service: CRMService = Depends(get_crm_service),
+) -> dict[str, Any]:
+    try:
+        item = service.create_daily_item(_actor(user), _actor(user), request.model_dump())
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    return {"success": True, "data": item}
+
+
+@router.patch("/daily/items/{item_id}")
+def update_daily_item(
+    item_id: str,
+    request: DailyItemUpdate,
+    user: dict[str, Any] = Depends(get_current_user),
+    service: CRMService = Depends(get_crm_service),
+) -> dict[str, Any]:
+    try:
+        item = service.update_daily_item(_actor(user), _actor(user), item_id, request.status)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    if item is None:
+        raise HTTPException(status_code=404, detail="CRM_DAILY_ITEM_NOT_FOUND")
+    return {"success": True, "data": item}
 
 
 @router.get("/ai/duplicates")
