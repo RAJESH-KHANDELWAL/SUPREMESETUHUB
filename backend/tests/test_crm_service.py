@@ -154,12 +154,22 @@ def test_contact_activity_timeline_is_user_scoped_and_audited(crm):
                for event in crm.repository.list_audit_events("u1"))
 
 
-def test_verified_status_without_evidence_is_downgraded(crm):
-    record = crm.create_contact("u", "u", {
-        "full_name": "Ravi", "phone": "9876543210",
-        "verification_status": "VERIFIED",
+def test_verified_status_without_evidence_is_rejected(crm):
+    with pytest.raises(ValueError, match="requires verification_evidence and verified_at"):
+        crm.create_contact("u", "u", {
+            "full_name": "Ravi", "phone": "9876543210",
+            "verification_status": "VERIFIED",
+        })
+
+
+def test_quality_checker_flags_unsubstantiated_verified_status():
+    from backend.crm.quality import assess_contact_quality
+
+    result = assess_contact_quality({
+        "full_name": "Ravi", "phone": "9876543210", "email": "ravi@example.com",
+        "whatsapp_phone": "9876543210", "organization": "ABC", "address": "Main Road",
+        "city": "Jaipur", "verification_status": "VERIFIED",
     })
-    assessment = crm.assess_contact("u", record["contact_id"])
-    assert assessment["verification_status"] == "UNVERIFIED"
-    assert assessment["verification_evidence_recorded"] is False
-    assert "VERIFICATION_EVIDENCE_MISSING" in {flag["code"] for flag in assessment["flags"]}
+    assert result["verification_status"] == "UNVERIFIED"
+    assert result["verification_evidence_recorded"] is False
+    assert "VERIFICATION_EVIDENCE_MISSING" in {flag["code"] for flag in result["flags"]}
