@@ -37,6 +37,8 @@ class ContactCreate(BaseModel):
     pincode: str = Field(default="", max_length=20)
     designation: str = Field(default="", max_length=160)
     verification_status: Literal["UNVERIFIED", "PENDING", "VERIFIED", "INVALID", "DO_NOT_USE"] = "UNVERIFIED"
+    verification_evidence: str = Field(default="", max_length=1000)
+    verified_at: str | None = Field(default=None, max_length=80)
     source: Literal["MANUAL", "GOOGLE_CONTACTS", "GOOGLE_SHEETS", "IMPORT"] = "MANUAL"
     external_id: str = Field(default="", max_length=500)
     notes: str = Field(default="", max_length=4000)
@@ -58,6 +60,8 @@ class ContactUpdate(BaseModel):
     pincode: str | None = Field(default=None, max_length=20)
     designation: str | None = Field(default=None, max_length=160)
     verification_status: Literal["UNVERIFIED", "PENDING", "VERIFIED", "INVALID", "DO_NOT_USE"] | None = None
+    verification_evidence: str | None = Field(default=None, max_length=1000)
+    verified_at: str | None = Field(default=None, max_length=80)
     notes: str | None = Field(default=None, max_length=4000)
     tags: list[str] | None = Field(default=None, max_length=30)
     consent_to_contact: bool | None = None
