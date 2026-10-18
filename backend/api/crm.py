@@ -11,11 +11,14 @@ from backend.security.dependencies import get_current_user
 from backend.supreme.supreme_ecosystem.crm import CRMEcosystem
 
 router = APIRouter(prefix="/api/v1/crm", tags=["CRM"], dependencies=[Depends(get_current_user)])
-_service = CRMService()
+_service: CRMService | None = None
 _ecosystem = CRMEcosystem()
 
 
 def get_crm_service() -> CRMService:
+    global _service
+    if _service is None:
+        _service = CRMService()
     return _service
 
 
@@ -59,6 +62,13 @@ class ImportPreviewRequest(BaseModel):
 class MessageDraftRequest(BaseModel):
     purpose: str = Field(min_length=1, max_length=500)
     tone: Literal["friendly", "formal"] = "friendly"
+
+
+class CRMImportRequest(BaseModel):
+    provider: Literal["GOOGLE_SHEETS", "GOOGLE_CONTACTS"]
+    records: list[dict[str, Any]] = Field(max_length=500)
+    column_map: dict[str, str] = Field(default_factory=dict)
+    confirm_import: bool = False
 
 
 @router.get("/status")
@@ -192,6 +202,37 @@ def create_message_draft(
     if draft is None:
         raise HTTPException(status_code=404, detail="CRM_CONTACT_NOT_FOUND")
     return {"success": True, "data": draft}
+
+
+@router.post("/imports/preview")
+def preview_import(
+    request: CRMImportRequest,
+    user: dict[str, Any] = Depends(get_current_user),
+    service: CRMService = Depends(get_crm_service),
+) -> dict[str, Any]:
+    try:
+        return {"success": True, **service.preview_import(
+            _actor(user), request.provider, request.records, request.column_map or None
+        )}
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+
+@router.post("/imports/commit")
+def commit_import(
+    request: CRMImportRequest,
+    user: dict[str, Any] = Depends(get_current_user),
+    service: CRMService = Depends(get_crm_service),
+) -> dict[str, Any]:
+    try:
+        return service.commit_import(
+            _actor(user), _actor(user), request.provider, request.records,
+            request.column_map or None, request.confirm_import,
+        )
+    except PermissionError as exc:
+        raise HTTPException(status_code=403, detail=str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
 
 
 @router.get("/audit")
