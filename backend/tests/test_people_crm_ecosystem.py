@@ -1,17 +1,18 @@
-from backend.crm.people_crm_ecosystem import PeopleCRMEcosystem
-from backend.crm.people_crm_ecosystem.models import PeopleContact
+from backend.crm import Contact, ContactService
+from backend.supreme.supreme_ecosystem.crm import CRMEcosystem
 
 
 def test_status_does_not_claim_google_providers_are_connected():
-    status = PeopleCRMEcosystem().status()
-    assert status["ecosystem"] == "PEOPLE_CRM_ECOSYSTEM"
+    status = CRMEcosystem().status()
+    assert status["ecosystem"] == "CRM_ECOSYSTEM"
+    assert status["crm_module"] == "backend.crm"
     assert status["private_owner_crm"] == "SEPARATE_MODULE_AND_DATA_BOUNDARY"
     assert status["providers"]["GOOGLE_CONTACTS"]["status"] == "NOT_CONNECTED"
     assert status["providers"]["GOOGLE_SHEETS"]["live_api_implemented"] is False
 
 
 def test_normalize_google_contact_resource():
-    contact = PeopleCRMEcosystem().normalize_google_contact(
+    contact = ContactService().normalize_google_contact(
         {
             "names": [{"displayName": "Raj Kumar"}],
             "emailAddresses": [{"value": "raj@example.com"}],
@@ -30,7 +31,7 @@ def test_normalize_google_contact_resource():
 
 
 def test_normalize_sheet_row_uses_explicit_column_mapping():
-    contact = PeopleCRMEcosystem().normalize_sheet_row(
+    contact = ContactService().normalize_sheet_row(
         {"Full Name": "Asha", "Email Address": "asha@example.com", "Mobile": "123"},
         contact_id="PER-2",
         column_map={"full_name": "Full Name", "email": "Email Address", "phone": "Mobile"},
@@ -42,9 +43,9 @@ def test_normalize_sheet_row_uses_explicit_column_mapping():
 
 
 def test_do_not_contact_cannot_have_contact_consent():
-    contact = PeopleContact(
-        contact_id="PER-3", full_name="Do Not Contact", contact_status="DO_NOT_CONTACT",
-        consent_to_contact=True,
+    contact = Contact(
+        contact_id="PER-3", full_name="Do Not Contact",
+        contact_status="DO_NOT_CONTACT", consent_to_contact=True,
     )
     try:
         contact.validate()
