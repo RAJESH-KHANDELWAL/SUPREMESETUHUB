@@ -88,6 +88,13 @@ CONTACT_CSS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "contact-css.css
 CONTACT_JS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "contact-js.js"
 SUPREME_ECOSYSTEM_HTML_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "supreme-ecosystem.html"
 SUPREME_ECOSYSTEM_CSS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "supreme-ecosystem.css"
+SUPREME_DASHBOARD_DIR = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "supreme-dashboard"
+SUPREME_DASHBOARD_INDEX_FILE = SUPREME_DASHBOARD_DIR / "index.html"
+SUPREME_DASHBOARD_SIGNIN_FILE = SUPREME_DASHBOARD_DIR / "signin.html"
+SUPREME_DASHBOARD_SIGNIN_JS_FILE = SUPREME_DASHBOARD_DIR / "signin.js"
+SUPREME_DASHBOARD_CRM_FILE = SUPREME_DASHBOARD_DIR / "crm.html"
+SUPREME_DASHBOARD_CRM_CSS_FILE = SUPREME_DASHBOARD_DIR / "crm.css"
+SUPREME_DASHBOARD_CRM_JS_FILE = SUPREME_DASHBOARD_DIR / "crm.js"
 SUPREME_ECOSYSTEM_JS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "supreme-ecosystem.js"
 
 
@@ -436,6 +443,56 @@ def print_on_demand_frontend_script():
     if not POD_JS_FILE.is_file():
         raise HTTPException(status_code=404, detail="Print on Demand frontend script not found")
     return FileResponse(POD_JS_FILE, media_type="application/javascript")
+
+
+# ============================================================
+# PRIVATE SUPREME DASHBOARD AND CRM UI
+# ============================================================
+
+@app.get("/api/v1/frontend/supreme-dashboard/")
+@app.get("/api/v1/frontend/supreme-dashboard/index.html")
+def supreme_dashboard_frontend():
+    if not SUPREME_DASHBOARD_INDEX_FILE.is_file():
+        raise HTTPException(status_code=404, detail="SUPREME dashboard frontend not found")
+    return FileResponse(SUPREME_DASHBOARD_INDEX_FILE, media_type="text/html",
+                        headers={"Cache-Control": "no-cache, no-store, must-revalidate"})
+
+
+@app.get("/api/v1/frontend/supreme-dashboard/signin.html")
+def supreme_dashboard_signin_frontend():
+    if not SUPREME_DASHBOARD_SIGNIN_FILE.is_file():
+        raise HTTPException(status_code=404, detail="SUPREME dashboard sign-in page not found")
+    return FileResponse(SUPREME_DASHBOARD_SIGNIN_FILE, media_type="text/html",
+                        headers={"Cache-Control": "no-cache, no-store, must-revalidate"})
+
+
+@app.get("/api/v1/frontend/supreme-dashboard/signin.js")
+def supreme_dashboard_signin_script():
+    if not SUPREME_DASHBOARD_SIGNIN_JS_FILE.is_file():
+        raise HTTPException(status_code=404, detail="SUPREME dashboard sign-in script not found")
+    return FileResponse(SUPREME_DASHBOARD_SIGNIN_JS_FILE, media_type="application/javascript")
+
+
+@app.get("/api/v1/frontend/supreme-dashboard/crm.html")
+def supreme_dashboard_crm_frontend():
+    if not SUPREME_DASHBOARD_CRM_FILE.is_file():
+        raise HTTPException(status_code=404, detail="SUPREME CRM frontend not found")
+    return FileResponse(SUPREME_DASHBOARD_CRM_FILE, media_type="text/html",
+                        headers={"Cache-Control": "no-cache, no-store, must-revalidate"})
+
+
+@app.get("/api/v1/frontend/supreme-dashboard/crm.css")
+def supreme_dashboard_crm_css():
+    if not SUPREME_DASHBOARD_CRM_CSS_FILE.is_file():
+        raise HTTPException(status_code=404, detail="SUPREME CRM CSS not found")
+    return FileResponse(SUPREME_DASHBOARD_CRM_CSS_FILE, media_type="text/css")
+
+
+@app.get("/api/v1/frontend/supreme-dashboard/crm.js")
+def supreme_dashboard_crm_script():
+    if not SUPREME_DASHBOARD_CRM_JS_FILE.is_file():
+        raise HTTPException(status_code=404, detail="SUPREME CRM JavaScript not found")
+    return FileResponse(SUPREME_DASHBOARD_CRM_JS_FILE, media_type="application/javascript")
 
 
 # ============================================================

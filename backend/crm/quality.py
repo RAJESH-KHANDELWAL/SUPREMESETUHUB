@@ -79,16 +79,22 @@ def assess_contact_quality(record: Mapping[str, Any]) -> dict[str, Any]:
     verification = str(record.get("verification_status") or "UNVERIFIED").upper()
     if verification not in {"UNVERIFIED", "PENDING", "VERIFIED", "INVALID", "DO_NOT_USE"}:
         verification = "UNVERIFIED"
+    evidence = _text(record, "verification_evidence")
+    verified_at = _text(record, "verified_at")
+    evidence_recorded = verification == "VERIFIED" and bool(evidence) and bool(verified_at)
+    if verification == "VERIFIED" and not evidence_recorded:
+        flags.append({"field": "verification_evidence", "code": "VERIFICATION_EVIDENCE_MISSING", "severity": "HIGH"})
+        verification = "UNVERIFIED"
     if verification in {"INVALID", "DO_NOT_USE"}:
         label = "REVIEW_REQUIRED"
     elif any(item["severity"] == "HIGH" for item in flags):
         label = "REVIEW_REQUIRED"
     elif flags:
         label = "INCOMPLETE"
-    elif verification != "VERIFIED":
+    elif not evidence_recorded:
         label = "FORMAT_OK_UNVERIFIED"
     else:
-        label = "VERIFIED"
+        label = "VERIFICATION_EVIDENCE_RECORDED"
 
     return {
         "quality_score": score,
@@ -102,6 +108,7 @@ def assess_contact_quality(record: Mapping[str, Any]) -> dict[str, Any]:
             else "VERIFY_CONTACT_WITH_APPROVED_EVIDENCE" if label == "FORMAT_OK_UNVERIFIED"
             else "READY_FOR_NORMAL_CRM_WORKFLOW"
         ),
-        "claims_real_world_validity": verification == "VERIFIED",
+        "verification_evidence_recorded": evidence_recorded,
+        "claims_real_world_validity": False,
         "method": "RULE_BASED_FORMAT_AND_COMPLETENESS_CHECK",
     }

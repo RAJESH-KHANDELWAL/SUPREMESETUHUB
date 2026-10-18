@@ -71,3 +71,30 @@ def test_quality_and_daily_workflow_api(tmp_path):
         assert client.get("/api/v1/crm/daily/briefing").json()["summary"]["done"] == 1
     finally:
         database.close()
+
+
+def test_contact_activity_timeline_api(tmp_path):
+    database = DatabaseService(db_path=str(tmp_path / "activity-api-crm.db"))
+    service = CRMService(CRMRepository(database))
+    app = FastAPI()
+    app.include_router(router)
+    app.dependency_overrides[get_current_user] = lambda: {
+        "authenticated": True, "user_id": "user-1", "username": "u1", "role": "USER"
+    }
+    app.dependency_overrides[get_crm_service] = lambda: service
+    client = TestClient(app)
+    try:
+        contact = client.post("/api/v1/crm/contacts", json={
+            "full_name": "Asha", "phone": "9876543210"
+        }).json()["data"]
+        logged = client.post("/api/v1/crm/activities", json={
+            "contact_id": contact["contact_id"], "activity_type": "WHATSAPP",
+            "summary": "Sent a consented reply draft after human review",
+            "outcome": "Waiting for response"
+        })
+        assert logged.status_code == 201
+        timeline = client.get(f"/api/v1/crm/contacts/{contact['contact_id']}/timeline")
+        assert timeline.status_code == 200
+        assert timeline.json()["data"][0]["activity_type"] == "WHATSAPP"
+    finally:
+        database.close()

@@ -37,6 +37,8 @@ class ContactCreate(BaseModel):
     pincode: str = Field(default="", max_length=20)
     designation: str = Field(default="", max_length=160)
     verification_status: Literal["UNVERIFIED", "PENDING", "VERIFIED", "INVALID", "DO_NOT_USE"] = "UNVERIFIED"
+    verification_evidence: str = Field(default="", max_length=1000)
+    verified_at: str | None = Field(default=None, max_length=80)
     source: Literal["MANUAL", "GOOGLE_CONTACTS", "GOOGLE_SHEETS", "IMPORT"] = "MANUAL"
     external_id: str = Field(default="", max_length=500)
     notes: str = Field(default="", max_length=4000)
@@ -58,12 +60,23 @@ class ContactUpdate(BaseModel):
     pincode: str | None = Field(default=None, max_length=20)
     designation: str | None = Field(default=None, max_length=160)
     verification_status: Literal["UNVERIFIED", "PENDING", "VERIFIED", "INVALID", "DO_NOT_USE"] | None = None
+    verification_evidence: str | None = Field(default=None, max_length=1000)
+    verified_at: str | None = Field(default=None, max_length=80)
     notes: str | None = Field(default=None, max_length=4000)
     tags: list[str] | None = Field(default=None, max_length=30)
     consent_to_contact: bool | None = None
     contact_status: Literal["ACTIVE", "DO_NOT_CONTACT", "ARCHIVED"] | None = None
     category: str | None = Field(default=None, max_length=80)
     follow_up_at: str | None = Field(default=None, max_length=80)
+
+
+class ContactActivityCreate(BaseModel):
+    contact_id: str = Field(min_length=1, max_length=200)
+    activity_type: Literal["CALL", "MEETING", "EMAIL", "WHATSAPP", "NOTE", "TASK", "STATUS_CHANGE", "OTHER"] = "NOTE"
+    summary: str = Field(min_length=1, max_length=200)
+    details: str = Field(default="", max_length=4000)
+    outcome: str = Field(default="", max_length=1000)
+    next_follow_up_at: str | None = Field(default=None, max_length=80)
 
 
 class DailyItemCreate(BaseModel):
@@ -174,6 +187,32 @@ def delete_contact(
     if not service.delete_contact(_actor(user), _actor(user), contact_id):
         raise HTTPException(status_code=404, detail="CRM_CONTACT_NOT_FOUND")
     return {"success": True, "deleted": True}
+
+
+@router.post("/activities", status_code=201)
+def log_contact_activity(
+    request: ContactActivityCreate,
+    user: dict[str, Any] = Depends(get_current_user),
+    service: CRMService = Depends(get_crm_service),
+) -> dict[str, Any]:
+    try:
+        activity = service.log_activity(_actor(user), _actor(user), request.model_dump())
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    return {"success": True, "data": activity}
+
+
+@router.get("/contacts/{contact_id}/timeline")
+def contact_timeline(
+    contact_id: str,
+    limit: int = Query(default=100, ge=1, le=500),
+    user: dict[str, Any] = Depends(get_current_user),
+    service: CRMService = Depends(get_crm_service),
+) -> dict[str, Any]:
+    timeline = service.contact_timeline(_actor(user), contact_id, limit=limit)
+    if timeline is None:
+        raise HTTPException(status_code=404, detail="CRM_CONTACT_NOT_FOUND")
+    return {"success": True, "count": len(timeline), "data": timeline}
 
 
 @router.get("/quality/review-queue")

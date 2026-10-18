@@ -29,6 +29,8 @@ class CRMService:
             pincode=str(record.get("pincode") or ""),
             designation=str(record.get("designation") or ""),
             verification_status=str(record.get("verification_status") or "UNVERIFIED"),
+            verification_evidence=str(record.get("verification_evidence") or ""),
+            verified_at=record.get("verified_at"),
             source=str(record.get("source") or "MANUAL"),
             external_id=str(record.get("external_id") or ""),
             notes=str(record.get("notes") or ""),
@@ -51,6 +53,8 @@ class CRMService:
             pincode=(data.get("pincode") or "").strip(),
             designation=(data.get("designation") or "").strip(),
             verification_status=data.get("verification_status", "UNVERIFIED"),
+            verification_evidence=(data.get("verification_evidence") or "").strip(),
+            verified_at=data.get("verified_at"),
             source=data.get("source", "MANUAL"),
             external_id=data.get("external_id", ""),
             notes=data.get("notes", ""),
@@ -280,6 +284,26 @@ class CRMService:
                 "scanned_count": len(assessed), "flagged_count": len(flagged),
                 "unverified_count": sum(item["verification_status"] != "VERIFIED" for item in assessed),
                 "data": flagged, "note": "Valid formats do not prove a real person owns the contact details."}
+
+    def log_activity(self, owner: str, actor: str, data: dict[str, Any]) -> dict[str, Any]:
+        contact_id = str(data.get("contact_id") or "").strip()
+        if not contact_id or self.repository.get_contact(owner, contact_id) is None:
+            raise ValueError("CRM_CONTACT_NOT_FOUND")
+        summary = str(data.get("summary") or "").strip()
+        if not summary:
+            raise ValueError("summary is required")
+        activity_type = str(data.get("activity_type") or "NOTE").upper()
+        if activity_type not in {"CALL", "MEETING", "EMAIL", "WHATSAPP", "NOTE", "TASK", "STATUS_CHANGE", "OTHER"}:
+            raise ValueError("Unsupported activity_type")
+        return self.repository.create_activity(owner, actor, {
+            **data, "contact_id": contact_id, "summary": summary[:200],
+            "activity_type": activity_type,
+        })
+
+    def contact_timeline(self, owner: str, contact_id: str, limit: int = 100) -> list[dict[str, Any]] | None:
+        if self.repository.get_contact(owner, contact_id) is None:
+            return None
+        return self.repository.list_activities(owner, contact_id, limit=limit)
 
     def create_daily_item(self, owner: str, actor: str, data: dict[str, Any]) -> dict[str, Any]:
         if data.get("contact_id") and self.repository.get_contact(owner, data["contact_id"]) is None:

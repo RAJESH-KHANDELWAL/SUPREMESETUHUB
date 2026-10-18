@@ -116,12 +116,15 @@ def test_contact_profile_saves_whatsapp_address_and_verification(crm):
         "whatsapp_phone": "9876543210", "address": "Main Road",
         "city": "Jaipur", "pincode": "302001", "designation": "Agent",
         "verification_status": "VERIFIED",
+        "verification_evidence": "Human called and confirmed identity",
+        "verified_at": "2026-10-18T12:00:00Z",
     })
     assert record["whatsapp_phone"] == "9876543210"
     assert record["address"] == "Main Road"
     assert record["verification_status"] == "VERIFIED"
     assessment = crm.assess_contact("u", record["contact_id"])
-    assert assessment["claims_real_world_validity"] is True
+    assert assessment["verification_evidence_recorded"] is True
+    assert assessment["claims_real_world_validity"] is False
 
 
 def test_daily_work_items_are_user_scoped_and_audited(crm):
@@ -135,3 +138,38 @@ def test_daily_work_items_are_user_scoped_and_audited(crm):
     assert crm.daily_briefing("u1")["summary"]["done"] == 1
     assert any(event["action"] == "DAILY_ITEM_STATUS_CHANGED"
                for event in crm.repository.list_audit_events("u1"))
+
+
+def test_contact_activity_timeline_is_user_scoped_and_audited(crm):
+    contact = crm.create_contact("u1", "u1", {"full_name": "Asha", "phone": "9876543210"})
+    activity = crm.log_activity("u1", "u1", {
+        "contact_id": contact["contact_id"], "activity_type": "CALL",
+        "summary": "Discussed requested service", "outcome": "Asked for proposal",
+        "next_follow_up_at": "2026-10-19T11:00:00",
+    })
+    assert activity["activity_type"] == "CALL"
+    assert crm.contact_timeline("u1", contact["contact_id"])[0]["activity_id"] == activity["activity_id"]
+    assert crm.contact_timeline("u2", contact["contact_id"]) is None
+    assert any(event["action"] == "CONTACT_ACTIVITY_LOGGED"
+               for event in crm.repository.list_audit_events("u1"))
+
+
+def test_verified_status_without_evidence_is_rejected(crm):
+    with pytest.raises(ValueError, match="requires verification_evidence and verified_at"):
+        crm.create_contact("u", "u", {
+            "full_name": "Ravi", "phone": "9876543210",
+            "verification_status": "VERIFIED",
+        })
+
+
+def test_quality_checker_flags_unsubstantiated_verified_status():
+    from backend.crm.quality import assess_contact_quality
+
+    result = assess_contact_quality({
+        "full_name": "Ravi", "phone": "9876543210", "email": "ravi@example.com",
+        "whatsapp_phone": "9876543210", "organization": "ABC", "address": "Main Road",
+        "city": "Jaipur", "verification_status": "VERIFIED",
+    })
+    assert result["verification_status"] == "UNVERIFIED"
+    assert result["verification_evidence_recorded"] is False
+    assert "VERIFICATION_EVIDENCE_MISSING" in {flag["code"] for flag in result["flags"]}
