@@ -65,3 +65,10 @@ the deployment environment before relying on stored CRM records.
 - Connect a real AI provider only after choosing the provider and securely configuring deployment secrets. The current quality rules are deterministic and auditable.
 - Implement provider-backed verification (if desired) with lawful consent, source/evidence, timestamps, and explicit distinction between syntax checks and verified ownership.
 - Google Sheets/Contacts live OAuth and synchronization are still not connected.
+
+
+### Contact activity history
+
+- `POST /api/v1/crm/activities` records a human-entered call, meeting, email, WhatsApp interaction, note, task, status change, or other event, including outcome and next follow-up.
+- `GET /api/v1/crm/contacts/{contact_id}/timeline` returns that contact's chronological activity history.
+- Activity rows are user-scoped and audit-logged. This is a manual logging API; it does not read private messages, monitor a person's device, or sync calendars automatically.
