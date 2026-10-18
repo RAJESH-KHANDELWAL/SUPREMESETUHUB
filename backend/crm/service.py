@@ -7,6 +7,7 @@ from typing import Any, Mapping
 from .contact_service import ContactService
 from .models import Contact
 from .repository import CRMRepository
+from .quality import assess_contact_quality
 
 
 class CRMService:
@@ -21,7 +22,13 @@ class CRMService:
             full_name=str(record["full_name"]),
             email=str(record.get("email") or ""),
             phone=str(record.get("phone") or ""),
+            whatsapp_phone=str(record.get("whatsapp_phone") or ""),
             organization=str(record.get("organization") or ""),
+            address=str(record.get("address") or ""),
+            city=str(record.get("city") or ""),
+            pincode=str(record.get("pincode") or ""),
+            designation=str(record.get("designation") or ""),
+            verification_status=str(record.get("verification_status") or "UNVERIFIED"),
             source=str(record.get("source") or "MANUAL"),
             external_id=str(record.get("external_id") or ""),
             notes=str(record.get("notes") or ""),
@@ -37,7 +44,13 @@ class CRMService:
             contact_id="pending", full_name=data["full_name"].strip(),
             email=(data.get("email") or "").strip(),
             phone=(data.get("phone") or "").strip(),
+            whatsapp_phone=(data.get("whatsapp_phone") or "").strip(),
             organization=(data.get("organization") or "").strip(),
+            address=(data.get("address") or "").strip(),
+            city=(data.get("city") or "").strip(),
+            pincode=(data.get("pincode") or "").strip(),
+            designation=(data.get("designation") or "").strip(),
+            verification_status=data.get("verification_status", "UNVERIFIED"),
             source=data.get("source", "MANUAL"),
             external_id=data.get("external_id", ""),
             notes=data.get("notes", ""),
@@ -249,6 +262,48 @@ class CRMService:
             "provider": provider, "records_imported": len(created),
         })
         return {"success": True, "provider": provider, "records_imported": len(created), "data": created}
+
+    def assess_contact(self, owner: str, contact_id: str) -> dict[str, Any] | None:
+        record = self.repository.get_contact(owner, contact_id)
+        if record is None:
+            return None
+        return {"contact_id": contact_id, "full_name": record["full_name"],
+                **assess_contact_quality(record)}
+
+    def quality_review_queue(self, owner: str, limit: int = 200) -> dict[str, Any]:
+        records = self.repository.list_contacts(owner, limit=limit)
+        assessed = [{"contact_id": item["contact_id"], "full_name": item["full_name"],
+                     "phone": item.get("phone", ""), "email": item.get("email", ""),
+                     **assess_contact_quality(item)} for item in records]
+        flagged = [item for item in assessed if item["quality_label"] in {"REVIEW_REQUIRED", "INCOMPLETE"}]
+        return {"success": True, "method": "RULE_BASED_FORMAT_AND_COMPLETENESS_CHECK",
+                "scanned_count": len(assessed), "flagged_count": len(flagged),
+                "unverified_count": sum(item["verification_status"] != "VERIFIED" for item in assessed),
+                "data": flagged, "note": "Valid formats do not prove a real person owns the contact details."}
+
+    def create_daily_item(self, owner: str, actor: str, data: dict[str, Any]) -> dict[str, Any]:
+        if data.get("contact_id") and self.repository.get_contact(owner, data["contact_id"]) is None:
+            raise ValueError("CRM_CONTACT_NOT_FOUND")
+        title = str(data.get("title") or "").strip()
+        if not title:
+            raise ValueError("title is required")
+        return self.repository.create_daily_item(owner, actor, {**data, "title": title[:200]})
+
+    def update_daily_item(self, owner: str, actor: str, item_id: str, status: str) -> dict[str, Any] | None:
+        return self.repository.update_daily_item(owner, actor, item_id, status)
+
+    def daily_briefing(self, owner: str) -> dict[str, Any]:
+        items = self.repository.list_daily_items(owner, limit=200)
+        return {"success": True, "generated_by": "CRM_RULES_ENGINE",
+                "external_ai_connected": False,
+                "summary": {"open": sum(item["status"] == "OPEN" for item in items),
+                            "in_progress": sum(item["status"] == "IN_PROGRESS" for item in items),
+                            "done": sum(item["status"] == "DONE" for item in items)},
+                "items": items, "suggested_routine": [
+                    {"period": "MORNING", "action": "Review today's due tasks, overdue follow-ups and flagged contacts"},
+                    {"period": "WORKDAY", "action": "Log calls, meetings, notes and agreed next steps"},
+                    {"period": "EVENING", "action": "Mark completed work and schedule tomorrow's follow-ups"},
+                ]}
 
     def report(self, owner: str) -> dict[str, Any]:
         return {"success": True, "report": self.repository.counts(owner),
