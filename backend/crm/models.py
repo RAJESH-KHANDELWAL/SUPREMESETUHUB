@@ -45,6 +45,8 @@ class Contact:
             raise ValueError("Unsupported contact_status")
         if self.verification_status not in {"UNVERIFIED", "PENDING", "VERIFIED", "INVALID", "DO_NOT_USE"}:
             raise ValueError("Unsupported verification_status")
+        if self.verification_status == "VERIFIED" and not (self.verification_evidence.strip() and self.verified_at):
+            raise ValueError("VERIFIED status requires verification_evidence and verified_at")
         if self.contact_status == "DO_NOT_CONTACT" and self.consent_to_contact:
             raise ValueError("DO_NOT_CONTACT records cannot have contact consent enabled")
         return self
