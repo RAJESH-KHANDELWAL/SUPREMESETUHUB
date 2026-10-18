@@ -11,6 +11,15 @@ from backend.database.service import DatabaseService
 class CRMRepository:
     """Owns CRM tables in the central database; never reads private-CRM tables."""
 
+    CONTACT_COLUMNS = {
+        "whatsapp_phone": "TEXT NOT NULL DEFAULT ''",
+        "address": "TEXT NOT NULL DEFAULT ''",
+        "city": "TEXT NOT NULL DEFAULT ''",
+        "pincode": "TEXT NOT NULL DEFAULT ''",
+        "designation": "TEXT NOT NULL DEFAULT ''",
+        "verification_status": "TEXT NOT NULL DEFAULT 'UNVERIFIED'",
+    }
+
     def __init__(self, database: DatabaseService | None = None) -> None:
         self.database = database or DatabaseService()
         self.initialize()
@@ -23,7 +32,13 @@ class CRMRepository:
                 full_name TEXT NOT NULL,
                 email TEXT NOT NULL DEFAULT '',
                 phone TEXT NOT NULL DEFAULT '',
+                whatsapp_phone TEXT NOT NULL DEFAULT '',
                 organization TEXT NOT NULL DEFAULT '',
+                address TEXT NOT NULL DEFAULT '',
+                city TEXT NOT NULL DEFAULT '',
+                pincode TEXT NOT NULL DEFAULT '',
+                designation TEXT NOT NULL DEFAULT '',
+                verification_status TEXT NOT NULL DEFAULT 'UNVERIFIED',
                 source TEXT NOT NULL DEFAULT 'MANUAL',
                 external_id TEXT NOT NULL DEFAULT '',
                 notes TEXT NOT NULL DEFAULT '',
@@ -47,9 +62,29 @@ class CRMRepository:
                 created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
             )""",
             "CREATE INDEX IF NOT EXISTS idx_crm_audit_owner_created ON crm_audit_log(owner_user_id, created_at DESC)",
+            """CREATE TABLE IF NOT EXISTS crm_daily_items (
+                item_id TEXT PRIMARY KEY,
+                owner_user_id TEXT NOT NULL,
+                actor_user_id TEXT NOT NULL,
+                contact_id TEXT,
+                item_type TEXT NOT NULL DEFAULT 'TASK',
+                title TEXT NOT NULL,
+                details TEXT NOT NULL DEFAULT '',
+                due_at TEXT,
+                status TEXT NOT NULL DEFAULT 'OPEN',
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+            )""",
+            "CREATE INDEX IF NOT EXISTS idx_crm_daily_items_owner_due ON crm_daily_items(owner_user_id, status, due_at)",
         )
         for statement in statements:
             self.database.execute(statement)
+
+        # Safe additive migration for existing CRM databases.
+        existing = {str(row["name"]) for row in self.database.fetchall("PRAGMA table_info(crm_contacts)")}
+        for column, definition in self.CONTACT_COLUMNS.items():
+            if column not in existing:
+                self.database.execute(f"ALTER TABLE crm_contacts ADD COLUMN {column} {definition}")
 
     @staticmethod
     def _contact(row: Any) -> dict[str, Any]:
@@ -67,13 +102,17 @@ class CRMRepository:
             contact_id = f"CRM-{uuid4().hex}"
         self.database.execute(
             """INSERT INTO crm_contacts
-            (contact_id, owner_user_id, full_name, email, phone, organization,
+            (contact_id, owner_user_id, full_name, email, phone, whatsapp_phone,
+             organization, address, city, pincode, designation, verification_status,
              source, external_id, notes, tags_json, consent_to_contact,
              contact_status, category, follow_up_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
             (
                 contact_id, owner_user_id, data["full_name"], data.get("email", ""),
-                data.get("phone", ""), data.get("organization", ""),
+                data.get("phone", ""), data.get("whatsapp_phone", ""),
+                data.get("organization", ""), data.get("address", ""),
+                data.get("city", ""), data.get("pincode", ""),
+                data.get("designation", ""), data.get("verification_status", "UNVERIFIED"),
                 data.get("source", "MANUAL"), data.get("external_id", ""),
                 data.get("notes", ""), json.dumps(data.get("tags", [])),
                 int(bool(data.get("consent_to_contact", False))),
@@ -109,13 +148,14 @@ class CRMRepository:
         )
         return [self._contact(row) for row in rows]
 
-    def update_contact(
-        self, owner_user_id: str, contact_id: str, changes: dict[str, Any]
-    ) -> dict[str, Any] | None:
+    def update_contact(self, owner_user_id: str, contact_id: str, changes: dict[str, Any]) -> dict[str, Any] | None:
         columns = {
             "full_name": "full_name", "email": "email", "phone": "phone",
-            "organization": "organization", "source": "source", "external_id": "external_id",
-            "notes": "notes", "tags": "tags_json", "consent_to_contact": "consent_to_contact",
+            "whatsapp_phone": "whatsapp_phone", "organization": "organization",
+            "address": "address", "city": "city", "pincode": "pincode",
+            "designation": "designation", "verification_status": "verification_status",
+            "source": "source", "external_id": "external_id", "notes": "notes",
+            "tags": "tags_json", "consent_to_contact": "consent_to_contact",
             "contact_status": "contact_status", "category": "category", "follow_up_at": "follow_up_at",
         }
         updates = [(columns[key], value) for key, value in changes.items() if key in columns]
@@ -145,10 +185,8 @@ class CRMRepository:
         )
         return cursor.rowcount > 0
 
-    def log_event(
-        self, owner_user_id: str, actor_user_id: str, action: str,
-        contact_id: str | None = None, details: dict[str, Any] | None = None,
-    ) -> None:
+    def log_event(self, owner_user_id: str, actor_user_id: str, action: str,
+                  contact_id: str | None = None, details: dict[str, Any] | None = None) -> None:
         self.database.execute(
             """INSERT INTO crm_audit_log
             (event_id, owner_user_id, contact_id, actor_user_id, action, details_json)
@@ -162,8 +200,7 @@ class CRMRepository:
             """SELECT event_id, owner_user_id, contact_id, actor_user_id, action,
                       details_json, created_at
                FROM crm_audit_log WHERE owner_user_id = ?
-               ORDER BY created_at DESC LIMIT ?""",
-            (owner_user_id, limit),
+               ORDER BY created_at DESC LIMIT ?""", (owner_user_id, limit),
         )
         events = []
         for row in rows:
@@ -175,23 +212,69 @@ class CRMRepository:
             events.append(item)
         return events
 
+    def create_daily_item(self, owner_user_id: str, actor_user_id: str, data: dict[str, Any]) -> dict[str, Any]:
+        item_id = f"CRM-WORK-{uuid4().hex}"
+        self.database.execute(
+            """INSERT INTO crm_daily_items
+            (item_id, owner_user_id, actor_user_id, contact_id, item_type, title, details, due_at, status)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'OPEN')""",
+            (item_id, owner_user_id, actor_user_id, data.get("contact_id"),
+             data.get("item_type", "TASK"), data["title"], data.get("details", ""), data.get("due_at")),
+        )
+        self.log_event(owner_user_id, actor_user_id, "DAILY_ITEM_CREATED", data.get("contact_id"),
+                       {"item_id": item_id, "title": data["title"], "due_at": data.get("due_at")})
+        return self.get_daily_item(owner_user_id, item_id)  # type: ignore[return-value]
+
+    def get_daily_item(self, owner_user_id: str, item_id: str) -> dict[str, Any] | None:
+        row = self.database.fetchone(
+            "SELECT * FROM crm_daily_items WHERE owner_user_id = ? AND item_id = ?",
+            (owner_user_id, item_id),
+        )
+        return dict(row) if row is not None else None
+
+    def list_daily_items(self, owner_user_id: str, *, status: str | None = None, limit: int = 200) -> list[dict[str, Any]]:
+        clauses = ["owner_user_id = ?"]
+        params: list[Any] = [owner_user_id]
+        if status:
+            clauses.append("status = ?")
+            params.append(status)
+        params.append(limit)
+        rows = self.database.fetchall(
+            f"SELECT * FROM crm_daily_items WHERE {' AND '.join(clauses)} ORDER BY CASE WHEN due_at IS NULL THEN 1 ELSE 0 END, due_at, created_at DESC LIMIT ?",
+            params,
+        )
+        return [dict(row) for row in rows]
+
+    def update_daily_item(self, owner_user_id: str, actor_user_id: str, item_id: str, status: str) -> dict[str, Any] | None:
+        if status not in {"OPEN", "IN_PROGRESS", "DONE", "CANCELLED"}:
+            raise ValueError("Unsupported daily item status")
+        self.database.execute(
+            """UPDATE crm_daily_items SET status = ?, updated_at = CURRENT_TIMESTAMP
+               WHERE owner_user_id = ? AND item_id = ?""", (status, owner_user_id, item_id),
+        )
+        item = self.get_daily_item(owner_user_id, item_id)
+        if item is not None:
+            self.log_event(owner_user_id, actor_user_id, "DAILY_ITEM_STATUS_CHANGED", item.get("contact_id"),
+                           {"item_id": item_id, "status": status})
+        return item
+
     def counts(self, owner_user_id: str) -> dict[str, Any]:
-        total = self.database.fetchone(
-            "SELECT COUNT(*) AS total FROM crm_contacts WHERE owner_user_id = ?",
+        total = self.database.fetchone("SELECT COUNT(*) AS total FROM crm_contacts WHERE owner_user_id = ?", (owner_user_id,))
+        statuses = self.database.fetchall(
+            "SELECT contact_status, COUNT(*) AS count FROM crm_contacts WHERE owner_user_id = ? GROUP BY contact_status",
             (owner_user_id,),
         )
-        statuses = self.database.fetchall(
-            """SELECT contact_status, COUNT(*) AS count FROM crm_contacts
-               WHERE owner_user_id = ? GROUP BY contact_status""", (owner_user_id,)
-        )
         categories = self.database.fetchall(
-            """SELECT category, COUNT(*) AS count FROM crm_contacts
-               WHERE owner_user_id = ? GROUP BY category""", (owner_user_id,)
+            "SELECT category, COUNT(*) AS count FROM crm_contacts WHERE owner_user_id = ? GROUP BY category",
+            (owner_user_id,),
         )
         overdue = self.database.fetchone(
-            """SELECT COUNT(*) AS count FROM crm_contacts
-               WHERE owner_user_id = ? AND contact_status = 'ACTIVE'
-               AND follow_up_at IS NOT NULL AND follow_up_at < CURRENT_TIMESTAMP""",
+            """SELECT COUNT(*) AS count FROM crm_contacts WHERE owner_user_id = ?
+               AND contact_status = 'ACTIVE' AND follow_up_at IS NOT NULL AND follow_up_at < CURRENT_TIMESTAMP""",
+            (owner_user_id,),
+        )
+        work = self.database.fetchall(
+            "SELECT status, COUNT(*) AS count FROM crm_daily_items WHERE owner_user_id = ? GROUP BY status",
             (owner_user_id,),
         )
         return {
@@ -199,4 +282,5 @@ class CRMRepository:
             "by_status": {row["contact_status"]: int(row["count"]) for row in statuses},
             "by_category": {row["category"]: int(row["count"]) for row in categories},
             "overdue_follow_ups": int(overdue["count"]) if overdue else 0,
+            "daily_work_by_status": {row["status"]: int(row["count"]) for row in work},
         }
