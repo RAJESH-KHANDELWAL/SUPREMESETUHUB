@@ -45,8 +45,10 @@ class ContactService:
         column_map: Mapping[str, str] | None = None,
     ) -> Contact:
         columns = dict(column_map or {
-            "full_name": "Name", "email": "Email", "phone": "Phone",
-            "organization": "Organization",
+            "full_name": "Name", "email": "Email", "phone": "Mobile",
+            "whatsapp_phone": "WhatsApp", "organization": "Company",
+            "address": "Address", "city": "City", "pincode": "Pincode",
+            "designation": "Designation",
         })
 
         def value(field_name: str) -> str:
@@ -58,6 +60,11 @@ class ContactService:
             full_name=value("full_name"),
             email=value("email"),
             phone=value("phone"),
+            whatsapp_phone=value("whatsapp_phone"),
             organization=value("organization"),
+            address=value("address"),
+            city=value("city"),
+            pincode=value("pincode"),
+            designation=value("designation"),
             source="GOOGLE_SHEETS",
         ).validate()
