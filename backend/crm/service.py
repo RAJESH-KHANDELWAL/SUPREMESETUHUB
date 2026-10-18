@@ -175,6 +175,81 @@ class CRMService:
         return {"contact_id": contact_id, "purpose": purpose, "tone": tone,
                 "draft": body, "sent": False, "human_approval_required": True}
 
+    def preview_import(
+        self, owner: str, provider: str, records: list[dict[str, Any]],
+        column_map: Mapping[str, str] | None = None,
+    ) -> dict[str, Any]:
+        provider = provider.strip().upper()
+        if provider not in {"GOOGLE_SHEETS", "GOOGLE_CONTACTS"}:
+            raise ValueError("Unsupported CRM import provider")
+        if len(records) > 500:
+            raise ValueError("A CRM import may contain at most 500 records")
+        existing = self.repository.list_contacts(owner, limit=500)
+        seen_emails = {(str(item.get("email") or "").strip().casefold(), item["contact_id"]) for item in existing if item.get("email")}
+        seen_phones = {("".join(ch for ch in str(item.get("phone") or "") if ch.isdigit()), item["contact_id"]) for item in existing if item.get("phone")}
+        incoming_emails: dict[str, int] = {}
+        incoming_phones: dict[str, int] = {}
+        items = []
+        for index, raw in enumerate(records, start=1):
+            try:
+                if provider == "GOOGLE_SHEETS":
+                    contact = self.normalizer.normalize_sheet_row(raw, f"PREVIEW-{index}", column_map)
+                else:
+                    contact = self.normalizer.normalize_google_contact(raw, f"PREVIEW-{index}")
+                normalized = contact.to_dict()
+                email = contact.email.strip().casefold()
+                phone = "".join(ch for ch in contact.phone if ch.isdigit())
+                reasons = []
+                if email and any(value == email for value, _contact_id in seen_emails):
+                    reasons.append("EXISTING_EMAIL")
+                if phone and len(phone) >= 7 and any(value == phone for value, _contact_id in seen_phones):
+                    reasons.append("EXISTING_PHONE")
+                if email and email in incoming_emails:
+                    reasons.append("DUPLICATE_EMAIL_IN_IMPORT")
+                if phone and len(phone) >= 7 and phone in incoming_phones:
+                    reasons.append("DUPLICATE_PHONE_IN_IMPORT")
+                if email:
+                    incoming_emails[email] = index
+                if phone and len(phone) >= 7:
+                    incoming_phones[phone] = index
+                items.append({
+                    "row_number": index, "status": "DUPLICATE_REVIEW" if reasons else "READY",
+                    "duplicate_reasons": reasons, "contact": normalized,
+                    "human_review_required": bool(reasons),
+                })
+            except (ValueError, TypeError, AttributeError) as exc:
+                items.append({"row_number": index, "status": "INVALID", "error": str(exc)})
+        return {
+            "provider": provider, "status": "PREVIEW_ONLY", "records_received": len(records),
+            "ready_count": sum(item["status"] == "READY" for item in items),
+            "duplicate_review_count": sum(item["status"] == "DUPLICATE_REVIEW" for item in items),
+            "invalid_count": sum(item["status"] == "INVALID" for item in items),
+            "records_written": 0, "data": items,
+            "human_approval_required": True, "no_data_written": True,
+        }
+
+    def commit_import(
+        self, owner: str, actor: str, provider: str, records: list[dict[str, Any]],
+        column_map: Mapping[str, str] | None = None, confirm_import: bool = False,
+    ) -> dict[str, Any]:
+        if not confirm_import:
+            raise PermissionError("HUMAN_IMPORT_CONFIRMATION_REQUIRED")
+        preview = self.preview_import(owner, provider, records, column_map)
+        if preview["invalid_count"]:
+            raise ValueError("Import contains invalid rows; fix them and preview again")
+        if preview["duplicate_review_count"]:
+            raise ValueError("Import contains duplicate candidates; resolve them before committing")
+        created = []
+        for item in preview["data"]:
+            normalized = dict(item["contact"])
+            normalized.pop("contact_id", None)
+            normalized["source"] = provider
+            created.append(self.create_contact(owner, actor, normalized))
+        self.repository.log_event(owner, actor, "CRM_IMPORT_COMMITTED", None, {
+            "provider": provider, "records_imported": len(created),
+        })
+        return {"success": True, "provider": provider, "records_imported": len(created), "data": created}
+
     def report(self, owner: str) -> dict[str, Any]:
         return {"success": True, "report": self.repository.counts(owner),
                 "duplicate_candidate_pairs": len(self.duplicate_candidates(owner)),
