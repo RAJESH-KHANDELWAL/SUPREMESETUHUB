@@ -72,3 +72,10 @@ the deployment environment before relying on stored CRM records.
 - `POST /api/v1/crm/activities` records a human-entered call, meeting, email, WhatsApp interaction, note, task, status change, or other event, including outcome and next follow-up.
 - `GET /api/v1/crm/contacts/{contact_id}/timeline` returns that contact's chronological activity history.
 - Activity rows are user-scoped and audit-logged. This is a manual logging API; it does not read private messages, monitor a person's device, or sync calendars automatically.
+
+
+### Verification evidence
+
+- A contact cannot be stored with `verification_status=VERIFIED` unless both `verification_evidence` and `verified_at` are recorded.
+- Evidence should be a concise audit note describing the approved verification method and result; do not put passwords, authentication codes, or unnecessary sensitive information in it.
+- The quality engine never claims it independently proves real-world identity. It reports whether evidence was recorded; format checks alone do not prove ownership or reachability.
