@@ -69,3 +69,25 @@ The PHP client requires server-side `SUPREMESETUHUB_API_BASE_URL` and
 `SUPREMESETUHUB_ADMIN_TOKEN` environment variables, HTTPS, and PHP cURL. Never expose
 bearer tokens in browser code or commit credentials. Google Cloud credentials must use
 a separate least-privilege Cloud identity rather than consumer Gmail permissions.
+
+
+## Google subsystem package layout
+
+The following provider-specific modules organize CORE, ENGINE, DATABASE, STORAGE,
+DNS, VPS-equivalent virtual machines, VPN, and CLOUD capability maps inside this
+existing lowercase Google Ecosystem directory:
+
+- `core/`: shared capability metadata; no credentials or live connections.
+- `engine/`: resolves supported subsystem names to their metadata modules.
+- `database/`: Cloud SQL, Firestore, Firebase Realtime Database, and BigQuery.
+- `storage/`: Google Cloud Storage and Google Drive.
+- `dns/`: Google Cloud DNS; registrar delegation remains separate.
+- `vps/`: Compute Engine VM metadata. Google Cloud calls these virtual machines,
+  not a product named “VPS”.
+- `vpn/`: Google Cloud VPN metadata; no tunnel is provisioned by this catalog.
+- `cloud/`: Google Cloud, Cloud Run, and Google Kubernetes Engine metadata.
+
+This scaffold does not replace canonical adapters in `backend/cloud/`,
+`backend/database/`, `backend/dns/`, `backend/server/`, or `backend/storage/`.
+Capability records do not imply credentials, billing setup, user consent, or live
+provider connectivity.
