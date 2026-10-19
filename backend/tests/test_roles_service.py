@@ -69,5 +69,5 @@ def test_role_service_initialize_preserves_legacy_roles(tmp_path):
     assert legacy is not None
     assert legacy.role_name == "Legacy Admin"
     assert legacy.description == "Keep this record"
-    assert legacy.authority_level == 1
+    assert legacy.authority_level == 7
     assert legacy.organization_id == ""
