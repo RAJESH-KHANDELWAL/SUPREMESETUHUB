@@ -1,9 +1,8 @@
 
-import sqlite3
 import uuid
 import re
 from datetime import datetime, timezone
-from pathlib import Path
+from backend.database import DatabaseService
 
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field, model_validator
@@ -13,13 +12,12 @@ router = APIRouter(
     tags=["Contacts"],
 )
 
-DB_PATH = Path(__file__).resolve().parents[1] / "supreme_identities.db"
+database = DatabaseService()
 
 
 def get_connection():
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    return conn
+    """Return the canonical SUPREME database connection."""
+    return database.connect()
 
 
 def init_db():

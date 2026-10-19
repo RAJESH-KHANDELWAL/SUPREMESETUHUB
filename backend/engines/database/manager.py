@@ -8,9 +8,12 @@ and their lifecycle/transaction behavior are implemented.
 """
 
 from datetime import datetime, timezone
+import os
 from pathlib import Path
 import sqlite3
 from typing import Optional
+
+from backend.database.service import DatabaseService
 
 
 class DatabaseEngine:
@@ -18,15 +21,20 @@ class DatabaseEngine:
 
     def __init__(
         self,
-        database_url: str = "sqlite:///main_base_foundation.db",
+        database_url: Optional[str] = None,
         timeout: float = 30.0,
     ):
+        # Default all platform modules to the canonical SUPREME database.
+        if database_url is None:
+            configured_path = os.getenv("SUPREME_DB_PATH") or "data/supreme.db"
+            database_url = f"sqlite:///{configured_path}"
         self.database_url = database_url
         self.timeout = timeout
         self._status = "READY"
         self.connected = False
         self.last_check = self._now()
         self.connection: Optional[sqlite3.Connection] = None
+        self._database_service: Optional[DatabaseService] = None
 
     def _now(self) -> str:
         """Return current UTC timestamp."""
@@ -63,22 +71,30 @@ class DatabaseEngine:
 
         connection = None
         try:
-            connection = sqlite3.connect(
-                target,
-                timeout=self.timeout,
-                check_same_thread=False,
-                uri=is_uri,
-            )
-            connection.row_factory = sqlite3.Row
-            connection.execute("PRAGMA foreign_keys = ON")
-            connection.execute(
-                f"PRAGMA busy_timeout = {max(0, int(self.timeout * 1000))}"
-            )
-            # Verify the connection before publishing it as connected.
+            if is_uri:
+                # Preserve explicitly configured SQLite URI support.
+                connection = sqlite3.connect(
+                    target,
+                    timeout=self.timeout,
+                    check_same_thread=False,
+                    uri=True,
+                )
+                connection.row_factory = sqlite3.Row
+                connection.execute("PRAGMA foreign_keys = ON")
+                connection.execute(
+                    f"PRAGMA busy_timeout = {max(0, int(self.timeout * 1000))}"
+                )
+            else:
+                self._database_service = DatabaseService(db_path=target)
+                connection = self._database_service.connect()
+                connection.execute(
+                    f"PRAGMA busy_timeout = {max(0, int(self.timeout * 1000))}"
+                )
             connection.execute("SELECT 1")
         except Exception:
             if connection is not None:
                 connection.close()
+            self._database_service = None
             self.connection = None
             self.connected = False
             self._status = "ERROR"
@@ -93,7 +109,10 @@ class DatabaseEngine:
 
     def disconnect(self) -> dict:
         """Disconnect the database engine."""
-        if self.connection is not None:
+        if self._database_service is not None:
+            self._database_service.close()
+            self._database_service = None
+        elif self.connection is not None:
             self.connection.close()
         self.connection = None
         self.connected = False

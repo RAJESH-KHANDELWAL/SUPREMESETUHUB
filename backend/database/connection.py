@@ -1,115 +1,75 @@
 """MAIN BASE FOUNDATION database connection.
 
-Low-level SQLite connection management for the database layer.
-
-This module is responsible only for creating, maintaining, checking,
-and closing the SQLite database connection.
-
-Higher-level database operations remain in DatabaseService.
-Database schema definitions remain in DatabaseSchema.
+Compatibility facade for legacy modules. By default, platform modules use
+the canonical SUPREME database configured by SUPREME_DB_PATH or
+data/supreme.db. An explicit database_name remains an opt-in override for
+isolated/test databases or intentional legacy access.
 """
-
 from __future__ import annotations
 
+import os
 import sqlite3
-from pathlib import Path
 from threading import RLock
 from typing import Optional
 
+from backend.database.service import DatabaseService
+
 
 class DatabaseConnection:
-    """Manage the SQLite connection used by MAIN BASE FOUNDATION."""
+    """Compatibility wrapper backed by the canonical DatabaseService."""
 
     def __init__(
         self,
-        database_name: str = "main_base_foundation.db",
+        database_name: Optional[str] = None,
         timeout: float = 30.0,
     ) -> None:
-        self.database_name = database_name
+        # Keep explicit paths working, but eliminate the old implicit
+        # main_base_foundation.db split for platform modules.
+        self.database_name = (
+            database_name
+            or os.getenv("SUPREME_DB_PATH")
+            or "data/supreme.db"
+        )
         self.timeout = timeout
-
+        self._service = DatabaseService(db_path=self.database_name)
         self.connection: Optional[sqlite3.Connection] = None
         self._lock = RLock()
 
-    # ------------------------------------------------------------------
-    # CONNECTION
-    # ------------------------------------------------------------------
-
     def connect(self) -> sqlite3.Connection:
-        """Create and return an active SQLite connection."""
-
+        """Return the shared-service SQLite connection."""
         with self._lock:
             if self.connection is not None:
                 return self.connection
-
-            path = Path(self.database_name)
-
-            if path.parent != Path("."):
-                path.parent.mkdir(
-                    parents=True,
-                    exist_ok=True,
-                )
-
-            self.connection = sqlite3.connect(
-                str(path),
-                timeout=self.timeout,
-                check_same_thread=False,
+            connection = self._service.connect()
+            connection.execute(
+                f"PRAGMA busy_timeout = {max(0, int(self.timeout * 1000))}"
             )
-
-            self.connection.row_factory = sqlite3.Row
-
-            # Enable relational foreign-key enforcement.
-            self.connection.execute(
-                "PRAGMA foreign_keys = ON"
-            )
-
-            return self.connection
-
-    # ------------------------------------------------------------------
-    # CLOSE
-    # ------------------------------------------------------------------
+            self.connection = connection
+            return connection
 
     def close(self) -> None:
-        """Close the active database connection."""
-
+        """Close this service connection."""
         with self._lock:
             if self.connection is None:
                 return
-
-            self.connection.close()
+            self._service.close()
             self.connection = None
 
-    # ------------------------------------------------------------------
-    # STATUS
-    # ------------------------------------------------------------------
-
     def is_connected(self) -> bool:
-        """Return whether a database connection is currently active."""
-
         with self._lock:
             return self.connection is not None
 
     def database(self) -> str:
-        """Return the configured database path."""
-
         return self.database_name
 
     def status(self) -> dict:
-        """Return safe connection status information."""
-
         return {
             "database": self.database_name,
             "connected": self.is_connected(),
             "timeout": self.timeout,
         }
 
-    # ------------------------------------------------------------------
-    # HEALTH
-    # ------------------------------------------------------------------
-
     def health(self) -> dict:
-        """Check whether the active database connection is healthy."""
-
         with self._lock:
             if self.connection is None:
                 return {
@@ -118,19 +78,14 @@ class DatabaseConnection:
                     "database": self.database_name,
                     "connected": False,
                 }
-
             try:
-                self.connection.execute(
-                    "SELECT 1"
-                )
-
+                self.connection.execute("SELECT 1")
                 return {
                     "success": True,
                     "status": "HEALTHY",
                     "database": self.database_name,
                     "connected": True,
                 }
-
             except sqlite3.Error as exc:
                 return {
                     "success": False,
@@ -141,6 +96,4 @@ class DatabaseConnection:
                 }
 
 
-__all__ = [
-    "DatabaseConnection",
-]
+__all__ = ["DatabaseConnection"]
