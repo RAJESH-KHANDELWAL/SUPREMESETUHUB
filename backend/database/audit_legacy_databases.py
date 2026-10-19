@@ -7,7 +7,6 @@ from __future__ import annotations
 
 import argparse
 import os
-import re
 import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
@@ -16,9 +15,14 @@ from typing import Any
 DEFAULT_TARGET = Path(os.getenv("SUPREME_DB_PATH") or "data/supreme.db")
 DEFAULT_SOURCES = (
     Path("main_base_foundation.db"),
+    Path("data/main_base_foundation.db"),
     Path("supreme.db"),
+    Path("supremesetuhub.db"),
+    Path("supreme_identities.db"),
+    Path("data/supreme_identities.db"),
     Path("app/supreme_identities.db"),
     Path("supreme_personal_ai.db"),
+    Path("data/supreme_personal_ai.db"),
 )
 
 
