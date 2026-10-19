@@ -1,12 +1,12 @@
 """Private SUPREME PERSONAL AI public-business/opportunity research."""
 from __future__ import annotations
-import os, sqlite3
+import os
 from datetime import datetime, timezone
-from pathlib import Path
+from backend.database import DatabaseService
 from typing import Any
 import httpx
 
-DB_PATH=Path(os.getenv("SUPREME_PERSONAL_AI_DB","supreme_personal_ai.db"))
+database = DatabaseService()
 SEARCH_URL="https://www.googleapis.com/customsearch/v1"
 TRACKS: dict[str,dict[str,Any]]={
  "wordpress_website":{"label":"WordPress websites and maintenance","horizon":"SHORT_AND_LONG_TERM","queries":['"WordPress developer needed" freelance business website','"website maintenance" small business freelancer','"WordPress website redesign" business']},
@@ -15,9 +15,10 @@ TRACKS: dict[str,dict[str,Any]]={
  "recurring_maintenance":{"label":"Recurring website care plans","horizon":"LONG_TERM","queries":['"WordPress care plan" small business partnership','"website support retainer" freelance WordPress','"monthly SEO content" small business agency']}
 }
 def _db():
- DB_PATH.parent.mkdir(parents=True,exist_ok=True)
- c=sqlite3.connect(DB_PATH); c.row_factory=sqlite3.Row
- c.execute("""CREATE TABLE IF NOT EXISTS research_results(id INTEGER PRIMARY KEY,track TEXT,horizon TEXT,title TEXT,url TEXT UNIQUE,snippet TEXT,source TEXT,researched_at TEXT)"""); c.commit(); return c
+ c = database.connect()
+ c.execute("""CREATE TABLE IF NOT EXISTS research_results(id INTEGER PRIMARY KEY,track TEXT,horizon TEXT,title TEXT,url TEXT UNIQUE,snippet TEXT,source TEXT,researched_at TEXT)""")
+ c.commit()
+ return c
 def status():
  configured=bool(os.getenv("GOOGLE_CSE_API_KEY","").strip() and os.getenv("GOOGLE_CSE_ID","").strip())
  with _db() as c: count=c.execute("SELECT COUNT(*) FROM research_results").fetchone()[0]
