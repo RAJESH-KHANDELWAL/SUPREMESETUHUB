@@ -50,7 +50,13 @@ class RoleService:
             "updated_at": "TEXT",
         }
         for name, definition in required_columns.items():
-            self.database.add_column_if_missing("roles", name, definition)
+            added = self.database.add_column_if_missing("roles", name, definition)
+            # On legacy schemas, preserve the previous level value when it
+            # becomes the new authority_level field.
+            if name == "authority_level" and added and "level" in self.database.get_columns("roles"):
+                self.database.execute(
+                    "UPDATE roles SET authority_level = level WHERE level IS NOT NULL"
+                )
 
         return {"roles": "Initialized", "status": "READY"}
 
