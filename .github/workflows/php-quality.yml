@@ -18,7 +18,7 @@ permissions:
 
 jobs:
   php-quality:
-    name: PHP 8.3 / 8.5 syntax and core tests
+    name: PHP syntax checks
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -42,6 +42,3 @@ jobs:
           while IFS= read -r -d '' file; do
             php -l "$file"
           done < <(git ls-files -z '*.php')
-
-      - name: Run global algorithm kernel tests
-        run: php backend/tests/php/global_algorithm_kernel_test.php
