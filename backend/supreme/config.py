@@ -8,6 +8,18 @@ import os
 from datetime import datetime
 
 # =========================================================
+# 👑 RAJESH KHANDELWAL OFFICIAL — BRAND IDENTITY
+# =========================================================
+
+RAJESH_KHANDELWAL_OFFICIAL_BRAND = {
+    "display_name": "👑 RAJESH KHANDELWAL OFFICIAL 👑",
+    "username": "RAJESHKHANDELWALOFFICIAL",
+    "domain_name": "RAJESHKHANDELWALOFFICIAL.COM",
+    "gmail_id_name": "RAJESHKHANDELWALOFFICIAL@GMAIL.COM",
+    "tagline": "🏡 REAL ESTATE COACH | ❤️ RELATIONSHIP & INTIMACY COACH",
+}
+
+# =========================================================
 # 👑 SUPREMESETUHUB APPLICATION
 # =========================================================
 
