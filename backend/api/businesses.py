@@ -15,7 +15,7 @@ from backend.supreme.role_governance import role_governance_catalog
 
 router = APIRouter(
     prefix="/businesses",
-    tags=["Businesses"],
+    tags=["Big Businesses"],
 )
 
 controller = BusinessController()
@@ -112,6 +112,17 @@ def create_business(
         status="ACTIVE",
         verified=False,
         metadata=request.metadata,
+        legal_name=request.legal_name,
+        business_type=request.business_type,
+        industry=request.industry,
+        employee_count=request.employee_count,
+        headquarters=request.headquarters,
+        parent_company_id=request.parent_company_id,
+        annual_revenue_band=request.annual_revenue_band,
+        operating_regions=request.operating_regions,
+        departments=request.departments,
+        tags=request.tags,
+        compliance_status=request.compliance_status,
     )
 
     return {
