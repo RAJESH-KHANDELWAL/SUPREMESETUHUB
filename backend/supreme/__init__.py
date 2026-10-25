@@ -59,6 +59,9 @@ from .controller import (
 )
 
 
+from .identities.registry import IDENTITIES as SUPREME_IDENTITIES
+
+
 # =========================================================
 # 📦 PUBLIC API
 # =========================================================
@@ -87,4 +90,5 @@ __all__ = [
 
     # Controller
     "SupremeController",
+    "SUPREME_IDENTITIES",
 ]
