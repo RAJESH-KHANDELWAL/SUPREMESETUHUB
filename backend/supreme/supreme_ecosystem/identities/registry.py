@@ -1,8 +1,8 @@
 """Registry connecting all four identity modules to SUPREME ECOSYSTEM."""
-from .dr_rajesh_khandelwal_ibc import DR_RAJESH_KHANDELWAL_IBC_BRAND
-from .dr_rajesh_khandelwal_ibc_official import DR_RAJESH_KHANDELWAL_IBC_OFFICIAL_BRAND
-from .rajesh_khandelwal_official import RAJESH_KHANDELWAL_OFFICIAL_BRAND
-from .rajesh_khandelwal_personal import RAJESH_KHANDELWAL_PERSONAL_BRAND
+from .dr_rajesh_khandelwal_ibc.identity import DR_RAJESH_KHANDELWAL_IBC_BRAND
+from .dr_rajesh_khandelwal_ibc_official.identity import DR_RAJESH_KHANDELWAL_IBC_OFFICIAL_BRAND
+from .rajesh_khandelwal_official.identity import RAJESH_KHANDELWAL_OFFICIAL_BRAND
+from .rajesh_khandelwal_personal.identity import RAJESH_KHANDELWAL_PERSONAL_BRAND
 
 IDENTITIES = {
     "dr_rajesh_khandelwal_ibc": DR_RAJESH_KHANDELWAL_IBC_BRAND,
