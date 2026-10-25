@@ -8,6 +8,20 @@ import os
 from datetime import datetime
 
 # =========================================================
+# 👑 DR RAJESH KHANDELWAL IBC — BRAND IDENTITY
+# This is brand metadata only. Domain/Gmail availability and
+# external account connections must be verified separately.
+# =========================================================
+
+DR_RAJESH_KHANDELWAL_IBC_BRAND = {
+    "display_name": "👑 DR RAJESH KHANDELWAL IBC 👑",
+    "username": "DRRAJESHKHANDELWALIBC",
+    "domain_name": "DRRAJESHKHANDELWALIBC.COM",
+    "gmail_id_name": "DRRAJESHKHANDELWALIBC@GMAIL.COM",
+    "tagline": "🌍 GLOBAL BUSINESS COACH | 🧠 INDEPENDENT BUSINESS CONSULTANT",
+}
+
+# =========================================================
 # 👑 SUPREMESETUHUB APPLICATION
 # =========================================================
 
