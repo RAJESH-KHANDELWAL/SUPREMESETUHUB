@@ -16,6 +16,7 @@ from backend.api.product_ecosystem import router as product_ecosystem_router
 from backend.api.core_readiness import router as core_readiness_router
 from backend.api.storage_routes import router as storage_routes_router
 from backend.api.businesses import router as businesses_router
+from backend.api.big_businesses import router as big_businesses_router
 from backend.api.dashboard import router as dashboard_router
 from backend.api.dns import router as dns_router
 from backend.api.gallary_woult import router as gallary_woult_router
@@ -364,6 +365,7 @@ app.include_router(organizations_router)
 app.include_router(identity_router)
 app.include_router(profiles_router)
 app.include_router(businesses_router)
+app.include_router(big_businesses_router)
 app.include_router(projects_router)
 app.include_router(opportunities_router)
 app.include_router(matching_router)
