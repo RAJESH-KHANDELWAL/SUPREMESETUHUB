@@ -1,4 +1,5 @@
 """SUPREME ECOSYSTEM package and public connector interface."""
+from .brand_identity import DR_RAJESH_KHANDELWAL_IBC_BRAND
 from .supreme_ecosystem import ACCESS_POLICY, CORE_MODULES, PARENT_SYSTEM, SYSTEM_NAME, SupremeEcosystem, supreme_ecosystem
 from .connectors.base import ConnectorResult, ConnectorCapability, EcosystemProviderConnector
 from .connectors.registry import ConnectorRegistry, registry
