@@ -21,6 +21,19 @@ DR_RAJESH_KHANDELWAL_IBC_BRAND = {
     "tagline": "🌍 GLOBAL BUSINESS COACH | 🧠 INDEPENDENT BUSINESS CONSULTANT",
 }
 
+
+# =========================================================
+# 👑 DR RAJESH KHANDELWAL IBC OFFICIAL — BRAND IDENTITY
+# =========================================================
+
+DR_RAJESH_KHANDELWAL_IBC_OFFICIAL_BRAND = {
+    "display_name": "👑 DR RAJESH KHANDELWAL IBC OFFICIAL 👑",
+    "username": "DRRAJESHKHANDELWALIBCOFFICIAL",
+    "domain_name": "DRRAJESHKHANDELWALIBCOFFICIAL.COM",
+    "gmail_id_name": "DRRAJESHKHANDELWALIBCOFFICIAL@GMAIL.COM",
+    "tagline": "🌍 GLOBAL BUSINESS COACH | 🧠 INDEPENDENT BUSINESS CONSULTANT | 💼 BUSINESS ADVISOR | 🏢 FOUNDER & CEO",
+}
+
 # =========================================================
 # 👑 SUPREMESETUHUB APPLICATION
 # =========================================================
