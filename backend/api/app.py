@@ -16,6 +16,7 @@ from backend.api.product_ecosystem import router as product_ecosystem_router
 from backend.api.core_readiness import router as core_readiness_router
 from backend.api.storage_routes import router as storage_routes_router
 from backend.api.businesses import router as businesses_router
+from backend.api.big_businesses import router as big_businesses_router
 from backend.api.dashboard import router as dashboard_router
 from backend.api.dns import router as dns_router
 from backend.api.gallary_woult import router as gallary_woult_router
@@ -272,6 +273,13 @@ async def private_by_default(request: Request, call_next):
     if path.startswith("/user-hub/"):
         return await call_next(request)
 
+    # Business and Big Businesses routes enforce owner-scoped access inside
+    # their handlers. Permit authenticated platform users to reach those
+    # checks rather than applying the blanket owner-only middleware policy.
+    business_paths = ("/businesses", "/big-businesses", "/api/v1/businesses", "/api/v1/big-businesses")
+    if any(path == prefix or path.startswith(prefix + "/") for prefix in business_paths):
+        return await call_next(request)
+
     # Storage APIs enforce per-asset owner permissions in the route layer.
     # Health endpoints expose only non-secret diagnostics to signed-in users.
     if path.startswith("/api/v1/storage/") or path in {
@@ -364,6 +372,7 @@ app.include_router(organizations_router)
 app.include_router(identity_router)
 app.include_router(profiles_router)
 app.include_router(businesses_router)
+app.include_router(big_businesses_router)
 app.include_router(projects_router)
 app.include_router(opportunities_router)
 app.include_router(matching_router)
