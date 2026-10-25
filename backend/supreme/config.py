@@ -20,6 +20,17 @@ DR_RAJESH_KHANDELWAL_IBC_OFFICIAL_BRAND = {
 }
 
 # =========================================================
+# 👑 RAJESH KHANDELWAL — PERSONAL IDENTITY
+# =========================================================
+
+RAJESH_KHANDELWAL_PERSONAL_BRAND = {
+    "display_name": "👑 RAJESH KHANDELWAL 👑",
+    "username": "RAJESHKHANDELWAL",
+    "domain_name": "RAJESHKHANDELWAL.COM",
+    "gmail_id_name": "RAJESHKHANDELWAL@GMAIL.COM",
+}
+
+# =========================================================
 # 👑 SUPREMESETUHUB APPLICATION
 # =========================================================
 
