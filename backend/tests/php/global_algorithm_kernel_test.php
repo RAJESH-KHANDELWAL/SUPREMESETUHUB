@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 require_once dirname(__DIR__, 2) . '/php/GlobalAlgorithmKernel.php';
 
-use SupremeSetuHub\\GlobalCore\\GlobalAlgorithmKernel as Kernel;
+use SupremeSetuHub\GlobalCore\GlobalAlgorithmKernel as Kernel;
 
 function expect(bool $condition, string $message): void
 {
