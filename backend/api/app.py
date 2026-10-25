@@ -273,6 +273,13 @@ async def private_by_default(request: Request, call_next):
     if path.startswith("/user-hub/"):
         return await call_next(request)
 
+    # Business and Big Businesses routes enforce owner-scoped access inside
+    # their handlers. Permit authenticated platform users to reach those
+    # checks rather than applying the blanket owner-only middleware policy.
+    business_paths = ("/businesses", "/big-businesses", "/api/v1/businesses", "/api/v1/big-businesses")
+    if any(path == prefix or path.startswith(prefix + "/") for prefix in business_paths):
+        return await call_next(request)
+
     # Storage APIs enforce per-asset owner permissions in the route layer.
     # Health endpoints expose only non-secret diagnostics to signed-in users.
     if path.startswith("/api/v1/storage/") or path in {
