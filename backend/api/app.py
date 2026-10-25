@@ -90,6 +90,7 @@ CONTACT_JS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "contact-js.js"
 SUPREME_ECOSYSTEM_HTML_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "supreme-ecosystem.html"
 SUPREME_ECOSYSTEM_CSS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "supreme-ecosystem.css"
 SUPREME_ECOSYSTEM_JS_FILE = SUPREME_FRONTEND_DIR / "supreme-ecosystem" / "supreme-ecosystem.js"
+BIG_BUSINESSES_SHOWCASE_FILE = SUPREME_FRONTEND_DIR / "big-businesses" / "index.html"
 
 
 # ============================================================
@@ -588,6 +589,15 @@ def supreme_frontend_health():
 # ============================================================
 # SUPREME ECOSYSTEM FRONTEND
 # ============================================================
+
+
+@app.get("/api/v1/frontend/big-businesses")
+def big_businesses_showcase_frontend():
+    """Serve the public Big Businesses link showcase page."""
+    if not BIG_BUSINESSES_SHOWCASE_FILE.is_file():
+        raise HTTPException(status_code=404, detail="BIG_BUSINESSES_SHOWCASE_NOT_FOUND")
+    return FileResponse(BIG_BUSINESSES_SHOWCASE_FILE, media_type="text/html")
+
 
 @app.get("/api/v1/frontend/supreme-ecosystem")
 def supreme_ecosystem_frontend():
