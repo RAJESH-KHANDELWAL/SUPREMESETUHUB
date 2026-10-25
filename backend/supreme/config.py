@@ -19,6 +19,42 @@ RAJESH_KHANDELWAL_PERSONAL_BRAND = {
 }
 
 # =========================================================
+# 👑 DR RAJESH KHANDELWAL IBC — BRAND IDENTITY
+# =========================================================
+
+DR_RAJESH_KHANDELWAL_IBC_BRAND = {
+    "display_name": "👑 DR RAJESH KHANDELWAL IBC 👑",
+    "username": "DRRAJESHKHANDELWALIBC",
+    "domain_name": "DRRAJESHKHANDELWALIBC.COM",
+    "gmail_id_name": "DRRAJESHKHANDELWALIBC@GMAIL.COM",
+    "tagline": "🌍 GLOBAL BUSINESS COACH | 🧠 INDEPENDENT BUSINESS CONSULTANT",
+}
+
+# =========================================================
+# 👑 DR RAJESH KHANDELWAL IBC OFFICIAL — BRAND IDENTITY
+# =========================================================
+
+DR_RAJESH_KHANDELWAL_IBC_OFFICIAL_BRAND = {
+    "display_name": "👑 DR RAJESH KHANDELWAL IBC OFFICIAL 👑",
+    "username": "DRRAJESHKHANDELWALIBCOFFICIAL",
+    "domain_name": "DRRAJESHKHANDELWALIBCOFFICIAL.COM",
+    "gmail_id_name": "DRRAJESHKHANDELWALIBCOFFICIAL@GMAIL.COM",
+    "tagline": "🌍 GLOBAL BUSINESS COACH | 🧠 INDEPENDENT BUSINESS CONSULTANT | 💼 BUSINESS ADVISOR | 🏢 FOUNDER & CEO",
+}
+
+# =========================================================
+# 👑 RAJESH KHANDELWAL OFFICIAL — BRAND IDENTITY
+# =========================================================
+
+RAJESH_KHANDELWAL_OFFICIAL_BRAND = {
+    "display_name": "👑 RAJESH KHANDELWAL OFFICIAL 👑",
+    "username": "RAJESHKHANDELWALOFFICIAL",
+    "domain_name": "RAJESHKHANDELWALOFFICIAL.COM",
+    "gmail_id_name": "RAJESHKHANDELWALOFFICIAL@GMAIL.COM",
+    "tagline": "🏡 REAL ESTATE COACH | ❤️ RELATIONSHIP & INTIMACY COACH",
+}
+
+# =========================================================
 # 👑 SUPREMESETUHUB APPLICATION
 # =========================================================
 
