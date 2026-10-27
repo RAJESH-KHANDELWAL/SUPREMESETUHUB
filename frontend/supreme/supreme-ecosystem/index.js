@@ -241,6 +241,7 @@ else{
   loadPrivate("/api/v1/supreme-ecosystem/integrations","integrations");
   loadOwnerProfiles();
   loadBackendModuleMap();
+  refreshControlStatus();
 }
 document.getElementById("hostingerBadge").textContent="NEEDS API";
 refreshAll();
