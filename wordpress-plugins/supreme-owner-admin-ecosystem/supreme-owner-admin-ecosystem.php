@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: SUPREME Owner Admin Ecosystem
- * Description: A separate private WordPress admin landing page for SUPREME ECOSYSTEM governance.
- * Version: 1.0.0
+ * Description: Owner-only WordPress admin landing page for SUPREME ECOSYSTEM governance.
+ * Version: 1.0.1
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * License: GPL-2.0-or-later
@@ -10,12 +10,24 @@
 
 defined( 'ABSPATH' ) || exit;
 
+/** Uses the same exact owner account ID as the main SUPREME owner plugin. */
 final class Supreme_Owner_Admin_Ecosystem_Plugin {
+    private function is_authorized_owner() {
+        return defined( 'SUPREME_OWNER_WP_USER_ID' )
+            && is_numeric( SUPREME_OWNER_WP_USER_ID )
+            && (int) SUPREME_OWNER_WP_USER_ID > 0
+            && get_current_user_id() === (int) SUPREME_OWNER_WP_USER_ID
+            && current_user_can( 'manage_options' );
+    }
+
     public function __construct() {
         add_action( 'admin_menu', array( $this, 'register_menu' ) );
     }
 
     public function register_menu() {
+        if ( ! $this->is_authorized_owner() ) {
+            return;
+        }
         add_menu_page(
             'SUPREME Owner Admin Ecosystem',
             'SUPREME Ecosystem Admin',
@@ -28,14 +40,14 @@ final class Supreme_Owner_Admin_Ecosystem_Plugin {
     }
 
     public function render_page() {
-        if ( ! current_user_can( 'manage_options' ) ) {
-            wp_die( esc_html__( 'You are not allowed to access this page.', 'supreme-owner-admin-ecosystem' ) );
+        if ( ! $this->is_authorized_owner() ) {
+            wp_die( esc_html__( 'Access denied. This control panel is restricted to the configured SUPREME owner account.', 'supreme-owner-admin-ecosystem' ), '', array( 'response' => 403 ) );
         }
         ?>
         <div class="wrap">
             <h1><?php echo esc_html__( 'SUPREME Owner Admin Ecosystem', 'supreme-owner-admin-ecosystem' ); ?></h1>
-            <p><?php echo esc_html__( 'Separate WordPress control-panel landing page for SUPREME ECOSYSTEM administration.', 'supreme-owner-admin-ecosystem' ); ?></p>
-            <div class="notice notice-info"><p><?php echo esc_html__( 'This page checks WordPress administrator capability only. It does not authenticate to the SUPREME backend or verify external integrations.', 'supreme-owner-admin-ecosystem' ); ?></p></div>
+            <p><?php echo esc_html__( 'Private owner-only control-panel landing page for SUPREME ECOSYSTEM administration.', 'supreme-owner-admin-ecosystem' ); ?></p>
+            <div class="notice notice-info"><p><?php echo esc_html__( 'Owner account match is required. This page does not authenticate to the SUPREME backend or verify external integrations.', 'supreme-owner-admin-ecosystem' ); ?></p></div>
             <h2><?php echo esc_html__( 'Ecosystem control areas', 'supreme-owner-admin-ecosystem' ); ?></h2>
             <ul>
                 <li><?php echo esc_html__( 'API and integration configuration', 'supreme-owner-admin-ecosystem' ); ?></li>
@@ -43,7 +55,7 @@ final class Supreme_Owner_Admin_Ecosystem_Plugin {
                 <li><?php echo esc_html__( 'Ecosystem users, roles, security, and audit readiness', 'supreme-owner-admin-ecosystem' ); ?></li>
                 <li><?php echo esc_html__( 'WordPress ecosystem-site integration readiness', 'supreme-owner-admin-ecosystem' ); ?></li>
             </ul>
-            <p><strong><?php echo esc_html__( 'Status:', 'supreme-owner-admin-ecosystem' ); ?></strong> <?php echo esc_html__( 'Dashboard shell installed; live backend actions are not yet wired.', 'supreme-owner-admin-ecosystem' ); ?></p>
+            <p><strong><?php echo esc_html__( 'Status:', 'supreme-owner-admin-ecosystem' ); ?></strong> <?php echo esc_html__( 'Owner-only dashboard shell; live backend actions are not yet wired.', 'supreme-owner-admin-ecosystem' ); ?></p>
         </div>
         <?php
     }
