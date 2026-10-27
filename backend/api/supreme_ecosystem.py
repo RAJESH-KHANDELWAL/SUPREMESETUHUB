@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import os
 
-from fastapi import APIRouter, Depends, Header, HTTPException
+from fastapi import APIRouter, Depends, Header, HTTPException, Request
 from pydantic import BaseModel, EmailStr, Field, field_validator
 
 from backend.auth.service import AuthenticationService
@@ -62,9 +62,14 @@ class EcosystemControlCommandRequest(BaseModel):
 
 
 def require_supreme_ecosystem_owner(
+    request: Request,
     authorization: str | None = Header(default=None, alias="Authorization"),
 ) -> str:
-    """Require an active session for the configured private SUPREME owner."""
+    """Require an active owner session, while allowing the sign-in endpoint to issue one."""
+    # The router-wide dependency also runs on /auth/signin. Exempt only that exact
+    # POST route; every other endpoint remains private and owner-authenticated.
+    if request.method == "POST" and request.url.path.rstrip("/") == "/api/v1/supreme-ecosystem/auth/signin":
+        return "SIGNIN_ROUTE"
     if not authorization or not authorization.startswith("Bearer "):
         raise HTTPException(
             status_code=401,
