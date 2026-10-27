@@ -9,7 +9,7 @@ form.addEventListener("submit", async (event) => {
   button.textContent = "SIGNING IN...";
   message.textContent = "VERIFYING PRIVATE ECOSYSTEM OWNER ACCESS...";
   try {
-    const response = await fetch(API + "/auth/signin", {
+    const response = await fetch(API + "/api/v1/supreme-ecosystem/auth/signin", {
       method: "POST",
       headers: {"Content-Type": "application/json", "Accept": "application/json"},
       body: JSON.stringify({
@@ -22,7 +22,7 @@ form.addEventListener("submit", async (event) => {
     const token = data.token || data.access_token;
     if (!token) throw new Error("AUTHENTICATION TOKEN WAS NOT RETURNED.");
     const check = await fetch(API + "/api/v1/supreme-ecosystem/status", {headers: {Authorization: "Bearer " + token, Accept: "application/json"}});
-    if (!check.ok) throw new Error(check.status === 403 ? "SUPREME ECOSYSTEM IS PRIVATE. OWNER ACCESS ONLY." : "OWNER SESSION COULD NOT BE VERIFIED.");
+    if (!check.ok) throw new Error(check.status === 403 ? "SUPREME ECOSYSTEM IS PRIVATE. OWNER ACCESS ONLY." : check.status === 401 ? "LOGIN TOKEN WAS NOT ACCEPTED. CHECK THE BACKEND AUTHENTICATION RESPONSE." : "OWNER SESSION COULD NOT BE VERIFIED.");
     localStorage.setItem("supreme_ecosystem_token", token);
     message.textContent = "SIGN IN SUCCESSFUL. OPENING SUPREME ECOSYSTEM...";
     window.location.replace("index.html");
