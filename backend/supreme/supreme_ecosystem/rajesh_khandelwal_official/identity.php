@@ -1,7 +1,6 @@
 <?php
 /** 👑 RAJESH KHANDELWAL OFFICIAL 👑 identity registry metadata. IDs are internal SUPREME registry IDs, not third-party platform IDs. */
 declare(strict_types=1);
-
 return [
     'slug' => 'rajesh_khandelwal_official',
     'display_name' => '👑 RAJESH KHANDELWAL OFFICIAL 👑',
