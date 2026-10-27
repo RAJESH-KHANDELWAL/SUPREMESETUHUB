@@ -163,7 +163,62 @@ async function loadBackendModuleMap(){
     }
   }));
 }
-document.getElementById("refreshBackendModules").addEventListener("click",loadBackendModuleMap);
+document.getElementById("refreshBackendModules").addEventListener("click",loadBackendModuleMap);\n
+const CONTROL_COMMANDS=["platform.status","modules.list","ai.status"];
+async function refreshControlStatus(){
+  const badge=document.getElementById("controlConsoleBadge");
+  const detail=document.getElementById("controlConsoleStatus");
+  badge.className="badge pending";badge.textContent="CHECKING";
+  try{
+    const response=await fetch(API+"/api/v1/supreme-ecosystem/control/status",{headers:{Authorization:"Bearer "+token,Accept:"application/json"},cache:"no-store"});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.detail||"HTTP "+response.status);
+    const status=data.status||{};
+    const supported=Array.isArray(status.supported_commands)?status.supported_commands:CONTROL_COMMANDS;
+    const select=document.getElementById("controlCommand");
+    const previous=select.value;
+    select.replaceChildren();
+    supported.filter(command=>CONTROL_COMMANDS.includes(command)).forEach(command=>{
+      const option=document.createElement("option");option.value=command;option.textContent=command;select.appendChild(option);
+    });
+    if(!select.options.length)CONTROL_COMMANDS.forEach(command=>{const option=document.createElement("option");option.value=command;option.textContent=command;select.appendChild(option);});
+    if([...select.options].some(option=>option.value===previous))select.value=previous;
+    const ready=status.status||"UNKNOWN";
+    badge.className="badge "+(ready==="READY"?"ok":"pending");badge.textContent=ready;
+    detail.textContent="Control plane: "+ready+". Owner exists: "+String(status.owner_exists??"unknown")+". Controller ready: "+String(status.controller_ready??"unknown")+". Control token configured on server: "+String(status.control_token_configured??"unknown")+". Supported commands are read-only status/list actions.";
+  }catch(error){
+    badge.className="badge bad";badge.textContent="UNAVAILABLE";
+    detail.textContent="Could not load control status: "+error.message;
+    if(/AUTHENTICATION_REQUIRED|INVALID_OR_EXPIRED_TOKEN|SUPREME_ECOSYSTEM_PRIVATE/.test(error.message))localStorage.removeItem("supreme_ecosystem_token");
+  }
+}
+async function runControlCommand(){
+  const button=document.getElementById("runControlCommand");
+  const message=document.getElementById("controlCommandMessage");
+  const output=document.getElementById("controlCommandResult");
+  const command=document.getElementById("controlCommand").value;
+  let payload;
+  try{payload=JSON.parse(document.getElementById("controlPayload").value||"{}");}
+  catch(_){message.textContent="Payload JSON invalid hai. Valid JSON object daalo.";return;}
+  if(!payload||Array.isArray(payload)||typeof payload!=="object"){message.textContent="Payload ek JSON object hona chahiye, jaise {}.";return;}
+  if(!CONTROL_COMMANDS.includes(command)){message.textContent="Command backend allowlist mein nahi hai.";return;}
+  button.disabled=true;message.textContent="Backend command execute ho raha hai…";output.textContent="Waiting for backend response…";
+  const headers={Authorization:"Bearer "+token,Accept:"application/json","Content-Type":"application/json"};
+  const controlSecret=document.getElementById("controlSecret").value;
+  if(controlSecret)headers["X-Supreme-Control-Token"]=controlSecret;
+  try{
+    const response=await fetch(API+"/api/v1/supreme-ecosystem/control/commands",{method:"POST",headers,body:JSON.stringify({command,payload}),cache:"no-store"});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.detail||"HTTP "+response.status);
+    output.textContent=JSON.stringify(data,null,2);message.textContent="Command completed. Response came from the live backend.";
+  }catch(error){
+    output.textContent=error.message;message.textContent="Command failed: "+error.message;
+    if(/AUTHENTICATION_REQUIRED|INVALID_OR_EXPIRED_TOKEN|SUPREME_ECOSYSTEM_PRIVATE/.test(error.message))localStorage.removeItem("supreme_ecosystem_token");
+  }finally{button.disabled=false;document.getElementById("controlSecret").value="";}
+}
+document.getElementById("refreshControlStatus").addEventListener("click",refreshControlStatus);
+document.getElementById("runControlCommand").addEventListener("click",runControlCommand);
+
 
 async function refreshAll(){
   const button=document.getElementById("refreshAll");
