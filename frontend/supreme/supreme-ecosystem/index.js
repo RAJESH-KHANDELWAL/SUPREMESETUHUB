@@ -62,6 +62,47 @@ async function loadPrivate(path,target){
     }
   }
 }
+
+function escapeHtml(value){
+  return String(value ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+}
+function initials(name){
+  const clean=String(name||"SUPREME").replace(/[👑🌍🧠💼🏢🏡❤️]/gu,"").trim();
+  return clean.split(/\s+/).filter(Boolean).slice(0,2).map(part=>part[0]).join("").toUpperCase()||"SK";
+}
+function profileField(label,value){
+  return '<div class="profile-field"><span>'+escapeHtml(label)+'</span><strong>'+escapeHtml(value||"NOT REGISTERED")+'</strong></div>';
+}
+function renderOwnerProfiles(data){
+  const grid=document.getElementById("ownerProfilesGrid");
+  const status=document.getElementById("profilesStatus");
+  const profiles=Array.isArray(data.profiles)?data.profiles:[];
+  status.textContent=profiles.length ? profiles.length+" profiles loaded from the private SUPREME registry." : "No profiles were returned.";
+  grid.innerHTML=profiles.map((p,index)=>{
+    const name=p.display_name||p.brand||"OWNER PROFILE";
+    const monogram=initials(name);
+    const cover=p.cover_url ? '<img class="profile-cover-image" src="'+escapeHtml(p.cover_url)+'" alt="'+escapeHtml(name)+' cover photo" loading="lazy" referrerpolicy="no-referrer">' : '<div class="profile-cover-placeholder cover-'+(index+1)+'"><span>COVER PHOTO NOT SET</span></div>';
+    const avatar=p.avatar_url ? '<img class="profile-avatar-image" src="'+escapeHtml(p.avatar_url)+'" alt="'+escapeHtml(name)+' profile photo" loading="lazy" referrerpolicy="no-referrer">' : '<div class="profile-avatar-placeholder">'+escapeHtml(monogram)+'</div>';
+    const domain=String(p.domain_name||"").toLowerCase();
+    const domainLink=/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(domain) ? '<a href="https://'+escapeHtml(domain)+'" target="_blank" rel="noopener noreferrer">OPEN WEBSITE ↗</a>' : "";
+    return '<article class="owner-profile-card"><div class="profile-cover">'+cover+'</div><div class="profile-identity">'+avatar+'<span class="profile-state '+(p.avatar_url&&p.cover_url?'configured':'missing')+'">'+(p.avatar_url&&p.cover_url?'IMAGES CONFIGURED':'IMAGES NOT SET')+'</span></div><div class="profile-card-body"><h3>'+escapeHtml(name)+'</h3><p class="profile-tagline">'+escapeHtml(p.tagline||"SUPREME OWNER PROFILE")+'</p>'+profileField("USERNAME",p.username)+profileField("DOMAIN",p.domain_name)+profileField("PROFILE ID",p.profile_id)+profileField("USER ID",p.user_id)+profileField("BUSINESS ID",p.business_id)+profileField("COMPANY ID",p.company_id)+profileField("PAGE ID",p.page_id)+profileField("CHANNEL ID",p.channel_id)+profileField("COMMUNITY ID",p.community_id)+profileField("GROUP ID",p.group_id)+'<div class="profile-card-footer">'+domainLink+'<span>SUPREME INTERNAL REGISTRY</span></div></div></article>';
+  }).join("");
+}
+async function loadOwnerProfiles(){
+  const status=document.getElementById("profilesStatus");
+  status.textContent="Loading profiles securely…";
+  try{
+    const r=await fetch(API+"/api/v1/supreme-ecosystem/owner-admin/profiles",{headers:{Authorization:"Bearer "+token,Accept:"application/json"},cache:"no-store"});
+    const data=await r.json().catch(()=>({}));
+    if(!r.ok)throw new Error(data.detail||"PROFILE REQUEST FAILED: "+r.status);
+    renderOwnerProfiles(data);
+  }catch(e){
+    status.textContent="Could not load profiles: "+e.message+". Sign in with the SUPREME owner account and confirm the backend deployment includes the profiles endpoint.";
+    document.getElementById("ownerProfilesGrid").innerHTML="";
+    if(/AUTHENTICATION_REQUIRED|INVALID_OR_EXPIRED_TOKEN|SUPREME_ECOSYSTEM_PRIVATE/.test(e.message))localStorage.removeItem("supreme_ecosystem_token");
+  }
+}
+
 async function refreshAll(){
   const button=document.getElementById("refreshAll");
   button.disabled=true;
@@ -72,6 +113,7 @@ async function refreshAll(){
   button.disabled=false;
 }
 document.getElementById("refreshAll").addEventListener("click",refreshAll);
+document.getElementById("refreshProfiles").addEventListener("click",loadOwnerProfiles);
 document.getElementById("checkWordPress").addEventListener("click",checkWordPress);
 document.getElementById("signOut").addEventListener("click",()=>{localStorage.removeItem("supreme_ecosystem_token");window.location.replace("signin.html");});
 
@@ -80,6 +122,7 @@ else{
   loadPrivate("/api/v1/supreme-ecosystem/status","status");
   loadPrivate("/api/v1/supreme-ecosystem/account","account");
   loadPrivate("/api/v1/supreme-ecosystem/integrations","integrations");
+  loadOwnerProfiles();
 }
 document.getElementById("hostingerBadge").textContent="NEEDS API";
 refreshAll();
