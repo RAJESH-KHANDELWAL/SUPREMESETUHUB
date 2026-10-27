@@ -1,4 +1,4 @@
-"""👑 RAJESH KHANDELWAL OFFICIAL 👑 identity registry metadata; IDs here are internal SUPREME registry IDs, not third-party platform IDs."""
+"""👑 RAJESH KHANDELWAL OFFICIAL 👑 identity registry metadata; IDs are internal SUPREME registry IDs, not third-party platform IDs."""
 IDENTITY = {
     "slug": "rajesh_khandelwal_official",
     "display_name": "👑 RAJESH KHANDELWAL OFFICIAL 👑",
