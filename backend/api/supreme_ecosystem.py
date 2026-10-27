@@ -16,6 +16,10 @@ from backend.supreme.config import USERNAME as SUPREME_OWNER_USERNAME
 from backend.supreme.supreme_ecosystem.supreme_business_ecosystem import status as business_ecosystem_status
 from backend.supreme.supreme_ecosystem.supreme_ai_ecosystem import status as ai_ecosystem_status
 from backend.supreme.supreme_owner_admin.service import SupremeOwnerAdminService
+from backend.supreme.rajesh_khandelwal import get_identity as get_rajesh_identity
+from backend.supreme.rajesh_khandelwal_official import get_identity as get_rajesh_official_identity
+from backend.supreme.dr_rajesh_khandelwal_ibc import get_identity as get_ibc_identity
+from backend.supreme.dr_rajesh_khandelwal_ibc_official import get_identity as get_ibc_official_identity
 from backend.supreme.social_media_control.registry import social_platform_status
 
 
@@ -140,6 +144,46 @@ def ecosystem_status():
             "WORDPRESS_OWNER_CONTROL",
             "GOOGLE_OWNER_ACCOUNT_CONTROL",
         ],
+    }
+
+
+
+@router.get("/owner-admin/profiles")
+def supreme_owner_admin_profiles():
+    """Return the four registered owner identity cards for the private dashboard.
+
+    Profile and cover image URLs are optional public image URLs configured through
+    deployment environment variables. The API never guesses image URLs or exposes
+    credentials. Registry IDs are internal SUPREME IDs, not external social IDs.
+    """
+    profiles = [
+        get_rajesh_identity(),
+        get_rajesh_official_identity(),
+        get_ibc_identity(),
+        get_ibc_official_identity(),
+    ]
+    image_keys = (
+        ("SUPREME_PROFILE_RAJESH_KHANDELWAL_AVATAR_URL", "SUPREME_PROFILE_RAJESH_KHANDELWAL_COVER_URL"),
+        ("SUPREME_PROFILE_RAJESH_KHANDELWAL_OFFICIAL_AVATAR_URL", "SUPREME_PROFILE_RAJESH_KHANDELWAL_OFFICIAL_COVER_URL"),
+        ("SUPREME_PROFILE_DR_RAJESH_KHANDELWAL_IBC_AVATAR_URL", "SUPREME_PROFILE_DR_RAJESH_KHANDELWAL_IBC_COVER_URL"),
+        ("SUPREME_PROFILE_DR_RAJESH_KHANDELWAL_IBC_OFFICIAL_AVATAR_URL", "SUPREME_PROFILE_DR_RAJESH_KHANDELWAL_IBC_OFFICIAL_COVER_URL"),
+    )
+    result = []
+    for profile, (avatar_key, cover_key) in zip(profiles, image_keys):
+        item = dict(profile)
+        item["avatar_url"] = os.getenv(avatar_key, "").strip() or None
+        item["cover_url"] = os.getenv(cover_key, "").strip() or None
+        item["avatar_config_key"] = avatar_key
+        item["cover_config_key"] = cover_key
+        item["image_status"] = "CONFIGURED" if item["avatar_url"] and item["cover_url"] else "IMAGE_URLS_NOT_FULLY_CONFIGURED"
+        item["external_ids_verified"] = False
+        result.append(item)
+    return {
+        "success": True,
+        "privacy": "OWNER_ONLY",
+        "count": len(result),
+        "profiles": result,
+        "note": "Profile IDs shown here are SUPREME internal registry IDs. Set each avatar/cover URL using the named deployment environment variables; external social IDs and live account ownership are not verified by this registry.",
     }
 
 
