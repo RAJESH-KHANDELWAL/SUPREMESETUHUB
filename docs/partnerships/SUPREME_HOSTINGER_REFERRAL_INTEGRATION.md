@@ -26,6 +26,8 @@ The shared registry is `backend/core/global_ecosystem/global_core_ecosystem/host
 - Partner catalog: `backend/core/global_ecosystem/global_core_ecosystem/partner_programs.py`.
 - SUPREME-facing referral registry: `backend/core/global_ecosystem/global_core_ecosystem/hostinger_referrals.py`.
 - Validation schema: `schemas/partner_program_registry.schema.json`.
+- Owner-only API route: `/api/v1/supreme-ecosystem/partner-programs`.
+- Owner dashboard route panel: `frontend/supreme/supreme-ecosystem/index.js` → HOSTINGER REFERRAL LINKS.
 
 Use this link only on relevant hosting/domain/website-builder recommendations, affiliate pages, resource directories and educational content about creating websites. Do not inject it into unrelated pages, private messages, forms or every outgoing link. Keep an affiliate disclosure next to the link.
 
