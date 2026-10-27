@@ -8,6 +8,8 @@ on:
       - "frontend/supreme/supreme-ecosystem/home-css.css"
       - "frontend/supreme/supreme-ecosystem/home-js.js"
       - "frontend/supreme/supreme-ecosystem/index.html"
+      - "frontend/supreme/supreme-ecosystem/index.js"
+      - "frontend/supreme/supreme-ecosystem/index.css"
       - "frontend/supreme/supreme-ecosystem/supreme-dashboard/index.html"
       - "frontend/supreme/supreme-ecosystem/password-manager/index.html"
       - "frontend/supreme/supreme-ecosystem/password-manager-ecosystem/index.html"
