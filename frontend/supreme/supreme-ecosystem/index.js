@@ -103,6 +103,61 @@ async function loadOwnerProfiles(){
   }
 }
 
+const BACKEND_ROUTE_PANELS=[
+  {title:"OWNER ADMIN STATUS",path:"/api/v1/supreme-ecosystem/owner-admin/status"},
+  {title:"OWNED PLATFORMS",path:"/api/v1/supreme-ecosystem/owner-admin/owned-platforms"},
+  {title:"GOOGLE OWNER ACCOUNTS",path:"/api/v1/supreme-ecosystem/owner-admin/google-accounts"},
+  {title:"SOCIAL PLATFORMS",path:"/api/v1/supreme-ecosystem/owner-admin/social-platforms"},
+  {title:"BUSINESS COACH PROFILE",path:"/api/v1/supreme-ecosystem/owner-admin/business-coach-profile"},
+  {title:"OWNER GOVERNANCE",path:"/api/v1/supreme-ecosystem/owner-admin/governance"},
+  {title:"CAPABILITY CATALOG",path:"/api/v1/supreme-ecosystem/capabilities"},
+  {title:"CONTROL PLANE STATUS",path:"/api/v1/supreme-ecosystem/control/status"},
+  {title:"BUSINESS ECOSYSTEM",path:"/api/v1/supreme-ecosystem/business/status"},
+  {title:"AI ECOSYSTEM",path:"/api/v1/supreme-ecosystem/ai/status"},
+  {title:"ACCOUNT DASHBOARD",path:"/api/v1/supreme-ecosystem/dashboard"}
+];
+function moduleLabel(name){
+  return String(name||"MODULE").replace(/_/g," ").replace(/\\bAI\\b/g,"AI");
+}
+async function loadBackendModuleMap(){
+  const status=document.getElementById("backendModulesStatus");
+  const grid=document.getElementById("backendModulesGrid");
+  const panelGrid=document.getElementById("backendRoutePanels");
+  status.textContent="Fetching module registry from the backend…";
+  try{
+    const response=await fetch(API+"/api/v1/supreme-ecosystem/status",{headers:{Authorization:"Bearer "+token,Accept:"application/json"},cache:"no-store"});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.detail||"BACKEND MODULE REQUEST FAILED: "+response.status);
+    const modules=Array.isArray(data.modules)?data.modules:[];
+    grid.innerHTML=modules.map((name,index)=>{
+      const label=moduleLabel(name);
+      return '<article class="card module-link"><span class="service-icon">'+String(index+1).padStart(2,"0")+'</span><h3>'+escapeHtml(label)+'</h3><p>Registered by the live SUPREME ECOSYSTEM backend status endpoint.</p><span>BACKEND REGISTERED MODULE</span></article>';
+    }).join("");
+    status.textContent=modules.length+" module entries loaded from "+API+"/api/v1/supreme-ecosystem/status · Parent: "+escapeHtml(data.parent||"NOT RETURNED")+" · Privacy: "+escapeHtml(data.privacy||"NOT RETURNED");
+  }catch(e){
+    status.textContent="Backend module list could not load: "+e.message;
+    grid.innerHTML="";
+    if(/AUTHENTICATION_REQUIRED|INVALID_OR_EXPIRED_TOKEN|SUPREME_ECOSYSTEM_PRIVATE/.test(e.message))localStorage.removeItem("supreme_ecosystem_token");
+  }
+  panelGrid.innerHTML=BACKEND_ROUTE_PANELS.map((item,index)=>'<section class="card"><div class="card-top"><h3>'+escapeHtml(item.title)+'</h3><span id="routeBadge'+index+'" class="badge pending">LOADING</span></div><p class="subtle">'+escapeHtml(item.path)+'</p><pre id="routeData'+index+'">Loading backend response…</pre></section>').join("");
+  await Promise.all(BACKEND_ROUTE_PANELS.map(async(item,index)=>{
+    const target=document.getElementById("routeData"+index);
+    const badge=document.getElementById("routeBadge"+index);
+    try{
+      const response=await fetch(API+item.path,{headers:{Authorization:"Bearer "+token,Accept:"application/json"},cache:"no-store"});
+      const data=await response.json().catch(()=>({}));
+      if(!response.ok)throw new Error(data.detail||"HTTP "+response.status);
+      target.textContent=JSON.stringify(data,null,2);
+      badge.className="badge ok";badge.textContent="RESPONDED";
+    }catch(e){
+      target.textContent=e.message;
+      badge.className="badge bad";badge.textContent="FAILED";
+      if(/AUTHENTICATION_REQUIRED|INVALID_OR_EXPIRED_TOKEN|SUPREME_ECOSYSTEM_PRIVATE/.test(e.message))localStorage.removeItem("supreme_ecosystem_token");
+    }
+  }));
+}
+document.getElementById("refreshBackendModules").addEventListener("click",loadBackendModuleMap);
+
 async function refreshAll(){
   const button=document.getElementById("refreshAll");
   button.disabled=true;
@@ -122,9 +177,8 @@ else{
   loadPrivate("/api/v1/supreme-ecosystem/status","status");
   loadPrivate("/api/v1/supreme-ecosystem/account","account");
   loadPrivate("/api/v1/supreme-ecosystem/integrations","integrations");
-  loadPrivate("/api/v1/supreme-ecosystem/business/status","businessEcosystemStatus");
-  loadPrivate("/api/v1/supreme-ecosystem/ai/status","aiEcosystemStatus");
   loadOwnerProfiles();
+  loadBackendModuleMap();
 }
 document.getElementById("hostingerBadge").textContent="NEEDS API";
 refreshAll();
