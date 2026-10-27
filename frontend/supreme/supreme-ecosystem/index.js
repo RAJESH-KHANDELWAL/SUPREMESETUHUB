@@ -97,8 +97,14 @@ async function loadOwnerProfiles(){
     if(!r.ok)throw new Error(data.detail||"PROFILE REQUEST FAILED: "+r.status);
     renderOwnerProfiles(data);
   }catch(e){
-    status.textContent="Could not load profiles: "+e.message+". Sign in with the SUPREME owner account and confirm the backend deployment includes the profiles endpoint.";
-    document.getElementById("ownerProfilesGrid").innerHTML="";
+    const mirroredProfiles=Array.isArray(window.SUPREME_OWNER_IDENTITIES)?window.SUPREME_OWNER_IDENTITIES:[];
+    if(mirroredProfiles.length){
+      renderOwnerProfiles({profiles:mirroredProfiles});
+      status.textContent="Showing the 4 identity records mirrored from backend/supreme in the frontend registry. Live backend profile API unavailable: "+e.message;
+    }else{
+      status.textContent="Could not load profiles: "+e.message+". Sign in with the SUPREME owner account and confirm the backend deployment includes the profiles endpoint.";
+      document.getElementById("ownerProfilesGrid").innerHTML="";
+    }
     if(/AUTHENTICATION_REQUIRED|INVALID_OR_EXPIRED_TOKEN|SUPREME_ECOSYSTEM_PRIVATE/.test(e.message))localStorage.removeItem("supreme_ecosystem_token");
   }
 }
