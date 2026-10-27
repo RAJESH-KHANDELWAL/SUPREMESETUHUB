@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
     paths:
+      - "frontend/supreme/**"
       - "frontend/supreme/supreme-ecosystem/home-html.html"
       - "frontend/supreme/supreme-ecosystem/home-css.css"
       - "frontend/supreme/supreme-ecosystem/home-js.js"
