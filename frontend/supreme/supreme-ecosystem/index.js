@@ -111,6 +111,7 @@ async function loadOwnerProfiles(){
 
 const BACKEND_ROUTE_PANELS=[
   {title:"OWNER ADMIN STATUS",path:"/api/v1/supreme-ecosystem/owner-admin/status"},
+  {title:"HOSTINGER REFERRAL LINKS",path:"/api/v1/supreme-ecosystem/partner-programs"},
   {title:"OWNED PLATFORMS",path:"/api/v1/supreme-ecosystem/owner-admin/owned-platforms"},
   {title:"GOOGLE OWNER ACCOUNTS",path:"/api/v1/supreme-ecosystem/owner-admin/google-accounts"},
   {title:"SOCIAL PLATFORMS",path:"/api/v1/supreme-ecosystem/owner-admin/social-platforms"},
