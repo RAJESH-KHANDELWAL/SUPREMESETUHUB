@@ -20,8 +20,8 @@ form.addEventListener("submit", async (event) => {
     const data = await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(data.detail || data.message || "SIGN IN FAILED.");
     const token = data.token || data.access_token;
-    if (!token) throw new Error("AUTHENTICATION TOKEN WAS NOT RETURNED.");
-    const check = await fetch(API + "/api/v1/supreme-ecosystem/status", {headers: {Authorization: "Bearer " + token, Accept: "application/json"}});
+    if (!token) throw new Error("AUTHENTICATION TOKEN WAS NOT RETURNED. The backend sign-in response did not include token or access_token.");
+    const check = await fetch(API + "/api/v1/supreme-ecosystem/status", {headers: {Authorization: "Bearer " + token, Accept: "application/json"}, cache: "no-store"});
     if (!check.ok) throw new Error(check.status === 403 ? "SUPREME ECOSYSTEM IS PRIVATE. OWNER ACCESS ONLY." : check.status === 401 ? "LOGIN TOKEN WAS NOT ACCEPTED. CHECK THE BACKEND AUTHENTICATION RESPONSE." : "OWNER SESSION COULD NOT BE VERIFIED.");
     localStorage.setItem("supreme_ecosystem_token", token);
     message.textContent = "SIGN IN SUCCESSFUL. OPENING SUPREME ECOSYSTEM...";
