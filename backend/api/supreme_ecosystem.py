@@ -8,6 +8,7 @@ from fastapi import APIRouter, Depends, Header, HTTPException
 from pydantic import BaseModel, EmailStr, Field, field_validator
 
 from backend.auth.service import AuthenticationService
+from backend.core.global_ecosystem.global_core_ecosystem.partner_programs import get_partner_program_catalog
 from backend.supreme.capability_registry import get_capability_catalog
 from backend.supreme.control import SupremeControlService
 from backend.supreme.controller import SupremeController
@@ -142,6 +143,7 @@ def ecosystem_status():
             "WHATSAPP_AI",
             "SUPREME_OWNER_ADMIN",
             "WORDPRESS_OWNER_CONTROL",
+            "HOSTINGER_REFERRAL_REGISTRY",
             "GOOGLE_OWNER_ACCOUNT_CONTROL",
         ],
     }
@@ -314,6 +316,19 @@ def dashboard(authorization: str | None = Header(default=None)):
             "PRIVATE_MESSAGES",
             "AUTHORIZED_INTEGRATIONS",
         ],
+    }
+
+
+@router.get("/partner-programs")
+def supreme_partner_programs():
+    """Return configured partner/referral links to the authenticated SUPREME owner."""
+    programs = get_partner_program_catalog()
+    return {
+        "success": True,
+        "privacy": "OWNER_ONLY",
+        "count": len(programs),
+        "programs": programs,
+        "note": "Configured referral URLs are not proof of live link validity or completed purchases. Confirm active codes and commissions in the provider dashboard.",
     }
 
 
