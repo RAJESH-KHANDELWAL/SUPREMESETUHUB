@@ -117,7 +117,7 @@ const BACKEND_ROUTE_PANELS=[
   {title:"ACCOUNT DASHBOARD",path:"/api/v1/supreme-ecosystem/dashboard"}
 ];
 function moduleLabel(name){
-  return String(name||"MODULE").replace(/_/g," ").replace(/\\bAI\\b/g,"AI");
+  return String(name||"MODULE").replace(/_/g," ");
 }
 async function loadBackendModuleMap(){
   const status=document.getElementById("backendModulesStatus");
