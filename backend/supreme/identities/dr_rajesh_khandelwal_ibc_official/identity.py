@@ -1,11 +1,12 @@
-"""Separate metadata for 👑 DR RAJESH KHANDELWAL IBC OFFICIAL 👑."""
-
-DR_RAJESH_KHANDELWAL_IBC_OFFICIAL_BRAND = {
+"""Identity metadata for 👑 DR RAJESH KHANDELWAL IBC OFFICIAL 👑; no credentials or private account data."""
+IDENTITY = {
+    "slug": "dr_rajesh_khandelwal_ibc_official",
     "display_name": "👑 DR RAJESH KHANDELWAL IBC OFFICIAL 👑",
     "username": "DRRAJESHKHANDELWALIBCOFFICIAL",
-    "domain_name": "DRRAJESHKHANDELWALIBCOFFICIAL.COM",
-    "gmail_id_name": "DRRAJESHKANDELWALIBCOFFICIAL@GMAIL.COM",
-    "tagline": "🌍 GLOBAL BUSINESS COACH | 🧠 INDEPENDENT BUSINESS CONSULTANT | 💼 BUSINESS ADVISOR | 🏢 FOUNDER & CEO",
- }
+    "scope": "SUPREME",
+    "status": "REGISTERED_METADATA",
+    "tagline": "GLOBAL BUSINESS COACH | BUSINESS ADVISOR",
+}
 
-__all__ = ["DR_RAJESH_KHANDELWAL_IBC_OFFICIAL_BRAND"]
+def get_identity() -> dict:
+    return IDENTITY.copy()
