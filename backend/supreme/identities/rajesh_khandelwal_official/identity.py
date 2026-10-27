@@ -1,11 +1,12 @@
-"""Separate metadata for 👑 RAJESH KHANDELWAL OFFICIAL 👑."""
-
-RAJESH_KHANDELWAL_OFFICIAL_BRAND = {
+"""Identity metadata for 👑 RAJESH KHANDELWAL OFFICIAL 👑; no credentials or private account data."""
+IDENTITY = {
+    "slug": "rajesh_khandelwal_official",
     "display_name": "👑 RAJESH KHANDELWAL OFFICIAL 👑",
     "username": "RAJESHKHANDELWALOFFICIAL",
-    "domain_name": "RAJESHKHANDELWALOFFICIAL.COM",
-    "gmail_id_name": "RAJESHKHANDELWALOFFICIAL@GMAIL.COM",
-    "tagline": "🏡 REAL ESTATE COACH | ❤️ RELATIONSHIP & INTIMACY COACH",
- }
+    "scope": "SUPREME",
+    "status": "REGISTERED_METADATA",
+    "tagline": "REAL ESTATE COACH | RELATIONSHIP & INTIMACY COACH",
+}
 
-__all__ = ["RAJESH_KHANDELWAL_OFFICIAL_BRAND"]
+def get_identity() -> dict:
+    return IDENTITY.copy()
