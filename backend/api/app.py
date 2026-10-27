@@ -65,6 +65,7 @@ from backend.api.people import router as people_engine_router
 from backend.api.crm import router as crm_router
 from backend.api.payee_verification import router as payee_verification_router
 from backend.api.digital_marketplace import router as digital_marketplace_router
+from backend.api.people_password_manager import router as people_password_manager_router
 
 
 # ============================================================
@@ -261,6 +262,11 @@ async def private_by_default(request: Request, call_next):
             },
         )
 
+    # People Password Manager permits authenticated platform users; each route uses get_current_user
+    # and enforces per-user vault ownership. Only encrypted client-side vault envelopes are stored.
+    if path == "/api/v1/people-password-manager" or path.startswith("/api/v1/people-password-manager/"):
+        return await call_next(request)
+
     # GLOBAL FREELANCER ECOSYSTEM uses authenticated owner-scoped records.
     # Its API routes enforce per-user record ownership; do not apply the
     # general owner-only restriction to these routes.
@@ -404,6 +410,7 @@ app.include_router(people_engine_router)
 app.include_router(crm_router)
 app.include_router(payee_verification_router)
 app.include_router(digital_marketplace_router)
+app.include_router(people_password_manager_router)
 app.include_router(wordpress_router)
 
 
