@@ -35,6 +35,25 @@
   <div id="backendRoutePanels" class="grid"></div>
 </section>
 
+<section class="section" id="controlConsoleSection">
+  <div class="section-title"><div><p class="eyebrow">AUTHENTICATED BACKEND ACTIONS</p><h2>SUPREME CONTROL CONSOLE</h2><p class="hint">Only the three commands explicitly allowlisted by the backend are offered here. The optional control token is sent for this request only and is never saved in browser storage.</p></div><button id="refreshControlStatus" type="button" class="secondary">REFRESH CONTROL STATUS</button></div>
+  <div class="grid control-grid">
+    <section class="card">
+      <div class="card-top"><h3>CONTROL PLANE</h3><span id="controlConsoleBadge" class="badge pending">WAITING</span></div>
+      <p id="controlConsoleStatus">Loading supported commands and control readiness…</p>
+      <label for="controlCommand">BACKEND COMMAND</label>
+      <select id="controlCommand"><option value="platform.status">platform.status</option><option value="modules.list">modules.list</option><option value="ai.status">ai.status</option></select>
+      <label for="controlPayload">JSON PAYLOAD (OPTIONAL)</label>
+      <textarea id="controlPayload" rows="3" spellcheck="false">{}</textarea>
+      <label for="controlSecret">SUPREME CONTROL TOKEN (ONLY IF SERVER REQUIRES IT)</label>
+      <input id="controlSecret" type="password" autocomplete="off" placeholder="Not stored; sent only with this command">
+      <button id="runControlCommand" type="button">RUN BACKEND COMMAND</button>
+      <p id="controlCommandMessage" role="status" aria-live="polite"></p>
+    </section>
+    <section class="card"><h3>COMMAND RESPONSE</h3><pre id="controlCommandResult">No command has been run in this session.</pre></section>
+  </div>
+</section>
+
 <section class="section">
   <div class="section-title"><div><p class="eyebrow">OWNER SESSION</p><h2>Private account and integrations</h2></div></div>
   <div class="grid">
