@@ -12,6 +12,21 @@
     "ecosystem_id": {"type": "string", "minLength": 1, "maxLength": 160},
     "owner_brand": {"type": "string", "minLength": 1, "maxLength": 200},
     "referral_url": {"type": "string", "format": "uri"},
+    "referral_accounts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["identity_id", "display_name", "referral_code", "referral_url", "primary"],
+        "properties": {
+          "identity_id": {"type": "string", "minLength": 1, "maxLength": 120},
+          "display_name": {"type": "string", "minLength": 1, "maxLength": 200},
+          "referral_code": {"type": "string", "pattern": "^[A-Za-z0-9]{6,15}$"},
+          "referral_url": {"type": "string", "format": "uri"},
+          "primary": {"type": "boolean"}
+        }
+      }
+    },
     "provider_advertised_reward": {"type": "string", "maxLength": 300},
     "referred_friend_offer": {"type": "string", "maxLength": 300},
     "currency_context": {"type": "string", "maxLength": 300},
