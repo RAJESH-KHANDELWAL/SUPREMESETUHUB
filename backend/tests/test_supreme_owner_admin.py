@@ -1,4 +1,4 @@
-from backend.api.supreme_ecosystem import require_supreme_ecosystem_owner, router as supreme_ecosystem_router
+from backend.api.supreme_ecosystem import require_supreme_ecosystem_owner, supreme_owner_admin_profiles, router as supreme_ecosystem_router
 from backend.api.businesses import router as businesses_router
 from backend.security.dependencies import get_current_user
 from backend.api.global_business_coach import public_business_coach_profile, global_business_coach_keywords
@@ -7,6 +7,36 @@ from backend.supreme.supreme_owner_admin.service import (
     OWNER_CONTROLLED_DOMAINS,
     SupremeOwnerAdminService,
 )
+
+
+
+def test_owner_admin_profile_registry_shows_four_profiles_and_never_invents_photo_urls(monkeypatch):
+    image_envs = [
+        "SUPREME_PROFILE_RAJESH_KHANDELWAL_AVATAR_URL",
+        "SUPREME_PROFILE_RAJESH_KHANDELWAL_COVER_URL",
+        "SUPREME_PROFILE_RAJESH_KHANDELWAL_OFFICIAL_AVATAR_URL",
+        "SUPREME_PROFILE_RAJESH_KHANDELWAL_OFFICIAL_COVER_URL",
+        "SUPREME_PROFILE_DR_RAJESH_KHANDELWAL_IBC_AVATAR_URL",
+        "SUPREME_PROFILE_DR_RAJESH_KHANDELWAL_IBC_COVER_URL",
+        "SUPREME_PROFILE_DR_RAJESH_KHANDELWAL_IBC_OFFICIAL_AVATAR_URL",
+        "SUPREME_PROFILE_DR_RAJESH_KHANDELWAL_IBC_OFFICIAL_COVER_URL",
+    ]
+    for name in image_envs:
+        monkeypatch.delenv(name, raising=False)
+    payload = supreme_owner_admin_profiles()
+    assert payload["success"] is True
+    assert payload["privacy"] == "OWNER_ONLY"
+    assert payload["count"] == 4
+    profiles = payload["profiles"]
+    assert [profile["username"] for profile in profiles] == [
+        "RAJESHKHANDELWAL",
+        "RAJESHKHANDELWALOFFICIAL",
+        "DRRAJESHKHANDELWALIBC",
+        "DRRAJESHKHANDELWALIBCOFFICIAL",
+    ]
+    assert all(profile["profile_id"] for profile in profiles)
+    assert all(profile["avatar_url"] is None and profile["cover_url"] is None for profile in profiles)
+    assert all(profile["external_ids_verified"] is False for profile in profiles)
 
 
 def test_owner_admin_is_single_owner_private_control_plane():
