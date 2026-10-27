@@ -16,7 +16,8 @@ An email address in the registry does not itself grant login or admin rights. Au
 ## Hostinger
 
 - Hostinger account/provider: registered in the SUPREME partner/integration documentation.
-- Referral URL to use: https://www.hostinger.com/in?REFERRALCODE=RAJESHIBCGROWTH
+- Referral URL to use: https://www.hostinger.com/in?REFERRALCODE=RAJESHIBCGLOBAL
+- Four owner-managed referral URLs are recorded in `backend/core/global_ecosystem/global_core_ecosystem/hostinger_referrals.py`; confirm each code in its respective Hostinger account before use.
 - Referral configuration is repository-level until deployed and verified.
 - Hostinger purchase, commission, and referral conversion records must be confirmed in the Hostinger partner dashboard or an approved reporting API.
 - For WordPress hosting, choose a plan that supports the actual expected traffic, backups, staging, SSL, and resource needs; verify current plan limits in Hostinger before purchase.
