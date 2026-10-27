@@ -188,6 +188,33 @@ textarea{
         grid-column:1/-1;
     }
 }
+
+/* Owner identity cards mirror the authenticated SUPREME backend registry. */
+.identity-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:18px}
+.identity-card{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 10px 28px rgba(17,24,39,.06);min-width:0}
+.identity-cover{height:100px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;color:#fff;font:800 10px/1.4 Arial,sans-serif;letter-spacing:.16em}
+.identity-cover:before,.identity-cover:after{content:"";position:absolute;width:180px;height:180px;border:1px solid rgba(255,255,255,.3);border-radius:50%}
+.identity-cover:after{width:250px;height:250px;transform:translate(75px,35px)}
+.identity-cover span{z-index:1}
+.identity-cover.cover-1{background:linear-gradient(120deg,#153e72,#166c91,#68c7d6)}
+.identity-cover.cover-2{background:linear-gradient(120deg,#12234d,#2457a2,#80aef9)}
+.identity-cover.cover-3{background:linear-gradient(120deg,#0e3854,#087e8b,#80e5d8)}
+.identity-cover.cover-4{background:linear-gradient(120deg,#30205b,#6943a4,#b68bff)}
+.identity-cover img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.identity-head{display:flex;justify-content:space-between;align-items:end;padding:0 14px}
+.identity-avatar,.identity-avatar img{width:68px;height:68px;border-radius:50%;object-fit:cover}
+.identity-avatar{margin-top:-30px;border:4px solid #fff;background:#153e72;color:#fff;display:grid;place-items:center;font:800 20px Arial,sans-serif;position:relative}
+.identity-state{font:800 9px Arial,sans-serif;color:#8a6410;border:1px solid #e7e0c8;border-radius:30px;padding:6px 8px}
+.identity-state.ready{color:#15803d}
+.identity-body{padding:0 14px 15px}
+.identity-body h3{font-size:16px;margin:12px 0 5px;color:#111827}
+.identity-tagline{font-size:12px;color:#6b7280;line-height:1.5;min-height:36px}
+.identity-field{padding:8px 0;border-top:1px solid #eee;display:flex;flex-direction:column;gap:4px}
+.identity-field span{font:800 9px Arial,sans-serif;color:#6b7280;letter-spacing:.1em}
+.identity-field b{font:600 11px/1.45 Arial,sans-serif;overflow-wrap:anywhere;color:#111827}
+.identity-links{padding-top:11px;border-top:1px solid #eee;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.identity-links a{font-size:11px;color:#123b82;overflow-wrap:anywhere}
+
 </style>
 </head>
 
@@ -652,63 +679,64 @@ async function loadStatus(){
 }
 
 
-async function loadIdentities(){
+function identityEscape(value){
+    return String(value ?? '').replace(/[&<>"']/g, ch => ({
+        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[ch]));
+}
 
+function identitySafeUrl(value){
     try{
-
-        const d =
-            await (
-                await fetch(
-                    API +
-                    '/supreme/identities'
-                )
-            ).json();
-
-
-        identities.innerHTML =
-            d.identities
-                .map(
-                    x => `
-
-                        <div
-                            style="
-                                padding:10px 0;
-                                border-bottom:1px solid #eee
-                            "
-                        >
-
-                            <b>
-                                ${x.display_name}
-                            </b>
-
-                            <br>
-
-                            ${x.username}
-
-                            <br>
-
-                            <a
-                                href="${x.domain}"
-                                target="_blank"
-                                rel="noopener"
-                            >
-                                ${x.domain}
-                            </a>
-
-                        </div>
-
-                    `
-                )
-                .join('');
-
+        const url = new URL(String(value || ''));
+        return (url.protocol === 'https:' || url.protocol === 'http:') ? url.href : '';
+    }catch(_){
+        return '';
     }
-    catch(e){
+}
 
-        identities.textContent =
-            'Unable to load identities';
+function identityInitials(name){
+    return String(name || 'SUPREME').replace(/[👑🌍🧠💼🏢🏡❤️]/gu,'').trim()
+        .split(/\s+/).filter(Boolean).slice(0,2).map(part => part[0]).join('').toUpperCase() || 'RK';
+}
 
+async function loadIdentities(){
+    const target = document.getElementById('identities');
+    target.textContent = 'Loading all four profiles from the private SUPREME registry…';
+    try{
+        const response = await fetch(
+            API + '/api/v1/supreme-ecosystem/owner-admin/profiles',
+            {headers:{Authorization:'Bearer '+token,Accept:'application/json'},cache:'no-store'}
+        );
+        const data = await response.json().catch(() => ({}));
+        if(!response.ok) throw Error(data.detail || 'PROFILE REQUEST FAILED: HTTP '+response.status);
+        const profiles = Array.isArray(data.profiles) ? data.profiles : [];
+        if(!profiles.length) throw Error('No profiles returned from the registry.');
+        target.innerHTML = '<div class="identity-grid">' + profiles.map((p,index) => {
+            const name = p.display_name || 'OWNER PROFILE';
+            const initials = identityInitials(name);
+            const avatarUrl = identitySafeUrl(p.avatar_url);
+            const coverUrl = identitySafeUrl(p.cover_url);
+            const domain = String(p.domain_name || '').toLowerCase();
+            const domainUrl = /^[a-z0-9.-]+\.[a-z]{2,}$/i.test(domain) ? 'https://'+domain : '';
+            const cover = coverUrl
+                ? '<div class="identity-cover"><img src="'+identityEscape(coverUrl)+'" alt="'+identityEscape(name)+' cover photo" loading="lazy" referrerpolicy="no-referrer"></div>'
+                : '<div class="identity-cover cover-'+(index+1)+'"><span>COVER PHOTO NOT CONFIGURED</span></div>';
+            const avatar = avatarUrl
+                ? '<div class="identity-avatar"><img src="'+identityEscape(avatarUrl)+'" alt="'+identityEscape(name)+' profile photo" loading="lazy" referrerpolicy="no-referrer"></div>'
+                : '<div class="identity-avatar">'+identityEscape(initials)+'</div>';
+            const field = (label,value) => '<div class="identity-field"><span>'+identityEscape(label)+'</span><b>'+identityEscape(value || 'NOT REGISTERED')+'</b></div>';
+            return '<article class="identity-card">'+cover+
+                '<div class="identity-head">'+avatar+'<span class="identity-state '+(avatarUrl&&coverUrl?'ready':'')+'">'+(avatarUrl&&coverUrl?'IMAGES CONFIGURED':'PHOTO URLS NEEDED')+'</span></div>'+
+                '<div class="identity-body"><h3>'+identityEscape(name)+'</h3><p class="identity-tagline">'+identityEscape(p.tagline || 'SUPREME OWNER PROFILE')+'</p>'+
+                field('USERNAME',p.username)+field('DOMAIN',p.domain_name)+field('USER ID',p.user_id)+field('PROFILE ID',p.profile_id)+
+                field('BUSINESS ID',p.business_id)+field('COMPANY ID',p.company_id)+field('PAGE ID',p.page_id)+field('CHANNEL ID',p.channel_id)+
+                field('COMMUNITY ID',p.community_id)+field('GROUP ID',p.group_id)+
+                '<div class="identity-links">'+(domainUrl?'<a href="'+identityEscape(domainUrl)+'" target="_blank" rel="noopener noreferrer">OPEN WEBSITE ↗</a>':'')+
+                '<span class="muted">SUPREME INTERNAL REGISTRY</span></div></div></article>';
+        }).join('') + '</div><p class="muted">Profile and cover photo placeholders remain until public image URLs are configured in the backend deployment. IDs shown are internal SUPREME registry IDs, not verified third-party account IDs.</p>';
+    }catch(e){
+        target.textContent = 'Unable to load private profiles: '+e.message+'. Sign in again and confirm the backend has the owner profile endpoint.';
     }
-
 }
 
 
