@@ -2,7 +2,7 @@
 /**
  * Plugin Name: SUPREME Owner Admin
  * Description: Owner-only WordPress admin landing page for the SUPREME platform.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * License: GPL-2.0-or-later
@@ -57,6 +57,7 @@ final class Supreme_Owner_Admin_Plugin {
             <?php else : ?>
                 <div class="notice notice-success"><p><?php echo esc_html__( 'Owner account match verified for this WordPress session. Backend/API connectivity is not configured or verified by this plugin.', 'supreme-owner-admin' ); ?></p></div>
             <?php endif; ?>
+            <div class="notice notice-info"><p><strong>🔐 Password Manager:</strong> <a href="https://rajesh-khandelwal.github.io/SUPREMESETUHUB/supreme/supreme-ecosystem/password-manager/index.html" target="_blank" rel="noopener noreferrer">Open encrypted SUPREME Owner Admin Password Manager</a>. CSV and vault data stay in your browser; never upload plaintext passwords to GitHub.</p></div>
             <h2><?php echo esc_html__( 'Control areas', 'supreme-owner-admin' ); ?></h2>
             <ul>
                 <li><?php echo esc_html__( 'Platform identity and owner governance', 'supreme-owner-admin' ); ?></li>
