@@ -3,6 +3,8 @@ IDENTITY = {
     "slug": "rajesh_khandelwal",
     "display_name": "👑 RAJESH KHANDELWAL 👑",
     "username": "RAJESHKHANDELWAL",
+    "domain_name": "RAJESHKHANDELWAL.COM",
+    "gmail_id_name": "RAJESHKHANDELWAL@GMAIL.COM",
     "scope": "SUPREME_ECOSYSTEM",
     "status": "REGISTERED_METADATA",
     "tagline": "🌍 GLOBAL BUSINESS COACH | 🧠 INDEPENDENT BUSINESS CONSULTANT",
