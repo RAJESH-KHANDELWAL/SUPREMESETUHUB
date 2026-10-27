@@ -1,9 +1,16 @@
 <?php
-/** Separate metadata for 👑 RAJESH KHANDELWAL OFFICIAL 👑. */
+/**
+ * Identity metadata for 👑 RAJESH KHANDELWAL OFFICIAL 👑.
+ * Metadata only; does not verify or create external accounts.
+ * Never store passwords, tokens, or private account data here.
+ */
+declare(strict_types=1);
+
 return [
-    'display_name' => "👑 RAJESH KHANDELWAL OFFICIAL 👑",
-    'username' => "RAJESHKHANDELWALOFFICIAL",
-    'domain_name' => "RAJESHKHANDELWALOFFICIAL.COM",
-    'gmail_id_name' => "RAJESHKHANDELWALOFFICIAL@GMAIL.COM",
-    'tagline' => "🏡 REAL ESTATE COACH | ❤️ RELATIONSHIP & INTIMACY COACH",
+    'slug' => 'rajesh_khandelwal_official',
+    'display_name' => '👑 RAJESH KHANDELWAL OFFICIAL 👑',
+    'username' => 'RAJESHKHANDELWALOFFICIAL',
+    'scope' => 'SUPREME',
+    'status' => 'REGISTERED_METADATA',
+    'tagline' => 'REAL ESTATE COACH | RELATIONSHIP & INTIMACY COACH',
 ];
