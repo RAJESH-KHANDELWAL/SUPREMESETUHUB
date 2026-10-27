@@ -1,0 +1,72 @@
+"use strict";
+/* Frontend mirror of backend/supreme identity registries. Internal SUPREME IDs only; external platform IDs are not verified. */
+window.SUPREME_OWNER_IDENTITIES = [
+  {
+    "slug": "rajesh_khandelwal",
+    "display_name": "👑 RAJESH KHANDELWAL 👑",
+    "username": "RAJESHKHANDELWAL",
+    "domain_name": "rajeshkhandelwalofficial.com",
+    "user_id": "supreme-user-rajesh_khandelwal",
+    "company_id": "supreme-company-khandelwal-group",
+    "business_id": "supreme-business-khandelwal-group",
+    "profile_id": "supreme-profile-rajesh_khandelwal",
+    "page_id": "supreme-page-rajesh_khandelwal",
+    "channel_id": "supreme-channel-rajesh_khandelwal",
+    "community_id": "supreme-community-rajesh_khandelwal",
+    "group_id": "supreme-group-rajesh_khandelwal",
+    "scope": "SUPREME",
+    "status": "INTERNAL_REGISTRY_ID_ASSIGNED_EXTERNAL_IDS_UNVERIFIED",
+    "tagline": "GLOBAL BUSINESS COACH | INDEPENDENT BUSINESS CONSULTANT"
+  },
+  {
+    "slug": "rajesh_khandelwal_official",
+    "display_name": "👑 RAJESH KHANDELWAL OFFICIAL 👑",
+    "username": "RAJESHKHANDELWALOFFICIAL",
+    "domain_name": "rajeshkhandelwalofficial.com",
+    "user_id": "supreme-user-rajesh_khandelwal_official",
+    "company_id": "supreme-company-khandelwal-group",
+    "business_id": "supreme-business-khandelwal-group",
+    "profile_id": "supreme-profile-rajesh_khandelwal_official",
+    "page_id": "supreme-page-rajesh_khandelwal_official",
+    "channel_id": "supreme-channel-rajesh_khandelwal_official",
+    "community_id": "supreme-community-rajesh_khandelwal_official",
+    "group_id": "supreme-group-rajesh_khandelwal_official",
+    "scope": "SUPREME",
+    "status": "INTERNAL_REGISTRY_ID_ASSIGNED_EXTERNAL_IDS_UNVERIFIED",
+    "tagline": "REAL ESTATE COACH | RELATIONSHIP & INTIMACY COACH"
+  },
+  {
+    "slug": "dr_rajesh_khandelwal_ibc",
+    "display_name": "👑 DR RAJESH KHANDELWAL IBC 👑",
+    "username": "DRRAJESHKHANDELWALIBC",
+    "domain_name": "drrajeshkhandelwalibc.com",
+    "user_id": "supreme-user-dr_rajesh_khandelwal_ibc",
+    "company_id": "supreme-company-khandelwal-group",
+    "business_id": "supreme-business-khandelwal-group",
+    "profile_id": "supreme-profile-dr_rajesh_khandelwal_ibc",
+    "page_id": "supreme-page-dr_rajesh_khandelwal_ibc",
+    "channel_id": "supreme-channel-dr_rajesh_khandelwal_ibc",
+    "community_id": "supreme-community-dr_rajesh_khandelwal_ibc",
+    "group_id": "supreme-group-dr_rajesh_khandelwal_ibc",
+    "scope": "SUPREME",
+    "status": "INTERNAL_REGISTRY_ID_ASSIGNED_EXTERNAL_IDS_UNVERIFIED",
+    "tagline": "GLOBAL BUSINESS COACH | INDEPENDENT BUSINESS CONSULTANT"
+  },
+  {
+    "slug": "dr_rajesh_khandelwal_ibc_official",
+    "display_name": "👑 DR RAJESH KHANDELWAL IBC OFFICIAL 👑",
+    "username": "DRRAJESHKHANDELWALIBCOFFICIAL",
+    "domain_name": "DRRAJESHKHANDELWALIBCOFFICIAL.COM",
+    "user_id": "supreme-user-dr_rajesh_khandelwal_ibc_official",
+    "company_id": "supreme-company-khandelwal-group",
+    "business_id": "supreme-business-khandelwal-group",
+    "profile_id": "supreme-profile-dr_rajesh_khandelwal_ibc_official",
+    "page_id": "supreme-page-dr_rajesh_khandelwal_ibc_official",
+    "channel_id": "supreme-channel-dr_rajesh_khandelwal_ibc_official",
+    "community_id": "supreme-community-dr_rajesh_khandelwal_ibc_official",
+    "group_id": "supreme-group-dr_rajesh_khandelwal_ibc_official",
+    "scope": "SUPREME",
+    "status": "INTERNAL_REGISTRY_ID_ASSIGNED_EXTERNAL_IDS_UNVERIFIED",
+    "tagline": "🌍 GLOBAL BUSINESS COACH | 💼 BUSINESS ADVISOR"
+  }
+];
