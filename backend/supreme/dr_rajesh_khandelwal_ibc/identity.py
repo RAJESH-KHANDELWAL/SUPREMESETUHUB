@@ -1,4 +1,4 @@
-"""👑 DR RAJESH KHANDELWAL IBC 👑 identity registry metadata; IDs here are internal SUPREME registry IDs, not third-party platform IDs."""
+"""👑 DR RAJESH KHANDELWAL IBC 👑 identity registry metadata; IDs are internal SUPREME registry IDs, not third-party platform IDs."""
 IDENTITY = {
     "slug": "dr_rajesh_khandelwal_ibc",
     "display_name": "👑 DR RAJESH KHANDELWAL IBC 👑",
