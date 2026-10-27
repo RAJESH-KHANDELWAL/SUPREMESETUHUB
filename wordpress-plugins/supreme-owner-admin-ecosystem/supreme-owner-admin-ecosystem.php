@@ -48,7 +48,7 @@ final class Supreme_Owner_Admin_Ecosystem_Plugin {
             <h1><?php echo esc_html__( 'SUPREME Owner Admin Ecosystem', 'supreme-owner-admin-ecosystem' ); ?></h1>
             <p><?php echo esc_html__( 'Private owner-only control-panel landing page for SUPREME ECOSYSTEM administration.', 'supreme-owner-admin-ecosystem' ); ?></p>
             <div class="notice notice-info"><p><?php echo esc_html__( 'Owner account match is required. This page does not authenticate to the SUPREME backend or verify external integrations.', 'supreme-owner-admin-ecosystem' ); ?></p></div>
-            <div class="notice notice-info"><p><strong>🔐 Password Manager Ecosystem:</strong> <a href="https://rajesh-khandelwal.github.io/SUPREMESETUHUB/supreme/supreme-ecosystem/password-manager/index.html" target="_blank" rel="noopener noreferrer">Open SUPREME ECOSYSTEM Password Manager</a>. CSV and vault data stay in your browser; never upload plaintext passwords to GitHub.</p></div>
+            <div class="notice notice-info"><p><strong>🔐 Password Manager Ecosystem:</strong> <a href="https://rajesh-khandelwal.github.io/SUPREMESETUHUB/supreme/supreme-ecosystem/password-manager-ecosystem/index.html" target="_blank" rel="noopener noreferrer">Open SUPREME OWNER ADMIN Password Manager ECOSYSTEM</a>. CSV and vault data stay in your browser; never upload plaintext passwords to GitHub.</p></div>
             <h2><?php echo esc_html__( 'Ecosystem control areas', 'supreme-owner-admin-ecosystem' ); ?></h2>
             <ul>
                 <li><?php echo esc_html__( 'API and integration configuration', 'supreme-owner-admin-ecosystem' ); ?></li>
