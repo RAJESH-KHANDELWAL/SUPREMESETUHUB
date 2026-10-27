@@ -8,13 +8,13 @@ declare(strict_types=1);
 return [
     'service' => 'SUPREME_OWNER_ADMIN_PASSWORD_MANAGER',
     'status' => 'LOCAL_ENCRYPTED_BROWSER_VAULT_UI_AVAILABLE',
-    'owner_authorization_required' => true,
-    'admin_actions_audited' => true,
+    'owner_authorization_required' => 'VAULT_PASSPHRASE_REQUIRED_FOR_VAULT_DATA',
+    'admin_actions_audited' => false,
     'raw_password_storage' => false,
     'server_side_credential_storage' => false,
     'csv_import' => true,
     'clipboard_copy' => true,
     'encrypted_export_import' => true,
     'password_discovery' => false,
-    'recovery' => 'USE_IDENTITY_PROVIDER_RESET_FLOW',
+    'recovery' => 'LOST_VAULT_PASSPHRASE_CANNOT_RECOVER_ENCRYPTED_EXPORT',
 ];
