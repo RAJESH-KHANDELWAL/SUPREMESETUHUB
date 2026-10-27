@@ -122,6 +122,8 @@ else{
   loadPrivate("/api/v1/supreme-ecosystem/status","status");
   loadPrivate("/api/v1/supreme-ecosystem/account","account");
   loadPrivate("/api/v1/supreme-ecosystem/integrations","integrations");
+  loadPrivate("/api/v1/supreme-ecosystem/business/status","businessEcosystemStatus");
+  loadPrivate("/api/v1/supreme-ecosystem/ai/status","aiEcosystemStatus");
   loadOwnerProfiles();
 }
 document.getElementById("hostingerBadge").textContent="NEEDS API";
