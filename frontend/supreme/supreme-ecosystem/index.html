@@ -25,20 +25,14 @@
   </div>
 </section>
 
-<section class="section">
-  <div class="section-title"><div><p class="eyebrow">MAIN SUPREME → SUPREME ECOSYSTEM</p><h2>SUPREME ECOSYSTEM MODULES</h2></div></div>
-  <div class="grid modules-grid">
-    <article class="card module-link"><span class="service-icon">API</span><h3>SUPREME API ECOSYSTEM</h3><p>Routing, endpoint contracts and request/response handling for this ecosystem.</p><span>OWNER API · /api/v1/supreme-ecosystem</span></article>
-    <article class="card module-link"><span class="service-icon">BU</span><h3>SUPREME BUSINESS ECOSYSTEM</h3><p>Business services and workflows. Its status is loaded below from the private owner API.</p><span>PRIVATE STATUS PANEL BELOW</span></article>
-    <article class="card module-link"><span class="service-icon">AI</span><h3>SUPREME AI ECOSYSTEM</h3><p>SUPREME-specific AI capabilities and integrations. Its status is loaded below from the private owner API.</p><span>PRIVATE STATUS PANEL BELOW</span></article>
-    <article class="card module-link"><span class="service-icon">CL</span><h3>SUPREME CLOUD ECOSYSTEM</h3><p>Cloud orchestration and provider adapters. Live provider access remains dependent on configured credentials and deployment wiring.</p><span>CONFIGURATION-DEPENDENT</span></article>
-    <a class="card module-link" href="supreme-ecosystem.html"><span class="service-icon">S</span><h3>FOUNDATION & API MAP</h3><p>Open the ecosystem foundation overview and developer route map.</p><span>OPEN FOUNDATION ↗</span></a>
-    <a class="card module-link" href="signin.html"><span class="service-icon">ID</span><h3>OWNER SIGN-IN</h3><p>Return to the private owner authentication screen.</p><span>OPEN SIGN-IN ↗</span></a>
-  </div>
-  <div class="grid" style="margin-top:16px">
-    <section class="card"><h3>BUSINESS ECOSYSTEM STATUS</h3><pre id="businessEcosystemStatus">Loading private status…</pre></section>
-    <section class="card"><h3>AI ECOSYSTEM STATUS</h3><pre id="aiEcosystemStatus">Loading private status…</pre></section>
-  </div>
+<section class="section" id="backendModuleSection">
+  <div class="section-title"><div><p class="eyebrow">LIVE BACKEND → FRONTEND MIRROR</p><h2>SUPREME ECOSYSTEM MODULES</h2><p class="hint">This module list is rendered from the authenticated backend status response, not from a separately invented frontend list.</p></div><button id="refreshBackendModules" type="button">REFRESH BACKEND MODULES</button></div>
+  <div id="backendModulesStatus" class="profiles-status" role="status">Waiting for authenticated backend module response…</div>
+  <div id="backendModulesGrid" class="grid modules-grid"></div>
+</section>
+<section class="section" id="backendRouteSection">
+  <div class="section-title"><div><p class="eyebrow">BACKEND DATA IN FRONTEND</p><h2>Live backend route panels</h2><p class="hint">Each panel below calls an existing SUPREME ECOSYSTEM API route with the signed-in owner session.</p></div></div>
+  <div id="backendRoutePanels" class="grid"></div>
 </section>
 
 <section class="section">
