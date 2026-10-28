@@ -49,6 +49,18 @@ Related platform packages are under `global_platforms_api_ecosystem/global_platf
 - Never commit API keys, OAuth client secrets, access tokens, private keys, or customer credentials. Use environment variables or a managed secret store.
 - Do not create fake checkout, domain registration, DNS changes, cloud resources, or payment operations. Production actions require provider-specific adapters, authorization, explicit user confirmation, audit logging, and tested rollback/error paths.
 
+
+## Provider-owned API ecosystems
+
+Each major provider has its own provider-specific folder at this level. These folders index that provider's own company/platform ecosystem, official products, API families and security/integration boundaries. The shared family folders remain separate and reusable; provider-specific API logic belongs in the corresponding adapter and must not be duplicated across families.
+
+- [Google API Ecosystem](global_google_api_ecosystem/README.md) — `global_google_api_ecosystem/google_api_ecosystem.py`
+- [AWS API Ecosystem](global_aws_api_ecosystem/README.md) — `global_aws_api_ecosystem/aws_api_ecosystem.py`
+- [Microsoft API Ecosystem](global_microsoft_api_ecosystem/README.md) — `global_microsoft_api_ecosystem/microsoft_api_ecosystem.py`
+- [Apple API Ecosystem](global_apple_api_ecosystem/README.md) — `global_apple_api_ecosystem/apple_api_ecosystem.py`
+
+These are provider-owned catalog/index modules, not live connectors. The central provider catalog remains the registry for discovery. Other vendors should follow the same provider-owned folder pattern when their API ecosystem is added; only include products and platforms actually offered by that vendor.
+
 ## API endpoints
 
 - `GET /api/v1/global-api-ecosystem/status`
