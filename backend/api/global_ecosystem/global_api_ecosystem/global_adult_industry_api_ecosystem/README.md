@@ -2,15 +2,35 @@
 
 A separate, provider-indexed ecosystem for legitimate adult-industry businesses and infrastructure. This is intentionally separate from GLOBAL AI API ECOSYSTEM: adult-industry providers may use AI, hosting, video, payments, creator tools, affiliate marketing, or compliance services, but those are distinct capability categories.
 
-## Initial provider catalog
+## Provider catalog (24 entries)
 
-- `abelohost_adult_hosting_ecosystem/` — adult-friendly hosting/infrastructure provider
-- `vicetemple_adult_hosting_ecosystem/` — adult-focused hosting and website infrastructure
-- `faphouse_adult_platform_ecosystem/` — adult video/clip platform
-- `pornhub_adult_platform_ecosystem/` — adult video-sharing platform
-- `naughtyamerica_adult_studio_ecosystem/` — adult entertainment studio/content distributor
+**Hosting:** AbeloHost, ViceTemple.
 
-These are initial catalog records based on the supplied provider names, not an exhaustive global directory. Add other providers only after their identity, official website, business category, terms, API availability, and regional eligibility have been checked.
+**Video platforms and clip stores:** FapHouse, Pornhub, XVideos, xHamster, ManyVids, Clips4Sale.
+
+**Studios and content distributors:** Naughty America, Brazzers, Reality Kings, BangBros, Evil Angel.
+
+**Creator membership platforms:** OnlyFans, Fansly, LoyalFans.
+
+**Specialist payments and payouts:** CCBill, Segpay, Verotel, Epoch, Paxum.
+
+**Affiliate and advertising:** CrakRevenue, TrafficJunky, ExoClick.
+
+This is a starter catalog, not a claim that every global provider has been discovered. Entries are catalog-only. Official API availability, current terms, regional eligibility and connectivity must be checked separately.
+
+## Category folders
+
+The categories/ directory contains taxonomy and checklist files for:
+- Hosting and infrastructure
+- Video platforms and distribution
+- Studios and production
+- Creator memberships and monetization
+- Specialist payments and payouts
+- Affiliate and advertising networks
+- Website development, CMS and tools
+- Age assurance, consent and compliance
+- Privacy, security and trust
+- Domains, CDN and media delivery
 
 ## Coverage map
 
