@@ -33,3 +33,26 @@ This directory is the shared **AI category ecosystem**; it is not the provider-o
 Provider-specific capabilities must also be indexed under the appropriate shared category when relevant. For example, a Google database capability belongs in both the Google provider catalog and the shared `global_database_api_ecosystem/google_database_api_ecosystem/` category subfolder. Google storage maps to `global_storage_api_ecosystem/google_storage_api_ecosystem/`; Google compute/cloud maps to the respective shared cloud/server categories. Apply the same routing convention to AWS, Microsoft, Apple, and all other providers based on their actual product/API offerings.
 
 These paths are catalog/routing boundaries. They do not by themselves implement an adapter or prove live authentication, API calls, or deployment.
+
+
+## AI provider sub-ecosystems (actual folders)
+
+The AI category now contains provider-specific subfolders for the AI providers listed below. Each subfolder contains a README and a Python metadata module. These are category-routing/catalog files, not claims of live provider connections.
+
+- `google_ai_api_ecosystem/`
+- `aws_ai_api_ecosystem/`
+- `microsoft_ai_api_ecosystem/`
+- `apple_ai_api_ecosystem/`
+- `openai_ai_api_ecosystem/`
+- `nsfwinfra_ai_api_ecosystem/`
+- `anthropic_ai_api_ecosystem/`
+- `meta_ai_api_ecosystem/`
+- `nvidia_ai_api_ecosystem/`
+- `huggingface_ai_api_ecosystem/`
+- `deepseek_ai_api_ecosystem/`
+- `mistral_ai_api_ecosystem/`
+- `cohere_ai_api_ecosystem/`
+- `oracle_ai_api_ecosystem/`
+- `ibm_ai_api_ecosystem/`
+
+Each provider's broader catalog remains in its sibling `global_<provider>_api_ecosystem/` folder. This AI category subfolder is the AI-specific view; the provider-owned folder remains the full provider view. Shared cross-provider APIs and endpoints remain in the parent category implementation. Live connectivity still requires a working adapter, valid credentials and tests.
