@@ -56,3 +56,33 @@ The AI category now contains provider-specific subfolders for the AI providers l
 - `ibm_ai_api_ecosystem/`
 
 Each provider's broader catalog remains in its sibling `global_<provider>_api_ecosystem/` folder. This AI category subfolder is the AI-specific view; the provider-owned folder remains the full provider view. Shared cross-provider APIs and endpoints remain in the parent category implementation. Live connectivity still requires a working adapter, valid credentials and tests.
+
+## Adult-industry AI/API integration work (restored)
+
+The following provider-specific AI/API integration scaffolds belong in this shared AI API ecosystem because the project is organizing AI/API work for adult-industry providers. The folder names indicate project integration targets, **not proof that each provider offers an official AI API**. Before implementing live adapters, verify official API documentation, partner access, terms, age/consent requirements, privacy, security and licensing. Catalog metadata alone is not a live integration.
+
+- `abelohost_ai_api_ecosystem/` — Abelohost
+- `bangbros_ai_api_ecosystem/` — BangBros
+- `brazzers_ai_api_ecosystem/` — Brazzers
+- `ccbill_ai_api_ecosystem/` — CCBill
+- `clips4sale_ai_api_ecosystem/` — Clips4Sale
+- `crakrevenue_ai_api_ecosystem/` — CrakRevenue
+- `epoch_ai_api_ecosystem/` — Epoch
+- `evilangel_ai_api_ecosystem/` — Evil Angel
+- `exoclick_ai_api_ecosystem/` — ExoClick
+- `fansly_ai_api_ecosystem/` — Fansly
+- `faphouse_ai_api_ecosystem/` — Faphouse
+- `loyalfans_ai_api_ecosystem/` — LoyalFans
+- `manyvids_ai_api_ecosystem/` — ManyVids
+- `naughtyamerica_ai_api_ecosystem/` — Naughty America
+- `onlyfans_ai_api_ecosystem/` — OnlyFans
+- `paxum_ai_api_ecosystem/` — Paxum
+- `pornhub_ai_api_ecosystem/` — Pornhub
+- `realitykings_ai_api_ecosystem/` — Reality Kings
+- `segpay_ai_api_ecosystem/` — Segpay
+- `trafficjunky_ai_api_ecosystem/` — TrafficJunky
+- `verotel_ai_api_ecosystem/` — Verotel
+- `vicetemple_ai_api_ecosystem/` — ViceTemple
+- `xhamster_ai_api_ecosystem/` — xHamster
+- `xvideos_ai_api_ecosystem/` — XVideos
+
