@@ -56,3 +56,44 @@ The AI category now contains provider-specific subfolders for the AI providers l
 - `ibm_ai_api_ecosystem/`
 
 Each provider's broader catalog remains in its sibling `global_<provider>_api_ecosystem/` folder. This AI category subfolder is the AI-specific view; the provider-owned folder remains the full provider view. Shared cross-provider APIs and endpoints remain in the parent category implementation. Live connectivity still requires a working adapter, valid credentials and tests.
+
+
+## Adult-industry provider sub-ecosystems (placed in this requested directory)
+
+The following adult-industry provider folders are grouped here as requested. Each has a README and Python metadata module. They are catalog-only; this does not mean an official API exists or a live connection has been tested.
+
+### Hosting
+- `abelohost_adult_industry_ecosystem/`
+- `vicetemple_adult_industry_ecosystem/`
+
+### Video platforms and studios
+- `faphouse_adult_industry_ecosystem/`
+- `pornhub_adult_industry_ecosystem/`
+- `xvideos_adult_industry_ecosystem/`
+- `xhamster_adult_industry_ecosystem/`
+- `naughtyamerica_adult_industry_ecosystem/`
+- `brazzers_adult_industry_ecosystem/`
+- `realitykings_adult_industry_ecosystem/`
+- `bangbros_adult_industry_ecosystem/`
+- `evilangel_adult_industry_ecosystem/`
+
+### Creator platforms
+- `onlyfans_adult_industry_ecosystem/`
+- `fansly_adult_industry_ecosystem/`
+- `manyvids_adult_industry_ecosystem/`
+- `clips4sale_adult_industry_ecosystem/`
+- `loyalfans_adult_industry_ecosystem/`
+
+### Payments and payouts
+- `ccbill_adult_industry_ecosystem/`
+- `segpay_adult_industry_ecosystem/`
+- `verotel_adult_industry_ecosystem/`
+- `epoch_adult_industry_ecosystem/`
+- `paxum_adult_industry_ecosystem/`
+
+### Affiliate and advertising
+- `crakrevenue_adult_industry_ecosystem/`
+- `trafficjunky_adult_industry_ecosystem/`
+- `exoclick_adult_industry_ecosystem/`
+
+These are provider catalog records, not live adapters. Before adding an integration, verify official API/partner documentation, eligibility, terms, security requirements, adult-only access, consent, privacy and licensing.
