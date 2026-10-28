@@ -1,0 +1,315 @@
+from __future__ import annotations
+
+from fastapi import APIRouter, Depends, Header, HTTPException, Query
+from pydantic import BaseModel, Field
+
+from backend.supreme.config import (
+    APP_NAME,
+    BUSINESS_ID,
+    COMPANY_ID,
+    PERSON_ID,
+    SUPREME_ID,
+    USERNAME,
+)
+
+from backend.auth.service import AuthenticationService
+from backend.supreme.capability_registry import get_capability_catalog
+from backend.supreme.control import SupremeControlService
+from backend.supreme.controller import SupremeController
+
+from backend.supreme.identity_service import (
+    get_supreme_profile,
+    get_person_profile,
+    search_entities,
+)
+
+
+# SUPREME data is private by default. A valid active login session is not
+# enough on its own: these owner-management endpoints require the configured
+# SUPREME owner's account. Friend/member access should be implemented later
+# through explicit resource-level permissions, not public endpoints.
+authentication_service = AuthenticationService()
+
+
+def require_supreme_owner(
+    authorization: str | None = Header(default=None),
+) -> str:
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(
+            status_code=401,
+            detail="AUTHENTICATION_REQUIRED",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    token = authorization[len("Bearer "):].strip()
+    if not token:
+        raise HTTPException(
+            status_code=401,
+            detail="AUTHENTICATION_REQUIRED",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    result = authentication_service.validate_token(token)
+    if not result.get("authenticated"):
+        raise HTTPException(
+            status_code=401,
+            detail=result.get("message", "INVALID_OR_EXPIRED_TOKEN"),
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    username = str(result.get("username", "")).strip()
+    if username.casefold() != USERNAME.casefold():
+        raise HTTPException(
+            status_code=403,
+            detail="SUPREME_OWNER_ACCESS_REQUIRED",
+        )
+
+    return username
+
+
+router = APIRouter(
+    prefix="/supreme",
+    tags=["SUPREME DASHBOARD"],
+    dependencies=[Depends(require_supreme_owner)],
+)
+
+
+IDENTITIES = [
+    {
+        "display_name": "👑 RAJESH KHANDELWAL 👑",
+        "username": "RAJESHKHANDELWAL",
+        "domain": "https://rajeshkhandelwal.com",
+        "primary_roles": ["PERSONAL AND PROFESSIONAL GUIDANCE"],
+        "service_categories": [
+            "CAREER", "JOBS", "STUDENT GUIDANCE", "FAMILY",
+            "PERSONAL DEVELOPMENT", "PROFESSIONAL DEVELOPMENT",
+            "MENTAL WELLBEING INFORMATION", "PHYSICAL AND BODY HEALTH INFORMATION",
+            "RELATIONSHIPS", "INTIMACY EDUCATION", "GENERAL LIFE GUIDANCE"
+        ],
+        "audience_scope": ["BHARAT", "GLOBAL"],
+        "shared_ecosystem": True,
+    },
+    {
+        "display_name": "👑 RAJESH KHANDELWAL OFFICIAL 👑",
+        "username": "RAJESHKHANDELWALOFFICIAL",
+        "domain": "https://rajeshkhandelwalofficial.com",
+        "primary_roles": ["REAL ESTATE COACH", "RELATIONSHIP AND INTIMACY COACH"],
+        "service_categories": [
+            "REAL ESTATE", "RELATIONSHIPS", "COUPLES", "INTIMACY EDUCATION",
+            "PERSONAL DEVELOPMENT"
+        ],
+        "audience_scope": ["BHARAT", "GLOBAL"],
+        "shared_ecosystem": True,
+    },
+    {
+        "display_name": "👑 DR RAJESH KHANDELWAL IBC 👑",
+        "username": "DRRAJESHKHANDELWALIBC",
+        "domain": "https://drrajeshkhandelwalibc.com",
+        "primary_roles": ["GLOBAL BUSINESS COACH", "INDEPENDENT BUSINESS CONSULTANT"],
+        "service_categories": [
+            "BUSINESS COACHING", "BUSINESS CONSULTING", "ENTREPRENEURSHIP",
+            "BUSINESS GROWTH", "BUSINESS BUILDING", "INCOME OPPORTUNITIES"
+        ],
+        "audience_scope": ["BHARAT", "GLOBAL"],
+        "shared_ecosystem": True,
+    },
+    {
+        "display_name": "👑 DR RAJESH KHANDELWAL IBC OFFICIAL 👑",
+        "username": "DRRAJESHKHANDELWALIBCOFFICIAL",
+        "domain": "https://drrajeshkhandelwalibcofficial.com",
+        "primary_roles": ["BUSINESS ADVISOR", "FOUNDER AND CEO"],
+        "service_categories": [
+            "BUSINESS ADVISORY", "FOUNDER AND CEO", "COMPANY SETUP",
+            "LEADERSHIP", "OPERATIONS", "BUSINESS STRATEGY",
+            "PROFESSIONAL BUSINESS SERVICES"
+        ],
+        "audience_scope": ["BHARAT", "GLOBAL"],
+        "shared_ecosystem": True,
+    },
+]
+
+
+@router.get("/")
+def supreme_dashboard():
+    return {
+        "success": True,
+        "dashboard": "👑 SUPREME DASHBOARD 👑",
+        "system": APP_NAME,
+        "version": "1.0.0",
+        "status": "active",
+        "access": "SUPREME",
+        "owner": "👑 DR RAJESH KHANDELWAL IBC 👑",
+        "identity_count": len(IDENTITIES),
+    }
+
+
+@router.get("/identities")
+def supreme_identities():
+    return {
+        "success": True,
+        "dashboard": "👑 SUPREME DASHBOARD 👑",
+        "total": len(IDENTITIES),
+        "identities": IDENTITIES,
+    }
+
+
+@router.get("/status")
+def supreme_status():
+    profile = get_supreme_profile()
+
+    return {
+        "service": APP_NAME,
+        "status": "active",
+        "supreme_id": profile["supreme_id"],
+        "owner_person_id": profile["owner_person_id"],
+        "business_id": BUSINESS_ID,
+        "company_id": COMPANY_ID,
+        "role": profile["role"],
+        "success": True,
+        "api": "connected",
+        "people_dashboard": "active",
+        "supreme_dashboard": "active",
+        "backend": "connected",
+    }
+
+
+@router.get("/health")
+def supreme_health():
+    return {
+        "success": True,
+        "dashboard": "👑 SUPREME DASHBOARD 👑",
+        "service": APP_NAME,
+        "supreme_id": SUPREME_ID,
+        "status": "healthy",
+    }
+
+
+@router.get("/version")
+def supreme_version():
+    return {
+        "success": True,
+        "dashboard": "👑 SUPREME DASHBOARD 👑",
+        "version": "1.0.0",
+    }
+
+
+@router.get("/profile")
+def supreme_profile():
+    return get_supreme_profile()
+
+
+@router.get("/person")
+def supreme_person():
+    return get_person_profile()
+
+
+@router.get("/search")
+def supreme_search(
+    q: str = Query(default="", max_length=200),
+):
+    query = q.strip()
+
+    if not query:
+        raise HTTPException(
+            status_code=400,
+            detail="Missing q query parameter",
+        )
+
+    results = search_entities(query)
+
+    return {
+        "query": query,
+        "results": results,
+        "count": len(results),
+    }
+
+
+@router.get("/persons")
+def persons_list():
+    return {
+        "service": APP_NAME,
+        "people": [get_person_profile()],
+    }
+
+
+@router.get("/businesses")
+def businesses_list():
+    return {
+        "service": APP_NAME,
+        "businesses": [
+            {
+                "business_id": BUSINESS_ID,
+                "owner_person_id": PERSON_ID,
+                "supreme_id": SUPREME_ID,
+                "name": "RAJESH KHANDELWAL OFFICIAL",
+                "display_name": "👑 RAJESH KHANDELWAL OFFICIAL 👑",
+            }
+        ],
+    }
+
+
+@router.get("/companies")
+def companies_list():
+    return {
+        "service": APP_NAME,
+        "companies": [
+            {
+                "company_id": COMPANY_ID,
+                "owner_person_id": PERSON_ID,
+                "business_id": BUSINESS_ID,
+                "supreme_id": SUPREME_ID,
+                "name": "DR RAJESH KHANDELWAL IBC",
+                "display_name": "👑 DR RAJESH KHANDELWAL IBC 👑",
+            }
+        ],
+    }
+
+
+@router.get("/capabilities")
+def supreme_capabilities():
+    """Expose the shared backend capability catalog in the owner SUPREME dashboard."""
+    catalog = get_capability_catalog()
+    return {
+        **catalog,
+        "dashboard": "SUPREME",
+        "access": "SUPREME_OWNER",
+    }
+
+class SupremeControlCommandRequest(BaseModel):
+    command: str = Field(min_length=1, max_length=80)
+    payload: dict = Field(default_factory=dict)
+
+
+@router.get("/control/status")
+def supreme_control_status():
+    """Owner-only status for the SUPREME personal control plane."""
+    controller = SupremeController()
+    status = SupremeControlService.get_status(controller)
+    return {
+        "success": status["status"] == "READY",
+        "control_plane": "SUPREME",
+        "status": status,
+    }
+
+
+@router.post("/control/commands")
+def supreme_control_command(
+    request: SupremeControlCommandRequest,
+    x_supreme_control_token: str | None = Header(default=None),
+):
+    """Run an allowlisted, read-only SUPREME control command."""
+    if SupremeControlService._configured_token() and not SupremeControlService.validate_token(
+        x_supreme_control_token
+    ):
+        raise HTTPException(status_code=401, detail="SUPREME_CONTROL_TOKEN_REQUIRED")
+    try:
+        result = SupremeControlService.execute_command(
+            SupremeController(), request.command, request.payload
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return {
+        "success": True,
+        "control_plane": "SUPREME",
+        "result": result,
+    }
