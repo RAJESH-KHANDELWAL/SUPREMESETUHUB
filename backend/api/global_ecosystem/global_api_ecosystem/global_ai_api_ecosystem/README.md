@@ -15,3 +15,21 @@ The shared catalog is `backend/api/global_api_ecosystem_catalog.py`. Its AI-fami
 - `GET /api/v1/global-ai-ecosystem/api-ecosystems`
 
 Provider-specific implementations should be added to the appropriate provider/family package, with least-privilege credentials, secure durable token storage, user consent where required, safe error handling and automated tests. Catalog entries do not imply live connections.
+
+
+## Provider ownership vs AI category (clarified)
+
+This directory is the shared **AI category ecosystem**; it is not the provider-owned folder for every AI company. Each vendor has its own catalog at the sibling provider path, for example:
+
+- Google: `global_google_api_ecosystem/`
+- AWS: `global_aws_api_ecosystem/`
+- Microsoft: `global_microsoft_api_ecosystem/`
+- Apple: `global_apple_api_ecosystem/`
+- OpenAI: `global_openai_api_ecosystem/`
+- Anthropic: `global_anthropic_api_ecosystem/`
+- NVIDIA: `global_nvidia_api_ecosystem/`
+- Hugging Face: `global_huggingface_api_ecosystem/`
+
+Provider-specific capabilities must also be indexed under the appropriate shared category when relevant. For example, a Google database capability belongs in both the Google provider catalog and the shared `global_database_api_ecosystem/google_database_api_ecosystem/` category subfolder. Google storage maps to `global_storage_api_ecosystem/google_storage_api_ecosystem/`; Google compute/cloud maps to the respective shared cloud/server categories. Apply the same routing convention to AWS, Microsoft, Apple, and all other providers based on their actual product/API offerings.
+
+These paths are catalog/routing boundaries. They do not by themselves implement an adapter or prove live authentication, API calls, or deployment.
