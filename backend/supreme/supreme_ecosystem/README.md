@@ -42,3 +42,13 @@ belongs only to this Supreme Ecosystem layer. Do not create a nested
 Google Contacts and Google Sheets must remain NOT_CONNECTED until OAuth,
 least-privilege scopes, secure token storage, provider adapters, sync policies,
 and integration tests are complete. Read-only preview is not live synchronization.
+
+## Functional ecosystem catalog
+
+The capability catalog and its functional ecosystem folders live directly in this package:
+
+- `registry.py` — read-only capability registry; it does not initialize services or claim deployment status.
+- `SUPREME-API-ECOSYSTEM/` — API routing, authentication boundaries, status and delivery responsibilities.
+- `SUPREME-BUSINESS-ECOSYSTEM/` — business, project, opportunity, matching, work/income and marketplace responsibilities.
+
+These folders document functional ownership. Live routers and services remain at their registered runtime paths until their imports, tests and deployment wiring are migrated together.

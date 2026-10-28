@@ -10,6 +10,7 @@ from .connectors.registry import ConnectorRegistry, registry
 from .connectors.manager import ConnectorManager, connector_manager
 from .supreme_business_ecosystem import status as supreme_business_ecosystem_status
 from .supreme_ai_ecosystem import status as supreme_ai_ecosystem_status
+from .registry import get_supreme_ecosystem_registry
 __all__=["ACCESS_POLICY","CORE_MODULES","PARENT_SYSTEM","SYSTEM_NAME","SupremeEcosystem","supreme_ecosystem",
 "ConnectorResult","ConnectorCapability","EcosystemProviderConnector","ConnectorRegistry","registry","ConnectorManager",
-"connector_manager","supreme_business_ecosystem_status","supreme_ai_ecosystem_status","RAJESH_KHANDELWAL_PERSONAL_BRAND","DR_RAJESH_KHANDELWAL_IBC_BRAND","DR_RAJESH_KHANDELWAL_IBC_OFFICIAL_BRAND","RAJESH_KHANDELWAL_OFFICIAL_BRAND","SUPREME_ECOSYSTEM_IDENTITIES"]
+"connector_manager","supreme_business_ecosystem_status","supreme_ai_ecosystem_status","get_supreme_ecosystem_registry","RAJESH_KHANDELWAL_PERSONAL_BRAND","DR_RAJESH_KHANDELWAL_IBC_BRAND","DR_RAJESH_KHANDELWAL_IBC_OFFICIAL_BRAND","RAJESH_KHANDELWAL_OFFICIAL_BRAND","SUPREME_ECOSYSTEM_IDENTITIES"]

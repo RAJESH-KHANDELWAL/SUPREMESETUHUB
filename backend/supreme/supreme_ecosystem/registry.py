@@ -77,7 +77,7 @@ _SUPREME_ECOSYSTEM_REGISTRY: dict[str, dict[str, Any]] = {
     "GLOBAL-BUSINESS-ECOSYSTEM": {
         "purpose": "Separate global business ecosystem entry and its business-facing capabilities",
         "runtime_entry": "backend/api/global_business_ecosystem.py",
-        "architecture_path": "backend/supreme/supreme_ecosystem/ecosystem/global-business-ecosystem/GLOBAL-BUSINESS-ECOSYSTEM/",
+        "architecture_path": "backend/supreme/supreme_ecosystem/global-business-ecosystem/GLOBAL-BUSINESS-ECOSYSTEM/",
         "separate_system": True,
     },
 }
