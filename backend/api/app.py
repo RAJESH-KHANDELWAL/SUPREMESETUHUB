@@ -19,6 +19,7 @@ from backend.api.businesses import router as businesses_router
 from backend.api.big_businesses import router as big_businesses_router
 from backend.api.dashboard import router as dashboard_router
 from backend.api.dns import router as dns_router
+from backend.api.domain_hosting_catalog import router as domain_hosting_catalog_router
 from backend.api.gallary_woult import router as gallary_woult_router
 from backend.api.identity import router as identity_router
 from backend.api.infrastructure import router as infrastructure_router
@@ -192,6 +193,7 @@ PUBLIC_API_PATHS = {
     "/api/v1/products/catalog",
     "/api/v1/products/provider-readiness",
     "/api/v1/print-on-demand/public/catalog",
+    "/api/v1/domain-hosting/public/catalog",
 }
 
 
@@ -392,6 +394,7 @@ app.include_router(supreme_whatsapp_ai_router)
 app.include_router(dashboard_router)
 app.include_router(infrastructure_router)
 app.include_router(dns_router)
+app.include_router(domain_hosting_catalog_router)
 app.include_router(user_hub_router)
 app.include_router(ai_router)
 app.include_router(global_ai_ecosystem_router)
