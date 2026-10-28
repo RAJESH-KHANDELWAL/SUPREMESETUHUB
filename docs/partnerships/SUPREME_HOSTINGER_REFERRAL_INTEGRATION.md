@@ -17,7 +17,7 @@ The shared registry is `backend/core/global_ecosystem/global_core_ecosystem/host
 | SUPREME identity | Referral code | Link |
 |---|---|---|
 | DR RAJESH KHANDELWAL IBC | `RAJESHIBCGLOBAL` | https://www.hostinger.com/in?REFERRALCODE=RAJESHIBCGLOBAL |
-| DR RAJESH KHANDELWAL IBC OFFICIAL | `RAJESHIBCGROWTH` | https://www.hostinger.com/in?REFERRALCODE=RAJESHIBCGROWTH |
+| DR RAJESH KHANDELWAL IBC OFFICIAL (`drrajeshkhandelwalibcofficial@gmail.com`) | `RAJESHIBCGROWTH` | https://www.hostinger.com/in?REFERRALCODE=RAJESHIBCGROWTH |
 | RAJESH KHANDELWAL OFFICIAL | `RAJESHGROWTH` | https://www.hostinger.com/in?REFERRALCODE=RAJESHGROWTH |
 | RAJESH KHANDELWAL | `RAJESHGLOBAL` | https://www.hostinger.com/in?REFERRALCODE=RAJESHGLOBAL |
 
