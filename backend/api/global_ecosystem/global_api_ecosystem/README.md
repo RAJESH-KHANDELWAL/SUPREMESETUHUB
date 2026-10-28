@@ -72,3 +72,25 @@ These are provider-owned catalog/index modules, not live connectors. The central
 See `docs/GLOBAL_API_ECOSYSTEM_PROVIDER_HIERARCHY.md` for provider hierarchy, status definitions and integration gates.
 
 The runtime `backend/`, master `BACKEND/`, and visual/documentation `🖥️ BACKEND 🖥️/` layers remain separate. Catalog membership alone never means a provider is live-connected.
+
+
+## Provider ownership + shared category routing (canonical rule)
+
+Every provider has its own provider-owned API ecosystem folder for its own products, platforms, service catalogs, authentication requirements, scopes, rate limits, and adapter status. Provider-owned folders do **not** replace the shared category ecosystems. A provider capability is also indexed in the appropriate shared category folder so cross-provider capabilities can use a common interface.
+
+Examples of the intended routing:
+
+| Provider capability | Provider-owned catalog | Shared category ecosystem |
+|---|---|---|
+| Google Cloud SQL / Google database services | `global_google_api_ecosystem` | `global_database_api_ecosystem` |
+| Amazon RDS / DynamoDB | `global_aws_api_ecosystem` | `global_database_api_ecosystem` |
+| Azure SQL / Microsoft database services | `global_microsoft_api_ecosystem` | `global_database_api_ecosystem` |
+| Apple app/device-related services | `global_apple_api_ecosystem` | Relevant `APP`, `SYSTEM`, `SECURITY`, or `PLATFORMS` family |
+| Google Cloud Storage / Drive | `global_google_api_ecosystem` | `global_storage_api_ecosystem` |
+| Amazon S3 / EBS | `global_aws_api_ecosystem` | `global_storage_api_ecosystem` |
+| Azure Blob Storage / OneDrive | `global_microsoft_api_ecosystem` | `global_storage_api_ecosystem` |
+| Google Cloud compute / AWS EC2 / Azure compute | Provider's own folder | `global_server_api_ecosystem` and/or `global_cloud_api_ecosystem` |
+
+The registry's `list_provider_category_routes(provider_id=None)` returns the provider-to-category path index; pass a provider ID (for example `google`, `aws`, `microsoft`, or `apple`) to get only that provider's routes. `list_provider_ecosystems(family="DATABASE")` lists providers registered for the database family.
+
+**Important:** route/catalog presence is not proof that a product API is enabled or connected. Actual access requires the provider's official API, correct credentials/scopes, an implemented adapter, and passing integration tests. Never store secrets in this repository.
