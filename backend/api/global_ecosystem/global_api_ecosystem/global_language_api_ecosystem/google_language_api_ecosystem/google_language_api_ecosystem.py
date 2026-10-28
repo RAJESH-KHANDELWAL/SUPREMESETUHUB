@@ -1,0 +1,12 @@
+"""GOOGLE API ECOSYSTEM LANGUAGE category metadata; not a live adapter."""
+
+PROVIDER_ID = "google"
+PROVIDER_NAME = "GOOGLE API ECOSYSTEM"
+CATEGORY_ID = "LANGUAGE"
+CATEGORY_NAME = "GLOBAL LANGUAGE API ECOSYSTEM"
+PROVIDER_CATALOG_PATH = "backend/api/global_ecosystem/global_api_ecosystem/global_google_api_ecosystem"
+CATEGORY_CATALOG_PATH = "backend/api/global_ecosystem/global_api_ecosystem/global_language_api_ecosystem"
+SCOPE = "Provider-to-category mapping for GLOBAL LANGUAGE API ECOSYSTEM; verify official product/API support before implementation."
+IMPLEMENTATION_STATUS = "CATALOG_ONLY"
+API_DOCUMENTATION_VERIFIED = False
+LIVE_CONNECTION_VERIFIED = False
