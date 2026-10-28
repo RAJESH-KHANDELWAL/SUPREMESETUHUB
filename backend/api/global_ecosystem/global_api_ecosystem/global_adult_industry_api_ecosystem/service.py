@@ -7,7 +7,30 @@ from backend.api.global_api_ecosystem_catalog import list_provider_ecosystems
 
 
 ADULT_INDUSTRY_PROVIDER_IDS = {
-    "abelohost", "vicetemple", "faphouse", "pornhub", "naughtyamerica",
+    "abelohost",
+    "vicetemple",
+    "faphouse",
+    "pornhub",
+    "naughtyamerica",
+    "ccbill",
+    "segpay",
+    "verotel",
+    "epoch",
+    "paxum",
+    "onlyfans",
+    "fansly",
+    "manyvids",
+    "clips4sale",
+    "loyalfans",
+    "crakrevenue",
+    "trafficjunky",
+    "exoclick",
+    "xvideos",
+    "xhamster",
+    "brazzers",
+    "realitykings",
+    "bangbros",
+    "evilangel",
 }
 
 
