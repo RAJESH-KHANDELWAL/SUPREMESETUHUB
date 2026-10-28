@@ -12,7 +12,7 @@ from typing import Any
 
 
 GLOBAL_API_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
-    {"ecosystem_id": "ADULT_INDUSTRY", "name": "GLOBAL ADULT INDUSTRY ECOSYSTEM", "path": "backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem", "purpose": "Adult-industry hosting, content platforms, studios, creator services, specialist payments, affiliate services and compliance; catalog-only until verified"},
+    {"ecosystem_id": "ADULT_INDUSTRY", "name": "GLOBAL ADULT INDUSTRY ECOSYSTEM", "path": "backend/api/global_ecosystem/global_api_ecosystem/global_adult_industry_api_ecosystem", "purpose": "Adult-industry hosting, content platforms, studios, creator services, specialist payments, affiliate services and compliance; catalog-only until verified"},
     {"ecosystem_id": "AI", "name": "GLOBAL AI API ECOSYSTEM", "path": "backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem", "purpose": "AI models, inference, generation and AI service APIs"},
     {"ecosystem_id": "APP", "name": "GLOBAL APP API ECOSYSTEM", "path": "backend/api/global_ecosystem/global_api_ecosystem/global_app_api_ecosystem", "purpose": "Application platforms and app lifecycle APIs"},
     {"ecosystem_id": "BUSINESS", "name": "GLOBAL BUSINESS API ECOSYSTEM", "path": "backend/api/global_ecosystem/global_api_ecosystem/global_business_api_ecosystem", "purpose": "Business, commerce and enterprise APIs"},
