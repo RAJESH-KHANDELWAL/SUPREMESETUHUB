@@ -3,7 +3,7 @@
 This directory contains the API-family ecosystems under the GLOBAL API ECOSYSTEM parent. Keep each family package separate and use the central provider catalog as the source of truth; do not copy provider implementation code into every family.
 
 ## API families
-AI, App, Business, Cloud, Communication, Companies, Database, Developer, Domain, Freelancer, Hosting, Individual, Integrations, Intimacy, Language, Payment, Platforms, Security, Server, Services, Social Media, Software, Storage, System, Tools, Video, Web and Website.
+Adult Industry, AI, App, Business, Cloud, Communication, Companies, Database, Developer, Domain, Freelancer, Hosting, Individual, Integrations, Intimacy, Language, Payment, Platforms, Security, Server, Services, Social Media, Software, Storage, System, Tools, Video, Web and Website.
 
 ## Provider ecosystems and family placement
 
@@ -94,3 +94,7 @@ Examples of the intended routing:
 The registry's `list_provider_category_routes(provider_id=None)` returns the provider-to-category path index; pass a provider ID (for example `google`, `aws`, `microsoft`, or `apple`) to get only that provider's routes. `list_provider_ecosystems(family="DATABASE")` lists providers registered for the database family.
 
 **Important:** route/catalog presence is not proof that a product API is enabled or connected. Actual access requires the provider's official API, correct credentials/scopes, an implemented adapter, and passing integration tests. Never store secrets in this repository.
+
+## GLOBAL ADULT INDUSTRY ECOSYSTEM
+
+The adult-industry catalog is maintained separately at `global_adult_industry_api_ecosystem/`. It starts with AbeloHost, ViceTemple, FapHouse, Pornhub, and Naughty America as catalog-only provider records and groups relevant hosting, video/platform and website families. The initial owner-authenticated catalog endpoints are `GET /api/v1/global-adult-industry-ecosystem/status` and `GET /api/v1/global-adult-industry-ecosystem/providers`. These endpoints report catalog data only; no provider API connectivity is implied. Expand the directory only with verified provider identities and official API/partner documentation, while respecting adult-only access, consent, privacy, licensing, and local law.
