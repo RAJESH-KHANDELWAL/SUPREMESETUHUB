@@ -1,20 +1,62 @@
 # GLOBAL API ECOSYSTEM
 
-This directory contains the API-family ecosystems under the GLOBAL API ECOSYSTEM parent. Keep the existing ecosystem packages separate; this index points to their canonical paths rather than copying code.
+This directory contains the API-family ecosystems under the GLOBAL API ECOSYSTEM parent. Keep each family package separate and use the central provider catalog as the source of truth; do not copy provider implementation code into every family.
 
 ## API families
 AI, App, Business, Cloud, Communication, Companies, Database, Developer, Domain, Freelancer, Hosting, Individual, Integrations, Intimacy, Language, Payment, Platforms, Security, Server, Services, Social Media, Software, Storage, System, Tools, Video, Web and Website.
 
-## Provider ecosystems
-The central provider catalog lives in `backend/api/global_api_ecosystem_catalog.py`; its protected FastAPI routes are in `backend/api/global_api_ecosystem_routes.py`. It links Google, Microsoft, AWS and Apple to existing company-specific packages and related platform packages. It also lists other providers by relevant API family without implying those providers are implemented or connected.
+## Provider ecosystems and family placement
+
+The central provider catalog lives in `backend/api/global_api_ecosystem_catalog.py`; FastAPI routes live in `backend/api/global_api_ecosystem_routes.py`. The existing company-specific provider packages for Google, Microsoft, AWS and Apple are the canonical vendor identities. Family folders should contain provider-specific adapters only where the provider offers a relevant, supported API.
+
+| Family | Google | AWS | Microsoft | Apple |
+|---|---|---|---|---|
+| AI | Gemini / Vertex AI, subject to API access | Amazon Bedrock | Azure AI services | Apple Intelligence / developer APIs where publicly available |
+| App | Android and Google Play APIs | App hosting and application services | App platform and identity APIs | App Store Connect and Apple developer APIs |
+| Business | Workspace and business APIs | Business/cloud services | Microsoft 365 and Graph | Apple Business Manager APIs where available |
+| Cloud | Google Cloud | AWS | Microsoft Azure | Apple cloud APIs only where officially exposed |
+| Communication | Gmail and Google Meet APIs | SES and supported messaging integrations | Microsoft Graph, Outlook and Teams APIs | Push notification and communication APIs where available |
+| Companies | Google provider identity/package | AWS provider identity/package | Microsoft provider identity/package | Apple provider identity/package |
+| Database | Cloud SQL and Firestore | RDS, DynamoDB and supported database APIs | Azure SQL and Cosmos DB | No general-purpose hosted database service assumed |
+| Developer | Google developer APIs | AWS SDK and developer APIs | Microsoft developer APIs and SDKs | Apple Developer and App Store Connect APIs |
+| Domain / DNS | DNS and domain-related APIs only where currently offered | Route 53 and Route 53 Domains, subject to eligibility | Azure DNS; domain registration may require a separate registrar | No general-purpose registrar assumed |
+| Hosting | Cloud Run and supported app-hosting products | EC2, Lightsail and supported hosting services | Azure App Service and supported hosting services | No general-purpose public web-hosting provider assumed |
+| Integrations | OAuth, SDK and API connectors | AWS SDK and API connectors | Microsoft Graph, OAuth and SDK connectors | Sign in with Apple and official SDK connectors |
+| Payment | Google Pay APIs where supported in the target country/product | Payment integrations only when an actual service/API is available | Payment integrations only when an actual service/API is available | Apple Pay, subject to merchant, region and platform eligibility |
+| Platforms | Google Workspace, Google Play and Google Cloud | AWS Console and AWS services | Microsoft 365 and Azure | Apple App Store and Apple developer platforms |
+| Security | Google Cloud IAM and security APIs | IAM and AWS security services | Microsoft Entra ID and Defender APIs | Sign in with Apple and officially supported security APIs |
+| Server | Compute Engine | EC2 and server-management APIs | Azure Virtual Machines | No general-purpose public server provider assumed |
+| Storage | Cloud Storage and Google Drive APIs | S3 and supported storage APIs | Azure Blob Storage and OneDrive/SharePoint APIs | iCloud integration only within Apple's supported APIs and terms |
+| Web / Website | Search, Maps, Analytics and supported website APIs | API Gateway and website infrastructure APIs | Microsoft Graph and supported web services | Web-facing Apple developer services where available |
+| Software / Tools | Google developer and productivity APIs | AWS tools and SDKs | Microsoft developer/productivity APIs | Apple developer tools and official APIs |
+
+This table is an architecture map, not a statement that every listed product is already wired into this repository. Confirm current product availability, API scope, regional eligibility, billing, and terms before implementing an adapter. Do not represent a product as a domain registrar, generic hosting provider, database provider, or payment processor unless its official product/API actually supports that role.
+
+## Canonical provider package paths
+
+- Google: `backend/integrations/providers/google.py` and `backend/api/global_ecosystem/global_api_ecosystem/global_companies_api_ecosystem/global_companies_ecosystem/google`
+- AWS: `backend/integrations/providers/aws.py` and `backend/api/global_ecosystem/global_api_ecosystem/global_companies_api_ecosystem/global_companies_ecosystem/aws`
+- Microsoft: `backend/integrations/providers/microsoft.py` and `backend/api/global_ecosystem/global_api_ecosystem/global_companies_api_ecosystem/global_companies_ecosystem/microsoft`
+- Apple: `backend/integrations/providers/apple.py` and `backend/api/global_ecosystem/global_api_ecosystem/global_companies_api_ecosystem/global_companies_ecosystem/apple`
+
+Related platform packages are under `global_platforms_api_ecosystem/global_platforms_ecosystem/`. Family-specific provider paths listed in the central catalog are references to code areas; they do not prove that a live connector exists.
+
+## Implementation status rules
+
+- `CATALOG_ONLY`: provider is listed for discovery; no working adapter is implied.
+- `CONFIGURATION_READINESS_SCAFFOLD`: configuration/readiness scaffolding exists; credentials and live API operations are not thereby verified.
+- A provider may be marked live-connected only after secure credential configuration, successful authenticated API calls, error handling, tests, and operational checks.
+- Never commit API keys, OAuth client secrets, access tokens, private keys, or customer credentials. Use environment variables or a managed secret store.
+- Do not create fake checkout, domain registration, DNS changes, cloud resources, or payment operations. Production actions require provider-specific adapters, authorization, explicit user confirmation, audit logging, and tested rollback/error paths.
 
 ## API endpoints
+
 - `GET /api/v1/global-api-ecosystem/status`
 - `GET /api/v1/global-api-ecosystem/ecosystems`
 - `GET /api/v1/global-api-ecosystem/providers`
 - `GET /api/v1/global-api-ecosystem/providers/{provider_id}`
 - `GET /api/v1/global-api-ecosystem/ai-providers`
 
-See `docs/GLOBAL_API_ECOSYSTEM_PROVIDER_HIERARCHY.md` for the provider hierarchy, status definitions and integration gates.
+See `docs/GLOBAL_API_ECOSYSTEM_PROVIDER_HIERARCHY.md` for provider hierarchy, status definitions and integration gates.
 
-The runtime `backend/`, master `BACKEND/`, and visual/documentation `🖥️ BACKEND 🖥️/` layers remain separate. No provider is considered live-connected based on catalog membership alone.
+The runtime `backend/`, master `BACKEND/`, and visual/documentation `🖥️ BACKEND 🖥️/` layers remain separate. Catalog membership alone never means a provider is live-connected.
