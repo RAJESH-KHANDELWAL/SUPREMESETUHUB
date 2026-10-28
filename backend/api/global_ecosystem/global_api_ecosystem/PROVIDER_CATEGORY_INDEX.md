@@ -369,3 +369,8 @@ Category path: `backend/api/global_ecosystem/global_api_ecosystem/global_website
 ## Expanded APP provider catalog
 
 The APP family now includes additional application providers: Notion, Dropbox, Box, Discord, Telegram, LinkedIn, TikTok, Pinterest, Reddit, Spotify, Netflix, Canva, Figma, WordPress, Wix, Squarespace, HubSpot, Zendesk, monday.com, Asana, Trello, GitLab, Linear, Miro, Airtable, Grammarly. These entries are catalog-only until each provider's official API documentation, authentication flow, and live connection are individually verified.
+
+
+## Cloud category expansion
+
+Added cloud platform/service catalog entries: Alibaba Cloud, Tencent Cloud, Huawei Cloud, Baidu AI Cloud, JD Cloud, Kingsoft Cloud, China Telecom Cloud, Rackspace Technology, Scaleway, OVHcloud, Hetzner Cloud, Vultr, Backblaze, Wasabi. These are CLOUD-family catalog records only. VPS-specific provider workflows remain in the separate GLOBAL VPS ecosystem. All new records are catalog-only until official API documentation and live connections are verified.
