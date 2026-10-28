@@ -364,3 +364,8 @@ Category path: `backend/api/global_ecosystem/global_api_ecosystem/global_website
 - Verify official product/API documentation, eligibility, scopes, rate limits, terms, and regional availability before coding.
 - Keep secrets out of Git; use environment variables or a managed secret store.
 - Mark an integration live only after authenticated API calls, safe error handling, automated tests, and operational checks pass.
+
+
+## Expanded APP provider catalog
+
+The APP family now includes additional application providers: Notion, Dropbox, Box, Discord, Telegram, LinkedIn, TikTok, Pinterest, Reddit, Spotify, Netflix, Canva, Figma, WordPress, Wix, Squarespace, HubSpot, Zendesk, monday.com, Asana, Trello, GitLab, Linear, Miro, Airtable, Grammarly. These entries are catalog-only until each provider's official API documentation, authentication flow, and live connection are individually verified.
