@@ -1,11 +1,12 @@
 """Canonical registry for the four primary SUPREME owner identities.
 
-The separate rajesh_khandelwal_personal variant is intentionally not included.
+Uses the richer top-level identity records so the registry retains internal IDs,
+domain metadata and taglines. The separate personal-brand variant is excluded.
 """
-from .rajesh_khandelwal.identity import IDENTITY as RAJESH_KHANDELWAL
-from .rajesh_khandelwal_official.identity import IDENTITY as RAJESH_KHANDELWAL_OFFICIAL
-from .dr_rajesh_khandelwal_ibc.identity import IDENTITY as DR_RAJESH_KHANDELWAL_IBC
-from .dr_rajesh_khandelwal_ibc_official.identity import IDENTITY as DR_RAJESH_KHANDELWAL_IBC_OFFICIAL
+from ..rajesh_khandelwal import IDENTITY as RAJESH_KHANDELWAL
+from ..rajesh_khandelwal_official import IDENTITY as RAJESH_KHANDELWAL_OFFICIAL
+from ..dr_rajesh_khandelwal_ibc import IDENTITY as DR_RAJESH_KHANDELWAL_IBC
+from ..dr_rajesh_khandelwal_ibc_official import IDENTITY as DR_RAJESH_KHANDELWAL_IBC_OFFICIAL
 
 IDENTITIES = {
     "rajesh_khandelwal": RAJESH_KHANDELWAL,
