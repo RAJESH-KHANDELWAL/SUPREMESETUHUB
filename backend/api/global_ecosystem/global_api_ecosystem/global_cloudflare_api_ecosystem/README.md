@@ -22,8 +22,23 @@ DNS implementation reference: `backend/dns/global_ecosystem/global_dns_ecosystem
 ## Cloudflare-owned API catalog
 
 - `cloudflare_api_ecosystem.py` — provider index and family references.
-- `cloudflare_product_api_catalog.py` — Cloudflare-specific product/API areas and official documentation references.
-- `cloudflare_provider_integrations.py` — index of documented Cloudflare-to-provider integration catalogs.
+- `cloudflare_product_api_catalog.py` — consolidated product/API index.
+- `cloudflare_provider_integrations.py` — documented Cloudflare-to-provider integration index.
+
+Each Cloudflare product area has its own dedicated folder with a `README.md` and a Python catalog module:
+
+- `accounts_cloudflare_api_ecosystem/`
+- `zones_cloudflare_api_ecosystem/`
+- `dns_cloudflare_api_ecosystem/`
+- `workers_cloudflare_api_ecosystem/`
+- `pages_cloudflare_api_ecosystem/`
+- `r2_cloudflare_api_ecosystem/`
+- `ai_gateway_cloudflare_api_ecosystem/`
+- `security_cloudflare_api_ecosystem/`
+- `ssl_tls_cloudflare_api_ecosystem/`
+- `analytics_logpush_cloudflare_api_ecosystem/`
+
+These are Cloudflare-specific product/API areas, not generic AI, APP or CLOUD subdirectories.
 
 ## Cross-provider integration catalogs
 
