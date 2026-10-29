@@ -1,21 +1,19 @@
 # GLOBAL CLOUD API ECOSYSTEM
 
-Broad cloud platform APIs, with a separate catalog subsection for adult-industry hosting/cloud providers.
+This family lists providers whose cloud infrastructure/API capability is documented or is a recognized public cloud platform. A catalog entry is not proof of a live connection; every integration remains catalog-only until official API documentation, credentials, permissions and tests are verified.
 
-## Adult-industry hosting/cloud catalog
+## Cloud infrastructure and API providers
 
-- [AbeloHost](abelohost_cloud_api_ecosystem/README.md) — `abelohost_cloud_api_ecosystem/`
-- [ViceTemple](vicetemple_cloud_api_ecosystem/README.md) — `vicetemple_cloud_api_ecosystem/`
-- [FlokiNET](flokinet_cloud_api_ecosystem/README.md) — `flokinet_cloud_api_ecosystem/`
-- [Shinjiru](shinjiru_cloud_api_ecosystem/README.md) — `shinjiru_cloud_api_ecosystem/`
-- [HostSailor](hostsailor_cloud_api_ecosystem/README.md) — `hostsailor_cloud_api_ecosystem/`
-- [BlueAngelHost](blueangelhost_cloud_api_ecosystem/README.md) — `blueangelhost_cloud_api_ecosystem/`
-- [AlexHost](alexhost_cloud_api_ecosystem/README.md) — `alexhost_cloud_api_ecosystem/`
-- [HOSTKEY](hostkey_cloud_api_ecosystem/README.md) — `hostkey_cloud_api_ecosystem/`
+The central registry at `backend/api/global_api_ecosystem_catalog.py` is the source of truth for provider-to-family membership. Providers include major global cloud platforms and API-backed infrastructure providers such as AWS, Google Cloud, Microsoft Azure, Oracle Cloud, Alibaba Cloud, Tencent Cloud, Huawei Cloud, Baidu AI Cloud, JD Cloud, Kingsoft Cloud, China Telecom Cloud, IBM Cloud, DigitalOcean, Rackspace, Scaleway, OVHcloud, Hetzner Cloud and Vultr. Object-storage providers such as Backblaze and Wasabi are included only as API-backed cloud/storage services, not as general-purpose compute clouds.
+
+## Not automatically a CLOUD API provider
+
+Adult-friendly hosting vendors and general web-hosting companies must not be listed in this family merely because they sell hosting, VPS or server products. The following entries had no official API documentation verified in this catalog and have therefore been removed from the central `CLOUD` family membership: AbeloHost, ViceTemple, FlokiNET, Shinjiru, HostSailor, BlueAngelHost, AlexHost and HOSTKEY. Their provider discovery records belong under the relevant ADULT_INDUSTRY/HOSTING/SERVER families unless and until an official cloud API is verified.
 
 ## Scope boundary
 
-- This list is a provider discovery catalog, not confirmation that every provider offers a public API or adult-content-specific cloud products.
-- VPS-specific provisioning and lifecycle operations belong in GLOBAL VPS API ECOSYSTEM.
-- Verify official documentation, acceptable-use policies, regional/legal requirements, authentication, and actual connectivity before implementing or claiming support.
-- Catalog-only entries do not represent live integrations. Never commit credentials.
+- Cloud APIs mean documented programmatic interfaces for cloud account, compute, networking, infrastructure, resource lifecycle or cloud operations.
+- VPS provisioning and lifecycle APIs belong in GLOBAL VPS API ECOSYSTEM; general hosting control panels belong in GLOBAL HOSTING API ECOSYSTEM unless an official cloud API is established.
+- Catalog membership is not proof that a public API exists, that an account is eligible, or that authentication works.
+- Do not mark any provider live until official API documentation, required scopes/permissions, secure credentials, adapter behavior and tests have been verified.
+- Never commit credentials or secrets.
