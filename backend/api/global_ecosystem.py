@@ -4,6 +4,14 @@ from __future__ import annotations
 
 from typing import Any
 
+from pathlib import Path
+
+# This file and the sibling directory share the name "global_ecosystem".
+# Expose the directory as a submodule search path so legacy imports such as
+# backend.api.global_ecosystem.global_api_ecosystem can coexist with the
+# historical GlobalEcosystemAPI facade in this module.
+__path__ = [str(Path(__file__).with_suffix(""))]
+
 from backend.api.global_ecosystem_modules import GlobalEcosystemModules
 from backend.core.global_ecosystem.manager import GlobalEcosystemManager
 

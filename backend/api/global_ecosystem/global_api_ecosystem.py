@@ -5,6 +5,12 @@ from __future__ import annotations
 
 from typing import Any
 
+from pathlib import Path
+
+# This compatibility module shares its basename with the nested package folder.
+# Expose that sibling folder for imports of provider/category ecosystem modules.
+__path__ = [str(Path(__file__).with_suffix(""))]
+
 ECOSYSTEM_ID = "GLOBAL_API_ECOSYSTEM"
 ECOSYSTEM_NAME = "GLOBAL API ECOSYSTEM"
 ECOSYSTEM_VERSION = "1.0.0"
