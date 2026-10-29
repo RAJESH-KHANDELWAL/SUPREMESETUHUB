@@ -12,7 +12,20 @@ Cloudflare dashboard, DNS, zones, Workers, R2, SSL/TLS and security APIs.
 
 ## Related GLOBAL API ECOSYSTEM families
 
-`CLOUD`, `DOMAIN`, `DNS`, `SECURITY`, `WEB`.
+`AI`, `APP`, `CLOUD`, `DOMAIN`, `DNS`, `SECURITY`, `SERVER`, `VPS`, `WEB`.
+
+## Shared category mappings
+
+- AI: `../global_ai_api_ecosystem/cloudflare_ai_api_ecosystem/`
+- APP: `../global_app_api_ecosystem/cloudflare_app_api_ecosystem/`
+- CLOUD: `../global_cloud_api_ecosystem/cloudflare_cloud_api_ecosystem/`
+- DOMAIN: `../global_domain_api_ecosystem/cloudflare_domain_api_ecosystem/`
+- SECURITY: `../global_security_api_ecosystem/cloudflare_security_api_ecosystem/`
+- SERVER: `../global_server_api_ecosystem/cloudflare_server_api_ecosystem/`
+- VPS: `../global_vps_api_ecosystem/cloudflare_vps_api_ecosystem/`
+- WEB: `../global_web_api_ecosystem/cloudflare_web_api_ecosystem/`
+
+DNS operations also have a separate backend implementation under `backend/dns/global_ecosystem/global_dns_ecosystem/cloudflare_dns/`. These are routing/catalog references, not proof of live authentication.
 
 ## Integration and security rules
 
