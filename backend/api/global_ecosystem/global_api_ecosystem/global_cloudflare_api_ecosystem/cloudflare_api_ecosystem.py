@@ -17,6 +17,7 @@ CLOUDFLARE_API_ECOSYSTEM = {
     "product_catalog_module": "catalog_cloudflare_api_ecosystem/cloudflare_product_api_catalog.py",
     "product_api_modules": {
         "accounts": "accounts_cloudflare_api_ecosystem/accounts_cloudflare_api_ecosystem.py",
+        "adult_industry_catalog": "adult_industry_cloudflare_api_ecosystem/adult_industry_cloudflare_api_ecosystem.py",
         "zones": "zones_cloudflare_api_ecosystem/zones_cloudflare_api_ecosystem.py",
         "dns_records": "dns_cloudflare_api_ecosystem/dns_cloudflare_api_ecosystem.py",
         "workers": "workers_cloudflare_api_ecosystem/workers_cloudflare_api_ecosystem.py",
@@ -105,7 +106,8 @@ CLOUDFLARE_API_ECOSYSTEM = {
 SHARED_CATEGORY_MAPPINGS = {
     "ADULT_INDUSTRY": {
         "name": "GLOBAL ADULT INDUSTRY API ECOSYSTEM",
-        "path": "backend/api/global_ecosystem/global_api_ecosystem/global_adult_industry_api_ecosystem/cloudflare_adult_industry_api_ecosystem/cloudflare_adult_industry_api_ecosystem.py",
+        "path": "backend/api/global_ecosystem/global_api_ecosystem/global_cloudflare_api_ecosystem/adult_industry_cloudflare_api_ecosystem/adult_industry_cloudflare_api_ecosystem.py",
+        "shared_source_path": "backend/api/global_ecosystem/global_api_ecosystem/global_adult_industry_api_ecosystem/cloudflare_adult_industry_api_ecosystem/cloudflare_adult_industry_api_ecosystem.py",
         "status": "CATALOG_ONLY",
         "dedicated_adult_industry_api_verified": False,
         "live_connection_verified": False,
