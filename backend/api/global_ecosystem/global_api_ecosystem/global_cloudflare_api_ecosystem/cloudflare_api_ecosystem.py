@@ -45,6 +45,15 @@ CLOUDFLARE_API_ECOSYSTEM = {
         "VPS": "backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem/cloudflare_vps_api_ecosystem",
         "WEB": "backend/api/global_ecosystem/global_api_ecosystem/global_web_api_ecosystem/cloudflare_web_api_ecosystem",
     },
+    "provider_integration_index": "backend/api/global_ecosystem/global_api_ecosystem/global_cloudflare_api_ecosystem/cloudflare_provider_integrations.py",
+    "provider_integration_modules": {
+        "AWS": "aws_cloudflare_api_ecosystem.py",
+        "GOOGLE_CLOUD": "google_cloud_cloudflare_api_ecosystem.py",
+        "MICROSOFT_AZURE": "microsoft_azure_cloudflare_api_ecosystem.py",
+        "ORACLE_CLOUD": "oracle_cloud_cloudflare_api_ecosystem.py",
+        "ALIBABA_CLOUD": "alibaba_cloud_cloudflare_api_ecosystem.py",
+        "APPLE": "apple_cloudflare_api_ecosystem.py",
+    },
     "dns_implementation_path": "backend/dns/global_ecosystem/global_dns_ecosystem/cloudflare_dns",
     "credential_source": "environment_or_managed_secret_store",
 }
