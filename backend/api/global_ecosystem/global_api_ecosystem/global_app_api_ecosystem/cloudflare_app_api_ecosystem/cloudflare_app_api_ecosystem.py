@@ -1,10 +1,12 @@
-"""Cloudflare APP category mapping; catalog metadata only."""
-CLOUDFLARE_APP_API_ECOSYSTEM = {
-    "provider_id": "cloudflare",
-    "category": "APP",
-    "name": "CLOUDFLARE APP API ECOSYSTEM",
-    "capabilities": ["Dashboard and account management", "Workers", "Pages", "Application configuration"],
-    "implementation_status": "CATALOG_ONLY",
-    "live_connection_verified": False,
-    "provider_api_ecosystem_path": "backend/api/global_ecosystem/global_api_ecosystem/global_cloudflare_api_ecosystem",
-}
+"""CLOUDFLARE API ECOSYSTEM APP category metadata; not a live adapter."""
+
+PROVIDER_ID = "cloudflare"
+PROVIDER_NAME = "CLOUDFLARE API ECOSYSTEM"
+CATEGORY_ID = "APP"
+CATEGORY_NAME = "GLOBAL APP API ECOSYSTEM"
+PROVIDER_CATALOG_PATH = "backend/api/global_ecosystem/global_api_ecosystem/global_cloudflare_api_ecosystem"
+CATEGORY_CATALOG_PATH = "backend/api/global_ecosystem/global_api_ecosystem/global_app_api_ecosystem"
+SCOPE = "Provider-to-category mapping for GLOBAL APP API ECOSYSTEM; verify official product/API support before implementation."
+IMPLEMENTATION_STATUS = "CATALOG_ONLY"
+API_DOCUMENTATION_VERIFIED = False
+LIVE_CONNECTION_VERIFIED = False
