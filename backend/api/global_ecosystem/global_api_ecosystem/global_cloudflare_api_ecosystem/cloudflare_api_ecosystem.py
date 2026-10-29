@@ -17,38 +17,6 @@ CLOUDFLARE_API_ECOSYSTEM = {
     "product_catalog_module": "catalog_cloudflare_api_ecosystem/cloudflare_product_api_catalog.py",
     "product_api_modules": {
         "accounts": "accounts_cloudflare_api_ecosystem/accounts_cloudflare_api_ecosystem.py",
-        "adult_industry_catalog": "adult_industry_cloudflare_api_ecosystem/adult_industry_cloudflare_api_ecosystem.py",
-        "abelohost_adult_industry": "abelohost_cloudflare_api_ecosystem/abelohost_cloudflare_api_ecosystem.py",
-        "bangbros_adult_industry": "bangbros_cloudflare_api_ecosystem/bangbros_cloudflare_api_ecosystem.py",
-        "brazzers_adult_industry": "brazzers_cloudflare_api_ecosystem/brazzers_cloudflare_api_ecosystem.py",
-        "ccbill_adult_industry": "ccbill_cloudflare_api_ecosystem/ccbill_cloudflare_api_ecosystem.py",
-        "clips4sale_adult_industry": "clips4sale_cloudflare_api_ecosystem/clips4sale_cloudflare_api_ecosystem.py",
-        "crakrevenue_adult_industry": "crakrevenue_cloudflare_api_ecosystem/crakrevenue_cloudflare_api_ecosystem.py",
-        "epoch_adult_industry": "epoch_cloudflare_api_ecosystem/epoch_cloudflare_api_ecosystem.py",
-        "evilangel_adult_industry": "evilangel_cloudflare_api_ecosystem/evilangel_cloudflare_api_ecosystem.py",
-        "exoclick_adult_industry": "exoclick_cloudflare_api_ecosystem/exoclick_cloudflare_api_ecosystem.py",
-        "fansly_adult_industry": "fansly_cloudflare_api_ecosystem/fansly_cloudflare_api_ecosystem.py",
-        "faphouse_adult_industry": "faphouse_cloudflare_api_ecosystem/faphouse_cloudflare_api_ecosystem.py",
-        "loyalfans_adult_industry": "loyalfans_cloudflare_api_ecosystem/loyalfans_cloudflare_api_ecosystem.py",
-        "manyvids_adult_industry": "manyvids_cloudflare_api_ecosystem/manyvids_cloudflare_api_ecosystem.py",
-        "naughtyamerica_adult_industry": "naughtyamerica_cloudflare_api_ecosystem/naughtyamerica_cloudflare_api_ecosystem.py",
-        "nsfwinfra_adult_industry": "nsfwinfra_cloudflare_api_ecosystem/nsfwinfra_cloudflare_api_ecosystem.py",
-        "onlyfans_adult_industry": "onlyfans_cloudflare_api_ecosystem/onlyfans_cloudflare_api_ecosystem.py",
-        "paxum_adult_industry": "paxum_cloudflare_api_ecosystem/paxum_cloudflare_api_ecosystem.py",
-        "pornhub_adult_industry": "pornhub_cloudflare_api_ecosystem/pornhub_cloudflare_api_ecosystem.py",
-        "realitykings_adult_industry": "realitykings_cloudflare_api_ecosystem/realitykings_cloudflare_api_ecosystem.py",
-        "segpay_adult_industry": "segpay_cloudflare_api_ecosystem/segpay_cloudflare_api_ecosystem.py",
-        "trafficjunky_adult_industry": "trafficjunky_cloudflare_api_ecosystem/trafficjunky_cloudflare_api_ecosystem.py",
-        "verotel_adult_industry": "verotel_cloudflare_api_ecosystem/verotel_cloudflare_api_ecosystem.py",
-        "vicetemple_adult_industry": "vicetemple_cloudflare_api_ecosystem/vicetemple_cloudflare_api_ecosystem.py",
-        "xhamster_adult_industry": "xhamster_cloudflare_api_ecosystem/xhamster_cloudflare_api_ecosystem.py",
-        "xvideos_adult_industry": "xvideos_cloudflare_api_ecosystem/xvideos_cloudflare_api_ecosystem.py",
-        "alexhost_adult_industry": "alexhost_cloudflare_api_ecosystem/alexhost_cloudflare_api_ecosystem.py",
-        "blueangelhost_adult_industry": "blueangelhost_cloudflare_api_ecosystem/blueangelhost_cloudflare_api_ecosystem.py",
-        "flokinet_adult_industry": "flokinet_cloudflare_api_ecosystem/flokinet_cloudflare_api_ecosystem.py",
-        "hostkey_adult_industry": "hostkey_cloudflare_api_ecosystem/hostkey_cloudflare_api_ecosystem.py",
-        "hostsailor_adult_industry": "hostsailor_cloudflare_api_ecosystem/hostsailor_cloudflare_api_ecosystem.py",
-        "shinjiru_adult_industry": "shinjiru_cloudflare_api_ecosystem/shinjiru_cloudflare_api_ecosystem.py",
         "zones": "zones_cloudflare_api_ecosystem/zones_cloudflare_api_ecosystem.py",
         "dns_records": "dns_cloudflare_api_ecosystem/dns_cloudflare_api_ecosystem.py",
         "workers": "workers_cloudflare_api_ecosystem/workers_cloudflare_api_ecosystem.py",
@@ -132,44 +100,7 @@ CLOUDFLARE_API_ECOSYSTEM = {
 
 
 # Shared category mappings. Paths are cross-references, not Cloudflare-owned products.
-# Adult entries are deliberately surfaced here so they are visible from the main
-# Cloudflare API ecosystem index instead of being discoverable only in a nested file.
 SHARED_CATEGORY_MAPPINGS = {
-    "ADULT_INDUSTRY": {
-        "name": "GLOBAL ADULT INDUSTRY API ECOSYSTEM",
-        "path": "backend/api/global_ecosystem/global_api_ecosystem/global_cloudflare_api_ecosystem/adult_industry_cloudflare_api_ecosystem/adult_industry_cloudflare_api_ecosystem.py",
-        "shared_source_path": "backend/api/global_ecosystem/global_api_ecosystem/global_adult_industry_api_ecosystem/cloudflare_adult_industry_api_ecosystem/cloudflare_adult_industry_api_ecosystem.py",
-        "status": "CATALOG_ONLY",
-        "dedicated_adult_industry_api_verified": False,
-        "live_connection_verified": False,
-        "source_categories": {
-            "AI_API": [
-                "abelohost", "bangbros", "brazzers", "ccbill", "clips4sale",
-                "crakrevenue", "epoch", "evilangel", "exoclick", "fansly",
-                "faphouse", "loyalfans", "manyvids", "naughtyamerica",
-                "nsfwinfra", "onlyfans", "paxum", "pornhub", "realitykings",
-                "segpay", "trafficjunky", "verotel", "vicetemple", "xhamster", "xvideos",
-            ],
-            "APP_API": [
-                "bangbros", "brazzers", "clips4sale", "evilangel", "fansly",
-                "faphouse", "loyalfans", "manyvids", "naughtyamerica",
-                "onlyfans", "pornhub", "realitykings", "xhamster", "xvideos",
-            ],
-            "CLOUD_API": [
-                "abelohost", "alexhost", "blueangelhost", "flokinet",
-                "hostkey", "hostsailor", "shinjiru", "vicetemple",
-            ],
-        },
-        "relevant_cloudflare_product_modules": [
-            "zones_dns", "security_waf_api_shield", "ssl_tls", "r2_object_storage",
-            "stream_video", "images", "workers", "pages", "analytics_logpush",
-        ],
-        "mapping_note": (
-            "These are existing AI_API/APP_API/CLOUD_API catalog entries surfaced "
-            "under Cloudflare's shared adult-industry mapping. They are not proof "
-            "of official APIs, Cloudflare hosting, or eligibility for every service."
-        ),
-    },
     "AI": {
         "path": "backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem/cloudflare_ai_api_ecosystem",
         "status": "CATALOG_ONLY",
