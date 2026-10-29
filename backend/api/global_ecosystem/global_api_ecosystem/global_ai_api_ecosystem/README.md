@@ -91,3 +91,10 @@ The following provider-specific AI/API integration scaffolds belong in this shar
 ## Cloudflare AI category mapping
 
 - `cloudflare_ai_api_ecosystem/` — Cloudflare Workers AI and AI Gateway category mapping. This is catalog-only; provider-owned metadata remains in `global_cloudflare_api_ecosystem/`.
+
+
+## Adult Industry cross-category routing
+
+Adult-industry integration targets are indexed in the shared [GLOBAL ADULT INDUSTRY API ECOSYSTEM](../global_adult_industry_api_ecosystem/README.md). Existing folders in this AI category are catalog scaffolds only; they do **not** establish that a provider publishes an official AI API. Keep the adult-industry provider's canonical catalog under the shared ADULT INDUSTRY category and use this AI-family folder only as a category-specific routing record.
+
+Examples: [OnlyFans AI catalog](onlyfans_ai_api_ecosystem/README.md), [Fansly AI catalog](fansly_ai_api_ecosystem/README.md), [Pornhub AI catalog](pornhub_ai_api_ecosystem/README.md), [CCBill AI catalog](ccbill_ai_api_ecosystem/README.md), and [Cloudflare AI mapping](cloudflare_ai_api_ecosystem/README.md). All remain catalog-only until official API support is verified.
