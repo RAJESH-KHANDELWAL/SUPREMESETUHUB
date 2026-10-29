@@ -75,10 +75,10 @@ _PROVIDERS: tuple[dict[str, Any], ...] = (
     ("onlyfans", "OnlyFans", ["ADULT_CREATOR_ECONOMY", "ADULT_CONTENT_PUBLISHING", "ADULT_INDUSTRY_BUSINESS"], "https://onlyfans.com/", None, "Public official developer API has not been verified; third-party API products are not official."),
     ("fansly", "Fansly", ["ADULT_CREATOR_ECONOMY", "ADULT_CONTENT_PUBLISHING"], "https://fansly.com/", None, "Public official developer API has not been verified."),
     ("fanvue", "Fanvue", ["ADULT_CREATOR_ECONOMY", "ADULT_CONTENT_PUBLISHING"], "https://www.fanvue.com/", None, "Verify official API access and platform terms before implementation."),
-    ("manyvids", "ManyVids", ["ADULT_CREATOR_ECONOMY", "ADULT_CONTENT_PUBLISHING", "ADULT_VIDEO_PLATFORMS"], "https://www.manyvids.com/", None, "Adult content marketplace; API access must be individually verified."),
-    ("xvideos", "XVideos", ["PORNOGRAPHY_VIDEO_PLATFORMS", "ADULT_VIDEO_PLATFORMS"], "https://www.xvideos.com/", None, "Adult video platform; public official API not asserted."),
-    ("xhamster", "xHamster", ["PORNOGRAPHY_VIDEO_PLATFORMS", "ADULT_VIDEO_PLATFORMS"], "https://xhamster.com/", None, "Adult video platform; public official API not asserted."),
-    ("redtube", "RedTube", ["PORNOGRAPHY_VIDEO_PLATFORMS", "ADULT_VIDEO_PLATFORMS"], "https://www.redtube.com/", None, "Adult video platform; public official API not asserted."),
+    ("manyvids", "ManyVids", ["ADULT_CREATOR_ECONOMY", "ADULT_CONTENT_PUBLISHING", "PORNOGRAPHY_VIDEO_PLATFORMS"], "https://www.manyvids.com/", None, "Adult content marketplace; API access must be individually verified."),
+    ("xvideos", "XVideos", ["PORNOGRAPHY_VIDEO_PLATFORMS", "PORNOGRAPHY_VIDEO_PLATFORMS"], "https://www.xvideos.com/", None, "Adult video platform; public official API not asserted."),
+    ("xhamster", "xHamster", ["PORNOGRAPHY_VIDEO_PLATFORMS", "PORNOGRAPHY_VIDEO_PLATFORMS"], "https://xhamster.com/", None, "Adult video platform; public official API not asserted."),
+    ("redtube", "RedTube", ["PORNOGRAPHY_VIDEO_PLATFORMS", "PORNOGRAPHY_VIDEO_PLATFORMS"], "https://www.redtube.com/", None, "Adult video platform; public official API not asserted."),
     ("brazzers", "Brazzers", ["ADULT_STUDIOS_PRODUCTION", "PORNOGRAPHY_VIDEO_PLATFORMS"], "https://www.brazzers.com/", None, "Adult studio/content brand; public official API not asserted."),
     ("reality_kings", "Reality Kings", ["ADULT_STUDIOS_PRODUCTION", "PORNOGRAPHY_VIDEO_PLATFORMS"], "https://www.realitykings.com/", None, "Adult studio/content brand; public official API not asserted."),
     ("mofos", "MOFOS", ["ADULT_STUDIOS_PRODUCTION", "PORNOGRAPHY_VIDEO_PLATFORMS"], "https://www.mofos.com/", None, "Adult studio/content brand; public official API not asserted."),
@@ -147,6 +147,12 @@ def list_providers(category_id: str | None = None) -> list[dict[str, Any]]:
 
 def get_ecosystem_status() -> dict[str, Any]:
     """Return catalog coverage and honest live-integration status."""
+    # Import within the function to avoid coupling category definitions to
+    # subsystem modules during package import.
+    from .integrations.service import list_entries as list_integrations
+    from .services.service import list_entries as list_services
+    from .tools.service import list_entries as list_tools
+
     return {
         "success": True,
         "system": "GLOBAL RELATIONSHIP AND INTIMACY API ECOSYSTEM",
@@ -154,5 +160,8 @@ def get_ecosystem_status() -> dict[str, Any]:
         "live_connections_verified": False,
         "category_count": len(CATEGORIES),
         "provider_count": len(PROVIDERS),
+        "integration_count": len(list_integrations()),
+        "service_count": len(list_services()),
+        "tool_count": len(list_tools()),
         "safety_scope": list(SAFETY_SCOPE),
     }
