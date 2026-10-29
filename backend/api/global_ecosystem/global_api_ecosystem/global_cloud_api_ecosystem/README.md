@@ -12,26 +12,26 @@ Catalog and shared API boundary for broad cloud platforms, cloud control planes,
 - [Microsoft Azure](microsoft_cloud_api_ecosystem/README.md) — `microsoft_cloud_api_ecosystem/`
 - [NVIDIA Cloud](nvidia_cloud_api_ecosystem/README.md) — `nvidia_cloud_api_ecosystem/`
 - [Oracle Cloud](oracle_cloud_api_ecosystem/README.md) — `oracle_cloud_api_ecosystem/`
-- [Alibaba Cloud](alibaba_cloud_cloud_api_ecosystem/README.md) — `alibaba_cloud_cloud_api_ecosystem/`
-- [Tencent Cloud](tencent_cloud_cloud_api_ecosystem/README.md) — `tencent_cloud_cloud_api_ecosystem/`
-- [Huawei Cloud](huawei_cloud_cloud_api_ecosystem/README.md) — `huawei_cloud_cloud_api_ecosystem/`
-- [Baidu AI Cloud](baidu_cloud_cloud_api_ecosystem/README.md) — `baidu_cloud_cloud_api_ecosystem/`
-- [JD Cloud](jd_cloud_cloud_api_ecosystem/README.md) — `jd_cloud_cloud_api_ecosystem/`
-- [Kingsoft Cloud](kingsoft_cloud_cloud_api_ecosystem/README.md) — `kingsoft_cloud_cloud_api_ecosystem/`
-- [China Telecom Cloud](china_telecom_cloud_cloud_api_ecosystem/README.md) — `china_telecom_cloud_cloud_api_ecosystem/`
+- [Alibaba Cloud](alibaba_cloud_api_ecosystem/README.md) — `alibaba_cloud_api_ecosystem/`
+- [Tencent Cloud](tencent_cloud_api_ecosystem/README.md) — `tencent_cloud_api_ecosystem/`
+- [Huawei Cloud](huawei_cloud_api_ecosystem/README.md) — `huawei_cloud_api_ecosystem/`
+- [Baidu AI Cloud](baidu_cloud_api_ecosystem/README.md) — `baidu_cloud_api_ecosystem/`
+- [JD Cloud](jd_cloud_api_ecosystem/README.md) — `jd_cloud_api_ecosystem/`
+- [Kingsoft Cloud](kingsoft_cloud_api_ecosystem/README.md) — `kingsoft_cloud_api_ecosystem/`
+- [China Telecom Cloud](china_telecom_cloud_api_ecosystem/README.md) — `china_telecom_cloud_api_ecosystem/`
 - [Rackspace Technology](rackspace_cloud_api_ecosystem/README.md) — `rackspace_cloud_api_ecosystem/`
 - [Scaleway](scaleway_cloud_api_ecosystem/README.md) — `scaleway_cloud_api_ecosystem/`
 - [OVHcloud](ovhcloud_cloud_api_ecosystem/README.md) — `ovhcloud_cloud_api_ecosystem/`
-- [Hetzner Cloud](hetzner_cloud_cloud_api_ecosystem/README.md) — `hetzner_cloud_cloud_api_ecosystem/`
+- [Hetzner Cloud](hetzner_cloud_api_ecosystem/README.md) — `hetzner_cloud_api_ecosystem/`
 - [Vultr](vultr_cloud_api_ecosystem/README.md) — `vultr_cloud_api_ecosystem/`
 - [Backblaze](backblaze_cloud_api_ecosystem/README.md) — `backblaze_cloud_api_ecosystem/`
 - [Wasabi](wasabi_cloud_api_ecosystem/README.md) — `wasabi_cloud_api_ecosystem/`
 
 ## Scope boundary
 
-- VPS-specific provider inventory, provisioning, lifecycle, and management belong in the separate GLOBAL VPS ecosystem.
-- This category covers broad cloud platform APIs and cloud-native service interfaces.
-- A provider may offer VPS products elsewhere, but VPS-specific workflows must remain in the VPS ecosystem.
-- Provider folders marked CATALOG_ONLY are not live integrations.
-- Verify official documentation, authentication, permissions, and actual connection tests before claiming a working integration.
-- Never commit API keys, tokens, or customer data.
+- VPS-specific provider inventory, provisioning, lifecycle, and management belong in the separate GLOBAL VPS API ECOSYSTEM.
+- This category covers broader cloud platforms and cloud-native service APIs.
+- A provider may be listed in both CLOUD and VPS; its VPS-specific workflows must remain in the VPS ecosystem.
+- CATALOG_ONLY means a directory/catalog record exists, not that a live API adapter has been tested.
+- Verify official documentation, authentication, permissions, rate limits, and terms before claiming an integration.
+- Never commit API keys, OAuth secrets, access tokens, or customer data.
