@@ -385,10 +385,9 @@ A separate `global_vps_api_ecosystem/` package now defines the VPS category boun
 
 Dedicated APP category folders created for: OnlyFans, Fansly, ManyVids, Clips4Sale, LoyalFans, FapHouse, Pornhub, XVideos, xHamster, Brazzers, Reality Kings, BangBros, Evil Angel, Naughty America. These entries are catalog-only; official API availability and access eligibility must be verified provider by provider.
 
-## Adult-industry CLOUD/HOSTING catalog
+## Cloud API provider scope
 
-Dedicated CLOUD category folders created for: AbeloHost, ViceTemple, FlokiNET, Shinjiru, HostSailor, BlueAngelHost, AlexHost, HOSTKEY. These are discovery records only; they do not claim adult-content acceptance, public API availability, or live connectivity. VPS-specific operations remain in GLOBAL VPS.
-
+GLOBAL CLOUD membership is reserved for providers with established cloud infrastructure/API scope. Adult-friendly hosting discovery records are categorized under ADULT_INDUSTRY, HOSTING, SERVER or WEBSITE as appropriate; they are not included in the CLOUD family unless official cloud API documentation is verified.
 
 ## Cloudflare shared-category routing update
 
