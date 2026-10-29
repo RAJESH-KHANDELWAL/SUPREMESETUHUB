@@ -26,3 +26,8 @@ Catalog of general application APIs and adult-industry creator/content platform 
 ## Scope and safety
 
 These entries represent provider/category catalog mappings, not endorsement, content hosting, or proof of API access. Confirm official developer documentation, account eligibility, permitted use, privacy requirements, and authentication before integration. Some platforms may not provide public APIs or may restrict API access. Do not scrape or bypass access controls. Store credentials outside Git.
+
+
+## Shared Adult Industry category
+
+The canonical provider classification and provider-owned catalog routing for these adult-industry services is maintained in [GLOBAL ADULT INDUSTRY API ECOSYSTEM](../global_adult_industry_api_ecosystem/README.md). This APP category lists app/platform-specific views only. These folders are catalog-only and must not be treated as proof of a public API or live integration.
