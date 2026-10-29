@@ -15,6 +15,7 @@ CLOUDFLARE_API_ECOSYSTEM = {
     "official_product_catalog": "https://www.cloudflare.com/products/",
     "official_developer_directory": "https://developers.cloudflare.com/directory/",
     "product_catalog_module": "catalog_cloudflare_api_ecosystem/cloudflare_product_api_catalog.py",
+    "adult_industry_mapping": "adult_industry_cloudflare_api_ecosystem/adult_industry_cloudflare_api_ecosystem.py",
     "product_api_modules": {
         "accounts": "accounts_cloudflare_api_ecosystem/accounts_cloudflare_api_ecosystem.py",
         "zones": "zones_cloudflare_api_ecosystem/zones_cloudflare_api_ecosystem.py",
