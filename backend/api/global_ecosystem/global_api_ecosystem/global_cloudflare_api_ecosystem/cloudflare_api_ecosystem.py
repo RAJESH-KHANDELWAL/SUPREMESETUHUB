@@ -99,13 +99,43 @@ CLOUDFLARE_API_ECOSYSTEM = {
 }
 
 
-# Shared category mappings. These paths are cross-references, not provider-owned product modules.
+# Shared category mappings. Paths are cross-references, not Cloudflare-owned products.
+# Adult entries are deliberately surfaced here so they are visible from the main
+# Cloudflare API ecosystem index instead of being discoverable only in a nested file.
 SHARED_CATEGORY_MAPPINGS = {
     "ADULT_INDUSTRY": {
-        "path": "backend/api/global_ecosystem/global_api_ecosystem/global_adult_industry_api_ecosystem/cloudflare_adult_industry_api_ecosystem",
+        "name": "GLOBAL ADULT INDUSTRY API ECOSYSTEM",
+        "path": "backend/api/global_ecosystem/global_api_ecosystem/global_adult_industry_api_ecosystem/cloudflare_adult_industry_api_ecosystem/cloudflare_adult_industry_api_ecosystem.py",
         "status": "CATALOG_ONLY",
         "dedicated_adult_industry_api_verified": False,
         "live_connection_verified": False,
+        "source_categories": {
+            "AI_API": [
+                "abelohost", "bangbros", "brazzers", "ccbill", "clips4sale",
+                "crakrevenue", "epoch", "evilangel", "exoclick", "fansly",
+                "faphouse", "loyalfans", "manyvids", "naughtyamerica",
+                "nsfwinfra", "onlyfans", "paxum", "pornhub", "realitykings",
+                "segpay", "trafficjunky", "verotel", "vicetemple", "xhamster", "xvideos",
+            ],
+            "APP_API": [
+                "bangbros", "brazzers", "clips4sale", "evilangel", "fansly",
+                "faphouse", "loyalfans", "manyvids", "naughtyamerica",
+                "onlyfans", "pornhub", "realitykings", "xhamster", "xvideos",
+            ],
+            "CLOUD_API": [
+                "abelohost", "alexhost", "blueangelhost", "flokinet",
+                "hostkey", "hostsailor", "shinjiru", "vicetemple",
+            ],
+        },
+        "relevant_cloudflare_product_modules": [
+            "zones_dns", "security_waf_api_shield", "ssl_tls", "r2_object_storage",
+            "stream_video", "images", "workers", "pages", "analytics_logpush",
+        ],
+        "mapping_note": (
+            "These are existing AI_API/APP_API/CLOUD_API catalog entries surfaced "
+            "under Cloudflare's shared adult-industry mapping. They are not proof "
+            "of official APIs, Cloudflare hosting, or eligibility for every service."
+        ),
     },
     "AI": {
         "path": "backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem/cloudflare_ai_api_ecosystem",
