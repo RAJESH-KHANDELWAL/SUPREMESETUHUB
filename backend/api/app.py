@@ -195,6 +195,9 @@ PUBLIC_API_PATHS = {
     "/api/v1/products/provider-readiness",
     "/api/v1/print-on-demand/public/catalog",
     "/api/v1/domain-hosting/public/catalog",
+    "/api/v1/global-intimacy-ecosystem/status",
+    "/api/v1/global-intimacy-ecosystem/categories",
+    "/api/v1/global-intimacy-ecosystem/providers",
 }
 
 
