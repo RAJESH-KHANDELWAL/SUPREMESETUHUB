@@ -17,3 +17,8 @@ Adult-friendly hosting vendors and general web-hosting companies must not be lis
 - Catalog membership is not proof that a public API exists, that an account is eligible, or that authentication works.
 - Do not mark any provider live until official API documentation, required scopes/permissions, secure credentials, adapter behavior and tests have been verified.
 - Never commit credentials or secrets.
+
+
+## Adult Industry routing boundary
+
+Adult-industry providers and adult-friendly hosting vendors are catalogued in [GLOBAL ADULT INDUSTRY API ECOSYSTEM](../global_adult_industry_api_ecosystem/README.md). They are **not** automatically CLOUD API providers. Only list a provider in this CLOUD family when official documentation verifies cloud infrastructure/resource APIs; hosting/VPS discovery alone belongs under the relevant ADULT INDUSTRY, HOSTING or SERVER category. Cloudflare's adult-industry entry is only a mapping to its general documented products, not a dedicated adult-industry API.
