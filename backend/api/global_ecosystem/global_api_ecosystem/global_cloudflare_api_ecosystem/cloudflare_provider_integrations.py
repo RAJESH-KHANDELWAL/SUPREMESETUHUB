@@ -13,7 +13,6 @@ CLOUDFLARE_PROVIDER_INTEGRATIONS = {
         "microsoft_azure": "microsoft_azure_cloudflare_api_ecosystem.py",
         "oracle_cloud": "oracle_cloud_cloudflare_api_ecosystem.py",
         "alibaba_cloud": "alibaba_cloud_cloudflare_api_ecosystem.py",
-        "apple": "apple_cloudflare_api_ecosystem.py",
     },
     "documented_integration_areas": [
         {
