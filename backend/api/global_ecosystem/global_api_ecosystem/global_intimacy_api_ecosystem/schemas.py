@@ -1,8 +1,6 @@
-"""Typed response models for relationship and intimacy ecosystem discovery."""
-
+"""Typed schemas for the global relationship/intimacy catalog."""
 from typing import Literal
 from pydantic import BaseModel, Field
-
 
 class IntimacyCategory(BaseModel):
     category_id: str
@@ -11,8 +9,7 @@ class IntimacyCategory(BaseModel):
     scope: str
     implementation_status: Literal["CATALOG_ONLY", "ADAPTER_AVAILABLE", "LIVE_VERIFIED"] = "CATALOG_ONLY"
     age_restricted: bool = False
-    requires_compliance_review: bool = False
-
+    requires_compliance_review: bool = True
 
 class IntimacyProvider(BaseModel):
     provider_id: str
@@ -24,7 +21,6 @@ class IntimacyProvider(BaseModel):
     live_connection_verified: bool = False
     notes: str = ""
 
-
 class IntimacyEcosystemStatus(BaseModel):
     success: bool = True
     system: str = "GLOBAL RELATIONSHIP AND INTIMACY API ECOSYSTEM"
@@ -32,4 +28,7 @@ class IntimacyEcosystemStatus(BaseModel):
     live_connections_verified: bool = False
     category_count: int
     provider_count: int
+    integration_count: int = 0
+    service_count: int = 0
+    tool_count: int = 0
     safety_scope: list[str]
