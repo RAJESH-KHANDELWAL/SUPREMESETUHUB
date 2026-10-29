@@ -388,3 +388,19 @@ Dedicated APP category folders created for: OnlyFans, Fansly, ManyVids, Clips4Sa
 ## Adult-industry CLOUD/HOSTING catalog
 
 Dedicated CLOUD category folders created for: AbeloHost, ViceTemple, FlokiNET, Shinjiru, HostSailor, BlueAngelHost, AlexHost, HOSTKEY. These are discovery records only; they do not claim adult-content acceptance, public API availability, or live connectivity. VPS-specific operations remain in GLOBAL VPS.
+
+
+## Cloudflare shared-category routing update
+
+Cloudflare is indexed across its provider-owned catalog and shared capability families. New category scaffolds added:
+
+- AI: `backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem/cloudflare_ai_api_ecosystem/`
+- APP: `backend/api/global_ecosystem/global_api_ecosystem/global_app_api_ecosystem/cloudflare_app_api_ecosystem/`
+- CLOUD: `backend/api/global_ecosystem/global_api_ecosystem/global_cloud_api_ecosystem/cloudflare_cloud_api_ecosystem/`
+- DOMAIN: `backend/api/global_ecosystem/global_api_ecosystem/global_domain_api_ecosystem/cloudflare_domain_api_ecosystem/`
+- SECURITY: `backend/api/global_ecosystem/global_api_ecosystem/global_security_api_ecosystem/cloudflare_security_api_ecosystem/`
+- SERVER: `backend/api/global_ecosystem/global_api_ecosystem/global_server_api_ecosystem/cloudflare_server_api_ecosystem/`
+- VPS: `backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem/cloudflare_vps_api_ecosystem/`
+- WEB: `backend/api/global_ecosystem/global_api_ecosystem/global_web_api_ecosystem/cloudflare_web_api_ecosystem/`
+
+DNS operations also have an implementation area at `backend/dns/global_ecosystem/global_dns_ecosystem/cloudflare_dns/`. All category entries are catalog/routing metadata unless live adapters and authenticated tests prove otherwise.
