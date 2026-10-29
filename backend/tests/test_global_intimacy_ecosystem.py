@@ -46,3 +46,31 @@ def test_unknown_category_returns_404():
         params={"category_id": "NOT_A_CATEGORY"},
     )
     assert response.status_code == 404
+
+
+def test_subsystem_catalogs_are_registered_and_catalog_only():
+    integrations = client.get("/api/v1/global-intimacy-ecosystem/integrations/catalog")
+    services = client.get("/api/v1/global-intimacy-ecosystem/services/catalog")
+    tools = client.get("/api/v1/global-intimacy-ecosystem/tools/catalog")
+
+    assert integrations.status_code == 200
+    assert services.status_code == 200
+    assert tools.status_code == 200
+
+    assert len(integrations.json()) >= 5
+    assert len(services.json()) >= 5
+    assert len(tools.json()) >= 4
+
+    assert all(item["implementation_status"] == "CATALOG_ONLY" for item in integrations.json())
+    assert all(item["implementation_status"] == "CATALOG_ONLY" for item in services.json())
+    assert all(item["implementation_status"] == "CATALOG_ONLY" for item in tools.json())
+
+
+def test_subsystem_catalogs_filter_by_category():
+    response = client.get(
+        "/api/v1/global-intimacy-ecosystem/integrations/catalog",
+        params={"category_id": "ADULT_CONTENT_HOSTING"},
+    )
+    assert response.status_code == 200
+    assert response.json()
+    assert all("ADULT_CONTENT_HOSTING" in item["category_ids"] for item in response.json())
