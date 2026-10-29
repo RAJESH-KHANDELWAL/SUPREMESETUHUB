@@ -23,6 +23,19 @@ GLOBAL_DATABASE_API_ECOSYSTEM = {
         "oracle": "oracle_database_api_ecosystem/oracle_database_api_ecosystem.py",
         "salesforce": "salesforce_database_api_ecosystem/salesforce_database_api_ecosystem.py",
     },
+    "category_modules": {
+        "relational_sql": "relational_database_ecosystem/relational_database_api_ecosystem.py",
+        "document_key_value": "document_database_ecosystem/document_database_api_ecosystem.py",
+        "graph": "graph_database_ecosystem/graph_database_api_ecosystem.py",
+        "time_series": "time_series_database_ecosystem/time_series_database_api_ecosystem.py",
+        "search_analytics": "search_analytics_database_ecosystem/search_analytics_database_api_ecosystem.py",
+        "vector_ai": "vector_ai_database_ecosystem/vector_ai_database_api_ecosystem.py",
+        "warehouse_lakehouse": "warehouse_lakehouse_ecosystem/warehouse_lakehouse_api_ecosystem.py",
+        "embedded_edge": "embedded_edge_database_ecosystem/embedded_edge_database_api_ecosystem.py",
+        "cloud_platforms": "cloud_database_platform_ecosystem/cloud_database_platform_api_ecosystem.py",
+        "blockchain_specialized": "blockchain_specialized_data_ecosystem/blockchain_specialized_data_api_ecosystem.py",
+        "adult_industry_references": "adult_industry_reference_ecosystem/adult_industry_reference_api_ecosystem.py",
+    },
     "database_engines_and_projects": {
         "relational_sql": [
             "PostgreSQL", "MySQL", "MariaDB", "SQLite", "DuckDB", "Firebird",
