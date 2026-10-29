@@ -1,10 +1,12 @@
-"""Cloudflare AI category mapping; catalog metadata only."""
-CLOUDFLARE_AI_API_ECOSYSTEM = {
-    "provider_id": "cloudflare",
-    "category": "AI",
-    "name": "CLOUDFLARE AI API ECOSYSTEM",
-    "capabilities": ["Workers AI", "AI Gateway", "AI-related Workers integrations"],
-    "implementation_status": "CATALOG_ONLY",
-    "live_connection_verified": False,
-    "provider_api_ecosystem_path": "backend/api/global_ecosystem/global_api_ecosystem/global_cloudflare_api_ecosystem",
-}
+"""CLOUDFLARE API ECOSYSTEM AI category metadata; not a live adapter."""
+
+PROVIDER_ID = "cloudflare"
+PROVIDER_NAME = "CLOUDFLARE API ECOSYSTEM"
+CATEGORY_ID = "AI"
+CATEGORY_NAME = "GLOBAL AI API ECOSYSTEM"
+PROVIDER_CATALOG_PATH = "backend/api/global_ecosystem/global_api_ecosystem/global_cloudflare_api_ecosystem"
+CATEGORY_CATALOG_PATH = "backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem"
+SCOPE = "Provider-to-category mapping for GLOBAL AI API ECOSYSTEM; verify official product/API support before implementation."
+IMPLEMENTATION_STATUS = "CATALOG_ONLY"
+API_DOCUMENTATION_VERIFIED = False
+LIVE_CONNECTION_VERIFIED = False
