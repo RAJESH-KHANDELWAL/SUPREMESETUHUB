@@ -86,6 +86,11 @@ CATEGORY_ECOSYSTEMS: tuple[dict[str, str], ...] = (
         "folder": "global_hosting_api_ecosystem",
     },
     {
+        "id": "intimacy",
+        "name": "GLOBAL RELATIONSHIP AND INTIMACY API ECOSYSTEM",
+        "folder": "global_intimacy_api_ecosystem",
+    },
+    {
         "id": "domain",
         "name": "GLOBAL DOMAIN API ECOSYSTEM",
         "folder": "global_domain_api_ecosystem",
