@@ -107,6 +107,3 @@ def relationship_provider_detail(provider_id: str):
     if provider is None:
         raise HTTPException(status_code=404, detail="PROVIDER_NOT_FOUND")
     return provider
-
-# Register the canonical API alongside the legacy namespace.
-router.include_router(relationship_router)
