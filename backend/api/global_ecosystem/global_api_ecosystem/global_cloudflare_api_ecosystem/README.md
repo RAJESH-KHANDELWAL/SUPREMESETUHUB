@@ -32,9 +32,8 @@ DNS implementation reference: `backend/dns/global_ecosystem/global_dns_ecosystem
 - `microsoft_azure_cloudflare_api_ecosystem.py`
 - `oracle_cloud_cloudflare_api_ecosystem.py`
 - `alibaba_cloud_cloudflare_api_ecosystem.py`
-- `apple_cloudflare_api_ecosystem.py` (retain only where a specific, documented integration is substantiated)
 
-These entries describe integration scope; they do not mean a connection is configured or live. Add a provider only when a relevant official integration or product/API is documented. Do not add vendors merely because they offer hosting or cloud services.
+These entries describe documented integration scope; they do not mean a connection is configured or live. Apple is not listed as an integration because this catalog currently verifies no specific Apple-to-Cloudflare integration. Add a provider only when a relevant official integration or product/API is documented. Do not add vendors merely because they offer hosting or cloud services.
 
 ## Implementation and security gates
 
