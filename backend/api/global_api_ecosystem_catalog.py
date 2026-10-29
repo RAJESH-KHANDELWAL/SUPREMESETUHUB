@@ -62,7 +62,7 @@ PROVIDER_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
     {"provider_id": "meta", "name": "META API ECOSYSTEM", "vendor": "Meta", "provider_api_ecosystem_path": "backend/api/global_ecosystem/global_api_ecosystem/global_meta_api_ecosystem", "families": ["AI", "COMMUNICATION", "SOCIAL_MEDIA"], "code_path": None, "implementation_status": "CATALOG_ONLY", "live_connection_verified": False},
     {"provider_id": "x", "name": "X API ECOSYSTEM", "vendor": "X", "provider_api_ecosystem_path": "backend/api/global_ecosystem/global_api_ecosystem/global_x_api_ecosystem", "families": ["AI", "SOCIAL_MEDIA"], "code_path": None, "implementation_status": "CATALOG_ONLY", "live_connection_verified": False},
     {"provider_id": "github", "name": "GITHUB API ECOSYSTEM", "vendor": "GitHub", "provider_api_ecosystem_path": "backend/api/global_ecosystem/global_api_ecosystem/global_github_api_ecosystem", "families": ["DEVELOPER", "SOFTWARE", "TOOLS"], "code_path": "backend/api/connectors.py", "implementation_status": "PUBLIC_REPOSITORY_STATUS_CHECK_EXISTS", "live_connection_verified": False},
-    {"provider_id": "cloudflare", "name": "CLOUDFLARE API ECOSYSTEM", "vendor": "Cloudflare", "provider_api_ecosystem_path": "backend/api/global_ecosystem/global_api_ecosystem/global_cloudflare_api_ecosystem", "families": ["CLOUD", "DOMAIN", "SECURITY", "SERVER", "WEB", "VPS"], "code_path": None, "implementation_status": "CATALOG_ONLY", "live_connection_verified": False},
+    {"provider_id": "cloudflare", "name": "CLOUDFLARE API ECOSYSTEM", "vendor": "Cloudflare", "provider_api_ecosystem_path": "backend/api/global_ecosystem/global_api_ecosystem/global_cloudflare_api_ecosystem", "families": ["AI", "APP", "CLOUD", "DOMAIN", "DNS", "SECURITY", "SERVER", "WEB", "VPS"], "code_path": None, "implementation_status": "CATALOG_ONLY", "live_connection_verified": False},
     {"provider_id": "digitalocean", "name": "DIGITALOCEAN API ECOSYSTEM", "vendor": "DigitalOcean", "provider_api_ecosystem_path": "backend/api/global_ecosystem/global_api_ecosystem/global_digitalocean_api_ecosystem", "families": ["CLOUD", "HOSTING", "SERVER", "STORAGE", "VPS"], "code_path": None, "implementation_status": "CATALOG_ONLY", "live_connection_verified": False},
     {"provider_id": "oracle", "name": "ORACLE API ECOSYSTEM", "vendor": "Oracle", "provider_api_ecosystem_path": "backend/api/global_ecosystem/global_api_ecosystem/global_oracle_api_ecosystem", "families": ["AI", "CLOUD", "DATABASE", "BUSINESS", "VPS"], "code_path": None, "implementation_status": "CATALOG_ONLY", "live_connection_verified": False},
     {"provider_id": "ibm", "name": "IBM API ECOSYSTEM", "vendor": "IBM", "provider_api_ecosystem_path": "backend/api/global_ecosystem/global_api_ecosystem/global_ibm_api_ecosystem", "families": ["AI", "CLOUD", "DATABASE", "BUSINESS", "SECURITY", "VPS"], "code_path": None, "implementation_status": "CATALOG_ONLY", "live_connection_verified": False},
@@ -175,7 +175,7 @@ def list_provider_category_routes(provider_id: str | None = None) -> dict[str, d
 
 
 AI_API_PROVIDER_IDS = {
-    "openai", "google", "microsoft", "aws", "nsfwinfra", "anthropic", "meta",
+    "openai", "google", "microsoft", "aws", "cloudflare", "nsfwinfra", "anthropic", "meta",
     "nvidia", "huggingface", "deepseek", "mistral", "cohere", "oracle", "ibm",
 }
 
