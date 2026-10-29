@@ -1,6 +1,7 @@
-"""Index of documented third-party cloud/provider integration areas for Cloudflare.
+"""Index of documented third-party provider integrations involving Cloudflare.
 
-This catalog does not create connections or imply that credentials are configured.
+This is a catalog, not a connector: no credentials are loaded and no connection
+is made. Keep only provider integrations supported by a specific official source.
 """
 CLOUDFLARE_PROVIDER_INTEGRATIONS = {
     "provider_id": "cloudflare",
@@ -14,11 +15,31 @@ CLOUDFLARE_PROVIDER_INTEGRATIONS = {
         "alibaba_cloud": "alibaba_cloud_cloudflare_api_ecosystem.py",
         "apple": "apple_cloudflare_api_ecosystem.py",
     },
-    "verified_documentation_scope": [
-        "Cloudflare Multi-Cloud Networking docs list AWS, Google Cloud, and Azure integrations; feature is currently described as closed beta.",
-        "Cloud Connector docs list Cloudflare R2, AWS S3, Google Cloud Storage, Azure Blob Storage, and Oracle Cloud Object Storage.",
-        "Cloudflare partner docs list additional network/logging integrations including Alibaba Cloud VPN Gateway, Google Cloud VPN, Microsoft Azure, and Oracle Cloud.",
-        "Cloudflare AI Gateway docs list AWS Bedrock, Google AI Studio, and Azure OpenAI among supported provider endpoints.",
+    "documented_integration_areas": [
+        {
+            "name": "Cloudflare Multi-Cloud Networking",
+            "providers": ["AWS", "Google Cloud", "Microsoft Azure"],
+            "official_documentation": "https://developers.cloudflare.com/multi-cloud-networking/get-started/",
+            "status": "CLOSED_BETA_PER_OFFICIAL_DOCS",
+        },
+        {
+            "name": "Cloud Connector",
+            "providers": ["AWS S3", "Google Cloud Storage", "Azure Blob Storage", "Oracle Cloud Object Storage"],
+            "official_documentation": "https://developers.cloudflare.com/rules/cloud-connector/providers/",
+            "status": "DOCUMENTED",
+        },
+        {
+            "name": "Cloudflare partner integrations",
+            "providers": ["Alibaba Cloud", "Google Cloud", "Microsoft Azure", "Oracle Cloud"],
+            "official_documentation": "https://developers.cloudflare.com/fundamentals/reference/partners/",
+            "status": "DOCUMENTED_PARTNER_REFERENCE",
+        },
+        {
+            "name": "Cloudflare AI Gateway provider endpoints",
+            "providers": ["AWS Bedrock", "Google AI Studio", "Azure OpenAI"],
+            "official_documentation": "https://developers.cloudflare.com/ai-gateway/get-started/",
+            "status": "DOCUMENTED",
+        },
     ],
-    "security_note": "Keep provider credentials in environment variables or a managed secret store; never commit credentials.",
+    "security_note": "Use least-privilege credentials in environment variables or a managed secret store; never commit credentials.",
 }
