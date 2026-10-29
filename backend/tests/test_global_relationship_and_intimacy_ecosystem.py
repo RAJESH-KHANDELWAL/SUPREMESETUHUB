@@ -3,10 +3,11 @@
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
-from backend.api.global_ecosystem.global_api_ecosystem.global_intimacy_api_ecosystem.routes import router
+from backend.api.global_ecosystem.global_api_ecosystem.global_relationship_and_intimacy_ecosystem.routes import router, relationship_router
 
 app = FastAPI()
 app.include_router(router)
+app.include_router(relationship_router)
 client = TestClient(app)
 
 
@@ -122,3 +123,24 @@ def test_visible_provider_directory_matches_canonical_providers():
         item["provider_id"] for item in canonical.json()
     }
     assert all(item["live_connection_verified"] is False for item in visible.json())
+
+
+def test_canonical_relationship_and_intimacy_api_namespace():
+    status = client.get("/api/v1/global-relationship-and-intimacy-ecosystem/status")
+    categories = client.get("/api/v1/global-relationship-and-intimacy-ecosystem/categories")
+    providers = client.get("/api/v1/global-relationship-and-intimacy-ecosystem/providers")
+    assert status.status_code == 200
+    assert status.json()["system"] == "GLOBAL RELATIONSHIP AND INTIMACY API ECOSYSTEM"
+    assert categories.status_code == 200
+    assert providers.status_code == 200
+    provider_ids = [item["provider_id"] for item in providers.json()]
+    assert len(provider_ids) == len(set(provider_ids))
+
+
+def test_canonical_provider_detail_and_not_found():
+    found = client.get("/api/v1/global-relationship-and-intimacy-ecosystem/providers/bumble")
+    missing = client.get("/api/v1/global-relationship-and-intimacy-ecosystem/providers/not-a-provider")
+    assert found.status_code == 200
+    assert found.json()["provider_id"] == "bumble"
+    assert missing.status_code == 404
+    assert missing.json()["detail"] == "PROVIDER_NOT_FOUND"
