@@ -6,6 +6,7 @@ Provider folders are catalog/routing records only. They do not prove an official
 
 ## Provider categories
 
+- Cloud / infrastructure mapping: Cloudflare (general supported products only; no dedicated adult-industry API implied)
 - Hosting: Abelohost, ViceTemple
 - Video platforms and studios: Faphouse, Pornhub, XVideos, xHamster, Naughty America, Brazzers, Reality Kings, BangBros, Evil Angel
 - Creator platforms: OnlyFans, Fansly, ManyVids, Clips4Sale, LoyalFans
@@ -13,3 +14,8 @@ Provider folders are catalog/routing records only. They do not prove an official
 - Affiliate and advertising: CrakRevenue, TrafficJunky, ExoClick
 
 All provider-specific folders below are metadata scaffolds, not live adapters.
+
+
+## Provider-to-category mappings
+
+- [Cloudflare Adult Industry mapping](cloudflare_adult_industry_api_ecosystem/README.md) — catalog-only routing to relevant general Cloudflare products, not a dedicated adult-industry API or live integration.
