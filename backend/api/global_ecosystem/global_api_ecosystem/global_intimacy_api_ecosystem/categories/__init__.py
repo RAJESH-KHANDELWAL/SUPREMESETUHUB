@@ -40,7 +40,7 @@ CATEGORY_PACKAGE_IDS: tuple[str, ...] = (
     "sex_education",
     "sex_toys_wellness_retail",
     "sexual_health",
-    "adult_content_compliance_records",
+    "adult_compliance_records",
 )
 
 def list_category_packages() -> list[dict[str, str]]:
