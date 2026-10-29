@@ -1,8 +1,8 @@
 """Cloudflare provider-owned API ecosystem metadata.
 
-This is the provider-specific catalog index. Shared AI, APP, CLOUD and other
-category mappings remain in their respective GLOBAL API ECOSYSTEM families.
-Catalog metadata only; no authentication or network requests are performed.
+This index covers Cloudflare-specific product APIs and documented cross-provider
+integration catalogs. Shared AI, APP, CLOUD, and other family mappings live in
+their respective GLOBAL API ECOSYSTEM directories. Catalog metadata only.
 """
 from __future__ import annotations
 
@@ -12,17 +12,21 @@ CLOUDFLARE_API_ECOSYSTEM = {
     "status": "CATALOG_ONLY_UNLESS_ADAPTER_TESTS_PASS",
     "implementation_status": "CATALOG_ONLY",
     "live_connection_verified": False,
-    "purpose": "Cloudflare-specific platform, edge, networking, DNS, security, and developer APIs",
+    "purpose": "Cloudflare-specific product APIs, edge/networking, DNS, security, developer platform, and documented provider integrations",
+    "product_api_catalog": "cloudflare_product_api_catalog.py",
+    "official_api_reference": "https://developers.cloudflare.com/api/",
+    "authentication_reference": "https://developers.cloudflare.com/fundamentals/api/get-started/",
     "platforms_and_api_areas": [
-        "Cloudflare account and account-level APIs",
+        "Accounts and account settings",
         "Zones and zone settings",
         "DNS records",
-        "Workers",
-        "Workers AI and AI Gateway",
-        "Pages",
+        "Workers and developer platform",
+        "Pages deployments",
         "R2 object storage",
+        "Workers AI and AI Gateway",
         "SSL/TLS",
-        "Security and WAF",
+        "Security, WAF, and rulesets",
+        "Analytics and Logpush",
     ],
     "related_ecosystem_families": [
         "AI",
@@ -32,8 +36,8 @@ CLOUDFLARE_API_ECOSYSTEM = {
         "DNS",
         "SECURITY",
         "SERVER",
-        "VPS",
         "WEB",
+        "VPS",
     ],
     "shared_category_paths": {
         "AI": "backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem/cloudflare_ai_api_ecosystem",
