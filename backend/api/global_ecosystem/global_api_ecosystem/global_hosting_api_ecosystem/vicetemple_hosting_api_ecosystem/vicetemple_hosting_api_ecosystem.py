@@ -1,12 +1,10 @@
-"""VICETEMPLE ADULT HOSTING ECOSYSTEM HOSTING category metadata; not a live adapter."""
+"""ViceTemple hosting ecosystem reference; no live adapter is implied."""
 
 PROVIDER_ID = "vicetemple"
-PROVIDER_NAME = "VICETEMPLE ADULT HOSTING ECOSYSTEM"
-CATEGORY_ID = "HOSTING"
+PROVIDER_NAME = "ViceTemple"
 CATEGORY_NAME = "GLOBAL HOSTING API ECOSYSTEM"
-PROVIDER_CATALOG_PATH = "backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem/vicetemple_adult_industry_ecosystem"
-CATEGORY_CATALOG_PATH = "backend/api/global_ecosystem/global_api_ecosystem/global_hosting_api_ecosystem"
-SCOPE = "Provider-to-category mapping for GLOBAL HOSTING API ECOSYSTEM; verify official product/API support before implementation."
-IMPLEMENTATION_STATUS = "CATALOG_ONLY"
-API_DOCUMENTATION_VERIFIED = False
+CAPABILITY_SCOPE = "hosting provider reference; capabilities require verification"
+OFFICIAL_WEBSITE_URL = "https://vicetemple.com/"
+IMPLEMENTATION_STATUS = "REFERENCE_ONLY"
+OFFICIAL_API_VERIFIED = False
 LIVE_CONNECTION_VERIFIED = False

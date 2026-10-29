@@ -1,12 +1,10 @@
-"""DIGITALOCEAN API ECOSYSTEM HOSTING category metadata; not a live adapter."""
+"""DigitalOcean hosting ecosystem reference; no live adapter is implied."""
 
 PROVIDER_ID = "digitalocean"
-PROVIDER_NAME = "DIGITALOCEAN API ECOSYSTEM"
-CATEGORY_ID = "HOSTING"
+PROVIDER_NAME = "DigitalOcean"
 CATEGORY_NAME = "GLOBAL HOSTING API ECOSYSTEM"
-PROVIDER_CATALOG_PATH = "backend/api/global_ecosystem/global_api_ecosystem/global_digitalocean_api_ecosystem"
-CATEGORY_CATALOG_PATH = "backend/api/global_ecosystem/global_api_ecosystem/global_hosting_api_ecosystem"
-SCOPE = "Provider-to-category mapping for GLOBAL HOSTING API ECOSYSTEM; verify official product/API support before implementation."
-IMPLEMENTATION_STATUS = "CATALOG_ONLY"
-API_DOCUMENTATION_VERIFIED = False
+CAPABILITY_SCOPE = "cloud VPS and app platform"
+OFFICIAL_WEBSITE_URL = "https://www.digitalocean.com/"
+IMPLEMENTATION_STATUS = "REFERENCE_ONLY"
+OFFICIAL_API_VERIFIED = False
 LIVE_CONNECTION_VERIFIED = False

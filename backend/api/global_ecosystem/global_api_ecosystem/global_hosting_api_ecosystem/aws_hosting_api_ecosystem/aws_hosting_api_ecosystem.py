@@ -1,12 +1,10 @@
-"""AWS API ECOSYSTEM HOSTING category metadata; not a live adapter."""
+"""Amazon Web Services hosting ecosystem reference; no live adapter is implied."""
 
 PROVIDER_ID = "aws"
-PROVIDER_NAME = "AWS API ECOSYSTEM"
-CATEGORY_ID = "HOSTING"
+PROVIDER_NAME = "Amazon Web Services"
 CATEGORY_NAME = "GLOBAL HOSTING API ECOSYSTEM"
-PROVIDER_CATALOG_PATH = "backend/api/global_ecosystem/global_api_ecosystem/global_aws_api_ecosystem"
-CATEGORY_CATALOG_PATH = "backend/api/global_ecosystem/global_api_ecosystem/global_hosting_api_ecosystem"
-SCOPE = "Provider-to-category mapping for GLOBAL HOSTING API ECOSYSTEM; verify official product/API support before implementation."
-IMPLEMENTATION_STATUS = "CATALOG_ONLY"
-API_DOCUMENTATION_VERIFIED = False
+CAPABILITY_SCOPE = "cloud compute and managed hosting"
+OFFICIAL_WEBSITE_URL = "https://aws.amazon.com/"
+IMPLEMENTATION_STATUS = "REFERENCE_ONLY"
+OFFICIAL_API_VERIFIED = False
 LIVE_CONNECTION_VERIFIED = False
