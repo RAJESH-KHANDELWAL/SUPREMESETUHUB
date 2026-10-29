@@ -379,3 +379,12 @@ Added cloud platform/service catalog entries: Alibaba Cloud, Tencent Cloud, Huaw
 ## Dedicated VPS API ecosystem
 
 A separate `global_vps_api_ecosystem/` package now defines the VPS category boundary and catalog scaffolds for Amazon Web Services, Google Cloud, Microsoft Azure, Oracle Cloud, DigitalOcean, Alibaba Cloud, Tencent Cloud, Huawei Cloud, Rackspace Technology, Scaleway, OVHcloud, Hetzner Cloud, Vultr, IBM Cloud, Cloudflare, NVIDIA Cloud, JD Cloud, Kingsoft Cloud, Baidu AI Cloud, China Telecom Cloud. VPS-specific operations must be implemented in that category, not mixed into GLOBAL CLOUD. These folders are catalog-only; live API support is not claimed.
+
+
+## Adult-industry APP catalog
+
+Dedicated APP category folders created for: OnlyFans, Fansly, ManyVids, Clips4Sale, LoyalFans, FapHouse, Pornhub, XVideos, xHamster, Brazzers, Reality Kings, BangBros, Evil Angel, Naughty America. These entries are catalog-only; official API availability and access eligibility must be verified provider by provider.
+
+## Adult-industry CLOUD/HOSTING catalog
+
+Dedicated CLOUD category folders created for: AbeloHost, ViceTemple, FlokiNET, Shinjiru, HostSailor, BlueAngelHost, AlexHost, HOSTKEY. These are discovery records only; they do not claim adult-content acceptance, public API availability, or live connectivity. VPS-specific operations remain in GLOBAL VPS.

@@ -1,0 +1,7 @@
+"""Catalog metadata for XVideos; no live API connection is claimed."""
+PROVIDER_ID = "xvideos"
+PROVIDER_NAME = "XVideos"
+CATEGORY = "APP"
+IMPLEMENTATION_STATUS = "CATALOG_ONLY"
+OFFICIAL_API_DOCUMENTATION_VERIFIED = False
+LIVE_CONNECTION_VERIFIED = False

@@ -1,37 +1,21 @@
 # GLOBAL CLOUD API ECOSYSTEM
 
-Catalog and shared API boundary for broad cloud platforms, cloud control planes, and cloud-native services.
+Broad cloud platform APIs, with a separate catalog subsection for adult-industry hosting/cloud providers.
 
-## Provider-specific ecosystems
+## Adult-industry hosting/cloud catalog
 
-- [Amazon Web Services](aws_cloud_api_ecosystem/README.md) — `aws_cloud_api_ecosystem/`
-- [Cloudflare](cloudflare_cloud_api_ecosystem/README.md) — `cloudflare_cloud_api_ecosystem/`
-- [DigitalOcean](digitalocean_cloud_api_ecosystem/README.md) — `digitalocean_cloud_api_ecosystem/`
-- [Google Cloud](google_cloud_api_ecosystem/README.md) — `google_cloud_api_ecosystem/`
-- [IBM Cloud](ibm_cloud_api_ecosystem/README.md) — `ibm_cloud_api_ecosystem/`
-- [Microsoft Azure](microsoft_cloud_api_ecosystem/README.md) — `microsoft_cloud_api_ecosystem/`
-- [NVIDIA Cloud](nvidia_cloud_api_ecosystem/README.md) — `nvidia_cloud_api_ecosystem/`
-- [Oracle Cloud](oracle_cloud_api_ecosystem/README.md) — `oracle_cloud_api_ecosystem/`
-- [Alibaba Cloud](alibaba_cloud_api_ecosystem/README.md) — `alibaba_cloud_api_ecosystem/`
-- [Tencent Cloud](tencent_cloud_api_ecosystem/README.md) — `tencent_cloud_api_ecosystem/`
-- [Huawei Cloud](huawei_cloud_api_ecosystem/README.md) — `huawei_cloud_api_ecosystem/`
-- [Baidu AI Cloud](baidu_cloud_api_ecosystem/README.md) — `baidu_cloud_api_ecosystem/`
-- [JD Cloud](jd_cloud_api_ecosystem/README.md) — `jd_cloud_api_ecosystem/`
-- [Kingsoft Cloud](kingsoft_cloud_api_ecosystem/README.md) — `kingsoft_cloud_api_ecosystem/`
-- [China Telecom Cloud](china_telecom_cloud_api_ecosystem/README.md) — `china_telecom_cloud_api_ecosystem/`
-- [Rackspace Technology](rackspace_cloud_api_ecosystem/README.md) — `rackspace_cloud_api_ecosystem/`
-- [Scaleway](scaleway_cloud_api_ecosystem/README.md) — `scaleway_cloud_api_ecosystem/`
-- [OVHcloud](ovhcloud_cloud_api_ecosystem/README.md) — `ovhcloud_cloud_api_ecosystem/`
-- [Hetzner Cloud](hetzner_cloud_api_ecosystem/README.md) — `hetzner_cloud_api_ecosystem/`
-- [Vultr](vultr_cloud_api_ecosystem/README.md) — `vultr_cloud_api_ecosystem/`
-- [Backblaze](backblaze_cloud_api_ecosystem/README.md) — `backblaze_cloud_api_ecosystem/`
-- [Wasabi](wasabi_cloud_api_ecosystem/README.md) — `wasabi_cloud_api_ecosystem/`
+- [AbeloHost](abelohost_cloud_api_ecosystem/README.md) — `abelohost_cloud_api_ecosystem/`
+- [ViceTemple](vicetemple_cloud_api_ecosystem/README.md) — `vicetemple_cloud_api_ecosystem/`
+- [FlokiNET](flokinet_cloud_api_ecosystem/README.md) — `flokinet_cloud_api_ecosystem/`
+- [Shinjiru](shinjiru_cloud_api_ecosystem/README.md) — `shinjiru_cloud_api_ecosystem/`
+- [HostSailor](hostsailor_cloud_api_ecosystem/README.md) — `hostsailor_cloud_api_ecosystem/`
+- [BlueAngelHost](blueangelhost_cloud_api_ecosystem/README.md) — `blueangelhost_cloud_api_ecosystem/`
+- [AlexHost](alexhost_cloud_api_ecosystem/README.md) — `alexhost_cloud_api_ecosystem/`
+- [HOSTKEY](hostkey_cloud_api_ecosystem/README.md) — `hostkey_cloud_api_ecosystem/`
 
 ## Scope boundary
 
-- VPS-specific provider inventory, provisioning, lifecycle, and management belong in the separate GLOBAL VPS API ECOSYSTEM.
-- This category covers broader cloud platforms and cloud-native service APIs.
-- A provider may be listed in both CLOUD and VPS; its VPS-specific workflows must remain in the VPS ecosystem.
-- CATALOG_ONLY means a directory/catalog record exists, not that a live API adapter has been tested.
-- Verify official documentation, authentication, permissions, rate limits, and terms before claiming an integration.
-- Never commit API keys, OAuth secrets, access tokens, or customer data.
+- This list is a provider discovery catalog, not confirmation that every provider offers a public API or adult-content-specific cloud products.
+- VPS-specific provisioning and lifecycle operations belong in GLOBAL VPS API ECOSYSTEM.
+- Verify official documentation, acceptable-use policies, regional/legal requirements, authentication, and actual connectivity before implementing or claiming support.
+- Catalog-only entries do not represent live integrations. Never commit credentials.
