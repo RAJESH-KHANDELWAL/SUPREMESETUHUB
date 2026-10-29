@@ -1,15 +1,23 @@
-# CLOUDFLARE AI API ECOSYSTEM
+# CLOUDFLARE — AI API Ecosystem
 
-Cloudflare's AI-related API category mapping within SUPREMESETUHUB.
+- Provider ID: `cloudflare`
+- Category: `AI`
+- Provider-owned catalog: `backend/api/global_ecosystem/global_api_ecosystem/global_cloudflare_api_ecosystem`
+- Shared category catalog: `backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem`
+- Status: `CATALOG_ONLY`
+- Official API documentation verified: `False`
+- Live connection verified: `False`
 
-## Scope
-- Workers AI inference and model access
-- AI Gateway observability, routing and policy controls
-- AI-related Workers integrations, where supported by current official documentation
+## Purpose
 
-## Related provider ecosystem
-- Provider-owned catalog: `backend/api/global_ecosystem/global_api_ecosystem/global_cloudflare_api_ecosystem/`
-- Shared categories: `AI`, `APP`, `CLOUD`, `SECURITY`, `WEB`
+Provider-to-category mapping for GLOBAL AI API ECOSYSTEM; verify official product/API support before implementation.
 
-## Integration status
-This is a category-routing/catalog scaffold only. It does not authenticate, call Cloudflare APIs, or prove that credentials, products, model availability, quotas or permissions are configured. Implement only against official current documentation, and keep tokens in environment variables or a managed secret store.
+## Integration gate
+
+1. Verify Cloudflare's official product and API documentation and current terms.
+2. Confirm the API supports this category and the required account/region access.
+3. Implement a provider-specific adapter only for supported operations.
+4. Keep credentials in environment variables or a managed secret store; never commit secrets.
+5. Add mocked unit tests and authenticated integration tests before marking any connection live.
+
+Do not infer capabilities, create fake endpoints, or mark this folder live-connected based on catalog presence alone.
