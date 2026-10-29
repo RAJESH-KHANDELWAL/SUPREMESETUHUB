@@ -1,1 +1,4 @@
-"""tools package for global_business_api_ecosystem."""
+"""Relationship and intimacy safety/diagnostic tools catalog package."""
+from .service import list_entries
+
+__all__ = ["list_entries"]
