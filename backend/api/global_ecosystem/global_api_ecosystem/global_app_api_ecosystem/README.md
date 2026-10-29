@@ -19,6 +19,10 @@ Catalog of general application APIs and adult-industry creator/content platform 
 - [Evil Angel](evilangel_app_api_ecosystem/README.md) — `evilangel_app_api_ecosystem/`
 - [Naughty America](naughtyamerica_app_api_ecosystem/README.md) — `naughtyamerica_app_api_ecosystem/`
 
+## Cloudflare application-platform mapping
+
+- [Cloudflare](cloudflare_app_api_ecosystem/README.md) — `cloudflare_app_api_ecosystem/` (Workers, Pages and account/application APIs where officially supported; catalog-only)
+
 ## Scope and safety
 
 These entries represent provider/category catalog mappings, not endorsement, content hosting, or proof of API access. Confirm official developer documentation, account eligibility, permitted use, privacy requirements, and authentication before integration. Some platforms may not provide public APIs or may restrict API access. Do not scrape or bypass access controls. Store credentials outside Git.
