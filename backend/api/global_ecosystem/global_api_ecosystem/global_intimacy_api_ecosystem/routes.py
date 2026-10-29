@@ -1,14 +1,21 @@
-"""Read-only discovery routes for relationship and intimacy ecosystem."""
-
+"""Read-only discovery routes for the global relationship and intimacy ecosystem."""
 from fastapi import APIRouter, HTTPException, Query
 
 from .schemas import IntimacyCategory, IntimacyEcosystemStatus, IntimacyProvider
 from .service import get_ecosystem_status, list_categories, list_providers
+from .integrations.routes import router as integrations_router
+from .services.routes import router as services_router
+from .tools.routes import router as tools_router
 
 router = APIRouter(
     prefix="/api/v1/global-intimacy-ecosystem",
     tags=["GLOBAL RELATIONSHIP AND INTIMACY ECOSYSTEM"],
 )
+
+# Keep the subsystems inside this ecosystem's API boundary.
+router.include_router(integrations_router)
+router.include_router(services_router)
+router.include_router(tools_router)
 
 
 @router.get("/status", response_model=IntimacyEcosystemStatus)
