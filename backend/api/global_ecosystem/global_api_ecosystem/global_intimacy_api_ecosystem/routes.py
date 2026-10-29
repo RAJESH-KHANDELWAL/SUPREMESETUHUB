@@ -3,6 +3,8 @@ from fastapi import APIRouter, HTTPException, Query
 
 from .schemas import IntimacyCategory, IntimacyEcosystemStatus, IntimacyProvider
 from .service import get_ecosystem_status, list_categories, list_providers
+from .categories import list_category_packages
+from .providers import list_entries as list_provider_entries
 from .integrations.routes import router as integrations_router
 from .services.routes import router as services_router
 from .tools.routes import router as tools_router
@@ -12,7 +14,6 @@ router = APIRouter(
     tags=["GLOBAL RELATIONSHIP AND INTIMACY ECOSYSTEM"],
 )
 
-# Keep the subsystems inside this ecosystem's API boundary.
 router.include_router(integrations_router)
 router.include_router(services_router)
 router.include_router(tools_router)
@@ -26,8 +27,14 @@ def ecosystem_status():
 
 @router.get("/categories", response_model=list[IntimacyCategory])
 def categories():
-    """List relationship, intimacy, sexual-health, and adult-industry categories."""
+    """List all relationship, intimacy, sexual-health, and adult-industry categories."""
     return list_categories()
+
+
+@router.get("/categories/packages")
+def category_packages():
+    """List the visible category subpackages in the repository structure."""
+    return list_category_packages()
 
 
 @router.get("/providers", response_model=list[IntimacyProvider])
@@ -38,3 +45,13 @@ def providers(category_id: str | None = Query(default=None, max_length=64)):
         if key not in {item["category_id"] for item in list_categories()}:
             raise HTTPException(status_code=404, detail="CATEGORY_NOT_FOUND")
     return list_providers(category_id)
+
+
+@router.get("/providers/directory", response_model=list[IntimacyProvider])
+def provider_directory(category_id: str | None = Query(default=None, max_length=64)):
+    """Expose the canonical provider research directory from its own package."""
+    if category_id:
+        key = category_id.strip().upper()
+        if key not in {item["category_id"] for item in list_categories()}:
+            raise HTTPException(status_code=404, detail="CATEGORY_NOT_FOUND")
+    return list_provider_entries(category_id)
