@@ -1,8 +1,6 @@
-"""Name-matching module for the tools package."""
+"""Compatibility entry point for relationship and intimacy tool metadata."""
+from .service import list_entries
 
 FOLDER_NAME = "tools"
 
-
-def list_entries() -> list[dict[str, str]]:
-    """Return configured tools entries; none are registered yet."""
-    return []
+__all__ = ["FOLDER_NAME", "list_entries"]

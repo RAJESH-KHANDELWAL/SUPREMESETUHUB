@@ -1,8 +1,12 @@
-"""Schemas for services in global_business_api_ecosystem."""
+"""Schemas for relationship and intimacy service metadata."""
+from typing import Literal
 from pydantic import BaseModel
 
-
-class EcosystemEntry(BaseModel):
+class ServiceEntry(BaseModel):
+    service_id: str
     name: str
-    description: str = ""
-    status: str = "planned"
+    category_ids: list[str]
+    description: str
+    audience: str = "adults"
+    implementation_status: Literal["CATALOG_ONLY", "AVAILABLE", "LIVE_VERIFIED"] = "CATALOG_ONLY"
+    requires_compliance_review: bool = True

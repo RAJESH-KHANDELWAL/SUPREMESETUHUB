@@ -198,6 +198,9 @@ PUBLIC_API_PATHS = {
     "/api/v1/global-intimacy-ecosystem/status",
     "/api/v1/global-intimacy-ecosystem/categories",
     "/api/v1/global-intimacy-ecosystem/providers",
+    "/api/v1/global-intimacy-ecosystem/integrations/catalog",
+    "/api/v1/global-intimacy-ecosystem/services/catalog",
+    "/api/v1/global-intimacy-ecosystem/tools/catalog",
 }
 
 
