@@ -374,3 +374,8 @@ The APP family now includes additional application providers: Notion, Dropbox, B
 ## Cloud category expansion
 
 Added cloud platform/service catalog entries: Alibaba Cloud, Tencent Cloud, Huawei Cloud, Baidu AI Cloud, JD Cloud, Kingsoft Cloud, China Telecom Cloud, Rackspace Technology, Scaleway, OVHcloud, Hetzner Cloud, Vultr, Backblaze, Wasabi. These are CLOUD-family catalog records only. VPS-specific provider workflows remain in the separate GLOBAL VPS ecosystem. All new records are catalog-only until official API documentation and live connections are verified.
+
+
+## Dedicated VPS API ecosystem
+
+A separate `global_vps_api_ecosystem/` package now defines the VPS category boundary and catalog scaffolds for Amazon Web Services, Google Cloud, Microsoft Azure, Oracle Cloud, DigitalOcean, Alibaba Cloud, Tencent Cloud, Huawei Cloud, Rackspace Technology, Scaleway, OVHcloud, Hetzner Cloud, Vultr, IBM Cloud, Cloudflare, NVIDIA Cloud, JD Cloud, Kingsoft Cloud, Baidu AI Cloud, China Telecom Cloud. VPS-specific operations must be implemented in that category, not mixed into GLOBAL CLOUD. These folders are catalog-only; live API support is not claimed.
