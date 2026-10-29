@@ -1,0 +1,10 @@
+"""KEY-SYSTEMS domain ecosystem reference; no live adapter is implied."""
+
+PROVIDER_ID = "keysystems"
+PROVIDER_NAME = "KEY-SYSTEMS"
+CATEGORY_NAME = "GLOBAL DOMAIN API ECOSYSTEM"
+CAPABILITY_SCOPE = "Registrar reseller API"
+OFFICIAL_DOCUMENTATION_URL = "https://www.key-systems.net/"
+IMPLEMENTATION_STATUS = "REFERENCE_ONLY"
+OFFICIAL_API_VERIFIED = False
+LIVE_CONNECTION_VERIFIED = False

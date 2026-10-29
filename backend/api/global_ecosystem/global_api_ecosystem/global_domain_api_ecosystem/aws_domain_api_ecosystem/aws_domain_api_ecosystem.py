@@ -1,12 +1,10 @@
-"""AWS API ECOSYSTEM DOMAIN category metadata; not a live adapter."""
+"""Amazon Route 53 domain ecosystem reference; no live adapter is implied."""
 
 PROVIDER_ID = "aws"
-PROVIDER_NAME = "AWS API ECOSYSTEM"
-CATEGORY_ID = "DOMAIN"
+PROVIDER_NAME = "Amazon Route 53"
 CATEGORY_NAME = "GLOBAL DOMAIN API ECOSYSTEM"
-PROVIDER_CATALOG_PATH = "backend/api/global_ecosystem/global_api_ecosystem/global_aws_api_ecosystem"
-CATEGORY_CATALOG_PATH = "backend/api/global_ecosystem/global_api_ecosystem/global_domain_api_ecosystem"
-SCOPE = "Provider-to-category mapping for GLOBAL DOMAIN API ECOSYSTEM; verify official product/API support before implementation."
-IMPLEMENTATION_STATUS = "CATALOG_ONLY"
-API_DOCUMENTATION_VERIFIED = False
+CAPABILITY_SCOPE = "DNS hosting and domain registration transfer support"
+OFFICIAL_DOCUMENTATION_URL = "https://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.html"
+IMPLEMENTATION_STATUS = "REFERENCE_ONLY"
+OFFICIAL_API_VERIFIED = False
 LIVE_CONNECTION_VERIFIED = False
