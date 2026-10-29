@@ -97,3 +97,26 @@ CLOUDFLARE_API_ECOSYSTEM = {
     },
     "credential_source": "environment_or_managed_secret_store",
 }
+
+
+# Shared category mappings. These paths are cross-references, not provider-owned product modules.
+SHARED_CATEGORY_MAPPINGS = {
+    "ADULT_INDUSTRY": {
+        "path": "backend/api/global_ecosystem/global_api_ecosystem/global_adult_industry_api_ecosystem/cloudflare_adult_industry_api_ecosystem",
+        "status": "CATALOG_ONLY",
+        "dedicated_adult_industry_api_verified": False,
+        "live_connection_verified": False,
+    },
+    "AI": {
+        "path": "backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem/cloudflare_ai_api_ecosystem",
+        "status": "CATALOG_ONLY",
+    },
+    "APP": {
+        "path": "backend/api/global_ecosystem/global_api_ecosystem/global_app_api_ecosystem/cloudflare_app_api_ecosystem",
+        "status": "CATALOG_ONLY",
+    },
+    "CLOUD": {
+        "path": "backend/api/global_ecosystem/global_api_ecosystem/global_cloud_api_ecosystem/cloudflare_cloud_api_ecosystem",
+        "status": "CATALOG_ONLY",
+    },
+}
