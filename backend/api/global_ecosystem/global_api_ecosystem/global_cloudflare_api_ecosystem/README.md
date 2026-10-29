@@ -27,6 +27,16 @@ Cloudflare dashboard, DNS, zones, Workers, R2, SSL/TLS and security APIs.
 
 DNS operations also have a separate backend implementation under `backend/dns/global_ecosystem/global_dns_ecosystem/cloudflare_dns/`. These are routing/catalog references, not proof of live authentication.
 
+## Provider-owned capability modules
+
+These are actual code packages inside this Cloudflare provider directory, following the repository's provider-family scaffold pattern:
+
+- `ai/` — `README.md`, `__init__.py`, `routes.py`, `schemas.py`, `service.py`
+- `app/` — `README.md`, `__init__.py`, `routes.py`, `schemas.py`, `service.py`
+- `cloud/` — `README.md`, `__init__.py`, `routes.py`, `schemas.py`, `service.py`
+
+The shared category folders remain separate and are linked below. The provider-owned modules above are scaffolds only; they do not make authenticated API calls.
+
 ## Integration and security rules
 
 - This directory describes an API ecosystem boundary; it does not imply that the provider is connected or production-ready.
