@@ -5,7 +5,6 @@ currently define catalog metadata/contracts only and do not claim live providers
 """
 from __future__ import annotations
 
-from pathlib import Path
 
 CATEGORY_PACKAGE_IDS: tuple[str, ...] = (
     "adult_advertising_affiliates",
@@ -45,12 +44,11 @@ CATEGORY_PACKAGE_IDS: tuple[str, ...] = (
 
 def list_category_packages() -> list[dict[str, str]]:
     """Return category ids and expected visible package paths."""
-    root = Path(__file__).parent
     return [
         {
             "category_id": package_id.upper(),
             "package": package_id,
-            "path": str(root / package_id),
+            "path": "categories/" + package_id,
         }
         for package_id in CATEGORY_PACKAGE_IDS
     ]
