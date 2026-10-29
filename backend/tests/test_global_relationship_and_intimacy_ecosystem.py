@@ -3,7 +3,7 @@
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
-from backend.api.global_ecosystem.global_api_ecosystem.global_intimacy_api_ecosystem.routes import router
+from backend.api.global_ecosystem.global_api_ecosystem.global_relationship_and_intimacy_ecosystem.routes import router
 
 app = FastAPI()
 app.include_router(router)

@@ -24,7 +24,6 @@ PROVIDER_MODULE_IDS: tuple[str, ...] = (
     "reality_kings",
     "mofos",
     "adult_time",
-    "manyvids_creators",
     "segpay",
     "ccbill",
     "verotel",

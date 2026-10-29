@@ -83,7 +83,6 @@ _PROVIDERS: tuple[dict[str, Any], ...] = (
     ("reality_kings", "Reality Kings", ["ADULT_STUDIOS_PRODUCTION", "PORNOGRAPHY_VIDEO_PLATFORMS"], "https://www.realitykings.com/", None, "Adult studio/content brand; public official API not asserted."),
     ("mofos", "MOFOS", ["ADULT_STUDIOS_PRODUCTION", "PORNOGRAPHY_VIDEO_PLATFORMS"], "https://www.mofos.com/", None, "Adult studio/content brand; public official API not asserted."),
     ("adult_time", "Adult Time", ["ADULT_STUDIOS_PRODUCTION", "PORNOGRAPHY_VIDEO_PLATFORMS"], "https://www.adulttime.com/", None, "Adult studio/content platform; public official API not asserted."),
-    ("manyvids_creators", "ManyVids Creator Services", ["ADULT_CREATOR_ECONOMY", "ADULT_INDUSTRY_BUSINESS"], "https://www.manyvids.com/", None, "Use only official creator-facing integration channels that are documented and authorized."),
     ("segpay", "Segpay", ["ADULT_PAYMENTS_PAYOUTS"], "https://segpay.com/", None, "Payment provider often associated with high-risk verticals; eligibility and APIs require direct verification."),
     ("ccbill", "CCBill", ["ADULT_PAYMENTS_PAYOUTS"], "https://ccbill.com/", None, "Payment services; adult-merchant eligibility and supported integration APIs require direct verification."),
     ("verotel", "Verotel", ["ADULT_PAYMENTS_PAYOUTS"], "https://www.verotel.com/", None, "Payment services; merchant underwriting and API availability require direct verification."),
