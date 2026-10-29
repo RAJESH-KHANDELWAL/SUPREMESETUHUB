@@ -99,3 +99,26 @@ def test_adult_provider_catalog_includes_research_leads_without_claiming_live_ap
     assert "cloudflare" in ids
     assert all(record["implementation_status"] == "CATALOG_ONLY" for record in records)
     assert all(record["live_connection_verified"] is False for record in records)
+
+
+def test_visible_category_packages_match_catalog_categories():
+    packages = client.get("/api/v1/global-intimacy-ecosystem/categories/packages")
+    categories = client.get("/api/v1/global-intimacy-ecosystem/categories")
+    assert packages.status_code == 200
+    assert categories.status_code == 200
+    package_ids = {item["category_id"] for item in packages.json()}
+    category_ids = {item["category_id"] for item in categories.json()}
+    assert len(package_ids) == 33
+    assert package_ids == category_ids
+    assert all(item["path"].startswith("categories/") for item in packages.json())
+
+
+def test_visible_provider_directory_matches_canonical_providers():
+    visible = client.get("/api/v1/global-intimacy-ecosystem/providers/directory")
+    canonical = client.get("/api/v1/global-intimacy-ecosystem/providers")
+    assert visible.status_code == 200
+    assert canonical.status_code == 200
+    assert {item["provider_id"] for item in visible.json()} == {
+        item["provider_id"] for item in canonical.json()
+    }
+    assert all(item["live_connection_verified"] is False for item in visible.json())
