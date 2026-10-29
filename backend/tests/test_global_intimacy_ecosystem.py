@@ -17,7 +17,7 @@ def test_status_is_catalog_only():
     assert body["success"] is True
     assert body["catalog_only"] is True
     assert body["live_connections_verified"] is False
-    assert body["category_count"] >= 8
+    assert body["category_count"] >= 30\n    assert body["provider_count"] >= 25\n    assert body["integration_count"] >= 20\n    assert body["service_count"] >= 20\n    assert body["tool_count"] >= 15
 
 
 def test_categories_include_relationship_and_adult_business_scopes():
@@ -28,7 +28,7 @@ def test_categories_include_relationship_and_adult_business_scopes():
     assert "INTIMACY_WELLNESS" in ids
     assert "ADULT_INDUSTRY_BUSINESS" in ids
     assert "ADULT_CONTENT_HOSTING" in ids
-    assert "CONSENT_AND_SAFETY" in ids
+    assert "CONSENT_AND_SAFETY" in ids\n    assert "PORNOGRAPHY_VIDEO_PLATFORMS" in ids\n    assert "ADULT_LIVE_STREAMING" in ids\n    assert "ADULT_STUDIOS_PRODUCTION" in ids\n    assert "EROTIC_AUDIO" in ids\n    assert "EROTIC_LITERATURE" in ids\n    assert "ADULT_PAYMENTS_PAYOUTS" in ids\n    assert "CONTENT_MODERATION" in ids
 
 
 def test_provider_category_filter():
@@ -74,3 +74,4 @@ def test_subsystem_catalogs_filter_by_category():
     assert response.status_code == 200
     assert response.json()
     assert all("ADULT_CONTENT_HOSTING" in item["category_ids"] for item in response.json())
+\n\ndef test_adult_provider_catalog_includes_research_leads_without_claiming_live_api():\n    response = client.get("/api/v1/global-intimacy-ecosystem/providers")\n    assert response.status_code == 200\n    records = response.json()\n    ids = {record["provider_id"] for record in records}\n    assert "onlyfans" in ids\n    assert "fansly" in ids\n    assert "xvideos" in ids\n    assert "cloudflare" in ids\n    assert all(record["implementation_status"] == "CATALOG_ONLY" for record in records)\n    assert all(record["live_connection_verified"] is False for record in records)\n
