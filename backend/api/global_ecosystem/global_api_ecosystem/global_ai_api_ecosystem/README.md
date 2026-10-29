@@ -86,3 +86,8 @@ The following provider-specific AI/API integration scaffolds belong in this shar
 - `xhamster_ai_api_ecosystem/` — xHamster
 - `xvideos_ai_api_ecosystem/` — XVideos
 
+
+
+## Cloudflare AI category mapping
+
+- `cloudflare_ai_api_ecosystem/` — Cloudflare Workers AI and AI Gateway category mapping. This is catalog-only; provider-owned metadata remains in `global_cloudflare_api_ecosystem/`.
