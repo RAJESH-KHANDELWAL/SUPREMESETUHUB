@@ -1,20 +1,12 @@
 # GLOBAL CLOUDFLARE API ECOSYSTEM
 
-This provider-owned directory is the canonical index for Cloudflare's own company/platform ecosystem, products, official API families, and integration boundaries within SUPREMESETUHUB.
+This is the provider-owned catalog for **Cloudflare's own products, APIs, and documented integrations** in SUPREMESETUHUB.
 
-## Purpose
+## Scope
 
-DNS, edge networking, security and developer platform APIs.
+Keep this directory Cloudflare-specific. It contains Cloudflare product/API catalogs and Cloudflare-to-provider integration catalogs. Do **not** create generic `ai/`, `app/`, or `cloud/` subdirectories here.
 
-## Platforms and product/API areas
-
-Cloudflare dashboard, DNS, zones, Workers, R2, SSL/TLS and security APIs.
-
-## Related GLOBAL API ECOSYSTEM families
-
-`AI`, `APP`, `CLOUD`, `DOMAIN`, `DNS`, `SECURITY`, `SERVER`, `VPS`, `WEB`.
-
-## Shared category mappings
+The shared family mappings remain in their dedicated GLOBAL API ECOSYSTEM directories. Those mappings are references, not duplicate implementations:
 
 - AI: `../global_ai_api_ecosystem/cloudflare_ai_api_ecosystem/`
 - APP: `../global_app_api_ecosystem/cloudflare_app_api_ecosystem/`
@@ -25,29 +17,36 @@ Cloudflare dashboard, DNS, zones, Workers, R2, SSL/TLS and security APIs.
 - VPS: `../global_vps_api_ecosystem/cloudflare_vps_api_ecosystem/`
 - WEB: `../global_web_api_ecosystem/cloudflare_web_api_ecosystem/`
 
-DNS operations also have a separate backend implementation under `backend/dns/global_ecosystem/global_dns_ecosystem/cloudflare_dns/`. These are routing/catalog references, not proof of live authentication.
+DNS implementation reference: `backend/dns/global_ecosystem/global_dns_ecosystem/cloudflare_dns/`.
 
-## Provider-owned capability modules
+## Cloudflare-owned API catalog
 
-These are actual code packages inside this Cloudflare provider directory, following the repository's provider-family scaffold pattern:
+- `cloudflare_api_ecosystem.py` — provider index and family references.
+- `cloudflare_product_api_catalog.py` — Cloudflare-specific product/API areas and official documentation references.
+- `cloudflare_provider_integrations.py` — index of documented Cloudflare-to-provider integration catalogs.
 
-- `ai/` — `README.md`, `__init__.py`, `routes.py`, `schemas.py`, `service.py`
-- `app/` — `README.md`, `__init__.py`, `routes.py`, `schemas.py`, `service.py`
-- `cloud/` — `README.md`, `__init__.py`, `routes.py`, `schemas.py`, `service.py`
+## Cross-provider integration catalogs
 
-The shared category folders remain separate and are linked below. The provider-owned modules above are scaffolds only; they do not make authenticated API calls.
+- `aws_cloudflare_api_ecosystem.py`
+- `google_cloud_cloudflare_api_ecosystem.py`
+- `microsoft_azure_cloudflare_api_ecosystem.py`
+- `oracle_cloud_cloudflare_api_ecosystem.py`
+- `alibaba_cloud_cloudflare_api_ecosystem.py`
+- `apple_cloudflare_api_ecosystem.py` (retain only where a specific, documented integration is substantiated)
 
-## Integration and security rules
+These entries describe integration scope; they do not mean a connection is configured or live. Add a provider only when a relevant official integration or product/API is documented. Do not add vendors merely because they offer hosting or cloud services.
 
-- This directory describes an API ecosystem boundary; it does not imply that the provider is connected or production-ready.
-- Implement only against official provider documentation and currently supported endpoints.
-- Verify account eligibility, region, product access, scopes/permissions, quotas and current terms before enabling a feature.
-- Keep API keys, OAuth secrets, tokens and private keys out of Git. Use environment variables or a managed secret store.
-- Production writes, purchases, payments, provisioning, publishing or deletion need explicit authorization, audit logs, idempotency and tested error handling.
-- Link to a shared family module or provider adapter rather than duplicating implementation code across the repository.
+## Implementation and security gates
+
+- Current implementation status remains `CATALOG_ONLY`; live connection is not verified.
+- Follow official API documentation and current product/region/account availability.
+- Use least-privilege API tokens with the exact account, zone, and product permissions required.
+- Store tokens in environment variables or a managed secret store; never commit credentials.
+- Do not invent endpoints or claim live support without authenticated tests.
+- Gate production writes, provisioning, publishing, and deletion behind explicit authorization, audit logs, idempotency, and tested error handling.
 
 ## Registry
 
 - Central provider catalog: `backend/api/global_api_ecosystem_catalog.py`
 - Provider ID: `cloudflare`
-- Current status should remain catalog-only until the adapter has authenticated tests and operational verification.
+- Provider-owned path: `backend/api/global_ecosystem/global_api_ecosystem/global_cloudflare_api_ecosystem/`
