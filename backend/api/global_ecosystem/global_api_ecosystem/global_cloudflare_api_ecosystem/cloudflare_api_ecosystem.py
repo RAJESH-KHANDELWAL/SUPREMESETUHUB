@@ -56,7 +56,6 @@ CLOUDFLARE_API_ECOSYSTEM = {
         "MICROSOFT_AZURE": "microsoft_azure_cloudflare_api_ecosystem.py",
         "ORACLE_CLOUD": "oracle_cloud_cloudflare_api_ecosystem.py",
         "ALIBABA_CLOUD": "alibaba_cloud_cloudflare_api_ecosystem.py",
-        "APPLE": "apple_cloudflare_api_ecosystem.py",
     },
     "dns_implementation_path": "backend/dns/global_ecosystem/global_dns_ecosystem/cloudflare_dns",
     "credential_source": "environment_or_managed_secret_store",
