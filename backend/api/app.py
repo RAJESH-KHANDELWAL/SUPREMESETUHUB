@@ -51,6 +51,7 @@ from backend.api.global_ecosystem.global_api_ecosystem.global_people_life_api_ec
 from backend.api.global_ecosystem.global_api_ecosystem.global_world_api_ecosystem import router as global_world_api_router
 from backend.api.global_subsystem_ecosystem import router as global_subsystem_ecosystem_router
 from backend.api.global_business_ecosystem import router as global_business_ecosystem_router
+from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem import router as global_bada_business_api_router
 from backend.api.global_business_coach import router as global_business_coach_router
 from backend.api.global_freelancer_ecosystem import router as global_freelancer_ecosystem_router
 from backend.api.global_ecosystem import GlobalEcosystemAPI
@@ -420,6 +421,7 @@ app.include_router(global_people_life_api_router)
 app.include_router(global_world_api_router)
 app.include_router(global_subsystem_ecosystem_router)
 app.include_router(global_business_ecosystem_router)
+app.include_router(global_bada_business_api_router)
 app.include_router(global_business_coach_router)
 app.include_router(global_freelancer_ecosystem_router)
 app.include_router(theme_hub_router)
