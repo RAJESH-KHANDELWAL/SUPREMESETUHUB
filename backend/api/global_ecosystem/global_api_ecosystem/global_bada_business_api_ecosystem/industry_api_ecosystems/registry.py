@@ -23,6 +23,10 @@ INDUSTRY_ECOSYSTEMS = (
     {"id": "retail_ecommerce_consumer_goods", "name": "Retail, E-commerce & Consumer Goods", "package": "retail_ecommerce_consumer_goods", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
     {"id": "transport_mobility_logistics", "name": "Transport, Mobility & Logistics", "package": "transport_mobility_logistics", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
     {"id": "sports_recreation_community", "name": "Sports, Recreation & Community", "package": "sports_recreation_community", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
+    {"id": "technology_it_telecommunications", "name": "Technology, IT & Telecommunications", "package": "technology_it_telecommunications", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
+    {"id": "manufacturing_industrial_services", "name": "Manufacturing & Industrial Services", "package": "manufacturing_industrial_services", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
+    {"id": "transport_logistics_supply_chain", "name": "Transport, Logistics & Supply Chain", "package": "transport_logistics_supply_chain", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
+    {"id": "media_entertainment_creative_industries", "name": "Media, Entertainment & Creative Industries", "package": "media_entertainment_creative_industries", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
 )
 
 def list_industry_ecosystems(*, include_adult: bool = False) -> list[dict[str, object]]:
