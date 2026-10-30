@@ -1,9 +1,65 @@
 """Global relationship and intimacy API ecosystem.
 
-This package exposes a catalog/discovery layer. A catalog entry is not proof
-that a third-party API exists, is permitted, or is connected.
+This package owns its relationship, intimacy, sexual-health, and adult-industry
+category packages directly. A catalog entry is not proof that a third-party API
+exists, is permitted, or is connected.
 """
 
 from .service import get_ecosystem_status, list_categories, list_providers
 
-__all__ = ["get_ecosystem_status", "list_categories", "list_providers"]
+CATEGORY_PACKAGE_IDS: tuple[str, ...] = (
+    "adult_advertising_affiliates",
+    "adult_communities",
+    "adult_compliance_records",
+    "adult_content_hosting",
+    "adult_content_publishing",
+    "adult_creator_economy",
+    "adult_ecommerce",
+    "adult_industry_business",
+    "adult_live_streaming",
+    "adult_payments_payouts",
+    "adult_performer_talent",
+    "adult_photography",
+    "adult_studios_production",
+    "age_assurance",
+    "consent_and_boundaries",
+    "consent_and_safety",
+    "content_moderation",
+    "copyright_takedown",
+    "couples_services",
+    "dating_matchmaking",
+    "erotic_audio",
+    "erotic_literature",
+    "global_provider_directory",
+    "intimacy_wellness",
+    "marriage_family",
+    "pornography_video_platforms",
+    "privacy_identity",
+    "relationship_therapy_directory",
+    "relationships",
+    "reproductive_health",
+    "sex_education",
+    "sex_toys_wellness_retail",
+    "sexual_health",
+)
+
+
+def list_category_packages() -> list[dict[str, str]]:
+    """Return category IDs and their direct package paths."""
+    return [
+        {
+            "category_id": package_id.upper(),
+            "package": package_id,
+            "path": package_id,
+        }
+        for package_id in CATEGORY_PACKAGE_IDS
+    ]
+
+
+__all__ = [
+    "CATEGORY_PACKAGE_IDS",
+    "get_ecosystem_status",
+    "list_categories",
+    "list_category_packages",
+    "list_providers",
+]
