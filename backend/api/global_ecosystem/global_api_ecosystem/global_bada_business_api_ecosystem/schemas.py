@@ -8,4 +8,6 @@ class BusinessEcosystemStatus(BaseModel):
     version: str
     status: str
     module_count: int
+    category_count: int
+    adult_category_count: int
     timestamp: str
