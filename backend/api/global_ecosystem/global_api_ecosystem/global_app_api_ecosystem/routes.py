@@ -1,11 +1,33 @@
-"""FastAPI routes for GLOBAL APP API ECOSYSTEM."""
+"""HTTP routes for GLOBAL APP API ECOSYSTEM."""
 
-from fastapi import APIRouter
-from .service import get_ecosystem_status
+from fastapi import APIRouter, HTTPException, Query
 
-router = APIRouter(prefix="/global/app", tags=["GLOBAL APP API ECOSYSTEM"])
+from .schemas import EcosystemStatus
+from .service import EcosystemService
+
+router = APIRouter(prefix="/app", tags=["GLOBAL APP API ECOSYSTEM"])
+service = EcosystemService()
 
 
-@router.get("/status")
-def ecosystem_status() -> dict[str, str]:
-    return get_ecosystem_status()
+@router.get("/status", response_model=EcosystemStatus)
+def get_status():
+    return service.get_status()
+
+
+@router.get("/providers")
+def list_providers():
+    return service.list_providers()
+
+
+@router.get("/providers/{provider_id}")
+def get_provider(provider_id: str):
+    provider = service.get_provider(provider_id)
+    if provider is None:
+        raise HTTPException(status_code=404, detail={"error": "PROVIDER_NOT_FOUND", "provider_id": provider_id})
+    return {"success": True, "provider": provider}
+
+
+@router.get("/search")
+def search_providers(q: str = Query(min_length=1, max_length=100)):
+    providers = service.search_providers(q)
+    return {"success": True, "count": len(providers), "providers": providers}

@@ -1,1 +1,5 @@
-"""API ecosystem package."""
+"""GLOBAL AI API ECOSYSTEM package."""
+
+from .routes import router
+
+__all__ = ["router"]
