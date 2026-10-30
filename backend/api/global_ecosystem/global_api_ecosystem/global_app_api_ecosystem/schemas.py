@@ -1,8 +1,12 @@
-"""Pydantic schemas for GLOBAL APP API ECOSYSTEM."""
-
 from pydantic import BaseModel
 
-
 class EcosystemStatus(BaseModel):
-    ecosystem: str
+    success: bool
+    ecosystem_id: str
+    ecosystem_name: str
+    version: str
     status: str
+    implementation_status: str
+    live_connection_verified: bool
+    provider_count: int
+    timestamp: str
