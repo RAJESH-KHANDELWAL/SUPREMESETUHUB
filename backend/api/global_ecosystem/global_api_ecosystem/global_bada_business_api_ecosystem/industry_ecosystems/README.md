@@ -1,29 +1,28 @@
-# Bada Business Industry Ecosystems
+# Industry Ecosystems API
 
-This package organizes business-facing industries under the existing `global_bada_business_api_ecosystem`.
+A read-only API over the curated India + Global industry taxonomy in `registry.py`.
 
-## Scope
+## Mounted endpoints
 
-- India and international provider coverage.
-- Offline, online and hybrid business models.
-- Businesses, companies, products, services, marketplaces, professional providers and integrations.
-- Audience and people records (students, job seekers, households, couples, etc.) should remain in their owning people/work/life systems; this package catalogs the businesses and services that serve them.
-- Adult and sexual-wellness business categories are explicitly 18+ and require jurisdiction-aware legal, consent, privacy and safety controls.
+- `GET /api/v1/global-ecosystem/business/industries/status`
+- `GET /api/v1/global-ecosystem/business/industries`
+- `GET /api/v1/global-ecosystem/business/industries/{industry_id}`
 
-## Important status
+## Query parameters
 
-This is a structural taxonomy scaffold, not a complete worldwide company directory and not a live integration with the listed providers. Provider records and API adapters must be added only after their official documentation, authentication method, permitted use, rate limits and terms are verified. Never commit API keys or secrets.
+- `channel`: `online`, `offline`, or `hybrid`
+- `coverage`: `india` or `global`
+- `q`: case-insensitive search over industry ID and name
+- `include_adult`: opt-in visibility for the separately classified 18+ taxonomy. This is not age verification or authorization to access an adult service.
 
-## Standard domain layout
+## Example
 
-Each domain package can grow into these modules as needed:
+```http
+GET /api/v1/global-ecosystem/business/industries?coverage=india&channel=online
+```
 
-- `catalog.py`: curated categories and provider metadata.
-- `schemas.py`: validated request/response models.
-- `service.py`: business logic.
-- `routes.py`: API endpoints.
-- `integrations/`: provider-specific adapters.
-- `tests/`: unit and contract tests.
-- `README.md`: coverage, data provenance, API status and compliance notes.
+## Scope and limitations
 
-Do not create empty or misleading live integrations. Mark each provider as `catalog_only`, `planned`, `sandbox` or `live_verified`.
+This API serves taxonomy metadata only. It does not claim that every business/provider is listed, nor does it connect to Google, Microsoft, AWS, Meta, OpenAI or other third-party systems. Those require separately documented provider adapters, credentials, permission checks, rate-limit handling and contract tests. Never store secrets in source control.
+
+Adult-sector records require applicable-law review, age assurance, consent, privacy and safety controls before any provider integration or transaction flow is enabled.
