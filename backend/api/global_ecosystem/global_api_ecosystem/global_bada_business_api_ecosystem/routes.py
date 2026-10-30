@@ -30,6 +30,22 @@ def get_module(module_id: str):
     return {"success": True, "ecosystem_id": service.ECOSYSTEM_ID, "module": module}
 
 
+@router.get("/dimensions")
+def list_business_dimensions():
+    return service.list_dimensions()
+
+
+@router.get("/dimensions/{dimension_id}")
+def get_business_dimension(dimension_id: str):
+    dimension = service.get_dimension(dimension_id)
+    if dimension is None:
+        raise HTTPException(
+            status_code=404,
+            detail={"error": "BUSINESS_DIMENSION_NOT_FOUND", "dimension_id": dimension_id},
+        )
+    return {"success": True, "ecosystem_id": service.ECOSYSTEM_ID, "dimension": dimension}
+
+
 @router.get("/catalog")
 def list_business_categories(
     channel: str | None = Query(default=None, pattern="^(online|offline|hybrid)$"),
