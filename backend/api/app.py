@@ -212,7 +212,11 @@ PUBLIC_API_PATHS = {
 async def private_by_default(request: Request, call_next):
     path = request.url.path
 
-    if request.method == "OPTIONS" or path in PUBLIC_API_PATHS or path == "/":
+    is_public_global_world_catalog = (
+        path == "/api/v1/global-world"
+        or path.startswith("/api/v1/global-world/")
+    )
+    if request.method == "OPTIONS" or path in PUBLIC_API_PATHS or is_public_global_world_catalog or path == "/":
         return await call_next(request)
 
     authorization = request.headers.get("Authorization", "")
