@@ -80,3 +80,33 @@ def get_global_world_business_domain(
             detail={"error": "GLOBAL_WORLD_DOMAIN_NOT_FOUND", "domain_id": domain_id},
         )
     return {"success": True, "domain": domain}
+
+
+@router.get("/world-catalog")
+def list_full_global_world_catalog(
+    include_adult: bool = Query(default=False, description="Include separately classified 18+ domains; this is not age verification"),
+):
+    return service.list_global_world_catalog(include_adult=include_adult)
+
+
+@router.get("/world-catalog/search")
+def search_full_global_world_catalog(
+    q: str = Query(min_length=1, max_length=100),
+    include_adult: bool = Query(default=False),
+):
+    results = service.search_global_world_catalog(q, include_adult=include_adult)
+    return {"success": True, "count": len(results), "global_world_domains": results}
+
+
+@router.get("/world-catalog/{domain_id}")
+def get_full_global_world_catalog_domain(
+    domain_id: str,
+    include_adult: bool = Query(default=False),
+):
+    domain = service.get_global_world_catalog_domain(domain_id, include_adult=include_adult)
+    if domain is None:
+        raise HTTPException(
+            status_code=404,
+            detail={"error": "GLOBAL_WORLD_DOMAIN_NOT_FOUND", "domain_id": domain_id},
+        )
+    return {"success": True, "domain": domain}

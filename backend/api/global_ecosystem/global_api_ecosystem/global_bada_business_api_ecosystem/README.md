@@ -45,3 +45,16 @@ The `include_adult` parameter is a catalog filter only. It is not age verificati
 ## Architecture rule
 
 Business entities and providers belong here. Personal identities, life situations, student records, job-seeker profiles, employment applications, relationship records and safeguarding records remain in their owning ecosystems. Connect them through stable IDs and permission-checked APIs; do not copy their source records into this business catalog.
+
+
+## Full Global World A-Z catalogue embedded here
+
+The earlier `global_world_business_map.py` is a routing crosswalk. The complete 32-domain taxonomy snapshot is now separately stored in `global_world_catalog.py`, including each domain's subgroup list, delivery modes, owning ecosystem, business-facing scope and linked business category IDs where applicable.
+
+New full-catalogue endpoints:
+- `GET /api/v1/global-ecosystem/business/world-catalog`
+- `GET /api/v1/global-ecosystem/business/world-catalog?include_adult=true`
+- `GET /api/v1/global-ecosystem/business/world-catalog/search?q=...`
+- `GET /api/v1/global-ecosystem/business/world-catalog/{domain_id}`
+
+The full catalogue is a taxonomy snapshot, not a live database. Personal records, student/job-seeker profiles, household records and relationship interactions are not copied into business entities; only business providers and relevant business categories are discoverable here.

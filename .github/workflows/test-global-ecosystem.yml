@@ -51,3 +51,7 @@ jobs:
       - name: Run Global Bada Business World Map Tests
         run: |
           python -m unittest backend.tests.test_global_bada_business_world_map -v
+
+      - name: Run Full Global World Catalogue Tests
+        run: |
+          python -m unittest backend.tests.test_global_bada_business_full_world_catalog -v

@@ -2,6 +2,7 @@ from datetime import datetime, timezone
 
 from .business_catalog import BUSINESS_CATEGORIES
 from .global_world_business_map import GLOBAL_WORLD_BUSINESS_MAP
+from .global_world_catalog import GLOBAL_WORLD_CATALOG
 
 
 class BusinessEcosystemService:
@@ -31,7 +32,7 @@ class BusinessEcosystemService:
             "status": "catalog_available",
             "module_count": len(self.MODULES),
             "category_count": len(BUSINESS_CATEGORIES),
-            "global_world_domain_count": len(GLOBAL_WORLD_BUSINESS_MAP),
+            "global_world_domain_count": len(GLOBAL_WORLD_CATALOG),
             "adult_category_count": sum(1 for item in BUSINESS_CATEGORIES if item.get("adult_only")),
             "timestamp": datetime.now(timezone.utc).isoformat(),
         }
@@ -95,3 +96,38 @@ class BusinessEcosystemService:
                 return None
             return item
         return None
+
+    def list_global_world_catalog(self, include_adult: bool = False):
+        results = [
+            item for item in GLOBAL_WORLD_CATALOG
+            if include_adult or not item.get("adult_only")
+        ]
+        return {
+            "success": True,
+            "ecosystem_id": self.ECOSYSTEM_ID,
+            "count": len(results),
+            "global_world_domains": results,
+            "source": "Global World A-Z taxonomy snapshot",
+            "note": "Full domain and subgroup catalogue for business-facing discovery. Personal records remain in their owning ecosystems.",
+        }
+
+    def get_global_world_catalog_domain(self, domain_id: str, include_adult: bool = False):
+        for item in GLOBAL_WORLD_CATALOG:
+            if item["id"] == domain_id:
+                if item.get("adult_only") and not include_adult:
+                    return None
+                return item
+        return None
+
+    def search_global_world_catalog(self, query: str, include_adult: bool = False):
+        needle = query.strip().casefold()
+        if not needle:
+            return []
+        results = []
+        for item in GLOBAL_WORLD_CATALOG:
+            if item.get("adult_only") and not include_adult:
+                continue
+            searchable = " ".join([item["id"], item["name"], *item["groups"]]).casefold()
+            if needle in searchable:
+                results.append(item)
+        return results
