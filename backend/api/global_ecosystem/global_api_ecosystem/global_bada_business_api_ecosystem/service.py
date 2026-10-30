@@ -1,12 +1,13 @@
 from datetime import datetime, timezone
 
 from .business_catalog import BUSINESS_CATEGORIES
+from .global_world_business_map import GLOBAL_WORLD_BUSINESS_MAP
 
 
 class BusinessEcosystemService:
     ECOSYSTEM_ID = "global-bada-business"
     ECOSYSTEM_NAME = "GLOBAL BADA BUSINESS API ECOSYSTEM"
-    VERSION = "2.0.0"
+    VERSION = "2.1.0"
 
     MODULES = [
         {"id": "businesses", "name": "BUSINESSES", "description": "Business profiles and organisations across all sectors"},
@@ -30,6 +31,7 @@ class BusinessEcosystemService:
             "status": "catalog_available",
             "module_count": len(self.MODULES),
             "category_count": len(BUSINESS_CATEGORIES),
+            "global_world_domain_count": len(GLOBAL_WORLD_BUSINESS_MAP),
             "adult_category_count": sum(1 for item in BUSINESS_CATEGORIES if item.get("adult_only")),
             "timestamp": datetime.now(timezone.utc).isoformat(),
         }
@@ -71,3 +73,25 @@ class BusinessEcosystemService:
             if needle in searchable:
                 results.append(item)
         return results
+
+    def list_global_world_map(self, include_adult: bool = False):
+        results = [
+            item for item in GLOBAL_WORLD_BUSINESS_MAP
+            if include_adult or not item.get("adult_only")
+        ]
+        return {
+            "success": True,
+            "ecosystem_id": self.ECOSYSTEM_ID,
+            "count": len(results),
+            "global_world_domains": results,
+            "note": "Business-facing crosswalk only; people, jobs, households and relationship records remain in their owning ecosystems.",
+        }
+
+    def get_global_world_domain(self, domain_id: str, include_adult: bool = False):
+        for item in GLOBAL_WORLD_BUSINESS_MAP:
+            if item["world_domain_id"] != domain_id:
+                continue
+            if item.get("adult_only") and not include_adult:
+                return None
+            return item
+        return None
