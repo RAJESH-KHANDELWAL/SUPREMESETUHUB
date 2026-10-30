@@ -1,4 +1,4 @@
-from ..service import TravelService
+from travel_tourism_hospitality.service import TravelService
 def test_catalog_and_detail():
     service=TravelServiceService(); items=service.list_categories()
     assert len(items)>=10
