@@ -1,14 +1,15 @@
-"""Visible category index for the global relationship and intimacy ecosystem.
+"""Category packages owned by GLOBAL RELATIONSHIP AND INTIMACY ECOSYSTEM.
 
-Category-specific package directories live beside this module. These packages
-currently define catalog metadata/contracts only and do not claim live providers.
+These taxonomy packages are intentionally scoped to this ecosystem and are not
+part of the shared Global API category namespace.
 """
-from __future__ import annotations
 
+from __future__ import annotations
 
 CATEGORY_PACKAGE_IDS: tuple[str, ...] = (
     "adult_advertising_affiliates",
     "adult_communities",
+    "adult_compliance_records",
     "adult_content_hosting",
     "adult_content_publishing",
     "adult_creator_economy",
@@ -23,8 +24,8 @@ CATEGORY_PACKAGE_IDS: tuple[str, ...] = (
     "consent_and_boundaries",
     "consent_and_safety",
     "content_moderation",
-    "couples_services",
     "copyright_takedown",
+    "couples_services",
     "dating_matchmaking",
     "erotic_audio",
     "erotic_literature",
@@ -39,11 +40,11 @@ CATEGORY_PACKAGE_IDS: tuple[str, ...] = (
     "sex_education",
     "sex_toys_wellness_retail",
     "sexual_health",
-    "adult_compliance_records",
 )
 
+
 def list_category_packages() -> list[dict[str, str]]:
-    """Return category ids and expected visible package paths."""
+    """Return category IDs and canonical package paths."""
     return [
         {
             "category_id": package_id.upper(),

@@ -3,7 +3,7 @@ from fastapi import APIRouter, HTTPException, Query
 
 from .schemas import IntimacyCategory, IntimacyEcosystemStatus, IntimacyProvider
 from .service import get_ecosystem_status, list_categories, list_providers
-from ..categories import list_category_packages
+from .categories import list_category_packages
 from .providers import list_entries as list_provider_entries
 from .integrations.routes import router as integrations_router
 from .services.routes import router as services_router
