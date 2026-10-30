@@ -3,7 +3,7 @@ from fastapi import APIRouter, Query
 
 from .adult_language_catalog import get_adult_language_summary, list_adult_language_domains
 from .api_modules import get_api_module_summary, list_api_modules
-from .language_catalog import get_language_summary, list_languages, list_locales
+from .language_catalog import get_language_summary, list_languages, list_locales\nfrom .global_language_api_ecosystem import GLOBAL_LANGUAGE_API_ECOSYSTEM
 
 router = APIRouter(tags=["global-language-api-ecosystem"])
 
@@ -55,3 +55,4 @@ def get_adult_language_domains(q: str | None = Query(default=None, description="
 def get_adult_language_status():
     """Return scope and limitations for adult-language support."""
     return get_adult_language_summary()
+\n\n@router.get("/ecosystem/catalog", summary="Get the Global Language API ecosystem master catalog")\ndef get_global_language_catalog():\n    """Return category and provider module indexes for this ecosystem."""\n    return GLOBAL_LANGUAGE_API_ECOSYSTEM\n
