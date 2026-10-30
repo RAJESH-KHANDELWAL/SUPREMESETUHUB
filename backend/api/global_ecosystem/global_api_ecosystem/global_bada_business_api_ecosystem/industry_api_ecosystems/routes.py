@@ -35,3 +35,7 @@ def get_industry(
 from .agriculture_food_natural_resources.routes import router as agriculture_food_router
 
 router.include_router(agriculture_food_router)
+
+from .education_learning_training.routes import router as education_learning_router
+
+router.include_router(education_learning_router)
