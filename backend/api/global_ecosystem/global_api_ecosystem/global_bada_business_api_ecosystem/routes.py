@@ -122,14 +122,10 @@ def get_work_business_facets():
 @router.get("/work-business")
 def list_work_business(
     channel: str | None = Query(default=None, pattern="^(online|offline|hybrid)$"),
-    work_mode: str | None = Query(default=None),
-    business_size: str | None = Query(default=None),
-    maturity: str | None = Query(default=None),
-    geography: str | None = Query(default=None),
     include_adult: bool = Query(default=False, description="Include separately classified 18+ business sectors; this is not age verification"),
 ):
     try:
-        return service.list_work_business(channel, work_mode, business_size, maturity, geography, include_adult)
+        return service.list_work_business(channel, include_adult)
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc))
 

@@ -135,13 +135,13 @@ class BusinessEcosystemService:
 
 
 
-    def list_work_business(self, channel=None, work_mode=None, business_size=None, maturity=None, geography=None, include_adult=False):
-        sectors = list_sectors(channel, work_mode, business_size, maturity, geography, include_adult)
+    def list_work_business(self, channel=None, include_adult=False):
+        sectors = list_sectors(channel=channel, include_adult=include_adult)
         return {
             "success": True, "ecosystem_id": self.ECOSYSTEM_ID, "count": len(sectors),
-            "filters": {"delivery_mode": channel, "work_mode": work_mode, "business_size": business_size, "maturity": maturity, "geography": geography, "include_adult": include_adult},
+            "filters": {"delivery_mode": channel, "include_adult": include_adult},
             "facets": get_sector_facets(), "sectors": sectors, "classification": "taxonomy_only",
-            "note": "Offline, online and hybrid work/business taxonomy; not verified employers, vacancies, licences or live provider connections.",
+            "note": "Offline, online and hybrid work/business taxonomy. Work-mode, business-size, maturity, geography and audience values are discovery facets, not verified sector-specific availability. This is not a vacancy or live-provider feed.",
         }
 
     def get_work_business_sector(self, sector_id, include_adult=False):
