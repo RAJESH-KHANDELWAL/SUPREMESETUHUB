@@ -58,3 +58,29 @@ New full-catalogue endpoints:
 - `GET /api/v1/global-ecosystem/business/world-catalog/{domain_id}`
 
 The full catalogue is a taxonomy snapshot, not a live database. Personal records, student/job-seeker profiles, household records and relationship interactions are not copied into business entities; only business providers and relevant business categories are discoverable here.
+
+
+## Taxonomy expansion (2026)
+
+The catalogue now adds dedicated business-facing classifications for:
+- Human resources and workforce operations
+- Supply chain, procurement and international trade
+- Digital infrastructure, APIs, cloud, databases and platforms
+- Cybersecurity, privacy and digital trust
+- Publishing, journalism, writing and content production
+- Personal development, coaching and mentoring providers
+- Disaster management, emergency and resilience services
+- Biotechnology, life sciences and clinical research providers
+- Defence, public safety and critical-infrastructure industries
+- Space economy, satellite and earth-observation services
+- Sports business and athlete services
+- Hospitality operations and guest experiences
+- Mobility technology and automotive innovation
+- Financial operations and payment infrastructure
+- Social impact and community development services
+
+These are taxonomy classifications, not proof that a provider is licensed, available, or lawful in every jurisdiction. Regulated activities require country/region-specific legal, licensing, age, safety and compliance checks. Adult-industry categories remain separately restricted and are not made lawful by catalogue inclusion.
+
+## Coverage and data boundaries
+
+The taxonomy supports global discovery and can be extended with country, state/province, city, language, currency, legal-jurisdiction and licensing overlays. It does not claim to contain a live record for every person or company worldwide. Personal profiles, student records, job applications, family/relationship records and sensitive case files remain in their owning ecosystems; business discovery stores provider categories and authorised references only.
