@@ -77,7 +77,7 @@ def list_iso6393_languages(query: str | None = None, limit: int = 100) -> list[d
     cap = max(1, min(int(limit), 250))
     rows: list[dict[str, str]] = []
     with path.open("r", encoding="utf-8-sig", newline="") as handle:
-        reader = csv.DictReader(handle, delimiter="\\t")
+        reader = csv.DictReader(handle, delimiter="\t")
         required = {"Id", "Ref_Name"}
         if not reader.fieldnames or not required.issubset(set(reader.fieldnames)):
             raise ValueError("ISO 639-3 table is missing required Id or Ref_Name columns")
