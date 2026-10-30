@@ -27,6 +27,11 @@ INDUSTRY_ECOSYSTEMS = (
     {"id": "manufacturing_industrial_services", "name": "Manufacturing & Industrial Services", "package": "manufacturing_industrial_services", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
     {"id": "transport_logistics_supply_chain", "name": "Transport, Logistics & Supply Chain", "package": "transport_logistics_supply_chain", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
     {"id": "media_entertainment_creative_industries", "name": "Media, Entertainment & Creative Industries", "package": "media_entertainment_creative_industries", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
+    {"id": "energy_utilities_environment", "name": "Energy, Utilities & Environment", "package": "energy_utilities_environment", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
+    {"id": "professional_legal_business_services", "name": "Professional, Legal & Business Services", "package": "professional_legal_business_services", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
+    {"id": "government_public_services_social_impact", "name": "Government, Public Services & Social Impact", "package": "government_public_services_social_impact", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
+    {"id": "automotive_mobility", "name": "Automotive & Mobility", "package": "automotive_mobility", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
+    {"id": "personal_lifestyle_wellness", "name": "Personal, Lifestyle & Wellness Services", "package": "personal_lifestyle_wellness", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
 )
 
 def list_industry_ecosystems(*, include_adult: bool = False) -> list[dict[str, object]]:
