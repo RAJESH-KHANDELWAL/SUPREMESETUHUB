@@ -5,7 +5,7 @@ from fastapi import APIRouter, HTTPException, Query
 from .schemas import EcosystemStatus
 from .service import EcosystemService
 
-router = APIRouter(prefix="/api/v1/global-ai", tags=["GLOBAL AI API ECOSYSTEM"])
+router = APIRouter(prefix="/ai", tags=["GLOBAL AI API ECOSYSTEM"])
 service = EcosystemService()
 
 
