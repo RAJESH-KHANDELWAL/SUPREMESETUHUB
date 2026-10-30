@@ -59,3 +59,15 @@ router.include_router(manufacturing_router)
 router.include_router(transport_logistics_router)
 router.include_router(travel_hospitality_router)
 router.include_router(media_creative_router)
+
+from .energy_utilities_environment.routes import router as energy_environment_router
+from .professional_legal_business_services.routes import router as professional_services_router
+from .government_public_services_social_impact.routes import router as public_impact_router
+from .automotive_mobility.routes import router as automotive_mobility_router
+from .personal_lifestyle_wellness.routes import router as personal_wellness_router
+
+router.include_router(energy_environment_router)
+router.include_router(professional_services_router)
+router.include_router(public_impact_router)
+router.include_router(automotive_mobility_router)
+router.include_router(personal_wellness_router)
