@@ -47,3 +47,15 @@ router.include_router(healthcare_router)
 router.include_router(finance_banking_router)
 router.include_router(real_estate_router)
 router.include_router(retail_ecommerce_router)
+
+from .technology_it_telecommunications.routes import router as technology_telecom_router
+from .manufacturing_industrial_services.routes import router as manufacturing_router
+from .transport_logistics_supply_chain.routes import router as transport_logistics_router
+from .travel_tourism_hospitality.routes import router as travel_hospitality_router
+from .media_entertainment_creative_industries.routes import router as media_creative_router
+
+router.include_router(technology_telecom_router)
+router.include_router(manufacturing_router)
+router.include_router(transport_logistics_router)
+router.include_router(travel_hospitality_router)
+router.include_router(media_creative_router)
