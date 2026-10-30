@@ -25,26 +25,16 @@ def get_sector(sector_id):
     result = dict(item)
     result.update({
         "delivery_modes": list(item.get("modes", DELIVERY_MODES)),
-        "work_modes": list(WORK_MODES), "business_sizes": list(BUSINESS_SIZES),
-        "maturity_levels": list(MATURITY_LEVELS), "geography_levels": list(GEOGRAPHY_LEVELS),
-        "audience_groups": list(AUDIENCE_GROUPS), "classification": "taxonomy_only",
+        "classification": "taxonomy_only",
     })
     if result.get("adult_only"):
         result["minimum_age"] = 18
         result["safeguards"] = ["adults_only", "documented_informed_consent", "privacy_and_data_protection", "jurisdictional_legal_compliance", "no_minors", "no_coercion_or_exploitation"]
     return result
 
-def list_sectors(channel=None, work_mode=None, business_size=None, maturity=None, geography=None, include_adult=False):
+def list_sectors(channel=None, include_adult=False):
     if channel is not None and channel not in DELIVERY_MODES:
         raise ValueError("channel must be offline, online, or hybrid")
-    if work_mode is not None and work_mode not in WORK_MODES:
-        raise ValueError("unsupported work_mode")
-    if business_size is not None and business_size not in BUSINESS_SIZES:
-        raise ValueError("unsupported business_size")
-    if maturity is not None and maturity not in MATURITY_LEVELS:
-        raise ValueError("unsupported maturity")
-    if geography is not None and geography not in GEOGRAPHY_LEVELS:
-        raise ValueError("unsupported geography")
     result = []
     for row in BUSINESS_CATEGORIES:
         if row.get("adult_only") and not include_adult:
