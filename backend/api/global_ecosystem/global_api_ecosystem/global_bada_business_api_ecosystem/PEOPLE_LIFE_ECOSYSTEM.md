@@ -30,3 +30,9 @@ identity/age verification, consent controls, content moderation, or legal review
   licensing, eligibility and availability.
 - The catalog is an extensible taxonomy, not a live registry of all people,
   jobs, providers or companies worldwide.
+
+## Adult and family-safety classifications
+
+The adult domain distinguishes consensual adult couple intimacy and lawful adult media/publishing as separate 18+ classifications. These are excluded from default discovery and require an explicit adult-content query flag. Age verification, freely given consent, privacy, performer protections and country-specific legal review are required.
+
+Family safety, child protection, abuse prevention and survivor support are classified separately as safeguarding services, never as adult entertainment or a sexual service.
