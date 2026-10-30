@@ -10,3 +10,8 @@ SCOPE = "Provider-to-category mapping for GLOBAL ADULT INDUSTRY ECOSYSTEM; verif
 IMPLEMENTATION_STATUS = "CATALOG_ONLY"
 API_DOCUMENTATION_VERIFIED = False
 LIVE_CONNECTION_VERIFIED = False
+
+# Preserved metadata from the former non-API ecosystem module.
+PROVIDER_DISPLAY_NAME = "Fansly"
+OFFICIAL_WEBSITE = "https://fansly.com"
+BUSINESS_CATEGORY = "Creator subscriptions and paid-content platform"
