@@ -47,3 +47,7 @@ jobs:
       - name: Run Global World A-Z Tests
         run: |
           python -m unittest backend.tests.test_global_world_ecosystem -v
+
+      - name: Run Global Bada Business Tests
+        run: |
+          python -m unittest backend.tests.test_global_bada_business_ecosystem -v

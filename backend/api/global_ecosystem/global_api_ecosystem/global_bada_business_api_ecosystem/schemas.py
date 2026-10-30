@@ -10,4 +10,5 @@ class BusinessEcosystemStatus(BaseModel):
     module_count: int
     category_count: int
     adult_category_count: int
+    dimension_count: int
     timestamp: str
