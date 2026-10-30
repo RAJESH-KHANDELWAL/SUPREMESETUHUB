@@ -39,3 +39,7 @@ jobs:
             -s backend/tests \
             -p "test_global_ecosystem_api.py" \
             -v
+
+      - name: Run Global World A-Z Tests
+        run: |
+          python -m unittest backend.tests.test_global_world_ecosystem -v
