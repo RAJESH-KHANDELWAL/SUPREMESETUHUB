@@ -145,3 +145,9 @@ def get_taxonomy_integrity():
     if not result["success"]:
         raise HTTPException(status_code=500, detail=result)
     return result
+
+
+# Mount the India + Global Industry Ecosystems API under the existing Bada Business API.
+from .industry_ecosystems.routes import router as industry_ecosystems_router
+
+router.include_router(industry_ecosystems_router)
