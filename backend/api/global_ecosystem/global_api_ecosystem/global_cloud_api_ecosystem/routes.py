@@ -5,7 +5,7 @@ from fastapi import APIRouter, HTTPException, Query
 from .schemas import EcosystemStatus
 from .service import EcosystemService
 
-router = APIRouter(prefix="/api/v1/global-cloud", tags=["GLOBAL CLOUD API ECOSYSTEM"])
+router = APIRouter(prefix="/cloud", tags=["GLOBAL CLOUD API ECOSYSTEM"])
 service = EcosystemService()
 
 
