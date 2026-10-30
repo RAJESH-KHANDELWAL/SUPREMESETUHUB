@@ -1,6 +1,6 @@
 """Global Language API Ecosystem package.
 
-Provides a curated language/locale catalog and educational adult relationship
-and sexual-health language domains. Third-party translation adapters remain
-unconnected until their official API requirements are verified.
+Provides a language and locale catalog, a modular API registry, and educational
+adult-language domains. Provider-backed translation, detection, and speech
+operations remain unavailable until their engines are configured and verified.
 """

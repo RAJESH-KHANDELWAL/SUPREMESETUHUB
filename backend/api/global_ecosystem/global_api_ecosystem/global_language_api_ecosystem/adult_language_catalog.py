@@ -1,8 +1,7 @@
-"""Adult relationship, intimacy, consent, and sexual-health language support.
+"""Adult-language resources for consenting adults and educational contexts.
 
-The catalog is educational and non-graphic. It covers vocabulary and translation
-domains for consenting adults, healthcare, safety, and respectful communication.
-It is not an erotic-content generator or a medical diagnosis service.
+This catalog is non-graphic. It describes language domains and usage/register
+support; it is not an erotic-content generator or a medical diagnosis service.
 """
 from __future__ import annotations
 
@@ -21,19 +20,26 @@ ADULT_LANGUAGE_DOMAINS: tuple[dict[str, str], ...] = (
     {"id": "abuse_and_crisis_support", "name": "Abuse and crisis-support terminology", "scope": "Recognizing coercion, seeking support, safety planning vocabulary, and referral language"},
     {"id": "privacy_and_digital_safety", "name": "Privacy and digital safety", "scope": "Intimate-image consent, privacy settings, online boundaries, and reporting abuse"},
     {"id": "adult_education_content_translation", "name": "Adult education content translation", "scope": "Translation of lawful, educational materials intended for adults, subject to policy and local law"},
+    {"id": "adult_slang_and_mature_register", "name": "Adult slang and mature register", "scope": "Non-graphic explanation, translation, and context labels for mature informal expressions; age-appropriate handling required"},
+    {"id": "profanity_and_offensive_register", "name": "Profanity and offensive register", "scope": "Contextual identification and neutral explanation of profanity, insults, and offensive register; avoid targeted harassment and slur amplification"},
 )
 
 def list_adult_language_domains(query: str | None = None) -> list[dict[str, str]]:
     """Return educational adult-language domains, optionally filtered by name or description."""
     needle = (query or "").strip().casefold()
-    return [dict(item) for item in ADULT_LANGUAGE_DOMAINS if not needle or needle in item["id"].casefold() or needle in item["name"].casefold() or needle in item["scope"].casefold()]
+    return [
+        dict(item) for item in ADULT_LANGUAGE_DOMAINS
+        if not needle or needle in item["id"].casefold()
+        or needle in item["name"].casefold() or needle in item["scope"].casefold()
+    ]
 
 def get_adult_language_summary() -> dict[str, Any]:
     """Return the adult language-support scope and safety boundaries."""
     return {
         "domain_count": len(ADULT_LANGUAGE_DOMAINS),
         "languages_available": "use the Global Language catalog; translation coverage varies by provider",
-        "scope": "non-graphic education, consensual adult relationships, consent, reproductive and sexual health",
+        "scope": "non-graphic education, consensual adult relationships, consent, reproductive and sexual health, mature register, and profanity context",
         "provider_status": "CATALOG_ONLY",
         "medical_advice": "general educational information only; consult qualified health professionals for personal medical advice",
+        "content_boundary": "No explicit erotic generation, targeted harassment, or gratuitous slur amplification.",
     }
