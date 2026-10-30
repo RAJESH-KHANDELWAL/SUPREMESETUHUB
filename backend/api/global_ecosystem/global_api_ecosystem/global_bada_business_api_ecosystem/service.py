@@ -8,7 +8,7 @@ from .global_world_catalog import GLOBAL_WORLD_CATALOG
 class BusinessEcosystemService:
     ECOSYSTEM_ID = "global-bada-business"
     ECOSYSTEM_NAME = "GLOBAL BADA BUSINESS API ECOSYSTEM"
-    VERSION = "2.1.0"
+    VERSION = "2.2.0"
 
     MODULES = [
         {"id": "businesses", "name": "BUSINESSES", "description": "Business profiles and organisations across all sectors"},
@@ -131,3 +131,54 @@ class BusinessEcosystemService:
             if needle in searchable:
                 results.append(item)
         return results
+
+
+    def get_taxonomy_integrity(self):
+        """Return structural checks for the embedded business/world taxonomy."""
+        category_ids = {item["id"] for item in BUSINESS_CATEGORIES}
+        domain_ids = [item["id"] for item in GLOBAL_WORLD_CATALOG]
+        map_ids = [item["world_domain_id"] for item in GLOBAL_WORLD_BUSINESS_MAP]
+        broken_catalog_links = sorted({
+            category_id
+            for domain in GLOBAL_WORLD_CATALOG
+            for category_id in domain.get("business_category_ids", [])
+            if category_id not in category_ids
+        })
+        broken_map_links = sorted({
+            category_id
+            for domain in GLOBAL_WORLD_BUSINESS_MAP
+            for category_id in domain.get("business_category_ids", [])
+            if category_id not in category_ids
+        })
+        catalog_only_domains = sorted(set(domain_ids) - set(map_ids))
+        map_only_domains = sorted(set(map_ids) - set(domain_ids))
+        duplicate_catalog_ids = sorted({item for item in domain_ids if domain_ids.count(item) > 1})
+        duplicate_map_ids = sorted({item for item in map_ids if map_ids.count(item) > 1})
+        checks = {
+            "unique_business_category_ids": len(category_ids) == len(BUSINESS_CATEGORIES),
+            "unique_global_world_domain_ids": not duplicate_catalog_ids,
+            "unique_crosswalk_domain_ids": not duplicate_map_ids,
+            "catalog_category_links_valid": not broken_catalog_links,
+            "crosswalk_category_links_valid": not broken_map_links,
+            "catalog_and_crosswalk_domains_match": not catalog_only_domains and not map_only_domains,
+        }
+        return {
+            "success": all(checks.values()),
+            "ecosystem_id": self.ECOSYSTEM_ID,
+            "version": self.VERSION,
+            "counts": {
+                "business_categories": len(BUSINESS_CATEGORIES),
+                "global_world_domains": len(GLOBAL_WORLD_CATALOG),
+                "crosswalk_domains": len(GLOBAL_WORLD_BUSINESS_MAP),
+            },
+            "checks": checks,
+            "issues": {
+                "broken_catalog_category_ids": broken_catalog_links,
+                "broken_crosswalk_category_ids": broken_map_links,
+                "catalog_only_domain_ids": catalog_only_domains,
+                "crosswalk_only_domain_ids": map_only_domains,
+                "duplicate_catalog_domain_ids": duplicate_catalog_ids,
+                "duplicate_crosswalk_domain_ids": duplicate_map_ids,
+            },
+            "note": "Structural catalogue validation only; it does not verify provider existence, licensing, or jurisdictional legality.",
+        }
