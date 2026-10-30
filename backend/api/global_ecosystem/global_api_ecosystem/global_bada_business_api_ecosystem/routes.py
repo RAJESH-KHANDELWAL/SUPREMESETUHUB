@@ -110,3 +110,12 @@ def get_full_global_world_catalog_domain(
             detail={"error": "GLOBAL_WORLD_DOMAIN_NOT_FOUND", "domain_id": domain_id},
         )
     return {"success": True, "domain": domain}
+
+
+@router.get("/taxonomy/integrity")
+def get_taxonomy_integrity():
+    """Validate category references and Global World/crosswalk consistency."""
+    result = service.get_taxonomy_integrity()
+    if not result["success"]:
+        raise HTTPException(status_code=500, detail=result)
+    return result
