@@ -47,6 +47,7 @@ from backend.api.ai import router as ai_router
 from backend.api.global_ai_ecosystem import router as global_ai_ecosystem_router
 from backend.api.global_ecosystem.global_api_ecosystem.global_relationship_and_intimacy_ecosystem.routes import router as global_intimacy_ecosystem_router, relationship_router as global_relationship_and_intimacy_ecosystem_router
 from backend.api.global_api_ecosystem_routes import router as global_api_ecosystem_router
+from backend.api.global_ecosystem.global_api_ecosystem.global_people_life_api_ecosystem import router as global_people_life_api_router
 from backend.api.global_subsystem_ecosystem import router as global_subsystem_ecosystem_router
 from backend.api.global_business_ecosystem import router as global_business_ecosystem_router
 from backend.api.global_business_coach import router as global_business_coach_router
@@ -410,6 +411,7 @@ app.include_router(global_intimacy_ecosystem_router)
 app.include_router(global_relationship_and_intimacy_ecosystem_router)
 app.include_router(global_ai_ecosystem_router)
 app.include_router(global_api_ecosystem_router)
+app.include_router(global_people_life_api_router)
 app.include_router(global_subsystem_ecosystem_router)
 app.include_router(global_business_ecosystem_router)
 app.include_router(global_business_coach_router)
