@@ -1,7 +1,19 @@
-from .service import TechnologyService
-def test_catalog_and_search():
-    s = TechnologyService(); items = s.list_categories()
-    assert len(items) >= 10 and len({x["id"] for x in items}) == len(items)
-    assert s.list_categories(items[0]["id"])
-    assert s.get_category(items[0]["id"])["id"] == items[0]["id"]
-def test_status(): assert TechnologyService().get_status()["status"] == "taxonomy_scaffold"
+"""Unit tests for technology_it_telecommunications taxonomy service."""
+import unittest
+from technology_it_telecommunications.service import TechnologyService
+
+class TechnologyServiceTests(unittest.TestCase):
+    def setUp(self): self.service = TechnologyService()
+    def test_catalog_and_unique_ids(self):
+        items = self.service.list_categories()
+        self.assertGreaterEqual(len(items), 10)
+        self.assertEqual(len({item["id"] for item in items}), len(items))
+    def test_search_and_detail(self):
+        first = self.service.list_categories()[0]
+        self.assertTrue(self.service.list_categories(query=first["id"]))
+        self.assertEqual(self.service.get_category(first["id"])["id"], first["id"])
+        self.assertIsNone(self.service.get_category("not_a_real_category"))
+    def test_status(self):
+        self.assertEqual(self.service.get_status()["status"], "taxonomy_scaffold")
+
+if __name__ == "__main__": unittest.main()
