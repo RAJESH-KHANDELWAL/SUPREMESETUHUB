@@ -2,7 +2,6 @@ from fastapi import APIRouter, HTTPException, Query
 
 from .schemas import BusinessEcosystemStatus
 from .service import BusinessEcosystemService
-from .people_life_routes import people_life_router
 
 
 router = APIRouter(
@@ -11,7 +10,6 @@ router = APIRouter(
 )
 
 service = BusinessEcosystemService()
-router.include_router(people_life_router)
 
 
 @router.get("/status", response_model=BusinessEcosystemStatus)
