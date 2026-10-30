@@ -59,3 +59,24 @@ def get_business_category(
             detail={"error": "BUSINESS_CATEGORY_NOT_FOUND", "category_id": category_id},
         )
     return {"success": True, "category": category}
+
+
+@router.get("/world-map")
+def list_global_world_business_map(
+    include_adult: bool = Query(default=False, description="Include separately classified 18+ domain references; this is not age verification"),
+):
+    return service.list_global_world_map(include_adult=include_adult)
+
+
+@router.get("/world-map/{domain_id}")
+def get_global_world_business_domain(
+    domain_id: str,
+    include_adult: bool = Query(default=False),
+):
+    domain = service.get_global_world_domain(domain_id, include_adult=include_adult)
+    if domain is None:
+        raise HTTPException(
+            status_code=404,
+            detail={"error": "GLOBAL_WORLD_DOMAIN_NOT_FOUND", "domain_id": domain_id},
+        )
+    return {"success": True, "domain": domain}
