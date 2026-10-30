@@ -112,6 +112,32 @@ def get_full_global_world_catalog_domain(
     return {"success": True, "domain": domain}
 
 
+
+@router.get("/work-business/facets")
+def get_work_business_facets():
+    from .sectors import get_sector_facets
+    return {"success": True, "facets": get_sector_facets()}
+
+
+@router.get("/work-business")
+def list_work_business(
+    channel: str | None = Query(default=None, pattern="^(online|offline|hybrid)$"),
+    include_adult: bool = Query(default=False, description="Include separately classified 18+ business sectors; this is not age verification"),
+):
+    try:
+        return service.list_work_business(channel, include_adult)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc))
+
+
+@router.get("/work-business/{sector_id}")
+def get_work_business_sector(sector_id: str, include_adult: bool = Query(default=False)):
+    sector = service.get_work_business_sector(sector_id, include_adult)
+    if sector is None:
+        raise HTTPException(status_code=404, detail={"error": "BUSINESS_SECTOR_NOT_FOUND", "sector_id": sector_id})
+    return {"success": True, "sector": sector}
+
+
 @router.get("/taxonomy/integrity")
 def get_taxonomy_integrity():
     """Validate category references and Global World/crosswalk consistency."""

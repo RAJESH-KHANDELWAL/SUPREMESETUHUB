@@ -3,6 +3,7 @@ from datetime import datetime, timezone
 from .business_catalog import BUSINESS_CATEGORIES
 from .global_world_business_map import GLOBAL_WORLD_BUSINESS_MAP
 from .global_world_catalog import GLOBAL_WORLD_CATALOG
+from .sectors import get_sector, get_sector_facets, list_sectors
 
 
 class BusinessEcosystemService:
@@ -132,6 +133,22 @@ class BusinessEcosystemService:
                 results.append(item)
         return results
 
+
+
+    def list_work_business(self, channel=None, include_adult=False):
+        sectors = list_sectors(channel=channel, include_adult=include_adult)
+        return {
+            "success": True, "ecosystem_id": self.ECOSYSTEM_ID, "count": len(sectors),
+            "filters": {"delivery_mode": channel, "include_adult": include_adult},
+            "facets": get_sector_facets(), "sectors": sectors, "classification": "taxonomy_only",
+            "note": "Offline, online and hybrid work/business taxonomy. Work-mode, business-size, maturity, geography and audience values are discovery facets, not verified sector-specific availability. This is not a vacancy or live-provider feed.",
+        }
+
+    def get_work_business_sector(self, sector_id, include_adult=False):
+        sector = get_sector(sector_id)
+        if sector is None or (sector.get("adult_only") and not include_adult):
+            return None
+        return sector
 
     def get_taxonomy_integrity(self):
         """Return structural checks for the embedded business/world taxonomy."""
