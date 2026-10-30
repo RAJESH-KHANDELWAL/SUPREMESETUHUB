@@ -29,3 +29,9 @@ def get_industry(
     if item is None:
         raise HTTPException(status_code=404, detail={"error": "INDUSTRY_ECOSYSTEM_NOT_FOUND", "industry_id": industry_id})
     return {"success": True, "industry": item}
+
+
+# Domain-specific industry APIs
+from .agriculture_food_natural_resources.routes import router as agriculture_food_router
+
+router.include_router(agriculture_food_router)
