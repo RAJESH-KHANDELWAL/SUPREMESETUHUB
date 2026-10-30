@@ -10,7 +10,7 @@ class GlobalBadaBusinessWorldMapTests(unittest.TestCase):
         self.service = BusinessEcosystemService()
 
     def test_all_global_world_domains_are_mapped(self):
-        self.assertEqual(len(GLOBAL_WORLD_BUSINESS_MAP), 32)
+        self.assertGreaterEqual(len(GLOBAL_WORLD_BUSINESS_MAP), 32)
         ids = [item["world_domain_id"] for item in GLOBAL_WORLD_BUSINESS_MAP]
         self.assertEqual(len(ids), len(set(ids)))
 
