@@ -1,4 +1,4 @@
-from . import registry
+from .. import registry
 
 def test_registry_ids_are_unique():
     ids = [item["id"] for item in registry.CLASSIFICATIONS]
