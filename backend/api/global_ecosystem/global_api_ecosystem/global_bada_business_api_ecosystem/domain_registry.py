@@ -1,16 +1,16 @@
 """Central India and Global work/business domain registry."""
-from .work_careers_employment import DOMAIN_ID as WORK_ID, DOMAIN_NAME as WORK_NAME, SUBCATEGORY_IDS as WORK_SUBS
-from .freelance_gig_independent_work import DOMAIN_ID as FREELANCE_ID, DOMAIN_NAME as FREELANCE_NAME, SUBCATEGORY_IDS as FREELANCE_SUBS
-from .students_education_skills import DOMAIN_ID as STUDENTS_ID, DOMAIN_NAME as STUDENTS_NAME, SUBCATEGORY_IDS as STUDENTS_SUBS
-from .business_companies_trade import DOMAIN_ID as BUSINESS_ID, DOMAIN_NAME as BUSINESS_NAME, SUBCATEGORY_IDS as BUSINESS_SUBS
-from .entrepreneurship_startups import DOMAIN_ID as STARTUP_ID, DOMAIN_NAME as STARTUP_NAME, SUBCATEGORY_IDS as STARTUP_SUBS
-from .home_homemaker_care_economy import DOMAIN_ID as HOME_ID, DOMAIN_NAME as HOME_NAME, SUBCATEGORY_IDS as HOME_SUBS
-from .industries_professional_services import DOMAIN_ID as INDUSTRY_ID, DOMAIN_NAME as INDUSTRY_NAME, SUBCATEGORY_IDS as INDUSTRY_SUBS
-from .family_relationships_community import DOMAIN_ID as FAMILY_ID, DOMAIN_NAME as FAMILY_NAME, SUBCATEGORY_IDS as FAMILY_SUBS
-from .adult_18_plus_lawful_industry import DOMAIN_ID as ADULT_ID, DOMAIN_NAME as ADULT_NAME, SUBCATEGORY_IDS as ADULT_SUBS
-from .services_platforms_integrations import DOMAIN_ID as PLATFORM_ID, DOMAIN_NAME as PLATFORM_NAME, SUBCATEGORY_IDS as PLATFORM_SUBS
-from .investment_finance_support import DOMAIN_ID as FINANCE_ID, DOMAIN_NAME as FINANCE_NAME, SUBCATEGORY_IDS as FINANCE_SUBS
-from .public_nonprofit_social_impact import DOMAIN_ID as PUBLIC_ID, DOMAIN_NAME as PUBLIC_NAME, SUBCATEGORY_IDS as PUBLIC_SUBS
+from .work_careers_employment_business_api_ecosystem import DOMAIN_ID as WORK_ID, DOMAIN_NAME as WORK_NAME, SUBCATEGORY_IDS as WORK_SUBS
+from .freelance_gig_independent_work_business_api_ecosystem import DOMAIN_ID as FREELANCE_ID, DOMAIN_NAME as FREELANCE_NAME, SUBCATEGORY_IDS as FREELANCE_SUBS
+from .students_education_skills_business_api_ecosystem import DOMAIN_ID as STUDENTS_ID, DOMAIN_NAME as STUDENTS_NAME, SUBCATEGORY_IDS as STUDENTS_SUBS
+from .business_companies_trade_business_api_ecosystem import DOMAIN_ID as BUSINESS_ID, DOMAIN_NAME as BUSINESS_NAME, SUBCATEGORY_IDS as BUSINESS_SUBS
+from .entrepreneurship_startups_business_api_ecosystem import DOMAIN_ID as STARTUP_ID, DOMAIN_NAME as STARTUP_NAME, SUBCATEGORY_IDS as STARTUP_SUBS
+from .home_homemaker_care_economy_business_api_ecosystem import DOMAIN_ID as HOME_ID, DOMAIN_NAME as HOME_NAME, SUBCATEGORY_IDS as HOME_SUBS
+from .industries_professional_services_business_api_ecosystem import DOMAIN_ID as INDUSTRY_ID, DOMAIN_NAME as INDUSTRY_NAME, SUBCATEGORY_IDS as INDUSTRY_SUBS
+from .family_relationships_community_business_api_ecosystem import DOMAIN_ID as FAMILY_ID, DOMAIN_NAME as FAMILY_NAME, SUBCATEGORY_IDS as FAMILY_SUBS
+from .adult_18_plus_lawful_industry_business_api_ecosystem import DOMAIN_ID as ADULT_ID, DOMAIN_NAME as ADULT_NAME, SUBCATEGORY_IDS as ADULT_SUBS
+from .services_platforms_integrations_business_api_ecosystem import DOMAIN_ID as PLATFORM_ID, DOMAIN_NAME as PLATFORM_NAME, SUBCATEGORY_IDS as PLATFORM_SUBS
+from .investment_finance_support_business_api_ecosystem import DOMAIN_ID as FINANCE_ID, DOMAIN_NAME as FINANCE_NAME, SUBCATEGORY_IDS as FINANCE_SUBS
+from .public_nonprofit_social_impact_business_api_ecosystem import DOMAIN_ID as PUBLIC_ID, DOMAIN_NAME as PUBLIC_NAME, SUBCATEGORY_IDS as PUBLIC_SUBS
 
 _DOMAIN_DEFINITIONS = (
     (WORK_ID, WORK_NAME, WORK_SUBS, False),
