@@ -36,6 +36,11 @@ INDUSTRY_ECOSYSTEMS = (
     {"id": "security_defence_safety_services", "name": "Security, Defence & Safety Services", "package": "security_defence_safety_services", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
     {"id": "science_research_innovation", "name": "Science, Research & Innovation", "package": "science_research_innovation", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
     {"id": "mining_metals_minerals", "name": "Mining, Metals & Minerals", "package": "mining_metals_minerals", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
+    {"id": "digital_infrastructure_telecommunications", "name": "Telecommunications, Internet & Digital Infrastructure", "package": "digital_infrastructure_telecommunications", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
+    {"id": "aviation_aerospace_space_technology", "name": "Aviation, Aerospace & Space Technology", "package": "aviation_aerospace_space_technology", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
+    {"id": "water_resources_marine_industries", "name": "Water Resources & Marine Industries", "package": "water_resources_marine_industries", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
+    {"id": "fashion_textiles_apparel", "name": "Fashion, Textiles & Apparel", "package": "fashion_textiles_apparel", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
+    {"id": "supply_chain_warehousing_distribution", "name": "Supply Chain, Warehousing & Distribution", "package": "supply_chain_warehousing_distribution", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
 )
 
 def list_industry_ecosystems(*, include_adult: bool = False) -> list[dict[str, object]]:
