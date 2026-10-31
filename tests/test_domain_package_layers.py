@@ -20,7 +20,7 @@ class DomainPackageLayerTests(unittest.TestCase):
 
     def test_catalogue_counts_match_central_registry(self):
         for domain in DOMAIN_REGISTRY:
-            package = f"{PACKAGE_ROOT}.{domain['id']}"
+            package = f"{PACKAGE_ROOT}.{domain['id']}_business_api_ecosystem"
             catalog = importlib.import_module(f"{package}.catalog")
             if domain["adult_only"]:
                 self.assertEqual(catalog.list_categories(), [])
