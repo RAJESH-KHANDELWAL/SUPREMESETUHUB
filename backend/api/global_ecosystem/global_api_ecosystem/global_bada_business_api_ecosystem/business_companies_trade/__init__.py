@@ -1,8 +1,8 @@
 """Businesses, Companies & Trade domain package; classification only, not verified live listings."""
 DOMAIN_ID = "business_companies_trade"
 DOMAIN_NAME = "Businesses, Companies & Trade"
-ADULT_RESTRICTED = false
-DEFAULT_DISCOVERY_ENABLED = true
+ADULT_RESTRICTED = False
+DEFAULT_DISCOVERY_ENABLED = True
 SUBCATEGORY_IDS: tuple[str, ...] = (
     "sole_proprietorship",
     "partnership",
