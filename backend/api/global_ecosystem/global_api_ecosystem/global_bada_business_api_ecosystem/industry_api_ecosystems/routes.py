@@ -71,3 +71,6 @@ router.include_router(professional_services_router)
 router.include_router(public_impact_router)
 router.include_router(automotive_mobility_router)
 router.include_router(personal_wellness_router)
+
+from .sports_recreation_community.routes import router as sports_community_router
+router.include_router(sports_community_router)
