@@ -1,8 +1,8 @@
 """Freelancing, Gig & Independent Work domain package; classification only, not verified live listings."""
 DOMAIN_ID = "freelance_gig_independent_work"
 DOMAIN_NAME = "Freelancing, Gig & Independent Work"
-ADULT_RESTRICTED = false
-DEFAULT_DISCOVERY_ENABLED = true
+ADULT_RESTRICTED = False
+DEFAULT_DISCOVERY_ENABLED = True
 SUBCATEGORY_IDS: tuple[str, ...] = (
     "writing_editing",
     "translation_localization",
