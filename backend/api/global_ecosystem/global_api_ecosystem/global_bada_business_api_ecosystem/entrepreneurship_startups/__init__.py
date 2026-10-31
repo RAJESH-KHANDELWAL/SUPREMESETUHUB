@@ -1,8 +1,8 @@
 """Entrepreneurship, Startups & Innovation domain package; classification only, not verified live listings."""
 DOMAIN_ID = "entrepreneurship_startups"
 DOMAIN_NAME = "Entrepreneurship, Startups & Innovation"
-ADULT_RESTRICTED = false
-DEFAULT_DISCOVERY_ENABLED = true
+ADULT_RESTRICTED = False
+DEFAULT_DISCOVERY_ENABLED = True
 SUBCATEGORY_IDS: tuple[str, ...] = (
     "business_ideas",
     "business_planning",
