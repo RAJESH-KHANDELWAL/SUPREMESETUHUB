@@ -1,8 +1,8 @@
 """Adult 18+ & Sexual Wellness Industry domain package; classification only, not verified live listings."""
 DOMAIN_ID = "adult_18_plus_lawful_industry"
 DOMAIN_NAME = "Adult 18+ & Sexual Wellness Industry"
-ADULT_RESTRICTED = true
-DEFAULT_DISCOVERY_ENABLED = false
+ADULT_RESTRICTED = True
+DEFAULT_DISCOVERY_ENABLED = False
 SUBCATEGORY_IDS: tuple[str, ...] = (
     "sexual_wellness_education",
     "adult_health_information",
