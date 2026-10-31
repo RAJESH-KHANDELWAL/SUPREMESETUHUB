@@ -3,6 +3,13 @@ from fastapi import APIRouter, HTTPException, Query
 from .schemas import BusinessEcosystemStatus
 from .service import BusinessEcosystemService
 
+from .universal_scope_registry import (
+    get_domain as get_universal_domain,
+    list_domains as list_universal_domains,
+    search_subcategories as search_universal_subcategories,
+    validate_registry as validate_universal_registry,
+)
+
 
 router = APIRouter(
     prefix="/api/v1/global-ecosystem/business",
@@ -145,6 +152,39 @@ def get_taxonomy_integrity():
     if not result["success"]:
         raise HTTPException(status_code=500, detail=result)
     return result
+
+
+@router.get("/universal/domains")
+def list_universal_work_business_domains(
+    include_adult: bool = Query(default=False, description="Include separately restricted 18+ taxonomy; this flag is not age verification"),
+):
+    domains = list_universal_domains(include_adult=include_adult)
+    return {"success": True, "count": len(domains), "registry_status": "taxonomy_catalog_only", "domains": domains}
+
+
+@router.get("/universal/domains/{domain_id}")
+def get_universal_work_business_domain(
+    domain_id: str,
+    include_adult: bool = Query(default=False),
+):
+    domain = get_universal_domain(domain_id, include_adult=include_adult)
+    if domain is None:
+        raise HTTPException(status_code=404, detail={"error": "UNIVERSAL_DOMAIN_NOT_FOUND", "domain_id": domain_id})
+    return {"success": True, "domain": domain}
+
+
+@router.get("/universal/search")
+def search_universal_work_business_taxonomy(
+    q: str = Query(min_length=1, max_length=100),
+    include_adult: bool = Query(default=False),
+):
+    results = search_universal_subcategories(q, include_adult=include_adult)
+    return {"success": True, "count": len(results), "results": results}
+
+
+@router.get("/universal/integrity")
+def get_universal_work_business_integrity():
+    return {"success": True, **validate_universal_registry()}
 
 
 # Mount the India + Global Industry Ecosystems API under the existing Bada Business API.
