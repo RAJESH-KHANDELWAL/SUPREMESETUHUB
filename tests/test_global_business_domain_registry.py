@@ -28,6 +28,13 @@ class GlobalBusinessDomainRegistryTests(unittest.TestCase):
         matches = search_domains("web_development")
         self.assertTrue(any(item["domain_id"] == "freelance_gig_independent_work" for item in matches))
 
+    def test_ecosystem_status_reports_domain_package_metrics(self):
+        from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.service import BusinessEcosystemService
+        status = BusinessEcosystemService().get_status()
+        self.assertEqual(status["domain_package_count"], 12)
+        self.assertEqual(status["domain_subcategory_count"], 248)
+        self.assertEqual(status["domain_registry_status"], "taxonomy_only")
+
     def test_api_routes_are_registered(self):
         from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.routes import router
         paths = {route.path for route in router.routes}
