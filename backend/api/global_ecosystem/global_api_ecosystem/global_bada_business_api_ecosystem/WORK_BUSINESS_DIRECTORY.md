@@ -33,3 +33,14 @@ This document defines the direct-root domain package plan for this existing dire
 
 ## Architecture rules
 These are taxonomy packages, not live listings. Taxonomy membership does not verify a business, employer, job, professional licence, vendor or API connection. India + Global are intended coverage scopes, not a claim of exhaustive country coverage. Do not store personal or sensitive records in taxonomy files. Keep domain IDs synchronized with `global_world_catalog.py`, validate crosswalks and duplicate IDs, add tests, source provenance, jurisdiction and freshness metadata, moderation, authentication, authorization and audit logging before production. Do not merge this branch without explicit approval.
+
+## Functional registry and API surface
+- `domain_registry.py` is the central runtime registry assembled from the 12 domain packages.
+- `service.py` exposes domain list, detail, search and integrity operations.
+- `routes.py` exposes `GET /api/v1/global-ecosystem/business/domains`, `GET /domains/search?q=...`, `GET /domains/{domain_id}` and `GET /domains/integrity` under the existing router prefix.
+- The ecosystem status response reports domain package count, subcategory count and the `taxonomy_only` registry status.
+- Every domain package provides `subcategories.py` as a stable subcategory accessor.
+- `tests/test_global_business_domain_registry.py` validates package counts, unique IDs, adult default exclusion, search, status metrics and route registration.
+
+## Current non-goals
+No job board ingestion, employer identity verification, business registration lookup, payment execution, user account storage, live provider API credentials or production integrations are implemented by this taxonomy layer. These require separate source integrations, security design, vendor authorization, legal review and operational monitoring.
