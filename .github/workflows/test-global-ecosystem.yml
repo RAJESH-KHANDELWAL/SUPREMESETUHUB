@@ -59,3 +59,7 @@ jobs:
       - name: Run India and Global Domain Registry Tests
         run: |
           python -m unittest discover -s tests -p "test_global_business_domain_registry.py" -v
+
+      - name: Run Domain Package Layer Tests
+        run: |
+          python -m unittest discover -s tests -p "test_domain_package_layers.py" -v
