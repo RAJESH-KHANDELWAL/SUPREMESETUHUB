@@ -1,8 +1,8 @@
 """Public Sector, Nonprofits & Social Impact domain package; classification only, not verified live listings."""
 DOMAIN_ID = "public_nonprofit_social_impact"
 DOMAIN_NAME = "Public Sector, Nonprofits & Social Impact"
-ADULT_RESTRICTED = false
-DEFAULT_DISCOVERY_ENABLED = true
+ADULT_RESTRICTED = False
+DEFAULT_DISCOVERY_ENABLED = True
 SUBCATEGORY_IDS: tuple[str, ...] = (
     "government_departments",
     "public_services",
