@@ -37,7 +37,7 @@ class GlobalBusinessDomainRegistryTests(unittest.TestCase):
 
     def test_api_routes_are_registered(self):
         from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.routes import router
-        paths = {route.path for route in router.routes}
+        paths = {getattr(route, "path", None) for route in router.routes}
         self.assertIn("/api/v1/global-ecosystem/business/domains", paths)
         self.assertIn("/api/v1/global-ecosystem/business/domains/search", paths)
         self.assertIn("/api/v1/global-ecosystem/business/domains/integrity", paths)
