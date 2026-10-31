@@ -9,7 +9,7 @@ PACKAGE_ROOT = "backend.api.global_ecosystem.global_api_ecosystem.global_bada_bu
 class DomainPackageLayerTests(unittest.TestCase):
     def test_all_twelve_domains_have_catalogue_model_and_service_layers(self):
         for domain in DOMAIN_REGISTRY:
-            package = f"{PACKAGE_ROOT}.{domain['id']}"
+            package = f"{PACKAGE_ROOT}.{domain['id']}_business_api_ecosystem"
             catalog = importlib.import_module(f"{package}.catalog")
             models = importlib.import_module(f"{package}.models")
             service_module = importlib.import_module(f"{package}.service")
@@ -29,7 +29,7 @@ class DomainPackageLayerTests(unittest.TestCase):
                 self.assertEqual(len(catalog.list_categories()), domain["subcategory_count"])
 
     def test_domain_service_exposes_status_and_category_search(self):
-        package = f"{PACKAGE_ROOT}.freelance_gig_independent_work.service"
+        package = f"{PACKAGE_ROOT}.freelance_gig_independent_work_business_api_ecosystem.service"
         service = importlib.import_module(package).DomainService()
         self.assertEqual(service.get_status()["domain_id"], "freelance_gig_independent_work")
         self.assertTrue(service.search("web_development"))
