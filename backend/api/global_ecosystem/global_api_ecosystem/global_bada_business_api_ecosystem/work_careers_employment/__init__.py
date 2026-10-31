@@ -1,8 +1,8 @@
 """Work, Jobs & Careers domain package; classification only, not verified live listings."""
 DOMAIN_ID = "work_careers_employment"
 DOMAIN_NAME = "Work, Jobs & Careers"
-ADULT_RESTRICTED = false
-DEFAULT_DISCOVERY_ENABLED = true
+ADULT_RESTRICTED = False
+DEFAULT_DISCOVERY_ENABLED = True
 SUBCATEGORY_IDS: tuple[str, ...] = (
     "government_jobs",
     "private_sector_jobs",
