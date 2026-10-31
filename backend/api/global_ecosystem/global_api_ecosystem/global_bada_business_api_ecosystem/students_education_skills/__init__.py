@@ -1,8 +1,8 @@
 """Students, Education & Skills domain package; classification only, not verified live listings."""
 DOMAIN_ID = "students_education_skills"
 DOMAIN_NAME = "Students, Education & Skills"
-ADULT_RESTRICTED = false
-DEFAULT_DISCOVERY_ENABLED = true
+ADULT_RESTRICTED = False
+DEFAULT_DISCOVERY_ENABLED = True
 SUBCATEGORY_IDS: tuple[str, ...] = (
     "school_education",
     "higher_education",
