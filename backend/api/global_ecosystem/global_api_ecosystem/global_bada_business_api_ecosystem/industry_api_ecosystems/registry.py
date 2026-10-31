@@ -32,6 +32,10 @@ INDUSTRY_ECOSYSTEMS = (
     {"id": "government_public_services_social_impact", "name": "Government, Public Services & Social Impact", "package": "government_public_services_social_impact", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
     {"id": "automotive_mobility", "name": "Automotive & Mobility", "package": "automotive_mobility", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
     {"id": "personal_lifestyle_wellness", "name": "Personal, Lifestyle & Wellness Services", "package": "personal_lifestyle_wellness", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
+    {"id": "food_hospitality_restaurants", "name": "Food Services, Restaurants & Hospitality", "package": "food_hospitality_restaurants", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
+    {"id": "security_defence_safety_services", "name": "Security, Defence & Safety Services", "package": "security_defence_safety_services", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
+    {"id": "science_research_innovation", "name": "Science, Research & Innovation", "package": "science_research_innovation", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
+    {"id": "mining_metals_minerals", "name": "Mining, Metals & Minerals", "package": "mining_metals_minerals", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
 )
 
 def list_industry_ecosystems(*, include_adult: bool = False) -> list[dict[str, object]]:
