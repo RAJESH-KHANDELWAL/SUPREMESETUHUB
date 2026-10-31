@@ -10,4 +10,8 @@ class BusinessEcosystemStatus(BaseModel):
     module_count: int
     category_count: int
     adult_category_count: int
+    global_world_domain_count: int
+    domain_package_count: int
+    domain_subcategory_count: int
+    domain_registry_status: str
     timestamp: str
