@@ -1,8 +1,8 @@
 """Individuals, Couples, Family & Community domain package; classification only, not verified live listings."""
 DOMAIN_ID = "family_relationships_community"
 DOMAIN_NAME = "Individuals, Couples, Family & Community"
-ADULT_RESTRICTED = false
-DEFAULT_DISCOVERY_ENABLED = true
+ADULT_RESTRICTED = False
+DEFAULT_DISCOVERY_ENABLED = True
 SUBCATEGORY_IDS: tuple[str, ...] = (
     "personal_development",
     "relationship_education",
