@@ -1,8 +1,8 @@
 """Finance, Investment & Business Support domain package; classification only, not verified live listings."""
 DOMAIN_ID = "investment_finance_support"
 DOMAIN_NAME = "Finance, Investment & Business Support"
-ADULT_RESTRICTED = false
-DEFAULT_DISCOVERY_ENABLED = true
+ADULT_RESTRICTED = False
+DEFAULT_DISCOVERY_ENABLED = True
 SUBCATEGORY_IDS: tuple[str, ...] = (
     "personal_finance_education",
     "business_finance",
