@@ -25,6 +25,7 @@ class BusinessEcosystemService:
     ]
 
     def get_status(self):
+        from .domain_registry import DOMAIN_REGISTRY
         return {
             "success": True,
             "ecosystem_id": self.ECOSYSTEM_ID,
@@ -34,6 +35,9 @@ class BusinessEcosystemService:
             "module_count": len(self.MODULES),
             "category_count": len(BUSINESS_CATEGORIES),
             "global_world_domain_count": len(GLOBAL_WORLD_CATALOG),
+            "domain_package_count": len(DOMAIN_REGISTRY),
+            "domain_subcategory_count": sum(item["subcategory_count"] for item in DOMAIN_REGISTRY),
+            "domain_registry_status": "taxonomy_only",
             "adult_category_count": sum(1 for item in BUSINESS_CATEGORIES if item.get("adult_only")),
             "timestamp": datetime.now(timezone.utc).isoformat(),
         }
@@ -199,3 +203,26 @@ class BusinessEcosystemService:
             },
             "note": "Structural catalogue validation only; it does not verify provider existence, licensing, or jurisdictional legality.",
         }
+
+    def list_domains(self, include_adult: bool = False):
+        from .domain_registry import list_domains
+        domains = list_domains(include_adult=include_adult)
+        return {
+            "success": True,
+            "ecosystem_id": self.ECOSYSTEM_ID,
+            "count": len(domains),
+            "registry_status": "taxonomy_only",
+            "domains": domains,
+        }
+
+    def get_domain(self, domain_id: str, include_adult: bool = False):
+        from .domain_registry import get_domain
+        return get_domain(domain_id, include_adult=include_adult)
+
+    def search_domains(self, query: str, include_adult: bool = False):
+        from .domain_registry import search_domains
+        return search_domains(query, include_adult=include_adult)
+
+    def get_domain_registry_integrity(self):
+        from .domain_registry import validate_domain_registry
+        return validate_domain_registry()

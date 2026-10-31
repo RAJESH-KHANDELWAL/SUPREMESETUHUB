@@ -5,7 +5,7 @@ Taxonomy only: this is not a directory of verified employers or live vacancies.
 from ..business_catalog import BUSINESS_CATEGORIES
 
 DELIVERY_MODES = ("offline", "online", "hybrid")
-WORK_MODES = ("employee", "freelance", "gig", "contract", "internship", "apprenticeship", "self_employed", "business_owner", "volunteer")
+WORK_MODES = ("employee", "freelance", "gig", "contract", "temporary", "internship", "apprenticeship", "self_employed", "business_owner", "volunteer", "seasonal", "project_based", "remote", "on_site")
 BUSINESS_SIZES = ("individual", "home_based", "micro", "small", "medium", "large", "enterprise", "multinational")
 MATURITY_LEVELS = ("traditional", "established", "emerging", "future")
 GEOGRAPHY_LEVELS = ("global", "country", "state_or_province", "city", "district", "neighbourhood", "rural_locality")

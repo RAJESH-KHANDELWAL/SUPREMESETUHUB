@@ -4,5 +4,5 @@ INDUSTRY_NAME = "Finance, Banking & Insurance"
 COVERAGE = ("india", "global")
 CHANNELS = ("online", "offline", "hybrid")
 STATUS = "taxonomy_scaffold"
-from .service import FinanceServiceService
-__all__ = ["INDUSTRY_ID", "INDUSTRY_NAME", "COVERAGE", "CHANNELS", "STATUS", "FinanceServiceService"]
+from .service import FinanceService
+__all__ = ["INDUSTRY_ID", "INDUSTRY_NAME", "COVERAGE", "CHANNELS", "STATUS", "FinanceService"]
