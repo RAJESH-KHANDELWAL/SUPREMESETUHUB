@@ -1,8 +1,8 @@
 """Industries & Professional Services domain package; classification only, not verified live listings."""
 DOMAIN_ID = "industries_professional_services"
 DOMAIN_NAME = "Industries & Professional Services"
-ADULT_RESTRICTED = false
-DEFAULT_DISCOVERY_ENABLED = true
+ADULT_RESTRICTED = False
+DEFAULT_DISCOVERY_ENABLED = True
 SUBCATEGORY_IDS: tuple[str, ...] = (
     "agriculture_forestry_fisheries",
     "mining_metals_minerals",
