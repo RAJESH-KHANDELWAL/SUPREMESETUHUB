@@ -36,4 +36,4 @@ def list_country_systems():
 
 def validate_classification_registry():
     ids = [item["id"] for item in CLASSIFICATIONS]
-    return {"registry_status": "metadata_registry", "classification_count": len(ids), "duplicate_ids": sorted({value for value in ids if ids.count(value) > 1}), "country_system_count": len(COUNTRY_SYSTEMS), "dataset_ingested_count": sum("dataset_not_yet_ingested" not in item["status"] for item in CLASSIFICATIONS), "nic_2025_dataset_ingested": False, "crosswalks_loaded": False, "structurally_valid": len(ids) == len(set(ids))}
+    return {"registry_status": "metadata_registry", "classification_count": len(ids), "duplicate_ids": sorted({value for value in ids if ids.count(value) > 1}), "country_system_count": len(COUNTRY_SYSTEMS), "dataset_ingested_count": sum(item["status"] == "dataset_ingested_validated" for item in CLASSIFICATIONS), "nic_2025_dataset_ingested": False, "crosswalks_loaded": False, "structurally_valid": len(ids) == len(set(ids))}
