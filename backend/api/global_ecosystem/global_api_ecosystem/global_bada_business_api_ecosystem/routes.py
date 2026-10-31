@@ -227,3 +227,8 @@ def get_domain_package(
     if domain is None:
         raise HTTPException(status_code=404, detail={"error": "DOMAIN_PACKAGE_NOT_FOUND", "domain_id": domain_id})
     return {"success": True, "domain": domain}
+
+
+# Mount versioned national and international economic-activity classification standards.
+from .classification_standards_business_api_ecosystem.routes import router as classification_standards_router
+router.include_router(classification_standards_router)
