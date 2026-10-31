@@ -3,7 +3,7 @@ from fastapi import APIRouter, HTTPException, Query
 from .schemas import BusinessEcosystemStatus
 from .service import BusinessEcosystemService
 
-from .universal_scope_registry import (
+from .global_world_catalog import (
     get_domain as get_universal_domain,
     list_domains as list_universal_domains,
     search_subcategories as search_universal_subcategories,
