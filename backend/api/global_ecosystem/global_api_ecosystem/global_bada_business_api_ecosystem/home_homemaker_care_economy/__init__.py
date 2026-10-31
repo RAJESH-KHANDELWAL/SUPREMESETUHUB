@@ -1,8 +1,8 @@
 """Home-Based Work, Homemakers & Care Economy domain package; classification only, not verified live listings."""
 DOMAIN_ID = "home_homemaker_care_economy"
 DOMAIN_NAME = "Home-Based Work, Homemakers & Care Economy"
-ADULT_RESTRICTED = false
-DEFAULT_DISCOVERY_ENABLED = true
+ADULT_RESTRICTED = False
+DEFAULT_DISCOVERY_ENABLED = True
 SUBCATEGORY_IDS: tuple[str, ...] = (
     "home_based_enterprise",
     "home_food_business",
