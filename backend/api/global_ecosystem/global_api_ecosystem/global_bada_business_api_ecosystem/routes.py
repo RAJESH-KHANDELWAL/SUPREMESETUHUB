@@ -191,3 +191,39 @@ def get_universal_work_business_integrity():
 from .industry_api_ecosystems.routes import router as industry_api_ecosystems_router
 
 router.include_router(industry_api_ecosystems_router)
+
+@router.get("/domains")
+def list_domain_packages(
+    include_adult: bool = Query(default=False, description="Include restricted 18+ taxonomy; this flag is not age verification"),
+):
+    """List the direct-root India + Global domain packages."""
+    return service.list_domains(include_adult=include_adult)
+
+
+@router.get("/domains/search")
+def search_domain_packages(
+    q: str = Query(min_length=1, max_length=100),
+    include_adult: bool = Query(default=False),
+):
+    results = service.search_domains(q, include_adult=include_adult)
+    return {"success": True, "count": len(results), "results": results}
+
+
+@router.get("/domains/integrity")
+def get_domain_package_integrity():
+    """Validate domain package IDs, subcategories and adult default exclusion."""
+    result = service.get_domain_registry_integrity()
+    if not result["structurally_valid"]:
+        raise HTTPException(status_code=500, detail=result)
+    return {"success": True, **result}
+
+
+@router.get("/domains/{domain_id}")
+def get_domain_package(
+    domain_id: str,
+    include_adult: bool = Query(default=False),
+):
+    domain = service.get_domain(domain_id, include_adult=include_adult)
+    if domain is None:
+        raise HTTPException(status_code=404, detail={"error": "DOMAIN_PACKAGE_NOT_FOUND", "domain_id": domain_id})
+    return {"success": True, "domain": domain}
