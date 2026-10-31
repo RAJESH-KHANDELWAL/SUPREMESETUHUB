@@ -1,8 +1,8 @@
 """Services, Platforms & Technology Integrations domain package; classification only, not verified live listings."""
 DOMAIN_ID = "services_platforms_integrations"
 DOMAIN_NAME = "Services, Platforms & Technology Integrations"
-ADULT_RESTRICTED = false
-DEFAULT_DISCOVERY_ENABLED = true
+ADULT_RESTRICTED = False
+DEFAULT_DISCOVERY_ENABLED = True
 SUBCATEGORY_IDS: tuple[str, ...] = (
     "cloud_hosting",
     "domains_dns",
