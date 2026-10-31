@@ -27,9 +27,14 @@ This document defines the direct-root domain package plan for this existing dire
 12. `public_nonprofit_social_impact/` — government/public services, nonprofits, charities and community development.
 
 ## Standard files inside each domain folder
-- `__init__.py`: stable domain ID, display name, default discovery flags and package exports.
-- `subcategories.py`: canonical `snake_case` subcategory IDs and display-label helper.
+- `__init__.py`: stable domain ID, display name, default discovery flags and canonical subcategory IDs.
 - `README.md`: scope, coverage, data boundaries, compliance and maintenance notes.
+- `subcategories.py`: canonical `snake_case` subcategory IDs and display-label helper.
+- `models.py`: typed `CategoryRecord` data model.
+- `catalog.py`: structured category records plus list, detail, search and metadata functions.
+- `service.py`: domain-level service facade for listing, detail, search and status.
+
+All 12 domain folders now contain these six files. The central API layer remains in the parent directory; individual domain packages provide their own catalogue/service layers rather than duplicating route registration.
 
 ## Architecture rules
 These are taxonomy packages, not live listings. Taxonomy membership does not verify a business, employer, job, professional licence, vendor or API connection. India + Global are intended coverage scopes, not a claim of exhaustive country coverage. Do not store personal or sensitive records in taxonomy files. Keep domain IDs synchronized with `global_world_catalog.py`, validate crosswalks and duplicate IDs, add tests, source provenance, jurisdiction and freshness metadata, moderation, authentication, authorization and audit logging before production. Do not merge this branch without explicit approval.
@@ -41,6 +46,7 @@ These are taxonomy packages, not live listings. Taxonomy membership does not ver
 - The ecosystem status response reports domain package count, subcategory count and the `taxonomy_only` registry status.
 - Every domain package provides `subcategories.py` as a stable subcategory accessor.
 - `tests/test_global_business_domain_registry.py` validates package counts, unique IDs, adult default exclusion, search, status metrics and route registration.
+- `tests/test_domain_package_layers.py` imports all 12 packages and validates their model, catalogue and service layers plus adult-category exclusion.
 
 ## Current non-goals
 No job board ingestion, employer identity verification, business registration lookup, payment execution, user account storage, live provider API credentials or production integrations are implemented by this taxonomy layer. These require separate source integrations, security design, vendor authorization, legal review and operational monitoring.
