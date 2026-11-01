@@ -19,7 +19,7 @@ from .sectors.routes import router as sector_router
 from .integrations.routes import router as integrations_router
 from .services.routes import router as services_router
 from .tools.routes import router as tools_router
-from .global_companies_ecosystem.openai import router as openai_company_profile_router
+from .global_companies_ecosystem.routes import router as company_profile_adapters_router
 from .company_profile_directory import router as company_profile_directory_router
 router=APIRouter(tags=["GLOBAL COMPANY API","GLOBAL COMPANIES API","GLOBAL ENTERPRISE API","GLOBAL CORPORATE GROUPS API"])
 router.include_router(company_directory_router)
@@ -35,7 +35,7 @@ router.include_router(sector_router)
 router.include_router(integrations_router)
 router.include_router(services_router)
 router.include_router(tools_router)
-router.include_router(openai_company_profile_router)
+router.include_router(company_profile_adapters_router)
 router.include_router(company_profile_directory_router)
 def _search(q,country,industry,entity_type,verification_status,letter,limit,offset,category=None):
  try: return search_companies(q,country,industry,entity_type,verification_status,letter,limit,offset,category)

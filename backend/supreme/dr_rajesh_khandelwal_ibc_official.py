@@ -2,7 +2,7 @@
 IDENTITY = {
     "slug": "dr_rajesh_khandelwal_ibc_official",
     "display_name": "👑 DR RAJESH KHANDELWAL IBC OFFICIAL 👑",
-    "username": "DRRAJESHKANDELWALIBCOFFICIAL",
+    "username": "DRRAJESHKHANDELWALIBCOFFICIAL",
     "domain_name": "DRRAJESHKHANDELWALIBCOFFICIAL.COM",
     "gmail_id_name": "DRRAJESHKANDELWALIBCOFFICIAL@GMAIL.COM",
     "user_id": "supreme-user-dr_rajesh_khandelwal_ibc_official",
