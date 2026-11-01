@@ -44,6 +44,10 @@ jobs:
             -p "test_global_ecosystem_api.py" \
             -v
 
+      - name: Run Company and Platforms Runtime Tests
+        run: |
+          python -m unittest backend.tests.test_company_platforms_runtime -v
+
       - name: Run Global World A-Z Tests
         run: |
           python -m unittest backend.tests.test_global_world_ecosystem -v
