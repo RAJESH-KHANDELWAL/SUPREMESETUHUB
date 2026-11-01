@@ -80,3 +80,23 @@ def test_company_profile_directory_covers_all_26_without_fabricating_verificatio
     paths = {route.path for route in router.routes}
     assert "/global/company-directory/company-profiles" in paths
     assert "/global/company-directory/company-profiles/{company_id}" in paths
+
+
+def test_all_26_company_profile_adapters_are_mounted_and_source_aware():
+    from ..global_companies_ecosystem.routes import COMPANY_ADAPTER_IDS, router as adapters_router
+    from ..global_companies_ecosystem import adobe, alibaba, amazon, apple, atlassian, aws, bytedance, cisco, cloudflare, github, google, ibm, intel, meta, microsoft, netflix, nvidia, openai, oracle, paypal, salesforce, samsung, shopify, stripe, tencent, zoom
+    assert len(COMPANY_ADAPTER_IDS) == 26
+    assert len(set(COMPANY_ADAPTER_IDS)) == 26
+    paths = {route.path for route in adapters_router.routes}
+    for company_id in COMPANY_ADAPTER_IDS:
+        assert f"/global/company-profile-adapters/{company_id}" in paths
+        assert f"/global/company-profile-adapters/{company_id}/sources" in paths
+        assert f"/global/company-profile-adapters/{company_id}/status" in paths
+    packages = [adobe, alibaba, amazon, apple, atlassian, aws, bytedance, cisco, cloudflare, github, google, ibm, intel, meta, microsoft, netflix, nvidia, openai, oracle, paypal, salesforce, samsung, shopify, stripe, tencent, zoom]
+    for package in packages:
+        profile = package.get_profile()
+        assert profile["record_type"] == "company"
+        assert profile["profile_status"] == "source_registered_unverified"
+        assert profile["data_status"] in {"no_verified_profile_record", "no_verified_legal_entity_record"}
+        assert profile["sources"] and profile["sources"][0]["live_connection"] is False
+        assert package.get_adapter_status()["live_connection"] is False
