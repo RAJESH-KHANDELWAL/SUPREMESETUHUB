@@ -63,17 +63,14 @@ class CompanyRegistryTests(unittest.TestCase):
         source_path = Path(__file__).resolve().parents[1] / "data" / "country_sources.json"
         payload = json.loads(source_path.read_text(encoding="utf-8"))
         payload["sources"].append(dict(payload["sources"][0]))
-        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", suffix=".json", delete=False) as tmp:
-            json.dump(payload, tmp)
-            tmp_path = Path(tmp.name)
-        self.addCleanup(tmp_path.unlink, missing_ok=True)
-        with patch.object(service, "PACKAGE_DIR", tmp_path.parent):
-            (tmp_path.parent / "data").mkdir(exist_ok=True)
-            target = tmp_path.parent / "data" / "country_sources.json"
-            target.write_text(json.dumps(payload), encoding="utf-8")
-            self.addCleanup(target.unlink, missing_ok=True)
-            with self.assertRaisesRegex(ValueError, "Duplicate source_id"):
-                service.load_country_sources()
+        with tempfile.TemporaryDirectory() as temp_dir:
+            package_dir = Path(temp_dir)
+            data_dir = package_dir / "data"
+            data_dir.mkdir()
+            (data_dir / "country_sources.json").write_text(json.dumps(payload), encoding="utf-8")
+            with patch.object(service, "PACKAGE_DIR", package_dir):
+                with self.assertRaisesRegex(ValueError, "Duplicate source_id"):
+                    service.load_country_sources()
 
     def test_duplicate_company_ids_are_rejected(self):
         path = self._registry([
