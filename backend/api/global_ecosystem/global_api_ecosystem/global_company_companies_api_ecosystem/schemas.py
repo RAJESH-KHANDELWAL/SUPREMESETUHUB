@@ -1,16 +1,13 @@
 """Pydantic response models for the global Company / Companies API."""
-
 from typing import List, Optional
-
 from pydantic import BaseModel, Field
 
-
 class CompanyRecord(BaseModel):
-    """Normalized company or business profile with traceable source provenance."""
-
+    """Normalized profile; record_type separates legal companies, businesses and people."""
     company_id: str
     name: str
     entity_type: str
+    record_type: str = "company"
     country_code: Optional[str] = None
     legal_status: Optional[str] = None
     verification_status: str = "unverified"
@@ -23,18 +20,15 @@ class CompanyRecord(BaseModel):
     source_urls: List[str] = Field(default_factory=list)
     last_verified_at: Optional[str] = None
 
-
 class CompanyListResponse(BaseModel):
     total: int
     limit: int
     offset: int
     items: List[CompanyRecord]
 
-
 class CompanyAlphabetResponse(BaseModel):
     total: int
     letters: dict[str, int]
-
 
 class CompanyApiStatus(BaseModel):
     ecosystem: str
