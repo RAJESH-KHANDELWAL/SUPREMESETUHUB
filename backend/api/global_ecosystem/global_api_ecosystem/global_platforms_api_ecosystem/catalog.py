@@ -14,7 +14,7 @@ PLATFORM_DOMAINS = [
  {"domain_id":"public_services","name":"Government and Public Services","subdomains":["government_portals","public_information","civic_services"]},
  {"domain_id":"adult_industry","name":"Lawful Adult Industry (18+)","subdomains":["adult_content_publishing","adult_creator_platforms","adult_entertainment_distribution","adult_subscription_services"],"adult_only":True,"minimum_age":18},
 ]
-PLATFORM_TYPES = ["web_platform","mobile_platform","desktop_platform","cloud_platform","marketplace_platform","social_platform","creator_platform","payment_platform","developer_platform","saas_platform","infrastructure_platform","content_distribution_platform","government_digital_platform","adult_industry_platform"]
+PLATFORM_TYPES = ["web_platform","mobile_platform","desktop_platform","cloud_platform","marketplace_platform","social_platform","messaging_platform","creator_platform","payment_platform","developer_platform","saas_platform","infrastructure_platform","content_distribution_platform","government_digital_platform","adult_industry_platform"]
 OWNERSHIP_TYPES = ["private_company","public_company","government","nonprofit","cooperative","community_owned","individual_operator","unknown"]
 BUSINESS_MODELS = ["free","freemium","subscription","transaction_fee","advertising","usage_based","licensing","donation","mixed","unknown"]
 VERIFICATION_STATES = ["unverified","source_checked","identity_verified","operator_verified","suspended"]
