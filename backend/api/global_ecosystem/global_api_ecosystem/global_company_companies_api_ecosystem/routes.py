@@ -16,6 +16,9 @@ from .industry_api_ecosystems.routes import router as industry_router
 from .country_api_ecosystems.routes import router as country_router
 from .provider_api_ecosystems.routes import router as provider_router
 from .sectors.routes import router as sector_router
+from .integrations.routes import router as integrations_router
+from .services.routes import router as services_router
+from .tools.routes import router as tools_router
 router=APIRouter(tags=["GLOBAL COMPANY API","GLOBAL COMPANIES API","GLOBAL ENTERPRISE API","GLOBAL CORPORATE GROUPS API"])
 router.include_router(company_directory_router)
 router.include_router(enterprise_directory_router)
@@ -27,6 +30,9 @@ router.include_router(industry_router)
 router.include_router(country_router)
 router.include_router(provider_router)
 router.include_router(sector_router)
+router.include_router(integrations_router)
+router.include_router(services_router)
+router.include_router(tools_router)
 def _search(q,country,industry,entity_type,verification_status,letter,limit,offset,category=None):
  try: return search_companies(q,country,industry,entity_type,verification_status,letter,limit,offset,category)
  except ValueError as exc: raise HTTPException(status_code=422,detail=str(exc)) from exc
