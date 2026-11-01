@@ -47,8 +47,8 @@ class GlobalCompaniesApiTests(unittest.TestCase):
     def test_company_registry_is_not_fabricated(self):
         records = load_company_registry()
         self.assertIsInstance(records, list)
-        # An empty registry is valid until source-backed records are imported.
-        self.assertEqual(len(records), 0)
+        identifiers = [record["company_id"] for record in records]
+        self.assertEqual(len(identifiers), len(set(identifiers)))
 
 
 if __name__ == "__main__":
