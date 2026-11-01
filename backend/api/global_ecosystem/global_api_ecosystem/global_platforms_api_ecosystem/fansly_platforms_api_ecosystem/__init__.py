@@ -1,1 +1,1 @@
-"""fansly provider package for the Global Platforms ecosystem; metadata only."""
+"""fansly provider package; metadata only."""
