@@ -65,3 +65,28 @@ def test_platform_directory_validates_query_and_preserves_registry_contract():
     result = list_platforms(limit=25, offset=0)
     assert result["total"] == len(result["items"])
     assert result["include_adult"] is False
+
+
+def test_global_api_compatibility_facade_and_parent_router_mount():
+    from backend.api.global_ecosystem.global_api_ecosystem.global_platforms_api_ecosystem import (
+        get_ecosystem_info,
+        router as compatibility_router,
+    )
+    from backend.api.global_api_ecosystem_routes import router as parent_router
+    from backend.api.global_ecosystem.global_api_ecosystem import CATEGORY_ECOSYSTEMS
+
+    facade_paths = {route.path for route in compatibility_router.routes}
+    parent_paths = {route.path for route in parent_router.routes}
+    category_ids = {item["id"] for item in CATEGORY_ECOSYSTEMS}
+
+    assert "/global/platforms/status" in facade_paths
+    assert "/global/platforms/directory" in facade_paths
+    assert "/api/v1/global-api-ecosystem/global/platforms/directory" in parent_paths
+    assert "companies" in category_ids
+    assert "platforms" in category_ids
+    assert get_ecosystem_info()["status"] == "ready_with_records"
+
+
+def test_platform_provider_static_routes_precede_dynamic_detail_route():
+    paths = [route.path for route in platforms_router.routes]
+    assert paths.index("/global/platforms/providers") < paths.index("/global/platforms/{platform_id}")
