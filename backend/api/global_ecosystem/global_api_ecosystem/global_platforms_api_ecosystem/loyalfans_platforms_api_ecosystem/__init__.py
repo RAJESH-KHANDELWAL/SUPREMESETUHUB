@@ -1,1 +1,1 @@
-"""loyalfans provider package for the Global Platforms ecosystem; metadata only."""
+"""loyalfans provider package; metadata only."""
