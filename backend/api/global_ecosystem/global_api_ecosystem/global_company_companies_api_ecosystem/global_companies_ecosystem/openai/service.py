@@ -33,3 +33,19 @@ def get_company_profile() -> dict:
 def get_source_registry() -> dict:
     profile = get_company_profile()
     return {"company_id": COMPANY_ID, "count": len(profile["sources"]), "sources": profile["sources"]}
+
+
+def get_adapter_status() -> dict:
+    return {
+        "company_id": COMPANY_ID,
+        "adapter": "metadata_only",
+        "configured": True,
+        "live_connection": False,
+        "authentication_configured": False,
+        "last_sync": None,
+        "status": "not_connected",
+    }
+
+# Common adapter interface used by the aggregate company router and tests.
+get_profile = get_company_profile
+get_sources = get_source_registry
