@@ -1,1 +1,1 @@
-"""bangbros provider package for the Global Platforms ecosystem; metadata only."""
+"""bangbros provider package; metadata only."""
