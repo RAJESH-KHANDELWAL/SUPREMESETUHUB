@@ -1,5 +1,6 @@
 """FastAPI endpoints for Company, Enterprise and Corporate Group directories."""
 from fastapi import APIRouter, HTTPException, Query
+from importlib import import_module
 from .schemas import CompanyAlphabetResponse, CompanyApiStatus, CompanyListResponse
 from .service import get_api_status, get_company_alphabet, search_companies
 from .classification_registry import list_record_classes, get_record_class, validate_record_class_registry
@@ -19,7 +20,6 @@ from .sectors.routes import router as sector_router
 from .integrations.routes import router as integrations_router
 from .services.routes import router as services_router
 from .tools.routes import router as tools_router
-from .global_companies_ecosystem.openai import router as openai_company_profile_router
 from .company_profile_directory import router as company_profile_directory_router
 router=APIRouter(tags=["GLOBAL COMPANY API","GLOBAL COMPANIES API","GLOBAL ENTERPRISE API","GLOBAL CORPORATE GROUPS API"])
 router.include_router(company_directory_router)
@@ -35,7 +35,20 @@ router.include_router(sector_router)
 router.include_router(integrations_router)
 router.include_router(services_router)
 router.include_router(tools_router)
-router.include_router(openai_company_profile_router)
+# Mount each company-specific adapter as an independently addressable API package.
+_COMPANY_ADAPTER_IDS = (
+    "adobe", "alibaba", "amazon", "apple", "atlassian", "aws", "bytedance",
+    "cisco", "cloudflare", "github", "google", "ibm", "intel", "meta",
+    "microsoft", "netflix", "nvidia", "openai", "oracle", "paypal",
+    "salesforce", "samsung", "shopify", "stripe", "tencent", "zoom",
+)
+for _company_adapter_id in _COMPANY_ADAPTER_IDS:
+    _company_adapter = import_module(
+        f".global_companies_ecosystem.{_company_adapter_id}.adapter",
+        package=__package__,
+    )
+    router.include_router(_company_adapter.router)
+
 router.include_router(company_profile_directory_router)
 def _search(q,country,industry,entity_type,verification_status,letter,limit,offset,category=None):
  try: return search_companies(q,country,industry,entity_type,verification_status,letter,limit,offset,category)
