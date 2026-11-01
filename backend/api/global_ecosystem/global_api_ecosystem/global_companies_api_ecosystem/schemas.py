@@ -42,5 +42,8 @@ class CompanyApiStatus(BaseModel):
     company_api: str
     companies_api: str
     registry_records: int
+    source_count: int
+    source_countries: List[str]
     registry_mode: str
+    source_mode: str
     note: str
