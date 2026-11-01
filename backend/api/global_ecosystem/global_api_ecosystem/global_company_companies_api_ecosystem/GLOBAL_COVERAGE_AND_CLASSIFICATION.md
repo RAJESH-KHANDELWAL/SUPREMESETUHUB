@@ -1,37 +1,45 @@
 # Global Company, Business and Freelancer Ecosystem
 
-## One directory, three distinct record classes
+## Architecture
 
-The ecosystem exposes one normalized search and profile model with three mutually exclusive top-level classes:
+This package follows the modular domain-package pattern used by `global_bada_business_api_ecosystem`: root-level API and classification registries, dedicated class packages, and separate industry, country and provider support modules.
 
-- **company** — registered legal entities and other formally constituted organizations.
-- **business** — operating businesses that are not necessarily represented as a registered company, including sole proprietors, MSMEs, startups and franchises.
-- **freelancer** — individual independent professionals and service providers.
+```text
+global_company_companies_api_ecosystem/
+├── README.md
+├── __init__.py
+├── routes.py / schemas.py / service.py
+├── company_catalog.py / business_catalog.py / freelancer_catalog.py
+├── classification_registry.py / entity_registry.py / global_company_world_map.py
+├── company_legal_entities_api_ecosystem/
+├── business_enterprises_api_ecosystem/
+├── freelancer_independent_professionals_api_ecosystem/
+├── industry_api_ecosystems/
+├── country_api_ecosystems/
+├── provider_api_ecosystems/
+├── data/ / integrations/ / services/ / tools/ / tests/
+```
 
-The detailed `entity_type` remains the legal or operational subtype. `record_type` is the directory-level class. Industry, size, legal status, country and verification are independent dimensions.
+## Three distinct record classes
+
+- **company** — registered legal entities and formally constituted organizations.
+- **business** — operating businesses not necessarily represented as a separately registered company, including sole proprietors, MSMEs, startups and franchises.
+- **freelancer** — independent individual professionals and service providers.
+
+The root package owns one normalized registry and shared search. Each class package owns its taxonomy, profile model, category-specific service facade and routes. This avoids three divergent profile stores.
 
 ## API surface
 
-The parent router mounts this module under `/api/v1/global-api-ecosystem`.
+Mounted under `/api/v1/global-api-ecosystem`. Existing unified endpoints remain available: `/global/companies`, `/global/businesses`, `/global/freelancers`, status, A-Z, source directory and profile lookup.
 
-- `GET /global/companies/status` — readiness and registry/source counts.
-- `GET /global/companies` — unified search; accepts `category=company|business|freelancer`.
-- `GET /global/companies/search` — explicit search alias.
-- `GET /global/companies/alphabet` — A–Z counts across all classes.
-- `GET /global/companies/{company_id}` and `GET /global/company/{company_id}` — profile lookup.
-- `GET /global/businesses` — business-only listing.
-- `GET /global/freelancers` — freelancer-only listing.
-- `GET /global/companies/sources` and `/sources/{source_id}` — source directory metadata.
+New endpoints:
+- `/global/company-directory/architecture`
+- `/global/company-directory/classes` and `/classes/{record_type}`
+- `/global/company-directory/classes/integrity`
+- `/global/company-directory/world-map`
+- `/global/company-directory/industries`
+- Each class has `/global/company-directory/{company|business|freelancer}/catalog`, `/profiles`, `/search` and `/profiles/{profile_id}`.
 
-## Data integrity and verification
+## Data integrity and current boundary
 
-- Stable IDs must be unique; every record needs a name and entity subtype.
-- Explicit `record_type` must be company, business or freelancer. Legacy records infer this class from `entity_type`.
-- `source_checked`, `registry_verified` and `identity_verified` records must carry source URLs. A website alone is not proof of legal registration.
-- Country-specific identifiers must remain namespaced and jurisdiction-specific.
-- Source directory metadata does not mean a provider API is connected. Live adapters require documented official/authorized interfaces, credentials where required, rate-limit handling and tests.
-- Never bypass access controls or claim worldwide completeness from a partial registry.
-
-## Current implementation boundary
-
-The JSON registry is read-only through the API and currently contains zero profiles. The country source file is a curated directory, not a live connector. Status explicitly reports `registry_empty` until records are added. Google, Microsoft, AWS and Apple provider folders remain catalog/readiness metadata unless a real, tested company-data adapter is implemented.
+Stable IDs must be unique; each record needs a name and subtype. Verified records require traceable source URLs. Industry, legal status, country, business size and verification are independent dimensions. The local JSON registry currently contains zero profiles. Country source metadata is not a live government connection, and provider product APIs are not automatically company-registration data sources. No worldwide completeness or live external adapter is claimed.
