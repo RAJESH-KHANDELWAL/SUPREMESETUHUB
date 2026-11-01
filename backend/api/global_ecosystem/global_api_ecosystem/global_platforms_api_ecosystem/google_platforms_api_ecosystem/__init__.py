@@ -1,1 +1,1 @@
-"""google provider package for the Global Platforms ecosystem; metadata only."""
+"""google provider package; metadata only."""
