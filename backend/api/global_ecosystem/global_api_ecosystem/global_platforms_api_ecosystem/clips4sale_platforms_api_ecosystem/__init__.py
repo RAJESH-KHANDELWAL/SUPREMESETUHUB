@@ -1,1 +1,1 @@
-"""clips4sale provider package for the Global Platforms ecosystem; metadata only."""
+"""clips4sale provider package; metadata only."""
