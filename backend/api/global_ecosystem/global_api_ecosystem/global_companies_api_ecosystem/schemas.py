@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 
 
 class CompanyRecord(BaseModel):
-    """Normalized company or business profile; verification is explicit."""
+    """Normalized company or business profile with traceable source provenance."""
 
     company_id: str
     name: str
@@ -20,6 +20,8 @@ class CompanyRecord(BaseModel):
     description: Optional[str] = None
     headquarters: Optional[str] = None
     aliases: List[str] = Field(default_factory=list)
+    source_urls: List[str] = Field(default_factory=list)
+    last_verified_at: Optional[str] = None
 
 
 class CompanyListResponse(BaseModel):
@@ -27,6 +29,11 @@ class CompanyListResponse(BaseModel):
     limit: int
     offset: int
     items: List[CompanyRecord]
+
+
+class CompanyAlphabetResponse(BaseModel):
+    total: int
+    letters: dict[str, int]
 
 
 class CompanyApiStatus(BaseModel):
