@@ -100,30 +100,33 @@ def create_business(
 
     # Never trust client-supplied owner_id, status, or verified values.
     business_id = f"BUS-{uuid4().hex.upper()}"
-    business = controller.create(
-        business_id=business_id,
-        owner_id=owner_id,
-        name=request.name,
-        category=request.category,
-        location=request.location,
-        website=request.website,
-        public_contact=request.public_contact,
-        source=request.source,
-        status="ACTIVE",
-        verified=False,
-        metadata=request.metadata,
-        legal_name=request.legal_name,
-        business_type=request.business_type,
-        industry=request.industry,
-        employee_count=request.employee_count,
-        headquarters=request.headquarters,
-        parent_company_id=request.parent_company_id,
-        annual_revenue_band=request.annual_revenue_band,
-        operating_regions=request.operating_regions,
-        departments=request.departments,
-        tags=request.tags,
-        compliance_status=request.compliance_status,
-    )
+    try:
+        business = controller.create(
+            business_id=business_id,
+            owner_id=owner_id,
+            name=request.name,
+            category=request.category,
+            location=request.location,
+            website=request.website,
+            public_contact=request.public_contact,
+            source=request.source,
+            status="ACTIVE",
+            verified=False,
+            metadata=request.metadata,
+            legal_name=request.legal_name,
+            business_type=request.business_type,
+            industry=request.industry,
+            employee_count=request.employee_count,
+            headquarters=request.headquarters,
+            parent_company_id=request.parent_company_id,
+            annual_revenue_band=request.annual_revenue_band,
+            operating_regions=request.operating_regions,
+            departments=request.departments,
+            tags=request.tags,
+            compliance_status=request.compliance_status,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
 
     return {
         "message": "Business created successfully",
@@ -148,7 +151,10 @@ def update_business_status(
     if not _is_admin(current_user) and status not in {"ACTIVE", "INACTIVE"}:
         raise HTTPException(status_code=403, detail="PRIVILEGED_STATUS_CHANGE_REQUIRES_ADMIN")
 
-    business = controller.update_status(business_id=business_id, status=status)
+    try:
+        business = controller.update_status(business_id=business_id, status=status)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
     if business is None:
         raise HTTPException(status_code=404, detail="BUSINESS_NOT_FOUND")
 
