@@ -23,3 +23,18 @@ Recommended provenance:
 
 The JSON registry is currently intentionally empty. An empty dataset is not
 evidence that no companies exist.
+
+
+COUNTRY SOURCE DIRECTORY
+
+The adjacent country_sources.json file is a curated directory of official or
+regulator-operated company-data sources. It records source scope, access method,
+authentication expectations, limitations and adapter status. It does not mean
+that SUPREMESETUHUB has connected to those sources or has permission to bulk
+retrieve their data.
+
+Before implementing an adapter, confirm the current source terms, API
+credentials, fair-use/rate limits, permitted fields and update schedule. Keep
+source metadata separate from company records. Only add a company record after
+retrieval and validation from an authorised source, preserving the source URL
+and retrieval/verification timestamp.
