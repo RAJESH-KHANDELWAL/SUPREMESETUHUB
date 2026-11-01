@@ -1,18 +1,20 @@
 # GLOBAL COMPANY / COMPANIES API ECOSYSTEM
 
-A source-aware directory for company records, with separate compatibility surfaces for operating businesses and independent professionals.
+## Scope
+Company-specific ecosystem for India and global jurisdictions. Canonical record classes are **Company**, **Enterprise** and **Corporate Group**. A Freelancer / independent professional is not a Company record class; its independent-professional package is not mounted as a Company class.
 
-## Main components
-- Shared, source-aware profile registry and search service.
-- Separate record-class packages for legal companies, operating businesses and independent professionals.
-- Company-specific module index for the existing company packages under `global_companies_ecosystem/`.
-- Industry, country and provider registries, with explicit readiness boundaries.
-- Company world-map metadata, data-source directory, integrations, services, tools and tests.
+## Architecture
+Domain packages follow the reference package convention: `README.md`, `__init__.py`, `catalog.py`, `models.py`, `service.py`, `subcategories.py`; route modules are added where HTTP endpoints are exposed. Root registries, catalogues, world crosswalk, schemas, services, routes, integrations, sectors, tools and tests coordinate the ecosystem.
 
-## Company module directory
-The `company_modules_api_ecosystem/` package indexes the company-specific code modules already present in this repository. It exposes list, search, detail and status endpoints. This index is deliberately separate from company profile records: package presence does not mean verified profile data exists or that the module is connected to the shared JSON registry.
+## Distinct concepts
+- **Company:** legally constituted legal entity.
+- **Enterprise:** operating economic organization; its legal form may vary.
+- **Corporate Group:** parent, holding, subsidiary or affiliated entity structure.
 
-## Data and integration status
-The local `data/company_registry.json` profile registry is currently empty. Country/provider metadata is not a live government or provider connection. No worldwide completeness, company verification, or live external data feed is implied.
+A legal company may operate an enterprise or belong to a corporate group, but these concepts must not be silently conflated.
 
-See [GLOBAL_COVERAGE_AND_CLASSIFICATION.md](GLOBAL_COVERAGE_AND_CLASSIFICATION.md) and [company_modules_api_ecosystem/README.md](company_modules_api_ecosystem/README.md).
+## Evidence boundary
+Taxonomies are not exhaustive world registries. A module does not prove a company profile exists. Verification requires provenance, jurisdiction, timestamps and evidence. No live provider connection is claimed unless explicitly configured and tested.
+
+## Reference boundary
+Global Bada Business API is used only for architecture and package-layout conventions. Its business categories, industry taxonomy, provider data and business-specific content are not imported into this Company ecosystem.
