@@ -51,6 +51,27 @@ class CompanyRegistryTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "must include source_urls"):
                 service.load_company_registry()
 
+
+    def test_country_source_directory_and_country_filter(self):
+        with patch.object(service, "PACKAGE_DIR", Path(__file__).resolve().parents[1]):
+            result = service.list_country_sources("IN")
+        self.assertEqual(result["registry_status"], "source_directory_only")
+        self.assertTrue(result["items"])
+        self.assertTrue(all(item["country_code"] == "IN" for item in result["items"]))
+
+    def test_country_source_ids_are_unique(self):
+        source_path = Path(__file__).resolve().parents[1] / "data" / "country_sources.json"
+        payload = json.loads(source_path.read_text(encoding="utf-8"))
+        payload["sources"].append(dict(payload["sources"][0]))
+        with tempfile.TemporaryDirectory() as temp_dir:
+            package_dir = Path(temp_dir)
+            data_dir = package_dir / "data"
+            data_dir.mkdir()
+            (data_dir / "country_sources.json").write_text(json.dumps(payload), encoding="utf-8")
+            with patch.object(service, "PACKAGE_DIR", package_dir):
+                with self.assertRaisesRegex(ValueError, "Duplicate source_id"):
+                    service.load_country_sources()
+
     def test_duplicate_company_ids_are_rejected(self):
         path = self._registry([
             {"company_id": "duplicate", "name": "One", "entity_type": "registered_company"},

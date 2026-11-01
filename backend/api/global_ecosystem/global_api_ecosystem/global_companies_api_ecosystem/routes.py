@@ -61,6 +61,25 @@ def search_companies_endpoint(
     return _search(q, country, industry, entity_type, verification_status, letter, limit, offset)
 
 
+@router.get("/global/companies/sources")
+def list_company_sources(
+    country: str | None = Query(default=None, min_length=2, max_length=2, description="ISO 3166-1 alpha-2 country code"),
+):
+    """List official company-data sources; this endpoint does not imply live connections."""
+    from .service import list_country_sources
+    return list_country_sources(country)
+
+
+@router.get("/global/companies/sources/{source_id}")
+def company_source_details(source_id: str):
+    """Return the source metadata and access limitations for one source."""
+    from .service import get_country_source
+    source = get_country_source(source_id)
+    if source is None:
+        raise HTTPException(status_code=404, detail="Company data source not found")
+    return {"registry_status": "source_directory_only", "source": source}
+
+
 @router.get("/global/companies/{company_id}", response_model=CompanyRecord)
 def company_details(company_id: str):
     record = get_company(company_id)
