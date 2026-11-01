@@ -27,3 +27,21 @@ The platform profile registry is read-only and initially empty unless sourced re
 
 ## Company relationship
 The owner/operator is represented by a relationship to a Company/Enterprise record in the Company ecosystem. Platform identity remains separate from the owning legal entity. Relationship edges such as owns, operates, publisher_of and reseller_of belong in a shared relationship layer.
+
+
+## Runtime directory and provider packages
+
+The nested `global_platforms_ecosystem/` package now delegates to the canonical
+parent platform registry; it does not maintain a second profile store.
+
+- `GET /global/platforms/directory` lists and filters platform profiles.
+- `GET /global/platforms/directory/{platform_id}` retrieves a profile.
+- `GET /global/platforms/directory/domains` lists domains with adult filtering.
+- `GET /global/platforms/directory/status` reports registry status.
+- `GET /global/platforms/providers` lists provider-specific packages.
+- `GET /global/platforms/providers/{provider_id}` retrieves provider metadata.
+
+The provider directory covers Apple, AWS, Google and Microsoft, plus separate
+lawful adult-industry platform providers. Adult-only provider metadata is
+excluded by default and requires explicit `include_adult=true`; the directory
+is metadata-only and is not age verification or a live provider connection.
