@@ -180,5 +180,20 @@
     "Do not scrape access-controlled systems, bypass CAPTCHAs, or misrepresent incomplete country coverage.",
     "Do not infer legal registration, licensing, safety, or regulatory compliance from an industry classification.",
     "Adult-related categories are for lawful adult-oriented businesses and services only, subject to the safeguards above."
-  ]
+  ],
+  "record_types": [
+    {
+      "record_type": "company",
+      "description": "Registered legal entities and formally constituted organizations."
+    },
+    {
+      "record_type": "business",
+      "description": "Operating businesses, including MSMEs, startups, sole proprietors and franchises."
+    },
+    {
+      "record_type": "freelancer",
+      "description": "Independent individual professionals and service providers."
+    }
+  ],
+  "record_type_policy": "record_type is the top-level directory class; entity_type is the legal or operational subtype. These are separate dimensions."
 }
