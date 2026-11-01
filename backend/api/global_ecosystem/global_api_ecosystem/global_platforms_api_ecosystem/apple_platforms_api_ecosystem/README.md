@@ -1,19 +1,11 @@
-# APPLE — PLATFORM PROVIDER PACKAGE
+# APPLE Platform Provider Package
 
-## Package role
-Provider-specific discovery and classification metadata for the Global Platforms ecosystem. This package is a provider mapping, not proof of a verified platform profile or a live API connection.
+Provider-specific discovery metadata only; not a verified platform profile or live API integration.
 
-## Classification
 - Provider ID: `apple`
-- Platform family: General technology/platform provider
-- Adult-only: No
-- Current implementation boundary: catalog metadata only until source URLs, legal/operator identity, supported products and official API documentation are verified.
-
-## Standard package contract
-- Existing provider metadata module: `apple_platforms_api_ecosystem.py`
-- `README.md`: scope and evidence boundary
-- `__init__.py`: package marker
-
-Do not represent a provider folder as a working integration. Do not infer ownership or legal-company details from the provider name. Link platform profiles to Company/Enterprise records through the shared entity-relationship registry.
+- Classification: General platform provider
+- Existing metadata module: `apple_platforms_api_ecosystem.py`
+- Verification requires official source URLs and evidence of operator identity and product scope.
+- Link owner/operator entities through the shared `global_entity_relationships_api_ecosystem`; do not duplicate company records.
 
 
