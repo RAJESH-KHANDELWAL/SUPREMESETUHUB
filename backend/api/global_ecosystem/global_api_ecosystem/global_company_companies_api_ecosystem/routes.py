@@ -10,11 +10,13 @@ from .provider_api_ecosystems.registry import PROVIDER_ECOSYSTEM_STATUS
 from .company_legal_entities_api_ecosystem.routes import router as company_directory_router
 from .business_enterprises_api_ecosystem.routes import router as business_directory_router
 from .freelancer_independent_professionals_api_ecosystem.routes import router as freelancer_directory_router
+from .company_modules_api_ecosystem.routes import router as company_modules_router
 
 router = APIRouter(tags=["GLOBAL COMPANY API", "GLOBAL COMPANIES API", "GLOBAL BUSINESS API", "GLOBAL FREELANCER API"])
 router.include_router(company_directory_router)
 router.include_router(business_directory_router)
 router.include_router(freelancer_directory_router)
+router.include_router(company_modules_router)
 
 def _search(q, country, industry, entity_type, verification_status, letter, limit, offset, category=None):
     try:
