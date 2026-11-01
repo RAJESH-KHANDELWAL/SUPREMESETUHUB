@@ -1,1 +1,1 @@
-"""aws provider package for the Global Platforms ecosystem; metadata only."""
+"""aws provider package; metadata only."""
