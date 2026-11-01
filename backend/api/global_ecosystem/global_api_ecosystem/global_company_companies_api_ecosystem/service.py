@@ -139,4 +139,3 @@ def get_api_status() -> Dict[str, Any]:
         "source_mode": "official_source_directory_only",
         "note": "The registry is empty until sourced records are added. Country source entries are directory metadata, not live API connections. Verification requires traceable evidence."
     }
-}
