@@ -80,3 +80,28 @@ def test_company_profile_directory_covers_all_26_without_fabricating_verificatio
     paths = {route.path for route in router.routes}
     assert "/global/company-directory/company-profiles" in paths
     assert "/global/company-directory/company-profiles/{company_id}" in paths
+
+
+def test_all_26_company_adapters_are_mounted_and_source_aware():
+    from importlib import import_module
+    company_ids = (
+        "adobe", "alibaba", "amazon", "apple", "atlassian", "aws", "bytedance",
+        "cisco", "cloudflare", "github", "google", "ibm", "intel", "meta",
+        "microsoft", "netflix", "nvidia", "openai", "oracle", "paypal",
+        "salesforce", "samsung", "shopify", "stripe", "tencent", "zoom",
+    )
+    paths = {route.path for route in router.routes}
+    assert len(company_ids) == 26
+    for company_id in company_ids:
+        module = import_module(
+            f"..global_companies_ecosystem.{company_id}.adapter",
+            package=__package__,
+        )
+        profile = module.get_profile()
+        assert profile["company_id"] == company_id
+        assert profile["profile_status"] == "source_registered_unverified"
+        assert profile["verification_status"] == "unverified"
+        assert profile["sources"][0]["live_connection"] is False
+        assert f"/global/company-directory/company-profiles/{company_id}" in paths
+        assert f"/global/company-directory/company-profiles/{company_id}/sources" in paths
+        assert f"/global/company-directory/company-profiles/{company_id}/status" in paths
