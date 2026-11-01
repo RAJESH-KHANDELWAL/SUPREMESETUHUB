@@ -9,7 +9,13 @@ from __future__ import annotations
 from importlib import import_module
 from typing import Any
 
-from .routes import COMPANY_ADAPTER_IDS
+COMPANY_ADAPTER_IDS = (
+    "adobe", "alibaba", "amazon", "apple", "atlassian", "aws",
+    "bytedance", "cisco", "cloudflare", "github", "google", "ibm",
+    "intel", "meta", "microsoft", "netflix", "nvidia", "openai",
+    "oracle", "paypal", "salesforce", "samsung", "shopify", "stripe",
+    "tencent", "zoom",
+)
 
 
 def _adapter(company_id: str) -> Any | None:
