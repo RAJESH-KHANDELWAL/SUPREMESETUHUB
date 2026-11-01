@@ -8,6 +8,10 @@ from .service import (
     list_companies,
 )
 
+def get_ecosystem_info():
+    return get_company_ecosystem_status()
+
+
 __all__ = [
     "router",
     "list_companies",
@@ -15,4 +19,5 @@ __all__ = [
     "get_company_sources",
     "get_company_adapter_status",
     "get_company_ecosystem_status",
+    "get_ecosystem_info",
 ]
