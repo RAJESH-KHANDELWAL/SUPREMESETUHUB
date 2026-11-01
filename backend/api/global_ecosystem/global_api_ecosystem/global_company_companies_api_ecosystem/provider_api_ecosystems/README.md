@@ -1,3 +1,2 @@
-# Provider API Ecosystems
-
-Provider adapters must use official or authorized interfaces, document credentials and rate limits, and include integration tests. Provider product APIs are not automatically company-registration data sources.
+# Company Data Provider Directory
+Provider metadata describes possible sources or technology platforms. Cloud infrastructure providers are not automatically company-registration data sources. Adapters remain not connected until permitted scopes, provenance, freshness and integration tests are configured.

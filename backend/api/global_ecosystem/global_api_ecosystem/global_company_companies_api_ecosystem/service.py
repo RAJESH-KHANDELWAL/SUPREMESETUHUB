@@ -7,22 +7,25 @@ from typing import Any, Dict, List, Optional
 PACKAGE_DIR = Path(__file__).resolve().parent
 REGISTRY_PATH = PACKAGE_DIR / "data" / "company_registry.json"
 ALLOWED_VERIFICATION_STATUSES = {"unverified", "source_checked", "registry_verified", "identity_verified", "suspended"}
-ALLOWED_RECORD_TYPES = {"company", "business", "freelancer"}
+ALLOWED_RECORD_TYPES = {"company", "enterprise", "corporate_group", "freelancer", "business"}
 ENTITY_TYPE_GROUPS = {
-    "company": {"registered_company", "public_company", "private_company", "limited_company", "corporation", "government_enterprise", "state_owned_enterprise", "public_sector_organization", "nonprofit", "charity", "foundation", "cooperative", "partnership", "limited_liability_partnership", "holding_company", "subsidiary", "joint_venture", "branch_office", "multinational"},
-    "business": {"sole_proprietor", "micro_business", "small_business", "medium_business", "large_enterprise", "startup", "scaleup", "franchise"},
+    "company": {"registered_company", "public_company", "private_company", "limited_company", "corporation", "private_limited_company", "public_limited_company", "limited_liability_company", "government_enterprise", "state_owned_enterprise", "public_sector_organization", "nonprofit", "charity", "foundation", "cooperative", "partnership", "limited_liability_partnership", "holding_company", "subsidiary", "joint_venture", "branch_office", "multinational"},
+    "enterprise": {"sole_proprietor", "micro_business", "small_business", "medium_business", "large_business", "large_enterprise", "startup", "scaleup", "franchise", "operating_enterprise", "micro_enterprise", "small_enterprise", "medium_enterprise"},
+    "corporate_group": {"corporate_group", "holding_group", "parent_company_group", "subsidiary_group", "multinational_group", "conglomerate_group"},
     "freelancer": {"freelancer", "individual_service_provider", "self_employed", "independent_consultant", "independent_contractor", "gig_worker", "professional_practice"},
 }
 
 def infer_record_type(record: Dict[str, Any]) -> str:
     explicit = str(record.get("record_type", "")).casefold().strip()
+    if explicit == "business":
+        return "enterprise"
     if explicit:
         return explicit
     entity = str(record.get("entity_type", "")).casefold().strip()
     for category, entity_types in ENTITY_TYPE_GROUPS.items():
         if entity in entity_types:
             return category
-    return "business"
+    return "enterprise"
 
 def load_company_registry() -> List[Dict[str, Any]]:
     """Load records and enforce stable identity, category and provenance rules."""
@@ -65,13 +68,15 @@ def search_companies(q: Optional[str] = None, country: Optional[str] = None, ind
                      entity_type: Optional[str] = None, verification_status: Optional[str] = None,
                      letter: Optional[str] = None, limit: int = 50, offset: int = 0,
                      category: Optional[str] = None) -> Dict[str, Any]:
-    """Search across all three profile classes with optional category filtering."""
+    """Search source-backed profiles with canonical Company, Enterprise and Corporate Group classes; retain legacy freelancer filtering for compatibility."""
     records = load_company_registry()
     query = q.casefold().strip() if q else None
     letter_filter = letter.casefold() if letter else None
     category_filter = category.casefold().strip() if category else None
-    if category_filter and category_filter not in ALLOWED_RECORD_TYPES:
-        raise ValueError("category must be one of: company, business, freelancer")
+    if category_filter == "business":
+        category_filter = "enterprise"
+    if category_filter and category_filter not in {"company", "enterprise", "corporate_group", "freelancer"}:
+        raise ValueError("category must be one of: company, enterprise, corporate_group (legacy: business, freelancer)")
     filtered = []
     for record in records:
         name = str(record.get("name", "")).strip()
