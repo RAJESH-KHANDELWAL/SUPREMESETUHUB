@@ -66,3 +66,17 @@ def test_openai_company_profile_is_source_aware_and_route_is_mounted():
     paths = {route.path for route in router.routes}
     assert "/global/company-directory/company-profiles/openai" in paths
     assert "/global/company-directory/company-profiles/openai/sources" in paths
+
+
+def test_company_profile_directory_covers_all_26_without_fabricating_verification():
+    from ..company_profile_directory import COMPANIES, _profile
+    assert len(COMPANIES) == 26
+    for company_id in COMPANIES:
+        profile = _profile(company_id)
+        assert profile["record_type"] == "company"
+        assert profile["profile_status"] == "source_registered_unverified"
+        assert profile["data_status"] == "no_verified_profile_record"
+        assert profile["sources"][0]["live_connection"] is False
+    paths = {route.path for route in router.routes}
+    assert "/global/company-directory/company-profiles" in paths
+    assert "/global/company-directory/company-profiles/{company_id}" in paths
