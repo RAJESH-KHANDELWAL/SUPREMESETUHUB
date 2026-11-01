@@ -1,4 +1,4 @@
-from backend.businesses.service import BusinessService
+from backend.businesses.global_ecosystem.global_business_ecosystem import BusinessService
 from backend.database.service import DatabaseService
 from backend.schemas.business import BusinessCreateRequest
 
