@@ -7,6 +7,7 @@ from fastapi import APIRouter
 __path__ = [str(Path(__file__).with_name("global_platforms_api_ecosystem"))]
 
 from .global_platforms_api_ecosystem import router as _modular_router
+from .provider_directory import get_provider_directory_status
 from .global_platforms_api_ecosystem.service import (
     get_platform_directory_status,
     get_platform_profile,
@@ -27,7 +28,7 @@ def get_ecosystem_info() -> dict:
         "status": status["status"],
         "profile_count": status["profile_count"],
         "domain_count": status["domain_count"],
-        "provider_count": 18,
+        "provider_count": get_provider_directory_status()["provider_count"],
         "live_external_connections": False,
     }
 
