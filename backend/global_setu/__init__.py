@@ -5,6 +5,6 @@ The canonical implementation boundary lives at
 `backend.global_setu` import path without creating a second implementation.
 """
 
-from backend.global_hub import global_setu as _global_setu
+from backend.global_hub import global_setu
 
-__all__ = ["_global_setu"]
+__all__ = ["global_setu"]
