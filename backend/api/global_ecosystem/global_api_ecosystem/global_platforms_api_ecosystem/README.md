@@ -23,7 +23,7 @@ Lawful adult-industry platforms are classified in a separate adult-only domain a
 - GET /global/platforms and /global/platforms/search
 - GET /global/platforms/{platform_id}?include_adult=false
 
-The platform profile registry is read-only and initially empty unless sourced records are added to data/platform_registry.json. Verified records require source URLs. Taxonomy endpoints do not make live third-party API calls or claim complete worldwide coverage.
+The platform profile registry is read-only and now contains 76 unverified discovery entries: 28 Bharat-focused, 34 global and 14 lawful adult-industry entries. All entries remain explicitly unverified; no legal status, ownership, current availability or live third-party API connection is asserted. Verified records require source URLs. Taxonomy endpoints do not make live third-party API calls or claim complete worldwide coverage.
 
 ## Company relationship
 The owner/operator is represented by a relationship to a Company/Enterprise record in the Company ecosystem. Platform identity remains separate from the owning legal entity. Relationship edges such as owns, operates, publisher_of and reseller_of belong in a shared relationship layer.
@@ -41,7 +41,7 @@ parent platform registry; it does not maintain a second profile store.
 - `GET /global/platforms/providers` lists provider-specific packages.
 - `GET /global/platforms/providers/{provider_id}` retrieves provider metadata.
 
-The provider directory covers Apple, AWS, Google and Microsoft, plus separate
-lawful adult-industry platform providers. Adult-only provider metadata is
+The provider directory covers Apple, AWS, Google and Microsoft, plus 14 separate
+lawful adult-industry provider packages. Adult-only provider metadata is
 excluded by default and requires explicit `include_adult=true`; the directory
 is metadata-only and is not age verification or a live provider connection.
