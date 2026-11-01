@@ -1,7 +1,7 @@
 """Enterprise API namespace sharing the canonical persistent Business domain."""
 from typing import Any
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 
 from backend.api import businesses as business_api
 from backend.security.dependencies import get_current_user
@@ -59,6 +59,12 @@ def create_big_business(
     request: BusinessCreateRequest,
     current_user: dict[str, Any] = Depends(get_current_user),
 ):
+    requested_type = str(request.business_type or "").strip().upper()
+    if requested_type not in BIG_BUSINESS_TYPES:
+        raise HTTPException(
+            status_code=422,
+            detail="BIG_BUSINESS_TYPE_REQUIRED",
+        )
     return business_api.create_business(request=request, current_user=current_user)
 
 
@@ -71,6 +77,5 @@ def get_big_business(
     data = result["data"]
     if str(data.get("business_type", "")).strip().upper() not in BIG_BUSINESS_TYPES:
         # Do not disclose whether a non-enterprise business belongs to another user.
-        from fastapi import HTTPException
         raise HTTPException(status_code=404, detail="BIG_BUSINESS_NOT_FOUND")
     return {"message": "Big Business retrieved successfully", "data": data}
