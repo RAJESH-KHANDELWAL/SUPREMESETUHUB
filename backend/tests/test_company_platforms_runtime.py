@@ -97,9 +97,12 @@ class CompanyPlatformsRuntimeTests(unittest.TestCase):
         self.assertFalse(status["live_external_connections"])
 
     def test_company_and_platform_routes_are_mounted_in_global_api_router(self):
+        from fastapi import FastAPI
         from backend.api.global_api_ecosystem_routes import router
 
-        paths = {route.path for route in router.routes}
+        test_app = FastAPI()
+        test_app.include_router(router)
+        paths = set(test_app.openapi()["paths"])
         self.assertIn(
             "/api/v1/global-api-ecosystem/global/company-profile-adapters",
             paths,
