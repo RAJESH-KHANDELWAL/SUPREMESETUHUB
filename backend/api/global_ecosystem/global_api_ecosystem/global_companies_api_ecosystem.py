@@ -1,6 +1,6 @@
-"""Name-matching module for the global_companies_api_ecosystem package."""
+"""Name-matching module for the global_company_companies_api_ecosystem package."""
 
-ECOSYSTEM_NAME = "global_companies_api_ecosystem"
+ECOSYSTEM_NAME = "global_company_companies_api_ecosystem"
 
 
 def get_ecosystem_info() -> dict[str, str]:
