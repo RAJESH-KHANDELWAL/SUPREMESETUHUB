@@ -11,7 +11,7 @@ ALLOWED_RECORD_TYPES = {"company", "business", "freelancer"}
 ENTITY_TYPE_GROUPS = {
     "company": {"registered_company", "public_company", "private_company", "limited_company", "corporation", "government_enterprise", "state_owned_enterprise", "public_sector_organization", "nonprofit", "charity", "foundation", "cooperative", "partnership", "limited_liability_partnership", "holding_company", "subsidiary", "joint_venture", "branch_office", "multinational"},
     "business": {"sole_proprietor", "micro_business", "small_business", "medium_business", "large_enterprise", "startup", "scaleup", "franchise"},
-    "freelancer": {"freelancer", "individual_service_provider", "self_employed", "professional_practice"},
+    "freelancer": {"freelancer", "individual_service_provider", "self_employed", "independent_consultant", "independent_contractor", "gig_worker", "professional_practice"},
 }
 
 def infer_record_type(record: Dict[str, Any]) -> str:
