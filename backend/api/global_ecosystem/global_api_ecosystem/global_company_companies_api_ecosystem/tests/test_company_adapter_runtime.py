@@ -53,3 +53,19 @@ def test_company_adapter_aggregate_routes_are_mounted():
     assert "/global/company-profile-adapters/status" in paths
     assert "/global/company-profile-adapters/{company_id}" in paths
     assert "/global/company-profile-adapters/{company_id}/sources" in paths
+
+
+def test_company_ecosystem_package_and_parent_api_router_are_connected():
+    from backend.api.global_ecosystem.global_api_ecosystem.global_company_companies_api_ecosystem import (
+        search_companies,
+    )
+    from backend.api.global_api_ecosystem_routes import router as parent_router
+    from backend.api.global_ecosystem.global_api_ecosystem.global_company_companies_api_ecosystem.global_companies_ecosystem import (
+        get_ecosystem_info,
+    )
+
+    paths = {route.path for route in parent_router.routes}
+    assert callable(search_companies)
+    assert "/api/v1/global-api-ecosystem/global/company-profile-adapters" in paths
+    assert "/api/v1/global-api-ecosystem/global/companies" in paths
+    assert get_ecosystem_info()["adapter_count"] == 26
