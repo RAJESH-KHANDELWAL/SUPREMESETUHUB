@@ -37,11 +37,6 @@ def platform_search(q: str | None = Query(default=None), domain: str | None = Qu
     try: return search_platforms(q, domain, country, platform_type, verification_status, include_adult, limit, offset)
     except ValueError as exc: raise HTTPException(status_code=422, detail=str(exc)) from exc
 
-@router.get("/{platform_id}")
-def platform_details(platform_id: str, include_adult: bool = Query(default=False)):
-    platform = get_platform(platform_id, include_adult=include_adult)
-    if platform is None: raise HTTPException(status_code=404, detail="Platform not found")
-    return {"success":True,"item":platform}
 
 
 @router.get("/providers")
@@ -56,3 +51,10 @@ def platform_provider_details(provider_id: str, include_adult: bool = Query(defa
     if provider is None:
         raise HTTPException(status_code=404, detail="PLATFORM_PROVIDER_NOT_FOUND")
     return {"success": True, "provider": provider}
+
+
+@router.get("/{platform_id}")
+def platform_details(platform_id: str, include_adult: bool = Query(default=False)):
+    platform = get_platform(platform_id, include_adult=include_adult)
+    if platform is None: raise HTTPException(status_code=404, detail="Platform not found")
+    return {"success":True,"item":platform}
