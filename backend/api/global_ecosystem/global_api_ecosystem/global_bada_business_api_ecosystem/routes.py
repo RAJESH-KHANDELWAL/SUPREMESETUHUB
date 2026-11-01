@@ -3,6 +3,14 @@ from fastapi import APIRouter, HTTPException, Query
 from .schemas import BusinessEcosystemStatus
 from .service import BusinessEcosystemService
 
+# Reuse the canonical Global Companies registry; do not create a second dataset.
+from backend.api.global_ecosystem.global_api_ecosystem.global_companies_api_ecosystem.service import (
+    get_api_status as get_companies_api_status,
+    get_company as get_company_record,
+    get_company_alphabet,
+    search_companies,
+)
+
 from .global_world_catalog import (
     get_domain as get_universal_domain,
     list_domains as list_universal_domains,
@@ -17,6 +25,64 @@ router = APIRouter(
 )
 
 service = BusinessEcosystemService()
+
+
+# Simple Company / Companies shortcuts, matching the Bada Business API style.
+# These routes read the same canonical registry used by the standalone Companies API.
+@router.get("/companies/status")
+def get_companies_status():
+    return {"success": True, **get_companies_api_status()}
+
+
+@router.get("/companies/alphabet")
+def get_companies_alphabet():
+    result = get_company_alphabet()
+    return {"success": True, **result}
+
+
+@router.get("/companies")
+def list_companies(
+    q: str | None = Query(default=None, min_length=1, max_length=120),
+    country: str | None = Query(default=None, min_length=2, max_length=2),
+    industry: str | None = Query(default=None),
+    entity_type: str | None = Query(default=None),
+    verification_status: str | None = Query(default=None),
+    letter: str | None = Query(default=None, min_length=1, max_length=1, pattern="^[A-Za-z]$"),
+    limit: int = Query(default=50, ge=1, le=200),
+    offset: int = Query(default=0, ge=0),
+):
+    result = search_companies(q, country, industry, entity_type, verification_status, letter, limit, offset)
+    return {
+        "success": True,
+        "registry_status": "source_backed_records_only",
+        **result,
+    }
+
+
+@router.get("/companies/search")
+def search_company_records(
+    q: str = Query(min_length=1, max_length=120),
+    country: str | None = Query(default=None, min_length=2, max_length=2),
+    industry: str | None = Query(default=None),
+    entity_type: str | None = Query(default=None),
+    verification_status: str | None = Query(default=None),
+    letter: str | None = Query(default=None, min_length=1, max_length=1, pattern="^[A-Za-z]$"),
+    limit: int = Query(default=50, ge=1, le=200),
+    offset: int = Query(default=0, ge=0),
+):
+    result = search_companies(q, country, industry, entity_type, verification_status, letter, limit, offset)
+    return {"success": True, "registry_status": "source_backed_records_only", **result}
+
+
+@router.get("/companies/{company_id}")
+def get_company(company_id: str):
+    record = get_company_record(company_id)
+    if record is None:
+        raise HTTPException(
+            status_code=404,
+            detail={"error": "COMPANY_NOT_FOUND", "company_id": company_id},
+        )
+    return {"success": True, "company": record}
 
 
 @router.get("/status", response_model=BusinessEcosystemStatus)
