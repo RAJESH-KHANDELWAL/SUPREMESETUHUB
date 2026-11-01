@@ -1,5 +1,6 @@
 """Tests for the company-specific module index."""
 import unittest
+from pathlib import Path
 
 from ..company_modules_api_ecosystem.registry import (
     get_company_module,
@@ -17,6 +18,12 @@ class CompanyModulesRegistryTests(unittest.TestCase):
         self.assertEqual(result["module_count"], 26)
         self.assertEqual(result["duplicate_company_ids"], [])
         self.assertEqual(result["duplicate_package_paths"], [])
+
+    def test_every_registry_entry_points_to_an_existing_package(self):
+        package_root = Path(__file__).resolve().parents[1]
+        for item in list_company_modules():
+            with self.subTest(company_id=item.company_id):
+                self.assertTrue((package_root / item.package_path).is_dir())
 
     def test_lookup_is_case_insensitive(self):
         self.assertEqual(get_company_module("APPLE").company_id, "apple")
