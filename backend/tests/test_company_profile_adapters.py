@@ -39,9 +39,10 @@ class TestCompanyProfileAdapters(unittest.TestCase):
                 self.assertFalse(profile["sources"][0]["live_connection"])
 
     def test_each_adapter_exposes_profile_source_and_status_routes(self):
-        paths = {route.path for route in self.registry.router.routes}
         for company_id in self.company_ids:
             with self.subTest(company_id=company_id):
+                package = importlib.import_module(f"{PACKAGE}.{company_id}")
+                paths = {route.path for route in package.router.routes}
                 base = f"/global/company-profile-adapters/{company_id}"
                 self.assertIn(base, paths)
                 self.assertIn(f"{base}/sources", paths)
