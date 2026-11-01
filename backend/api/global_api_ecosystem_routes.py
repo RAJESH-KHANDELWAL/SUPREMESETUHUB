@@ -7,6 +7,7 @@ from backend.api.global_ecosystem.global_api_ecosystem.global_ai_api_ecosystem i
 from backend.api.global_ecosystem.global_api_ecosystem.global_app_api_ecosystem import router as global_app_router
 from backend.api.global_ecosystem.global_api_ecosystem.global_cloud_api_ecosystem import router as global_cloud_router
 from backend.api.global_ecosystem.global_api_ecosystem.global_database_api_ecosystem import router as global_database_router
+from backend.api.global_ecosystem.global_api_ecosystem.global_companies_api_ecosystem import router as global_companies_router
 
 from backend.api.global_api_ecosystem_catalog import (
     get_provider_ecosystem,
@@ -20,11 +21,12 @@ router = APIRouter(
     tags=["GLOBAL API ECOSYSTEM"],
 )
 
-# Mount the four dedicated global API family routers under the main application.
+# Mount dedicated global API family routers under the main application.
 router.include_router(global_ai_router)
 router.include_router(global_app_router)
 router.include_router(global_cloud_router)
 router.include_router(global_database_router)
+router.include_router(global_companies_router)
 
 
 @router.get("/status")
