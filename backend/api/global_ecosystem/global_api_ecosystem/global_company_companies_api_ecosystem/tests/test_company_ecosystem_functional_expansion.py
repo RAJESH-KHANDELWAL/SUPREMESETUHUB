@@ -5,6 +5,9 @@ from ..industry_api_ecosystems.registry import list_industries,validate_industry
 from ..sectors.catalog import list_sectors,validate_sector_catalog
 from ..provider_api_ecosystems.service import list_providers,get_provider_status
 from ..routes import router
+from ..integrations.catalog import list_integrations,get_integration_status
+from ..services.catalog import list_services
+from ..tools.tools import classify_entity,validate_registry_payload,find_duplicate_ids
 
 def test_enterprise_is_canonical_and_business_is_legacy_name():
     classes={item["record_type"] for item in list_record_classes()}
@@ -32,3 +35,21 @@ def test_new_company_directory_routes_are_mounted():
     assert "/global/company-directory/countries" in paths
     assert "/global/company-directory/providers" in paths
     assert "/global/company-directory/enterprises/catalog" in paths
+
+def test_integrations_and_services_have_real_catalogue_entries():
+    assert len(list_integrations()) >= 5
+    assert get_integration_status()["live_connections"] is False
+    assert len(list_services()) >= 7
+
+def test_company_directory_tools_are_deterministic():
+    assert classify_entity("small_business")["record_type"] == "enterprise"
+    assert validate_registry_payload({"company_id":"c1","name":"Example","entity_type":"registered_company"})["valid"]
+    assert not validate_registry_payload({"company_id":"c1","name":"Example","entity_type":"registered_company","verification_status":"registry_verified"})["valid"]
+    assert find_duplicate_ids([{"company_id":"x"},{"company_id":"x"}]) == ["x"]
+
+def test_integration_service_and_tool_routes_are_mounted():
+    paths={route.path for route in router.routes}
+    assert "/global/company-directory/integrations" in paths
+    assert "/global/company-directory/services" in paths
+    assert "/global/company-directory/tools" in paths
+    assert "/global/company-directory/tools/classify/{entity_type}" in paths
