@@ -1,68 +1,37 @@
-# Global Company & Companies API Ecosystem — Coverage Blueprint
+# Global Company, Business and Freelancer Ecosystem
 
-## Purpose
+## One directory, three distinct record classes
 
-Build one country-aware directory and API for organizations, registered companies, businesses, startups, MSMEs, sole proprietors, freelancers, professional practices, public bodies, nonprofits, and service providers across India and other countries.
+The ecosystem exposes one normalized search and profile model with three mutually exclusive top-level classes:
 
-The directory is intended to support A–Z navigation and broad industry discovery. A category being defined does not mean that the directory already contains records for that category or that every country has a live data connection.
+- **company** — registered legal entities and other formally constituted organizations.
+- **business** — operating businesses that are not necessarily represented as a registered company, including sole proprietors, MSMEs, startups and franchises.
+- **freelancer** — individual independent professionals and service providers.
 
-## Separate dimensions
+The detailed `entity_type` remains the legal or operational subtype. `record_type` is the directory-level class. Industry, size, legal status, country and verification are independent dimensions.
 
-Do not collapse these concepts into one field:
+## API surface
 
-- **Entity type:** what kind of legal or operating entity this is.
-- **Business size:** individual, micro, small, medium, large, or enterprise.
-- **Industry:** the sector and optional sub-sector in which it operates.
-- **Country and jurisdiction:** where it is registered or operates.
-- **Audience/access label:** general, family-friendly, professional-only, or legally age-restricted.
-- **Verification status:** how the identity and source evidence were checked.
-- **Source connection status:** whether a source is merely catalogued, manually accessible, requires credentials, or is actually connected.
+The parent router mounts this module under `/api/v1/global-api-ecosystem`.
 
-The canonical category definitions are in data/company_taxonomy.json.
+- `GET /global/companies/status` — readiness and registry/source counts.
+- `GET /global/companies` — unified search; accepts `category=company|business|freelancer`.
+- `GET /global/companies/search` — explicit search alias.
+- `GET /global/companies/alphabet` — A–Z counts across all classes.
+- `GET /global/companies/{company_id}` and `GET /global/company/{company_id}` — profile lookup.
+- `GET /global/businesses` — business-only listing.
+- `GET /global/freelancers` — freelancer-only listing.
+- `GET /global/companies/sources` and `/sources/{source_id}` — source directory metadata.
 
-## Adult, couples, family, and sexual-wellness classifications
+## Data integrity and verification
 
-The taxonomy deliberately separates family and relationship services from adult-oriented businesses. It includes categories for parenting, childcare, marriage services, couples counselling, relationship education, sexual-health education, sexual-wellness products, lawful adult retail, adult publishers, and lawful adult-entertainment businesses.
+- Stable IDs must be unique; every record needs a name and entity subtype.
+- Explicit `record_type` must be company, business or freelancer. Legacy records infer this class from `entity_type`.
+- `source_checked`, `registry_verified` and `identity_verified` records must carry source URLs. A website alone is not proof of legal registration.
+- Country-specific identifiers must remain namespaced and jurisdiction-specific.
+- Source directory metadata does not mean a provider API is connected. Live adapters require documented official/authorized interfaces, credentials where required, rate-limit handling and tests.
+- Never bypass access controls or claim worldwide completeness from a partial registry.
 
-These are business metadata classifications, not permission to host or distribute explicit media. Adult-oriented listings must be lawful in the relevant jurisdictions, restricted to consenting adults, age-gated where required, privacy-protective, and compliant with licensing and platform rules. Any content involving minors, exploitation, trafficking, coercion, non-consensual intimate imagery, or uncertain age must be excluded. If legality or safeguards cannot be established, the listing must be excluded or held for review.
+## Current implementation boundary
 
-## Global data and verification rules
-
-1. Prefer official company registries, government open-data portals, licensed commercial datasets, and provider-authorized APIs.
-2. Keep a source directory separate from connected adapters. Never label a source as connected until a real integration has been tested.
-3. Preserve source provenance: source ID, external record ID, evidence URL, retrieval timestamp, source update timestamp, and verification method.
-4. Use country-specific registration identifiers. Do not assume CIN, SEC CIK, Companies House number, trade licence, or other identifiers share a global format.
-5. Distinguish unverified, source_checked, registry_verified, identity_verified, and suspended. A source URL alone is not proof of identity.
-6. Do not scrape access-controlled portals, bypass CAPTCHAs, or violate source terms. Respect API credentials, rate limits, attribution, licensing, and retention rules.
-7. Expose coverage gaps and data freshness. Never claim a complete worldwide directory while records or country adapters are missing.
-8. Avoid collecting unnecessary personal data, particularly for sole proprietors, freelancers, family services, and adult-oriented businesses.
-
-## Implementation phases
-
-### Phase 1 — Taxonomy and data contract
-- Define entity types, business sizes, A–Z industry families, specialized classifications, adult access labels, and verification/source states.
-- Add schema validation and tests for category IDs and cross-field rules.
-- Extend records with provenance and country-specific identifiers without breaking existing API clients.
-
-### Phase 2 — Registry and API quality
-- Add safe filtering by industry, subcategory, entity type, business size, country, verification, and audience label.
-- Add record detail, source detail, coverage summary, and data-freshness metadata.
-- Keep empty registry status explicit; available must not imply populated or globally complete.
-
-### Phase 3 — Country source onboarding
-- Prioritize India, then onboard other jurisdictions through a documented source matrix.
-- For each source, record official URL, supported entity coverage, access method, licensing, credentials, rate limits, update cadence, and adapter status.
-- Build one tested adapter at a time with idempotent ingestion, deduplication, retries, audit logs, and source attribution.
-
-### Phase 4 — Search, scale, and governance
-- Move from a static JSON registry to a suitable persistent datastore when scale and operational needs justify it.
-- Add moderation and review workflows for sensitive or age-restricted categories.
-- Add monitoring for freshness, connector failures, duplicate records, and source policy changes.
-
-## Current limitations to disclose
-
-- The local company registry may be empty; taxonomy entries are not company records.
-- The country source directory may contain references that are not connected APIs.
-- Country coverage, legal-entity coverage, and update frequency vary by source.
-- A–Z endpoints count only records actually present in the registry.
-- No category should be described as fully covered until source ingestion and validation are implemented and tested.
+The JSON registry is read-only through the API and currently contains zero profiles. The country source file is a curated directory, not a live connector. Status explicitly reports `registry_empty` until records are added. Google, Microsoft, AWS and Apple provider folders remain catalog/readiness metadata unless a real, tested company-data adapter is implemented.
