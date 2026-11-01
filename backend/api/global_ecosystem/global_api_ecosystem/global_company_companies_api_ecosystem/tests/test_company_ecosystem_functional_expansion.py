@@ -87,8 +87,9 @@ def test_all_26_company_profile_adapters_are_mounted_and_source_aware():
     from ..global_companies_ecosystem import adobe, alibaba, amazon, apple, atlassian, aws, bytedance, cisco, cloudflare, github, google, ibm, intel, meta, microsoft, netflix, nvidia, openai, oracle, paypal, salesforce, samsung, shopify, stripe, tencent, zoom
     assert len(COMPANY_ADAPTER_IDS) == 26
     assert len(set(COMPANY_ADAPTER_IDS)) == 26
-    paths = {route.path for route in adapters_router.routes}
     for company_id in COMPANY_ADAPTER_IDS:
+        package = __import__(f"backend.api.global_ecosystem.global_api_ecosystem.global_company_companies_api_ecosystem.global_companies_ecosystem.{company_id}", fromlist=["router"])
+        paths = {route.path for route in package.router.routes}
         assert f"/global/company-profile-adapters/{company_id}" in paths
         assert f"/global/company-profile-adapters/{company_id}/sources" in paths
         assert f"/global/company-profile-adapters/{company_id}/status" in paths
