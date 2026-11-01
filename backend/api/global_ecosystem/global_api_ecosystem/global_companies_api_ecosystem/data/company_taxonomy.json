@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0.0",
+  "entity_types": [
+    "registered_company",
+    "public_company",
+    "private_company",
+    "government_enterprise",
+    "state_owned_enterprise",
+    "nonprofit",
+    "cooperative",
+    "partnership",
+    "limited_liability_partnership",
+    "sole_proprietor",
+    "micro_business",
+    "small_business",
+    "medium_business",
+    "startup",
+    "multinational",
+    "freelancer",
+    "individual_service_provider"
+  ],
+  "verification_statuses": [
+    "unverified",
+    "source_checked",
+    "registry_verified",
+    "identity_verified",
+    "suspended"
+  ],
+  "industry_families": [
+    "agriculture_and_food",
+    "automotive_and_transport",
+    "banking_and_finance",
+    "construction_and_infrastructure",
+    "education_and_training",
+    "energy_and_utilities",
+    "entertainment_and_media",
+    "family_and_relationship_services",
+    "healthcare_and_life_sciences",
+    "hospitality_and_tourism",
+    "information_technology_and_telecom",
+    "legal_and_professional_services",
+    "manufacturing_and_industrial",
+    "retail_and_ecommerce",
+    "real_estate_and_property",
+    "sexual_wellness_and_adult_products",
+    "lawful_adult_entertainment",
+    "sports_and_fitness",
+    "logistics_and_supply_chain",
+    "environment_and_water",
+    "other"
+  ],
+  "adult_business_safeguards": [
+    "lawful_in_relevant_jurisdiction",
+    "age_restricted_access_where_required",
+    "documented_consent_and_non_exploitation",
+    "privacy_and_data_protection",
+    "licensing_and_platform_policy_compliance"
+  ],
+  "country_code_standard": "ISO 3166-1 alpha-2",
+  "notes": [
+    "Company, business, freelancer, and sole-proprietor are distinct entity types.",
+    "Industry families are classifications, not proof that a provider is licensed or compliant.",
+    "Adult-related categories are limited to lawful, consensual, age-appropriate businesses."
+  ]
+}

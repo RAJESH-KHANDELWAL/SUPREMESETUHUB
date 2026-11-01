@@ -1,4 +1,4 @@
-"""GLOBAL COMPANIES API ECOSYSTEM package."""
+"""GLOBAL COMPANY / COMPANIES API ECOSYSTEM package."""
 
 from .routes import router
 
