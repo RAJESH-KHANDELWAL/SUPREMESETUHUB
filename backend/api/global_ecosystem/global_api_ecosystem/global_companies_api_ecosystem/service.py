@@ -121,8 +121,11 @@ def get_api_status() -> Dict[str, Any]:
         "company_api": "available",
         "companies_api": "available",
         "registry_records": len(load_company_registry()),
+        "source_count": len(load_country_sources()),
+        "source_countries": sorted({item["country_code"] for item in load_country_sources()}),
         "registry_mode": "local_json_read_only",
-        "note": "A-Z search and source validation are enabled; records require sourced evidence before verification.",
+        "source_mode": "official_source_directory_only",
+        "note": "A-Z search and source provenance checks are enabled. Source descriptors are not live connections; company records require sourced evidence before verification.",
     }
 
 
