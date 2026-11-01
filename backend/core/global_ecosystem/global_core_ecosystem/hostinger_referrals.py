@@ -19,6 +19,8 @@ HOSTINGER_REFERRAL_ACCOUNTS: list[dict[str, Any]] = [
     {
         "identity_id": "DRRAJESHKHANDELWALIBCOFFICIAL",
         "display_name": "DR RAJESH KHANDELWAL IBC OFFICIAL",
+        "account_email": "drrajeshkhandelwalibcofficial@gmail.com",
+        "dashboard_label": "DR RAJESH KHANDELWAL IBC OFFICIAL",
         "referral_code": "RAJESHIBCGROWTH",
         "referral_url": "https://www.hostinger.com/in?REFERRALCODE=RAJESHIBCGROWTH",
         "primary": False,
