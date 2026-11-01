@@ -53,3 +53,16 @@ def test_integration_service_and_tool_routes_are_mounted():
     assert "/global/company-directory/services" in paths
     assert "/global/company-directory/tools" in paths
     assert "/global/company-directory/tools/classify/{entity_type}" in paths
+
+
+def test_openai_company_profile_is_source_aware_and_route_is_mounted():
+    from ..global_companies_ecosystem.openai.service import get_company_profile
+    profile = get_company_profile()
+    assert profile["company_id"] == "openai"
+    assert profile["record_type"] == "company"
+    assert profile["data_status"] == "no_verified_profile_record"
+    assert profile["sources"][0]["url"] == "https://openai.com/"
+    assert profile["sources"][0]["live_connection"] is False
+    paths = {route.path for route in router.routes}
+    assert "/global/company-directory/company-profiles/openai" in paths
+    assert "/global/company-directory/company-profiles/openai/sources" in paths
