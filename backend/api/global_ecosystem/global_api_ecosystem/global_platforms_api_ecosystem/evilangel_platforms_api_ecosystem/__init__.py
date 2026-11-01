@@ -1,1 +1,1 @@
-"""evilangel provider package for the Global Platforms ecosystem; metadata only."""
+"""evilangel provider package; metadata only."""
