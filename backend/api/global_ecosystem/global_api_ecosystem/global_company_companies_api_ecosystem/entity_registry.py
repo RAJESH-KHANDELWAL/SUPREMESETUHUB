@@ -1,8 +1,8 @@
 """Company entity-type to record-class mappings."""
 from .classification_registry import get_record_class, list_record_classes, validate_record_class_registry
 ENTITY_TYPE_TO_RECORD_CLASS = {
- "registered_company":"company","private_limited_company":"company","public_limited_company":"company","limited_liability_company":"company","corporation":"company",
- "operating_enterprise":"enterprise","micro_enterprise":"enterprise","small_enterprise":"enterprise","medium_enterprise":"enterprise","large_enterprise":"enterprise","startup_enterprise":"enterprise",
+ "registered_company":"company","public_company":"company","private_company":"company","limited_company":"company","corporation":"company","private_limited_company":"company","public_limited_company":"company","limited_liability_company":"company",
+ "operating_enterprise":"enterprise","micro_enterprise":"enterprise","small_enterprise":"enterprise","medium_enterprise":"enterprise","large_enterprise":"enterprise","startup_enterprise":"enterprise","small_business":"enterprise","medium_business":"enterprise","large_enterprise":"enterprise",
  "holding_group":"corporate_group","corporate_group":"corporate_group","parent_company_group":"corporate_group","subsidiary_group":"corporate_group",
 }
 def classify_entity_type(entity_type): return ENTITY_TYPE_TO_RECORD_CLASS.get((entity_type or "").strip().casefold())
