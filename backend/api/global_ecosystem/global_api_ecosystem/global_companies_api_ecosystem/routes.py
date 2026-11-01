@@ -2,16 +2,34 @@
 
 from fastapi import APIRouter, HTTPException, Query
 
-from .schemas import CompanyApiStatus, CompanyListResponse, CompanyRecord
-from .service import get_api_status, get_company, search_companies
+from .schemas import CompanyAlphabetResponse, CompanyApiStatus, CompanyListResponse, CompanyRecord
+from .service import get_api_status, get_company, get_company_alphabet, search_companies
 
 router = APIRouter(tags=["GLOBAL COMPANY API", "GLOBAL COMPANIES API"])
 
 
+def _search(
+    q: str | None,
+    country: str | None,
+    industry: str | None,
+    entity_type: str | None,
+    verification_status: str | None,
+    letter: str | None,
+    limit: int,
+    offset: int,
+):
+    return search_companies(q, country, industry, entity_type, verification_status, letter, limit, offset)
+
+
 @router.get("/global/companies/status", response_model=CompanyApiStatus)
 def companies_api_status():
-    """Return API and registry readiness."""
     return get_api_status()
+
+
+@router.get("/global/companies/alphabet", response_model=CompanyAlphabetResponse)
+def companies_alphabet():
+    """Return A-Z counts for records currently in the registry."""
+    return get_company_alphabet()
 
 
 @router.get("/global/companies", response_model=CompanyListResponse)
@@ -21,11 +39,12 @@ def list_companies(
     industry: str | None = Query(default=None),
     entity_type: str | None = Query(default=None),
     verification_status: str | None = Query(default=None),
+    letter: str | None = Query(default=None, min_length=1, max_length=1, pattern="^[A-Za-z]$"),
     limit: int = Query(default=50, ge=1, le=200),
     offset: int = Query(default=0, ge=0),
 ):
-    """List/search businesses and companies with filters and pagination."""
-    return search_companies(q, country, industry, entity_type, verification_status, limit, offset)
+    """List companies alphabetically, with optional letter and metadata filters."""
+    return _search(q, country, industry, entity_type, verification_status, letter, limit, offset)
 
 
 @router.get("/global/companies/search", response_model=CompanyListResponse)
@@ -35,16 +54,15 @@ def search_companies_endpoint(
     industry: str | None = Query(default=None),
     entity_type: str | None = Query(default=None),
     verification_status: str | None = Query(default=None),
+    letter: str | None = Query(default=None, min_length=1, max_length=1, pattern="^[A-Za-z]$"),
     limit: int = Query(default=50, ge=1, le=200),
     offset: int = Query(default=0, ge=0),
 ):
-    """Explicit search endpoint; uses the same filters as the collection."""
-    return search_companies(q, country, industry, entity_type, verification_status, limit, offset)
+    return _search(q, country, industry, entity_type, verification_status, letter, limit, offset)
 
 
 @router.get("/global/companies/{company_id}", response_model=CompanyRecord)
 def company_details(company_id: str):
-    """Fetch one company/business profile by stable ID."""
     record = get_company(company_id)
     if record is None:
         raise HTTPException(status_code=404, detail="Company not found")
@@ -53,5 +71,4 @@ def company_details(company_id: str):
 
 @router.get("/global/company/{company_id}", response_model=CompanyRecord)
 def singular_company_details(company_id: str):
-    """Singular Company API alias for integrations expecting /global/company."""
     return company_details(company_id)
