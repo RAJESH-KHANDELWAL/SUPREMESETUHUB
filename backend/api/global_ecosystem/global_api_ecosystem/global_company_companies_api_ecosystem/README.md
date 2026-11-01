@@ -18,3 +18,12 @@ Industry and sector catalogues are curated navigation metadata, not an exact sta
 
 ## Reference boundary
 Global Bada Business API is used only for architecture and package-layout conventions. Its business categories, industry taxonomy, provider data and business-specific content are not imported into this Company ecosystem.
+
+## Company-specific profile adapters
+
+The 26 company packages under `global_companies_ecosystem/` expose a consistent API contract:
+- `GET /global/company-profile-adapters/{company_id}` — company discovery profile.
+- `GET /global/company-profile-adapters/{company_id}/sources` — declared source provenance.
+- `GET /global/company-profile-adapters/{company_id}/status` — adapter configuration and connectivity status.
+
+Each package has its own `schemas.py`, `service.py`, `routes.py` and `__init__.py`, and is mounted by the aggregate company-profile router. Current entries register official company websites as discovery sources only. They deliberately report `source_registered_unverified`, `no_verified_legal_entity_record` and `not_connected` until jurisdiction-specific legal records, credentials, retrieval adapters, freshness controls and integration tests are implemented. These endpoints do not represent legal verification or live third-party data access.
