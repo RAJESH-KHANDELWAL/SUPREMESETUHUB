@@ -13,7 +13,7 @@ from backend.api.global_ecosystem.global_api_ecosystem.global_platforms_api_ecos
 
 
 def test_nested_platform_service_uses_canonical_registry(monkeypatch):
-    from backend.api.global_ecosystem.global_api_ecosystem.global_platforms_api_ecosystem import service
+    from backend.api.global_ecosystem.global_api_ecosystem.global_platforms_api_ecosystem.global_platforms_ecosystem import service
 
     records = [{"platform_id": "sample-platform", "name": "Sample Platform"}]
     monkeypatch.setattr(service, "search_platforms", lambda **kwargs: {
