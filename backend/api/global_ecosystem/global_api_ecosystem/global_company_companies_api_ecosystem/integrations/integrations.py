@@ -1,8 +1,3 @@
-"""Name-matching module for the integrations package."""
-
-FOLDER_NAME = "integrations"
-
-
-def list_entries() -> list[dict[str, str]]:
-    """Return configured integrations entries; none are registered yet."""
-    return []
+"""Compatibility exports for Company integrations."""
+from .catalog import list_integrations as list_entries
+FOLDER_NAME="integrations"
