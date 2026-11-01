@@ -9,6 +9,7 @@ __path__ = [str(Path(__file__).with_name("global_companies_ecosystem"))]
 from .global_companies_ecosystem import (
     get_company_adapter_status,
     get_company_ecosystem_status,
+    get_ecosystem_info,
     get_company_profile,
     get_company_sources,
     list_companies,
@@ -25,4 +26,5 @@ __all__ = [
     "get_company_sources",
     "get_company_adapter_status",
     "get_company_ecosystem_status",
+    "get_ecosystem_info",
 ]
