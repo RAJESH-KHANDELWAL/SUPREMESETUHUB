@@ -124,3 +124,53 @@ def get_api_status() -> Dict[str, Any]:
         "registry_mode": "local_json_read_only",
         "note": "A-Z search and source validation are enabled; records require sourced evidence before verification.",
     }
+
+
+
+def load_country_sources() -> List[Dict[str, Any]]:
+    """Load the curated official-source directory; this does not connect to providers."""
+    source_path = PACKAGE_DIR / "data" / "country_sources.json"
+    if not source_path.exists():
+        return []
+    with source_path.open("r", encoding="utf-8") as source_file:
+        payload = json.load(source_file)
+    if not isinstance(payload, dict) or not isinstance(payload.get("sources"), list):
+        raise ValueError("Country source registry must contain a sources list")
+    seen = set()
+    for index, source in enumerate(payload["sources"]):
+        if not isinstance(source, dict):
+            raise ValueError(f"Country source {index} must be an object")
+        source_id = str(source.get("source_id", "")).strip()
+        country_code = str(source.get("country_code", "")).strip()
+        if not source_id or not country_code:
+            raise ValueError(f"Country source {index} requires source_id and country_code")
+        if source_id in seen:
+            raise ValueError(f"Duplicate source_id: {source_id}")
+        seen.add(source_id)
+        if len(country_code) != 2 or not country_code.isalpha() or country_code != country_code.upper():
+            raise ValueError(f"Invalid ISO alpha-2 country_code for source {source_id}")
+        if not source.get("source_url"):
+            raise ValueError(f"Country source {source_id} requires source_url")
+    return payload["sources"]
+
+
+def list_country_sources(country_code: Optional[str] = None) -> Dict[str, Any]:
+    """List registered official source endpoints, optionally filtered by country."""
+    sources = load_country_sources()
+    if country_code:
+        code = country_code.upper()
+        sources = [item for item in sources if item["country_code"] == code]
+    sources.sort(key=lambda item: (item["country_name"].casefold(), item["name"].casefold()))
+    countries = sorted({item["country_code"] for item in sources})
+    return {
+        "total": len(sources),
+        "country_count": len(countries),
+        "countries": countries,
+        "items": sources,
+        "registry_status": "source_directory_only",
+    }
+
+
+def get_country_source(source_id: str) -> Optional[Dict[str, Any]]:
+    """Get one official source descriptor by its stable source_id."""
+    return next((item for item in load_country_sources() if item["source_id"] == source_id), None)
