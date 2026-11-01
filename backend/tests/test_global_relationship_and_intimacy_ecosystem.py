@@ -111,7 +111,7 @@ def test_visible_category_packages_match_catalog_categories():
     category_ids = {item["category_id"] for item in categories.json()}
     assert len(package_ids) == 33
     assert package_ids == category_ids
-    assert all(item["path"].startswith("categories/") for item in packages.json())
+    assert all(item["path"] == item["package"] for item in packages.json())
 
 
 def test_visible_provider_directory_matches_canonical_providers():
