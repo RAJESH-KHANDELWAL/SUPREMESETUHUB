@@ -1,1 +1,1 @@
-"""faphouse provider package for the Global Platforms ecosystem; metadata only."""
+"""faphouse provider package; metadata only."""
