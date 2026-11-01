@@ -64,7 +64,7 @@ def test_openai_company_profile_is_source_aware_and_route_is_mounted():
     assert profile["sources"][0]["url"] == "https://openai.com/"
     assert profile["sources"][0]["live_connection"] is False
     paths = {route.path for route in router.routes}
-    assert "/global/company-directory/company-profiles/openai" in paths
+    assert "/global/company-profile-adapters/openai" in paths
     assert "/global/company-directory/company-profiles/openai/sources" in paths
 
 
