@@ -72,6 +72,33 @@ class CompanyRegistryTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "Duplicate source_id"):
                     service.load_country_sources()
 
+    def test_company_business_and_freelancer_categories_are_distinct(self):
+        path = self._registry([
+            {"company_id": "co", "name": "Registered Co", "entity_type": "registered_company"},
+            {"company_id": "biz", "name": "Local Shop", "entity_type": "small_business"},
+            {"company_id": "free", "name": "Independent Designer", "entity_type": "freelancer"},
+        ])
+        with patch.object(service, "REGISTRY_PATH", path):
+            companies = service.search_companies(category="company")
+            businesses = service.search_companies(category="business")
+            freelancers = service.search_companies(category="freelancer")
+        self.assertEqual([x["company_id"] for x in companies["items"]], ["co"])
+        self.assertEqual([x["company_id"] for x in businesses["items"]], ["biz"])
+        self.assertEqual([x["company_id"] for x in freelancers["items"]], ["free"])
+
+    def test_invalid_category_is_rejected(self):
+        path = self._registry([])
+        with patch.object(service, "REGISTRY_PATH", path):
+            with self.assertRaisesRegex(ValueError, "category must be one of"):
+                service.search_companies(category="vendor")
+
+    def test_empty_registry_status_is_explicit(self):
+        path = self._registry([])
+        with patch.object(service, "REGISTRY_PATH", path), patch.object(service, "load_country_sources", return_value=[]):
+            status = service.get_api_status()
+        self.assertEqual(status["status"], "registry_empty")
+        self.assertEqual(status["registry_records"], 0)
+
     def test_duplicate_company_ids_are_rejected(self):
         path = self._registry([
             {"company_id": "duplicate", "name": "One", "entity_type": "registered_company"},
