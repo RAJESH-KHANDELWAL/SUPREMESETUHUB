@@ -1,3 +1,3 @@
-# Industry API Ecosystems
-
-Industry classification is independent of top-level record class. This package is taxonomy navigation metadata, not proof of active providers, legal authorization or exhaustive global coverage.
+# Company Industry Taxonomy
+Company-oriented industry navigation. IDs are stable slugs, not exact ISIC, NACE, NAICS or national statistical codes. Official-code crosswalks require jurisdiction, issuing authority and version.
+Status: curated taxonomy only; no live company profiles or verification.

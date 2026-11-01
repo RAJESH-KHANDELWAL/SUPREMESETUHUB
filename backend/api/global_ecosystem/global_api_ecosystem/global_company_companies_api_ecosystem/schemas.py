@@ -3,7 +3,7 @@ from typing import List, Optional
 from pydantic import BaseModel, Field
 
 class CompanyRecord(BaseModel):
-    """Normalized profile; record_type separates legal companies, businesses and people."""
+    """Normalized profile; record_type is canonical Company, Enterprise or Corporate Group; legacy Freelancer records are compatibility-only."""
     company_id: str
     name: str
     entity_type: str

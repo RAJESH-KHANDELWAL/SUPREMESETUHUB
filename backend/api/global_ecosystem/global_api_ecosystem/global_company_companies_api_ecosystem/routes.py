@@ -4,20 +4,29 @@ from .schemas import CompanyAlphabetResponse, CompanyApiStatus, CompanyListRespo
 from .service import get_api_status, get_company_alphabet, search_companies
 from .classification_registry import list_record_classes, get_record_class, validate_record_class_registry
 from .global_company_world_map import list_world_domains, get_world_domain
-from .industry_api_ecosystems.registry import list_industries
 from .country_api_ecosystems.registry import COUNTRY_ECOSYSTEM_STATUS
 from .provider_api_ecosystems.registry import PROVIDER_ECOSYSTEM_STATUS
 from .company_legal_entities_api_ecosystem.routes import router as company_directory_router
-from .business_enterprises_api_ecosystem.routes import router as enterprise_directory_router
+from .business_enterprises_api_ecosystem.routes import router as legacy_business_directory_router
+from .business_enterprises_api_ecosystem.enterprise_routes import router as enterprise_directory_router
 from .corporate_groups_api_ecosystem.routes import router as corporate_groups_router
 from .company_classification_standards_api_ecosystem.routes import router as classification_standards_router
 from .company_modules_api_ecosystem.routes import router as company_modules_router
+from .industry_api_ecosystems.routes import router as industry_router
+from .country_api_ecosystems.routes import router as country_router
+from .provider_api_ecosystems.routes import router as provider_router
+from .sectors.routes import router as sector_router
 router=APIRouter(tags=["GLOBAL COMPANY API","GLOBAL COMPANIES API","GLOBAL ENTERPRISE API","GLOBAL CORPORATE GROUPS API"])
 router.include_router(company_directory_router)
 router.include_router(enterprise_directory_router)
+router.include_router(legacy_business_directory_router)
 router.include_router(corporate_groups_router)
 router.include_router(classification_standards_router)
 router.include_router(company_modules_router)
+router.include_router(industry_router)
+router.include_router(country_router)
+router.include_router(provider_router)
+router.include_router(sector_router)
 def _search(q,country,industry,entity_type,verification_status,letter,limit,offset,category=None):
  try: return search_companies(q,country,industry,entity_type,verification_status,letter,limit,offset,category)
  except ValueError as exc: raise HTTPException(status_code=422,detail=str(exc)) from exc
@@ -47,10 +56,6 @@ def company_directory_world_domain(domain_id:str):
  domain=get_world_domain(domain_id)
  if domain is None: raise HTTPException(status_code=404,detail={"error":"WORLD_DOMAIN_NOT_FOUND","domain_id":domain_id})
  return {"success":True,"domain":domain}
-@router.get("/global/company-directory/industries")
-def company_directory_industries():
- items=list_industries()
- return {"success":True,"count":len(items),"registry_status":"taxonomy_only","industries":items}
 @router.get("/global/companies/alphabet",response_model=CompanyAlphabetResponse)
 def companies_alphabet(): return get_company_alphabet()
 @router.get("/global/companies",response_model=CompanyListResponse)
