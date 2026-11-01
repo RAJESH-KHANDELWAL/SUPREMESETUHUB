@@ -1,8 +1,3 @@
-"""Name-matching module for the services package."""
-
-FOLDER_NAME = "services"
-
-
-def list_entries() -> list[dict[str, str]]:
-    """Return configured services entries; none are registered yet."""
-    return []
+"""Compatibility exports for Company ecosystem services."""
+from .catalog import list_services as list_entries
+FOLDER_NAME="services"
