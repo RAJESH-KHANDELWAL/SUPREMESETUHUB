@@ -37,16 +37,26 @@ def connected_module_inventory():
     # the final router after all child routers have been mounted.
     from ..routes import router as ecosystem_router
 
+    # Build the effective OpenAPI schema so nested routers included by
+    # FastAPI are expanded with their inherited prefixes. Reading router.routes
+    # directly is not reliable across FastAPI versions because included routers
+    # may be represented by internal wrapper objects without a .path attribute.
+    from fastapi import FastAPI
+
+    app = FastAPI()
+    app.include_router(ecosystem_router)
+    openapi_paths = app.openapi().get("paths", {})
     prefix = "/api/v1/global-ecosystem/business"
+    http_methods = {"get", "post", "put", "patch", "delete", "options", "head"}
     grouped = {}
-    for route in ecosystem_router.routes:
-        path = getattr(route, "path", "")
+    for path, operations in openapi_paths.items():
         if not path.startswith(prefix):
             continue
         relative = path[len(prefix):].strip("/")
         module_id = relative.split("/", 1)[0] if relative else "root"
-        methods = sorted(method for method in (getattr(route, "methods", None) or set()) if method not in {"HEAD", "OPTIONS"})
-        grouped.setdefault(module_id, []).append({"path": path, "methods": methods})
+        methods = sorted(method.upper() for method in operations if method.lower() in http_methods and method.lower() not in {"head", "options"})
+        if methods:
+            grouped.setdefault(module_id, []).append({"path": path, "methods": methods})
 
     modules = [
         {"id": module_id, "endpoint_count": len(endpoints), "endpoints": sorted(endpoints, key=lambda item: item["path"])}
