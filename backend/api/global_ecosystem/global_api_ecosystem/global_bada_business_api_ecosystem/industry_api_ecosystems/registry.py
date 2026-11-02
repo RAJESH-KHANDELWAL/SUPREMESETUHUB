@@ -4,7 +4,6 @@ from __future__ import annotations
 INDUSTRY_ECOSYSTEMS = (
     {"id": "agriculture_food_natural_resources", "name": "Agriculture, Food & Natural Resources", "package": "agriculture_food_natural_resources", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
     {"id": "education_learning_training", "name": "Education, Learning & Training", "package": "education_learning_training", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
-    {"id": "jobs_careers_employment", "name": "Jobs, Careers & Employment", "package": "jobs_careers_employment", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
     {"id": "startups_entrepreneurship", "name": "Startups & Entrepreneurship", "package": "startups_entrepreneurship", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
     {"id": "business_companies_corporates", "name": "Businesses, Companies & Corporates", "package": "business_companies_corporates", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
     {"id": "finance_banking_insurance", "name": "Finance, Banking & Insurance", "package": "finance_banking_insurance", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
@@ -47,7 +46,8 @@ def list_industry_ecosystems(*, include_adult: bool = False) -> list[dict[str, o
     """Return industry domains; the 18+ taxonomy is hidden unless requested."""
     return [item for item in INDUSTRY_ECOSYSTEMS if include_adult or item["id"] != "adult_sexual_wellness"]
 
-def get_industry_ecosystem(industry_id: str, *, include_adult: bool = False):
+def get_industry_ecosystem(industry_id: str, *, include_adult: bool = False    {"id": "jobs_careers_employment", "name": "Jobs, Careers & Employment", "package": "jobs_careers_employment", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
+):
     """Return a domain or None when unknown/restricted by default."""
     for item in INDUSTRY_ECOSYSTEMS:
         if item["id"] == industry_id:
