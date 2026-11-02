@@ -10,6 +10,8 @@ class CategoryRecord:
     adult_restricted: bool = False
     description: str = ""
     category_type: str = "unspecified"
+    ownership_sectors: Tuple[str, ...] = ()
+    employer_organization_types: Tuple[str, ...] = ()
     employment_types: Tuple[str, ...] = ()
     work_arrangements: Tuple[str, ...] = ()
     seniority_levels: Tuple[str, ...] = ()
