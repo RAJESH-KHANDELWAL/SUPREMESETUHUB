@@ -6,6 +6,12 @@ from backend.core.global_ecosystem.global_core_ecosystem.manager import (
     GlobalEcosystemManager,
 )
 
+from backend.core.global_ecosystem.global_core_ecosystem import (
+    ECOSYSTEM_ID,
+    ECOSYSTEM_NAME,
+    status as core_ecosystem_status,
+)
+
 
 class TestGlobalCoreEcosystemHierarchy(unittest.TestCase):
     @classmethod
@@ -17,6 +23,14 @@ class TestGlobalCoreEcosystemHierarchy(unittest.TestCase):
         self.assertTrue(result["success"])
         self.assertTrue(result["root_exists"])
         self.assertTrue(result["core_exists"])
+
+    def test_public_entry_point_uses_canonical_registry_identity(self):
+        self.assertEqual(ECOSYSTEM_ID, "GLOBAL-CORE-ECOSYSTEM")
+        self.assertEqual(ECOSYSTEM_NAME, "GLOBAL CORE ECOSYSTEM")
+        result = core_ecosystem_status()
+        self.assertEqual(result["ecosystem_id"], "GLOBAL-CORE-ECOSYSTEM")
+        self.assertEqual(result["ecosystem"], "GLOBAL CORE ECOSYSTEM")
+        self.assertTrue(result["success"])
 
     def test_core_ecosystem_is_registered_under_global_root(self):
         result = self.manager.get("GLOBAL-CORE-ECOSYSTEM")
