@@ -1,4 +1,5 @@
 """Work, Jobs & Careers category API router."""
+from importlib import import_module
 from fastapi import APIRouter
 
 from .ecosystem_routes import router as api_ecosystems_router
@@ -56,3 +57,16 @@ router.include_router(placements_router)
 
 # Category and track API Ecosystems are exposed through a shared hierarchical registry.
 router.include_router(api_ecosystems_router)
+
+
+# Mount each track as its own API Ecosystem resource beneath its category.
+from .categories import CATEGORY_IDS as _WORK_CAREERS_CATEGORY_IDS
+for _category_id in _WORK_CAREERS_CATEGORY_IDS:
+    _category_routes = import_module(f"{__package__}.{_category_id}.routes").router
+    _category_module = import_module(f"{__package__}.{_category_id}.categories")
+    for _track_definition in _category_module.list_tracks():
+        _track_router = import_module(
+            f"{__package__}.{_category_id}.tracks.{_track_definition['id']}.routes"
+        ).router
+        router.include_router(_track_router, prefix=_category_routes.prefix)
+del _category_id, _category_routes, _category_module, _track_definition, _track_router, _WORK_CAREERS_CATEGORY_IDS
