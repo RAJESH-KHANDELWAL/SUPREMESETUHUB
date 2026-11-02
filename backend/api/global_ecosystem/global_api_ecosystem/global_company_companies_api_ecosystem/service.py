@@ -15,7 +15,7 @@ ENTITY_TYPE_GROUPS = {
     "freelancer": {"freelancer", "individual_service_provider", "self_employed", "independent_consultant", "independent_contractor", "gig_worker", "professional_practice"},
 }
 
-def infer_record_type(record: Dict[str, Any]) -> str:
+def infer_record_type(record: Dict[str, Any]) -> Optional[str]:
     explicit = str(record.get("record_type", "")).casefold().strip()
     if explicit == "business":
         return "enterprise"
@@ -25,7 +25,7 @@ def infer_record_type(record: Dict[str, Any]) -> str:
     for category, entity_types in ENTITY_TYPE_GROUPS.items():
         if entity in entity_types:
             return category
-    return "enterprise"
+    return None
 
 def load_company_registry() -> List[Dict[str, Any]]:
     """Load records and enforce stable identity, category and provenance rules."""
@@ -52,14 +52,22 @@ def load_company_registry() -> List[Dict[str, Any]]:
         seen.add(record_id)
         category = infer_record_type(record)
         if category not in ALLOWED_RECORD_TYPES:
-            raise ValueError(f"Unsupported record_type for {record_id}: {category}")
+            entity_type = str(record.get("entity_type", "")).strip()
+            raise ValueError(
+                f"Unsupported entity_type/record_type for {record_id}: "
+                f"{entity_type or category or 'missing classification'}"
+            )
         record["record_type"] = category
         status = str(record.get("verification_status", "unverified")).casefold()
         if status not in ALLOWED_VERIFICATION_STATUSES:
             raise ValueError(f"Unsupported verification_status for {record_id}: {status}")
         sources = record.get("source_urls", [])
-        if not isinstance(sources, list) or any(not isinstance(url, str) for url in sources):
-            raise ValueError(f"source_urls for {record_id} must be a list of strings")
+        if not isinstance(sources, list) or any(
+            not isinstance(url, str) or not url.strip()
+            or not url.strip().startswith(("https://", "http://"))
+            for url in sources
+        ):
+            raise ValueError(f"source_urls for {record_id} must be a list of absolute HTTP(S) URLs")
         if status in {"source_checked", "registry_verified", "identity_verified"} and not sources:
             raise ValueError(f"Verified record {record_id} must include source_urls")
     return records
@@ -69,6 +77,10 @@ def search_companies(q: Optional[str] = None, country: Optional[str] = None, ind
                      letter: Optional[str] = None, limit: int = 50, offset: int = 0,
                      category: Optional[str] = None) -> Dict[str, Any]:
     """Search source-backed profiles with canonical Company, Enterprise and Corporate Group classes; retain legacy freelancer filtering for compatibility."""
+    if limit < 1 or limit > 200 or offset < 0:
+        raise ValueError("limit must be 1..200 and offset non-negative")
+    if verification_status and verification_status.casefold() not in ALLOWED_VERIFICATION_STATUSES:
+        raise ValueError("Unsupported verification_status")
     records = load_company_registry()
     query = q.casefold().strip() if q else None
     letter_filter = letter.casefold() if letter else None

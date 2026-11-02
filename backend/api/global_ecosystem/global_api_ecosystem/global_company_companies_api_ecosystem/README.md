@@ -27,3 +27,22 @@ Adult-industry companies may be classified as a lawful industry segment with jur
 
 ## Reference boundary
 The Global Bada Business API ecosystem is a structural package-layout reference only. Its business-specific catalogues, categories and data are not imported into this Company ecosystem.
+
+
+## Company profile adapter runtime
+
+The 26 company-specific profile packages are mounted through
+`global_companies_ecosystem/routes.py`. Their aggregate service is
+`global_companies_ecosystem/service.py`; it exposes deterministic listing,
+lookup, source and adapter-status operations without duplicating the parent
+Company registry.
+
+- `GET /global/company-profile-adapters` lists source-aware adapter profiles.
+- `GET /global/company-profile-adapters/{company_id}` returns one profile.
+- `GET /global/company-profile-adapters/{company_id}/sources` returns its source metadata.
+- `GET /global/company-profile-adapters/{company_id}/adapter-status` reports connection state.
+- `GET /global/company-profile-adapters/status` reports aggregate adapter readiness.
+
+These adapter profiles identify company brands and official discovery sources.
+They do not create verified legal-entity records, and they do not imply live
+provider or government API connections.

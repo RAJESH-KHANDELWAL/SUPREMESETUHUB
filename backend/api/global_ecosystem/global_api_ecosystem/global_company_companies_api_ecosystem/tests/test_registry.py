@@ -111,3 +111,26 @@ class CompanyRegistryTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+    def test_unknown_entity_type_is_not_silently_classified_as_enterprise(self):
+        path = self._registry([
+            {"company_id": "unknown", "name": "Unknown Entity", "entity_type": "unmapped_entity"}
+        ])
+        with patch.object(service, "REGISTRY_PATH", path):
+            with self.assertRaisesRegex(ValueError, "Unsupported entity_type/record_type"):
+                service.load_company_registry()
+
+    def test_verified_company_source_must_be_an_absolute_http_url(self):
+        path = self._registry([
+            {
+                "company_id": "verified-invalid-source",
+                "name": "Example Corp",
+                "entity_type": "registered_company",
+                "verification_status": "source_checked",
+                "source_urls": ["not-a-url"],
+            }
+        ])
+        with patch.object(service, "REGISTRY_PATH", path):
+            with self.assertRaisesRegex(ValueError, "absolute HTTP"):
+                service.load_company_registry()

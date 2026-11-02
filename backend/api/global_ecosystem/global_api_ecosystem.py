@@ -22,6 +22,16 @@ CATEGORY_ECOSYSTEMS: tuple[dict[str, str], ...] = (
         "folder": "global_business_api_ecosystem",
     },
     {
+        "id": "companies",
+        "name": "GLOBAL COMPANY AND COMPANIES API ECOSYSTEM",
+        "folder": "global_company_companies_api_ecosystem",
+    },
+    {
+        "id": "platforms",
+        "name": "GLOBAL PLATFORMS API ECOSYSTEM",
+        "folder": "global_platforms_api_ecosystem",
+    },
+    {
         "id": "server",
         "name": "GLOBAL SERVER API ECOSYSTEM",
         "folder": "global_server_api_ecosystem",
