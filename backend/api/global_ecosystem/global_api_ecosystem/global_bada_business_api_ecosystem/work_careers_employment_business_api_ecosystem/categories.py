@@ -143,7 +143,7 @@ CATEGORY_DEFINITIONS = (
         "search_terms": ("contract employment", "fixed term jobs", "project contract roles"),
         "scope_notes": ("Record duration, deliverables and termination terms only when sourced.", "Do not classify gig or freelance work as employment without evidence of the relationship."),
         "verification_requirements": ("contract_relationship_type", "duration_if_stated", "employer_or_client_identity", "original_listing_url", "last_verified_at"),
-        "related_category_ids": ("temporary_jobs", "freelance_gig_independent_work", "experienced_jobs", "remote_jobs"),
+        "related_category_ids": ("temporary_jobs", "experienced_jobs", "remote_jobs"),
     },
     {
         "id": "temporary_jobs", "name": "Temporary Jobs",
