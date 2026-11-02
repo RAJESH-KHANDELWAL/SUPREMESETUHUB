@@ -30,6 +30,11 @@ Mounted under `/api/v1/global-api-ecosystem`:
 - `GET /global/organizations/domains`
 - `GET /global/organizations/types`
 - `GET /global/organizations/classification`
+- `GET /global/organizations/country-sources/status`
+- `GET /global/organizations/standards/status`
+- `GET /global/organizations/integrations`
+- `GET /global/organizations/services`
+- `GET /global/organizations/tools`
 - `GET /global/organizations` and `GET /global/organizations/search`
 - `GET /global/organizations/{organization_id}`
 
