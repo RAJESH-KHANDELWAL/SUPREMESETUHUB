@@ -6,6 +6,10 @@ from .subcategories.private_sector_jobs.routes import router as private_jobs_rou
 from .subcategories.corporate_jobs.routes import router as corporate_jobs_router
 from .subcategories.public_sector_jobs.routes import router as public_sector_jobs_router
 from .subcategories.full_time_jobs.routes import router as full_time_jobs_router
+from .subcategories.seasonal_jobs.routes import router as seasonal_jobs_router
+from .subcategories.temporary_jobs.routes import router as temporary_jobs_router
+from .subcategories.contract_jobs.routes import router as contract_jobs_router
+from .subcategories.part_time_jobs.routes import router as part_time_jobs_router
 from .subcategories.hybrid_jobs.routes import router as hybrid_jobs_router
 from .subcategories.remote_jobs.routes import router as remote_jobs_router
 from .subcategories.local_jobs.routes import router as local_jobs_router
@@ -21,3 +25,7 @@ router.include_router(local_jobs_router)
 router.include_router(remote_jobs_router)
 router.include_router(hybrid_jobs_router)
 router.include_router(full_time_jobs_router)
+router.include_router(part_time_jobs_router)
+router.include_router(contract_jobs_router)
+router.include_router(temporary_jobs_router)
+router.include_router(seasonal_jobs_router)
