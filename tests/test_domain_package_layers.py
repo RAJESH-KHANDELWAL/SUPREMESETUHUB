@@ -53,9 +53,12 @@ class DomainPackageLayerTests(unittest.TestCase):
         self.assertEqual(len(government_jobs.GOVERNMENT_JOB_TRACKS), 13)
         self.assertTrue(government_service.search_government_job_tracks("civilian"))
 
-        domain_routes = importlib.import_module(f"{package}.routes").router
-        route_paths = {getattr(route, "path", None) for route in domain_routes.routes}
-        self.assertIn("/work-careers/government-jobs/status", route_paths)
+        global_routes = importlib.import_module(f"{PACKAGE_ROOT}.routes").router
+        route_paths = {getattr(route, "path", None) for route in global_routes.routes}
+        self.assertIn(
+            "/api/v1/global-ecosystem/business/work-careers/government-jobs/status",
+            route_paths,
+        )
 
 if __name__ == "__main__":
     unittest.main()
