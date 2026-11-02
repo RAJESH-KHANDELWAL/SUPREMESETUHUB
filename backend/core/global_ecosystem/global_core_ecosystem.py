@@ -8,7 +8,12 @@ The package owns implementation modules; this file is the public layer entry poi
 
 from __future__ import annotations
 
+from pathlib import Path
 from typing import Any
+
+# Match the API layer's entry-file-plus-directory-package layout. This module
+# exposes the sibling directory as its package path for manager/catalog imports.
+__path__ = [str(Path(__file__).with_suffix(""))]
 
 from backend.core.global_ecosystem.global_core_ecosystem.manager import (
     GlobalEcosystemManager,
