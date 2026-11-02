@@ -1,0 +1,71 @@
+"""API routes for Bada Business lifecycle, trust, compliance and BI contracts."""
+from fastapi import APIRouter
+
+from .service import (
+    get_business_intelligence,
+    get_capability_integrity,
+    get_compliance,
+    get_lifecycle,
+    get_trust_safety,
+)
+
+router = APIRouter(prefix="/capabilities", tags=["GLOBAL BADA BUSINESS - CAPABILITIES"])
+
+@router.get("/lifecycle")
+def lifecycle():
+    return get_lifecycle()
+
+@router.get("/trust-safety")
+def trust_safety():
+    return get_trust_safety()
+
+@router.get("/compliance/framework")
+def compliance_framework():
+    return get_compliance()
+
+@router.get("/business-intelligence")
+def business_intelligence():
+    return get_business_intelligence()
+
+@router.get("/integrity")
+def capability_integrity():
+    return get_capability_integrity()
+
+@router.get("/architecture/modules")
+def connected_module_inventory():
+    # Import at request time to avoid a package import cycle while observing
+    # the final router after all child routers have been mounted.
+    from ..routes import router as ecosystem_router
+
+    prefix = "/api/v1/global-ecosystem/business"
+    grouped = {}
+    for route in ecosystem_router.routes:
+        path = getattr(route, "path", "")
+        if not path.startswith(prefix):
+            continue
+        relative = path[len(prefix):].strip("/")
+        module_id = relative.split("/", 1)[0] if relative else "root"
+        methods = sorted(method for method in (getattr(route, "methods", None) or set()) if method not in {"HEAD", "OPTIONS"})
+        grouped.setdefault(module_id, []).append({"path": path, "methods": methods})
+
+    modules = [
+        {"id": module_id, "endpoint_count": len(endpoints), "endpoints": sorted(endpoints, key=lambda item: item["path"])}
+        for module_id, endpoints in sorted(grouped.items())
+    ]
+    return {
+        "success": True,
+        "ecosystem_id": "global-bada-business",
+        "architecture": "one_connected_ecosystem_with_separately_owned_api_modules",
+        "module_count": len(modules),
+        "endpoint_count": sum(item["endpoint_count"] for item in modules),
+        "modules": modules,
+        "ecosystem_boundaries": [
+            {"id": "bada_business", "ownership": "this folder", "relationship": "current API ecosystem"},
+            {"id": "company_companies", "ownership": "separate owning ecosystem", "relationship": "connect through its documented API; do not duplicate its implementation here"},
+            {"id": "platforms", "ownership": "separate owning ecosystem", "relationship": "connect through its documented API; do not duplicate its implementation here"},
+            {"id": "organizations", "ownership": "separate owning ecosystem", "relationship": "connect through its documented API; do not duplicate its implementation here"},
+        ],
+        "external_api_policy": "Authorised provider APIs only; banking and payment APIs remain in their separately owned folders.",
+        "ai_automation_in_scope": False,
+        "note": "Inventory reflects routes registered in this Python router; it does not prove external APIs are live or that every module is production-ready.",
+    }
