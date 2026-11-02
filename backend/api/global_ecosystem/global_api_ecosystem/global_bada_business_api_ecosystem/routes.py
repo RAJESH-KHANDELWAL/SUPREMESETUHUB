@@ -235,3 +235,8 @@ def get_domain_package(
 # Mount versioned national and international economic-activity classification standards.
 from .classification_standards_business_api_ecosystem.routes import router as classification_standards_router
 router.include_router(classification_standards_router)
+
+
+# Expose the user-approved scope and acceptance decisions through this ecosystem.
+from .governance.routes import router as governance_router
+router.include_router(governance_router)
