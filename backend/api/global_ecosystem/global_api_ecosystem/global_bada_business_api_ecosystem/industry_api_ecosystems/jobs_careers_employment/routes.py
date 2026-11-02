@@ -21,3 +21,17 @@ def get_domain_category(category_id: str):
     if item is None:
         raise HTTPException(status_code=404, detail={"error": "CATEGORY_NOT_FOUND", "category_id": category_id})
     return {"success": True, "category": item}
+
+
+@router.get("/employment-categories")
+def list_employment_taxonomy_categories(q: str | None = Query(default=None, min_length=1, max_length=100)):
+    """List the detailed Government, Private, Corporate and other employment categories."""
+    items = service.list_employment_categories(query=q)
+    return {"success": True, "count": len(items), "taxonomy_status": "taxonomy_only", "categories": items}
+
+@router.get("/employment-categories/{category_id}")
+def get_employment_taxonomy_category(category_id: str):
+    item = service.get_employment_category(category_id)
+    if item is None:
+        raise HTTPException(status_code=404, detail={"error": "EMPLOYMENT_CATEGORY_NOT_FOUND", "category_id": category_id})
+    return {"success": True, "taxonomy_status": "taxonomy_only", "category": item}
