@@ -8,6 +8,9 @@ from .subcategories.public_sector_jobs.routes import router as public_sector_job
 from .subcategories.full_time_jobs.routes import router as full_time_jobs_router
 from .subcategories.seasonal_jobs.routes import router as seasonal_jobs_router
 from .subcategories.entry_level_jobs.routes import router as entry_level_jobs_router
+from .subcategories.career_changes.routes import router as career_changes_router
+from .subcategories.executive_jobs.routes import router as executive_jobs_router
+from .subcategories.experienced_jobs.routes import router as experienced_jobs_router
 from .subcategories.shift_work.routes import router as shift_work_router
 from .subcategories.temporary_jobs.routes import router as temporary_jobs_router
 from .subcategories.contract_jobs.routes import router as contract_jobs_router
@@ -33,3 +36,6 @@ router.include_router(temporary_jobs_router)
 router.include_router(seasonal_jobs_router)
 router.include_router(shift_work_router)
 router.include_router(entry_level_jobs_router)
+router.include_router(experienced_jobs_router)
+router.include_router(executive_jobs_router)
+router.include_router(career_changes_router)
