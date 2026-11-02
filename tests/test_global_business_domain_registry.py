@@ -9,7 +9,7 @@ class GlobalBusinessDomainRegistryTests(unittest.TestCase):
     def test_registry_has_twelve_domain_packages(self):
         self.assertEqual(len(DOMAIN_REGISTRY), 12)
         self.assertEqual(len(list_domains()), 11)
-        self.assertEqual(sum(item["subcategory_count"] for item in DOMAIN_REGISTRY), 248)
+        self.assertEqual(sum(item["subcategory_count"] for item in DOMAIN_REGISTRY), 249)
 
     def test_subcategory_ids_are_present_and_unique_within_domains(self):
         for domain in DOMAIN_REGISTRY:
