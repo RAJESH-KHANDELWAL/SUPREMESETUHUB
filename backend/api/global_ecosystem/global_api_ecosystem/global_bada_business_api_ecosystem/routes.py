@@ -18,6 +18,9 @@ router = APIRouter(
 
 service = BusinessEcosystemService()
 
+from .integrations.routes import router as integrations_router
+router.include_router(integrations_router)
+
 
 @router.get("/status", response_model=BusinessEcosystemStatus)
 def get_status():
