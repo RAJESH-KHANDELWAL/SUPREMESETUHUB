@@ -1,0 +1,18 @@
+"""Experienced Professional Jobs API routes."""
+from fastapi import APIRouter,HTTPException,Query
+from .categories import list_tracks,get_track,search_tracks
+from .services import get_status
+router=APIRouter(prefix="/experienced-jobs",tags=["Work & Careers — Experienced Professional Jobs"])
+@router.get("/status")
+def status(): return get_status()
+@router.get("/tracks")
+def tracks():
+ items=list_tracks(); return {"success":True,"count":len(items),"taxonomy_only":True,"tracks":items}
+@router.get("/tracks/{track_id}")
+def track_detail(track_id:str):
+ item=get_track(track_id)
+ if item is None: raise HTTPException(status_code=404,detail={"error":"TRACK_NOT_FOUND","category_id":"experienced_jobs","track_id":track_id})
+ return {"success":True,"track":item}
+@router.get("/search")
+def search(q:str=Query(min_length=1,max_length=100)):
+ items=search_tracks(q); return {"success":True,"count":len(items),"tracks":items}
