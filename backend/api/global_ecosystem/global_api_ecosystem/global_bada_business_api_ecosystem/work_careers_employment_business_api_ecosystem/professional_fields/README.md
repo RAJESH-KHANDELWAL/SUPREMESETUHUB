@@ -2,33 +2,47 @@
 
 This package adds a second classification axis to Work & Careers: **what kind of profession or work is performed**. The existing 24 Work & Careers categories remain the independent employment-context axis (employer sector, geography, work arrangement, schedule, seniority and workforce services).
 
-## Design rules
-- Professional field and subcategory packages are physically separated into folders.
-- Each field has its own taxonomy, typed models, service layer, API router and documentation.
-- Each subcategory has its own package folder, README and Python package initializer. Detailed role/specialization records are added under the owning field taxonomy; they are not duplicated across employment-context categories.
-- The shared API Ecosystem registry exposes field and subcategory resources. A dedicated API is added only where a field has independent operations or data needs; taxonomy-only subcategories use the shared registry.
-- A job can be classified by one or more professional fields and simultaneously by any applicable existing Work & Careers categories.
-- This is a taxonomy, not a live vacancy feed, credential verification service, professional licensing authority or legal eligibility engine.
+## Package architecture
+Each of the 12 professional fields is a complete field-level API Ecosystem package. Each field owns:
+- `categories.py` — canonical subcategory definitions and stable IDs
+- `models.py` — typed occupation/subcategory records
+- `schemas.py` — stable response schema
+- `services.py` — list, lookup and search operations
+- `validators.py` — structural integrity checks
+- `routes.py` — field-specific status, occupation list/detail and search endpoints
+- `tests/` — field taxonomy integrity and lookup tests
+- One child folder per subcategory, with its own `README.md` and `__init__.py`
 
-## Current field coverage
-- `it_technology/` — IT & Digital Technology (8 subcategories)
-- `banking_finance/` — Banking & Finance (8 subcategories)
-- `healthcare_medical/` — Healthcare & Medical (8 subcategories)
-- `education_training/` — Education & Training (7 subcategories)
-- `engineering_construction/` — Engineering & Construction (8 subcategories)
-- `sales_marketing/` — Sales & Marketing (7 subcategories)
-- `legal_compliance/` — Legal & Compliance (5 subcategories)
-- `agriculture_food/` — Agriculture & Food Systems (6 subcategories)
-- `manufacturing_operations/` — Manufacturing & Operations (6 subcategories)
-- `real_estate_facilities/` — Real Estate & Facilities (6 subcategories)
-- `hospitality_tourism/` — Hospitality & Tourism (6 subcategories)
-- `transport_logistics/` — Transport & Logistics (6 subcategories)
+The shared router mounts the field-owned routers below `/professional-fields/{field_id}`. The registry endpoints remain available for cross-field discovery. Subcategories are taxonomy resources and use the shared registry; they do not receive duplicate independent routers unless separate operations or data ownership become necessary.
 
-## API
+## Classification rules
+- Professional field describes the occupation or work performed.
+- Existing 24 Work & Careers categories describe employment context: employer sector, geography, work arrangement, schedule, seniority and workforce services.
+- A role may belong to one professional field and simultaneously be government, private, corporate, remote, hybrid, full-time, contract or international where applicable.
+- Do not duplicate occupations to represent employment context.
+
+## Field coverage (12 fields, 81 subcategories)
+- `it_technology/` — IT & Digital Technology (8)
+- `banking_finance/` — Banking & Finance (8)
+- `healthcare_medical/` — Healthcare & Medical (8)
+- `education_training/` — Education & Training (7)
+- `engineering_construction/` — Engineering & Construction (8)
+- `sales_marketing/` — Sales & Marketing (7)
+- `legal_compliance/` — Legal & Compliance (5)
+- `agriculture_food/` — Agriculture & Food Systems (6)
+- `manufacturing_operations/` — Manufacturing & Operations (6)
+- `real_estate_facilities/` — Real Estate & Facilities (6)
+- `hospitality_tourism/` — Hospitality & Tourism (6)
+- `transport_logistics/` — Transport & Logistics (6)
+
+## Shared registry endpoints
 - `GET /professional-fields`
 - `GET /professional-fields/{field_id}`
 - `GET /professional-fields/{field_id}/subcategories`
 - `GET /professional-fields/{field_id}/subcategories/{subcategory_id}`
 - `GET /professional-fields/integrity`
 
-The registry uses stable IDs and reports `taxonomy_only`. It does not claim that any job opening, employer, qualification or professional licence has been verified.
+## Field-owned endpoints
+Each field exposes `GET /professional-fields/{field_id}/status`, `/occupations`, `/occupations/{occupation_id}` and `/search?q=...`.
+
+All resources report `taxonomy_only`. They do not verify vacancies, employers, recruiters, professional credentials, licences or legal eligibility.

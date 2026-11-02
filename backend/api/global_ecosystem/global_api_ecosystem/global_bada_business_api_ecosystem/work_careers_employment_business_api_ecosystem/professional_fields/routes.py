@@ -1,4 +1,4 @@
-"""Shared API Ecosystem registry for professional fields and subcategories."""
+"""Shared Professional Fields API Ecosystem registry and field routers."""
 from dataclasses import asdict
 from fastapi import APIRouter, HTTPException, Query
 from .services import search_professional_fields, get_professional_fields_status
@@ -48,3 +48,30 @@ def subcategory_detail(field_id: str, subcategory_id: str):
     if field is None or item is None:
         raise HTTPException(status_code=404, detail={"error": "PROFESSIONAL_SUBCATEGORY_NOT_FOUND", "field_id": field_id, "subcategory_id": subcategory_id})
     return {"success": True, "api_ecosystem": {"api_ecosystem_id": f"{field.id.upper()}_{item.id.upper()}_PROFESSIONAL_SUBCATEGORY_API_ECOSYSTEM", "parent_api_ecosystem_id": f"{field.id.upper()}_PROFESSIONAL_FIELD_API_ECOSYSTEM", "taxonomy_status": "taxonomy_only"}, "subcategory": asdict(item)}
+
+# Field-owned API Ecosystems: status, occupation listing, occupation detail and search.
+from .it_technology.routes import router as it_technology_router
+from .banking_finance.routes import router as banking_finance_router
+from .healthcare_medical.routes import router as healthcare_medical_router
+from .education_training.routes import router as education_training_router
+from .engineering_construction.routes import router as engineering_construction_router
+from .sales_marketing.routes import router as sales_marketing_router
+from .legal_compliance.routes import router as legal_compliance_router
+from .agriculture_food.routes import router as agriculture_food_router
+from .manufacturing_operations.routes import router as manufacturing_operations_router
+from .real_estate_facilities.routes import router as real_estate_facilities_router
+from .hospitality_tourism.routes import router as hospitality_tourism_router
+from .transport_logistics.routes import router as transport_logistics_router
+
+router.include_router(it_technology_router)
+router.include_router(banking_finance_router)
+router.include_router(healthcare_medical_router)
+router.include_router(education_training_router)
+router.include_router(engineering_construction_router)
+router.include_router(sales_marketing_router)
+router.include_router(legal_compliance_router)
+router.include_router(agriculture_food_router)
+router.include_router(manufacturing_operations_router)
+router.include_router(real_estate_facilities_router)
+router.include_router(hospitality_tourism_router)
+router.include_router(transport_logistics_router)
