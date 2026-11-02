@@ -40,14 +40,14 @@ INDUSTRY_ECOSYSTEMS = (
     {"id": "water_resources_marine_industries", "name": "Water Resources & Marine Industries", "package": "water_resources_marine_industries", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
     {"id": "fashion_textiles_apparel", "name": "Fashion, Textiles & Apparel", "package": "fashion_textiles_apparel", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
     {"id": "supply_chain_warehousing_distribution", "name": "Supply Chain, Warehousing & Distribution", "package": "supply_chain_warehousing_distribution", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
+    {"id": "jobs_careers_employment", "name": "Jobs, Careers & Employment", "package": "jobs_careers_employment", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
 )
 
 def list_industry_ecosystems(*, include_adult: bool = False) -> list[dict[str, object]]:
     """Return industry domains; the 18+ taxonomy is hidden unless requested."""
     return [item for item in INDUSTRY_ECOSYSTEMS if include_adult or item["id"] != "adult_sexual_wellness"]
 
-def get_industry_ecosystem(industry_id: str, *, include_adult: bool = False    {"id": "jobs_careers_employment", "name": "Jobs, Careers & Employment", "package": "jobs_careers_employment", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
-):
+def get_industry_ecosystem(industry_id: str, *, include_adult: bool = False):
     """Return a domain or None when unknown/restricted by default."""
     for item in INDUSTRY_ECOSYSTEMS:
         if item["id"] == industry_id:
