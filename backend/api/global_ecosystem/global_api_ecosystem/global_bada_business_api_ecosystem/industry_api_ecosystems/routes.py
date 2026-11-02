@@ -20,6 +20,13 @@ def list_industries(
     items = service.list_industries(channel=channel, coverage=coverage, query=q, include_adult=include_adult)
     return {"success": True, "count": len(items), "industries": items}
 
+from .router_coverage import get_industry_router_coverage
+
+@router.get("/router-coverage")
+def get_router_coverage():
+    return get_industry_router_coverage()
+
+
 @router.get("/{industry_id}", response_model=IndustryEcosystemDetailResponse)
 def get_industry(
     industry_id: str,
