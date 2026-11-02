@@ -36,5 +36,26 @@ class DomainPackageLayerTests(unittest.TestCase):
         self.assertIsNotNone(service.get_category("web_development"))
 
 
+    def test_work_careers_catalogue_and_government_jobs_package(self):
+        package = f"{PACKAGE_ROOT}.work_careers_employment_business_api_ecosystem"
+        categories = importlib.import_module(f"{package}.categories")
+        catalog = importlib.import_module(f"{package}.catalog")
+        integrity = categories.validate_category_definitions()
+        self.assertTrue(integrity["structurally_valid"], integrity)
+        self.assertEqual(len(categories.CATEGORY_DEFINITIONS), 23)
+        self.assertEqual(len(catalog.list_categories()), 23)
+        self.assertTrue(all(item.description and item.search_terms for item in catalog.list_categories()))
+
+        government_jobs = importlib.import_module(f"{package}.subcategories.government_jobs.categories")
+        government_service = importlib.import_module(f"{package}.subcategories.government_jobs.services")
+        government_integrity = government_jobs.validate_tracks()
+        self.assertTrue(government_integrity["structurally_valid"], government_integrity)
+        self.assertEqual(len(government_jobs.GOVERNMENT_JOB_TRACKS), 13)
+        self.assertTrue(government_service.search_government_job_tracks("civilian"))
+
+        domain_routes = importlib.import_module(f"{package}.routes").router
+        route_paths = {getattr(route, "path", None) for route in domain_routes.routes}
+        self.assertIn("/work-careers/government-jobs/status", route_paths)
+
 if __name__ == "__main__":
     unittest.main()
