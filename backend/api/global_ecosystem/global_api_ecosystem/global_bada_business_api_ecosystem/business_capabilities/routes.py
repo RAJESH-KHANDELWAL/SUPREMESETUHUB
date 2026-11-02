@@ -53,7 +53,12 @@ def connected_module_inventory():
         if not path.startswith(prefix):
             continue
         relative = path[len(prefix):].strip("/")
-        module_id = relative.split("/", 1)[0] if relative else "root"
+        segments = relative.split("/") if relative else []
+        module_id = (
+            f"industries/{segments[1]}"
+            if len(segments) > 1 and segments[0] == "industries"
+            else segments[0] if segments else "root"
+        )
         methods = sorted(method.upper() for method in operations if method.lower() in http_methods and method.lower() not in {"head", "options"})
         if methods:
             grouped.setdefault(module_id, []).append({"path": path, "methods": methods})
