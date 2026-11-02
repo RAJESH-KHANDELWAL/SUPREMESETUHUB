@@ -1,6 +1,7 @@
 """Tests for the Industry API Ecosystems service."""
 import unittest
 from industry_api_ecosystems.service import IndustryEcosystemService
+from industry_api_ecosystems.router_coverage import get_industry_router_coverage
 
 class IndustryEcosystemServiceTests(unittest.TestCase):
     def setUp(self):
@@ -22,6 +23,19 @@ class IndustryEcosystemServiceTests(unittest.TestCase):
     def test_adult_taxonomy_opt_in(self):
         self.assertIsNone(self.service.get_industry("adult_sexual_wellness"))
         self.assertIsNotNone(self.service.get_industry("adult_sexual_wellness", include_adult=True))
+
+    def test_router_coverage_is_explicit_and_reconciles_registry(self):
+        report = get_industry_router_coverage()
+        self.assertEqual(report["registered_industry_count"], 39)
+        self.assertEqual(report["dedicated_router_count"], 27)
+        self.assertEqual(report["missing_dedicated_router_count"], 12)
+        self.assertEqual(
+            set(report["routed_industry_ids"]) | set(report["missing_industry_ids"]),
+            {item["id"] for item in self.service.list_industries(include_adult=True)},
+        )
+        self.assertFalse(
+            set(report["routed_industry_ids"]) & set(report["missing_industry_ids"])
+        )
 
     def test_unknown_industry(self):
         self.assertIsNone(self.service.get_industry("unknown_industry"))
