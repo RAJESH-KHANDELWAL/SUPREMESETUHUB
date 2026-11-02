@@ -6,7 +6,8 @@ from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_
     get_compliance_framework,
     validate_capability_registry,
 )
-from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.business_capabilities.routes import router
+from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.business_capabilities.routes import connected_module_inventory, router
+from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.routes import router as ecosystem_router
 
 
 class BadaBusinessCapabilitiesTests(unittest.TestCase):
@@ -34,6 +35,22 @@ class BadaBusinessCapabilitiesTests(unittest.TestCase):
         self.assertFalse(result["live_verification_enabled"])
         self.assertFalse(result["legal_datasets_verified"])
         self.assertFalse(result["analytics_store_enabled"])
+
+    def test_capability_routes_are_mounted_in_the_main_ecosystem(self):
+        paths = {route.path for route in ecosystem_router.routes}
+        self.assertIn("/api/v1/global-ecosystem/business/capabilities/lifecycle", paths)
+        self.assertIn("/api/v1/global-ecosystem/business/capabilities/architecture/modules", paths)
+
+    def test_connected_module_inventory_reads_the_live_router(self):
+        result = connected_module_inventory()
+        self.assertTrue(result["success"])
+        self.assertGreater(result["endpoint_count"], 0)
+        module_ids = {item["id"] for item in result["modules"]}
+        self.assertIn("integrations", module_ids)
+        self.assertIn("industries", module_ids)
+        self.assertIn("capabilities", module_ids)
+        self.assertIn("governance", module_ids)
+        self.assertEqual(result["ai_automation_in_scope"], False)
 
     def test_capability_routes_are_registered(self):
         paths = {route.path for route in router.routes}
