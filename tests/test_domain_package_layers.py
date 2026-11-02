@@ -53,11 +53,13 @@ class DomainPackageLayerTests(unittest.TestCase):
         self.assertEqual(len(government_jobs.GOVERNMENT_JOB_TRACKS), 13)
         self.assertTrue(government_service.search_government_job_tracks("civilian"))
 
+        from fastapi import FastAPI
         global_routes = importlib.import_module(f"{PACKAGE_ROOT}.routes").router
-        route_paths = {getattr(route, "path", None) for route in global_routes.routes}
+        app = FastAPI()
+        app.include_router(global_routes)
         self.assertIn(
             "/api/v1/global-ecosystem/business/work-careers/government-jobs/status",
-            route_paths,
+            app.openapi()["paths"],
         )
 
 if __name__ == "__main__":
