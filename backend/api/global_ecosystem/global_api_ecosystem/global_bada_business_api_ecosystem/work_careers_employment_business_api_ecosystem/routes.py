@@ -3,6 +3,7 @@ from importlib import import_module
 from fastapi import APIRouter
 
 from .ecosystem_routes import router as api_ecosystems_router
+from .professional_fields.routes import router as professional_fields_router
 
 from .government_jobs.routes import router as government_jobs_router
 from .private_sector_jobs.routes import router as private_jobs_router
@@ -57,6 +58,9 @@ router.include_router(placements_router)
 
 # Category and track API Ecosystems are exposed through a shared hierarchical registry.
 router.include_router(api_ecosystems_router)
+
+# Professional occupation fields use a separate taxonomy axis from employment context.
+router.include_router(professional_fields_router)
 
 
 # Mount each track as its own API Ecosystem resource beneath its category.
