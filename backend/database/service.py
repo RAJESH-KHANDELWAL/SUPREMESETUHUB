@@ -1,0 +1,501 @@
+from __future__ import annotations
+
+import os
+import sqlite3
+from pathlib import Path
+from typing import Any, Iterable, Optional
+
+
+class DatabaseService:
+    """
+    CENTRAL SQLITE DATABASE SERVICE
+
+    Responsibilities:
+    - Open central SQLite database
+    - Create required tables
+    - Safely migrate existing tables
+    - Add missing columns without deleting existing data
+    - Provide execute / fetchone / fetchall helpers
+    """
+
+    def __init__(
+        self,
+        db_path: Optional[str] = None,
+    ) -> None:
+
+        self.db_path = (
+            db_path
+            or os.getenv("SUPREME_DB_PATH")
+            or "data/supreme.db"
+        )
+
+        self._connection: Optional[sqlite3.Connection] = None
+        self._transaction_active = False
+
+    # ==========================================================
+    # CONNECTION
+    # ==========================================================
+
+    def connect(self) -> sqlite3.Connection:
+
+        if self._connection is None:
+
+            path = Path(self.db_path)
+
+            if path.parent:
+                path.parent.mkdir(
+                    parents=True,
+                    exist_ok=True,
+                )
+
+            self._connection = sqlite3.connect(
+                str(path),
+                check_same_thread=False,
+            )
+
+            self._connection.row_factory = (
+                sqlite3.Row
+            )
+
+            self._connection.execute(
+                "PRAGMA foreign_keys = ON"
+            )
+
+        return self._connection
+
+    # ==========================================================
+    # CLOSE
+    # ==========================================================
+
+    def close(self) -> None:
+
+        if self._connection is not None:
+
+            self._connection.close()
+
+            self._connection = None
+
+    # ==========================================================
+    # EXECUTE
+    # ==========================================================
+
+    def execute(
+        self,
+        query: str,
+        parameters: Iterable[Any] = (),
+    ) -> sqlite3.Cursor:
+
+        connection = self.connect()
+
+        cursor = connection.cursor()
+
+        cursor.execute(
+            query,
+            tuple(parameters),
+        )
+
+        if not self._transaction_active:
+            connection.commit()
+
+        return cursor
+
+    # ==========================================================
+    # FETCH ONE
+    # ==========================================================
+
+    def fetchone(
+        self,
+        query: str,
+        parameters: Iterable[Any] = (),
+    ) -> Optional[sqlite3.Row]:
+
+        connection = self.connect()
+
+        cursor = connection.cursor()
+
+        cursor.execute(
+            query,
+            tuple(parameters),
+        )
+
+        return cursor.fetchone()
+
+    # ==========================================================
+    # FETCH ALL
+    # ==========================================================
+
+    def fetchall(
+        self,
+        query: str,
+        parameters: Iterable[Any] = (),
+    ) -> list[sqlite3.Row]:
+
+        connection = self.connect()
+
+        cursor = connection.cursor()
+
+        cursor.execute(
+            query,
+            tuple(parameters),
+        )
+
+        return cursor.fetchall()
+
+    def executemany(
+        self,
+        query: str,
+        parameters: Iterable[Iterable[Any]],
+    ) -> sqlite3.Cursor:
+        """Execute a parameterized statement for multiple rows."""
+        connection = self.connect()
+        cursor = connection.executemany(query, [tuple(row) for row in parameters])
+        if not self._transaction_active:
+            connection.commit()
+        return cursor
+
+    # ==========================================================
+    # TABLE EXISTS
+    # ==========================================================
+
+    def table_exists(
+        self,
+        table_name: str,
+    ) -> bool:
+
+        row = self.fetchone(
+            """
+            SELECT name
+            FROM sqlite_master
+            WHERE type = 'table'
+              AND name = ?
+            """,
+            (table_name,),
+        )
+
+        return row is not None
+
+    # ==========================================================
+    # TABLE COLUMNS
+    # ==========================================================
+
+    def get_columns(
+        self,
+        table_name: str,
+    ) -> set[str]:
+
+        rows = self.fetchall(
+            f'PRAGMA table_info("{table_name}")'
+        )
+
+        return {
+            str(row["name"])
+            for row in rows
+        }
+
+    # ==========================================================
+    # ADD MISSING COLUMN
+    # ==========================================================
+
+    def add_column_if_missing(
+        self,
+        table_name: str,
+        column_name: str,
+        column_definition: str,
+    ) -> bool:
+
+        if not self.table_exists(
+            table_name
+        ):
+            return False
+
+        columns = self.get_columns(
+            table_name
+        )
+
+        if column_name in columns:
+            return False
+
+        self.execute(
+            f'''
+            ALTER TABLE "{table_name}"
+            ADD COLUMN "{column_name}"
+            {column_definition}
+            '''
+        )
+
+        return True
+
+    # ==========================================================
+    # WORDPRESS SITES MIGRATION
+    # ==========================================================
+
+    def migrate_wordpress_sites(self) -> None:
+
+        table = "wordpress_sites"
+
+        # ------------------------------------------------------
+        # If table does not exist, create the complete version
+        # ------------------------------------------------------
+
+        if not self.table_exists(table):
+
+            self.execute(
+                """
+                CREATE TABLE IF NOT EXISTS wordpress_sites (
+
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+                    site_id TEXT NOT NULL UNIQUE,
+
+                    domain TEXT NOT NULL UNIQUE,
+
+                    site_url TEXT,
+
+                    provider TEXT,
+
+                    hosting_account_id TEXT,
+
+                    database_name TEXT,
+
+                    table_prefix TEXT
+                        DEFAULT 'wp_',
+
+                    status TEXT
+                        DEFAULT 'REGISTERED',
+
+                    environment TEXT
+                        DEFAULT 'production',
+
+                    description TEXT,
+
+                    created_at TEXT
+                        DEFAULT CURRENT_TIMESTAMP,
+
+                    updated_at TEXT
+                        DEFAULT CURRENT_TIMESTAMP
+                )
+                """
+            )
+
+            return
+
+        # ------------------------------------------------------
+        # Existing table:
+        # ADD ONLY MISSING COLUMNS
+        # ------------------------------------------------------
+
+        required_columns = {
+
+            "site_id":
+                "TEXT",
+
+            "domain":
+                "TEXT",
+
+            "site_url":
+                "TEXT",
+
+            "provider":
+                "TEXT",
+
+            "hosting_account_id":
+                "TEXT",
+
+            "database_name":
+                "TEXT",
+
+            "table_prefix":
+                "TEXT DEFAULT 'wp_'",
+
+            "status":
+                "TEXT DEFAULT 'REGISTERED'",
+
+            "environment":
+                "TEXT DEFAULT 'production'",
+
+            "description":
+                "TEXT",
+
+            "created_at":
+                "TEXT DEFAULT CURRENT_TIMESTAMP",
+
+            "updated_at":
+                "TEXT DEFAULT CURRENT_TIMESTAMP",
+        }
+
+        for column_name, definition in (
+            required_columns.items()
+        ):
+
+            self.add_column_if_missing(
+                table,
+                column_name,
+                definition,
+            )
+
+        # ------------------------------------------------------
+        # Repair NULL/default values for existing rows
+        # ------------------------------------------------------
+
+        self.execute(
+            """
+            UPDATE wordpress_sites
+            SET table_prefix = 'wp_'
+            WHERE table_prefix IS NULL
+               OR table_prefix = ''
+            """
+        )
+
+        self.execute(
+            """
+            UPDATE wordpress_sites
+            SET status = 'REGISTERED'
+            WHERE status IS NULL
+               OR status = ''
+            """
+        )
+
+        self.execute(
+            """
+            UPDATE wordpress_sites
+            SET environment = 'production'
+            WHERE environment IS NULL
+               OR environment = ''
+            """
+        )
+
+    # ==========================================================
+    # GLOBAL MIGRATION
+    # ==========================================================
+
+    def migrate_existing_database(self) -> None:
+
+        # ------------------------------------------------------
+        # WORDPRESS
+        # ------------------------------------------------------
+
+        self.migrate_wordpress_sites()
+
+    # ==========================================================
+    # INITIALIZE
+    # ==========================================================
+
+    def initialize(self) -> None:
+
+        self.connect()
+
+        # ------------------------------------------------------
+        # Existing project schema initialization
+        # ------------------------------------------------------
+
+        try:
+
+            from backend.database.schema import (
+                DatabaseSchema,
+            )
+
+            for table_name in (
+                DatabaseSchema.list_tables()
+            ):
+
+                schema_sql = (
+                    DatabaseSchema.get_table_schema(
+                        table_name
+                    )
+                )
+
+                if schema_sql:
+                    self.execute(
+                        schema_sql
+                    )
+
+        except ImportError:
+            # Schema module is optional during
+            # early bootstrap.
+            pass
+
+        # ------------------------------------------------------
+        # IMPORTANT:
+        # Run migrations AFTER table creation.
+        # ------------------------------------------------------
+
+        self.migrate_existing_database()
+
+        # ------------------------------------------------------
+        # Final commit
+        # ------------------------------------------------------
+
+        self.connect().commit()
+        return self.status()
+
+    def begin(self) -> dict:
+        """Begin an explicit transaction; subsequent writes stay uncommitted."""
+        connection = self.connect()
+        if not self._transaction_active:
+            connection.execute("BEGIN")
+            self._transaction_active = True
+        return {"success": True, "transaction_active": self._transaction_active}
+
+    def commit(self) -> dict:
+        """Commit the current explicit transaction, if any."""
+        connection = self.connect()
+        connection.commit()
+        self._transaction_active = False
+        return {"success": True, "transaction_active": False}
+
+    def rollback(self) -> dict:
+        """Roll back the current explicit transaction, if any."""
+        connection = self.connect()
+        connection.rollback()
+        self._transaction_active = False
+        return {"success": True, "transaction_active": False}
+
+    def persistence_status(self) -> dict:
+        """Report whether hosted SQLite persistence is explicitly configured.
+
+        Application code cannot independently prove a host mounted a durable
+        volume. The acknowledgement is an operator assertion only.
+        """
+        hosted = bool(os.getenv("RENDER") or os.getenv("RENDER_SERVICE_ID"))
+        path = str(Path(self.db_path).expanduser())
+        acknowledged = os.getenv("SUPREME_DB_PERSISTENCE_ACKNOWLEDGED", "").strip().casefold() == "true"
+        mounted_path_convention = path.startswith("/var/data/")
+        if not hosted:
+            status = "LOCAL_DEVELOPMENT"
+        elif mounted_path_convention and acknowledged:
+            status = "OPERATOR_ACKNOWLEDGED_PERSISTENT_PATH"
+        else:
+            status = "PERSISTENCE_UNVERIFIED"
+        return {
+            "status": status,
+            "hosted_environment": hosted,
+            "path_uses_var_data": mounted_path_convention,
+            "operator_acknowledged": acknowledged,
+            "note": "Application code cannot prove a persistent volume is mounted; verify host configuration and test recovery.",
+        }
+
+    def health(self) -> dict:
+        """Check the local database with a lightweight query."""
+        try:
+            row = self.fetchone("SELECT 1 AS healthy")
+            healthy = row is not None and int(row["healthy"]) == 1
+        except (sqlite3.Error, OSError):
+            healthy = False
+        return {
+            "database": "SQLITE",
+            "healthy": healthy,
+            "connected": self._connection is not None,
+            "path": self.db_path,
+            "persistence": self.persistence_status(),
+            "durability_verified": False,
+        }
+
+    def status(self) -> dict:
+        """Return non-secret connection status for diagnostics."""
+        return {
+            "service": "DatabaseService",
+            "engine": "SQLITE",
+            "connected": self._connection is not None,
+            "transaction_active": self._transaction_active,
+            "path": self.db_path,
+        }
