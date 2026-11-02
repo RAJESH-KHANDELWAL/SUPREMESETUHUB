@@ -5,6 +5,11 @@ from .organization_domain_api_ecosystems.registry import ORGANIZATION_DOMAINS
 from .organization_type_api_ecosystems.registry import ORGANIZATION_TYPES, ORGANIZATION_TYPE_GROUPS
 from .schemas import OrganizationApiStatus, OrganizationListResponse
 from .service import get_ecosystem_status, search_organizations, get_organization
+from .country_api_ecosystems.registry import COUNTRY_ECOSYSTEM_STATUS
+from .classification_standards_api_ecosystem.registry import CLASSIFICATION_STANDARDS_STATUS
+from .integrations.catalog import INTEGRATION_CATALOG
+from .services.catalog import ORGANIZATION_SERVICES
+from .tools.catalog import ORGANIZATION_TOOLS
 
 router = APIRouter(tags=["GLOBAL ORGANIZATIONS API ECOSYSTEM"])
 
@@ -23,6 +28,26 @@ def organization_domains():
 @router.get("/global/organizations/types")
 def organization_types():
     return {"success":True,"count":len(ORGANIZATION_TYPES),"groups":ORGANIZATION_TYPE_GROUPS,"types":ORGANIZATION_TYPES}
+
+@router.get("/global/organizations/country-sources/status")
+def organization_country_sources_status():
+    return COUNTRY_ECOSYSTEM_STATUS
+
+@router.get("/global/organizations/standards/status")
+def organization_standards_status():
+    return CLASSIFICATION_STANDARDS_STATUS
+
+@router.get("/global/organizations/integrations")
+def organization_integrations():
+    return {"success":True,"count":len(INTEGRATION_CATALOG),"live_connections":False,"items":INTEGRATION_CATALOG}
+
+@router.get("/global/organizations/services")
+def organization_services():
+    return {"success":True,"count":len(ORGANIZATION_SERVICES),"items":ORGANIZATION_SERVICES}
+
+@router.get("/global/organizations/tools")
+def organization_tools():
+    return {"success":True,"count":len(ORGANIZATION_TOOLS),"items":ORGANIZATION_TOOLS}
 
 @router.get("/global/organizations/classification")
 def organization_classification():
