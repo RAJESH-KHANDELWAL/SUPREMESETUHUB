@@ -1,5 +1,7 @@
 import unittest
 
+from fastapi import FastAPI
+
 from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.business_capabilities.registry import (
     BUSINESS_LIFECYCLE_STAGES,
     get_analytics_contract,
@@ -37,7 +39,9 @@ class BadaBusinessCapabilitiesTests(unittest.TestCase):
         self.assertFalse(result["analytics_store_enabled"])
 
     def test_capability_routes_are_mounted_in_the_main_ecosystem(self):
-        paths = {route.path for route in ecosystem_router.routes}
+        app = FastAPI()
+        app.include_router(ecosystem_router)
+        paths = set(app.openapi()["paths"])
         self.assertIn("/api/v1/global-ecosystem/business/capabilities/lifecycle", paths)
         self.assertIn("/api/v1/global-ecosystem/business/capabilities/architecture/modules", paths)
 
@@ -53,7 +57,9 @@ class BadaBusinessCapabilitiesTests(unittest.TestCase):
         self.assertEqual(result["ai_automation_in_scope"], False)
 
     def test_capability_routes_are_registered(self):
-        paths = {route.path for route in router.routes}
+        app = FastAPI()
+        app.include_router(router)
+        paths = set(app.openapi()["paths"])
         self.assertIn("/capabilities/lifecycle", paths)
         self.assertIn("/capabilities/trust-safety", paths)
         self.assertIn("/capabilities/compliance/framework", paths)
