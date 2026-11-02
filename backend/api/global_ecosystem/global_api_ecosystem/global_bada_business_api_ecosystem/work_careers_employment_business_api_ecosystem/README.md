@@ -79,3 +79,19 @@ Every track is also exposed as a child API Ecosystem resource. Its ID follows `{
 The category-specific routers remain available under their existing paths (for example `/government-jobs`, `/private-jobs` and `/corporate-jobs`). The registry is an additional stable discovery layer, not a replacement for those routes.
 
 Track-level API Ecosystems are currently addressable taxonomy resources served by the shared registry. Their own independent external data integrations, write operations, vacancy feeds and employer verification are not implied. All responses retain `taxonomy_only` status unless separately verified live-data integrations are implemented.
+
+
+## Professional Fields & Occupation Families
+
+The domain now separates **professional occupation** from the existing 24 employment-context categories. The new `professional_fields/` package contains dedicated field packages for IT & Digital Technology, Banking & Finance, Healthcare & Medical, Education & Training, Engineering & Construction, Sales & Marketing, Legal & Compliance, Agriculture & Food Systems, Manufacturing & Operations, Real Estate & Facilities, Hospitality & Tourism, and Transport & Logistics. Each field owns its canonical subcategory catalogue; subcategory documentation is organized in child folders.
+
+The shared Professional Fields API Ecosystem is mounted under the existing `/work-careers` router:
+- `GET /api/v1/global-ecosystem/business/work-careers/professional-fields` — list and search professional fields.
+- `GET /api/v1/global-ecosystem/business/work-careers/professional-fields/{field_id}` — field detail and its subcategories.
+- `GET /api/v1/global-ecosystem/business/work-careers/professional-fields/{field_id}/subcategories` — list/search subcategories.
+- `GET /api/v1/global-ecosystem/business/work-careers/professional-fields/{field_id}/subcategories/{subcategory_id}` — subcategory detail.
+- `GET /api/v1/global-ecosystem/business/work-careers/professional-fields/integrity` — structural integrity report.
+
+The field and subcategory API Ecosystem identifiers are stable registry resources. Separate child routers are intentionally not created for taxonomy-only folders unless they later require independent operations, data ownership or external integrations. A role can be tagged with a professional field and simultaneously with any applicable existing employment-context categories; this avoids duplicating the same occupation for remote, government, private, corporate or international work.
+
+Coverage remains `taxonomy_only`: this change does not add live vacancy feeds, employer verification, recruiter authorization, credential validation or legal eligibility decisions.
