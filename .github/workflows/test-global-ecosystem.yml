@@ -68,5 +68,9 @@ jobs:
         run: |
           python -m unittest discover -s tests -p "test_domain_package_layers.py" -v
 
+      - name: Run Work and Careers Government Jobs Tests
+        run: |
+          python -m unittest backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.work_careers_employment_business_api_ecosystem.subcategories.government_jobs.tests.test_government_jobs -v
+
       - name: Run Global Organizations API Ecosystem Tests
         run: python -m unittest backend.api.global_ecosystem.global_api_ecosystem.global_organizations_api_ecosystem.tests.test_global_organizations_ecosystem -v
