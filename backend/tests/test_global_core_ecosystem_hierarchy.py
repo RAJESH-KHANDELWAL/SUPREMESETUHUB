@@ -49,7 +49,12 @@ class TestGlobalCoreEcosystemHierarchy(unittest.TestCase):
         result = core_ecosystem_tree()
         self.assertTrue(result["success"])
         self.assertEqual(result["id"], "GLOBAL-CORE-ECOSYSTEM")
-        core = result["children"][0]
+        root = result["children"][0]
+        core = next(
+            child
+            for child in root["children"]
+            if child["ecosystem_id"] == "GLOBAL-CORE-ECOSYSTEM"
+        )
         child_ids = {child["ecosystem_id"] for child in core["children"]}
         self.assertIn("GLOBAL-BUSINESS-CORE-ECOSYSTEM", child_ids)
         self.assertIn("GLOBAL-SERVER-CORE-ECOSYSTEM", child_ids)
