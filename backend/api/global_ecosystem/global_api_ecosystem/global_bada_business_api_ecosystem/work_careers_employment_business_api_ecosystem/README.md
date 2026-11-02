@@ -54,3 +54,28 @@ Each job category exposes status, track list, track detail and search endpoints 
 
 ## Compatibility and maintenance
 The package retains `DOMAIN_ID`, `DOMAIN_NAME`, `ADULT_RESTRICTED`, `DEFAULT_DISCOVERY_ENABLED`, `SUBCATEGORY_IDS` and `list_subcategories()` exports. Existing parent registry identifiers remain stable. Add new category IDs rather than renaming established identifiers, and update related-category references and tests together.
+
+
+## Hierarchical API Ecosystem architecture
+
+The 24 catalogue categories are exposed as separately addressable API Ecosystems while retaining their stable Python package IDs and existing route prefixes. This avoids breaking imports and clients that already use the established taxonomy identifiers.
+
+Category API Ecosystem IDs follow `{CATEGORY_ID}_API_ECOSYSTEM`, for example:
+- `GOVERNMENT_JOBS_API_ECOSYSTEM`
+- `PRIVATE_SECTOR_JOBS_API_ECOSYSTEM` (display name: Private Jobs API Ecosystem)
+- `CORPORATE_JOBS_API_ECOSYSTEM`
+- `PUBLIC_SECTOR_JOBS_API_ECOSYSTEM`
+
+Every track is also exposed as a child API Ecosystem resource. Its ID follows `{CATEGORY_ID}_{TRACK_ID}_API_ECOSYSTEM`. For example, a Government Jobs track such as `central_government_recruitment` is represented as `GOVERNMENT_JOBS_CENTRAL_GOVERNMENT_RECRUITMENT_API_ECOSYSTEM`.
+
+### API Ecosystem registry endpoints
+
+- `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems` — list all 24 category API Ecosystems.
+- `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems?q=government` — search category API Ecosystems.
+- `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems/{category_id}` — category API Ecosystem contract and catalogue record.
+- `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems/{category_id}/tracks` — list the child track API Ecosystems.
+- `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems/{category_id}/tracks/{track_id}` — retrieve one track API Ecosystem and its taxonomy record.
+
+The category-specific routers remain available under their existing paths (for example `/government-jobs`, `/private-jobs` and `/corporate-jobs`). The registry is an additional stable discovery layer, not a replacement for those routes.
+
+Track-level API Ecosystems are currently addressable taxonomy resources served by the shared registry. Their own independent external data integrations, write operations, vacancy feeds and employer verification are not implied. All responses retain `taxonomy_only` status unless separately verified live-data integrations are implemented.
