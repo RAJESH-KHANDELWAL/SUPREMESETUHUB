@@ -41,7 +41,6 @@ def get_industry(
 # Domain-specific industry APIs
 from .agriculture_food_natural_resources.routes import router as agriculture_food_router
 from .education_learning_training.routes import router as education_learning_router
-from .jobs_careers_employment.routes import router as jobs_careers_router
 from .healthcare_life_sciences.routes import router as healthcare_router
 from .finance_banking_insurance.routes import router as finance_banking_router
 from .real_estate_construction.routes import router as real_estate_router
@@ -49,7 +48,6 @@ from .retail_ecommerce_consumer_goods.routes import router as retail_ecommerce_r
 
 router.include_router(agriculture_food_router)
 router.include_router(education_learning_router)
-router.include_router(jobs_careers_router)
 router.include_router(healthcare_router)
 router.include_router(finance_banking_router)
 router.include_router(real_estate_router)
@@ -101,3 +99,7 @@ router.include_router(aviation_aerospace_router)
 router.include_router(water_marine_router)
 router.include_router(fashion_textiles_router)
 router.include_router(supply_chain_distribution_router)
+
+# Jobs, Careers & Employment is deliberately mounted last in the industry API ecosystem.
+from .jobs_careers_employment.routes import router as jobs_careers_router
+router.include_router(jobs_careers_router)
