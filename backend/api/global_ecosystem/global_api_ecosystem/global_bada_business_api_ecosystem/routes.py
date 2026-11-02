@@ -249,3 +249,8 @@ router.include_router(business_capabilities_router)
 # Universal A-Z India + Global work/business taxonomy API.
 from .universal_work_business_taxonomy_api_ecosystem.routes import router as universal_work_business_taxonomy_router
 router.include_router(universal_work_business_taxonomy_router)
+
+
+# Dedicated Work, Jobs & Careers subcategory APIs.
+from .work_careers_employment_business_api_ecosystem.routes import router as work_careers_router
+router.include_router(work_careers_router)
