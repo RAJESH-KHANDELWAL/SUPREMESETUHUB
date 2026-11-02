@@ -1,7 +1,7 @@
 """Read-only endpoints for approved Bada Business ecosystem requirements."""
 from fastapi import APIRouter
 
-from .registry import list_approved_requirements, validate_approved_requirements
+from .registry import list_approved_requirements, list_scope_constraints, validate_approved_requirements
 
 router = APIRouter(prefix="/governance", tags=["GLOBAL BADA BUSINESS - GOVERNANCE"])
 
@@ -20,3 +20,9 @@ def get_approved_requirements():
 def get_approved_requirements_integrity():
     result = validate_approved_requirements()
     return {"success": result["valid"], **result}
+
+
+@router.get("/scope-constraints")
+def get_scope_constraints():
+    constraints = list_scope_constraints()
+    return {"success": True, "count": len(constraints), "constraints": constraints}
