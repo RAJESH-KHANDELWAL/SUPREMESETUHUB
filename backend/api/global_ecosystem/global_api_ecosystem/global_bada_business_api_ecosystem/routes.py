@@ -244,3 +244,8 @@ router.include_router(governance_router)
 # Business lifecycle, trust, jurisdictional compliance and BI API contracts.
 from .business_capabilities.routes import router as business_capabilities_router
 router.include_router(business_capabilities_router)
+
+
+# Universal A-Z India + Global work/business taxonomy API.
+from .universal_work_business_taxonomy_api_ecosystem.routes import router as universal_work_business_taxonomy_router
+router.include_router(universal_work_business_taxonomy_router)
