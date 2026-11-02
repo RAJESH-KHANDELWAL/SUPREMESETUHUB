@@ -24,7 +24,7 @@ def _category_or_404(category_id: str):
 
 def _track_catalog(category_id: str):
     _category_or_404(category_id)
-    module = import_module(f"{__package__}.subcategories.{category_id}.categories")
+    module = import_module(f"{__package__}.{category_id}.categories")
     return module
 
 
