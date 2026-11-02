@@ -2,14 +2,14 @@
 
 import unittest
 
-from backend.core.global_ecosystem.global_core_ecosystem.manager import (
-    GlobalEcosystemManager,
-)
-
 from backend.core.global_ecosystem.global_core_ecosystem import (
     ECOSYSTEM_ID,
     ECOSYSTEM_NAME,
+    GlobalEcosystemManager,
+    get_module,
+    list_modules,
     status as core_ecosystem_status,
+    tree as core_ecosystem_tree,
 )
 
 
@@ -24,13 +24,35 @@ class TestGlobalCoreEcosystemHierarchy(unittest.TestCase):
         self.assertTrue(result["root_exists"])
         self.assertTrue(result["core_exists"])
 
-    def test_public_entry_point_uses_canonical_registry_identity(self):
+    def test_public_package_entry_point_uses_canonical_registry_identity(self):
         self.assertEqual(ECOSYSTEM_ID, "GLOBAL-CORE-ECOSYSTEM")
         self.assertEqual(ECOSYSTEM_NAME, "GLOBAL CORE ECOSYSTEM")
         result = core_ecosystem_status()
         self.assertEqual(result["ecosystem_id"], "GLOBAL-CORE-ECOSYSTEM")
         self.assertEqual(result["ecosystem"], "GLOBAL CORE ECOSYSTEM")
         self.assertTrue(result["success"])
+
+    def test_public_package_lists_and_retrieves_core_modules(self):
+        listing = list_modules()
+        self.assertTrue(listing["success"])
+        self.assertGreater(listing["count"], 0)
+        self.assertTrue(listing["items"])
+
+        result = get_module("GLOBAL-CORE-ECOSYSTEM")
+        self.assertTrue(result["success"])
+        self.assertEqual(
+            result["item"]["ecosystem_id"],
+            "GLOBAL-CORE-ECOSYSTEM",
+        )
+
+    def test_public_package_tree_exposes_core_hierarchy(self):
+        result = core_ecosystem_tree()
+        self.assertTrue(result["success"])
+        self.assertEqual(result["id"], "GLOBAL-CORE-ECOSYSTEM")
+        core = result["children"][0]
+        child_ids = {child["ecosystem_id"] for child in core["children"]}
+        self.assertIn("GLOBAL-BUSINESS-CORE-ECOSYSTEM", child_ids)
+        self.assertIn("GLOBAL-SERVER-CORE-ECOSYSTEM", child_ids)
 
     def test_core_ecosystem_is_registered_under_global_root(self):
         result = self.manager.get("GLOBAL-CORE-ECOSYSTEM")
