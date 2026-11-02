@@ -14,7 +14,7 @@ from backend.core.global_ecosystem.global_core_ecosystem.manager import (
     GlobalEcosystemManager,
 )
 
-ECOSYSTEM_ID = "GLOBAL_CORE_ECOSYSTEM"
+ECOSYSTEM_ID = "GLOBAL-CORE-ECOSYSTEM"
 ECOSYSTEM_NAME = "GLOBAL CORE ECOSYSTEM"
 ECOSYSTEM_VERSION = "1.0.0"
 
