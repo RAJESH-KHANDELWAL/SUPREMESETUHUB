@@ -5,7 +5,7 @@ from .services import get_track_api_resource, get_track_status
 
 router = APIRouter(
     prefix=f"/tracks/{TRACK_ID}/api-ecosystem",
-    tags=[f"Work & Careers — {category} — {track}"],
+    tags=[f"Work & Careers — {CATEGORY_ID} — {TRACK_ID}"],
 )
 
 @router.get("")
