@@ -240,3 +240,7 @@ router.include_router(classification_standards_router)
 # Expose the user-approved scope and acceptance decisions through this ecosystem.
 from .governance.routes import router as governance_router
 router.include_router(governance_router)
+
+# Business lifecycle, trust, jurisdictional compliance and BI API contracts.
+from .business_capabilities.routes import router as business_capabilities_router
+router.include_router(business_capabilities_router)
