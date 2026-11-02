@@ -52,6 +52,8 @@ class BadaBusinessCapabilitiesTests(unittest.TestCase):
         module_ids = {item["id"] for item in result["modules"]}
         self.assertIn("integrations", module_ids)
         self.assertIn("industries", module_ids)
+        self.assertIn("industries/agriculture-food-natural-resources", module_ids)
+        self.assertIn("industries/education-learning-training", module_ids)
         self.assertIn("capabilities", module_ids)
         self.assertIn("governance", module_ids)
         self.assertEqual(result["ai_automation_in_scope"], False)
