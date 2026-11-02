@@ -1,6 +1,8 @@
 """Work, Jobs & Careers subcategory API router."""
 from fastapi import APIRouter
 
+from .ecosystem_routes import router as api_ecosystems_router
+
 from .subcategories.government_jobs.routes import router as government_jobs_router
 from .subcategories.private_sector_jobs.routes import router as private_jobs_router
 from .subcategories.corporate_jobs.routes import router as corporate_jobs_router
@@ -51,3 +53,6 @@ router.include_router(career_guidance_router)
 router.include_router(recruitment_router)
 router.include_router(staffing_router)
 router.include_router(placements_router)
+
+# Category and track API Ecosystems are exposed through a shared hierarchical registry.
+router.include_router(api_ecosystems_router)
