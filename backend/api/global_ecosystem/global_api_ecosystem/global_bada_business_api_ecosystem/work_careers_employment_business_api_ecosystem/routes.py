@@ -9,6 +9,12 @@ from .subcategories.full_time_jobs.routes import router as full_time_jobs_router
 from .subcategories.seasonal_jobs.routes import router as seasonal_jobs_router
 from .subcategories.entry_level_jobs.routes import router as entry_level_jobs_router
 from .subcategories.career_changes.routes import router as career_changes_router
+from .subcategories.placements.routes import router as placements_router
+from .subcategories.staffing.routes import router as staffing_router
+from .subcategories.recruitment.routes import router as recruitment_router
+from .subcategories.career_guidance.routes import router as career_guidance_router
+from .subcategories.retirement_work.routes import router as retirement_work_router
+from .subcategories.return_to_work.routes import router as return_to_work_router
 from .subcategories.executive_jobs.routes import router as executive_jobs_router
 from .subcategories.experienced_jobs.routes import router as experienced_jobs_router
 from .subcategories.shift_work.routes import router as shift_work_router
@@ -39,3 +45,9 @@ router.include_router(entry_level_jobs_router)
 router.include_router(experienced_jobs_router)
 router.include_router(executive_jobs_router)
 router.include_router(career_changes_router)
+router.include_router(return_to_work_router)
+router.include_router(retirement_work_router)
+router.include_router(career_guidance_router)
+router.include_router(recruitment_router)
+router.include_router(staffing_router)
+router.include_router(placements_router)
