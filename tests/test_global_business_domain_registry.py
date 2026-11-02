@@ -32,7 +32,7 @@ class GlobalBusinessDomainRegistryTests(unittest.TestCase):
         from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.service import BusinessEcosystemService
         status = BusinessEcosystemService().get_status()
         self.assertEqual(status["domain_package_count"], 12)
-        self.assertEqual(status["domain_subcategory_count"], 248)
+        self.assertEqual(status["domain_subcategory_count"], 249)
         self.assertEqual(status["domain_registry_status"], "taxonomy_only")
 
     def test_api_routes_are_registered(self):
