@@ -42,8 +42,8 @@ class DomainPackageLayerTests(unittest.TestCase):
         catalog = importlib.import_module(f"{package}.catalog")
         integrity = categories.validate_category_definitions()
         self.assertTrue(integrity["structurally_valid"], integrity)
-        self.assertEqual(len(categories.CATEGORY_DEFINITIONS), 23)
-        self.assertEqual(len(catalog.list_categories()), 23)
+        self.assertEqual(len(categories.CATEGORY_DEFINITIONS), 24)
+        self.assertEqual(len(catalog.list_categories()), 24)
         self.assertTrue(all(item.description and item.search_terms for item in catalog.list_categories()))
 
         government_jobs = importlib.import_module(f"{package}.subcategories.government_jobs.categories")
