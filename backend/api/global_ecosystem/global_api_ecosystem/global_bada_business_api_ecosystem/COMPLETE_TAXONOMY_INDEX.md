@@ -23,9 +23,8 @@ This index separates the ecosystem into independent layers. The layers are inten
 
 Each core domain currently follows the six-file package convention: `__init__.py`, `README.md`, `subcategories.py`, `models.py`, `catalog.py`, `service.py`.
 
-## 2. Industry vertical API ecosystems — 37 packages
+## 2. Industry vertical API ecosystems — 35 packages
 
-- `adult_sexual_wellness/`
 - `agriculture_food_natural_resources/`
 - `automotive_mobility/`
 - `aviation_aerospace_space_technology/`
@@ -34,7 +33,6 @@ Each core domain currently follows the six-file package convention: `__init__.py
 - `digital_infrastructure_telecommunications/`
 - `education_learning_training/`
 - `energy_utilities_environment/`
-- `family_relationships_parenting/`
 - `fashion_textiles_apparel/`
 - `finance_banking_insurance/`
 - `food_hospitality_restaurants/`
@@ -63,7 +61,7 @@ Each core domain currently follows the six-file package convention: `__init__.py
 - `travel_tourism_hospitality/`
 - `water_resources_marine_industries/`
 
-These are the current industry packages. Marketing, digital marketing, offline advertising, media and entertainment are consolidated under `marketing_media_entertainment/`; manufacturing and industrial services remain under `manufacturing_industrial_services/`. Other adjacent verticals remain separate where their operational scope differs.
+These are the current industry packages. Marketing, digital marketing, offline advertising, media and entertainment are consolidated under `marketing_media_entertainment/`; mining and metals are maintained under `mining_metals_minerals/`; personal lifestyle, family, parenting, couples, relationship support and restricted 18+ adult wellness/content categories are consolidated under `personal_lifestyle_wellness/` with adult categories excluded from default discovery. Manufacturing and industrial services remain under `manufacturing_industrial_services/`. Other adjacent verticals remain separate where their operational scope differs.
 
 ## 3. Provider/platform integrations — 21 packages
 
