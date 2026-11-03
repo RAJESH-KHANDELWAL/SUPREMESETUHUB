@@ -14,6 +14,7 @@ class BusinessComplianceService:
             "country_codes_with_curated_starter_dataset": ["IN"],
             "india_requirement_topics": len(list_india_requirements()),
             "india_compliance_rule_records": len(list_rules("IN")),
+            "rajasthan_state_rule_records": len([x for x in list_rules("IN", subdivision_code="RJ") if x["subdivision_code"] == "RJ"]),
             "rules_source_status": "official_portal_links_added_rule_text_not_fully_reviewed",
             "india_subdivision_count": len(list_india_subnational_jurisdictions()),
             "india_state_count": len(list_india_subnational_jurisdictions("state")),
@@ -52,12 +53,16 @@ class BusinessComplianceService:
             return None
         if country_code.upper() != "IN":
             return None
-        return list_rules(country_code, area, applicability_status, source_verification_status)
+        if subdivision_code and not get_india_subnational_jurisdiction(subdivision_code):
+            return None
+        return list_rules(country_code, area, applicability_status, source_verification_status, subdivision_code)
 
-    def get_compliance_rule(self, rule_id, country_code="IN"):
+    def get_compliance_rule(self, rule_id, country_code="IN", subdivision_code=None):
         if country_code.upper() != "IN":
             return None
-        return get_rule(rule_id, country_code)
+        if subdivision_code and not get_india_subnational_jurisdiction(subdivision_code):
+            return None
+        return get_rule(rule_id, country_code, subdivision_code)
 
     def get_requirement(self, requirement_id, country_code="IN"):
         if country_code.upper() != "IN":
