@@ -5,10 +5,10 @@ from .services import get_status
 router=APIRouter(prefix="/job-placement",tags=["Work & Careers — Job Placement Services"])
 @router.get("/status")
 def status(): return get_status()
-@router.get("/tracks")
+@router.get("/work-jobs")
 def tracks():
  items=list_tracks(); return {"success":True,"count":len(items),"taxonomy_only":True,"is_vacancy_category":False,"tracks":items}
-@router.get("/tracks/{track_id}")
+@router.get("/work-jobs/{track_id}")
 def track_detail(track_id:str):
  item=get_track(track_id)
  if item is None: raise HTTPException(status_code=404,detail={"error":"TRACK_NOT_FOUND","category_id":"placements","track_id":track_id})
