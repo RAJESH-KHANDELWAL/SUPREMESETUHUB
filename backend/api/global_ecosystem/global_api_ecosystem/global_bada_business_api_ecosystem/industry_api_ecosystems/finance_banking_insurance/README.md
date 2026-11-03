@@ -1,11 +1,11 @@
-# Finance, Banking, Insurance & Business Support API Ecosystem
+# Finance, Banking & Insurance API Ecosystem
 
 **Canonical domain ID:** `finance_banking_insurance`  
 **Canonical implementation:** `industry_api_ecosystems/finance_banking_insurance/`  
 **Coverage:** India + Global
 
 ## Unified scope
-This single ecosystem owns banking and deposits, payments and remittances, lending and credit, insurance and claims, wealth and investment education, capital markets, accounting and tax, fintech, microfinance, corporate finance, grants and schemes discovery, MSME finance support, export finance, pensions, risk and compliance, and financial education.
+This single ecosystem owns banking and deposits, payments and remittances, lending and credit, insurance and claims, wealth and investment education, capital markets, accounting and tax, fintech, microfinance, corporate finance, grants and schemes discovery, MSME finance-related services, export finance, pensions, risk and compliance, and financial education.
 
 ## Architecture
 - The 15 existing finance categories remain the canonical category structure.
