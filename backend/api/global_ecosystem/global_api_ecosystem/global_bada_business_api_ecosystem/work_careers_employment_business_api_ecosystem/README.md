@@ -13,7 +13,7 @@ This domain organizes employment, recruitment, staffing, career support and work
 
 ## Category API Ecosystem packages
 
-All 24 catalogue categories now have dedicated packages directly under this domain directory. Each package has its own `categories.py`, `models.py`, `services.py`, `routes.py`, `README.md` and `tests/`. Each defined track has its own folder under that package's `tracks/` directory with a dedicated README describing its scope and evidence requirements.
+All 24 catalogue categories now have dedicated packages directly under this domain directory. Each package has its own `categories.py`, `models.py`, `services.py`, `routes.py`, `README.md` and `tests/`. Every specialization has its own direct-child folder inside its category package, with its own README, categories, models, schemas, services, routes, validators and tests. The parent category catalogue discovers these packages dynamically; the folder package is the source of truth for its job-family details.
 
 ### Employer sector and organization
 - `government_jobs/` — 13 tracks, including central, state/provincial, local, civil services, public education, public health, public safety, civilian defence, public research, judiciary/legal, public finance/audit, infrastructure/engineering and public-sector enterprise recruitment.
@@ -33,7 +33,7 @@ All 24 catalogue categories now have dedicated packages directly under this doma
 ### Career and workforce services
 - `career_guidance/`, `recruitment/`, `staffing/` and `placements/`. These are service categories, not job vacancies.
 
-The domain router imports and mounts all 24 category routers beneath `/work-careers`. Track folders describe classification scope; they do not imply that a vacancy, employer, recruiter, licence or placement outcome has been verified.
+The domain router mounts all 24 category routers beneath `/work-careers`. The parent Bada Business router separately mounts every direct-child job-family router at its canonical `/work-careers/{category_id}/{job_family_id}` path. These folders describe classification scope; they do not imply that a vacancy, employer, recruiter, licence or placement outcome has been verified.
 
 ## API route structure
 Each job category exposes status, track list, track detail and search endpoints under its own prefix. Examples:

@@ -46,11 +46,11 @@ class DomainPackageLayerTests(unittest.TestCase):
         self.assertEqual(len(catalog.list_categories()), 24)
         self.assertTrue(all(item.description and item.search_terms for item in catalog.list_categories()))
 
-        government_jobs = importlib.import_module(f"{package}.subcategories.government_jobs.categories")
-        government_service = importlib.import_module(f"{package}.subcategories.government_jobs.services")
+        government_jobs = importlib.import_module(f"{package}.government_jobs.categories")
+        government_service = importlib.import_module(f"{package}.government_jobs.services")
         government_integrity = government_jobs.validate_tracks()
         self.assertTrue(government_integrity["structurally_valid"], government_integrity)
-        self.assertEqual(len(government_jobs.GOVERNMENT_JOB_TRACKS), 13)
+        self.assertEqual(len(government_jobs.list_tracks()), 23)
         self.assertTrue(government_service.search_government_job_tracks("civilian"))
 
         from fastapi import FastAPI
