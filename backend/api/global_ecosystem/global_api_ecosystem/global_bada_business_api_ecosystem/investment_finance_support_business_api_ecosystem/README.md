@@ -1,13 +1,10 @@
-# Finance, Investment & Business Support
+# Finance, Investment & Business Support — Compatibility Package
 
-## Scope
-Financial education and business-support categories covering banking, credit, insurance, tax, accounting, investment education, capital raising, grants, MSME and export support. Not a financial advice or eligibility engine.
+This folder is retained only for backwards-compatible imports.
 
-## Package contract
-The adjacent __init__.py exposes the stable domain ID, domain name, discovery flags, subcategory identifiers and list_subcategories() helper.
+**Canonical ecosystem:** `industry_api_ecosystems/finance_banking_insurance/`  
+**Canonical domain ID:** `finance_banking_insurance`
 
-## Data boundaries
-This is a classification package, not a live directory. Category membership does not verify a business, job, employer, professional licence, government affiliation or API integration. India + Global are intended coverage scopes, not an assertion of exhaustive country coverage. Do not store private or sensitive personal records here.
+All finance, banking, insurance, investment education, tax, accounting, grants, government-scheme discovery, MSME finance support and export-finance taxonomy is maintained in the canonical ecosystem. Do not add new categories or duplicate implementations here.
 
-## Maintenance
-Keep identifiers stable and synchronized with global_world_catalog.py. Validate crosswalk coverage and duplicate IDs. Before production listing ingestion, add source provenance, jurisdiction, timestamps, verification status, freshness, deduplication, moderation, authentication, authorization and audit logging. Add import and unit tests.
+The compatibility `__init__.py`, `catalog.py`, `service.py` and `subcategories.py` delegate to the canonical package. This remains taxonomy-only and does not verify live providers, licences, products, government affiliation or eligibility.
