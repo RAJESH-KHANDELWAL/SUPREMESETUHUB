@@ -14,12 +14,14 @@ router = APIRouter(prefix="/government-jobs", tags=["Work & Careers — Governme
 def get_status():
     return get_government_jobs_status()
 
-@router.get("/tracks")
+@router.get("/specializations")
+@router.get("/tracks", include_in_schema=False)
 def get_tracks():
     tracks = list_government_job_tracks()
-    return {"success": True, "count": len(tracks), "taxonomy_only": True, "tracks": tracks}
+    return {"success": True, "count": len(tracks), "taxonomy_only": True, "specializations": tracks, "tracks": tracks}
 
-@router.get("/tracks/{track_id}")
+@router.get("/specializations/{track_id}")
+@router.get("/tracks/{track_id}", include_in_schema=False)
 def get_track_detail(track_id: str):
     track = get_government_job_track(track_id)
     if track is None:
@@ -29,7 +31,7 @@ def get_track_detail(track_id: str):
 @router.get("/search")
 def search_tracks(q: str = Query(min_length=1, max_length=100)):
     tracks = search_government_job_tracks(q)
-    return {"success": True, "count": len(tracks), "tracks": tracks}
+    return {"success": True, "count": len(tracks), "specializations": tracks, "tracks": tracks}
 
 @router.get("/integrity")
 def get_integrity():
