@@ -1,4 +1,5 @@
-"""Adult Law, Safety & Compliance domain catalog."""
+"""adult_law_safety_compliance domain catalog backed by the canonical ecosystem registry."""
+from ..domains_catalog import DOMAIN_CATALOG
+
 CATEGORY_ID = "adult_law_safety_compliance"
-CATEGORY_NAME = "Adult Law, Safety & Compliance"
-SUBDOMAINS = []
+SUBDOMAINS = DOMAIN_CATALOG[CATEGORY_ID]
