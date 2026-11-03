@@ -26,6 +26,12 @@ It owns the 12-category catalog, schemas, routes, service and tests. This API ec
 - `coaches/`, `consultants/`, `advisors/` — professional role discovery.
 - `access_tiers/normal/`, `access_tiers/supreme/` — access-tier documentation.
 
+## Related education and training domain
+
+- `education_learning_training/` — cross-domain navigation to the separately maintained Education, Learning & Training ecosystem.
+- Canonical implementation: `industry_api_ecosystems/education_learning_training` (15 categories, service, routes, schemas and tests).
+- Education-specific coaching, tutoring, corporate training, vocational skills, certifications and lifelong learning remain owned by that canonical education package. This folder links to it rather than duplicating it.
+
 ## Category registry
 
 1. `legal_services`
