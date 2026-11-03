@@ -94,3 +94,8 @@ Use only:
 The alternate path `backend/api/global_api_ecosystem/global_bada_business_api_ecosystem/` is deprecated and contains only a README pointer. Its duplicate documentation-only career stubs were removed after confirming that the maintained career-change specialization packages already exist in the canonical Work & Careers package.
 
 Do not create another Work & Careers, Freelance, business catalogue or industry catalogue at the deprecated path. Add new records and specializations to their owning canonical package, update its registry and tests, and use crosswalks for relationships between classification layers.
+
+
+## Test contract for dynamically discovered specializations
+
+Work & Careers tests validate the live package registry rather than hard-coded folder totals. Each specialization test resolves its stable `TRACK_ID` and `CATEGORY_ID` through the canonical category record and verifies the API resource. Category integrity tests compare the reported count with the discovered catalogue, validate unique IDs and required labels, and exercise lookup/search. Adding a specialization therefore does not require editing an unrelated fixed-count assertion.
