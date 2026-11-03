@@ -70,3 +70,30 @@ def test_rule_filtering_and_detail():
 
 def test_unresearched_country_rules_are_not_fabricated():
     assert BusinessComplianceService().list_compliance_rules("US") is None
+
+
+def test_rajasthan_state_rules_are_filtered_and_scoped():
+    service = BusinessComplianceService()
+    items = service.list_compliance_rules("IN", subdivision_code="RJ")
+    state_items = [item for item in items if item["subdivision_code"] == "RJ"]
+    assert len(state_items) == 6
+    assert all(item["country_code"] == "IN" for item in state_items)
+    assert service.get_compliance_rule("rajasthan_fire_noc", "IN", "RJ")["subdivision_code"] == "RJ"
+    assert service.get_compliance_rule("rajasthan_fire_noc", "IN") is None
+
+
+def test_rajasthan_rules_have_official_sources_and_review_metadata():
+    from .rules_catalog import list_rules
+    items = [item for item in list_rules("IN", subdivision_code="RJ") if item["subdivision_code"] == "RJ"]
+    assert len(items) == 6
+    assert all(item["official_sources"] for item in items)
+    assert all(item["last_source_checked_on"] is None for item in items)
+    assert all(item["legal_review_status"] == "not_legal_reviewed" for item in items)
+
+
+def test_subdivision_filter_includes_national_and_matching_state_records_only():
+    from .rules_catalog import list_rules
+    items = list_rules("IN", subdivision_code="RJ")
+    assert any(item["subdivision_code"] is None for item in items)
+    assert any(item["subdivision_code"] == "RJ" for item in items)
+    assert not any(item["subdivision_code"] not in (None, "RJ") for item in items)
