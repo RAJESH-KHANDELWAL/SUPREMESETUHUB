@@ -3,11 +3,12 @@
 This document defines the direct-root domain package plan for this existing directory.
 
 ## Existing components preserved
-- `business_catalog.py`: business category catalogue.
-- `global_world_catalog.py`: master Global World and universal work/business taxonomy.
-- `global_world_business_map.py`: cross-domain mapping.
-- `routes.py`, `schemas.py`, `service.py`: API and service layer.
-- `sectors/`: sector taxonomy.
+- `global_world_catalog.py`: umbrella Global World A–Z domain snapshot; not the detailed occupation or vacancy catalogue.
+- `global_world_business_map.py`: crosswalk from Global World domains to business-facing categories and owning ecosystems.
+- `business_catalog.py`: curated business-provider category catalogue.
+- `sectors/`: individual business-sector packages owned by the business-sector layer.
+- `universal_work_business_taxonomy_api_ecosystem/`: separate 26-sector work/business taxonomy with work-model, audience and delivery facets.
+- `routes.py`, `schemas.py`, `service.py`: parent API and service layer.
 - `industry_api_ecosystems/`: industry-specific registries.
 - `integrations/`, `services/`, `tools/`: adapter and service boundaries.
 - Existing `*_business_api_ecosystem/` folders: provider/vendor ecosystems.
