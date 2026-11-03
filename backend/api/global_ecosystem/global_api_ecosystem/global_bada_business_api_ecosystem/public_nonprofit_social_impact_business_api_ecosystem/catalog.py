@@ -1,19 +1,28 @@
-"""Structured category catalogue for public_nonprofit_social_impact."""
-from . import DOMAIN_ID, DOMAIN_NAME, ADULT_RESTRICTED, SUBCATEGORY_IDS
-from .models import CategoryRecord
-CATEGORIES = tuple(CategoryRecord(value, value.replace("_", " ").title(), DOMAIN_ID, ADULT_RESTRICTED) for value in SUBCATEGORY_IDS)
-def list_categories(include_restricted: bool = False):
-    if ADULT_RESTRICTED and not include_restricted:
-        return []
-    return list(CATEGORIES)
-def get_category(category_id: str, include_restricted: bool = False):
-    if ADULT_RESTRICTED and not include_restricted:
-        return None
-    return next((item for item in CATEGORIES if item.id == category_id), None)
+"""Compatibility exports for the canonical Government, Public Services & Social Impact catalog."""
+from ..industry_api_ecosystems.government_public_services_social_impact.catalog import (
+    CATEGORIES,
+    LEGACY_CATEGORY_CROSSWALK,
+    list_categories,
+    get_category,
+)
+
 def search_categories(query: str, include_restricted: bool = False):
     term = query.strip().casefold()
-    if ADULT_RESTRICTED and not include_restricted:
-        return []
-    return [item for item in CATEGORIES if term and (term in item.id.casefold() or term in item.name.casefold())]
+    return [
+        item for item in list_categories()
+        if term and (term in item["id"].casefold()
+                     or term in item["name"].casefold()
+                     or any(term in sub.replace("_", " ").casefold()
+                            for sub in item["subcategories"]))
+    ]
+
 def get_catalogue_metadata():
-    return {"domain_id": DOMAIN_ID, "domain_name": DOMAIN_NAME, "category_count": len(CATEGORIES), "adult_restricted": ADULT_RESTRICTED, "default_discovery_enabled": not ADULT_RESTRICTED, "catalogue_status": "taxonomy_only"}
+    return {
+        "domain_id": "government_public_services_social_impact",
+        "domain_name": "Government, Public Services & Social Impact API Ecosystem",
+        "category_count": len(CATEGORIES),
+        "adult_restricted": False,
+        "default_discovery_enabled": True,
+        "catalogue_status": "taxonomy_only",
+        "compatibility_facade": True,
+    }
