@@ -1,4 +1,5 @@
-"""Global Partnerships & Business Networking domain catalog."""
+"""global_partnerships_networking domain catalog backed by the canonical subdomain registry."""
+from ..domains_catalog import DOMAIN_CATALOG
+
 CATEGORY_ID = "global_partnerships_networking"
-CATEGORY_NAME = "Global Partnerships & Business Networking"
-SUBDOMAINS = []
+SUBDOMAINS = DOMAIN_CATALOG[CATEGORY_ID]
