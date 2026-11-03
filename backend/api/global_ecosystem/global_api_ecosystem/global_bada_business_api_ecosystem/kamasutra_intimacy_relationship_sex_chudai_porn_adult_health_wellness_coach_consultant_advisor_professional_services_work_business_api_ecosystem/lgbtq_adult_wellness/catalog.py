@@ -1,4 +1,5 @@
-"""LGBTQ+ Adult Wellness domain catalog."""
+"""lgbtq_adult_wellness domain catalog backed by the canonical ecosystem registry."""
+from ..domains_catalog import DOMAIN_CATALOG
+
 CATEGORY_ID = "lgbtq_adult_wellness"
-CATEGORY_NAME = "LGBTQ+ Adult Wellness"
-SUBDOMAINS = []
+SUBDOMAINS = DOMAIN_CATALOG[CATEGORY_ID]
