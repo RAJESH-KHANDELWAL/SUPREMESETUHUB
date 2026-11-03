@@ -42,7 +42,8 @@ All 12 standardized domain API ecosystem folders now contain these six files. Th
 ### Work, Jobs & Careers
 - The domain contains 24 independent employment-context category packages.
 - Each category owns its own direct-child job-family/specialization folders; the folders are not nested under a redundant `tracks/` directory.
-- Each specialization folder owns its README, category definition, models, schemas, services, routes, validators and tests. Its `categories.py` is the source of truth for that job family.
+- Each specialization folder owns its README, stable package identity, models, schemas, service adapter, routes, validators and tests.
+- The owning employment category's `categories.py` is the canonical source for the job-family record; the child specialization's `categories.py` binds its `TRACK_ID` and `CATEGORY_ID` to that record. This keeps one definition per job family while preserving a separate folder and API resource for each specialization.
 - The parent category catalogue discovers every direct-child specialization package dynamically, including packages not present in older static category lists.
 - All individual job-family routers are mounted through `work_careers_employment_business_api_ecosystem/specialization_routes.py` at their canonical `/work-careers/{category_id}/{job_family_id}` paths. Category-level catalogue endpoints remain available for listing, search and detail.
 
