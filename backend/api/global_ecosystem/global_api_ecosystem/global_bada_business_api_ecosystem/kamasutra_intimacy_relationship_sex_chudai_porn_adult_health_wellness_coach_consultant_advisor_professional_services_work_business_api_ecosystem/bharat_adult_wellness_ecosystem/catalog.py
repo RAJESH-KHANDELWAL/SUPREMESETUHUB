@@ -1,4 +1,5 @@
-"""Bharat Adult Wellness Ecosystem domain catalog."""
+"""bharat_adult_wellness_ecosystem domain catalog backed by the canonical ecosystem registry."""
+from ..domains_catalog import DOMAIN_CATALOG
+
 CATEGORY_ID = "bharat_adult_wellness_ecosystem"
-CATEGORY_NAME = "Bharat Adult Wellness Ecosystem"
-SUBDOMAINS = []
+SUBDOMAINS = DOMAIN_CATALOG[CATEGORY_ID]
