@@ -1,8 +1,9 @@
-"""Media, Entertainment & Creative Industries domain."""
-INDUSTRY_ID="media_entertainment_creative_industries"
-INDUSTRY_NAME="Media, Entertainment & Creative Industries"
-COVERAGE=("india","global")
-CHANNELS=("online","offline","hybrid")
-STATUS="taxonomy_scaffold"
-from .service import MediaService
-__all__=["INDUSTRY_ID","INDUSTRY_NAME","COVERAGE","CHANNELS","STATUS","MediaService"]
+"""Legacy import alias for the consolidated marketing/media/entertainment package."""
+
+from pathlib import Path as _Path
+
+from ..marketing_media_entertainment import *
+
+__path__ = [
+    str(_Path(__file__).resolve().parent.parent / "marketing_media_entertainment")
+]
