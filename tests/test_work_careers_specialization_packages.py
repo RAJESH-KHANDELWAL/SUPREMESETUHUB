@@ -19,7 +19,7 @@ class WorkCareerSpecializationTests(unittest.TestCase):
             registered_ids = {item["id"] for item in catalogue.list_tracks()}
             self.assertEqual(folder_ids, registered_ids, category_id)
             for specialization_id in folder_ids:
-                path_prefix = f"/work-careers/{category_id}/{specialization_id}"
+                path_prefix = f"/work-careers/{category_id.replace("_", "-")}/{specialization_id}"
                 self.assertTrue(any(path.startswith(path_prefix) for path in mounted_paths), path_prefix)
                 total += 1
         self.assertGreater(total, 80)
