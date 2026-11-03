@@ -50,3 +50,7 @@ Each root-level package is a compatibility facade. Legacy paths for `media_enter
 - Do not create duplicate catalogs or services in both locations.
 - New industry packages must be registered in the industry ecosystem registry and covered by route, schema, and integrity tests.
 - These packages are taxonomy/API modules, not proof of verified businesses, live providers, or exhaustive country coverage.
+
+## Standalone adult intimacy ecosystem
+
+- `kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_coach_consultant_advisor_professional_services_work_business_api_ecosystem/` — separate adult-only (18+), consent-first Kamasutra, intimacy, relationship, lawful wellness and professional-services ecosystem. Its current main-branch scope and implementation status are documented in that folder's `README.md`.
