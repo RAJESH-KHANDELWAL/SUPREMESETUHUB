@@ -1,12 +1,7 @@
-"""Track-specific taxonomy binding for employer_of_record_services."""
-from ...categories import get_track as _get_category_track
-
-TRACK_ID = "employer_of_record_services"
+"""Domain-specific taxonomy for Employer of Record Services."""
 CATEGORY_ID = "staffing"
+JOB_FAMILY_ID = "employer_of_record_services"
+JOB_FAMILY_NAME = "Employer of Record Services"
 TAXONOMY_STATUS = "taxonomy_only"
-
-def get_track_definition() -> dict:
-    definition = _get_category_track(TRACK_ID)
-    if definition is None:
-        raise LookupError(f"Track '{TRACK_ID}' is not registered in category '{CATEGORY_ID}'.")
-    return definition
+ROLE_EXAMPLES = ["EOR specialist","global mobility coordinator","payroll compliance analyst"]
+REQUIRED_DOMAIN_FIELDS = ["workforce_type","assignment_duration","payroll_responsibility","vendor_compliance","service_level"]

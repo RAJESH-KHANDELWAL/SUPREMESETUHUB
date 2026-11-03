@@ -1,5 +1,2 @@
-"""Independent API resource package for the distributed_team_roles track."""
-from .categories import TRACK_ID, get_track_definition
-from .services import get_track_api_resource, get_track_status
-
-__all__ = ["TRACK_ID", "get_track_definition", "get_track_api_resource", "get_track_status"]
+"""Distributed Team Roles job and work family."""
+from .categories import CATEGORY_ID, JOB_FAMILY_ID, JOB_FAMILY_NAME

@@ -1,5 +1,19 @@
 # Temporary Replacement Roles
 
-Temporary cover for leave, absence or a vacancy pending permanent recruitment.
+Parent category: `temporary_jobs`  
+Classification: dedicated job and work family  
+Status: taxonomy only; this folder does not assert live vacancies.
 
-Record duration, employer/agency identity, worker relationship, source URL and last verification date. Taxonomy only, not a live vacancy source.
+## Occupations and work covered
+- Temporary receptionist
+- acting clerk
+- cover teacher
+
+## Domain-specific fields
+- `assignment_days`
+- `start_date`
+- `end_date`
+- `deliverable`
+- `supervisor`
+
+Classify by actual duties, employer, jurisdiction, engagement terms and credentials. Record source URL, publication date and last verification date. Do not infer eligibility, licensing, salary or active vacancies.

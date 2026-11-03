@@ -1,12 +1,7 @@
-"""Track-specific taxonomy binding for expatriate_assignments."""
-from ...categories import get_track as _get_category_track
-
-TRACK_ID = "expatriate_assignments"
+"""Domain-specific taxonomy for Expatriate Assignments."""
 CATEGORY_ID = "international_jobs"
+JOB_FAMILY_ID = "expatriate_assignments"
+JOB_FAMILY_NAME = "Expatriate Assignments"
 TAXONOMY_STATUS = "taxonomy_only"
-
-def get_track_definition() -> dict:
-    definition = _get_category_track(TRACK_ID)
-    if definition is None:
-        raise LookupError(f"Track '{TRACK_ID}' is not registered in category '{CATEGORY_ID}'.")
-    return definition
+ROLE_EXAMPLES = ["Country manager","project director","technical secondee"]
+REQUIRED_DOMAIN_FIELDS = ["destination_country","work_authorization","licensing_requirement","language_skills","mobility_support"]

@@ -1,5 +1,19 @@
-# Phased-Retirement Roles
+# Phased Retirement Roles
 
-Roles with a documented reduced-hours or staged transition arrangement.
+Parent category: `retirement_work`  
+Classification: dedicated job and work family  
+Status: taxonomy only; this folder does not assert live vacancies.
 
-Capture engagement terms, work arrangement, employer/client identity, source URL and last verification date. Do not infer pension or legal retirement eligibility. Taxonomy only, not a live vacancy source.
+## Occupations and work covered
+- Senior adviser
+- part-time manager
+- technical mentor
+
+## Domain-specific fields
+- `prior_experience`
+- `hours_per_week`
+- `engagement_scope`
+- `knowledge_transfer`
+- `availability`
+
+Classify by actual duties, employer, jurisdiction, engagement terms and credentials. Record source URL, publication date and last verification date. Do not infer eligibility, licensing, salary or active vacancies.

@@ -1,19 +1,19 @@
-"""Typed API response schemas for the employer_of_record_services track."""
-from typing import TypedDict
+"""API schemas for Employer of Record Services."""
+from pydantic import BaseModel, Field
 
-class TrackResourceSchema(TypedDict):
-    id: str
+class JobWorkCreateRequest(BaseModel):
+    title: str
+    employer_name: str | None = None
+    jurisdiction: str | None = None
+    work_location: str | None = None
+    engagement_type: str | None = None
+    source_url: str | None = None
+    domain_details: dict[str, str] = Field(default_factory=dict)
+
+class JobFamilyResponse(BaseModel):
     category_id: str
+    job_family_id: str
     name: str
-    description: str
-    role_families: list[str]
-    taxonomy_status: str
-    live_vacancies_available: bool
-
-class TrackStatusSchema(TypedDict):
-    success: bool
-    category_id: str
-    track_id: str
-    taxonomy_status: str
-    live_vacancies_available: bool
-    structurally_valid: bool
+    role_examples: list[str]
+    required_domain_fields: list[str]
+    taxonomy_status: str = "taxonomy_only"

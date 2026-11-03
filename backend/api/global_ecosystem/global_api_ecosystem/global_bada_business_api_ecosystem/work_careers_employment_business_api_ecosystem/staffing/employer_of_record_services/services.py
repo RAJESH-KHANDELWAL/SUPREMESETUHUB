@@ -1,25 +1,11 @@
-"""Service layer for the employer_of_record_services API resource; no live vacancies are asserted."""
-from .categories import CATEGORY_ID, TRACK_ID, get_track_definition
+"""Domain services for Employer of Record Services."""
+from .categories import CATEGORY_ID, JOB_FAMILY_ID, JOB_FAMILY_NAME, REQUIRED_DOMAIN_FIELDS, ROLE_EXAMPLES
+from .validators import validate_domain_details, validate_source_provenance
 
-def get_track_api_resource() -> dict:
-    definition = get_track_definition()
-    return {
-        "id": TRACK_ID,
-        "category_id": CATEGORY_ID,
-        "name": definition["name"],
-        "description": definition["description"],
-        "role_families": list(definition.get("role_families", ())),
-        "taxonomy_status": "taxonomy_only",
-        "live_vacancies_available": False,
-    }
+def get_job_family() -> dict:
+    return {"category_id": CATEGORY_ID, "job_family_id": JOB_FAMILY_ID, "name": JOB_FAMILY_NAME, "role_examples": list(ROLE_EXAMPLES), "required_domain_fields": list(REQUIRED_DOMAIN_FIELDS), "taxonomy_status": "taxonomy_only"}
 
-def get_track_status() -> dict:
-    resource = get_track_api_resource()
-    return {
-        "success": True,
-        "category_id": CATEGORY_ID,
-        "track_id": TRACK_ID,
-        "taxonomy_status": "taxonomy_only",
-        "live_vacancies_available": False,
-        "structurally_valid": bool(resource["name"] and resource["description"]),
-    }
+def validate_job_work_record(payload: dict) -> dict:
+    errors = validate_domain_details(payload.get("domain_details", {}))
+    errors.extend(validate_source_provenance(payload.get("source_url"), payload.get("last_verified_at")))
+    return {"valid": not errors, "errors": errors}

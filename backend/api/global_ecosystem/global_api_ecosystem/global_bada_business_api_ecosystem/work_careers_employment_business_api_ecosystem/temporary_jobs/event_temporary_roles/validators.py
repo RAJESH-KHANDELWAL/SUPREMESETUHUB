@@ -1,11 +1,13 @@
-"""Structural validators for the event_temporary_roles track package."""
-from .categories import TRACK_ID, CATEGORY_ID, get_track_definition
+"""Validation rules for Event Temporary Roles records."""
+from .categories import REQUIRED_DOMAIN_FIELDS
 
-def validate_track_definition() -> dict:
-    try:
-        item = get_track_definition()
-    except LookupError as exc:
-        return {"valid": False, "category_id": CATEGORY_ID, "track_id": TRACK_ID, "errors": [str(exc)], "taxonomy_only": True}
-    required = ("id", "name", "description")
-    missing = [key for key in required if not isinstance(item.get(key), str) or not item[key].strip()]
-    return {"valid": not missing, "category_id": CATEGORY_ID, "track_id": TRACK_ID, "missing_fields": missing, "taxonomy_only": True, "live_vacancies_verified": False}
+def validate_domain_details(details: dict[str, str]) -> list[str]:
+    return [f"Missing required domain field: {field}" for field in REQUIRED_DOMAIN_FIELDS if field not in details or not str(details[field]).strip()]
+
+def validate_source_provenance(source_url: str | None, last_verified_at: str | None) -> list[str]:
+    errors = []
+    if source_url and not source_url.startswith(("https://", "http://")):
+        errors.append("source_url must be an HTTP(S) URL")
+    if source_url and not last_verified_at:
+        errors.append("last_verified_at is required when source_url is supplied")
+    return errors

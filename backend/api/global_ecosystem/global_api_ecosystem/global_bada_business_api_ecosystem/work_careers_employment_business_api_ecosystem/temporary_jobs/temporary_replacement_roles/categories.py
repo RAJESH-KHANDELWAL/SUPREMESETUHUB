@@ -1,12 +1,7 @@
-"""Track-specific taxonomy binding for temporary_replacement_roles."""
-from ...categories import get_track as _get_category_track
-
-TRACK_ID = "temporary_replacement_roles"
+"""Domain-specific taxonomy for Temporary Replacement Roles."""
 CATEGORY_ID = "temporary_jobs"
+JOB_FAMILY_ID = "temporary_replacement_roles"
+JOB_FAMILY_NAME = "Temporary Replacement Roles"
 TAXONOMY_STATUS = "taxonomy_only"
-
-def get_track_definition() -> dict:
-    definition = _get_category_track(TRACK_ID)
-    if definition is None:
-        raise LookupError(f"Track '{TRACK_ID}' is not registered in category '{CATEGORY_ID}'.")
-    return definition
+ROLE_EXAMPLES = ["Temporary receptionist","acting clerk","cover teacher"]
+REQUIRED_DOMAIN_FIELDS = ["assignment_days","start_date","end_date","deliverable","supervisor"]

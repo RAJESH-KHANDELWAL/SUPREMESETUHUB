@@ -1,5 +1,19 @@
-# Event-Based Temporary Roles
+# Event Temporary Roles
 
-Temporary roles for a defined event, exhibition, campaign or production.
+Parent category: `temporary_jobs`  
+Classification: dedicated job and work family  
+Status: taxonomy only; this folder does not assert live vacancies.
 
-Record duration, employer/agency identity, worker relationship, source URL and last verification date. Taxonomy only, not a live vacancy source.
+## Occupations and work covered
+- Registration assistant
+- usher
+- event setup worker
+
+## Domain-specific fields
+- `assignment_days`
+- `start_date`
+- `end_date`
+- `deliverable`
+- `supervisor`
+
+Classify by actual duties, employer, jurisdiction, engagement terms and credentials. Record source URL, publication date and last verification date. Do not infer eligibility, licensing, salary or active vacancies.

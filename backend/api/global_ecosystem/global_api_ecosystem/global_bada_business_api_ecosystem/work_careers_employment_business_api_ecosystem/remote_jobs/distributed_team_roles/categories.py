@@ -1,12 +1,7 @@
-"""Track-specific taxonomy binding for distributed_team_roles."""
-from ...categories import get_track as _get_category_track
-
-TRACK_ID = "distributed_team_roles"
+"""Domain-specific taxonomy for Distributed Team Roles."""
 CATEGORY_ID = "remote_jobs"
+JOB_FAMILY_ID = "distributed_team_roles"
+JOB_FAMILY_NAME = "Distributed Team Roles"
 TAXONOMY_STATUS = "taxonomy_only"
-
-def get_track_definition() -> dict:
-    definition = _get_category_track(TRACK_ID)
-    if definition is None:
-        raise LookupError(f"Track '{TRACK_ID}' is not registered in category '{CATEGORY_ID}'.")
-    return definition
+ROLE_EXAMPLES = ["Product manager","data analyst","project coordinator"]
+REQUIRED_DOMAIN_FIELDS = ["remote_policy","eligible_locations","async_practice","time_zone_overlap","equipment_provision"]

@@ -1,5 +1,19 @@
-# Employer-of-Record Services
+# Employer of Record Services
 
-Services where a provider acts as legal employer in a jurisdiction, subject to local law and verified contractual arrangements.
+Parent category: `staffing`  
+Classification: dedicated job and work family  
+Status: taxonomy only; this folder does not assert live vacancies.
 
-Capture provider identity, legal employer, intermediary/end-client relationships, jurisdiction, source and last verification date. This is a service taxonomy, not a vacancy source.
+## Occupations and work covered
+- EOR specialist
+- global mobility coordinator
+- payroll compliance analyst
+
+## Domain-specific fields
+- `workforce_type`
+- `assignment_duration`
+- `payroll_responsibility`
+- `vendor_compliance`
+- `service_level`
+
+Classify by actual duties, employer, jurisdiction, engagement terms and credentials. Record source URL, publication date and last verification date. Do not infer eligibility, licensing, salary or active vacancies.

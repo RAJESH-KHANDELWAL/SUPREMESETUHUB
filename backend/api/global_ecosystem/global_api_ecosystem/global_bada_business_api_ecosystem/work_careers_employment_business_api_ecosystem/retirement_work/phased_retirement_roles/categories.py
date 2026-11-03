@@ -1,12 +1,7 @@
-"""Track-specific taxonomy binding for phased_retirement_roles."""
-from ...categories import get_track as _get_category_track
-
-TRACK_ID = "phased_retirement_roles"
+"""Domain-specific taxonomy for Phased Retirement Roles."""
 CATEGORY_ID = "retirement_work"
+JOB_FAMILY_ID = "phased_retirement_roles"
+JOB_FAMILY_NAME = "Phased Retirement Roles"
 TAXONOMY_STATUS = "taxonomy_only"
-
-def get_track_definition() -> dict:
-    definition = _get_category_track(TRACK_ID)
-    if definition is None:
-        raise LookupError(f"Track '{TRACK_ID}' is not registered in category '{CATEGORY_ID}'.")
-    return definition
+ROLE_EXAMPLES = ["Senior adviser","part-time manager","technical mentor"]
+REQUIRED_DOMAIN_FIELDS = ["prior_experience","hours_per_week","engagement_scope","knowledge_transfer","availability"]
