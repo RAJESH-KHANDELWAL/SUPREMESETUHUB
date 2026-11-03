@@ -22,3 +22,9 @@ This is a reference flow, not a mandatory sequence. Direct-to-customer, institut
 - Transport, freight, customs execution and logistics operations remain in their respective specialist ecosystems; this package represents channel hand-offs and integrations rather than duplicating those systems.
 - Retail product categories and consumer storefront taxonomy remain in the Retail, E-commerce & Consumer Goods ecosystem.
 - This package is a taxonomy/API scaffold, not a verified directory, live inventory feed, transaction platform or proof of provider availability.
+
+## Package layout
+
+All 25 channel modules are kept directly in this one package folder (there is no per-channel subfolder). Each channel module exposes its canonical record from `catalog.py`; the central catalogue remains the single source of truth.
+
+Core files: `catalog.py`, `schemas.py`, `service.py`, `routes.py`, and `tests/test_service.py`.
