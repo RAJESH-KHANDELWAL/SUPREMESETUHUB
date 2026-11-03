@@ -1,9 +1,9 @@
-"""FastAPI routes for Professional, Legal & Business Services."""
+"""FastAPI routes for the Professional Services taxonomy."""
 from fastapi import APIRouter, HTTPException, Query
 from .schemas import ProfessionalServicesListResponse, ProfessionalServicesDetailResponse
 from .service import ProfessionalServicesService
 
-router = APIRouter(prefix="/professional-legal-business-services", tags=["GLOBAL BADA BUSINESS - PROFESSIONAL, LEGAL & BUSINESS SERVICES"])
+router = APIRouter(prefix="/professional-legal-business-services", tags=["GLOBAL BADA BUSINESS - PROFESSIONAL SERVICES"])
 service = ProfessionalServicesService()
 
 @router.get("/status")
