@@ -55,7 +55,8 @@ def test_compliance_rules_have_source_and_review_metadata():
     assert len(items) == 12
     assert all(item["applicability_status"] for item in items)
     assert all(item["rule_status"] == "discovery_topic_only" for item in items)
-    assert all(item["last_source_checked_on"] == "2026-11-03" for item in items)
+    assert all(item["last_source_checked_on"] is None for item in items)
+    assert all(item["source_link_added_on"] == "2026-11-03" for item in items)
     assert any(item["official_sources"] for item in items)
 
 
