@@ -19,9 +19,23 @@ INDIA_REQUIREMENTS = (
     {"id":"data_privacy_consumer_and_ecommerce","name":"Data privacy, consumer and e-commerce obligations","area":"digital_and_consumer","applies_to":["businesses processing personal data, selling to consumers or operating covered digital-commerce models"],"examples":["privacy notices and data-handling controls","consumer disclosures, grievance and e-commerce obligations where applicable"],"trigger_factors":["personal_data","consumer_sales","platform_role","online_marketplace","cross_border_data"],"authority_level":"central_and_state_as_applicable","verification":"review current notified law, rules and regulator guidance for the actual role and processing"}
 )
 
+# Unified country master index. Only India currently has a starter compliance topic dataset.
+# Other entries are jurisdiction profiles, not verified legal requirement datasets.
 JURISDICTIONS = (
-    {"country_code":"IN","country_name":"India","coverage_status":"starter_reference","subnational_layers":["state","union_territory","district","municipality"],"requirements_dataset":"india_starter","official_verification_required":True},
-    {"country_code":"GLOBAL","country_name":"Other countries and territories","coverage_status":"framework_only","subnational_layers":["country_specific","state_or_province_where_applicable","local_authority_where_applicable"],"requirements_dataset":None,"official_verification_required":True},
+    {"country_code":"IN","country_name":"India","coverage_status":"starter_reference","requirements_dataset":"india_starter","subnational_layers":["state_or_province_where_applicable","district_or_county_where_applicable","municipality_or_local_authority_where_applicable"],"official_verification_required":True},
+    {"country_code":"AE","country_name":"United Arab Emirates","coverage_status":"framework_only","requirements_dataset":None,"subnational_layers":["state_or_province_where_applicable","district_or_county_where_applicable","municipality_or_local_authority_where_applicable"],"official_verification_required":True},
+    {"country_code":"AU","country_name":"Australia","coverage_status":"framework_only","requirements_dataset":None,"subnational_layers":["state_or_province_where_applicable","district_or_county_where_applicable","municipality_or_local_authority_where_applicable"],"official_verification_required":True},
+    {"country_code":"BD","country_name":"Bangladesh","coverage_status":"framework_only","requirements_dataset":None,"subnational_layers":["state_or_province_where_applicable","district_or_county_where_applicable","municipality_or_local_authority_where_applicable"],"official_verification_required":True},
+    {"country_code":"CA","country_name":"Canada","coverage_status":"framework_only","requirements_dataset":None,"subnational_layers":["state_or_province_where_applicable","district_or_county_where_applicable","municipality_or_local_authority_where_applicable"],"official_verification_required":True},
+    {"country_code":"DE","country_name":"Germany","coverage_status":"framework_only","requirements_dataset":None,"subnational_layers":["state_or_province_where_applicable","district_or_county_where_applicable","municipality_or_local_authority_where_applicable"],"official_verification_required":True},
+    {"country_code":"FR","country_name":"France","coverage_status":"framework_only","requirements_dataset":None,"subnational_layers":["state_or_province_where_applicable","district_or_county_where_applicable","municipality_or_local_authority_where_applicable"],"official_verification_required":True},
+    {"country_code":"GB","country_name":"United Kingdom","coverage_status":"framework_only","requirements_dataset":None,"subnational_layers":["state_or_province_where_applicable","district_or_county_where_applicable","municipality_or_local_authority_where_applicable"],"official_verification_required":True},
+    {"country_code":"JP","country_name":"Japan","coverage_status":"framework_only","requirements_dataset":None,"subnational_layers":["state_or_province_where_applicable","district_or_county_where_applicable","municipality_or_local_authority_where_applicable"],"official_verification_required":True},
+    {"country_code":"NZ","country_name":"New Zealand","coverage_status":"framework_only","requirements_dataset":None,"subnational_layers":["state_or_province_where_applicable","district_or_county_where_applicable","municipality_or_local_authority_where_applicable"],"official_verification_required":True},
+    {"country_code":"PK","country_name":"Pakistan","coverage_status":"framework_only","requirements_dataset":None,"subnational_layers":["state_or_province_where_applicable","district_or_county_where_applicable","municipality_or_local_authority_where_applicable"],"official_verification_required":True},
+    {"country_code":"SA","country_name":"Saudi Arabia","coverage_status":"framework_only","requirements_dataset":None,"subnational_layers":["state_or_province_where_applicable","district_or_county_where_applicable","municipality_or_local_authority_where_applicable"],"official_verification_required":True},
+    {"country_code":"SG","country_name":"Singapore","coverage_status":"framework_only","requirements_dataset":None,"subnational_layers":["state_or_province_where_applicable","district_or_county_where_applicable","municipality_or_local_authority_where_applicable"],"official_verification_required":True},
+    {"country_code":"US","country_name":"United States","coverage_status":"framework_only","requirements_dataset":None,"subnational_layers":["state_or_province_where_applicable","district_or_county_where_applicable","municipality_or_local_authority_where_applicable"],"official_verification_required":True}
 )
 
 def list_india_requirements():
@@ -87,5 +101,13 @@ def get_india_subnational_jurisdiction(subdivision_code):
     code = subdivision_code.upper()
     for item in INDIA_SUBNATIONAL_JURISDICTIONS:
         if item["subdivision_code"] == code:
+            return dict(item)
+    return None
+
+
+def get_jurisdiction(country_code):
+    code = country_code.upper()
+    for item in JURISDICTIONS:
+        if item["country_code"] == code:
             return dict(item)
     return None
