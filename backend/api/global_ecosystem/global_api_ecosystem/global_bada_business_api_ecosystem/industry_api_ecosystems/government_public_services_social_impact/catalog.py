@@ -3,11 +3,11 @@ from __future__ import annotations
 
 CATEGORIES = (
     {"id": "government_departments", "name": "Government Departments", "subcategories": ["central_government", "state_government", "local_government", "public_administration"]},
-    {"id": "citizen_services", "name": "Citizen & Municipal Services", "subcategories": ["identity_documents", "licenses_permits", "certificates", "grievance_redressal", "municipal_services", "public_information_services"]},
+    {"id": "citizen_services", "name": "Citizen & Municipal Services", "subcategories": ["identity_documents", "licenses_permits", "certificates", "grievance_redressal", "municipal_services"]},
     {"id": "public_safety", "name": "Public Safety & Emergency Services", "subcategories": ["fire_services", "disaster_response", "emergency_management", "public_safety"]},
     {"id": "urban_rural_development", "name": "Urban, Rural & Community Development", "subcategories": ["urban_planning", "rural_development", "housing_programs", "community_infrastructure", "community_development"]},
     {"id": "public_health_programs", "name": "Public Health Programs", "subcategories": ["health_awareness", "vaccination_programs", "community_health", "sanitation"]},
-    {"id": "social_welfare", "name": "Social Welfare, Skills & Protection", "subcategories": ["child_welfare", "senior_citizen_support", "disability_services", "social_assistance", "skill_development_programs"]},
+    {"id": "social_welfare", "name": "Social Welfare, Skills & Protection", "subcategories": ["child_welfare", "senior_citizen_support", "disability_services", "social_assistance"] },
     {"id": "ngo_nonprofit", "name": "NGOs, Nonprofits, Charities & Foundations", "subcategories": ["charitable_trusts", "foundations", "nonprofit_management", "nonprofit_organizations", "charities", "volunteer_networks", "volunteering"]},
     {"id": "csr_social_enterprise", "name": "CSR & Social Enterprise", "subcategories": ["csr_programs", "impact_enterprises", "inclusive_business", "community_investment", "social_enterprise"]},
     {"id": "environmental_governance", "name": "Environmental Governance & Initiatives", "subcategories": ["pollution_regulation", "conservation_programs", "climate_policy", "environmental_authorities", "environmental_initiatives"]},
