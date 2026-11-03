@@ -63,14 +63,15 @@ router.include_router(api_ecosystems_router)
 router.include_router(professional_fields_router)
 
 
-# Mount each track as its own API Ecosystem resource beneath its category.
+# Mount each work/job specialization as an independent API Ecosystem resource beneath its category.
 from .categories import CATEGORY_IDS as _WORK_CAREERS_CATEGORY_IDS
 for _category_id in _WORK_CAREERS_CATEGORY_IDS:
     _category_routes = import_module(f"{__package__}.{_category_id}.routes").router
     _category_module = import_module(f"{__package__}.{_category_id}.categories")
-    for _track_definition in _category_module.list_tracks():
-        _track_router = import_module(
-            f"{__package__}.{_category_id}.tracks.{_track_definition['id']}.routes"
+    for _specialization_definition in _category_module.list_tracks():
+        _specialization_router = import_module(
+            f"{__package__}.{_category_id}.{_specialization_definition['id']}.routes"
         ).router
-        router.include_router(_track_router, prefix=_category_routes.prefix)
-del _category_id, _category_routes, _category_module, _track_definition, _track_router, _WORK_CAREERS_CATEGORY_IDS
+        _specialization_router.prefix = _specialization_router.prefix.replace("/tracks/", "/work-jobs/")
+        router.include_router(_specialization_router, prefix=_category_routes.prefix)
+del _category_id, _category_routes, _category_module, _specialization_definition, _specialization_router, _WORK_CAREERS_CATEGORY_IDS

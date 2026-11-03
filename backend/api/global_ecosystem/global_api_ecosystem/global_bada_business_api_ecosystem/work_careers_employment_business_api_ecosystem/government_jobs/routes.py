@@ -14,22 +14,22 @@ router = APIRouter(prefix="/government-jobs", tags=["Work & Careers — Governme
 def get_status():
     return get_government_jobs_status()
 
-@router.get("/tracks")
-def get_tracks():
-    tracks = list_government_job_tracks()
-    return {"success": True, "count": len(tracks), "taxonomy_only": True, "tracks": tracks}
+@router.get("/work-jobs")
+def get_work_jobs():
+    work_jobs = list_government_job_tracks()
+    return {"success": True, "count": len(work_jobs), "taxonomy_only": True, "work_jobs": work_jobs}
 
-@router.get("/tracks/{track_id}")
-def get_track_detail(track_id: str):
-    track = get_government_job_track(track_id)
+@router.get("/work-jobs/{specialization_id}")
+def get_work_job_detail(specialization_id: str):
+    track = get_government_job_track(specialization_id)
     if track is None:
-        raise HTTPException(status_code=404, detail={"error": "GOVERNMENT_JOB_TRACK_NOT_FOUND", "track_id": track_id})
+        raise HTTPException(status_code=404, detail={"error": "GOVERNMENT_JOB_TRACK_NOT_FOUND", "specialization_id": specialization_id})
     return {"success": True, "track": track}
 
 @router.get("/search")
-def search_tracks(q: str = Query(min_length=1, max_length=100)):
-    tracks = search_government_job_tracks(q)
-    return {"success": True, "count": len(tracks), "tracks": tracks}
+def search_work_jobs(q: str = Query(min_length=1, max_length=100)):
+    work_jobs = search_government_job_tracks(q)
+    return {"success": True, "count": len(work_jobs), "work_jobs": work_jobs}
 
 @router.get("/integrity")
 def get_integrity():

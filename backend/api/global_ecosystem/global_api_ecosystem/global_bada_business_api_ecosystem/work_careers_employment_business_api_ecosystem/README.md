@@ -13,13 +13,13 @@ This domain organizes employment, recruitment, staffing, career support and work
 
 ## Category API Ecosystem packages
 
-All 24 catalogue categories now have dedicated packages directly under this domain directory. Each package has its own `categories.py`, `models.py`, `services.py`, `routes.py`, `README.md` and `tests/`. Each defined track has its own folder under that package's `tracks/` directory with a dedicated README describing its scope and evidence requirements.
+All 24 catalogue categories now have dedicated packages directly under this domain directory. Each package has its own `categories.py`, `models.py`, `services.py`, `routes.py`, `README.md` and `tests/`. Each defined work/job specialization has its own independent folder directly inside its parent category. There is no intermediate grouping directory: each work/job specialization is a direct child folder of its category. Each specialization folder owns its README, API descriptor, categories, models, schemas, services, validators, routes and tests.
 
 ### Employer sector and organization
-- `government_jobs/` — 13 tracks, including central, state/provincial, local, civil services, public education, public health, public safety, civilian defence, public research, judiciary/legal, public finance/audit, infrastructure/engineering and public-sector enterprise recruitment.
-- `private_sector_jobs/` — 8 tracks, including private companies, SMEs, proprietorships, partnership firms, startups, family-owned businesses, professional firms and retail/service businesses.
-- `corporate_jobs/` — 8 tracks, including private limited, public/listed, multinational, corporate groups, large enterprises, head-office, management and government-owned corporations.
-- `public_sector_jobs/` — 8 tracks, including central/state public enterprises, public banking and insurance, government-owned corporations, utilities, public education/research and public health.
+- `government_jobs/` — 13 work/job specializations, including central, state/provincial, local, civil services, public education, public health, public safety, civilian defence, public research, judiciary/legal, public finance/audit, infrastructure/engineering and public-sector enterprise recruitment.
+- `private_sector_jobs/` — 8 work/job specializations, including private companies, SMEs, proprietorships, partnership firms, startups, family-owned businesses, professional firms and retail/service businesses.
+- `corporate_jobs/` — 8 work/job specializations, including private limited, public/listed, multinational, corporate groups, large enterprises, head-office, management and government-owned corporations.
+- `public_sector_jobs/` — 8 work/job specializations, including central/state public enterprises, public banking and insurance, government-owned corporations, utilities, public education/research and public health.
 
 ### Geography and work arrangement
 - `international_jobs/`, `local_jobs/`, `remote_jobs/` and `hybrid_jobs/`.
@@ -33,16 +33,16 @@ All 24 catalogue categories now have dedicated packages directly under this doma
 ### Career and workforce services
 - `career_guidance/`, `recruitment/`, `staffing/` and `placements/`. These are service categories, not job vacancies.
 
-The domain router imports and mounts all 24 category routers beneath `/work-careers`. Track folders describe classification scope; they do not imply that a vacancy, employer, recruiter, licence or placement outcome has been verified.
+The domain router imports and mounts all 24 category routers beneath `/work-careers`. Work/job specialization folders describe classification scope; they do not imply that a vacancy, employer, recruiter, licence or placement outcome has been verified.
 
 ## API route structure
-Each job category exposes status, track list, track detail and search endpoints under its own prefix. Examples:
+Each job category exposes status, work/job specialization list, work/job specialization detail and search endpoints under its own prefix. Examples:
 - `/api/v1/global-ecosystem/business/work-careers/government-jobs/status`
-- `/api/v1/global-ecosystem/business/work-careers/private-jobs/tracks`
-- `/api/v1/global-ecosystem/business/work-careers/corporate-jobs/tracks/{track_id}`
+- `/api/v1/global-ecosystem/business/work-careers/private-jobs/work-jobs`
+- `/api/v1/global-ecosystem/business/work-careers/corporate-jobs/work-jobs/{specialization_id}`
 - `/api/v1/global-ecosystem/business/work-careers/public-sector-jobs/search?q=...`
-- `/api/v1/global-ecosystem/business/work-careers/remote-jobs/tracks`
-- `/api/v1/global-ecosystem/business/work-careers/recruitment/tracks`
+- `/api/v1/global-ecosystem/business/work-careers/remote-jobs/work-jobs`
+- `/api/v1/global-ecosystem/business/work-careers/recruitment/work-jobs`
 
 ## Taxonomy boundaries and quality controls
 - A category record does not prove a vacancy is active, an employer is genuine, a recruiter is authorized or a candidate is eligible.
@@ -66,19 +66,19 @@ Category API Ecosystem IDs follow `{CATEGORY_ID}_API_ECOSYSTEM`, for example:
 - `CORPORATE_JOBS_API_ECOSYSTEM`
 - `PUBLIC_SECTOR_JOBS_API_ECOSYSTEM`
 
-Every track is also exposed as a child API Ecosystem resource. Its ID follows `{CATEGORY_ID}_{TRACK_ID}_API_ECOSYSTEM`. For example, a Government Jobs track such as `central_government_recruitment` is represented as `GOVERNMENT_JOBS_CENTRAL_GOVERNMENT_RECRUITMENT_API_ECOSYSTEM`.
+Every work/job specialization is also exposed as a child API Ecosystem resource. Its ID follows `{CATEGORY_ID}_{SPECIALIZATION_ID}_API_ECOSYSTEM`. For example, a Government Jobs work/job specialization such as `central_government_recruitment` is represented as `GOVERNMENT_JOBS_CENTRAL_GOVERNMENT_RECRUITMENT_API_ECOSYSTEM`.
 
 ### API Ecosystem registry endpoints
 
 - `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems` — list all 24 category API Ecosystems.
 - `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems?q=government` — search category API Ecosystems.
 - `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems/{category_id}` — category API Ecosystem contract and catalogue record.
-- `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems/{category_id}/tracks` — list the child track API Ecosystems.
-- `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems/{category_id}/tracks/{track_id}` — retrieve one track API Ecosystem and its taxonomy record.
+- `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems/{category_id}/work-jobs` — list the child work/job specialization API Ecosystems.
+- `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems/{category_id}/work-jobs/{specialization_id}` — retrieve one work/job specialization API Ecosystem and its taxonomy record.
 
 The category-specific routers remain available under their existing paths (for example `/government-jobs`, `/private-jobs` and `/corporate-jobs`). The registry is an additional stable discovery layer, not a replacement for those routes.
 
-Track-level API Ecosystems are currently addressable taxonomy resources served by the shared registry. Their own independent external data integrations, write operations, vacancy feeds and employer verification are not implied. All responses retain `taxonomy_only` status unless separately verified live-data integrations are implemented.
+work/job specialization-level API Ecosystems are currently addressable taxonomy resources served by the shared registry. Their own independent external data integrations, write operations, vacancy feeds and employer verification are not implied. All responses retain `taxonomy_only` status unless separately verified live-data integrations are implemented.
 
 
 ## Professional Fields & Occupation Families
