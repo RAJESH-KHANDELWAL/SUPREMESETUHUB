@@ -2,6 +2,7 @@
 from importlib import import_module
 from pkgutil import iter_modules
 from fastapi import APIRouter, HTTPException
+from . import __path__ as _category_package_path
 from .categories import CATEGORY_ID
 from .services import get_category_resource, get_category_status, list_subcategory_resources
 
@@ -35,6 +36,6 @@ def read_integrity():
     return result
 
 
-for _child in iter_modules(__path__):
+for _child in iter_modules(_category_package_path):
     if _child.ispkg and _child.name not in {"tests", "__pycache__"}:
         router.include_router(import_module(f"{__package__}.{_child.name}.routes").router)
