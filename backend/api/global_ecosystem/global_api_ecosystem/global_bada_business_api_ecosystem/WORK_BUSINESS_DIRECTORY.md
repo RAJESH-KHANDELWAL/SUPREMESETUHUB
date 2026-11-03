@@ -39,6 +39,10 @@ All 12 standardized domain API ecosystem folders now contain these six files. Th
 ## Architecture rules
 These are taxonomy packages, not live listings. Taxonomy membership does not verify a business, employer, job, professional licence, vendor or API connection. India + Global are intended coverage scopes, not a claim of exhaustive country coverage. Do not store personal or sensitive records in taxonomy files. Keep domain IDs synchronized with `global_world_catalog.py`, validate crosswalks and duplicate IDs, add tests, source provenance, jurisdiction and freshness metadata, moderation, authentication, authorization and audit logging before production. Do not merge this branch without explicit approval.
 
+## Independent freelance specialization packages
+
+The Freelancing, Gig & Independent Work domain has 25 direct-child specialization packages. Each specialization owns its own `README.md`, `work_types.py`, `models.py`, `catalog.py`, `services.py`, `schemas.py`, `validators.py`, `routes.py` and tests. The work-type catalogue is owned by the specialization folder, not duplicated in the domain root. The aggregate `specializations.py` mounts these independent routers; the domain root remains the stable index and discovery facade. The Global World crosswalk reads the canonical specialization IDs from the domain package rather than maintaining a second hard-coded list.
+
 ## Functional registry and API surface
 - `domain_registry.py` is the central runtime registry assembled from the 12 domain packages.
 - `service.py` exposes domain list, detail, search and integrity operations.

@@ -70,7 +70,7 @@ for _category_id in _WORK_CAREERS_CATEGORY_IDS:
     _category_module = import_module(f"{__package__}.{_category_id}.categories")
     for _track_definition in _category_module.list_tracks():
         _track_router = import_module(
-            f"{__package__}.{_category_id}.tracks.{_track_definition['id']}.routes"
+            f"{__package__}.{_category_id}.{_track_definition['id']}.routes"
         ).router
         router.include_router(_track_router, prefix=_category_routes.prefix)
 del _category_id, _category_routes, _category_module, _track_definition, _track_router, _WORK_CAREERS_CATEGORY_IDS

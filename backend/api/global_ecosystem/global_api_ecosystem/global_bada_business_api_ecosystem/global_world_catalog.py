@@ -106,16 +106,7 @@ GLOBAL_WORK_BUSINESS_DOMAINS: tuple[dict[str, Any], ...] = (
     {
         "id": "freelance_gig_independent_work", "name": "Freelancing, Gig & Independent Work",
         "audiences": ["freelancers", "gig_workers", "self_employed", "professionals", "students"],
-        "subcategories": [
-            "writing_editing", "translation_localization", "graphic_design",
-            "web_development", "app_development", "software_engineering",
-            "data_analysis", "ai_automation", "digital_marketing", "seo",
-            "social_media_management", "video_audio_production", "photography",
-            "virtual_assistance", "bookkeeping_accounting", "legal_consulting",
-            "business_consulting", "tutoring", "coaching_training",
-            "delivery_gig_work", "driving_transport_gigs", "home_service_gigs",
-            "creative_commissions", "professional_contracting", "microtasks",
-        ],
+        "subcategories": list(FREELANCE_SUBCATEGORY_IDS),
         "modes": ["online", "offline", "hybrid", "remote", "on_site"],
         "adult_only": False,
     },
