@@ -13,4 +13,4 @@ for category_definition in CATEGORY_DEFINITIONS:
         if not child.ispkg or child.name in {"tests", "__pycache__"}:
             continue
         child_router = import_module(f"{__package__}.{category_id}.{child.name}.routes").router
-        router.include_router(child_router)
+        router.include_router(child_router, prefix=f"/work-careers/{category_id.replace('_', '-')}/{child.name}")
