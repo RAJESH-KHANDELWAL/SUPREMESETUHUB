@@ -6,7 +6,7 @@ implementation under `industry_api_ecosystems/`.
 
 Each root-level package is a compatibility facade. Legacy paths for `media_entertainment_creative_industries`, `family_relationships_parenting` and `adult_sexual_wellness` are retained as aliases to their consolidated canonical ecosystems. The Python package path resolves to maintained nested implementations; source files are not duplicated.
 
-## Industry packages (35)
+## Industry packages (34)
 
 - `agriculture_food_natural_resources/`
 - `automotive_mobility/`
@@ -36,7 +36,6 @@ Each root-level package is a compatibility facade. Legacy paths for `media_enter
 - `security_defence_safety_services/`
 - `sports_recreation_community/`
 - `startups_entrepreneurship/`
-- `supply_chain_warehousing_distribution/`
 - `technology_it_telecommunications/`
 - `technology_software_ai_cloud/`
 - `transport_logistics_supply_chain/`
