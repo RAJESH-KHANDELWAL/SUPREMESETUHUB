@@ -24,8 +24,8 @@ This document defines the direct-root domain package plan for this existing dire
 8. `family_relationships_community_business_api_ecosystem/` — family/community education and provider-side support categories; private personal records remain elsewhere.
 9. `adult_18_plus_lawful_industry_business_api_ecosystem/` — restricted adult taxonomy, excluded from default discovery; legal review, age assurance, consent, privacy and safeguarding are prerequisites.
 10. `services_platforms_integrations_business_api_ecosystem/` — cloud, domains, websites, payments, CRM, accounting, communications, APIs and integrations.
-11. `industry_api_ecosystems/finance_banking_insurance/` — the single canonical Finance, Banking, Insurance & Business Support ecosystem; the former finance-support package is a compatibility facade.
-12. `public_nonprofit_social_impact_business_api_ecosystem/` — government/public services, nonprofits, charities and community development.
+11. `industry_api_ecosystems/finance_banking_insurance/` — the single canonical Finance, Banking & Insurance API Ecosystem; the former finance-support package is a compatibility facade.
+12. `industry_api_ecosystems/government_public_services_social_impact/` — the single canonical Government, Public Services & Social Impact API Ecosystem; the former public/nonprofit package is a compatibility facade.
 
 ## Standard files inside each domain folder
 - `__init__.py`: stable domain ID, display name, default discovery flags and canonical subcategory IDs.
@@ -35,7 +35,7 @@ This document defines the direct-root domain package plan for this existing dire
 - `catalog.py`: structured category records plus list, detail, search and metadata functions.
 - `service.py`: domain-level service facade for listing, detail, search and status.
 
-All 12 standardized domain API ecosystem folders now contain these six files. The central API layer remains in the parent directory; individual domain API ecosystem packages provide their own catalogue/service layers rather than duplicating route registration.
+The 10 canonical standardized core-domain API ecosystem folders follow these six-file conventions. Finance and Government/Public Services are maintained as industry API ecosystems, with compatibility facades retained for older imports. The central API layer remains in the parent directory; individual domain API ecosystem packages provide their own catalogue/service layers rather than duplicating route registration.
 
 ## Independent Work & Jobs specialization architecture
 
@@ -63,7 +63,7 @@ These are taxonomy packages, not live listings. Taxonomy membership does not ver
 The Freelancing, Gig & Independent Work domain has 25 direct-child specialization packages. Each specialization owns its own `README.md`, `work_types.py`, `models.py`, `catalog.py`, `services.py`, `schemas.py`, `validators.py`, `routes.py` and tests. The work-type catalogue is owned by the specialization folder, not duplicated in the domain root. The aggregate `specializations.py` mounts these independent routers; the domain root remains the stable index and discovery facade. The Global World crosswalk reads the canonical specialization IDs from the domain package rather than maintaining a second hard-coded list.
 
 ## Functional registry and API surface
-- `domain_registry.py` is the central runtime registry assembled from the 12 domain packages.
+- `domain_registry.py` is the central runtime registry assembled from canonical core and industry domain packages.
 - `service.py` exposes domain list, detail, search and integrity operations.
 - `routes.py` exposes `GET /api/v1/global-ecosystem/business/domains`, `GET /domains/search?q=...`, `GET /domains/{domain_id}` and `GET /domains/integrity` under the existing router prefix.
 - The ecosystem status response reports domain package count, subcategory count and the `taxonomy_only` registry status.
