@@ -36,6 +36,10 @@ Keep these axes separate:
 
 Cross-link these axes with IDs and validated crosswalks; do not copy one catalogue into another.
 
+### Special case: Jobs, Careers & Employment industry vertical
+
+\`industry_api_ecosystems/jobs_careers_employment/\` owns a separate industry/service taxonomy of 15 categories and 60 subcategories (recruitment portals, staffing, HR/payroll, freelance platforms, career guidance, etc.). It exposes the 24-category employment classification by importing the canonical Work & Careers catalogue; it must not copy or fork those 24 employment records. The root-level \`jobs_careers_employment/\` package is a compatibility facade pointing to that maintained industry implementation.
+
 ## 2. Operational records and workflow owners
 
 These packages are related, but they are not duplicate taxonomies:
