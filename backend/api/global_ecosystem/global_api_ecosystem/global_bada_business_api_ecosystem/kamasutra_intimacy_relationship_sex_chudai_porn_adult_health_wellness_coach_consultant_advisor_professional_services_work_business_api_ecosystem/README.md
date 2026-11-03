@@ -25,3 +25,47 @@ This is a standalone industry ecosystem entry point, separate from the general `
 
 ## Implementation status
 This commit establishes the standalone folder and its scope on the `main` branch so it is visible in the repository's main tree. It is an entry-point/documentation scaffold, not a verified provider directory, medical or legal advice, or proof of live integrations. Domain catalogs, schemas, services, API routes, registry wiring and tests remain separate implementation tasks.
+
+## Standalone domain folders (34)
+
+Each domain below has its own folder containing `README.md` and `catalog.py`. The root `subcategories.py` and `domains_catalog.py` remain the canonical index and vocabulary sources.
+
+- `kamasutra_ancient_knowledge/`
+- `adult_sexual_education/`
+- `sexual_practices_intimacy/`
+- `couple_intimacy_romance/`
+- `marriage_married_life/`
+- `dating_gf_bf_relationships/`
+- `adult_relationships_compatibility/`
+- `sexual_reproductive_healthcare/`
+- `mens_sexual_health/`
+- `womens_sexual_health/`
+- `adult_entertainment_porn_media/`
+- `adult_media_creators/`
+- `adult_wellness_products_commerce/`
+- `sexual_psychology_therapy/`
+- `family_parenting_reproductive_wellness/`
+- `mature_adult_relationships/`
+- `lgbtq_adult_wellness/`
+- `sexual_wellness_coaching/`
+- `relationship_coaching/`
+- `intimacy_coaching/`
+- `sexology_professional_counselling/`
+- `medical_healthcare_professionals/`
+- `consultants_advisors_professional_services/`
+- `adult_work_jobs_careers/`
+- `adult_startups_msmes_companies/`
+- `adult_business_management_development/`
+- `adult_technology_software_apis/`
+- `bharat_adult_wellness_ecosystem/`
+- `global_adult_wellness_ecosystem/`
+- `adult_law_safety_compliance/`
+- `sexual_health_research_innovation/`
+- `adult_b2b_b2c_marketplace_trade/`
+- `adult_training_certification_development/`
+- `global_partnerships_networking/`
+
+## Current implementation status
+- Core taxonomy modules: present (`__init__.py`, `subcategories.py`, `models.py`, `catalog.py`, `domains_catalog.py`, `service.py`, `schemas.py`, `routes.py`).
+- 34 standalone domain folders: present; each contains `README.md` and `catalog.py`.
+- Parent API router registration, automated tests, provider verification and live integrations: not yet completed.
