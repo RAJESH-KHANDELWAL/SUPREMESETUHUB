@@ -71,3 +71,25 @@ The Freelancing, Gig & Independent Work domain has 25 direct-child specializatio
 
 ## Current non-goals
 No job board ingestion, employer identity verification, business registration lookup, payment execution, user account storage, live provider API credentials or production integrations are implemented by this taxonomy layer. These require separate source integrations, security design, vendor authorization, legal review and operational monitoring.
+
+
+## Verified detailed work and occupation ownership
+
+The canonical Work & Careers package separates these dimensions instead of placing every kind of work into one mixed catalogue:
+
+- **24 employment-context categories** are defined in `work_careers_employment_business_api_ecosystem/categories.py`.
+- **234 direct-child job-family/specialization folders** exist under those 24 category packages. Each specialization belongs to its parent category.
+- **12 professional-field packages and 81 professional subcategories** are maintained separately under `work_careers_employment_business_api_ecosystem/professional_fields/`. This is the occupation/professional-field axis, not a 25th employment category.
+- **25 freelance/gig specialization packages** exist under `freelance_gig_independent_work_business_api_ecosystem/`. Each specialization owns its own work-type catalogue.
+
+These counts were derived from the repository tree and the current category/field registries. They are structural counts, not counts of live jobs, active gigs or verified providers.
+
+## Single canonical repository location
+
+Use only:
+
+`backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`
+
+The alternate path `backend/api/global_api_ecosystem/global_bada_business_api_ecosystem/` is deprecated and contains only a README pointer. Its duplicate documentation-only career stubs were removed after confirming that the maintained career-change specialization packages already exist in the canonical Work & Careers package.
+
+Do not create another Work & Careers, Freelance, business catalogue or industry catalogue at the deprecated path. Add new records and specializations to their owning canonical package, update its registry and tests, and use crosswalks for relationships between classification layers.
