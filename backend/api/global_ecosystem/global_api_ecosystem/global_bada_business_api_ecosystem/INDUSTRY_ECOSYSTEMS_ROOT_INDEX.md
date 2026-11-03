@@ -9,7 +9,7 @@ resolves to the maintained nested implementation. This avoids copying the
 same source files into two locations and keeps existing imports and API
 routing stable. The nested implementation is still canonical for now.
 
-## Industry packages (39)
+## Industry packages (38)
 
 - `adult_sexual_wellness/`
 - `agriculture_food_natural_resources/`
@@ -30,7 +30,6 @@ routing stable. The nested implementation is still canonical for now.
 - `jobs_careers_employment/`
 - `legal_consulting_professional_services/`
 - `manufacturing_industrial_services/`
-- `manufacturing_trade_retail/`
 - `marketing_media_entertainment/`
 - `media_entertainment_creative_industries/`
 - `mining_metals_minerals/`
