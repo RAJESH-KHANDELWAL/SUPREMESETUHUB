@@ -18,7 +18,7 @@ ROUTED_INDUSTRY_IDS = frozenset({
     "manufacturing_industrial_services",
     "transport_logistics_supply_chain",
     "travel_tourism_hospitality",
-    "media_entertainment_creative_industries",
+    "marketing_media_entertainment",
     "energy_utilities_environment",
     "professional_legal_business_services",
     "government_public_services_social_impact",
