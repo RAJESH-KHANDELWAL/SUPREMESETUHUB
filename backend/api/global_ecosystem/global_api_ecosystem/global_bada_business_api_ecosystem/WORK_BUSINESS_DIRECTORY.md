@@ -100,3 +100,6 @@ Do not create another Work & Careers, Freelance, business catalogue or industry 
 ## Test contract for dynamically discovered specializations
 
 Work & Careers tests validate the live package registry rather than hard-coded folder totals. Each specialization test resolves its stable `TRACK_ID` and `CATEGORY_ID` through the canonical category record and verifies the API resource. Category integrity tests compare the reported count with the discovered catalogue, validate unique IDs and required labels, and exercise lookup/search. Adding a specialization therefore does not require editing an unrelated fixed-count assertion.
+
+
+The specialization test suite supports both established package contracts: (1) independent job-family packages exposing `JOB_FAMILY_ID` and `get_job_family()`, and (2) track adapters exposing `TRACK_ID`, `get_track_definition()` and `get_track_api_resource()`. Tests verify the contract actually implemented by each folder rather than assuming one interface for every historical package.
