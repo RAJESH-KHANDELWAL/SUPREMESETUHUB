@@ -1,19 +1,25 @@
-# Education, Learning & Training API
+# Education, Learning & Training API Ecosystem
 
-Domain package within `industry_api_ecosystems`.
+Independent domain package. Existing catalog and routes remain the maintained implementation; this structure separates service domains and access tiers.
 
-## Included taxonomy
+## Separate directories
+- categories/: one file per education category
+- jobs/: education-sector roles and hiring taxonomy
+- business/: institutions, providers and education businesses
+- india/: Bharat-specific education systems and references
+- global/: international education systems and references
+- coaches/, consultants/, advisors/: distinct professional service directories
+- relationships/: age-appropriate relationship and family learning
+- access_tiers/normal/, supreme/, adult_18_plus/: separate access tiers
 
-The catalog currently defines 15 top-level categories covering school education, higher education, exam preparation, coaching, EdTech, corporate training, vocational skills, IT education, languages, study-abroad services, certification, inclusive education, lifelong learning, education infrastructure, and academic research services.
+## Adult 18+ boundary
+Adult-only material must be lawful, consensual, age-gated, privacy-protective and jurisdiction-reviewed. This tier is limited to lawful adult education/wellness and non-graphic compliance metadata. Exclude minors, exploitation, coercion, non-consensual material and sexual content involving family members or relatives. Family content belongs only in non-sexual education and support.
 
-## Endpoints
+## Existing API
+- GET /industries/education-learning-training/status
+- GET /industries/education-learning-training/categories
+- GET /industries/education-learning-training/categories?q=university
+- GET /industries/education-learning-training/categories/{category_id}
 
-Mounted under the Industry API router:
-- `GET /industries/education-learning-training/status`
-- `GET /industries/education-learning-training/categories`
-- `GET /industries/education-learning-training/categories?q=university`
-- `GET /industries/education-learning-training/categories/{category_id}`
-
-## Scope and limitations
-
-This is a structured taxonomy, not a verified directory of institutions, courses, accreditations, fees, admissions, jobs, or placements. No third-party integration is claimed. Verify institution recognition and accreditation with the relevant official authority before relying on education claims. Future provider connectors require official documentation, permissions, privacy controls, validation, and tests.
+## Limitations
+These folders are taxonomy scaffolding, not verified listings, live vacancies, accredited courses, provider integrations or functioning access-control enforcement. Verify credentials, licenses, safeguarding, privacy and applicable laws before publication.
