@@ -20,6 +20,8 @@ CATEGORIES = (
 
 # Stable identifiers from the retired parallel package resolve to the canonical category.
 LEGACY_CATEGORY_CROSSWALK = {
+    "government_departments": "government_departments",
+    "public_procurement": "public_procurement",
     "public_services": "citizen_services",
     "municipal_services": "citizen_services",
     "public_information_services": "public_information_services",
