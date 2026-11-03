@@ -3,14 +3,17 @@
 Stable domain identifier: `finance_banking_insurance`.
 
 ## Scope
+India and global discovery taxonomy for banking, payments, lending, insurance, investments, capital markets, accounting, fintech, microfinance, corporate finance, pensions, compliance, trade finance and financial education.
 
-This package provides a structured India-and-global category taxonomy across online, offline and hybrid channels. It is a discovery/API foundation, not a verified directory of providers, live vacancy/market feed, transaction system, or compliance certification.
-
-## Endpoints
-
+## Existing API
+The maintained implementation remains in this directory:
 - `GET /industries/finance-banking-insurance/status`
 - `GET /industries/finance-banking-insurance/categories`
 - `GET /industries/finance-banking-insurance/categories?q=...`
 - `GET /industries/finance-banking-insurance/categories/{category_id}`
 
-The category list contains 15 top-level categories. Search matches category IDs, names and subcategory identifiers. Provider onboarding, source provenance, freshness, verification, permissions and jurisdiction-specific compliance must be implemented before presenting records as verified or operational.
+## Structure
+Each of the 15 catalog categories has its own folder and README under `categories/`. Shared areas are separated into jobs, businesses, India, global, coaches, consultants, advisors, API ecosystem documentation and access tiers.
+
+## Important limitations
+The folders are taxonomy/documentation scaffolding, not live provider listings, job feeds, payment rails, financial products, or production integrations. Never represent a bank, insurer, broker, lender or advisor as verified without checking official sources and applicable licences. Financial recommendations, transactions, KYC/AML, privacy, security and cross-border services require jurisdiction-specific legal and compliance review. Existing Python routes, schemas, services and tests are retained.
