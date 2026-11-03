@@ -241,7 +241,7 @@ GLOBAL_WORK_BUSINESS_DOMAINS: tuple[dict[str, Any], ...] = (
         "adult_only": False,
     },
     {
-        "id": "finance_banking_insurance", "name": "Finance, Banking, Insurance & Business Support",
+        "id": "finance_banking_insurance", "name": "Finance, Banking & Insurance",
         "audiences": ["individuals", "entrepreneurs", "investors", "business_owners", "companies"],
         "subcategories": list(FINANCE_SUBCATEGORY_IDS),
         "modes": ["online", "offline", "hybrid"],
