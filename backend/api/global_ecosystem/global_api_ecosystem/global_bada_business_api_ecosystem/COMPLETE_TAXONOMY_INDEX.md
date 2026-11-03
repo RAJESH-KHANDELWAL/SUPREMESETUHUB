@@ -133,7 +133,7 @@ These must remain distinct and be added as versioned datasets with source proven
 ## 7. Current implementation status
 
 - 12 core domain packages exist.
-- 39 industry vertical packages exist in `industry_api_ecosystems/`.
+- 37 industry vertical packages exist in `industry_api_ecosystems/`.
 - 21 provider/platform packages exist.
 - 8 classification standards are registered in the new classification package.
 - NIC 2025 workbook importer extracts raw rows but requires reviewed column mapping before records can be published.
