@@ -232,3 +232,8 @@ def get_domain_package(
 # Mount versioned national and international economic-activity classification standards.
 from .classification_standards_business_api_ecosystem.routes import router as classification_standards_router
 router.include_router(classification_standards_router)
+
+
+# Standalone Kamasutra / Adult Sexual Health & Wellness API Ecosystem
+from .kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_coach_consultant_advisor_professional_services_work_business_api_ecosystem.routes import router as adult_wellness_router
+router.include_router(adult_wellness_router)
