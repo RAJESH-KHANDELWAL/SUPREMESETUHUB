@@ -33,7 +33,6 @@ ROUTED_INDUSTRY_IDS = frozenset({
     "aviation_aerospace_space_technology",
     "water_resources_marine_industries",
     "fashion_textiles_apparel",
-    "supply_chain_warehousing_distribution",
     "healthcare_life_sciences",
 })
 
