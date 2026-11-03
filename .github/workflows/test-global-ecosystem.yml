@@ -67,6 +67,10 @@ jobs:
         run: |
           python -m unittest discover -s tests -p "test_domain_package_layers.py" -v
 
+      - name: Run Freelance Work-Type Package Tests
+        run: |
+          python -m unittest backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.freelance_gig_independent_work_business_api_ecosystem.tests.test_work_type_packages -v
+
       - name: Run Work and Careers Government Jobs Tests
         run: |
           python -m unittest backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.work_careers_employment_business_api_ecosystem.government_jobs.tests.test_government_jobs -v
