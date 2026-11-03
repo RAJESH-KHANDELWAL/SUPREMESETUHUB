@@ -14,6 +14,9 @@ This single ecosystem owns banking and deposits, payments and remittances, lendi
 - `investment_finance_support_business_api_ecosystem/` remains only as a compatibility facade; it no longer owns an independent taxonomy.
 - `finance_banking_insurance_api_ecosystem/` is a public import alias to the same implementation.
 
+## Expanded domain coverage
+The 20-domain business coverage map and its crosswalk to the canonical 15-category registry are documented in [FINANCE_ECOSYSTEM_20_DOMAIN_MAP.md](./FINANCE_ECOSYSTEM_20_DOMAIN_MAP.md). The crosswalk avoids a duplicate taxonomy and distinguishes discovery coverage from licensed financial activity.
+
 ## API
 - `GET /industries/finance-banking-insurance/status`
 - `GET /industries/finance-banking-insurance/categories`
