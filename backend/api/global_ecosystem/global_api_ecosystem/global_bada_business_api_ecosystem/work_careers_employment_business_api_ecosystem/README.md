@@ -13,7 +13,7 @@ This domain organizes employment, recruitment, staffing, career support and work
 
 ## Category API Ecosystem packages
 
-All 24 catalogue categories now have dedicated packages directly under this domain directory. Each package has its own `categories.py`, `models.py`, `services.py`, `routes.py`, `README.md` and `tests/`. Each defined work/job specialization has its own independent folder directly inside its parent category. There is no nested `work/job specializations/` directory. Each specialization folder owns its README, API descriptor, categories, models, schemas, services, validators, routes and tests.
+All 24 catalogue categories now have dedicated packages directly under this domain directory. Each package has its own `categories.py`, `models.py`, `services.py`, `routes.py`, `README.md` and `tests/`. Each defined work/job specialization has its own independent folder directly inside its parent category. There is no intermediate grouping directory: each work/job specialization is a direct child folder of its category. Each specialization folder owns its README, API descriptor, categories, models, schemas, services, validators, routes and tests.
 
 ### Employer sector and organization
 - `government_jobs/` — 13 work/job specializations, including central, state/provincial, local, civil services, public education, public health, public safety, civilian defence, public research, judiciary/legal, public finance/audit, infrastructure/engineering and public-sector enterprise recruitment.
