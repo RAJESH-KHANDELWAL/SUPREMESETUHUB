@@ -1,6 +1,6 @@
-"""Government, Public Services & Social Impact industry API domain package."""
+"""Government, Public Services & Social Impact API Ecosystem."""
 INDUSTRY_ID = "government_public_services_social_impact"
-INDUSTRY_NAME = "Government, Public Services & Social Impact"
+INDUSTRY_NAME = "Government, Public Services & Social Impact API Ecosystem"
 COVERAGE = ("india", "global")
 CHANNELS = ("online", "offline", "hybrid")
 STATUS = "taxonomy_scaffold"
