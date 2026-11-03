@@ -1,15 +1,25 @@
 import unittest
+from pkgutil import iter_modules
 
+from .. import __path__ as government_jobs_package_path
 from ..categories import get_track, list_tracks, validate_tracks
 from ..services import search_government_job_tracks
 from ..validators import validate_notice_record
 
+
 class GovernmentJobsTaxonomyTests(unittest.TestCase):
-    def test_track_ids_are_unique(self):
+    def test_track_ids_are_unique_and_match_specialization_packages(self):
         tracks = list_tracks()
         ids = [item["id"] for item in tracks]
+        package_ids = {
+            child.name
+            for child in iter_modules(government_jobs_package_path)
+            if child.ispkg and child.name not in {"tests", "__pycache__"}
+        }
+
         self.assertEqual(len(ids), len(set(ids)))
-        self.assertEqual(len(tracks), 13)
+        self.assertEqual(set(ids), package_ids)
+        self.assertEqual(len(tracks), 23)
 
     def test_track_lookup(self):
         self.assertIsNotNone(get_track("central_government_recruitment"))
@@ -43,6 +53,7 @@ class GovernmentJobsTaxonomyTests(unittest.TestCase):
         result = validate_notice_record(record)
         self.assertTrue(result["valid"])
         self.assertFalse(result["authenticity_verified"])
+
 
 if __name__ == "__main__":
     unittest.main()
