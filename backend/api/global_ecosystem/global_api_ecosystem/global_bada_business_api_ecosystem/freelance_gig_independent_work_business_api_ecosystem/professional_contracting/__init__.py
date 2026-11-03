@@ -1,0 +1,5 @@
+"""Independent Professional Contracting freelance specialization package."""
+SPECIALIZATION_ID = "professional_contracting"
+SPECIALIZATION_NAME = "Professional Contracting"
+DOMAIN_ID = "freelance_gig_independent_work"
+DESCRIPTION = "Time-bound or deliverable-based specialist professional engagements and retainers."

@@ -1,0 +1,5 @@
+"""Independent Coaching Training freelance specialization package."""
+SPECIALIZATION_ID = "coaching_training"
+SPECIALIZATION_NAME = "Coaching Training"
+DOMAIN_ID = "freelance_gig_independent_work"
+DESCRIPTION = "Structured coaching, professional development and workforce training services."
