@@ -1,4 +1,4 @@
-from .catalog import list_india_requirements, get_india_requirement, list_jurisdictions
+from .catalog import (list_india_requirements, get_india_requirement, list_jurisdictions, list_india_subnational_jurisdictions, get_india_subnational_jurisdiction)
 
 class BusinessComplianceService:
     ECOSYSTEM_ID = "business_compliance_api_ecosystem"
@@ -17,8 +17,16 @@ class BusinessComplianceService:
     def list_jurisdictions(self):
         return list_jurisdictions()
 
-    def list_requirements(self, country_code="IN", query=None, area=None):
+    def list_india_subdivisions(self, subdivision_type=None):
+        return list_india_subnational_jurisdictions(subdivision_type)
+
+    def get_india_subdivision(self, subdivision_code):
+        return get_india_subnational_jurisdiction(subdivision_code)
+
+    def list_requirements(self, country_code="IN", query=None, area=None, subdivision_code=None):
         if country_code.upper() != "IN":
+            return None
+        if subdivision_code and not get_india_subnational_jurisdiction(subdivision_code):
             return None
         items = list_india_requirements()
         if area:
