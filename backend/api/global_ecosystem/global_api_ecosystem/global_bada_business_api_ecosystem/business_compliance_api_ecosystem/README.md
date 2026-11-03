@@ -14,6 +14,10 @@ Provide structured discovery topics for entity formation, tax, MSME, local trade
 
 - `GET /compliance/status`
 - `GET /compliance/jurisdictions`
+- `GET /compliance/jurisdictions/india/subdivisions`
+- `GET /compliance/jurisdictions/india/subdivisions?subdivision_type=state`
+- `GET /compliance/jurisdictions/india/subdivisions/{subdivision_code}`
+- `GET /compliance/jurisdictions/india/subdivisions/{subdivision_code}/requirements` (returns HTTP 501 until verified state rules are curated)
 - `GET /compliance/requirements?country_code=IN`
 - `GET /compliance/requirements?country_code=IN&q=GST`
 - `GET /compliance/requirements?country_code=IN&area=tax`
@@ -25,7 +29,9 @@ These paths are relative to the parent Global Bada Business API router. The pare
 
 - **India (IN):** starter topic catalogue across 12 compliance areas. Entries are screening topics and illustrative examples, not exhaustive statutory inventories.
 - **GLOBAL:** jurisdiction framework only. Country-specific requirements are not yet curated; requests for uncurated countries return HTTP 501 rather than fabricated compliance data.
-- State, union territory, district and municipal requirements are not yet separately enumerated.
+- **India subnational index:** all 28 States and 8 Union Territories are listed as jurisdiction profiles. This is an index only; it does not mean state-specific legal rules have been researched or verified.
+- District and municipal requirements are not yet separately enumerated.
+- The state-specific requirements endpoint deliberately returns HTTP 501 until primary-source research, applicability conditions and verification dates are added.
 
 ## Important applicability rules
 
