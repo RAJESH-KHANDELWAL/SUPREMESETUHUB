@@ -47,7 +47,11 @@ def india_subdivision_requirements(subdivision_code: str):
     item = service.get_india_subdivision(subdivision_code)
     if item is None:
         raise HTTPException(status_code=404, detail={"error":"INDIA_SUBDIVISION_NOT_FOUND","subdivision_code":subdivision_code.upper()})
-    raise HTTPException(status_code=501, detail={"error":"STATE_SPECIFIC_RULES_NOT_CURATED","subdivision_code":subdivision_code.upper(),"message":"The subdivision is indexed, but state-specific legal requirements have not yet been verified and curated from official sources."})
+    items = service.list_compliance_rules("IN", subdivision_code=subdivision_code)
+    state_items = [x for x in items if x["subdivision_code"] == subdivision_code.upper()]
+    if not state_items:
+        raise HTTPException(status_code=501, detail={"error":"STATE_SPECIFIC_RULES_NOT_CURATED","subdivision_code":subdivision_code.upper()})
+    return {"success": True, "country_code": "IN", "subdivision_code": subdivision_code.upper(), "count": len(state_items), "requirements": state_items, "status": "discovery_records_not_legal_advice"}
 
 @router.get("/rules")
 def compliance_rules(
@@ -55,15 +59,16 @@ def compliance_rules(
     area: str | None = Query(default=None, min_length=1, max_length=60),
     applicability_status: str | None = Query(default=None, min_length=1, max_length=80),
     source_verification_status: str | None = Query(default=None, min_length=1, max_length=100),
+    subdivision_code: str | None = Query(default=None, min_length=2, max_length=2),
 ):
-    items = service.list_compliance_rules(country_code, area, applicability_status, source_verification_status)
+    items = service.list_compliance_rules(country_code, area, applicability_status, source_verification_status, subdivision_code)
     if items is None:
         raise HTTPException(status_code=501, detail={"error":"COMPLIANCE_RULE_DATASET_NOT_CURATED","country_code":country_code.upper(),"message":"A country profile may exist, but its rule records are not yet curated."})
-    return {"success": True, "country_code": country_code.upper(), "count": len(items), "rules": items, "status": "discovery_records_not_legal_advice"}
+    return {"success": True, "country_code": country_code.upper(), "subdivision_code": subdivision_code.upper() if subdivision_code else None, "count": len(items), "rules": items, "status": "discovery_records_not_legal_advice"}
 
 @router.get("/rules/{rule_id}")
-def compliance_rule(rule_id: str, country_code: str = Query(default="IN", min_length=2, max_length=8)):
-    item = service.get_compliance_rule(rule_id, country_code)
+def compliance_rule(rule_id: str, country_code: str = Query(default="IN", min_length=2, max_length=8), subdivision_code: str | None = Query(default=None, min_length=2, max_length=2)):
+    item = service.get_compliance_rule(rule_id, country_code, subdivision_code)
     if item is None:
         raise HTTPException(status_code=404, detail={"error":"COMPLIANCE_RULE_NOT_FOUND_OR_NOT_CURATED","rule_id":rule_id,"country_code":country_code.upper()})
     return {"success": True, "rule": item, "status": "discovery_record_not_legal_advice"}
