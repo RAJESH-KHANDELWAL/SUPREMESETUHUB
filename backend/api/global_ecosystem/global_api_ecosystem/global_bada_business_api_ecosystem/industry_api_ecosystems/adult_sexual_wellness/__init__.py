@@ -1,8 +1,8 @@
-"""Restricted 18+ adult and sexual-wellness industry taxonomy package."""
+"""Legacy import alias for restricted 18+ taxonomy.
 
-INDUSTRY_ID = "adult_sexual_wellness"
-INDUSTRY_NAME = "Adult & Sexual Wellness (18+)"
-COVERAGE = ("india", "global")
-CHANNELS = ("online", "offline", "hybrid")
-STATUS = "taxonomy_scaffold"
-ACCESS_CLASS = "18_plus_restricted"
+Canonical categories live in personal_lifestyle_wellness and are excluded
+from default discovery unless include_adult=true is explicitly supplied.
+"""
+from ..personal_lifestyle_wellness import *
+LEGACY_INDUSTRY_ID="adult_sexual_wellness"
+ACCESS_CLASS="18_plus_restricted"
