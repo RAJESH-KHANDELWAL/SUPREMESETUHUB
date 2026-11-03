@@ -49,6 +49,25 @@ def india_subdivision_requirements(subdivision_code: str):
         raise HTTPException(status_code=404, detail={"error":"INDIA_SUBDIVISION_NOT_FOUND","subdivision_code":subdivision_code.upper()})
     raise HTTPException(status_code=501, detail={"error":"STATE_SPECIFIC_RULES_NOT_CURATED","subdivision_code":subdivision_code.upper(),"message":"The subdivision is indexed, but state-specific legal requirements have not yet been verified and curated from official sources."})
 
+@router.get("/rules")
+def compliance_rules(
+    country_code: str = Query(default="IN", min_length=2, max_length=8),
+    area: str | None = Query(default=None, min_length=1, max_length=60),
+    applicability_status: str | None = Query(default=None, min_length=1, max_length=80),
+    source_verification_status: str | None = Query(default=None, min_length=1, max_length=100),
+):
+    items = service.list_compliance_rules(country_code, area, applicability_status, source_verification_status)
+    if items is None:
+        raise HTTPException(status_code=501, detail={"error":"COMPLIANCE_RULE_DATASET_NOT_CURATED","country_code":country_code.upper(),"message":"A country profile may exist, but its rule records are not yet curated."})
+    return {"success": True, "country_code": country_code.upper(), "count": len(items), "rules": items, "status": "discovery_records_not_legal_advice"}
+
+@router.get("/rules/{rule_id}")
+def compliance_rule(rule_id: str, country_code: str = Query(default="IN", min_length=2, max_length=8)):
+    item = service.get_compliance_rule(rule_id, country_code)
+    if item is None:
+        raise HTTPException(status_code=404, detail={"error":"COMPLIANCE_RULE_NOT_FOUND_OR_NOT_CURATED","rule_id":rule_id,"country_code":country_code.upper()})
+    return {"success": True, "rule": item, "status": "discovery_record_not_legal_advice"}
+
 @router.get("/requirements")
 def requirements(
     country_code: str = Query(default="IN", min_length=2, max_length=8),
