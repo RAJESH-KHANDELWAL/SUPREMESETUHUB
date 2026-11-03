@@ -23,7 +23,7 @@ This index separates the ecosystem into independent layers. The layers are inten
 
 Each core domain currently follows the six-file package convention: `__init__.py`, `README.md`, `subcategories.py`, `models.py`, `catalog.py`, `service.py`.
 
-## 2. Industry vertical API ecosystems — 39 packages
+## 2. Industry vertical API ecosystems — 37 packages
 
 - `adult_sexual_wellness/`
 - `agriculture_food_natural_resources/`
@@ -44,9 +44,7 @@ Each core domain currently follows the six-file package convention: `__init__.py
 - `jobs_careers_employment/`
 - `legal_consulting_professional_services/`
 - `manufacturing_industrial_services/`
-- `manufacturing_trade_retail/`
 - `marketing_media_entertainment/`
-- `media_entertainment_creative_industries/`
 - `mining_metals_minerals/`
 - `personal_lifestyle_wellness/`
 - `professional_legal_business_services/`
@@ -65,7 +63,7 @@ Each core domain currently follows the six-file package convention: `__init__.py
 - `travel_tourism_hospitality/`
 - `water_resources_marine_industries/`
 
-These are the existing industry packages discovered in the branch tree. Some names overlap by design because they are distinct API modules; a future canonical crosswalk should relate them rather than silently delete or merge them.
+These are the current industry packages. Marketing, digital marketing, offline advertising, media and entertainment are consolidated under `marketing_media_entertainment/`; manufacturing and industrial services remain under `manufacturing_industrial_services/`. Other adjacent verticals remain separate where their operational scope differs.
 
 ## 3. Provider/platform integrations — 21 packages
 
