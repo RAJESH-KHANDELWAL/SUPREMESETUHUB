@@ -1,7 +1,3 @@
-"""Family, Relationships & Parenting industry API domain package."""
-
-INDUSTRY_ID = "family_relationships_parenting"
-INDUSTRY_NAME = "Family, Relationships & Parenting"
-COVERAGE = ("india", "global")
-CHANNELS = ("online", "offline", "hybrid")
-STATUS = "taxonomy_scaffold"
+"""Legacy import alias; canonical taxonomy is personal_lifestyle_wellness."""
+from ..personal_lifestyle_wellness import *
+LEGACY_INDUSTRY_ID="family_relationships_parenting"
