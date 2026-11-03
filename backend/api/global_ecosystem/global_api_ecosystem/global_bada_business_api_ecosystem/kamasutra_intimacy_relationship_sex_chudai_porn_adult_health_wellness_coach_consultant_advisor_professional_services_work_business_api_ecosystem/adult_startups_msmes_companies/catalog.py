@@ -1,4 +1,5 @@
-"""Adult Startups, MSMEs & Companies domain catalog."""
+"""adult_startups_msmes_companies domain catalog backed by the canonical ecosystem registry."""
+from ..domains_catalog import DOMAIN_CATALOG
+
 CATEGORY_ID = "adult_startups_msmes_companies"
-CATEGORY_NAME = "Adult Startups, MSMEs & Companies"
-SUBDOMAINS = []
+SUBDOMAINS = DOMAIN_CATALOG[CATEGORY_ID]
