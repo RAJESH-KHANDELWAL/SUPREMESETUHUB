@@ -28,3 +28,23 @@ This is a reference flow, not a mandatory sequence. Direct-to-customer, institut
 All 25 channel modules are kept directly in this one package folder (there is no per-channel subfolder). Each channel module exposes its canonical record from `catalog.py`; the central catalogue remains the single source of truth.
 
 Core files: `catalog.py`, `schemas.py`, `service.py`, `routes.py`, and `tests/test_service.py`.
+
+## Business operating profiles
+
+Each of the 25 channels now has a structured business profile served with its channel record:
+
+- Business types and customer types
+- Operating modes: online, offline and hybrid where relevant
+- Revenue models
+- Typical inbound sources and downstream hand-offs
+- Core operating activities
+- Typical business and transaction records
+- Onboarding data fields
+
+The profile is a discovery and data-modelling baseline. It does not assert that every business needs every listed document. Legal registrations, tax obligations, product licences, safety approvals, import/export permissions and standards depend on the actual activity, product, location, turnover and jurisdiction. Validate requirements against current official authorities before onboarding or operating.
+
+## API response fields
+
+`GET /distribution-channels/channels` and `GET /distribution-channels/channels/{channel_id}` include a `business_profile` object. The profile fields are descriptive taxonomies, not a live compliance checklist or provider verification.
+
+The central `business_profiles.py` module is the single source of truth for these profile fields. Individual channel modules remain lightweight access points to the canonical catalogue and do not duplicate the profiles.
