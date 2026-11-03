@@ -375,3 +375,23 @@ def validate_category_definitions() -> dict:
         "employers_verified": False,
         "legal_eligibility_verified": False,
     }
+
+
+# Backward-compatible cross-category specialization lookup. Each category package
+# owns its specialization catalogue; this resolver only locates the canonical owner.
+from importlib import import_module as _import_module
+
+def list_specializations(category_id: str) -> list[dict]:
+    if category_id not in CATEGORY_IDS:
+        return []
+    module = _import_module(f"{__package__}.{category_id}.categories")
+    accessor = getattr(module, "list_tracks", None)
+    return accessor() if callable(accessor) else []
+
+def get_track(track_id: str) -> dict | None:
+    """Find a specialization by stable ID across its owning category packages."""
+    for category_id in CATEGORY_IDS:
+        for item in list_specializations(category_id):
+            if item.get("id") == track_id:
+                return dict(item)
+    return None
