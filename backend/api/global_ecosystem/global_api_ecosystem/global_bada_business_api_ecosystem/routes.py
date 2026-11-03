@@ -195,6 +195,12 @@ from .industry_api_ecosystems.routes import router as industry_api_ecosystems_ro
 
 router.include_router(industry_api_ecosystems_router)
 
+
+
+# Mount the independent business registration and compliance discovery API.
+from .business_compliance_api_ecosystem.routes import router as business_compliance_router
+router.include_router(business_compliance_router)
+
 # Mount the independent manufacturer-to-customer distribution channel API.
 from .distribution_channels_api_ecosystem.routes import router as distribution_channels_router
 
