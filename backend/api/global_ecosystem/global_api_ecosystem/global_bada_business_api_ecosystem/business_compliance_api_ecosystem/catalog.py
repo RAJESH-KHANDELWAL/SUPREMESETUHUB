@@ -35,3 +35,57 @@ def get_india_requirement(requirement_id):
 
 def list_jurisdictions():
     return [dict(item) for item in JURISDICTIONS]
+
+
+# India subnational jurisdiction index. This is a coverage index, not a state-law dataset.
+INDIA_SUBNATIONAL_JURISDICTIONS = (
+    {"subdivision_code":"AP","name":"Andhra Pradesh","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"AR","name":"Arunachal Pradesh","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"AS","name":"Assam","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"BR","name":"Bihar","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"CG","name":"Chhattisgarh","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"GA","name":"Goa","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"GJ","name":"Gujarat","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"HR","name":"Haryana","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"HP","name":"Himachal Pradesh","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"JH","name":"Jharkhand","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"KA","name":"Karnataka","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"KL","name":"Kerala","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"MP","name":"Madhya Pradesh","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"MH","name":"Maharashtra","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"MN","name":"Manipur","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"ML","name":"Meghalaya","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"MZ","name":"Mizoram","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"NL","name":"Nagaland","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"OD","name":"Odisha","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"PB","name":"Punjab","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"RJ","name":"Rajasthan","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"SK","name":"Sikkim","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"TN","name":"Tamil Nadu","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"TS","name":"Telangana","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"TR","name":"Tripura","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"UP","name":"Uttar Pradesh","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"UK","name":"Uttarakhand","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"WB","name":"West Bengal","subdivision_type":"state","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"AN","name":"Andaman and Nicobar Islands","subdivision_type":"union_territory","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"CH","name":"Chandigarh","subdivision_type":"union_territory","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"DH","name":"Dadra and Nagar Haveli and Daman and Diu","subdivision_type":"union_territory","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"DL","name":"Delhi","subdivision_type":"union_territory","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"JK","name":"Jammu and Kashmir","subdivision_type":"union_territory","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"LA","name":"Ladakh","subdivision_type":"union_territory","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"LD","name":"Lakshadweep","subdivision_type":"union_territory","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True},
+    {"subdivision_code":"PY","name":"Puducherry","subdivision_type":"union_territory","country_code":"IN","coverage_status":"jurisdiction_profile_only","requirements_dataset":None,"official_verification_required":True}
+)
+
+def list_india_subnational_jurisdictions(subdivision_type=None):
+    items = [dict(item) for item in INDIA_SUBNATIONAL_JURISDICTIONS]
+    if subdivision_type:
+        items = [item for item in items if item["subdivision_type"] == subdivision_type]
+    return items
+
+def get_india_subnational_jurisdiction(subdivision_code):
+    code = subdivision_code.upper()
+    for item in INDIA_SUBNATIONAL_JURISDICTIONS:
+        if item["subdivision_code"] == code:
+            return dict(item)
+    return None
