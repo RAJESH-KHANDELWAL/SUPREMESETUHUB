@@ -1,4 +1,5 @@
-"""Adult Training, Certification & Professional Development domain catalog."""
+"""adult_training_certification_development domain catalog backed by the canonical subdomain registry."""
+from ..domains_catalog import DOMAIN_CATALOG
+
 CATEGORY_ID = "adult_training_certification_development"
-CATEGORY_NAME = "Adult Training, Certification & Professional Development"
-SUBDOMAINS = []
+SUBDOMAINS = DOMAIN_CATALOG[CATEGORY_ID]
