@@ -5,7 +5,32 @@
 **Status:** Versioned discovery taxonomy; not a verified business directory, job board, licence register or legal opinion.
 
 ## Scope
-A–Z sectors and subgroups, work models, delivery modes and audience facets for students, job seekers, employees, freelancers, homemakers, women, men, couples, families, entrepreneurs and enterprises.
+This package owns the broad A–Z sector classification and shared discovery facets: work models, delivery modes and audience groups. It is the top-level classification index, not the storage location for every detailed job, occupation, business, service or freelance work type.
+
+## Canonical ownership — one source per classification layer
+
+Keep detailed records in the package that owns that concept. Do not copy the same catalogue into this A–Z package.
+
+| Classification layer | Canonical owner | Current structure checked in repository |
+|---|---|---|
+| Broad A–Z sectors | This package: `catalog.py` | 26 broad sector records (A–Z) |
+| Employment context | `../work_careers_employment_business_api_ecosystem/categories.py` | 24 employment-context categories |
+| Job-family specializations | Each category's own child package under `../work_careers_employment_business_api_ecosystem/<category_id>/` | 234 direct-child specialization folders across the 24 categories |
+| Professional occupations | `../work_careers_employment_business_api_ecosystem/professional_fields/` | 12 professional fields and 81 field subcategories |
+| Freelance and gig specializations | `../freelance_gig_independent_work_business_api_ecosystem/` | 25 independent specialization packages; each owns its work-type catalogue |
+| Core business/work domains | Parent `domain_registry.py` and the 12 registered domain packages | Domain IDs and subcategory IDs are maintained by their owning packages |
+| Industry verticals | `../industry_api_ecosystems/` | 39 industry implementation packages; root-level industry folders are compatibility facades |
+| Classification standards | `../classification_standards_business_api_ecosystem/` | Standards registry and import/crosswalk boundaries |
+| Provider/platform ecosystems | Their individual `*_business_api_ecosystem/` packages | Provider-specific ownership; a package does not prove a live connection |
+
+Employment context, occupation, industry, legal business entity, freelance service, product/service, and vacancy are different classification axes. They may be cross-linked, but must not be collapsed into one list or copied into competing catalogues. A job can have one occupation classification and multiple applicable employment-context facets.
+
+### Repository path rule
+The canonical Global Bada Business implementation is:
+
+`backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`
+
+The old `backend/api/global_api_ecosystem/global_bada_business_api_ecosystem/` location is a deprecated pointer only. Do not add implementation files or new catalogues there.
 
 ## Mounted API
 Base path: `/api/v1/global-ecosystem/business/work-business-taxonomy`
@@ -24,3 +49,4 @@ Adult-restricted sector is excluded by default. Its inclusion flag is taxonomy v
 - Country/state legal status, licences, job vacancies, employer identities, pricing and live provider connections are not verified here.
 - Work modes and audience groups are facets, not industries or personal records.
 - Company/Companies, Platforms and Organizations remain in their owning ecosystems.
+- The counts above describe repository structure, not complete worldwide coverage, active vacancies, verified businesses or live service availability.
