@@ -1,5 +1,6 @@
 # KAMASUTRA | INTIMACY | RELATIONSHIP | SEX | CHUDAI | PORN | ADULT | HEALTH | WELLNESS | COACH | CONSULTANT | ADVISOR | PROFESSIONAL SERVICES | WORK & BUSINESS API ECOSYSTEM
 
+**Standalone location:** `backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_coach_consultant_advisor_professional_services_work_business_api_ecosystem/`  
 **Canonical package:** `kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_coach_consultant_advisor_professional_services_work_business_api_ecosystem`  
 **Scope:** Bharat + Global World; adult-only (18+), consent-first, privacy-preserving taxonomy and business/work API scaffold.
 
