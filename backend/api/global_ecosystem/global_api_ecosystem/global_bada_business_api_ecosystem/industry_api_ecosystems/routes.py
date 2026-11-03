@@ -94,3 +94,8 @@ router.include_router(aviation_aerospace_router)
 router.include_router(water_marine_router)
 router.include_router(fashion_textiles_router)
 router.include_router(supply_chain_distribution_router)
+
+
+# Adult-only Kamasutra, Intimacy, Relationship, Sexual Health & Wellness ecosystem
+from .kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_coach_consultant_advisor_professional_services_work_business_api_ecosystem.routes import router as adult_wellness_router
+router.include_router(adult_wellness_router)
