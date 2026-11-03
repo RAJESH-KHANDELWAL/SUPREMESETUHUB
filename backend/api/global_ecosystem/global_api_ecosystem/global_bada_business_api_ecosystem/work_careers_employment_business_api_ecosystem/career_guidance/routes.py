@@ -7,7 +7,7 @@ router=APIRouter(prefix="/career-guidance",tags=["Work & Careers — Career Guid
 def status(): return get_status()
 @router.get("/work-jobs")
 def tracks():
- items=list_tracks(); return {"success":True,"count":len(items),"taxonomy_only":True,"is_vacancy_category":False,"tracks":items}
+ items=list_tracks(); return {"success":True,"count":len(items),"taxonomy_only":True,"is_vacancy_category":False,"work_jobs":items}
 @router.get("/work-jobs/{track_id}")
 def track_detail(track_id:str):
  item=get_track(track_id)
@@ -15,4 +15,4 @@ def track_detail(track_id:str):
  return {"success":True,"track":item}
 @router.get("/search")
 def search(q:str=Query(min_length=1,max_length=100)):
- items=search_tracks(q); return {"success":True,"count":len(items),"tracks":items}
+ items=search_tracks(q); return {"success":True,"count":len(items),"work_jobs":items}
