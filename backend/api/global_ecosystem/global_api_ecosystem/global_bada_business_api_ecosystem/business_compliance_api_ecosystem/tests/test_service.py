@@ -36,3 +36,14 @@ def test_unknown_india_subdivision_is_not_treated_as_curated():
     service = BusinessComplianceService()
     assert service.get_india_subdivision("ZZ") is None
     assert service.list_requirements("IN", subdivision_code="ZZ") is None
+
+
+def test_unified_country_master_has_india_and_priority_country_profiles():
+    service = BusinessComplianceService()
+    items = service.list_jurisdictions()
+    codes = {item["country_code"] for item in items}
+    assert "IN" in codes and "US" in codes and "AE" in codes
+    assert len(items) == 14
+    assert service.get_jurisdiction("IN")["coverage_status"] == "starter_reference"
+    assert service.get_jurisdiction("US")["coverage_status"] == "framework_only"
+
