@@ -22,7 +22,7 @@ CATEGORIES=(
     {"id":"relationship_counselling","name":"Relationship Counselling & Mediation","subcategories":["couple_counselling","family_counselling","relationship_mediation","referral_to_licensed_professionals"],"access_class":"general"},
     {"id":"sexual_health_education","name":"Sexual Health & Intimacy Education","subcategories":["consent_education","sexual_health_information","intimacy_communication","reproductive_health_education"],"access_class":"general"},
     {"id":"adult_sexual_wellness_18_plus","name":"Adult Sexual Wellness (18+)","subcategories":["adult_sexual_wellness_education","intimacy_wellness_products","adult_relationship_resources","age_gated_wellness_information"],"access_class":"18_plus_restricted"},
-    {"id":"adult_content_media_18_plus","name":"Adult Content Production & Publishing (18+)","subcategories":["lawful_adult_content_production","consensual_adult_performer_services","adult_publishing_and_distribution","age_verification_and_access_controls","consent_and_content_rights_management"],"access_class":"18_plus_restricted"},
+    {"id":"adult_porn_media_18_plus","name":"Adult Media, Pornography & Publishing (18+)","subcategories":["lawful_adult_content_production","consensual_adult_performer_services","adult_publishing_and_distribution","age_verification_and_access_controls","consent_and_content_rights_management"],"access_class":"18_plus_restricted"},
 )
 def list_categories(*,include_adult=False):
     return [dict(x,subcategories=list(x["subcategories"])) for x in CATEGORIES
