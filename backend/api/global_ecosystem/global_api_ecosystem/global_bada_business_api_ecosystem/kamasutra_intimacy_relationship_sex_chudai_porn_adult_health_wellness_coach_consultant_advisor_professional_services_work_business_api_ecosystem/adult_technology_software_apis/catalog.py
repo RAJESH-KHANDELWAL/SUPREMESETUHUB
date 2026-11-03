@@ -1,4 +1,5 @@
-"""Adult Technology, Software & APIs domain catalog."""
+"""adult_technology_software_apis domain catalog backed by the canonical ecosystem registry."""
+from ..domains_catalog import DOMAIN_CATALOG
+
 CATEGORY_ID = "adult_technology_software_apis"
-CATEGORY_NAME = "Adult Technology, Software & APIs"
-SUBDOMAINS = []
+SUBDOMAINS = DOMAIN_CATALOG[CATEGORY_ID]
