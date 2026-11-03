@@ -14,12 +14,12 @@ router = APIRouter(prefix="/government-jobs", tags=["Work & Careers — Governme
 def get_status():
     return get_government_jobs_status()
 
-@router.get("/tracks")
+@router.get("/work-jobs")
 def get_tracks():
     tracks = list_government_job_tracks()
     return {"success": True, "count": len(tracks), "taxonomy_only": True, "tracks": tracks}
 
-@router.get("/tracks/{track_id}")
+@router.get("/work-jobs/{track_id}")
 def get_track_detail(track_id: str):
     track = get_government_job_track(track_id)
     if track is None:
