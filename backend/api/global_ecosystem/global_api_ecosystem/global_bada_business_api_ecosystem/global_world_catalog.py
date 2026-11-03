@@ -4,6 +4,8 @@ This is a maintained snapshot of the umbrella domain classifications, not a live
 registry. Business providers are discoverable here; personal records remain in
 their owning ecosystems. Keep this catalogue synchronized with Global World.
 """
+from .freelance_gig_independent_work_business_api_ecosystem import SUBCATEGORY_IDS as FREELANCE_SUBCATEGORY_IDS
+
 GLOBAL_WORLD_CATALOG = (
     {"id":"agriculture-food-natural-resources","name":"Agriculture, Food, Forestry & Fisheries","groups":["farming","crops","livestock","dairy","poultry","fisheries","aquaculture","forestry","food production","food processing","agritech","farm equipment"],"owner_ecosystem":"global-bada-business","business_category_ids":["agriculture","forestry-natural-resources"],"business_scope":"direct","modes":["offline","online","hybrid"]},
     {"id":"mining-energy-utilities","name":"Mining, Energy, Power & Utilities","groups":["mining","oil and gas","solar","wind","hydropower","electricity","batteries","grid services","water utilities","waste management"],"owner_ecosystem":"global-bada-business","business_category_ids":["mining-energy","water-sanitation"],"business_scope":"direct","modes":["offline","online","hybrid"]},
@@ -106,16 +108,7 @@ GLOBAL_WORK_BUSINESS_DOMAINS: tuple[dict[str, Any], ...] = (
     {
         "id": "freelance_gig_independent_work", "name": "Freelancing, Gig & Independent Work",
         "audiences": ["freelancers", "gig_workers", "self_employed", "professionals", "students"],
-        "subcategories": [
-            "writing_editing", "translation_localization", "graphic_design",
-            "web_development", "app_development", "software_engineering",
-            "data_analysis", "ai_automation", "digital_marketing", "seo",
-            "social_media_management", "video_audio_production", "photography",
-            "virtual_assistance", "bookkeeping_accounting", "legal_consulting",
-            "business_consulting", "tutoring", "coaching_training",
-            "delivery_gig_work", "driving_transport_gigs", "home_service_gigs",
-            "creative_commissions", "professional_contracting", "microtasks",
-        ],
+        "subcategories": list(FREELANCE_SUBCATEGORY_IDS),
         "modes": ["online", "offline", "hybrid", "remote", "on_site"],
         "adult_only": False,
     },

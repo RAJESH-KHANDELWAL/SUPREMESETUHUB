@@ -1,0 +1,5 @@
+"""Independent Software Engineering freelance specialization package."""
+SPECIALIZATION_ID = "software_engineering"
+SPECIALIZATION_NAME = "Software Engineering"
+DOMAIN_ID = "freelance_gig_independent_work"
+DESCRIPTION = "Software design, development, quality engineering, integration, deployment and maintenance."
