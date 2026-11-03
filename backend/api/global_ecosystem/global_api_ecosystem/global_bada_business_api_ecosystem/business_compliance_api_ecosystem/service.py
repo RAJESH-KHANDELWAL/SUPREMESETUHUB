@@ -47,7 +47,7 @@ class BusinessComplianceService:
             items = [x for x in items if q in x["id"].casefold() or q in x["name"].casefold() or any(q in v.casefold() for v in x["examples"] + x["applies_to"])]
         return items
 
-    def list_compliance_rules(self, country_code="IN", area=None, applicability_status=None, source_verification_status=None):
+    def list_compliance_rules(self, country_code="IN", area=None, applicability_status=None, source_verification_status=None, subdivision_code=None):
         if country_code.upper() not in {item["country_code"] for item in list_jurisdictions()}:
             return None
         if country_code.upper() != "IN":
