@@ -1,4 +1,5 @@
-"""Adult Business Management & Development domain catalog."""
+"""adult_business_management_development domain catalog backed by the canonical ecosystem registry."""
+from ..domains_catalog import DOMAIN_CATALOG
+
 CATEGORY_ID = "adult_business_management_development"
-CATEGORY_NAME = "Adult Business Management & Development"
-SUBDOMAINS = []
+SUBDOMAINS = DOMAIN_CATALOG[CATEGORY_ID]
