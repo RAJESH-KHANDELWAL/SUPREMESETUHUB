@@ -195,6 +195,11 @@ from .industry_api_ecosystems.routes import router as industry_api_ecosystems_ro
 
 router.include_router(industry_api_ecosystems_router)
 
+# Mount the independent manufacturer-to-customer distribution channel API.
+from .distribution_channels_api_ecosystem.routes import router as distribution_channels_router
+
+router.include_router(distribution_channels_router)
+
 @router.get("/domains")
 def list_domain_packages(
     include_adult: bool = Query(default=False, description="Include restricted 18+ taxonomy; this flag is not age verification"),
