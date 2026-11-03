@@ -4,14 +4,10 @@ This directory exposes the industry packages directly under
 `global_bada_business_api_ecosystem/` while preserving the established
 implementation under `industry_api_ecosystems/`.
 
-Each root-level package is a compatibility facade (the legacy `media_entertainment_creative_industries` import path is retained as an alias to `marketing_media_entertainment`): its Python package path
-resolves to the maintained nested implementation. This avoids copying the
-same source files into two locations and keeps existing imports and API
-routing stable. The nested implementation is still canonical for now.
+Each root-level package is a compatibility facade. Legacy paths for `media_entertainment_creative_industries`, `family_relationships_parenting` and `adult_sexual_wellness` are retained as aliases to their consolidated canonical ecosystems. The Python package path resolves to maintained nested implementations; source files are not duplicated.
 
-## Industry packages (37)
+## Industry packages (35)
 
-- `adult_sexual_wellness/`
 - `agriculture_food_natural_resources/`
 - `automotive_mobility/`
 - `aviation_aerospace_space_technology/`
@@ -20,7 +16,6 @@ routing stable. The nested implementation is still canonical for now.
 - `digital_infrastructure_telecommunications/`
 - `education_learning_training/`
 - `energy_utilities_environment/`
-- `family_relationships_parenting/`
 - `fashion_textiles_apparel/`
 - `finance_banking_insurance/`
 - `food_hospitality_restaurants/`
