@@ -1,4 +1,5 @@
-"""Adult Industry Work, Jobs & Careers domain catalog."""
+"""adult_work_jobs_careers domain catalog backed by the canonical ecosystem registry."""
+from ..domains_catalog import DOMAIN_CATALOG
+
 CATEGORY_ID = "adult_work_jobs_careers"
-CATEGORY_NAME = "Adult Industry Work, Jobs & Careers"
-SUBDOMAINS = []
+SUBDOMAINS = DOMAIN_CATALOG[CATEGORY_ID]
