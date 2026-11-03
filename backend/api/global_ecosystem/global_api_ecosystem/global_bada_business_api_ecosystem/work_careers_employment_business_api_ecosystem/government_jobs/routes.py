@@ -17,7 +17,7 @@ def get_status():
 @router.get("/work-jobs")
 def get_tracks():
     tracks = list_government_job_tracks()
-    return {"success": True, "count": len(tracks), "taxonomy_only": True, "tracks": tracks}
+    return {"success": True, "count": len(tracks), "taxonomy_only": True, "work_jobs": tracks}
 
 @router.get("/work-jobs/{track_id}")
 def get_track_detail(track_id: str):
@@ -29,7 +29,7 @@ def get_track_detail(track_id: str):
 @router.get("/search")
 def search_tracks(q: str = Query(min_length=1, max_length=100)):
     tracks = search_government_job_tracks(q)
-    return {"success": True, "count": len(tracks), "tracks": tracks}
+    return {"success": True, "count": len(tracks), "work_jobs": tracks}
 
 @router.get("/integrity")
 def get_integrity():
