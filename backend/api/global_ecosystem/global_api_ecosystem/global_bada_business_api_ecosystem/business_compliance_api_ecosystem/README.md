@@ -20,6 +20,9 @@ Provide structured discovery topics for entity formation, tax, MSME, local trade
 - `GET /compliance/jurisdictions/india/subdivisions?subdivision_type=state`
 - `GET /compliance/jurisdictions/india/subdivisions/{subdivision_code}`
 - `GET /compliance/jurisdictions/india/subdivisions/{subdivision_code}/requirements` (returns HTTP 501 until verified state rules are curated)
+- `GET /compliance/rules?country_code=IN`
+- `GET /compliance/rules?country_code=IN&area=tax`
+- `GET /compliance/rules/{rule_id}?country_code=IN`
 - `GET /compliance/requirements?country_code=IN`
 - `GET /compliance/requirements?country_code=IN&q=GST`
 - `GET /compliance/requirements?country_code=IN&area=tax`
@@ -29,7 +32,7 @@ These paths are relative to the parent Global Bada Business API router. The pare
 
 ## Coverage status
 
-- **India (IN):** starter topic catalogue across 12 compliance areas. Entries are screening topics and illustrative examples, not exhaustive statutory inventories.
+- **India (IN):** 12 compliance discovery rule records across 12 areas, linked to official starting portals where identified. These are not complete legal rule texts or exhaustive statutory inventories.
 - **Unified country master:** India plus 13 additional priority country profiles (AE, AU, BD, CA, DE, FR, GB, JP, NZ, PK, SA, SG, US) are in one registry. This starter index is not claimed to be the exhaustive ISO country list.
 - **India (IN):** the only country with a starter compliance topic dataset at this stage.
 - **Other indexed countries:** jurisdiction profiles only; country-specific requirements and subnational data are not yet curated. Requests return HTTP 501 rather than fabricated compliance data.
@@ -41,7 +44,7 @@ These paths are relative to the parent Global Bada Business API router. The pare
 
 GST, Udyam, FSSAI, BIS, IEC, fire approvals, labour registrations, pollution consents and other examples are not universal requirements. Applicability can depend on entity type, activity, product, turnover, employee count, premises, location, supply model and current law. The API intentionally uses conditional language and includes verification guidance.
 
-Before acting, verify current rules, thresholds, exemptions, commencement dates and forms directly with the responsible official authority or a qualified professional. Do not use this catalogue as legal, tax or regulatory advice.
+Each rule record includes applicability status, trigger factors, jurisdiction level, official source links where identified, source verification status, last source check date, effective-date placeholder and legal-review status. A portal link is not proof that a particular rule is current or applies. Records marked `official_portal_linked_rule_text_not_fully_reviewed` have an official starting portal but have not undergone full rule-text/legal review; records marked `official_jurisdiction_source_required` still need a precise authority/source. Effective dates and filing frequencies remain unset until individually researched. Before acting, verify current rules, thresholds, exemptions, commencement dates and forms directly with the responsible official authority or a qualified professional. Do not use this catalogue as legal, tax or regulatory advice.
 
 ## Architecture boundaries
 
