@@ -1,19 +1,20 @@
-"""Structured category catalogue for investment_finance_support."""
+"""Compatibility catalogue backed by the canonical finance ecosystem."""
+from ..industry_api_ecosystems.finance_banking_insurance.catalog import (
+    list_categories as _list_categories, get_category as _get_category,
+    LEGACY_CATEGORY_CROSSWALK,
+)
 from . import DOMAIN_ID, DOMAIN_NAME, ADULT_RESTRICTED, SUBCATEGORY_IDS
-from .models import CategoryRecord
-CATEGORIES = tuple(CategoryRecord(value, value.replace("_", " ").title(), DOMAIN_ID, ADULT_RESTRICTED) for value in SUBCATEGORY_IDS)
+
 def list_categories(include_restricted: bool = False):
-    if ADULT_RESTRICTED and not include_restricted:
-        return []
-    return list(CATEGORIES)
+    return _list_categories()
+
 def get_category(category_id: str, include_restricted: bool = False):
-    if ADULT_RESTRICTED and not include_restricted:
-        return None
-    return next((item for item in CATEGORIES if item.id == category_id), None)
+    canonical_id = LEGACY_CATEGORY_CROSSWALK.get(category_id, category_id)
+    return _get_category(canonical_id)
+
 def search_categories(query: str, include_restricted: bool = False):
     term = query.strip().casefold()
-    if ADULT_RESTRICTED and not include_restricted:
-        return []
-    return [item for item in CATEGORIES if term and (term in item.id.casefold() or term in item.name.casefold())]
+    return [item for item in _list_categories() if term in item["id"].casefold() or term in item["name"].casefold() or any(term in sub.replace("_", " ").casefold() for sub in item["subcategories"])]
+
 def get_catalogue_metadata():
-    return {"domain_id": DOMAIN_ID, "domain_name": DOMAIN_NAME, "category_count": len(CATEGORIES), "adult_restricted": ADULT_RESTRICTED, "default_discovery_enabled": not ADULT_RESTRICTED, "catalogue_status": "taxonomy_only"}
+    return {"domain_id": DOMAIN_ID, "domain_name": DOMAIN_NAME, "category_count": len(_list_categories()), "adult_restricted": False, "default_discovery_enabled": True, "catalogue_status": "taxonomy_only", "canonical_domain_id": "finance_banking_insurance"}
