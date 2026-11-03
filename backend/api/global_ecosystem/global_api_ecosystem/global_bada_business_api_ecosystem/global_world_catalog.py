@@ -5,6 +5,7 @@ registry. Business providers are discoverable here; personal records remain in
 their owning ecosystems. Keep this catalogue synchronized with Global World.
 """
 from .freelance_gig_independent_work_business_api_ecosystem import SUBCATEGORY_IDS as FREELANCE_SUBCATEGORY_IDS
+from .industry_api_ecosystems.finance_banking_insurance import SUBCATEGORY_IDS as FINANCE_SUBCATEGORY_IDS
 
 GLOBAL_WORLD_CATALOG = (
     {"id":"agriculture-food-natural-resources","name":"Agriculture, Food, Forestry & Fisheries","groups":["farming","crops","livestock","dairy","poultry","fisheries","aquaculture","forestry","food production","food processing","agritech","farm equipment"],"owner_ecosystem":"global-bada-business","business_category_ids":["agriculture","forestry-natural-resources"],"business_scope":"direct","modes":["offline","online","hybrid"]},
@@ -240,15 +241,9 @@ GLOBAL_WORK_BUSINESS_DOMAINS: tuple[dict[str, Any], ...] = (
         "adult_only": False,
     },
     {
-        "id": "investment_finance_support", "name": "Finance, Investment & Business Support",
-        "audiences": ["individuals", "entrepreneurs", "investors", "business_owners"],
-        "subcategories": [
-            "personal_finance_education", "business_finance", "loans_credit",
-            "banking_services", "insurance", "tax_services", "accounting_audit",
-            "investment_education", "capital_raising", "grants_subsidies",
-            "government_schemes", "msme_support", "export_import_support",
-            "business_valuation", "risk_management",
-        ],
+        "id": "finance_banking_insurance", "name": "Finance, Banking, Insurance & Business Support",
+        "audiences": ["individuals", "entrepreneurs", "investors", "business_owners", "companies"],
+        "subcategories": list(FINANCE_SUBCATEGORY_IDS),
         "modes": ["online", "offline", "hybrid"],
         "adult_only": False,
     },
