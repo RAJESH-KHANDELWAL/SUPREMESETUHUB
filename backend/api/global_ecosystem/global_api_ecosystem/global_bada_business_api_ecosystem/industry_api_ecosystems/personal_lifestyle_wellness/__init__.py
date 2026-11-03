@@ -1,6 +1,6 @@
-"""Personal, Lifestyle & Wellness Services domain package."""
+"""Unified personal, family, relationships and wellness domain."""
 INDUSTRY_ID="personal_lifestyle_wellness"
-INDUSTRY_NAME="Personal, Lifestyle & Wellness Services"
+INDUSTRY_NAME="Personal, Family, Relationships, Adult Wellness & Lifestyle"
 COVERAGE=("india","global")
 CHANNELS=("online","offline","hybrid")
 STATUS="taxonomy_scaffold"
