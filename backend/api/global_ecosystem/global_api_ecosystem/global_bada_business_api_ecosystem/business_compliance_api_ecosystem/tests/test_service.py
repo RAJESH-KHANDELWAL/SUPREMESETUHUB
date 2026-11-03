@@ -21,3 +21,18 @@ def test_uncurated_country_is_not_fabricated():
 
 def test_unknown_topic_returns_none():
     assert BusinessComplianceService().get_requirement("not_a_real_topic") is None
+
+
+def test_india_subdivision_index_has_28_states_and_8_union_territories():
+    service = BusinessComplianceService()
+    states = service.list_india_subdivisions("state")
+    uts = service.list_india_subdivisions("union_territory")
+    assert len(states) == 28
+    assert len(uts) == 8
+    assert service.get_india_subdivision("RJ")["name"] == "Rajasthan"
+
+
+def test_unknown_india_subdivision_is_not_treated_as_curated():
+    service = BusinessComplianceService()
+    assert service.get_india_subdivision("ZZ") is None
+    assert service.list_requirements("IN", subdivision_code="ZZ") is None
