@@ -13,6 +13,23 @@ def jurisdictions():
     items = service.list_jurisdictions()
     return {"success": True, "count": len(items), "jurisdictions": items}
 
+@router.get("/jurisdictions/{country_code}")
+def jurisdiction_detail(country_code: str):
+    item = service.get_jurisdiction(country_code)
+    if item is None:
+        raise HTTPException(status_code=404, detail={"error":"JURISDICTION_NOT_FOUND","country_code":country_code.upper()})
+    return {"success": True, "jurisdiction": item}
+
+@router.get("/jurisdictions/{country_code}/subdivisions")
+def country_subdivisions(country_code: str):
+    item = service.get_jurisdiction(country_code)
+    if item is None:
+        raise HTTPException(status_code=404, detail={"error":"JURISDICTION_NOT_FOUND","country_code":country_code.upper()})
+    if country_code.upper() != "IN":
+        raise HTTPException(status_code=501, detail={"error":"SUBNATIONAL_DATASET_NOT_CURATED","country_code":country_code.upper()})
+    items = service.list_india_subdivisions()
+    return {"success": True, "country_code": "IN", "count": len(items), "subdivisions": items, "status": "jurisdiction_index_only"}
+
 @router.get("/jurisdictions/india/subdivisions")
 def india_subdivisions(subdivision_type: str | None = Query(default=None, pattern="^(state|union_territory)$")):
     items = service.list_india_subdivisions(subdivision_type)
