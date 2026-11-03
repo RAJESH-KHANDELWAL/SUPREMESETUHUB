@@ -38,11 +38,11 @@ The domain router mounts all 24 category routers beneath `/work-careers`. The pa
 ## API route structure
 Each job category exposes status, track list, track detail and search endpoints under its own prefix. Examples:
 - `/api/v1/global-ecosystem/business/work-careers/government-jobs/status`
-- `/api/v1/global-ecosystem/business/work-careers/private-jobs/tracks`
-- `/api/v1/global-ecosystem/business/work-careers/corporate-jobs/tracks/{track_id}`
+- `/api/v1/global-ecosystem/business/work-careers/private-jobs/specializations`
+- `/api/v1/global-ecosystem/business/work-careers/corporate-jobs/specializations/{track_id}`
 - `/api/v1/global-ecosystem/business/work-careers/public-sector-jobs/search?q=...`
-- `/api/v1/global-ecosystem/business/work-careers/remote-jobs/tracks`
-- `/api/v1/global-ecosystem/business/work-careers/recruitment/tracks`
+- `/api/v1/global-ecosystem/business/work-careers/remote-jobs/specializations`
+- `/api/v1/global-ecosystem/business/work-careers/recruitment/specializations`
 
 ## Taxonomy boundaries and quality controls
 - A category record does not prove a vacancy is active, an employer is genuine, a recruiter is authorized or a candidate is eligible.
@@ -66,15 +66,15 @@ Category API Ecosystem IDs follow `{CATEGORY_ID}_API_ECOSYSTEM`, for example:
 - `CORPORATE_JOBS_API_ECOSYSTEM`
 - `PUBLIC_SECTOR_JOBS_API_ECOSYSTEM`
 
-Every track is also exposed as a child API Ecosystem resource. Its ID follows `{CATEGORY_ID}_{TRACK_ID}_API_ECOSYSTEM`. For example, a Government Jobs track such as `central_government_recruitment` is represented as `GOVERNMENT_JOBS_CENTRAL_GOVERNMENT_RECRUITMENT_API_ECOSYSTEM`.
+Every specialization is also exposed as a child API Ecosystem resource. Its ID follows `{CATEGORY_ID}_{TRACK_ID}_API_ECOSYSTEM`. For example, a Government Jobs track such as `central_government_recruitment` is represented as `GOVERNMENT_JOBS_CENTRAL_GOVERNMENT_RECRUITMENT_API_ECOSYSTEM`.
 
 ### API Ecosystem registry endpoints
 
 - `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems` — list all 24 category API Ecosystems.
 - `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems?q=government` — search category API Ecosystems.
 - `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems/{category_id}` — category API Ecosystem contract and catalogue record.
-- `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems/{category_id}/tracks` — list the child track API Ecosystems.
-- `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems/{category_id}/tracks/{track_id}` — retrieve one track API Ecosystem and its taxonomy record.
+- `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems/{category_id}/specializations` — list the child specialization API Ecosystems.
+- `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems/{category_id}/specializations/{track_id}` — retrieve one specialization API Ecosystem and its taxonomy record.
 
 The category-specific routers remain available under their existing paths (for example `/government-jobs`, `/private-jobs` and `/corporate-jobs`). The registry is an additional stable discovery layer, not a replacement for those routes.
 
