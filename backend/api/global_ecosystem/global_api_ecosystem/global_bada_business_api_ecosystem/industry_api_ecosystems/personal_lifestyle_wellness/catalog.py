@@ -15,13 +15,16 @@ CATEGORIES=(
     {"id":"hobbies_recreation","name":"Hobbies & Recreation","subcategories":["arts_crafts","music_lessons","dance_classes","outdoor_recreation"],"access_class":"general"},
     {"id":"senior_lifestyle","name":"Senior Lifestyle Support","subcategories":["companionship","nonmedical_support","active_aging","daily_living_assistance"],"access_class":"general"},
     {"id":"lifestyle_coaching","name":"Lifestyle Coaching","subcategories":["habit_coaching","time_management","personal_development","life_skills"],"access_class":"general"},
+    {"id":"personal_health_wellness","name":"Personal Health & Wellness Services","subcategories":["healthy_lifestyle_support","preventive_wellness_education","nonclinical_health_coaching","wellbeing_routines"],"access_class":"general"},
+    {"id":"relatives_extended_family","name":"Relatives & Extended-Family Relationships","subcategories":["extended_family_communication","in_law_relationships","family_boundaries_education","intergenerational_connections"],"access_class":"general"},
+    {"id":"friends_social_relationships","name":"Friends & Social Relationships","subcategories":["friendship_building","social_connection","peer_relationships","social_skills_education"],"access_class":"general"},
     {"id":"family_relationships","name":"Family & Household Relationships","subcategories":["family_support","family_communication","intergenerational_relationships","family_life_education"],"access_class":"general"},
     {"id":"marriage_partnership","name":"Marriage & Long-term Partnerships","subcategories":["premarital_education","marriage_enrichment","partnership_communication","separation_support_information"],"access_class":"general"},
     {"id":"couple_relationships","name":"Couple & Relationship Support","subcategories":["couple_communication","relationship_coaching","conflict_resolution","dating_relationship_education"],"access_class":"general"},
     {"id":"parenting_parenthood","name":"Parenting & Parenthood","subcategories":["parenting_education","positive_parenting","co_parenting_support","parent_child_communication"],"access_class":"general"},
     {"id":"relationship_counselling","name":"Relationship Counselling & Mediation","subcategories":["couple_counselling","family_counselling","relationship_mediation","referral_to_licensed_professionals"],"access_class":"general"},
     {"id":"sexual_health_education","name":"Sexual Health & Intimacy Education","subcategories":["consent_education","sexual_health_information","intimacy_communication","reproductive_health_education"],"access_class":"general"},
-    {"id":"adult_sexual_wellness_18_plus","name":"Adult Sexual Wellness (18+)","subcategories":["adult_sexual_wellness_education","intimacy_wellness_products","adult_relationship_resources","age_gated_wellness_information"],"access_class":"18_plus_restricted"},
+    {"id":"adult_sexual_wellness_18_plus","name":"Adult Intimacy, Sexual Health & Wellness (18+)","subcategories":["adult_intimacy_education","adult_sexual_wellness_education","adult_health_information","intimacy_wellness_products","adult_relationship_resources","age_gated_wellness_information"],"access_class":"18_plus_restricted"},
     {"id":"adult_porn_media_18_plus","name":"Adult Media, Pornography & Publishing (18+)","subcategories":["lawful_adult_content_production","consensual_adult_performer_services","adult_publishing_and_distribution","age_verification_and_access_controls","consent_and_content_rights_management"],"access_class":"18_plus_restricted"},
 )
 def list_categories(*,include_adult=False):
