@@ -5,8 +5,8 @@ product, geography, contract and business model.
 """
 
 CHANNELS = (
-    {"id": "factory_dispatch", "name": "Factory Dispatch", "stage": "origin", "participants": ["manufacturer", "factory_dispatch_team"], "next_channels": ["finished_goods_warehouse", "direct_customer_supply"]},
-    {"id": "finished_goods_warehouse", "name": "Finished Goods Warehouse", "stage": "origin_handling", "participants": ["manufacturer_warehouse", "inventory_team"], "next_channels": ["company_depot", "carrying_forwarding_agents", "distribution_centre"]},
+    {"id": "factory_dispatch", "name": "Factory Dispatch", "stage": "origin", "participants": ["manufacturer", "factory_dispatch_team"], "next_channels": ["finished_goods_warehouse", "end_customer_handover"]},
+    {"id": "finished_goods_warehouse", "name": "Finished Goods Warehouse", "stage": "origin_handling", "participants": ["manufacturer_warehouse", "inventory_team"], "next_channels": ["company_depot", "carrying_forwarding_agents", "distribution_centres"]},
     {"id": "company_depot", "name": "Company Depot", "stage": "primary_distribution", "participants": ["company_depot_operator", "regional_sales_office"], "next_channels": ["carrying_forwarding_agents", "distributors", "wholesalers"]},
     {"id": "carrying_forwarding_agents", "name": "Carrying & Forwarding Agents", "stage": "primary_distribution", "participants": ["c_and_f_agent", "stock_handling_partner"], "next_channels": ["super_stockists", "distributors", "dealers"]},
     {"id": "distribution_centres", "name": "Central / Regional Distribution Centres", "stage": "primary_distribution", "participants": ["distribution_centre_operator", "company_supply_team"], "next_channels": ["super_stockists", "distributors", "retail_chains"]},
