@@ -35,7 +35,6 @@ INDUSTRY_ECOSYSTEMS = (
     {"id": "aviation_aerospace_space_technology", "name": "Aviation, Aerospace & Space Technology", "package": "aviation_aerospace_space_technology", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
     {"id": "water_resources_marine_industries", "name": "Water Resources & Marine Industries", "package": "water_resources_marine_industries", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
     {"id": "fashion_textiles_apparel", "name": "Fashion, Textiles & Apparel", "package": "fashion_textiles_apparel", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
-    {"id": "supply_chain_warehousing_distribution", "name": "Supply Chain, Warehousing & Distribution", "package": "supply_chain_warehousing_distribution", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
     {"id": "jobs_careers_employment", "name": "Jobs, Careers & Employment", "package": "jobs_careers_employment", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
 )
 
