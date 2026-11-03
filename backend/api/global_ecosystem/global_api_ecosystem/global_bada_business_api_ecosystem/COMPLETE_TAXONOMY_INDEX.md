@@ -6,7 +6,7 @@
 
 This index separates the ecosystem into independent layers. The layers are intentionally not collapsed into one giant category list because an industry, a legal entity, an occupation, a product, a service and a job vacancy are different data concepts.
 
-## 1. Core work and business domains — 12 packages
+## 1. Core work and business domains — 10 canonical packages
 
 - `work_careers_employment_business_api_ecosystem/`
 - `freelance_gig_independent_work_business_api_ecosystem/`
@@ -18,10 +18,9 @@ This index separates the ecosystem into independent layers. The layers are inten
 - `family_relationships_community_business_api_ecosystem/`
 - `adult_18_plus_lawful_industry_business_api_ecosystem/`
 - `services_platforms_integrations_business_api_ecosystem/`
-- `investment_finance_support_business_api_ecosystem/`
-- `public_nonprofit_social_impact_business_api_ecosystem/`
 
-Each core domain currently follows the six-file package convention: `__init__.py`, `README.md`, `subcategories.py`, `models.py`, `catalog.py`, `service.py`.
+
+Each core domain follows its documented package convention. Finance, Banking & Insurance and Government, Public Services & Social Impact are maintained as canonical industry API ecosystems under `industry_api_ecosystems/`; their former parallel folders are compatibility facades only.
 
 ## 2. Industry vertical API ecosystems — 34 packages
 
@@ -129,7 +128,7 @@ These must remain distinct and be added as versioned datasets with source proven
 
 ## 7. Current implementation status
 
-- 12 core domain packages exist.
+- 10 canonical core domain packages exist; Finance and Government/Public Services are maintained in the industry API ecosystem layer.
 - 34 industry vertical packages exist in `industry_api_ecosystems/`.
 - 21 provider/platform packages exist.
 - 8 classification standards are registered in the new classification package.
