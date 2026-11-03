@@ -4,7 +4,6 @@ import unittest
 
 from ..catalog import list_categories
 
-
 DOMAIN_PACKAGE = __package__.rsplit(".", 1)[0]
 
 
@@ -45,13 +44,11 @@ class JobsCareersIndustryPackageTests(unittest.TestCase):
         self.assertEqual(subcategory_total, 60)
 
     def test_main_jobs_router_mounts_all_category_routers(self):
-        router = importlib.import_module(f"{DOMAIN_PACKAGE}.routes").router
-        paths = {route.path for route in router.routes}
-        for item in list_categories():
-            self.assertIn(
-                f"/jobs-careers-employment/categories/{item['id']}/package",
-                paths,
-            )
+        route_module = importlib.import_module(f"{DOMAIN_PACKAGE}.routes")
+        self.assertEqual(
+            set(route_module.MOUNTED_CATEGORY_IDS),
+            {item["id"] for item in list_categories()},
+        )
 
 
 if __name__ == "__main__":

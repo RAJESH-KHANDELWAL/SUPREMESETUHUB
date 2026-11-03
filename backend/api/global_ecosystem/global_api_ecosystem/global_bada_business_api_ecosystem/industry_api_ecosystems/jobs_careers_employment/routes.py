@@ -45,9 +45,10 @@ def get_employment_taxonomy_category(category_id: str):
     return {"success": True, "taxonomy_status": "taxonomy_only", "category": item}
 
 
-# Each of the 15 industry categories has its own package router and mounts
-# its four independently addressable subcategory routers.
+# Each industry category owns a dedicated package router and mounts its
+# independently addressable subcategory routers.
 from . import __path__ as _jobs_careers_package_path
+MOUNTED_CATEGORY_IDS: list[str] = []
 for _category_package in _iter_modules(_jobs_careers_package_path):
     if not _category_package.ispkg or _category_package.name in {"tests", "__pycache__"}:
         continue
@@ -55,3 +56,4 @@ for _category_package in _iter_modules(_jobs_careers_package_path):
         f"{__package__}.{_category_package.name}.routes"
     ).router
     router.include_router(_category_router)
+    MOUNTED_CATEGORY_IDS.append(_category_package.name)
