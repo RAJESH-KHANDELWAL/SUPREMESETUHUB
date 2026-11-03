@@ -1,37 +1,28 @@
-"""Tests for Jobs, Careers & Employment taxonomy and service."""
+"""Tests for canonical Work & Careers taxonomy ownership in the industry adapter."""
 from .service import JobsCareersService
+from .catalog import CANONICAL_OWNER
 
-def test_catalog_has_unique_ids_and_categories():
-    service = JobsCareersService()
-    items = service.list_categories()
-    ids = [item["id"] for item in items]
-    assert len(items) >= 10
-    assert len(ids) == len(set(ids))
-    assert all(item["name"] and item["subcategories"] for item in items)
 
-def test_search_and_detail():
+def test_adapter_uses_canonical_owner_and_category_count():
     service = JobsCareersService()
-    first = service.list_categories()[0]
-    assert service.get_category(first["id"])["id"] == first["id"]
-    assert service.list_categories(query=first["id"])
+    status = service.get_status()
+    assert CANONICAL_OWNER == "work_careers_employment_business_api_ecosystem"
+    assert status["canonical_domain_id"] == "work_careers_employment"
+    assert status["category_count"] == 24
+
+
+def test_adapter_list_search_and_detail_share_canonical_ids():
+    service = JobsCareersService()
+    all_items = service.list_categories()
+    ids = {item["id"] for item in all_items}
+    assert len(ids) == 24
+    assert {"government_jobs", "private_sector_jobs", "corporate_jobs", "remote_jobs"} <= ids
+    assert any(item["id"] == "government_jobs" for item in service.list_categories(query="government"))
+    assert service.get_category("private_sector_jobs")["id"] == "private_sector_jobs"
     assert service.get_category("not_a_real_category") is None
 
-def test_status_is_explicit_about_scaffold():
-    status = JobsCareersService().get_status()
-    assert status["status"] == "taxonomy_scaffold"
-    assert status["category_count"] == len(JobsCareersService().list_categories())
 
-def test_employment_taxonomy_bridge_exposes_job_categories():
+def test_employment_compatibility_alias_does_not_add_records():
     service = JobsCareersService()
-    items = service.list_employment_categories()
-    ids = {item["id"] for item in items}
-    assert len(items) == 24
-    assert {"government_jobs", "private_sector_jobs", "corporate_jobs", "public_sector_jobs"} <= ids
-    assert all(item["taxonomy_status"] == "taxonomy_only" for item in items)
-
-def test_employment_taxonomy_search_and_detail():
-    service = JobsCareersService()
-    results = service.list_employment_categories(query="government")
-    assert any(item["id"] == "government_jobs" for item in results)
-    assert service.get_employment_category("private_sector_jobs")["id"] == "private_sector_jobs"
-    assert service.get_employment_category("not_a_real_category") is None
+    assert service.list_employment_categories() == service.list_categories()
+    assert len(service.list_employment_categories()) == 24
