@@ -23,7 +23,7 @@ This index separates the ecosystem into independent layers. The layers are inten
 
 Each core domain currently follows the six-file package convention: `__init__.py`, `README.md`, `subcategories.py`, `models.py`, `catalog.py`, `service.py`.
 
-## 2. Industry vertical API ecosystems — 35 packages
+## 2. Industry vertical API ecosystems — 34 packages
 
 - `agriculture_food_natural_resources/`
 - `automotive_mobility/`
@@ -53,7 +53,6 @@ Each core domain currently follows the six-file package convention: `__init__.py
 - `security_defence_safety_services/`
 - `sports_recreation_community/`
 - `startups_entrepreneurship/`
-- `supply_chain_warehousing_distribution/`
 - `technology_it_telecommunications/`
 - `technology_software_ai_cloud/`
 - `transport_logistics_supply_chain/`
@@ -61,7 +60,7 @@ Each core domain currently follows the six-file package convention: `__init__.py
 - `travel_tourism_hospitality/`
 - `water_resources_marine_industries/`
 
-These are the current industry packages. Marketing, digital marketing, offline advertising, media and entertainment are consolidated under `marketing_media_entertainment/`; mining and metals are maintained under `mining_metals_minerals/`; personal lifestyle, family, parenting, couples, relationship support and restricted 18+ adult wellness/content categories are consolidated under `personal_lifestyle_wellness/` with adult categories excluded from default discovery. Manufacturing and industrial services remain under `manufacturing_industrial_services/`. Other adjacent verticals remain separate where their operational scope differs.
+These are the current industry packages. Marketing, digital marketing, offline advertising, media and entertainment are consolidated under `marketing_media_entertainment/`; mining and metals are maintained under `mining_metals_minerals/`; personal lifestyle, family, parenting, couples, relationship support and restricted 18+ adult wellness/content categories are consolidated under `personal_lifestyle_wellness/` with adult categories excluded from default discovery. Manufacturing and industrial services remain under `manufacturing_industrial_services/`. Distribution-channel discovery is maintained separately in `distribution_channels_api_ecosystem/`, outside the industry vertical registry. Other adjacent verticals remain separate where their operational scope differs.
 
 ## 3. Provider/platform integrations — 21 packages
 
@@ -131,7 +130,7 @@ These must remain distinct and be added as versioned datasets with source proven
 ## 7. Current implementation status
 
 - 12 core domain packages exist.
-- 37 industry vertical packages exist in `industry_api_ecosystems/`.
+- 34 industry vertical packages exist in `industry_api_ecosystems/`.
 - 21 provider/platform packages exist.
 - 8 classification standards are registered in the new classification package.
 - NIC 2025 workbook importer extracts raw rows but requires reviewed column mapping before records can be published.
