@@ -1,4 +1,4 @@
-"""Business logic for Professional, Legal & Business Services taxonomy."""
+"""Business logic for Professional Services taxonomy."""
 from .catalog import list_categories, get_category
 
 class ProfessionalServicesService:
@@ -12,4 +12,4 @@ class ProfessionalServicesService:
     def get_category(self, category_id: str):
         return get_category(category_id)
     def get_status(self):
-        return {"success": True, "domain_id": self.DOMAIN_ID, "status": "taxonomy_scaffold", "category_count": len(list_categories()), "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "note": "Taxonomy scaffold only; no live provider verification, official affiliation, licensing, or service quality certification is implied."}
+        return {"success": True, "domain_id": self.DOMAIN_ID, "display_name": "Professional Services", "status": "taxonomy_scaffold", "category_count": len(list_categories()), "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "note": "Non-legal professional services taxonomy only; legal practice is maintained in the separate Legal API Ecosystem. No live provider verification or professional licensing is implied."}
