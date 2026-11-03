@@ -41,7 +41,7 @@ FINANCE_BANKING_INSURANCE_CATEGORIES = [
         "name": "Wealth & Investment Advisory",
         "subcategories": [
             "financial_planning", "portfolio_advisory", "investment_research",
-            "wealth_management", "investment_education", "personal_finance_education"
+            "wealth_management"
         ]
     },
     {
@@ -89,7 +89,7 @@ FINANCE_BANKING_INSURANCE_CATEGORIES = [
             "mergers_and_acquisitions", "valuation_services", "fundraising_advisory",
             "transaction_advisory", "business_finance", "capital_raising",
             "grants_subsidies", "government_schemes", "msme_support",
-            "export_import_support", "business_valuation"
+            "business_valuation"
         ]
     },
     {
@@ -132,7 +132,7 @@ FINANCE_BANKING_INSURANCE_CATEGORIES = [
         "id": "financial_education",
         "name": "Financial Education & Literacy",
         "subcategories": [
-            "personal_finance_education",
+            "personal_finance_education", "investment_education",
             "investor_education",
             "business_finance_training",
             "debt_management_guidance"
