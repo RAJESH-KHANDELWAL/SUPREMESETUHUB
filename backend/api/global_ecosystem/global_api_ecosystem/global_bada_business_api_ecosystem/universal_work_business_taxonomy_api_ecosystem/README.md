@@ -5,7 +5,7 @@
 **Status:** Versioned discovery taxonomy; not a verified business directory, job board, licence register or legal opinion.
 
 ## Scope
-This package owns the broad A–Z sector classification and shared discovery facets: work models, delivery modes and audience groups. It is the top-level classification index, not the storage location for every detailed job, occupation, business, service or freelance work type.
+This package owns a 26-sector India + Global work/business taxonomy and shared discovery facets: work models, delivery modes and audience groups. It is not the umbrella Global World catalogue. The umbrella domain snapshot remains in the parent `global_world_catalog.py`; `global_world_business_map.py` is its business-facing crosswalk. This package is not the storage location for every detailed job, occupation, business, service or freelance work type.
 
 ## Canonical ownership — one source per classification layer
 
@@ -13,7 +13,10 @@ Keep detailed records in the package that owns that concept. Do not copy the sam
 
 | Classification layer | Canonical owner | Current structure checked in repository |
 |---|---|---|
-| Broad A–Z sectors | This package: `catalog.py` | 26 broad sector records (A–Z) |
+| Global World umbrella domains | Parent `global_world_catalog.py` | Umbrella domain snapshot; keep synchronized with Global World |
+| Global World → business mapping | Parent `global_world_business_map.py` | Business-facing crosswalk; not a second master catalogue |
+| Business provider categories | Parent `business_catalog.py` and `sectors/` | Provider/business categories and their sector packages |
+| Work/business sector taxonomy | This package: `catalog.py` | 26 broad sector records (A–Z) |
 | Employment context | `../work_careers_employment_business_api_ecosystem/categories.py` | 24 employment-context categories |
 | Job-family specializations | Each category's own child package under `../work_careers_employment_business_api_ecosystem/<category_id>/` | 234 direct-child specialization folders across the 24 categories |
 | Professional occupations | `../work_careers_employment_business_api_ecosystem/professional_fields/` | 12 professional fields and 81 field subcategories |
