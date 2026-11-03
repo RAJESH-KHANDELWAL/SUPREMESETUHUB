@@ -1,16 +1,24 @@
-# Personal, Lifestyle & Wellness Services
+# Personal, Family, Relationships, Adult Wellness & Lifestyle API Ecosystem
 
-Taxonomy package for the Global Bada Business Industry API Ecosystems.
+Canonical ID: `personal_lifestyle_wellness`. One unified taxonomy for personal lifestyle, family, parenting, marriage, couples, relationship support, sexual-health education and separately restricted adult categories.
 
-- Categories: 12
+- Total categories: 20
+- Default public discovery: 18 general categories
+- Restricted categories: 2, classified as `18_plus_restricted`
 - Coverage labels: India and global
 - Channels: online, offline, hybrid
 - Status: `taxonomy_scaffold`
 
-Endpoints:
+## API endpoints
+
 - `GET /industries/personal-lifestyle-wellness/status`
 - `GET /industries/personal-lifestyle-wellness/categories`
 - `GET /industries/personal-lifestyle-wellness/categories?q=...`
-- `GET /industries/personal-lifestyle-wellness/categories/{category_id}`
+- `GET /industries/personal-lifestyle-wellness/categories?include_adult=true`
+- `GET /industries/personal-lifestyle-wellness/categories/{category_id}?include_adult=true`
 
-This is a discovery taxonomy only. It does not imply live listings, provider verification, government endorsement, professional licensing, regulatory approval or quality certification.
+## Adult-content and safety boundary
+
+Adult sexual-wellness and adult-content publishing categories are separately marked `18_plus_restricted` and excluded from default discovery. Any future access layer must implement reliable age assurance, jurisdiction checks, lawful operation, performer age verification, informed consent, content-rights clearance, privacy and reporting controls. The query flag is only a taxonomy inclusion switch; it is not age verification or legal authorization.
+
+No minors, non-consensual material, coercion, trafficking, exploitation, or unlawful sexual services are included. This taxonomy does not host explicit content or verify providers, licences, clinical credentials or legal compliance. Counselling and healthcare services require appropriately qualified professionals.
