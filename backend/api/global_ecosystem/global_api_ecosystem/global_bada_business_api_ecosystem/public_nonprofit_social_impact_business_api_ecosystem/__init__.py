@@ -1,24 +1,20 @@
-"""Public Sector, Nonprofits & Social Impact domain package; classification only, not verified live listings."""
-DOMAIN_ID = "public_nonprofit_social_impact"
-DOMAIN_NAME = "Public Sector, Nonprofits & Social Impact"
+"""Compatibility facade; canonical implementation lives in industry_api_ecosystems.government_public_services_social_impact."""
+from ..industry_api_ecosystems.government_public_services_social_impact import (
+    INDUSTRY_ID as DOMAIN_ID,
+    INDUSTRY_NAME as DOMAIN_NAME,
+)
+from ..industry_api_ecosystems.government_public_services_social_impact.catalog import (
+    CATEGORIES,
+    LEGACY_CATEGORY_CROSSWALK,
+)
 ADULT_RESTRICTED = False
 DEFAULT_DISCOVERY_ENABLED = True
-SUBCATEGORY_IDS: tuple[str, ...] = (
-    "government_departments",
-    "public_services",
-    "municipal_services",
-    "public_procurement",
-    "nonprofit_organizations",
-    "charities",
-    "foundations",
-    "community_development",
-    "rural_development",
-    "social_enterprise",
-    "volunteering",
-    "skill_development_programs",
-    "environmental_initiatives",
-    "public_information_services",
-)
+SUBCATEGORY_IDS = tuple(LEGACY_CATEGORY_CROSSWALK)
+
 def list_subcategories() -> list[dict[str, str]]:
-    """Return stable subcategory IDs and human-readable labels."""
-    return [{"id": value, "name": value.replace("_", " ").title(), "domain_id": DOMAIN_ID} for value in SUBCATEGORY_IDS]
+    return [
+        {"id": legacy_id, "name": legacy_id.replace("_", " ").title(),
+         "domain_id": DOMAIN_ID,
+         "canonical_category_id": canonical_id}
+        for legacy_id, canonical_id in LEGACY_CATEGORY_CROSSWALK.items()
+    ]
