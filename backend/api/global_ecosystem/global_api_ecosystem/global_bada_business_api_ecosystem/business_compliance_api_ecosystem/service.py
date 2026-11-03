@@ -10,6 +10,9 @@ class BusinessComplianceService:
             "status": "compliance_discovery_scaffold",
             "jurisdictions": list_jurisdictions(),
             "india_requirement_topics": len(list_india_requirements()),
+            "india_subdivision_count": len(list_india_subnational_jurisdictions()),
+            "india_state_count": len(list_india_subnational_jurisdictions("state")),
+            "india_union_territory_count": len(list_india_subnational_jurisdictions("union_territory")),
             "coverage_note": "India has a starter topic catalogue. Other jurisdictions are framework-only; no country-specific legal checklist is implied.",
             "legal_safety": "Applicability depends on entity, activity, product, turnover, premises, employees, transaction and location. Verify current requirements with official authorities or qualified professionals."
         }
