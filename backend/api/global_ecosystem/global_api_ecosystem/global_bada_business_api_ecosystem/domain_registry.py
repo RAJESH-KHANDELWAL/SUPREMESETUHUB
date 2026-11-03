@@ -9,7 +9,7 @@ from .industries_professional_services_business_api_ecosystem import DOMAIN_ID a
 from .family_relationships_community_business_api_ecosystem import DOMAIN_ID as FAMILY_ID, DOMAIN_NAME as FAMILY_NAME, SUBCATEGORY_IDS as FAMILY_SUBS
 from .adult_18_plus_lawful_industry_business_api_ecosystem import DOMAIN_ID as ADULT_ID, DOMAIN_NAME as ADULT_NAME, SUBCATEGORY_IDS as ADULT_SUBS
 from .services_platforms_integrations_business_api_ecosystem import DOMAIN_ID as PLATFORM_ID, DOMAIN_NAME as PLATFORM_NAME, SUBCATEGORY_IDS as PLATFORM_SUBS
-from .investment_finance_support_business_api_ecosystem import DOMAIN_ID as FINANCE_ID, DOMAIN_NAME as FINANCE_NAME, SUBCATEGORY_IDS as FINANCE_SUBS
+from .industry_api_ecosystems.finance_banking_insurance import INDUSTRY_ID as FINANCE_ID, INDUSTRY_NAME as FINANCE_NAME, SUBCATEGORY_IDS as FINANCE_SUBS
 from .public_nonprofit_social_impact_business_api_ecosystem import DOMAIN_ID as PUBLIC_ID, DOMAIN_NAME as PUBLIC_NAME, SUBCATEGORY_IDS as PUBLIC_SUBS
 
 _DOMAIN_DEFINITIONS = (
