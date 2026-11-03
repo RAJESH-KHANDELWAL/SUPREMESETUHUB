@@ -38,7 +38,7 @@ def _category_api_record(category):
         "category_type": category.category_type,
         "api_base_path": f"/work-careers/{category_id.replace('_', '-')}",
         "ecosystem_registry_path": f"/work-careers/api-ecosystems/{category_id}",
-        "specialization_api_ecosystem_template": f"{category_id.upper()}_{{TRACK_ID}}_API_ECOSYSTEM",
+        "specialization_api_ecosystem_template": f"{category_id.upper()}_{{SPECIALIZATION_ID}}_API_ECOSYSTEM",
         "capabilities": ["status", "specialization_catalogue", "specialization_detail", "specialization_search", "integrity"],
         "taxonomy_status": "taxonomy_only",
     }
@@ -103,7 +103,7 @@ def list_track_api_ecosystems(category_id: str, q: str | None = Query(default=No
             "specialization_name": track.get("name", track_id),
             "track_name": track.get("name", track_id),
             "api_resource_path": f"/work-careers/api-ecosystems/{category_id}/specializations/{track_id}",
-            "capabilities": ["track_status", "track_detail"],
+            "capabilities": ["specialization_status", "specialization_detail"],
             "taxonomy_status": "taxonomy_only",
         })
     return {"success": True, "parent_api_ecosystem_id": f"{category_id.upper()}_API_ECOSYSTEM", "count": len(items), "specialization_api_ecosystems": items, "track_api_ecosystems": items}
@@ -117,7 +117,7 @@ def get_track_api_ecosystem(category_id: str, track_id: str):
     module = _track_catalog(category_id)
     track = module.get_track(track_id)
     if track is None:
-        raise HTTPException(status_code=404, detail={"error": "WORK_CAREERS_TRACK_API_ECOSYSTEM_NOT_FOUND", "category_id": category_id, "track_id": track_id})
+        raise HTTPException(status_code=404, detail={"error": "WORK_CAREERS_SPECIALIZATION_API_ECOSYSTEM_NOT_FOUND", "category_id": category_id, "track_id": track_id})
     return {
         "success": True,
         "api_ecosystem": {
@@ -126,11 +126,13 @@ def get_track_api_ecosystem(category_id: str, track_id: str):
             "parent_api_ecosystem_id": f"{category_id.upper()}_API_ECOSYSTEM",
             "category_id": category_id,
             "category_name": category.name,
+            "specialization_id": track_id,
             "track_id": track_id,
-            "api_resource_path": f"/work-careers/api-ecosystems/{category_id}/tracks/{track_id}",
+            "api_resource_path": f"/work-careers/api-ecosystems/{category_id}/specializations/{track_id}",
             "taxonomy_status": "taxonomy_only",
             "live_vacancies_available": False,
         },
+        "specialization": track,
         "specialization": track,
         "track": track,
     }

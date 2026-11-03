@@ -16,10 +16,10 @@ This domain organizes employment, recruitment, staffing, career support and work
 All 24 catalogue categories now have dedicated packages directly under this domain directory. Each package has its own `categories.py`, `models.py`, `services.py`, `routes.py`, `README.md` and `tests/`. Every specialization has its own direct-child folder inside its category package, with its own README, categories, models, schemas, services, routes, validators and tests. The parent category catalogue discovers these packages dynamically; the folder package is the source of truth for its job-family details.
 
 ### Employer sector and organization
-- `government_jobs/` — 13 tracks, including central, state/provincial, local, civil services, public education, public health, public safety, civilian defence, public research, judiciary/legal, public finance/audit, infrastructure/engineering and public-sector enterprise recruitment.
-- `private_sector_jobs/` — 8 tracks, including private companies, SMEs, proprietorships, partnership firms, startups, family-owned businesses, professional firms and retail/service businesses.
-- `corporate_jobs/` — 8 tracks, including private limited, public/listed, multinational, corporate groups, large enterprises, head-office, management and government-owned corporations.
-- `public_sector_jobs/` — 8 tracks, including central/state public enterprises, public banking and insurance, government-owned corporations, utilities, public education/research and public health.
+- `government_jobs/` — 23 specializations, including central, state/provincial, local, civil services, public education, public health, public safety, civilian defence, public research, judiciary/legal, public finance/audit, infrastructure/engineering and public-sector enterprise recruitment.
+- `private_sector_jobs/` — multiple specializations, including private companies, SMEs, proprietorships, partnership firms, startups, family-owned businesses, professional firms and retail/service businesses.
+- `corporate_jobs/` — multiple specializations, including private limited, public/listed, multinational, corporate groups, large enterprises, head-office, management and government-owned corporations.
+- `public_sector_jobs/` — multiple specializations, including central/state public enterprises, public banking and insurance, government-owned corporations, utilities, public education/research and public health.
 
 ### Geography and work arrangement
 - `international_jobs/`, `local_jobs/`, `remote_jobs/` and `hybrid_jobs/`.
@@ -36,10 +36,10 @@ All 24 catalogue categories now have dedicated packages directly under this doma
 The domain router mounts all 24 category routers beneath `/work-careers`. The parent Bada Business router separately mounts every direct-child job-family router at its canonical `/work-careers/{category_id}/{job_family_id}` path. These folders describe classification scope; they do not imply that a vacancy, employer, recruiter, licence or placement outcome has been verified.
 
 ## API route structure
-Each job category exposes status, track list, track detail and search endpoints under its own prefix. Examples:
+Each job category exposes status, specialization list, specialization detail and search endpoints under its own prefix. Examples:
 - `/api/v1/global-ecosystem/business/work-careers/government-jobs/status`
 - `/api/v1/global-ecosystem/business/work-careers/private-jobs/specializations`
-- `/api/v1/global-ecosystem/business/work-careers/corporate-jobs/specializations/{track_id}`
+- `/api/v1/global-ecosystem/business/work-careers/corporate-jobs/specializations/{specialization_id}`
 - `/api/v1/global-ecosystem/business/work-careers/public-sector-jobs/search?q=...`
 - `/api/v1/global-ecosystem/business/work-careers/remote-jobs/specializations`
 - `/api/v1/global-ecosystem/business/work-careers/recruitment/specializations`
@@ -66,7 +66,7 @@ Category API Ecosystem IDs follow `{CATEGORY_ID}_API_ECOSYSTEM`, for example:
 - `CORPORATE_JOBS_API_ECOSYSTEM`
 - `PUBLIC_SECTOR_JOBS_API_ECOSYSTEM`
 
-Every specialization is also exposed as a child API Ecosystem resource. Its ID follows `{CATEGORY_ID}_{TRACK_ID}_API_ECOSYSTEM`. For example, a Government Jobs track such as `central_government_recruitment` is represented as `GOVERNMENT_JOBS_CENTRAL_GOVERNMENT_RECRUITMENT_API_ECOSYSTEM`.
+Every specialization is also exposed as a child API Ecosystem resource. Its ID follows `{CATEGORY_ID}_{TRACK_ID}_API_ECOSYSTEM`. For example, a Government Jobs specialization such as `central_government_recruitment` is represented as `GOVERNMENT_JOBS_CENTRAL_GOVERNMENT_RECRUITMENT_API_ECOSYSTEM`.
 
 ### API Ecosystem registry endpoints
 
@@ -74,11 +74,11 @@ Every specialization is also exposed as a child API Ecosystem resource. Its ID f
 - `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems?q=government` — search category API Ecosystems.
 - `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems/{category_id}` — category API Ecosystem contract and catalogue record.
 - `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems/{category_id}/specializations` — list the child specialization API Ecosystems.
-- `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems/{category_id}/specializations/{track_id}` — retrieve one specialization API Ecosystem and its taxonomy record.
+- `GET /api/v1/global-ecosystem/business/work-careers/api-ecosystems/{category_id}/specializations/{specialization_id}` — retrieve one specialization API Ecosystem and its taxonomy record.
 
 The category-specific routers remain available under their existing paths (for example `/government-jobs`, `/private-jobs` and `/corporate-jobs`). The registry is an additional stable discovery layer, not a replacement for those routes.
 
-Track-level API Ecosystems are currently addressable taxonomy resources served by the shared registry. Their own independent external data integrations, write operations, vacancy feeds and employer verification are not implied. All responses retain `taxonomy_only` status unless separately verified live-data integrations are implemented.
+Specialization-level API Ecosystems are currently addressable taxonomy resources served by the shared registry. Their own independent external data integrations, write operations, vacancy feeds and employer verification are not implied. All responses retain `taxonomy_only` status unless separately verified live-data integrations are implemented.
 
 
 ## Professional Fields & Occupation Families
