@@ -3,8 +3,10 @@ from fastapi import APIRouter, HTTPException
 from .categories import SPECIALIZATION_ID, WORK_TYPE_ID
 from .services import get_work_type_resource, get_work_type_status
 
+# This router is mounted inside the owning specialization router, so the
+# prefix is intentionally relative to avoid duplicating the specialization path.
 router = APIRouter(
-    prefix=f"/freelance/specializations/{SPECIALIZATION_ID}/work-types/{WORK_TYPE_ID}",
+    prefix=f"/work-types/{WORK_TYPE_ID}",
     tags=[f"Freelance work type — {WORK_TYPE_ID}"],
 )
 
