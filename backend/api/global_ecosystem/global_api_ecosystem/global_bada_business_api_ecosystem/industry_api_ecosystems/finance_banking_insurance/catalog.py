@@ -6,10 +6,8 @@ FINANCE_BANKING_INSURANCE_CATEGORIES = [
         "id": "banking_and_deposits",
         "name": "Banking & Deposits",
         "subcategories": [
-            "retail_banking",
-            "business_banking",
-            "digital_banking",
-            "deposit_services"
+            "retail_banking", "business_banking", "digital_banking",
+            "deposit_services", "banking_services"
         ]
     },
     {
@@ -26,30 +24,24 @@ FINANCE_BANKING_INSURANCE_CATEGORIES = [
         "id": "lending_and_credit",
         "name": "Lending & Credit",
         "subcategories": [
-            "personal_loans",
-            "business_loans",
-            "working_capital",
-            "credit_scoring"
+            "personal_loans", "business_loans", "working_capital", "credit_scoring",
+            "loans_credit"
         ]
     },
     {
         "id": "insurance_services",
         "name": "Insurance Services",
         "subcategories": [
-            "life_insurance",
-            "health_insurance",
-            "general_insurance",
-            "commercial_insurance"
+            "life_insurance", "health_insurance", "general_insurance",
+            "commercial_insurance", "insurance"
         ]
     },
     {
         "id": "wealth_and_investment_advisory",
         "name": "Wealth & Investment Advisory",
         "subcategories": [
-            "financial_planning",
-            "portfolio_advisory",
-            "investment_research",
-            "wealth_management"
+            "financial_planning", "portfolio_advisory", "investment_research",
+            "wealth_management", "investment_education", "personal_finance_education"
         ]
     },
     {
@@ -66,10 +58,8 @@ FINANCE_BANKING_INSURANCE_CATEGORIES = [
         "id": "accounting_and_bookkeeping",
         "name": "Accounting, Tax & Bookkeeping",
         "subcategories": [
-            "bookkeeping",
-            "tax_preparation",
-            "audit_support",
-            "financial_reporting"
+            "bookkeeping", "tax_preparation", "audit_support", "financial_reporting",
+            "tax_services", "accounting_audit"
         ]
     },
     {
@@ -96,10 +86,10 @@ FINANCE_BANKING_INSURANCE_CATEGORIES = [
         "id": "corporate_finance_and_advisory",
         "name": "Corporate Finance & Advisory",
         "subcategories": [
-            "mergers_and_acquisitions",
-            "valuation_services",
-            "fundraising_advisory",
-            "transaction_advisory"
+            "mergers_and_acquisitions", "valuation_services", "fundraising_advisory",
+            "transaction_advisory", "business_finance", "capital_raising",
+            "grants_subsidies", "government_schemes", "msme_support",
+            "export_import_support", "business_valuation"
         ]
     },
     {
@@ -116,20 +106,16 @@ FINANCE_BANKING_INSURANCE_CATEGORIES = [
         "id": "risk_and_compliance",
         "name": "Risk, Compliance & RegTech",
         "subcategories": [
-            "kyc_and_aml",
-            "fraud_prevention",
-            "regulatory_reporting",
-            "enterprise_risk"
+            "kyc_and_aml", "fraud_prevention", "regulatory_reporting",
+            "enterprise_risk", "risk_management"
         ]
     },
     {
         "id": "foreign_exchange_and_trade_finance",
         "name": "Foreign Exchange & Trade Finance",
         "subcategories": [
-            "currency_exchange",
-            "trade_credit",
-            "letters_of_credit",
-            "export_finance"
+            "currency_exchange", "trade_credit", "letters_of_credit",
+            "export_finance", "export_import_support"
         ]
     },
     {
@@ -164,3 +150,22 @@ def get_category(category_id: str) -> dict[str, object] | None:
         if item["id"] == category_id:
             return dict(item, subcategories=list(item["subcategories"]))
     return None
+
+
+# Legacy finance-support IDs are mapped into the canonical finance categories.
+LEGACY_CATEGORY_CROSSWALK = {
+    "banking_services": "banking_and_deposits",
+    "loans_credit": "lending_and_credit",
+    "insurance": "insurance_services",
+    "tax_services": "accounting_and_bookkeeping",
+    "accounting_audit": "accounting_and_bookkeeping",
+    "investment_education": "wealth_and_investment_advisory",
+    "personal_finance_education": "financial_education",
+    "capital_raising": "corporate_finance_and_advisory",
+    "grants_subsidies": "corporate_finance_and_advisory",
+    "government_schemes": "corporate_finance_and_advisory",
+    "msme_support": "corporate_finance_and_advisory",
+    "export_import_support": "foreign_exchange_and_trade_finance",
+    "business_valuation": "corporate_finance_and_advisory",
+    "risk_management": "risk_and_compliance",
+}
