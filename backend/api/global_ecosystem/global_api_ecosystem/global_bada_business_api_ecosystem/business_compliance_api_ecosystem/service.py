@@ -1,3 +1,4 @@
+from .rules_catalog import list_rules, get_rule
 from .catalog import (list_india_requirements, get_india_requirement, list_jurisdictions, list_india_subnational_jurisdictions, get_india_subnational_jurisdiction, get_jurisdiction)
 
 class BusinessComplianceService:
@@ -12,6 +13,8 @@ class BusinessComplianceService:
             "country_master_count": len(list_jurisdictions()),
             "country_codes_with_curated_starter_dataset": ["IN"],
             "india_requirement_topics": len(list_india_requirements()),
+            "india_compliance_rule_records": len(list_rules("IN")),
+            "rules_source_status": "official_portal_links_added_rule_text_not_fully_reviewed",
             "india_subdivision_count": len(list_india_subnational_jurisdictions()),
             "india_state_count": len(list_india_subnational_jurisdictions("state")),
             "india_union_territory_count": len(list_india_subnational_jurisdictions("union_territory")),
@@ -43,6 +46,18 @@ class BusinessComplianceService:
             q = query.strip().casefold()
             items = [x for x in items if q in x["id"].casefold() or q in x["name"].casefold() or any(q in v.casefold() for v in x["examples"] + x["applies_to"])]
         return items
+
+    def list_compliance_rules(self, country_code="IN", area=None, applicability_status=None, source_verification_status=None):
+        if country_code.upper() not in {item["country_code"] for item in list_jurisdictions()}:
+            return None
+        if country_code.upper() != "IN":
+            return None
+        return list_rules(country_code, area, applicability_status, source_verification_status)
+
+    def get_compliance_rule(self, rule_id, country_code="IN"):
+        if country_code.upper() != "IN":
+            return None
+        return get_rule(rule_id, country_code)
 
     def get_requirement(self, requirement_id, country_code="IN"):
         if country_code.upper() != "IN":
