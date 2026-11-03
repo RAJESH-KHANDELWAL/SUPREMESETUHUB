@@ -1,4 +1,4 @@
-"""Response schemas for Professional, Legal & Business Services."""
+"""Response schemas for Professional Services."""
 from pydantic import BaseModel
 
 class ProfessionalServicesCategory(BaseModel):
