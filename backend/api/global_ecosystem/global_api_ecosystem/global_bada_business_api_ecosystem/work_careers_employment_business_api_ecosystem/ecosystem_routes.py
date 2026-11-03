@@ -113,7 +113,7 @@ def get_work_job_api_ecosystem(category_id: str, specialization_id: str):
     module = _track_catalog(category_id)
     specialization = module.get_track(specialization_id)
     if specialization is None:
-        raise HTTPException(status_code=404, detail={"error": "WORK_CAREERS_TRACK_API_ECOSYSTEM_NOT_FOUND", "category_id": category_id, "specialization_id": specialization_id})
+        raise HTTPException(status_code=404, detail={"error": "WORK_CAREERS_SPECIALIZATION_API_ECOSYSTEM_NOT_FOUND", "category_id": category_id, "specialization_id": specialization_id})
     return {
         "success": True,
         "api_ecosystem": {
