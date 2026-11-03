@@ -58,3 +58,12 @@ routing stable. The nested implementation is still canonical for now.
 - Do not create duplicate catalogs or services in both locations.
 - New industry packages must be registered in the industry ecosystem registry and covered by route, schema, and integrity tests.
 - These packages are taxonomy/API modules, not proof of verified businesses, live providers, or exhaustive country coverage.
+
+
+## Standalone industry-domain exception
+
+The Kamasutra / Adult Sexual Health & Wellness API Ecosystem is maintained as a standalone sibling package directly under `global_bada_business_api_ecosystem/`, not inside `industry_api_ecosystems/`:
+
+`kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_coach_consultant_advisor_professional_services_work_business_api_ecosystem/`
+
+Its API router is mounted independently by the parent `global_bada_business_api_ecosystem/routes.py`. The old nested package is a temporary compatibility location only; do not add new implementation files there.
