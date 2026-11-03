@@ -47,3 +47,25 @@ def test_unified_country_master_has_india_and_priority_country_profiles():
     assert service.get_jurisdiction("IN")["coverage_status"] == "starter_reference"
     assert service.get_jurisdiction("US")["coverage_status"] == "framework_only"
 
+
+
+def test_compliance_rules_have_source_and_review_metadata():
+    from .rules_catalog import list_rules
+    items = list_rules("IN")
+    assert len(items) == 12
+    assert all(item["applicability_status"] for item in items)
+    assert all(item["rule_status"] == "discovery_topic_only" for item in items)
+    assert all(item["last_source_checked_on"] == "2026-11-03" for item in items)
+    assert any(item["official_sources"] for item in items)
+
+
+def test_rule_filtering_and_detail():
+    service = BusinessComplianceService()
+    tax = service.list_compliance_rules("IN", area="tax")
+    assert len(tax) == 1
+    assert tax[0]["id"] == "tax_registration_and_returns"
+    assert service.get_compliance_rule("food_business_licensing")["official_sources"][0]["url"] == "https://foscos.fssai.gov.in/"
+
+
+def test_unresearched_country_rules_are_not_fabricated():
+    assert BusinessComplianceService().list_compliance_rules("US") is None
