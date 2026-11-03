@@ -1,4 +1,5 @@
-"""Sexual Health Research & Innovation domain catalog."""
+"""sexual_health_research_innovation domain catalog backed by the canonical subdomain registry."""
+from ..domains_catalog import DOMAIN_CATALOG
+
 CATEGORY_ID = "sexual_health_research_innovation"
-CATEGORY_NAME = "Sexual Health Research & Innovation"
-SUBDOMAINS = []
+SUBDOMAINS = DOMAIN_CATALOG[CATEGORY_ID]
