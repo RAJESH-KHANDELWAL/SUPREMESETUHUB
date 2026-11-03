@@ -24,7 +24,7 @@ This document defines the direct-root domain package plan for this existing dire
 8. `family_relationships_community_business_api_ecosystem/` — family/community education and provider-side support categories; private personal records remain elsewhere.
 9. `adult_18_plus_lawful_industry_business_api_ecosystem/` — restricted adult taxonomy, excluded from default discovery; legal review, age assurance, consent, privacy and safeguarding are prerequisites.
 10. `services_platforms_integrations_business_api_ecosystem/` — cloud, domains, websites, payments, CRM, accounting, communications, APIs and integrations.
-11. `investment_finance_support_business_api_ecosystem/` — finance education, banking, insurance, tax, grants, MSME and export support.
+11. `industry_api_ecosystems/finance_banking_insurance/` — the single canonical Finance, Banking, Insurance & Business Support ecosystem; the former finance-support package is a compatibility facade.
 12. `public_nonprofit_social_impact_business_api_ecosystem/` — government/public services, nonprofits, charities and community development.
 
 ## Standard files inside each domain folder
