@@ -93,12 +93,10 @@ from .digital_infrastructure_telecommunications.routes import router as digital_
 from .aviation_aerospace_space_technology.routes import router as aviation_aerospace_router
 from .water_resources_marine_industries.routes import router as water_marine_router
 from .fashion_textiles_apparel.routes import router as fashion_textiles_router
-from .supply_chain_warehousing_distribution.routes import router as supply_chain_distribution_router
 router.include_router(digital_infrastructure_router)
 router.include_router(aviation_aerospace_router)
 router.include_router(water_marine_router)
 router.include_router(fashion_textiles_router)
-router.include_router(supply_chain_distribution_router)
 
 # Jobs, Careers & Employment is deliberately mounted last in the industry API ecosystem.
 from .jobs_careers_employment.routes import router as jobs_careers_router
