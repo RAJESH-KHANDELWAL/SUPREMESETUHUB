@@ -13,7 +13,9 @@ Provide structured discovery topics for entity formation, tax, MSME, local trade
 ## Endpoints
 
 - `GET /compliance/status`
-- `GET /compliance/jurisdictions`
+- `GET /compliance/jurisdictions` (unified country master)
+- `GET /compliance/jurisdictions/{country_code}`
+- `GET /compliance/jurisdictions/{country_code}/subdivisions` (India index available; other country datasets return HTTP 501)
 - `GET /compliance/jurisdictions/india/subdivisions`
 - `GET /compliance/jurisdictions/india/subdivisions?subdivision_type=state`
 - `GET /compliance/jurisdictions/india/subdivisions/{subdivision_code}`
@@ -28,8 +30,10 @@ These paths are relative to the parent Global Bada Business API router. The pare
 ## Coverage status
 
 - **India (IN):** starter topic catalogue across 12 compliance areas. Entries are screening topics and illustrative examples, not exhaustive statutory inventories.
-- **GLOBAL:** jurisdiction framework only. Country-specific requirements are not yet curated; requests for uncurated countries return HTTP 501 rather than fabricated compliance data.
-- **India subnational index:** all 28 States and 8 Union Territories are listed as jurisdiction profiles. This is an index only; it does not mean state-specific legal rules have been researched or verified.
+- **Unified country master:** India plus 13 additional priority country profiles (AE, AU, BD, CA, DE, FR, GB, JP, NZ, PK, SA, SG, US) are in one registry. This starter index is not claimed to be the exhaustive ISO country list.
+- **India (IN):** the only country with a starter compliance topic dataset at this stage.
+- **Other indexed countries:** jurisdiction profiles only; country-specific requirements and subnational data are not yet curated. Requests return HTTP 501 rather than fabricated compliance data.
+- **India subnational index:** all 28 States and 8 Union Territories are listed in the same jurisdiction hierarchy. This is an index only; it does not mean state-specific legal rules have been researched or verified.
 - District and municipal requirements are not yet separately enumerated.
 - The state-specific requirements endpoint deliberately returns HTTP 501 until primary-source research, applicability conditions and verification dates are added.
 
