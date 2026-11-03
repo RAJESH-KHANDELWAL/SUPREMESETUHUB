@@ -4,6 +4,8 @@ This is a maintained snapshot of the umbrella domain classifications, not a live
 registry. Business providers are discoverable here; personal records remain in
 their owning ecosystems. Keep this catalogue synchronized with Global World.
 """
+from .freelance_gig_independent_work_business_api_ecosystem import SUBCATEGORY_IDS as FREELANCE_SUBCATEGORY_IDS
+
 GLOBAL_WORLD_CATALOG = (
     {"id":"agriculture-food-natural-resources","name":"Agriculture, Food, Forestry & Fisheries","groups":["farming","crops","livestock","dairy","poultry","fisheries","aquaculture","forestry","food production","food processing","agritech","farm equipment"],"owner_ecosystem":"global-bada-business","business_category_ids":["agriculture","forestry-natural-resources"],"business_scope":"direct","modes":["offline","online","hybrid"]},
     {"id":"mining-energy-utilities","name":"Mining, Energy, Power & Utilities","groups":["mining","oil and gas","solar","wind","hydropower","electricity","batteries","grid services","water utilities","waste management"],"owner_ecosystem":"global-bada-business","business_category_ids":["mining-energy","water-sanitation"],"business_scope":"direct","modes":["offline","online","hybrid"]},
