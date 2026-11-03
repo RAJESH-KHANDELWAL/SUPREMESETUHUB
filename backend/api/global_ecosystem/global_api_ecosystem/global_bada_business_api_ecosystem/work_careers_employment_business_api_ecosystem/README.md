@@ -9,7 +9,7 @@ This domain organizes employment, recruitment, staffing, career support and work
 - `catalog.py` provides list, lookup, search and catalogue metadata operations from the canonical catalogue.
 - `service.py` provides the domain service interface used by the parent ecosystem.
 - `routes.py` mounts independently maintained category API Ecosystem routers under `/work-careers`.
-- Each category has a dedicated API Ecosystem package directly inside this domain directory. Each package is intended to own its own detailed taxonomy, models, schemas, services, routes, validators, tests and documentation as it is implemented.
+- Each category has a dedicated API Ecosystem package directly inside this domain directory. The category-level `categories.py` owns the canonical job-family records. Each child specialization package has its own stable identity, README, model, schema, service adapter, route, validator and tests; its `categories.py` binds to the owning category record rather than duplicating that record.
 
 ## Category API Ecosystem packages
 
