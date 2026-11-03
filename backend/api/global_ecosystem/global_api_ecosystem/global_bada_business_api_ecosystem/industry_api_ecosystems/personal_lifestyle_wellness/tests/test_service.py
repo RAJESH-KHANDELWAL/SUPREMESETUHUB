@@ -9,7 +9,7 @@ class PersonalWellnessServiceTests(unittest.TestCase):
  def test_adult_categories_are_explicitly_opt_in(self):
   items=self.service.list_categories(include_adult=True)
   self.assertEqual(len(items),20)
-  self.assertEqual(self.service.get_category("adult_content_media_18_plus"),None)
+  self.assertEqual(self.service.get_category("adult_porn_media_18_plus"),None)
   self.assertEqual(self.service.get_category("adult_content_media_18_plus",include_adult=True)["access_class"],"18_plus_restricted")
  def test_family_and_couple_categories(self):
   ids={x["id"] for x in self.service.list_categories()}
