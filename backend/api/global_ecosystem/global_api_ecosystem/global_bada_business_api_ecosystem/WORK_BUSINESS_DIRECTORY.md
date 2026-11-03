@@ -36,6 +36,23 @@ This document defines the direct-root domain package plan for this existing dire
 
 All 12 standardized domain API ecosystem folders now contain these six files. The central API layer remains in the parent directory; individual domain API ecosystem packages provide their own catalogue/service layers rather than duplicating route registration.
 
+## Independent Work & Jobs specialization architecture
+
+### Work, Jobs & Careers
+- The domain contains 24 independent employment-context category packages.
+- Each category owns its own direct-child job-family/specialization folders; the folders are not nested under a redundant `tracks/` directory.
+- Each specialization folder owns its README, category definition, models, schemas, services, routes, validators and tests. Its `categories.py` is the source of truth for that job family.
+- The parent category catalogue discovers every direct-child specialization package dynamically, including packages not present in older static category lists.
+- All individual job-family routers are mounted through `work_careers_employment_business_api_ecosystem/specialization_routes.py` at their canonical `/work-careers/{category_id}/{job_family_id}` paths. Category-level catalogue endpoints remain available for listing, search and detail.
+
+### Freelancing, Gig & Independent Work
+- The domain contains 25 direct-child specialization packages, one for each stable subcategory ID.
+- Every specialization owns a README, independent work-type catalogue, typed model, catalogue functions, service facade, response schemas, validators, routes and tests.
+- Each specialization's `work_types.py` is the only canonical owner of its individual work/gig types. The domain root remains the stable index and discovery facade.
+- `specializations.py` mounts all 25 independent specialization routers. The Global World crosswalk imports the canonical ID tuple instead of maintaining a second hard-coded freelance list.
+
+These are taxonomy/API contracts, not live job or gig listings. A registered folder or route does not imply an active vacancy, verified client, payment, licence, or successful placement. Where concepts overlap across employment, occupation and freelance-service taxonomies, use explicit crosswalks and preserve the classification axis rather than duplicating the canonical definition.
+
 ## Architecture rules
 These are taxonomy packages, not live listings. Taxonomy membership does not verify a business, employer, job, professional licence, vendor or API connection. India + Global are intended coverage scopes, not a claim of exhaustive country coverage. Do not store personal or sensitive records in taxonomy files. Keep domain IDs synchronized with `global_world_catalog.py`, validate crosswalks and duplicate IDs, add tests, source provenance, jurisdiction and freshness metadata, moderation, authentication, authorization and audit logging before production. Do not merge this branch without explicit approval.
 
