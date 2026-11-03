@@ -38,8 +38,8 @@ def _category_api_record(category):
         "category_type": category.category_type,
         "api_base_path": f"/work-careers/{category_id.replace('_', '-')}",
         "ecosystem_registry_path": f"/work-careers/api-ecosystems/{category_id}",
-        "track_api_ecosystem_template": f"{category_id.upper()}_{{TRACK_ID}}_API_ECOSYSTEM",
-        "capabilities": ["status", "track_catalogue", "track_detail", "track_search", "integrity"],
+        "work_job_api_ecosystem_template": f"{category_id.upper()}_{{TRACK_ID}}_API_ECOSYSTEM",
+        "capabilities": ["status", "work_job_catalogue", "work_job_detail", "work_job_search", "integrity"],
         "taxonomy_status": "taxonomy_only",
     }
 
@@ -74,8 +74,8 @@ def get_work_careers_api_ecosystem(category_id: str):
     return {"success": True, "api_ecosystem": _category_api_record(category), "category": _plain(category)}
 
 
-@router.get("/api-ecosystems/{category_id}/tracks")
-def list_track_api_ecosystems(category_id: str, q: str | None = Query(default=None, min_length=1, max_length=100)):
+@router.get("/api-ecosystems/{category_id}/work-jobs")
+def list_work_job_api_ecosystems(category_id: str, q: str | None = Query(default=None, min_length=1, max_length=100)):
     """Expose each category track as its own addressable API Ecosystem resource."""
     category = _category_or_404(category_id)
     module = _track_catalog(category_id)
@@ -90,40 +90,40 @@ def list_track_api_ecosystems(category_id: str, q: str | None = Query(default=No
         ]
     items = []
     for track in tracks:
-        track_id = track["id"]
+        work_job_id = track["id"]
         items.append({
-            "api_ecosystem_id": f"{category_id.upper()}_{track_id.upper()}_API_ECOSYSTEM",
-            "api_ecosystem_name": f"{track.get('name', track_id)} API Ecosystem",
+            "api_ecosystem_id": f"{category_id.upper()}_{work_job_id.upper()}_API_ECOSYSTEM",
+            "api_ecosystem_name": f"{track.get('name', work_job_id)} API Ecosystem",
             "parent_api_ecosystem_id": f"{category_id.upper()}_API_ECOSYSTEM",
             "category_id": category_id,
             "category_name": category.name,
-            "track_id": track_id,
-            "track_name": track.get("name", track_id),
-            "api_resource_path": f"/work-careers/api-ecosystems/{category_id}/tracks/{track_id}",
-            "capabilities": ["track_status", "track_detail"],
+            "work_job_id": work_job_id,
+            "work_job_name": track.get("name", work_job_id),
+            "api_resource_path": f"/work-careers/api-ecosystems/{category_id}/work-jobs/{work_job_id}",
+            "capabilities": ["work_job_status", "work_job_detail"],
             "taxonomy_status": "taxonomy_only",
         })
-    return {"success": True, "parent_api_ecosystem_id": f"{category_id.upper()}_API_ECOSYSTEM", "count": len(items), "track_api_ecosystems": items}
+    return {"success": True, "parent_api_ecosystem_id": f"{category_id.upper()}_API_ECOSYSTEM", "count": len(items), "work_job_api_ecosystems": items}
 
 
-@router.get("/api-ecosystems/{category_id}/tracks/{track_id}")
-def get_track_api_ecosystem(category_id: str, track_id: str):
+@router.get("/api-ecosystems/{category_id}/work-jobs/{work_job_id}")
+def get_work_job_api_ecosystem(category_id: str, work_job_id: str):
     """Return a track-level API Ecosystem resource and its taxonomy record."""
     category = _category_or_404(category_id)
     module = _track_catalog(category_id)
-    track = module.get_track(track_id)
+    track = module.get_track(work_job_id)
     if track is None:
-        raise HTTPException(status_code=404, detail={"error": "WORK_CAREERS_TRACK_API_ECOSYSTEM_NOT_FOUND", "category_id": category_id, "track_id": track_id})
+        raise HTTPException(status_code=404, detail={"error": "WORK_CAREERS_TRACK_API_ECOSYSTEM_NOT_FOUND", "category_id": category_id, "work_job_id": work_job_id})
     return {
         "success": True,
         "api_ecosystem": {
-            "api_ecosystem_id": f"{category_id.upper()}_{track_id.upper()}_API_ECOSYSTEM",
-            "api_ecosystem_name": f"{track.get('name', track_id)} API Ecosystem",
+            "api_ecosystem_id": f"{category_id.upper()}_{work_job_id.upper()}_API_ECOSYSTEM",
+            "api_ecosystem_name": f"{track.get('name', work_job_id)} API Ecosystem",
             "parent_api_ecosystem_id": f"{category_id.upper()}_API_ECOSYSTEM",
             "category_id": category_id,
             "category_name": category.name,
-            "track_id": track_id,
-            "api_resource_path": f"/work-careers/api-ecosystems/{category_id}/tracks/{track_id}",
+            "work_job_id": work_job_id,
+            "api_resource_path": f"/work-careers/api-ecosystems/{category_id}/work-jobs/{work_job_id}",
             "taxonomy_status": "taxonomy_only",
             "live_vacancies_available": False,
         },
