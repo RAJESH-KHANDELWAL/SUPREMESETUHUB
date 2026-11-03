@@ -41,16 +41,6 @@ CATEGORIES = [
     ]
   },
   {
-    "id": "metals_and_minerals",
-    "name": "Metals, Minerals & Mining Services",
-    "subcategories": [
-      "steel_products",
-      "non_ferrous_metals",
-      "mineral_processing",
-      "mining_equipment"
-    ]
-  },
-  {
     "id": "textiles_and_apparel_manufacturing",
     "name": "Textiles & Apparel Manufacturing",
     "subcategories": [
