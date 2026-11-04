@@ -4,39 +4,43 @@ Stable package ID: `automotive_mobility`
 
 A discovery taxonomy for automotive products, vehicle services, EV infrastructure and passenger mobility across **Bharat (India) and global markets**. It supports online, offline and hybrid business models.
 
-## Coverage
+## Business-domain coverage
 
-This ecosystem contains 18 independently organized categories. Each category has its own directory under `categories/<category_id>/`, with a category README and Python package initializer. The central `catalog.py` remains the canonical machine-readable taxonomy.
+The ecosystem exposes **20 business domains** through the `/domains` API. These domains are intentionally mapped to **18 maintained API categories** so closely related areas share canonical implementations rather than creating duplicate packages.
 
-## Category scope
-
-1. Passenger Cars & SUVs
-2. Commercial Vehicles
+1. Automobile Manufacturing
+2. Cars & Commercial Vehicles
 3. Two-Wheelers & Three-Wheelers
-4. Electric Vehicles & EV Mobility
-5. Auto Parts & Components
-6. Automotive Manufacturing
-7. Vehicle Dealerships & Showrooms
-8. Vehicle Rental & Leasing
-9. Vehicle Repair & Maintenance
-10. Vehicle Inspection & Testing
-11. Automotive Accessories & Customisation
-12. Vehicle Fleet Management
-13. Vehicle Finance & Insurance
-14. EV Charging & Battery Services
-15. Vehicle Scrapping & Recycling
-16. Automotive Technology & Software
-17. Public & Private Passenger Mobility
-18. Roadside Assistance & Breakdown Services
+4. Electric Vehicles (EV)
+5. EV Charging Infrastructure
+6. Batteries & Energy Storage
+7. Auto Parts & Components
+8. Automobile Dealerships
+9. Vehicle Sales & Resale
+10. Vehicle Rental & Leasing
+11. Vehicle Repair & Maintenance
+12. Vehicle Insurance & Claims
+13. Vehicle Registration & RTO Services
+14. Road Transport & Mobility
+15. Public Transport
+16. Fleet Management
+17. Taxi & Ride-Hailing
+18. Logistics & Last-Mile Mobility (vehicle/passenger-mobility scope only)
+19. Autonomous & Connected Vehicles
+20. Global Automotive Technology
+
+## API categories
+
+Each category has a directory under `categories/<category_id>/`, with its own README and Python package initializer. The central `catalog.py` is the canonical machine-readable taxonomy.
 
 ## Domain boundaries
 
-- This ecosystem owns vehicle products, vehicle-specific services, automotive supply and passenger-mobility discovery.
-- Freight forwarding, cargo movement, courier networks, warehousing, customs and general logistics remain in the Transport, Logistics & Supply Chain ecosystem.
+- This ecosystem owns vehicle products, vehicle-specific services, automotive supply, EV charging/battery services and passenger-mobility discovery.
+- Freight forwarding, cargo movement, courier networks, warehousing, customs and general logistics remain in the Transport, Logistics & Supply Chain ecosystem. The last-mile domain here is limited to vehicle and passenger-mobility services.
 - Fleet management here covers vehicle assets, maintenance, telematics and safety. Freight dispatch, shipment planning and logistics control towers remain outside this package.
 - General banking, lending and insurance remain in Finance; this package covers only vehicle-specific finance and motor insurance discovery.
-- General public transit infrastructure and transport authorities remain in Government/Public Services or Transport as applicable. This package covers vehicle operators and passenger mobility providers.
-- EV charging hardware and battery services are vehicle-energy services; general electricity generation and grid utilities remain in Energy & Environment.
+- Vehicle registration/RTO entries are informational discovery and document-support categories. They do not represent government affiliation, official RTO access or authority to perform regulated services.
+- Vehicle operators and passenger-mobility providers are covered here; public transport authorities and infrastructure remain in Government/Public Services or Transport as applicable.
 
 ## API endpoints
 
@@ -44,7 +48,10 @@ This ecosystem contains 18 independently organized categories. Each category has
 - `GET /industries/automotive-mobility/categories`
 - `GET /industries/automotive-mobility/categories?q=...`
 - `GET /industries/automotive-mobility/categories/{category_id}`
+- `GET /industries/automotive-mobility/domains`
+- `GET /industries/automotive-mobility/domains?q=...`
+- `GET /industries/automotive-mobility/domains/{domain_id}`
 
 ## Implementation status
 
-`taxonomy_scaffold` — category structure and discovery endpoints only. This does not imply live listings, provider verification, vehicle-condition checks, licensing, government endorsement, regulatory approval, insurance underwriting or quality certification.
+`taxonomy_scaffold` — category/domain discovery endpoints only. This does not imply live listings, provider verification, vehicle-condition checks, licensing, government endorsement, regulatory approval, insurance underwriting or quality certification. Router registration and integration tests must be completed by the parent application before production use.
