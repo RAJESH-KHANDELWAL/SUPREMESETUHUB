@@ -9,7 +9,8 @@ class EducationLearningServiceTests(unittest.TestCase):
 
     def test_catalog_has_expected_categories(self):
         items = self.service.list_categories()
-        self.assertGreaterEqual(len(items), 12)
+        self.assertEqual(len(items), 19)
+        self.assertEqual(len({item["id"] for item in items}), len(items))
         self.assertTrue(all(item["id"] and item["subcategories"] for item in items))
 
     def test_search_is_case_insensitive(self):
@@ -23,6 +24,16 @@ class EducationLearningServiceTests(unittest.TestCase):
     def test_get_category(self):
         item = self.service.get_category("online_learning_and_edtech")
         self.assertEqual(item["name"], "Online Learning & EdTech")
+
+    def test_new_learning_tracks(self):
+        expected = {
+            "ai_and_data_literacy_education",
+            "digital_skills_freelancing_and_remote_work",
+            "entrepreneurship_and_business_education",
+            "digital_marketing_and_creator_economy_training",
+        }
+        self.assertTrue(expected.issubset({item["id"] for item in self.service.list_categories()}))
+        self.assertTrue(self.service.list_categories(query="generative ai"))
 
     def test_unknown_category(self):
         self.assertIsNone(self.service.get_category("not_a_real_category"))
