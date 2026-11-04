@@ -1,8 +1,8 @@
 """FastAPI routes for Agriculture, Food & Natural Resources."""
 from fastapi import APIRouter, HTTPException, Query
 
-from .schemas import AgricultureCategoryDetailResponse, AgricultureCategoryListResponse
-from .service import AgricultureFoodService
+from .industry_schemas import AgricultureCategoryDetailResponse, AgricultureCategoryListResponse
+from .industry_service import AgricultureFoodService
 
 router = APIRouter(
     prefix="/agriculture-food-natural-resources",

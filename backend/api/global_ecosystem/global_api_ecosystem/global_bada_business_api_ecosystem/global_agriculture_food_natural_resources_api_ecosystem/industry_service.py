@@ -1,7 +1,7 @@
 """Business logic for Agriculture, Food & Natural Resources."""
 from __future__ import annotations
 
-from .catalog import get_agriculture_category, list_agriculture_categories
+from .industry_catalog import get_agriculture_category, list_agriculture_categories
 
 class AgricultureFoodService:
     DOMAIN_ID = "agriculture_food_natural_resources"

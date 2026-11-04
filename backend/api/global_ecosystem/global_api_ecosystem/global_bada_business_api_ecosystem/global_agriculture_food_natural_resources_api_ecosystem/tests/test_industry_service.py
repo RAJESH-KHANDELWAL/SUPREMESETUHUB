@@ -1,7 +1,7 @@
 """Tests for AgricultureFoodService."""
 import unittest
 
-from agriculture_food_natural_resources.service import AgricultureFoodService
+from agriculture_food_natural_resources_api_ecosystem.industry_service import AgricultureFoodService
 
 class AgricultureFoodServiceTests(unittest.TestCase):
     def setUp(self):
