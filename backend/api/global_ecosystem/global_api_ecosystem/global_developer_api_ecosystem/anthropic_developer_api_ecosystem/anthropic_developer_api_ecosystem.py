@@ -1,0 +1,12 @@
+"""ANTHROPIC API ECOSYSTEM DEVELOPER category metadata; not a live adapter."""
+
+PROVIDER_ID = "anthropic"
+PROVIDER_NAME = "ANTHROPIC API ECOSYSTEM"
+CATEGORY_ID = "DEVELOPER"
+CATEGORY_NAME = "GLOBAL DEVELOPER API ECOSYSTEM"
+PROVIDER_CATALOG_PATH = "backend/api/global_ecosystem/global_api_ecosystem/global_anthropic_api_ecosystem"
+CATEGORY_CATALOG_PATH = "backend/api/global_ecosystem/global_api_ecosystem/global_developer_api_ecosystem"
+SCOPE = "Provider-to-category mapping for GLOBAL DEVELOPER API ECOSYSTEM; verify official product/API support before implementation."
+IMPLEMENTATION_STATUS = "CATALOG_ONLY"
+API_DOCUMENTATION_VERIFIED = False
+LIVE_CONNECTION_VERIFIED = False

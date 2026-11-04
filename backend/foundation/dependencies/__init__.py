@@ -1,0 +1,8 @@
+"""
+FOUNDATION DEPENDENCIES
+
+Central dependency management layer for
+MAIN BASE FOUNDATION.
+"""
+
+DEPENDENCY_LAYER = "FOUNDATION DEPENDENCIES"
