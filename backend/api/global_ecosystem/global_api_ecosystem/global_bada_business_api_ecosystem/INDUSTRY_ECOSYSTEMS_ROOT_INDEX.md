@@ -29,7 +29,7 @@ source trees for compatibility entry points.
 - `healthcare_wellness_fitness/`
 - `jobs_careers_employment/`
 - `legal_consulting_professional_services/`
-- `manufacturing_industrial_services/` — maintained directly at this root (not inside `industry_api_ecosystems/`).
+- `manufacturing_industrial_services/` — Manufacturing, Industrial & Industries API Ecosystem; maintained directly at this root (not inside `industry_api_ecosystems/`).
 - `marketing_media_entertainment/`
 - `mining_metals_minerals/` — maintained directly at this root (not inside `industry_api_ecosystems/`).
 - `personal_lifestyle_wellness/`
@@ -51,7 +51,7 @@ source trees for compatibility entry points.
 ## Maintenance rules
 
 - Unless explicitly documented as a root-level exception, modify industry implementation files in `industry_api_ecosystems/<package>/`.
-- Beauty, Fashion & Lifestyle; Energy, Utilities & Environment; Mining, Metals & Minerals; and Manufacturing, Industrial, Industries & Factory Services implementation files live directly at the Bada Business root.
+- Beauty, Fashion & Lifestyle; Energy, Utilities & Environment; Mining, Metals & Minerals; and Manufacturing, Industrial & Industries implementation files live directly at the Bada Business root.
 - Importers may use the documented root package names; avoid duplicate catalogs and services.
 - New industry packages must be registered in the industry ecosystem registry and covered by route, schema and integrity tests.
 - These packages are taxonomy/API modules, not proof of verified businesses, live providers or exhaustive country coverage.
