@@ -22,9 +22,10 @@ This index separates the ecosystem into independent layers. The layers are inten
 
 Each core domain follows its documented package convention. Finance, Banking & Insurance and Government, Public Services & Social Impact are maintained as canonical industry API ecosystems under `industry_api_ecosystems/`; their former parallel folders are compatibility facades only.
 
-## 2. Industry vertical API ecosystems — 35 packages
+## 2. Industry vertical API ecosystems — 36 packages
 
 - `agriculture_food_natural_resources/`
+- `international_trade_import_export_customs_global_commerce/` — International Trade, Import-Export, Customs & Global Commerce.
 - `arts_culture_heritage_creative_economy/` — Arts, Culture, Heritage & Creative Economy.
 - `automotive_mobility/`
 - `aviation_aerospace_space_technology/`
@@ -60,7 +61,7 @@ Each core domain follows its documented package convention. Finance, Banking & I
 - `travel_tourism_hospitality/`
 - `water_resources_marine_industries/`
 
-The Arts, Culture, Heritage & Creative Economy ecosystem is distinct from commercial media/entertainment, travel inventory and general education. These are the current industry packages. `manufacturing_industrial_services/` is maintained directly at the Bada Business root (outside `industry_api_ecosystems/`) as an explicit layout exception. Marketing, digital marketing, offline advertising, media and entertainment are consolidated under `marketing_media_entertainment/`; mining and metals are maintained under `mining_metals_minerals/`; personal lifestyle, family, parenting, couples, relationship support and restricted 18+ adult wellness/content categories are consolidated under `personal_lifestyle_wellness/` with adult categories excluded from default discovery. Manufacturing, Industrial & Industries are maintained at the Bada Business root under `manufacturing_industrial_services/`; factory services are one supporting component within this broad industrial ecosystem. Distribution-channel discovery is maintained separately in `distribution_channels_api_ecosystem/`, outside the industry vertical registry. Other adjacent verticals remain separate where their operational scope differs.
+International Trade, Import-Export, Customs & Global Commerce is a cross-sector trade lifecycle ecosystem; agriculture-specific commodity trade remains with Agriculture, Food & Natural Resources, and freight execution remains with Transport, Logistics & Supply Chain. The Arts, Culture, Heritage & Creative Economy ecosystem is distinct from commercial media/entertainment, travel inventory and general education. These are the current industry packages. `manufacturing_industrial_services/` is maintained directly at the Bada Business root (outside `industry_api_ecosystems/`) as an explicit layout exception. Marketing, digital marketing, offline advertising, media and entertainment are consolidated under `marketing_media_entertainment/`; mining and metals are maintained under `mining_metals_minerals/`; personal lifestyle, family, parenting, couples, relationship support and restricted 18+ adult wellness/content categories are consolidated under `personal_lifestyle_wellness/` with adult categories excluded from default discovery. Manufacturing, Industrial & Industries are maintained at the Bada Business root under `manufacturing_industrial_services/`; factory services are one supporting component within this broad industrial ecosystem. Distribution-channel discovery is maintained separately in `distribution_channels_api_ecosystem/`, outside the industry vertical registry. Other adjacent verticals remain separate where their operational scope differs.
 
 ## 3. Provider/platform integrations — 21 packages
 
@@ -130,7 +131,7 @@ These must remain distinct and be added as versioned datasets with source proven
 ## 7. Current implementation status
 
 - 10 canonical core domain packages exist; Finance and Government/Public Services are maintained in the industry API ecosystem layer.
-- 35 industry vertical packages are registered across the Bada Business industry ecosystem layer.
+- 36 industry vertical packages are registered across the Bada Business industry ecosystem layer.
 - 21 provider/platform packages exist.
 - 8 classification standards are registered in the new classification package.
 - NIC 2025 workbook importer extracts raw rows but requires reviewed column mapping before records can be published.

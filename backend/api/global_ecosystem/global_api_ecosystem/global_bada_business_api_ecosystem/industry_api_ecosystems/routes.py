@@ -59,6 +59,7 @@ from .transport_logistics_supply_chain.routes import router as transport_logisti
 from .travel_tourism_hospitality.routes import router as travel_hospitality_router
 from .marketing_media_entertainment.routes import router as marketing_media_entertainment_router
 from .arts_culture_heritage_creative_economy.routes import router as arts_culture_heritage_router
+from .international_trade_import_export_customs_global_commerce.routes import router as international_trade_router
 
 router.include_router(technology_telecom_router)
 router.include_router(manufacturing_router)
@@ -66,6 +67,7 @@ router.include_router(transport_logistics_router)
 router.include_router(travel_hospitality_router)
 router.include_router(marketing_media_entertainment_router)
 router.include_router(arts_culture_heritage_router)
+router.include_router(international_trade_router)
 
 from .energy_utilities_environment.routes import router as energy_environment_router
 from .professional_legal_business_services.routes import router as professional_services_router

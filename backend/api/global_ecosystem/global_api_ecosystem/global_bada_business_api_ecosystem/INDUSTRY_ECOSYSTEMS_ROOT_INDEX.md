@@ -11,9 +11,10 @@ Legacy paths for `media_entertainment_creative_industries`,
 aliases to their consolidated canonical ecosystems. Do not create duplicate
 source trees for compatibility entry points.
 
-## Industry packages (35)
+## Industry packages (36)
 
 - `agriculture_food_natural_resources/`
+- `international_trade_import_export_customs_global_commerce/` — International Trade, Import-Export, Customs & Global Commerce.
 - `arts_culture_heritage_creative_economy/` — Arts, Culture, Heritage & Creative Economy.
 - `automotive_mobility/`
 - `aviation_aerospace_space_technology/`
