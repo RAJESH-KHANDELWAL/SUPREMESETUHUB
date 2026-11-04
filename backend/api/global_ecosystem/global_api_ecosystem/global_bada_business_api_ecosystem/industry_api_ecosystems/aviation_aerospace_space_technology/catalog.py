@@ -1,3 +1,28 @@
+"""India and global aviation, aerospace and space technology taxonomy."""
+
+BUSINESS_DOMAINS = (
+    {"id":"commercial_aviation","name":"Commercial Aviation","category_id":"commercial_aviation"},
+    {"id":"airlines_operations","name":"Airlines & Airline Operations","category_id":"commercial_aviation"},
+    {"id":"airports_services","name":"Airports & Airport Services","category_id":"airport_operations"},
+    {"id":"aircraft_manufacturing","name":"Aircraft Manufacturing","category_id":"aircraft_manufacturing"},
+    {"id":"aircraft_mro","name":"Aircraft Maintenance, Repair & Overhaul","category_id":"aircraft_maintenance"},
+    {"id":"aircraft_parts_components","name":"Aircraft Parts & Components","category_id":"aircraft_manufacturing"},
+    {"id":"aviation_technology_software","name":"Aviation Technology & Software","category_id":"aviation_services"},
+    {"id":"air_cargo_logistics","name":"Air Cargo & Aviation Logistics","category_id":"air_cargo"},
+    {"id":"private_business_aviation","name":"Private & Business Aviation","category_id":"commercial_aviation"},
+    {"id":"helicopter_services","name":"Helicopter Services","category_id":"aviation_services"},
+    {"id":"drone_uav_technology","name":"Drone & UAV Technology","category_id":"aerospace_engineering"},
+    {"id":"drone_services_operations","name":"Drone Services & Operations","category_id":"aviation_services"},
+    {"id":"aerospace_manufacturing","name":"Aerospace Manufacturing","category_id":"aerospace_engineering"},
+    {"id":"space_technology","name":"Space Technology","category_id":"space_research"},
+    {"id":"satellite_manufacturing","name":"Satellite Manufacturing","category_id":"satellite_systems"},
+    {"id":"satellite_communication","name":"Satellite Communication","category_id":"satellite_systems"},
+    {"id":"space_launch_services","name":"Space Launch Services","category_id":"space_launch"},
+    {"id":"space_research_exploration","name":"Space Research & Exploration","category_id":"space_research"},
+    {"id":"aviation_training_certification","name":"Aviation Training & Certification","category_id":"aviation_services"},
+    {"id":"aviation_safety_compliance","name":"Aviation Safety & Compliance","category_id":"aviation_safety"},
+)
+
 CATEGORIES=(
     {"id":"commercial_aviation","name":"Commercial Aviation","subcategories":["airlines","scheduled_passenger_services","charter_services","regional_aviation"]},
     {"id":"airport_operations","name":"Airport Operations","subcategories":["airport_management","ground_handling","terminal_services","airport_retail"]},
@@ -12,8 +37,21 @@ CATEGORIES=(
     {"id":"space_research","name":"Space Research & Exploration","subcategories":["planetary_science","astronomy_missions","microgravity_research","space_science_instruments"]},
     {"id":"aviation_safety","name":"Aviation Safety & Compliance","subcategories":["flight_safety","safety_management","aviation_security","regulatory_advisory"]},
 )
-def list_categories(): return [dict(x) for x in CATEGORIES]
+
+def list_categories():
+    return [dict(item) for item in CATEGORIES]
+
 def get_category(category_id):
- for x in CATEGORIES:
-  if x["id"]==category_id: return dict(x)
- return None
+    for item in CATEGORIES:
+        if item["id"] == category_id:
+            return dict(item)
+    return None
+
+def list_business_domains():
+    return [dict(item) for item in BUSINESS_DOMAINS]
+
+def get_business_domain(domain_id):
+    for item in BUSINESS_DOMAINS:
+        if item["id"] == domain_id:
+            return dict(item)
+    return None
