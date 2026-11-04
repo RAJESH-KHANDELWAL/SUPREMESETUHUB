@@ -1,11 +1,8 @@
-"""Agriculture, Food & Natural Resources industry API domain package."""
+"""Compatibility alias for the consolidated Global Agriculture ecosystem package.
 
-INDUSTRY_ID = "agriculture_food_natural_resources"
-INDUSTRY_NAME = "Agriculture, Food & Natural Resources"
-COVERAGE = ("india", "global")
-CHANNELS = ("online", "offline", "hybrid")
-STATUS = "taxonomy_scaffold"
+The maintained implementation lives under global_agriculture_food_natural_resources_api_ecosystem.
+"""
+from pathlib import Path as _Path
+from ...global_agriculture_food_natural_resources_api_ecosystem.industry_api_ecosystems.agriculture_food_natural_resources import *
 
-from .service import AgricultureFoodService
-
-__all__ = ["INDUSTRY_ID", "INDUSTRY_NAME", "COVERAGE", "CHANNELS", "STATUS", "AgricultureFoodService"]
+__path__ = [str(_Path(__file__).resolve().parents[2] / "global_agriculture_food_natural_resources_api_ecosystem" / "industry_api_ecosystems" / "agriculture_food_natural_resources")]
