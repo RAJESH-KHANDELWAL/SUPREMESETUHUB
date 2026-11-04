@@ -34,6 +34,14 @@ class EducationLearningServiceTests(unittest.TestCase):
         }
         self.assertTrue(expected.issubset({item["id"] for item in self.service.list_categories()}))
         self.assertTrue(self.service.list_categories(query="generative ai"))
+        self.assertTrue(self.service.list_categories(query="micro credentials"))
+        self.assertTrue(self.service.list_categories(query="portfolio evidence"))
+
+    def test_cross_ecosystem_links(self):
+        links = self.service.get_cross_ecosystem_links()
+        self.assertIn("jobs_careers_employment", links)
+        self.assertIn("students_education_skills_business_api_ecosystem", links)
+        self.assertEqual(self.service.get_status()["cross_ecosystem_link_count"], len(links))
 
     def test_unknown_category(self):
         self.assertIsNone(self.service.get_category("not_a_real_category"))

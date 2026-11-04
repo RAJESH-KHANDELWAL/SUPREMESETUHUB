@@ -19,6 +19,11 @@ def list_categories(q: str | None = Query(default=None, min_length=1, max_length
     items = service.list_categories(query=q)
     return {"success": True, "count": len(items), "categories": items}
 
+@router.get("/cross-ecosystem-links")
+def get_cross_ecosystem_links():
+    return {"success": True, "links": service.get_cross_ecosystem_links()}
+
+
 @router.get("/categories/{category_id}", response_model=EducationCategoryDetailResponse)
 def get_category(category_id: str):
     item = service.get_category(category_id)

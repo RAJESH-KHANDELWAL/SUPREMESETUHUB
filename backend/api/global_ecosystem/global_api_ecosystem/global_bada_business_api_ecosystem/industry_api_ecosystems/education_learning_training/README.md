@@ -28,8 +28,13 @@ The 19 categories cover:
 - `GET /industries/education-learning-training/categories`
 - `GET /industries/education-learning-training/categories?q=university`
 - `GET /industries/education-learning-training/categories/{category_id}`
+- `GET /industries/education-learning-training/cross-ecosystem-links`
 
-The existing route contract and stable category IDs are retained. Search covers category IDs, names and subcategory IDs.
+The existing route contract and stable category IDs are retained. Search covers category IDs, names and subcategory IDs. Existing category IDs and response contracts are retained. Existing AI/data literacy, freelancing/remote-work, MSME/business education and digital-marketing tracks are extended with credential, portfolio, AI-evaluation and learning-interoperability subtopics.
+
+## Cross-ecosystem links
+
+The cross-ecosystem endpoint points to the canonical student/skills, jobs/employment, science/research, technology and classification-standard domains. It does not copy their records. Any occupation or qualification mapping must cite the source standard, version and reviewed crosswalk.
 
 ## India and Global coverage
 
