@@ -48,7 +48,7 @@ Each core domain follows its documented package convention. Finance, Banking & I
 - `real_estate_construction/`
 - `real_estate_construction_infrastructure/`
 - `retail_ecommerce_consumer_goods/`
-- `science_research_innovation/`
+- `science_research_innovation/` — Science, Research, Innovation & Technology, including AI/ML and Generative AI research.
 - `security_defence_safety_services/`
 - `sports_recreation_community/`
 - `startups_entrepreneurship/`
@@ -59,7 +59,7 @@ Each core domain follows its documented package convention. Finance, Banking & I
 - `travel_tourism_hospitality/`
 - `water_resources_marine_industries/`
 
-These are the current industry packages. `manufacturing_industrial_services/` is maintained directly at the Bada Business root (outside `industry_api_ecosystems/`) as an explicit layout exception. Marketing, digital marketing, offline advertising, media and entertainment are consolidated under `marketing_media_entertainment/`; mining and metals are maintained under `mining_metals_minerals/`; personal lifestyle, family, parenting, couples, relationship support and restricted 18+ adult wellness/content categories are consolidated under `personal_lifestyle_wellness/` with adult categories excluded from default discovery. Manufacturing and industrial factory services are maintained at the Bada Business root under `manufacturing_industrial_services/`. Distribution-channel discovery is maintained separately in `distribution_channels_api_ecosystem/`, outside the industry vertical registry. Other adjacent verticals remain separate where their operational scope differs.
+These are the current industry packages. `manufacturing_industrial_services/` is maintained directly at the Bada Business root (outside `industry_api_ecosystems/`) as an explicit layout exception. Marketing, digital marketing, offline advertising, media and entertainment are consolidated under `marketing_media_entertainment/`; mining and metals are maintained under `mining_metals_minerals/`; personal lifestyle, family, parenting, couples, relationship support and restricted 18+ adult wellness/content categories are consolidated under `personal_lifestyle_wellness/` with adult categories excluded from default discovery. Manufacturing, Industrial & Industries are maintained at the Bada Business root under `manufacturing_industrial_services/`; factory services are one supporting component within this broad industrial ecosystem. Distribution-channel discovery is maintained separately in `distribution_channels_api_ecosystem/`, outside the industry vertical registry. Other adjacent verticals remain separate where their operational scope differs.
 
 ## 3. Provider/platform integrations — 21 packages
 
