@@ -1,17 +1,21 @@
 # Root-level Industry Ecosystem Entry Points
 
-This directory exposes the industry packages directly under
-`global_bada_business_api_ecosystem/` while preserving the established
-implementation under `industry_api_ecosystems/`.
+This directory exposes industry packages directly under
+`global_bada_business_api_ecosystem/`. Most industry implementations are
+maintained under `industry_api_ecosystems/`; Beauty, Fashion & Lifestyle is
+maintained directly at this root as an explicit layout exception.
 
-Each root-level package is a compatibility facade. Legacy paths for `media_entertainment_creative_industries`, `family_relationships_parenting` and `adult_sexual_wellness` are retained as aliases to their consolidated canonical ecosystems. The Python package path resolves to maintained nested implementations; source files are not duplicated.
+Legacy paths for `media_entertainment_creative_industries`,
+`family_relationships_parenting` and `adult_sexual_wellness` are retained as
+aliases to their consolidated canonical ecosystems. Do not create duplicate
+source trees for compatibility entry points.
 
 ## Industry packages (34)
 
 - `agriculture_food_natural_resources/`
 - `automotive_mobility/`
 - `aviation_aerospace_space_technology/`
-- `beauty_fashion_lifestyle/`
+- `beauty_fashion_lifestyle/` — maintained directly at this root (not inside `industry_api_ecosystems/`).
 - `business_companies_corporates/`
 - `digital_infrastructure_telecommunications/`
 - `education_learning_training/`
@@ -45,11 +49,11 @@ Each root-level package is a compatibility facade. Legacy paths for `media_enter
 
 ## Maintenance rules
 
-- Add or modify industry implementation files in `industry_api_ecosystems/<package>/`.
-- Importers may use either the root-level package name or the legacy nested path.
-- Do not create duplicate catalogs or services in both locations.
-- New industry packages must be registered in the industry ecosystem registry and covered by route, schema, and integrity tests.
-- These packages are taxonomy/API modules, not proof of verified businesses, live providers, or exhaustive country coverage.
+- Unless explicitly documented as a root-level exception, modify industry implementation files in `industry_api_ecosystems/<package>/`.
+- Beauty, Fashion & Lifestyle implementation files live directly in `beauty_fashion_lifestyle/`.
+- Importers may use the documented root package names; avoid duplicate catalogs and services.
+- New industry packages must be registered in the industry ecosystem registry and covered by route, schema and integrity tests.
+- These packages are taxonomy/API modules, not proof of verified businesses, live providers or exhaustive country coverage.
 
 ## Standalone adult intimacy ecosystem
 
