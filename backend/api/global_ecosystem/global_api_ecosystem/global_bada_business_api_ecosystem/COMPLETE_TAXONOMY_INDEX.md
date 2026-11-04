@@ -22,7 +22,7 @@ This index separates the ecosystem into independent layers. The layers are inten
 
 Each core domain follows its documented package convention. Finance, Banking & Insurance and Government, Public Services & Social Impact are maintained as canonical industry API ecosystems under `industry_api_ecosystems/`; their former parallel folders are compatibility facades only.
 
-## 2. Industry vertical API ecosystems — 36 packages
+## 2. Industry vertical API ecosystems — 37 packages
 
 - `agriculture_food_natural_resources/`
 - `international_trade_import_export_customs_global_commerce/` — International Trade, Import-Export, Customs & Global Commerce.
@@ -39,7 +39,8 @@ Each core domain follows its documented package convention. Finance, Banking & I
 - `food_hospitality_restaurants/`
 - `government_public_services_social_impact/`
 - `healthcare_life_sciences/`
-- `healthcare_wellness_fitness/`
+- `healthcare_wellness_fitness/` — canonical gym, fitness, spa and massage taxonomy.
+- `home_services_property_maintenance_facility_management/` — home services, property maintenance and facility operations.
 - `jobs_careers_employment/`
 - `legal_consulting_professional_services/`
 - `manufacturing_industrial_services/`
@@ -131,7 +132,7 @@ These must remain distinct and be added as versioned datasets with source proven
 ## 7. Current implementation status
 
 - 10 canonical core domain packages exist; Finance and Government/Public Services are maintained in the industry API ecosystem layer.
-- 36 industry vertical packages are registered across the Bada Business industry ecosystem layer.
+- 37 industry vertical packages are registered across the Bada Business industry ecosystem layer.
 - 21 provider/platform packages exist.
 - 8 classification standards are registered in the new classification package.
 - NIC 2025 workbook importer extracts raw rows but requires reviewed column mapping before records can be published.

@@ -11,7 +11,7 @@ Legacy paths for `media_entertainment_creative_industries`,
 aliases to their consolidated canonical ecosystems. Do not create duplicate
 source trees for compatibility entry points.
 
-## Industry packages (36)
+## Industry packages (37)
 
 - `agriculture_food_natural_resources/`
 - `international_trade_import_export_customs_global_commerce/` — International Trade, Import-Export, Customs & Global Commerce.
@@ -28,7 +28,8 @@ source trees for compatibility entry points.
 - `food_hospitality_restaurants/`
 - `government_public_services_social_impact/`
 - `healthcare_life_sciences/`
-- `healthcare_wellness_fitness/`
+- `healthcare_wellness_fitness/` — canonical gym, fitness, spa and massage taxonomy.
+- `home_services_property_maintenance_facility_management/` — Home Services, Property Maintenance & Facility Management.
 - `jobs_careers_employment/`
 - `legal_consulting_professional_services/`
 - `manufacturing_industrial_services/` — Manufacturing, Industrial & Industries API Ecosystem; maintained directly at this root (not inside `industry_api_ecosystems/`).
