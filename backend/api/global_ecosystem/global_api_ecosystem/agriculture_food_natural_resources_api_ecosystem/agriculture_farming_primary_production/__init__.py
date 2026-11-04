@@ -1,1 +1,0 @@
-"""Agriculture & Farming domain package."""
