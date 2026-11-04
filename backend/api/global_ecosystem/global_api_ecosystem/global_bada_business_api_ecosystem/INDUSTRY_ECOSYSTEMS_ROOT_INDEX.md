@@ -6,10 +6,11 @@ maintained under `industry_api_ecosystems/`; Beauty, Fashion & Lifestyle,
 Energy, Utilities & Environment, and Mining, Metals & Minerals are maintained
 directly at this root as explicit layout exceptions.
 
-Legacy paths for `media_entertainment_creative_industries`,
-`family_relationships_parenting` and `adult_sexual_wellness` are retained as
-aliases to their consolidated canonical ecosystems. Do not create duplicate
-source trees for compatibility entry points.
+Legacy paths for `media_entertainment_creative_industries` and
+`family_relationships_parenting` are retained as aliases to their consolidated
+canonical ecosystems. Adult sexual-wellness compatibility exports are now
+included inside the consolidated global Kamasutra ecosystem. Do not create
+duplicate source trees for compatibility entry points.
 
 ## Industry packages (37)
 
