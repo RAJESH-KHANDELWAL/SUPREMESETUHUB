@@ -1,6 +1,6 @@
-"""Manufacturing, industrial, industries and factory-services ecosystem."""
+"""Manufacturing, Industrial & Industries API ecosystem."""
 INDUSTRY_ID = "manufacturing_industrial_services"
-INDUSTRY_NAME = "Manufacturing, Industrial, Industries & Factory Services"
+INDUSTRY_NAME = "Manufacturing, Industrial & Industries API Ecosystem"
 COVERAGE = ("india", "global")
 CHANNELS = ("online", "offline", "hybrid")
 STATUS = "taxonomy_scaffold"
