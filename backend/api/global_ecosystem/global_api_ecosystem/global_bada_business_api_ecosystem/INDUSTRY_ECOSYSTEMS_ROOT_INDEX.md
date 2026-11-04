@@ -2,8 +2,9 @@
 
 This directory exposes industry packages directly under
 `global_bada_business_api_ecosystem/`. Most industry implementations are
-maintained under `industry_api_ecosystems/`; Beauty, Fashion & Lifestyle is
-maintained directly at this root as an explicit layout exception.
+maintained under `industry_api_ecosystems/`; Beauty, Fashion & Lifestyle and
+Energy, Utilities & Environment are maintained directly at this root as
+explicit layout exceptions.
 
 Legacy paths for `media_entertainment_creative_industries`,
 `family_relationships_parenting` and `adult_sexual_wellness` are retained as
@@ -19,7 +20,7 @@ source trees for compatibility entry points.
 - `business_companies_corporates/`
 - `digital_infrastructure_telecommunications/`
 - `education_learning_training/`
-- `energy_utilities_environment/`
+- `energy_utilities_environment/` — maintained directly at this root (not inside `industry_api_ecosystems/`).
 - `fashion_textiles_apparel/`
 - `finance_banking_insurance/`
 - `food_hospitality_restaurants/`
@@ -50,7 +51,7 @@ source trees for compatibility entry points.
 ## Maintenance rules
 
 - Unless explicitly documented as a root-level exception, modify industry implementation files in `industry_api_ecosystems/<package>/`.
-- Beauty, Fashion & Lifestyle implementation files live directly in `beauty_fashion_lifestyle/`.
+- Beauty, Fashion & Lifestyle and Energy, Utilities & Environment implementation files live directly at the Bada Business root.
 - Importers may use the documented root package names; avoid duplicate catalogs and services.
 - New industry packages must be registered in the industry ecosystem registry and covered by route, schema and integrity tests.
 - These packages are taxonomy/API modules, not proof of verified businesses, live providers or exhaustive country coverage.
