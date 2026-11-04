@@ -11,4 +11,6 @@ List filters: `channel=online|offline|hybrid`, `coverage=india|global`, `q=<sear
 
 This is a taxonomy API, not a complete worldwide company directory and not a live integration with Google, Microsoft, AWS, Meta, OpenAI or other providers. Add provider adapters only after reviewing official API documentation, permissions, authentication, rate limits and terms. Never commit secrets.
 
+Manufacturing, Industrial, Industries & Factory Services is maintained directly at the Bada Business root; its dedicated router is mounted through this industry API. The package is not a child of `industry_api_ecosystems/`.
+
 The adult/sexual-wellness domain is separately classified as 18+. The query flag is not age verification; any future service requires applicable-law review, age assurance, consent, privacy and safety controls.

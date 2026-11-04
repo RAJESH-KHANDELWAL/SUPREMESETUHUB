@@ -1,11 +1,13 @@
-"""Root-level compatibility entry point for the manufacturing_industrial_services industry ecosystem.
+"""Manufacturing, industrial, industries and factory-services ecosystem."""
+INDUSTRY_ID = "manufacturing_industrial_services"
+INDUSTRY_NAME = "Manufacturing, Industrial, Industries & Factory Services"
+COVERAGE = ("india", "global")
+CHANNELS = ("online", "offline", "hybrid")
+STATUS = "taxonomy_scaffold"
 
-The maintained implementation remains in industry_api_ecosystems/manufacturing_industrial_services.
-This facade exposes it at the global_bada_business_api_ecosystem root
-without duplicating source files or breaking existing imports.
-"""
-from pathlib import Path as _Path
+from .service import ManufacturingService
 
-from ..industry_api_ecosystems.manufacturing_industrial_services import *
-
-__path__ = [str(_Path(__file__).resolve().parent.parent / "industry_api_ecosystems" / "manufacturing_industrial_services")]
+__all__ = [
+    "INDUSTRY_ID", "INDUSTRY_NAME", "COVERAGE", "CHANNELS",
+    "STATUS", "ManufacturingService",
+]
