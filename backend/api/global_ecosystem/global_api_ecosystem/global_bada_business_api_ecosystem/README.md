@@ -76,22 +76,22 @@ The following ownership rules are the canonical routing guide for the Global Bad
 
 ## Next 12 industry-domain ownership audit (2026-11-05)
 
-The following ownership map was checked against the current repository tree and the available package documentation. These are canonical destinations, not instructions to duplicate packages or move files.
+The ownership map below follows the repository's current `INDUSTRY_ECOSYSTEMS_ROOT_INDEX.md` and canonical package layout. It distinguishes implementation owners from compatibility facades and documentation-only entry points.
 
-| Requested domain | Canonical owner in this repository | Routing / boundary |
+| Requested domain | Canonical owner | Important routing / boundary |
 |---|---|---|
-| Finance | `industry_api_ecosystems/finance_banking_insurance/` | Banking, payments, lending, insurance, investments and finance discovery stay together. |
-| Education | `industry_api_ecosystems/education_learning_training/` | Schools, higher education, coaching, EdTech, skills and business education stay here. |
-| Agriculture | `industry_api_ecosystems/agriculture_food_natural_resources/` | Agriculture, food systems and natural-resource business taxonomy; keep agriculture-specific trade linked here while cross-border trade execution remains in its dedicated trade domain. |
-| Energy | `global_energy_utilities_environment_api_ecosystem/` | Maintained directly at the Bada Business root; do not create a duplicate under `industry_api_ecosystems/`. |
-| Real Estate | `industry_api_ecosystems/real_estate_construction/` | Property, real estate and construction discovery; keep the similarly named legacy/infrastructure packages as compatibility or cross-reference layers until import usage is audited. |
-| Manufacturing | `manufacturing_industrial_services/` | Maintained directly at the Bada Business root, outside `industry_api_ecosystems/`; do not duplicate its taxonomy. |
-| Automotive | `industry_api_ecosystems/automotive_mobility/` | Vehicles, EVs, automotive manufacturing, parts and vehicle-specific mobility; general freight/logistics stays in transport/logistics. |
-| Fashion | `industry_api_ecosystems/fashion_textiles_apparel/` | Fashion/textile production and industry services; retail discovery may cross-link to retail, without duplicating production taxonomy. |
-| Media | `industry_api_ecosystems/marketing_media_entertainment/` | Unified marketing, advertising, media and entertainment taxonomy; `media_entertainment_creative_industries/` should remain an alias/crosswalk unless code audit proves separate ownership is required. |
-| Legal | `global_legal_services_api_ecosystem/` and the legal-specific root domain packages | Legal advice, lawyers, litigation and representation stay separate from `industry_api_ecosystems/professional_legal_business_services/`, which explicitly excludes legal practice. |
-| Retail & E-commerce | `industry_api_ecosystems/retail_ecommerce_consumer_goods/` | Retail, marketplaces, wholesale/distribution and consumer goods; fashion production remains with Fashion. |
-| Sports | `industry_api_ecosystems/sports_recreation_community/` | Sports, recreation and community activity discovery. |
+| Finance | `industry_api_ecosystems/finance_banking_insurance/` | The global finance folder is a consolidated public entry point; the maintained implementation remains in this industry package. |
+| Education | `global_education_learning_training_api_ecosystem/` and its nested education package | The global folder is the consolidated entry point; retain the nested/root compatibility package for existing imports. |
+| Agriculture | `global_agriculture_food_natural_resources_api_ecosystem/` | Sole canonical package; do not recreate the removed root-level `agriculture_food_natural_resources/` folder. |
+| Energy | `global_energy_utilities_environment_api_ecosystem/` | Canonical implementation is maintained directly at the Bada Business root. |
+| Real Estate | `global_real_estate_construction_infrastructure_PROPERTY_BUSINESS_api_ecosystem/` | Consolidated global entry point; underlying industry packages are exposed without duplicating implementation. |
+| Manufacturing | `manufacturing_industrial_services/` | Canonical implementation is maintained directly at the Bada Business root. |
+| Automotive | `automotive_mobility/` | Parent entry point; consolidated transport/mobility/logistics and nested aviation packages live beneath it. |
+| Fashion | `global_fashion_textiles_apparel_api_ecosystem/` | Canonical Fashion, Textiles & Apparel implementation; former root and industry paths are compatibility facades. Beauty/Fashion/Lifestyle is a separate broader domain. |
+| Media | `marketing_media_entertainment/` | Canonical marketing, media and entertainment taxonomy; `media_entertainment_creative_industries/` is a legacy alias. |
+| Legal | `global_legal_services_api_ecosystem/` | Consolidated Legal Services documentation/entry point; runtime implementation remains separate until built and registered. Do not merge legal practice into non-legal professional services. |
+| Retail & E-commerce | `industry_api_ecosystems/retail_ecommerce_consumer_goods/` | Canonical retail, e-commerce and consumer-goods implementation; detailed fashion production remains with Fashion. |
+| Sports | `industry_api_ecosystems/sports_recreation_community/` | Canonical sports, recreation and community taxonomy. |
 
 ### Audit safeguards
 
