@@ -1,4 +1,4 @@
-"""Catalog for Food Services, Restaurants & Hospitality."""
+"""Catalog for Hotels, Resorts, Restaurants & Hospitality services."""
 CATEGORIES=(
     {"id": "restaurants_dining", "name": "Restaurants & Dining", "subcategories": ["fine_dining","casual_dining","family_restaurants","themed_restaurants"]},
     {"id": "quick_service_food", "name": "Quick Service & Street Food", "subcategories": ["quick_service_restaurants","street_food","food_stalls","takeaway_counters"]},
@@ -11,7 +11,6 @@ CATEGORIES=(
     {"id": "banquet_event_venues", "name": "Banquet & Event Venues", "subcategories": ["banquet_halls","convention_centres","wedding_venues","event_spaces"]},
     {"id": "food_beverage_supply", "name": "Food & Beverage Supply", "subcategories": ["restaurant_suppliers","beverage_distribution","commercial_kitchens","food_equipment"]},
     {"id": "restaurant_technology", "name": "Restaurant Technology", "subcategories": ["pos_systems","table_reservations","kitchen_automation","restaurant_management_software"]},
-    {"id": "food_safety_quality", "name": "Food Safety & Quality Services", "subcategories": ["food_hygiene","food_testing","quality_audits","food_safety_training"]},
 )
 def list_categories(): return [dict(x) for x in CATEGORIES]
 def get_category(category_id):
