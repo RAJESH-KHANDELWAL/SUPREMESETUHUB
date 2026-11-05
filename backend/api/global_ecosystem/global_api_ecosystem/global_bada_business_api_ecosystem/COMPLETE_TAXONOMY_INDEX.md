@@ -86,7 +86,6 @@ International Trade, Import-Export, Customs & Global Commerce is a cross-sector 
 - `shopify_business_api_ecosystem/`
 - `slack_business_api_ecosystem/`
 - `stripe_business_api_ecosystem/`
-- `trafficjunky_business_api_ecosystem/`
 - `verotel_business_api_ecosystem/`
 
 A provider package is not proof of a live connection, current API credentials, commercial partnership or working payment flow.
