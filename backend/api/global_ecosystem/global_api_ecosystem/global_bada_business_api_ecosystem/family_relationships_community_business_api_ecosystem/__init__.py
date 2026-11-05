@@ -1,13 +1,10 @@
 """Individuals, Couples, Family & Community domain package; classification only, not verified live listings."""
 DOMAIN_ID = "family_relationships_community"
-DOMAIN_NAME = "Individuals, Couples, Family & Community"
+DOMAIN_NAME = "Family, Parenting & Community Support"
 ADULT_RESTRICTED = False
 DEFAULT_DISCOVERY_ENABLED = True
 SUBCATEGORY_IDS: tuple[str, ...] = (
     "personal_development",
-    "relationship_education",
-    "couple_communication",
-    "marriage_education",
     "parenting_education",
     "family_support",
     "caregiver_support",
@@ -15,8 +12,6 @@ SUBCATEGORY_IDS: tuple[str, ...] = (
     "community_groups",
     "friendship_communities",
     "life_skills",
-    "conflict_resolution",
-    "professional_counselling_directory",
     "wellbeing_education",
 )
 def list_subcategories() -> list[dict[str, str]]:
