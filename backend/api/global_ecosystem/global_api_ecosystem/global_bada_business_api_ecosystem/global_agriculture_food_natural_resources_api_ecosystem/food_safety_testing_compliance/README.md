@@ -1,7 +1,17 @@
-# Food Safety & Compliance
+# Food Safety, Testing & Compliance
 
-Food testing, traceability, standards, licensing and regulatory workflows.
+Food hygiene, food testing, laboratory services, traceability, quality audits, food safety training, standards, licensing and regulatory workflows.
 
-Independent domain package within the Agriculture, Food & Natural Resources API Ecosystem. Domain-specific models, schemas, services, routes, validation and tests can be added as implementation expands.
+This domain is the canonical home for food-safety and food-quality functions previously grouped under the hospitality category `food_safety_quality`.
 
-**Status:** taxonomy scaffold; no provider or certification verification is implied.
+## Classification
+- Food hygiene and sanitation standards
+- Food testing and laboratory services
+- Quality audits and traceability
+- Food safety training
+- Food licences, standards and regulatory compliance
+- Safety and quality controls across food production, processing, storage, transport and distribution
+
+Restaurant operations, hotel/resort services, dhabas, catering businesses and prepared-food delivery remain in `global_hospitality_hotels_resorts_restaurants_api_ecosystem/`. Their food-safety compliance requirements are represented here, while the hospitality business itself stays in the hospitality ecosystem.
+
+**Status:** taxonomy scaffold; no provider, laboratory, licence or certification verification is implied.
