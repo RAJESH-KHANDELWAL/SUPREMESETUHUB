@@ -1,18 +1,19 @@
 # Root-level Industry Ecosystem Entry Points
 
-This directory exposes the industry packages directly under
-`global_bada_business_api_ecosystem/` while preserving the established
-implementation under `industry_api_ecosystems/`.
+This directory exposes industry packages directly under
+`global_bada_business_api_ecosystem/` while preserving maintained
+implementations under `industry_api_ecosystems/`.
 
-Each root-level package is a compatibility facade: its Python package path
-resolves to the maintained nested implementation. This avoids copying the
-same source files into two locations and keeps existing imports and API
-routing stable. The nested implementation is still canonical for now.
+Compatibility facades preserve established imports and avoid duplicate
+catalogs and services. The hospitality domain is exposed through the
+canonical `global_hospitality_hotels_resorts_restaurants_api_ecosystem/`
+entry point while its maintained implementation remains under
+`industry_api_ecosystems/food_hospitality_restaurants/`.
 
-## Industry packages (39)
+## Industry packages (39 registered industry IDs)
 
 - `adult_sexual_wellness/`
-- `agriculture_food_natural_resources/`
+- `agriculture_food_natural_resources/` — food processing and food safety/testing/compliance are maintained here.
 - `automotive_mobility/`
 - `aviation_aerospace_space_technology/`
 - `beauty_fashion_lifestyle/`
@@ -23,7 +24,7 @@ routing stable. The nested implementation is still canonical for now.
 - `family_relationships_parenting/`
 - `fashion_textiles_apparel/`
 - `finance_banking_insurance/`
-- `food_hospitality_restaurants/`
+- `global_hospitality_hotels_resorts_restaurants_api_ecosystem/` — canonical entry point; legacy `food_hospitality_restaurants/` remains for compatibility.
 - `government_public_services_social_impact/`
 - `healthcare_life_sciences/`
 - `healthcare_wellness_fitness/`
@@ -53,12 +54,13 @@ routing stable. The nested implementation is still canonical for now.
 
 ## Maintenance rules
 
-- Add or modify industry implementation files in `industry_api_ecosystems/<package>/`.
-- Importers may use either the root-level package name or the legacy nested path.
-- Do not create duplicate catalogs or services in both locations.
-- New industry packages must be registered in the industry ecosystem registry and covered by route, schema, and integrity tests.
-- These packages are taxonomy/API modules, not proof of verified businesses, live providers, or exhaustive country coverage.
-
+- Modify industry implementation files in `industry_api_ecosystems/<package>/` unless a canonical consolidated package explicitly owns the implementation.
+- Keep legacy facades for import compatibility; do not duplicate catalogs or services.
+- Food production, processing, agricultural food supply chains, food testing and food-safety compliance belong to Agriculture & Food.
+- Hotels, resorts, restaurants, dhabas, cafes, catering, prepared-food delivery, accommodation, event venues and restaurant operations belong to Hospitality.
+- Restaurant suppliers, commercial kitchens, food equipment and restaurant technology remain in Hospitality when they directly support hospitality operators.
+- New industry packages must be registered and covered by route, schema and integrity tests.
+- These packages are taxonomy/API modules, not proof of verified businesses, live providers or exhaustive country coverage.
 
 ## Standalone industry-domain exception
 
