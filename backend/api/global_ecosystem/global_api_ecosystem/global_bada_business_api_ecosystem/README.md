@@ -16,7 +16,7 @@ Keep detailed records in the package that owns that concept. Do not copy the sam
 | Global World umbrella domains | Parent `global_world_catalog.py` | Umbrella domain snapshot; keep synchronized with Global World |
 | Global World → business mapping | Parent `global_world_business_map.py` | Business-facing crosswalk; not a second master catalogue |
 | Business provider categories | Parent `business_catalog.py` and `sectors/` | Provider/business categories and their sector packages |
-| Work/business sector taxonomy | This package: `catalog.py` | 26 broad sector records (A–Z) |
+| Work/business sector taxonomy | `universal_work_business_taxonomy_catalog.py` | 26 broad sector records (A–Z) |
 | Employment context | `../work_careers_employment_business_api_ecosystem/categories.py` | 24 employment-context categories |
 | Job-family specializations | Each category's own child package under `../work_careers_employment_business_api_ecosystem/<category_id>/` | 234 direct-child specialization folders across the 24 categories |
 | Professional occupations | `../work_careers_employment_business_api_ecosystem/professional_fields/` | 12 professional fields and 81 field subcategories |

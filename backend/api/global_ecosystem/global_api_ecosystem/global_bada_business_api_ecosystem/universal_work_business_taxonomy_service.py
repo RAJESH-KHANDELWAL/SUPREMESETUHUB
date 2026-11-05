@@ -1,5 +1,5 @@
 """Service layer for the India + Global work/business taxonomy."""
-from .catalog import get_facets, get_sector, list_sectors, search_sectors, validate_catalogue
+from .universal_work_business_taxonomy_catalog import get_facets, get_sector, list_sectors, search_sectors, validate_catalogue
 
 class UniversalWorkBusinessTaxonomyService:
     ECOSYSTEM_ID = "global-bada-business-universal-work-business-taxonomy"

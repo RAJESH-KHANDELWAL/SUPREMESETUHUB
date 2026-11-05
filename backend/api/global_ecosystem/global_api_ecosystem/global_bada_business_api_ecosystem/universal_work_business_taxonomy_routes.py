@@ -1,6 +1,6 @@
 """FastAPI routes for the universal work/business taxonomy."""
 from fastapi import APIRouter, HTTPException, Query
-from .service import UniversalWorkBusinessTaxonomyService
+from .universal_work_business_taxonomy_service import UniversalWorkBusinessTaxonomyService
 
 router = APIRouter(prefix="/work-business-taxonomy", tags=["GLOBAL BADA BUSINESS - UNIVERSAL WORK BUSINESS TAXONOMY"])
 service = UniversalWorkBusinessTaxonomyService()
