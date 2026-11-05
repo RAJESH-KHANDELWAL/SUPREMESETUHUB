@@ -1,11 +1,6 @@
-"""Root-level compatibility entry point for the agriculture_food_natural_resources industry ecosystem.
-
-The maintained implementation remains in industry_api_ecosystems/agriculture_food_natural_resources.
-This facade exposes it at the global_bada_business_api_ecosystem root
-without duplicating source files or breaking existing imports.
-"""
+"""Compatibility entry point for the consolidated global Agriculture ecosystem."""
 from pathlib import Path as _Path
 
-from ..industry_api_ecosystems.agriculture_food_natural_resources import *
+from ..global_agriculture_food_natural_resources_api_ecosystem import *
 
-__path__ = [str(_Path(__file__).resolve().parent.parent / "industry_api_ecosystems" / "agriculture_food_natural_resources")]
+__path__ = [str(_Path(__file__).resolve().parent.parent / "global_agriculture_food_natural_resources_api_ecosystem")]

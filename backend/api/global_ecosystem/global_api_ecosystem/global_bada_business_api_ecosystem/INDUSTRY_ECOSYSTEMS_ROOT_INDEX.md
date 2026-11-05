@@ -14,7 +14,7 @@ duplicate source trees for compatibility entry points.
 
 ## Industry packages and consolidated entry points (35 root-level packages; 37 registered industry IDs)
 
-- `agriculture_food_natural_resources/`
+- `global_agriculture_food_natural_resources_api_ecosystem/` — canonical consolidated Agriculture, Food & Natural Resources package; `agriculture_food_natural_resources/` remains a compatibility entry point.
 - `international_trade_import_export_customs_global_commerce/` — International Trade, Import-Export, Customs & Global Commerce.
 - `arts_culture_heritage_creative_economy/` — Arts, Culture, Heritage & Creative Economy.
 - `automotive_mobility/`
@@ -52,7 +52,7 @@ duplicate source trees for compatibility entry points.
 
 ## Maintenance rules
 
-- Unless explicitly documented as an exception, modify industry implementation files in `industry_api_ecosystems/<package>/`. Agriculture, Food & Natural Resources is maintained under `global_agriculture_food_natural_resources_api_ecosystem/industry_api_ecosystems/agriculture_food_natural_resources/`.
+- Unless explicitly documented as an exception, modify industry implementation files in `industry_api_ecosystems/<package>/`. Agriculture, Food & Natural Resources is maintained directly under `global_agriculture_food_natural_resources_api_ecosystem/`; the former `agriculture_food_natural_resources/` path is a compatibility entry point.
 - Beauty, Fashion & Lifestyle; Mining, Metals & Minerals; and Manufacturing, Industrial & Industries implementation files live directly at the Bada Business root. Energy, Utilities & Environment lives in `global_energy_utilities_environment_api_ecosystem/`; Finance, Banking & Insurance implementation remains in `industry_api_ecosystems/finance_banking_insurance/` with a consolidated global entry point. Real Estate and Transport now also have consolidated global root entry points that expose their underlying industry packages without duplicating API implementations.
 - Importers may use the documented root package names; avoid duplicate catalogs and services.
 - New industry packages must be registered in the industry ecosystem registry and covered by route, schema and integrity tests.
