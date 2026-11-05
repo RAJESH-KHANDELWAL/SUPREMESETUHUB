@@ -11,3 +11,8 @@ a duplicate catalog, service, schema, or route implementation.
 Coverage intent: India + Global. Status: taxonomy/API scaffold only. This is not
 a bank, insurer, lender, investment adviser, regulated financial service, or
 proof of live provider integrations.
+
+
+## Global Payment Business API Ecosystem
+
+Payment platforms and payment-service provider packages are grouped under the child folder `global_payment_business_api_ecosystem/`. This includes PayPal, Stripe, Epoch, Paxum, Segpay, Verotel and CCBill. Payment processing, gateways, merchant services, checkout, billing, payout and settlement references belong here; banking, lending, insurance, investment and accounting remain in their respective Finance categories.
