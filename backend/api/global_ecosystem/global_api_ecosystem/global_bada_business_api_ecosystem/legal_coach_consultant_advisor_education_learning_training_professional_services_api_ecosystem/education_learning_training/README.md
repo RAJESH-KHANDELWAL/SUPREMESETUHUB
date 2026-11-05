@@ -7,8 +7,8 @@ This directory connects the Legal, Consulting & Professional Services discovery 
 The maintained education implementation already exists at:
 `industry_api_ecosystems/education_learning_training`.
 
-It owns the 15-category catalog, Python service, routes, schemas and tests. Its API compatibility entry point is:
-`education_learning_training_api_ecosystem`.
+It owns the 15-category catalog, Python service, routes, schemas and tests. Its canonical global API ecosystem entry point is:
+`global_education_learning_training_api_ecosystem`.
 
 ## Canonical education API
 
