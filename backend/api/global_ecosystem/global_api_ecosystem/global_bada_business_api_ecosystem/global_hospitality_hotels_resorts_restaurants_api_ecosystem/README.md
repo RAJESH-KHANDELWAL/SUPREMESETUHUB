@@ -10,9 +10,9 @@ The maintained implementation remains in `industry_api_ecosystems/food_hospitali
 - Restaurants, dhabas, cafes, hotels, resorts, catering, prepared-food delivery, accommodation, event venues and restaurant operations belong here.
 - Restaurant procurement, commercial kitchen equipment and restaurant POS/booking technology remain here because they directly support hospitality operators.
 
-## Compatibility
+## Canonical package rule
 
-The former root-level `food_hospitality_restaurants/` path remains a compatibility facade. Do not create a second implementation tree.
+Use `global_hospitality_hotels_resorts_restaurants_api_ecosystem/` as the only root-level Hospitality entry point. The former root-level `food_hospitality_restaurants/` and `food_hospitality_restaurants_api_ecosystem/` compatibility facades have been removed. The maintained industry implementation remains under `industry_api_ecosystems/food_hospitality_restaurants/`; do not create duplicate source trees.
 
 ## Status
 
