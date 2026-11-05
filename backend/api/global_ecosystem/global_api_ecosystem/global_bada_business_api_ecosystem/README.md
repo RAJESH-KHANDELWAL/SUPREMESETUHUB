@@ -73,3 +73,30 @@ The following ownership rules are the canonical routing guide for the Global Bad
 - Global Hospitality (hotels, resorts and restaurants) remains a distinct industry from Global Travel & Tourism, with cross-links where useful.
 - Agriculture-specific startup/MSME records may remain in the agriculture ecosystem; cross-link them to Startups & Entrepreneurship rather than duplicating the same records.
 - This routing guide records the intended canonical ownership. It does not claim that provider APIs are connected, that external services are live, or that every cross-reference/import has been audited.
+
+## Next 12 industry-domain ownership audit (2026-11-05)
+
+The following ownership map was checked against the current repository tree and the available package documentation. These are canonical destinations, not instructions to duplicate packages or move files.
+
+| Requested domain | Canonical owner in this repository | Routing / boundary |
+|---|---|---|
+| Finance | `industry_api_ecosystems/finance_banking_insurance/` | Banking, payments, lending, insurance, investments and finance discovery stay together. |
+| Education | `industry_api_ecosystems/education_learning_training/` | Schools, higher education, coaching, EdTech, skills and business education stay here. |
+| Agriculture | `industry_api_ecosystems/agriculture_food_natural_resources/` | Agriculture, food systems and natural-resource business taxonomy; keep agriculture-specific trade linked here while cross-border trade execution remains in its dedicated trade domain. |
+| Energy | `global_energy_utilities_environment_api_ecosystem/` | Maintained directly at the Bada Business root; do not create a duplicate under `industry_api_ecosystems/`. |
+| Real Estate | `industry_api_ecosystems/real_estate_construction/` | Property, real estate and construction discovery; keep the similarly named legacy/infrastructure packages as compatibility or cross-reference layers until import usage is audited. |
+| Manufacturing | `manufacturing_industrial_services/` | Maintained directly at the Bada Business root, outside `industry_api_ecosystems/`; do not duplicate its taxonomy. |
+| Automotive | `industry_api_ecosystems/automotive_mobility/` | Vehicles, EVs, automotive manufacturing, parts and vehicle-specific mobility; general freight/logistics stays in transport/logistics. |
+| Fashion | `industry_api_ecosystems/fashion_textiles_apparel/` | Fashion/textile production and industry services; retail discovery may cross-link to retail, without duplicating production taxonomy. |
+| Media | `industry_api_ecosystems/marketing_media_entertainment/` | Unified marketing, advertising, media and entertainment taxonomy; `media_entertainment_creative_industries/` should remain an alias/crosswalk unless code audit proves separate ownership is required. |
+| Legal | `global_legal_services_api_ecosystem/` and the legal-specific root domain packages | Legal advice, lawyers, litigation and representation stay separate from `industry_api_ecosystems/professional_legal_business_services/`, which explicitly excludes legal practice. |
+| Retail & E-commerce | `industry_api_ecosystems/retail_ecommerce_consumer_goods/` | Retail, marketplaces, wholesale/distribution and consumer goods; fashion production remains with Fashion. |
+| Sports | `industry_api_ecosystems/sports_recreation_community/` | Sports, recreation and community activity discovery. |
+
+### Audit safeguards
+
+- Existing canonical packages are reused; no parallel industry package should be created just to make names look uniform.
+- Energy and Manufacturing are intentionally root-maintained packages, not missing industry packages.
+- Media, Real Estate and Legal have overlapping legacy/root names. Do not delete or physically relocate those paths until Python imports, route mounts, registry entries and tests have been checked.
+- This update records verified ownership and routing guidance only. It does not claim that every provider integration is live, that listings are verified, or that all legacy imports have been migrated.
+
