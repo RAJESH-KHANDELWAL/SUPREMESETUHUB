@@ -28,7 +28,7 @@ duplicate source trees for compatibility entry points.
 - `global_energy_utilities_environment_api_ecosystem/` — consolidated Energy, Utilities & Environment package.
 - `global_fashion_textiles_apparel_api_ecosystem/` — canonical Fashion, Textiles & Apparel implementation; former root and industry paths remain compatibility facades only.
 - `global_finance_banking_insurance_api_ecosystem/` — consolidated public entry point; implementation remains under `industry_api_ecosystems/finance_banking_insurance/`.
-- `food_hospitality_restaurants/`
+- `global_hospitality_hotels_resorts_restaurants_api_ecosystem/` — canonical Hotels, Resorts, Restaurants & Hospitality entry point; former `food_hospitality_restaurants/` remains a compatibility facade.
 - `government_public_services_social_impact/`
 - `healthcare_life_sciences/`
 - `healthcare_wellness_fitness/` — canonical gym, fitness, spa and massage taxonomy.
@@ -55,9 +55,9 @@ duplicate source trees for compatibility entry points.
 
 ## Maintenance rules
 
-- Unless explicitly documented as an exception, modify industry implementation files in `industry_api_ecosystems/<package>/`. Agriculture, Food & Natural Resources is maintained directly under `global_agriculture_food_natural_resources_api_ecosystem/`; do not recreate the former root-level `agriculture_food_natural_resources/` folder.
+- Unless explicitly documented as an exception, modify industry implementation files in `industry_api_ecosystems/<package>/`. Agriculture, Food & Natural Resources is maintained directly under `global_agriculture_food_natural_resources_api_ecosystem/`; food processing and food safety/testing/compliance belong there. Do not recreate the former root-level `agriculture_food_natural_resources/` folder.
 - Beauty, Fashion & Lifestyle; Mining, Metals & Minerals; and Manufacturing, Industrial & Industries implementation files live directly at the Bada Business root. Energy, Utilities & Environment lives in `global_energy_utilities_environment_api_ecosystem/`; Finance, Banking & Insurance implementation remains in `industry_api_ecosystems/finance_banking_insurance/` with a consolidated global entry point. Real Estate and Transport now also have consolidated global root entry points that expose their underlying industry packages without duplicating API implementations.
-- Importers may use the documented root package names; avoid duplicate catalogs and services.
+- Importers may use the documented root package names; avoid duplicate catalogs and services. Hospitality implementation remains under `industry_api_ecosystems/food_hospitality_restaurants/`, exposed through `global_hospitality_hotels_resorts_restaurants_api_ecosystem/`; food safety/testing is maintained under Agriculture & Food.
 - New industry packages must be registered in the industry ecosystem registry and covered by route, schema and integrity tests.
 - These packages are taxonomy/API modules, not proof of verified businesses, live providers or exhaustive country coverage.
 
