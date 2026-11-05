@@ -9,7 +9,8 @@ PACKAGE_ROOT = "backend.api.global_ecosystem.global_api_ecosystem.global_bada_bu
 class DomainPackageLayerTests(unittest.TestCase):
     def test_all_twelve_domains_have_catalogue_model_and_service_layers(self):
         for domain in DOMAIN_REGISTRY:
-            package = f"{PACKAGE_ROOT}.{domain['id']}_business_api_ecosystem"
+            package_id = {"work_careers_employment": "global_freelancer_gig_independent_work_business_api_ecosystem.jobs_careers_employment_api_ecosystem", "freelance_gig_independent_work": "global_freelancer_gig_independent_work_business_api_ecosystem"}.get(domain["id"], f"{domain['id']}_business_api_ecosystem")
+            package = f"{PACKAGE_ROOT}.{package_id}"
             catalog = importlib.import_module(f"{package}.catalog")
             models = importlib.import_module(f"{package}.models")
             service_module = importlib.import_module(f"{package}.service")
@@ -20,7 +21,8 @@ class DomainPackageLayerTests(unittest.TestCase):
 
     def test_catalogue_counts_match_central_registry(self):
         for domain in DOMAIN_REGISTRY:
-            package = f"{PACKAGE_ROOT}.{domain['id']}_business_api_ecosystem"
+            package_id = {"work_careers_employment": "global_freelancer_gig_independent_work_business_api_ecosystem.jobs_careers_employment_api_ecosystem", "freelance_gig_independent_work": "global_freelancer_gig_independent_work_business_api_ecosystem"}.get(domain["id"], f"{domain['id']}_business_api_ecosystem")
+            package = f"{PACKAGE_ROOT}.{package_id}"
             catalog = importlib.import_module(f"{package}.catalog")
             if domain["adult_only"]:
                 self.assertEqual(catalog.list_categories(), [])
@@ -29,7 +31,7 @@ class DomainPackageLayerTests(unittest.TestCase):
                 self.assertEqual(len(catalog.list_categories()), domain["subcategory_count"])
 
     def test_domain_service_exposes_status_and_category_search(self):
-        package = f"{PACKAGE_ROOT}.freelance_gig_independent_work_business_api_ecosystem.service"
+        package = f"{PACKAGE_ROOT}.global_freelancer_gig_independent_work_business_api_ecosystem.service"
         service = importlib.import_module(package).DomainService()
         self.assertEqual(service.get_status()["domain_id"], "freelance_gig_independent_work")
         self.assertTrue(service.search("web_development"))
@@ -37,7 +39,7 @@ class DomainPackageLayerTests(unittest.TestCase):
 
 
     def test_work_careers_catalogue_and_government_jobs_package(self):
-        package = f"{PACKAGE_ROOT}.work_careers_employment_business_api_ecosystem"
+        package = f"{PACKAGE_ROOT}.global_freelancer_gig_independent_work_business_api_ecosystem.jobs_careers_employment_api_ecosystem"
         categories = importlib.import_module(f"{package}.categories")
         catalog = importlib.import_module(f"{package}.catalog")
         integrity = categories.validate_category_definitions()

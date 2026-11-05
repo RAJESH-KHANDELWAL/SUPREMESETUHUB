@@ -14,8 +14,9 @@ This document defines the direct-root domain package plan for this existing dire
 - Existing `*_business_api_ecosystem/` folders: provider/vendor ecosystems.
 
 ## Standardized domain API ecosystem folders (direct children)
-1. `work_careers_employment_business_api_ecosystem/` — jobs, employment types, career guidance, recruitment and staffing.
-2. `freelance_gig_independent_work_business_api_ecosystem/` — freelance skills, gigs, contracts and independent services.
+1. `global_freelancer_gig_independent_work_business_api_ecosystem/` — global freelancing, gig work, independent services and contracting.
+   - `jobs_careers_employment_api_ecosystem/` — Jobs, Careers & Employment, including employment contexts, professional fields, recruitment, staffing and job-family specializations.
+2. `network_marketing_direct_selling_business_api_ecosystem/` — Bharat + Global network marketing, MLM and direct-selling businesses only.
 3. `global_education_learning_training_api_ecosystem/students_education_skills_business_api_ecosystem/` — school, higher/vocational education, courses, scholarships, internships and skills.
 4. `business_companies_trade_business_api_ecosystem/` — entity forms, enterprise sizes, local businesses, wholesale, retail, manufacturing and trade.
 5. `global_entrepreneurs_entrepreneurship_msme_sme_startups_solo_women_digital_ai_technology_innovation_business_creation_development_growth_api_ecosystem/` — entrepreneurs, MSME, SME, startups, solo and women entrepreneurship, digital, AI, technology, innovation, business creation and growth.
@@ -45,7 +46,7 @@ The 10 canonical standardized core-domain API ecosystem folders follow these six
 - Each specialization folder owns its README, stable package identity, models, schemas, service adapter, routes, validators and tests.
 - The owning employment category's `categories.py` is the canonical source for the job-family record; the child specialization's `categories.py` binds its `TRACK_ID` and `CATEGORY_ID` to that record. This keeps one definition per job family while preserving a separate folder and API resource for each specialization.
 - The parent category catalogue discovers every direct-child specialization package dynamically, including packages not present in older static category lists.
-- All individual job-family routers are mounted through `work_careers_employment_business_api_ecosystem/specialization_routes.py` at their canonical `/work-careers/{category_id}/{job_family_id}` paths. Category-level catalogue endpoints remain available for listing, search and detail.
+- All individual job-family routers are mounted through `global_freelancer_gig_independent_work_business_api_ecosystem/jobs_careers_employment_api_ecosystem/specialization_routes.py` at their canonical `/work-careers/{category_id}/{job_family_id}` paths. Category-level catalogue endpoints remain available for listing, search and detail.
 
 ### Freelancing, Gig & Independent Work
 - The domain contains 25 direct-child specialization packages, one for each stable subcategory ID.
@@ -79,10 +80,10 @@ No job board ingestion, employer identity verification, business registration lo
 
 The canonical Work & Careers package separates these dimensions instead of placing every kind of work into one mixed catalogue:
 
-- **24 employment-context categories** are defined in `work_careers_employment_business_api_ecosystem/categories.py`.
+- **24 employment-context categories** are defined in `global_freelancer_gig_independent_work_business_api_ecosystem/jobs_careers_employment_api_ecosystem/categories.py`.
 - **234 direct-child job-family/specialization folders** exist under those 24 category packages. Each specialization belongs to its parent category.
-- **12 professional-field packages and 81 professional subcategories** are maintained separately under `work_careers_employment_business_api_ecosystem/professional_fields/`. This is the occupation/professional-field axis, not a 25th employment category.
-- **25 freelance/gig specialization packages** exist under `freelance_gig_independent_work_business_api_ecosystem/`. Each specialization owns its own work-type catalogue.
+- **12 professional-field packages and 81 professional subcategories** are maintained separately under `global_freelancer_gig_independent_work_business_api_ecosystem/jobs_careers_employment_api_ecosystem/professional_fields/`. This is the occupation/professional-field axis, not a 25th employment category.
+- **25 freelance/gig specialization packages** exist under `global_freelancer_gig_independent_work_business_api_ecosystem/`. Each specialization owns its own work-type catalogue.
 
 These counts were derived from the repository tree and the current category/field registries. They are structural counts, not counts of live jobs, active gigs or verified providers.
 
@@ -103,3 +104,10 @@ Work & Careers tests validate the live package registry rather than hard-coded f
 
 
 The specialization test suite supports both established package contracts: (1) independent job-family packages exposing `JOB_FAMILY_ID` and `get_job_family()`, and (2) track adapters exposing `TRACK_ID`, `get_track_definition()` and `get_track_api_resource()`. Tests verify the contract actually implemented by each folder rather than assuming one interface for every historical package.
+
+
+## Consolidated technology and payment ecosystems
+
+- `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem/` is the single top-level home for digital infrastructure, telecommunications, IT, software, AI, cloud and the related Apple, AWS, Google, IBM, Microsoft and Oracle provider folders.
+- `global_finance_banking_insurance_api_ecosystem/global_payment_business_api_ecosystem/` is the single home for payment-platform folders, including PayPal, Stripe, Epoch, Paxum, Segpay, Verotel and CCBill.
+- The old separate root-level technology, employment and payment entry folders have been consolidated. Canonical detailed industry implementations under `industry_api_ecosystems/` remain the implementation owner where documented; the new global folders are the consolidated business-facing structure.

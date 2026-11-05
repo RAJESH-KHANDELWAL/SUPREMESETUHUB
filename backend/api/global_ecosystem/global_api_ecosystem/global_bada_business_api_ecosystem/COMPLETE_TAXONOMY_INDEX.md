@@ -8,8 +8,8 @@ This index separates the ecosystem into independent layers. The layers are inten
 
 ## 1. Core work and business domains — 10 canonical packages
 
-- `work_careers_employment_business_api_ecosystem/`
-- `freelance_gig_independent_work_business_api_ecosystem/`
+- `global_freelancer_gig_independent_work_business_api_ecosystem/jobs_careers_employment_api_ecosystem/`
+- `global_freelancer_gig_independent_work_business_api_ecosystem/`
 - `global_education_learning_training_api_ecosystem/students_education_skills_business_api_ecosystem/`
 - `business_companies_trade_business_api_ecosystem/`
 - `global_entrepreneurs_entrepreneurship_msme_sme_startups_solo_women_digital_ai_technology_innovation_business_creation_development_growth_api_ecosystem/`
@@ -139,3 +139,13 @@ These must remain distinct and be added as versioned datasets with source proven
 - NIC 2025 workbook importer extracts raw rows but requires reviewed column mapping before records can be published.
 - Classification registry API routes are mounted under the existing Bada Business router.
 - Full source datasets, complete code-level crosswalks, country-by-country official datasets, live provider integrations, verified businesses and live job listings are not yet complete.
+
+
+## Consolidated Global domain folders
+
+- `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem/` — Digital Infrastructure, Telecommunications, Technology, IT, AI, software, cloud and related technology-provider packages.
+- `network_marketing_direct_selling_business_api_ecosystem/` — Bharat and international network-marketing and direct-selling companies, distributors, products and business models.
+- `global_freelancer_gig_independent_work_business_api_ecosystem/` — freelancing, gig and independent work; its `jobs_careers_employment_api_ecosystem/` child owns Jobs, Careers & Employment taxonomy.
+- `global_finance_banking_insurance_api_ecosystem/global_payment_business_api_ecosystem/` — payment platforms and provider packages, including PayPal, Stripe, Epoch, Paxum, Segpay, Verotel and CCBill.
+
+These consolidated folders are business-facing ownership boundaries. Existing canonical detailed industry implementations and stable API contracts are retained where needed; do not duplicate their catalogues.

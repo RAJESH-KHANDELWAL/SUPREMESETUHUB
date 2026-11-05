@@ -1,15 +1,20 @@
-# Network Marketing & Direct Selling Business API Ecosystem
+# Global Network Marketing & Direct Selling Business API Ecosystem
 
-Purpose: Organize network marketing and direct-selling business models, companies, products, distributors, sales structures, and related business information.
+**Coverage:** Bharat (India) + Global World.
 
-Scope:
-- Network marketing (multi-level and single-level structures)
-- Direct selling companies and business models
-- Distributor and seller roles
-- Product and compensation-plan information, where lawfully sourced
-- Country-specific compliance references
+## Purpose
+Organize network-marketing and direct-selling businesses, companies, products, distributors, seller roles, sales structures and compensation-plan information across India and international markets.
 
-Important:
-- This folder is a structure/catalogue starting point, not a live company verification service or payment/API integration.
-- Do not treat a listing as proof that a company, product, income claim, or opportunity is genuine.
-- Add jurisdiction, source, last-checked date, and verification status before publishing company or opportunity data.
+## Scope
+- Network marketing, multi-level marketing (MLM) and single-level direct selling
+- Direct-selling companies, brands and country-specific operating entities
+- Distributor, independent seller, team and referral structures
+- Product categories, catalogue references and compensation-plan disclosures
+- Bharat and international market/jurisdiction compliance references
+- Official company sources, country availability and verification history
+
+## Ownership boundary
+Only businesses whose core model is network marketing or direct selling belong here. Other MSME/SME companies and ordinary businesses belong in the MSME/SME or relevant industry ecosystem. Do not place every referral, affiliate or reseller business here without checking its actual business model.
+
+## Verification and consumer protection
+This is a taxonomy/catalogue starting point, not a live company-verification service, investment advice, income guarantee or payment/API integration. A listing does not prove that a company, product, income claim or opportunity is genuine. Record official source, jurisdiction, checked date, legal status and verification status before publishing company or opportunity data. Distinguish lawful direct selling from pyramid schemes and misleading income claims.
