@@ -1,18 +1,3 @@
-"""Governance and explicit approved scope decisions for Bada Business."""
-from .registry import (
-    APPROVED_REQUIREMENTS,
-    APPROVED_SCOPE_CONSTRAINTS,
-    list_approved_requirements,
-    list_scope_constraints,
-    validate_approved_requirements,
-)
-from .routes import router
-
-__all__ = [
-    "APPROVED_REQUIREMENTS",
-    "APPROVED_SCOPE_CONSTRAINTS",
-    "list_approved_requirements",
-    "list_scope_constraints",
-    "validate_approved_requirements",
-    "router",
-]
+"""Compatibility exports for the consolidated governance package."""
+from ..global_business_governance_compliance_standards_api_ecosystem.governance import *
+from ..global_business_governance_compliance_standards_api_ecosystem.governance import __all__
