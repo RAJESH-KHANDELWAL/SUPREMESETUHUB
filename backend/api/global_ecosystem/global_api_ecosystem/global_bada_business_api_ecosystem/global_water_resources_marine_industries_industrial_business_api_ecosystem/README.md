@@ -12,7 +12,7 @@ This directory owns the complete Water Resources & Marine Industries API impleme
 Stable industry ID: `water_resources_marine_industries`.
 
 ## API surface
-The parent ecosystem router mounts this package at the established industry path:
+The industry ecosystem router mounts this package at the established industry API path:
 - `GET /industries/water-resources-marine-industries/status`
 - `GET /industries/water-resources-marine-industries/categories`
 - `GET /industries/water-resources-marine-industries/categories/{category_id}`
