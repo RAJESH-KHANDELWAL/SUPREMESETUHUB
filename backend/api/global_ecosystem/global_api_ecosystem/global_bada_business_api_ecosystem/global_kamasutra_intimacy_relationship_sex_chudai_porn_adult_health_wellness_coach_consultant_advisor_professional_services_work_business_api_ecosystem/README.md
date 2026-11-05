@@ -23,7 +23,7 @@ This is the single consolidated adult-only ecosystem entry point. The former `ad
 
 ## Consolidated modules
 
-- The original Kamasutra taxonomy, routes, schemas, service and 34 domain folders remain at this root.
+- The original Kamasutra taxonomy, routes, schemas, service and 35 domain folders remain at this root.
 - Adult 18+ lawful-industry modules are retained as prefixed Python modules to avoid collisions with the original Kamasutra `catalog.py`, `models.py`, `service.py` and `subcategories.py`.
 - The 25 adult-industry provider folders are direct children of this ecosystem.
 - `adult_sexual_wellness_compat.py` retains a compatibility import to the maintained sexual-wellness taxonomy.
