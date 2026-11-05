@@ -263,11 +263,11 @@ router.include_router(universal_work_business_taxonomy_router)
 
 
 # Dedicated Work, Jobs & Careers subcategory APIs.
-from .global_freelancer_gig_independent_work_business_api_ecosystem/jobs_careers_employment_api_ecosystem.routes import router as work_careers_router
+from .global_freelancer_gig_independent_work_business_api_ecosystem.jobs_careers_employment_api_ecosystem.routes import router as work_careers_router
 router.include_router(work_careers_router)
 
 # Mount every independent Work & Careers job-family package at its canonical API path.
-from .global_freelancer_gig_independent_work_business_api_ecosystem/jobs_careers_employment_api_ecosystem.specialization_routes import router as work_careers_specializations_router
+from .global_freelancer_gig_independent_work_business_api_ecosystem.jobs_careers_employment_api_ecosystem.specialization_routes import router as work_careers_specializations_router
 router.include_router(work_careers_specializations_router)
 
 # Independent freelance specialization APIs and their work-type catalogues.
