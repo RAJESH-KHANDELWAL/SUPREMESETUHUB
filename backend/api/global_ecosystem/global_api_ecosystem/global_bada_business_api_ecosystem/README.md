@@ -53,3 +53,23 @@ Adult-restricted sector is excluded by default. Its inclusion flag is taxonomy v
 - Work modes and audience groups are facets, not industries or personal records.
 - Company/Companies, Platforms and Organizations remain in their owning ecosystems.
 - The counts above describe repository structure, not complete worldwide coverage, active vacancies, verified businesses or live service availability.
+
+
+## Requested ecosystem ownership and routing
+
+The following ownership rules are the canonical routing guide for the Global Bada Business ecosystem. Keep each detailed catalogue in its owning package; root-level folders that are documented as compatibility facades must remain facades rather than duplicate implementations.
+
+| Topic / provider | Canonical destination | Routing rule |
+|---|---|---|
+| Google, AWS, Microsoft and Apple digital/cloud/software/platform services | `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem/` | Keep provider-specific business ecosystems under this Global Digital Infrastructure & Technology domain. The Google, AWS, Microsoft and Apple provider folders are already present here. |
+| Sexual health, reproductive health, sexual wellness and adult intimacy education | `global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_coach_consultant_advisor_professional_services_work_business_api_ecosystem/` | Keep only the sexual/reproductive/adult-wellness scope here. General healthcare, hospitals, diagnostics, medicines and non-sexual wellness remain in the healthcare/life-sciences ecosystems. Adult-restricted visibility must retain the existing lawful, consent and age-gating boundaries. |
+| Water resources and marine industries | `industry_api_ecosystems/water_resources_marine_industries/` | Use the root `water_resources_marine_industries/` package only as its existing compatibility facade. |
+| Travel and tourism | `industry_api_ecosystems/travel_tourism_hospitality/` | Use the root `travel_tourism_hospitality/` package only as its existing compatibility facade. This is the Global Travel industry destination; do not merge it into hotels/restaurants-only hospitality. |
+| Startups, entrepreneurship and MSMEs/SMEs | `industry_api_ecosystems/startups_entrepreneurship/` | Use the root `startups_entrepreneurship/` package only as its existing compatibility facade. Keep startup formation, founder support, incubation, funding and MSME growth in this industry domain. |
+
+### Important separation
+
+- General healthcare is **not** moved into Kamasutra; only sexual/reproductive health and adult sexual wellness belong there.
+- Global Hospitality (hotels, resorts and restaurants) remains a distinct industry from Global Travel & Tourism, with cross-links where useful.
+- Agriculture-specific startup/MSME records may remain in the agriculture ecosystem; cross-link them to Startups & Entrepreneurship rather than duplicating the same records.
+- This routing guide records the intended canonical ownership. It does not claim that provider APIs are connected, that external services are live, or that every cross-reference/import has been audited.
