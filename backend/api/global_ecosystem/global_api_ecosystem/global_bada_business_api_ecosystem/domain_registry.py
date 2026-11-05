@@ -1,5 +1,5 @@
 """Central India and Global work/business domain registry."""
-from .global_freelancer_gig_independent_work_business_api_ecosystem/jobs_careers_employment_api_ecosystem import DOMAIN_ID as WORK_ID, DOMAIN_NAME as WORK_NAME, SUBCATEGORY_IDS as WORK_SUBS
+from .global_freelancer_gig_independent_work_business_api_ecosystem.jobs_careers_employment_api_ecosystem import DOMAIN_ID as WORK_ID, DOMAIN_NAME as WORK_NAME, SUBCATEGORY_IDS as WORK_SUBS
 from .global_freelancer_gig_independent_work_business_api_ecosystem import DOMAIN_ID as FREELANCE_ID, DOMAIN_NAME as FREELANCE_NAME, SUBCATEGORY_IDS as FREELANCE_SUBS
 from .global_education_learning_training_api_ecosystem.students_education_skills_business_api_ecosystem import DOMAIN_ID as STUDENTS_ID, DOMAIN_NAME as STUDENTS_NAME, SUBCATEGORY_IDS as STUDENTS_SUBS
 from .business_companies_trade_business_api_ecosystem import DOMAIN_ID as BUSINESS_ID, DOMAIN_NAME as BUSINESS_NAME, SUBCATEGORY_IDS as BUSINESS_SUBS
