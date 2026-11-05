@@ -23,7 +23,8 @@ duplicate source trees for compatibility entry points.
 - `beauty_fashion_lifestyle/` — maintained directly at this root (not inside `industry_api_ecosystems/`).
 - `business_companies_corporates/`
 - `digital_infrastructure_telecommunications/`
-- `education_learning_training/`
+- `global_education_learning_training_api_ecosystem/` — consolidated Education, Learning & Training entry point; its nested `education_learning_training/` compatibility package points to the canonical industry implementation.
+- `education_learning_training/` — retained root compatibility facade; do not delete while legacy imports depend on it.
 - `global_energy_utilities_environment_api_ecosystem/` — consolidated Energy, Utilities & Environment package.
 - `fashion_textiles_apparel/`
 - `global_finance_banking_insurance_api_ecosystem/` — consolidated public entry point; implementation remains under `industry_api_ecosystems/finance_banking_insurance/`.
@@ -33,6 +34,7 @@ duplicate source trees for compatibility entry points.
 - `healthcare_wellness_fitness/` — canonical gym, fitness, spa and massage taxonomy.
 - `home_services_property_maintenance_facility_management/` — Home Services, Property Maintenance & Facility Management.
 - `jobs_careers_employment/`
+- `global_legal_services_api_ecosystem/` — consolidated Legal Services taxonomy and API-ecosystem documentation entry point; runtime implementation remains explicitly separate until built and registered.
 - `legal_consulting_professional_services/`
 - `manufacturing_industrial_services/` — Manufacturing, Industrial & Industries API Ecosystem; maintained directly at this root (not inside `industry_api_ecosystems/`).
 - `marketing_media_entertainment/`

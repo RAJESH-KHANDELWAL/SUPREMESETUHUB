@@ -100,7 +100,7 @@ Each provider or service record should be classified by:
 
 ## Legal and regulated-service boundary
 
-Legal services, lawyers, litigation, legal opinions, legal documentation and legal representation are excluded from this ecosystem and belong in the separate Legal API Ecosystem.
+Legal services, lawyers, litigation, legal opinions, legal documentation and legal representation are excluded from this professional coaching/consulting/education taxonomy. Their category documentation is consolidated under `../global_legal_services_api_ecosystem/`. The Legal Services runtime API is not claimed to be implemented by this documentation move; implementation and registration must be handled separately.
 
 Regulated accounting, audit, tax, financial, healthcare, engineering, architecture and other licensed work must be clearly distinguished from general coaching or informational services and delivered only by professionals authorised for the relevant jurisdiction. Coaching must not be presented as therapy, medical care, legal advice or regulated financial advice unless the provider is appropriately qualified and authorised.
 
