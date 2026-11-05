@@ -23,10 +23,10 @@ This index separates the ecosystem into independent layers. The layers are inten
 
 Each core domain currently follows the six-file package convention: `__init__.py`, `README.md`, `subcategories.py`, `models.py`, `catalog.py`, `service.py`.
 
-## 2. Industry vertical API ecosystems — 39 packages
+## 2. Industry vertical API ecosystems — 39 registered packages
 
 - `adult_sexual_wellness/`
-- `agriculture_food_natural_resources/`
+- `agriculture_food_natural_resources/` — includes food processing and food safety/testing/compliance.
 - `automotive_mobility/`
 - `aviation_aerospace_space_technology/`
 - `beauty_fashion_lifestyle/`
@@ -37,7 +37,7 @@ Each core domain currently follows the six-file package convention: `__init__.py
 - `family_relationships_parenting/`
 - `fashion_textiles_apparel/`
 - `finance_banking_insurance/`
-- `food_hospitality_restaurants/`
+- `global_hospitality_hotels_resorts_restaurants_api_ecosystem/` — canonical entry point; legacy `food_hospitality_restaurants/` remains a compatibility path.
 - `government_public_services_social_impact/`
 - `healthcare_life_sciences/`
 - `healthcare_wellness_fitness/`
@@ -65,7 +65,7 @@ Each core domain currently follows the six-file package convention: `__init__.py
 - `travel_tourism_hospitality/`
 - `water_resources_marine_industries/`
 
-These are the existing industry packages discovered in the branch tree. Some names overlap by design because they are distinct API modules; a future canonical crosswalk should relate them rather than silently delete or merge them.
+The canonical hospitality entry point is a facade over the maintained industry implementation; it does not create a duplicate industry ID or source tree. Food production, processing, agricultural food supply chains, food testing and food-safety compliance belong to Agriculture & Food. Hospitality covers accommodation, restaurants, prepared-food services and hospitality operations.
 
 ## 3. Provider/platform integrations — 21 packages
 
@@ -135,9 +135,9 @@ These must remain distinct and be added as versioned datasets with source proven
 ## 7. Current implementation status
 
 - 12 core domain packages exist.
-- 39 industry vertical packages exist in `industry_api_ecosystems/`.
+- 39 industry vertical packages are registered.
 - 21 provider/platform packages exist.
-- 8 classification standards are registered in the new classification package.
+- 8 classification standards are registered in the classification package.
 - NIC 2025 workbook importer extracts raw rows but requires reviewed column mapping before records can be published.
 - Classification registry API routes are mounted under the existing Bada Business router.
 - Full source datasets, complete code-level crosswalks, country-by-country official datasets, live provider integrations, verified businesses and live job listings are not yet complete.
