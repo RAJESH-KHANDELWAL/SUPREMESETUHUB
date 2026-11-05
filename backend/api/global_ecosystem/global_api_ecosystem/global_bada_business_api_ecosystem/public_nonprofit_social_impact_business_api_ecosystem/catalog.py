@@ -1,5 +1,5 @@
 """Compatibility exports for the canonical Government, Public Services & Social Impact catalog."""
-from ..industry_api_ecosystems.government_public_services_social_impact.catalog import (
+from ..government_public_services_social_impact.catalog import (
     CATEGORIES,
     LEGACY_CATEGORY_CROSSWALK,
     list_categories,

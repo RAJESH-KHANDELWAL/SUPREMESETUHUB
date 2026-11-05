@@ -6,5 +6,5 @@ The maintained implementation remains in industry_api_ecosystems/
 finance_banking_insurance; this package exposes that implementation without
 duplicating its catalogs, services, schemas, or routes.
 """
-from ..industry_api_ecosystems.finance_banking_insurance import *
-from ..industry_api_ecosystems.finance_banking_insurance import __path__
+from ..finance_banking_insurance import *
+from ..finance_banking_insurance import __path__

@@ -1,5 +1,5 @@
 """Compatibility facade for the canonical Finance, Banking & Insurance ecosystem."""
-from ..industry_api_ecosystems.finance_banking_insurance import (
+from ..finance_banking_insurance import (
     INDUSTRY_ID as DOMAIN_ID, INDUSTRY_NAME as DOMAIN_NAME, SUBCATEGORY_IDS,
     COVERAGE, CHANNELS, STATUS,
 )
