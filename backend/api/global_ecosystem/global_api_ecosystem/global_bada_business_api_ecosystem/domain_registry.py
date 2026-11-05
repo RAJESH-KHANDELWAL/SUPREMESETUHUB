@@ -3,7 +3,7 @@ from .work_careers_employment_business_api_ecosystem import DOMAIN_ID as WORK_ID
 from .freelance_gig_independent_work_business_api_ecosystem import DOMAIN_ID as FREELANCE_ID, DOMAIN_NAME as FREELANCE_NAME, SUBCATEGORY_IDS as FREELANCE_SUBS
 from .global_education_learning_training_api_ecosystem.students_education_skills_business_api_ecosystem import DOMAIN_ID as STUDENTS_ID, DOMAIN_NAME as STUDENTS_NAME, SUBCATEGORY_IDS as STUDENTS_SUBS
 from .business_companies_trade_business_api_ecosystem import DOMAIN_ID as BUSINESS_ID, DOMAIN_NAME as BUSINESS_NAME, SUBCATEGORY_IDS as BUSINESS_SUBS
-from .entrepreneurship_startups_business_api_ecosystem import DOMAIN_ID as STARTUP_ID, DOMAIN_NAME as STARTUP_NAME, SUBCATEGORY_IDS as STARTUP_SUBS
+from .global_entrepreneurs_entrepreneurship_msme_sme_startups_solo_women_digital_ai_technology_innovation_business_creation_development_growth_api_ecosystem import DOMAIN_ID as STARTUP_ID, DOMAIN_NAME as STARTUP_NAME, SUBCATEGORY_IDS as STARTUP_SUBS
 from .home_homemaker_care_economy_business_api_ecosystem import DOMAIN_ID as HOME_ID, DOMAIN_NAME as HOME_NAME, SUBCATEGORY_IDS as HOME_SUBS
 from .industries_professional_services_business_api_ecosystem import DOMAIN_ID as INDUSTRY_ID, DOMAIN_NAME as INDUSTRY_NAME, SUBCATEGORY_IDS as INDUSTRY_SUBS
 from .family_relationships_community_business_api_ecosystem import DOMAIN_ID as FAMILY_ID, DOMAIN_NAME as FAMILY_NAME, SUBCATEGORY_IDS as FAMILY_SUBS

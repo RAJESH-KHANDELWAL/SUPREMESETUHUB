@@ -18,7 +18,7 @@ This document defines the direct-root domain package plan for this existing dire
 2. `freelance_gig_independent_work_business_api_ecosystem/` — freelance skills, gigs, contracts and independent services.
 3. `global_education_learning_training_api_ecosystem/students_education_skills_business_api_ecosystem/` — school, higher/vocational education, courses, scholarships, internships and skills.
 4. `business_companies_trade_business_api_ecosystem/` — entity forms, enterprise sizes, local businesses, wholesale, retail, manufacturing and trade.
-5. `entrepreneurship_startups_business_api_ecosystem/` — business ideas, validation, startup formation, incubators, funding and scaling.
+5. `global_entrepreneurs_entrepreneurship_msme_sme_startups_solo_women_digital_ai_technology_innovation_business_creation_development_growth_api_ecosystem/` — entrepreneurs, MSME, SME, startups, solo and women entrepreneurship, digital, AI, technology, innovation, business creation and growth.
 6. `home_homemaker_care_economy_business_api_ecosystem/` — home businesses, homemaker livelihoods, caregiving and domestic services.
 7. `industries_professional_services_business_api_ecosystem/` — cross-sector industries and professional services; detailed sector registries remain in existing modules.
 8. `family_relationships_community_business_api_ecosystem/` — family/community education and provider-side support categories; private personal records remain elsewhere.

@@ -1,7 +1,7 @@
-# Entrepreneurship, Startups & Innovation
+# Entrepreneurs, Entrepreneurship, MSME, SME, Startups, Digital, AI & Innovation
 
 ## Purpose
-Idea development, validation, business planning, startup formation, incubators, accelerators, fundraising, IP, product development and scaling.
+Entrepreneur and enterprise development across MSME, SME, startups, solo and women-led ventures, digital and online business, AI and technology entrepreneurship, innovation, business creation, planning, launch, operations, funding readiness, scaling and expansion.
 
 ## Package contract
 The adjacent `__init__.py` defines `DOMAIN_ID`, `DOMAIN_NAME`, `ADULT_RESTRICTED`, `DEFAULT_DISCOVERY_ENABLED`, `SUBCATEGORY_IDS` and `list_subcategories()`.
