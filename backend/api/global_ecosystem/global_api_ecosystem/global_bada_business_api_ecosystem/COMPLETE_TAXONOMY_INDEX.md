@@ -10,7 +10,7 @@ This index separates the ecosystem into independent layers. The layers are inten
 
 - `work_careers_employment_business_api_ecosystem/`
 - `freelance_gig_independent_work_business_api_ecosystem/`
-- `students_education_skills_business_api_ecosystem/`
+- `global_education_learning_training_api_ecosystem/students_education_skills_business_api_ecosystem/`
 - `business_companies_trade_business_api_ecosystem/`
 - `entrepreneurship_startups_business_api_ecosystem/`
 - `home_homemaker_care_economy_business_api_ecosystem/`
