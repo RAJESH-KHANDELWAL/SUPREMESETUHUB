@@ -97,11 +97,14 @@ DOMAIN_CATALOG = {
         "trauma-informed referrals"
     ],
     "family_parenting_reproductive_wellness": [
+        "adult family relationship education",
         "family planning",
         "preconception education",
         "pregnancy planning",
         "postpartum relationship wellness",
-        "responsible parenting education"
+        "responsible parenting education",
+        "co-parenting communication",
+        "adult family relationship counselling referrals"
     ],
     "mature_adult_relationships": [
         "mature adult dating",
@@ -117,6 +120,13 @@ DOMAIN_CATALOG = {
         "privacy and safety",
         "country-specific access information"
     ],
+    "adult_body_fitness_wellness": [
+        "adult body confidence and positive body image",
+        "intimacy-related mobility and flexibility education",
+        "pelvic floor wellness education with qualified clinical referral boundaries",
+        "adult fitness coaching for general wellbeing and intimacy confidence",
+        "consent-first body awareness and non-clinical wellness education"
+    ],
     "sexual_wellness_coaching": [
         "non-clinical adult education coaching",
         "wellness goal setting",
@@ -126,6 +136,8 @@ DOMAIN_CATALOG = {
     ],
     "relationship_coaching": [
         "relationship skills coaching",
+        "family relationship skills for adults",
+        "marriage and partnership communication",
         "dating communication",
         "couple communication",
         "conflict navigation",
