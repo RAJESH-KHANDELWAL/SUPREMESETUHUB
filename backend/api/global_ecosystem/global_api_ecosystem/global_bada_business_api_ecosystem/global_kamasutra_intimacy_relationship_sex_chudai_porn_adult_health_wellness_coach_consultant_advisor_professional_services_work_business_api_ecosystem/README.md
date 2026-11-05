@@ -8,8 +8,10 @@ This is the single consolidated adult-only ecosystem entry point. The former `ad
 
 ## Coverage
 
-- Kamasutra and relationship education
+- Kamasutra, adult relationships, couples communication, marriage education and relationship coaching
+- Adult family-relationship education, co-parenting communication and qualified counselling referrals (18+ service discovery; safeguarding remains separate)
 - Adult intimacy and sexual wellness education
+- Adult body confidence, intimacy-related mobility, pelvic-floor wellness education and non-clinical adult fitness/wellbeing coaching (not general gym or medical treatment)
 - Clinical sexual-health services (licensed professionals only)
 - Relationship counselling and therapy (qualified professionals only)
 - Lawful adult media and entertainment, with consent, age assurance and licensing
@@ -25,6 +27,13 @@ This is the single consolidated adult-only ecosystem entry point. The former `ad
 - Adult 18+ lawful-industry modules are retained as prefixed Python modules to avoid collisions with the original Kamasutra `catalog.py`, `models.py`, `service.py` and `subcategories.py`.
 - The 25 adult-industry provider folders are direct children of this ecosystem.
 - `adult_sexual_wellness_compat.py` retains a compatibility import to the maintained sexual-wellness taxonomy.
+
+## Cross-ecosystem classification boundary
+
+- Family relationship, couple communication, marriage and adult relationship categories are consolidated here. General parenting, child welfare, elder care, caregiver support and non-sexual community services remain in the Family & Community ecosystem.
+- Clinical sexual and reproductive medicine remains in Healthcare, Medical & Life Sciences; this ecosystem may reference those clinical pathways but does not replace licensed care.
+- General gyms, sports fitness, nutrition, weight management, yoga, spa and massage remain in the Healthcare, Wellness & Fitness industry ecosystem. Only adult intimacy-related body confidence, mobility and non-clinical wellness education are classified here under the 18+ boundary.
+- Adult categories are restricted and must not be exposed through default public discovery. Cross-references must not duplicate provider records.
 
 ## Safety and compliance
 
