@@ -1,11 +1,7 @@
-"""Root-level compatibility entry point for the personal_lifestyle_wellness industry ecosystem.
-
-The maintained implementation remains in industry_api_ecosystems/personal_lifestyle_wellness.
-This facade exposes it at the global_bada_business_api_ecosystem root
-without duplicating source files or breaking existing imports.
-"""
-from pathlib import Path as _Path
-
-from ..industry_api_ecosystems.personal_lifestyle_wellness import *
-
-__path__ = [str(_Path(__file__).resolve().parent.parent / "industry_api_ecosystems" / "personal_lifestyle_wellness")]
+"""Unified personal, family, relationships and wellness domain."""
+INDUSTRY_ID="personal_lifestyle_wellness"
+INDUSTRY_NAME="Personal, Family, Relationships, Adult Wellness & Lifestyle"
+COVERAGE=("india","global")
+CHANNELS=("online","offline","hybrid")
+STATUS="taxonomy_scaffold"
+from .service import PersonalWellnessService

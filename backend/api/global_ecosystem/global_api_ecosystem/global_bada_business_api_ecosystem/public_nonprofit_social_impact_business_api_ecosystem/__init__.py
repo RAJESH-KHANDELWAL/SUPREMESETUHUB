@@ -1,9 +1,9 @@
 """Compatibility facade; canonical implementation lives in industry_api_ecosystems.government_public_services_social_impact."""
-from ..industry_api_ecosystems.government_public_services_social_impact import (
+from ..government_public_services_social_impact import (
     INDUSTRY_ID as DOMAIN_ID,
     INDUSTRY_NAME as DOMAIN_NAME,
 )
-from ..industry_api_ecosystems.government_public_services_social_impact.catalog import (
+from ..government_public_services_social_impact.catalog import (
     CATEGORIES,
     LEGACY_CATEGORY_CROSSWALK,
 )

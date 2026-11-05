@@ -1,7 +1,7 @@
 """Tests for the Industry API Ecosystems service."""
 import unittest
-from industry_api_ecosystems.service import IndustryEcosystemService
-from industry_api_ecosystems.router_coverage import get_industry_router_coverage
+from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.industry_api_ecosystems.service import IndustryEcosystemService
+from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.industry_api_ecosystems.router_coverage import get_industry_router_coverage
 
 class IndustryEcosystemServiceTests(unittest.TestCase):
     def setUp(self):

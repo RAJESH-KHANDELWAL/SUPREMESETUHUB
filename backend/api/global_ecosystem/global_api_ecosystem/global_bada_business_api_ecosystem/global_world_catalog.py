@@ -5,7 +5,7 @@ registry. Business providers are discoverable here; personal records remain in
 their owning ecosystems. Keep this catalogue synchronized with Global World.
 """
 from .global_freelancer_gig_independent_work_business_api_ecosystem import SUBCATEGORY_IDS as FREELANCE_SUBCATEGORY_IDS
-from .industry_api_ecosystems.finance_banking_insurance import SUBCATEGORY_IDS as FINANCE_SUBCATEGORY_IDS
+from .finance_banking_insurance import SUBCATEGORY_IDS as FINANCE_SUBCATEGORY_IDS
 
 GLOBAL_WORLD_CATALOG = (
     {"id":"agriculture-food-natural-resources","name":"Agriculture, Food, Forestry & Fisheries","groups":["farming","crops","livestock","dairy","poultry","fisheries","aquaculture","forestry","food production","food processing","agritech","farm equipment"],"owner_ecosystem":"global-bada-business","business_category_ids":["agriculture","forestry-natural-resources"],"business_scope":"direct","modes":["offline","online","hybrid"]},

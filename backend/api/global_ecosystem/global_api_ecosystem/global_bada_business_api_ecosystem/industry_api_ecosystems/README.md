@@ -1,6 +1,6 @@
 # Industry API Ecosystems
 
-Master India + Global business-industry taxonomy API under the existing `global_bada_business_api_ecosystem`.
+Master India + Global business-industry taxonomy API under the existing `global_bada_business_api_ecosystem`. Industry implementation packages now live as sibling domain folders directly under `global_bada_business_api_ecosystem/`; this directory retains the master registry, schemas, service, routes, router coverage and tests.
 
 ## Endpoints
 - `GET /api/v1/global-ecosystem/business/industries/status`

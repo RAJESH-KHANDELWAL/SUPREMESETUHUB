@@ -1,5 +1,5 @@
 """Compatibility catalogue backed by the canonical finance ecosystem."""
-from ..industry_api_ecosystems.finance_banking_insurance.catalog import (
+from ..finance_banking_insurance.catalog import (
     list_categories as _list_categories, get_category as _get_category,
     LEGACY_CATEGORY_CROSSWALK,
 )

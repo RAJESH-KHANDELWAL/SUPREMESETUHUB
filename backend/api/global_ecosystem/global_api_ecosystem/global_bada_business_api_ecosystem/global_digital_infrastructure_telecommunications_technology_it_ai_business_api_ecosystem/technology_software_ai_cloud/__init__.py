@@ -6,6 +6,6 @@ without duplicating source files or breaking existing imports.
 """
 from pathlib import Path as _Path
 
-from ..industry_api_ecosystems.technology_software_ai_cloud import *
+from ...technology_software_ai_cloud import *
 
-__path__ = [str(_Path(__file__).resolve().parent.parent / "industry_api_ecosystems" / "technology_software_ai_cloud")]
+__path__ = [str(_Path(__file__).resolve().parent.parent.parent / "technology_software_ai_cloud")]
