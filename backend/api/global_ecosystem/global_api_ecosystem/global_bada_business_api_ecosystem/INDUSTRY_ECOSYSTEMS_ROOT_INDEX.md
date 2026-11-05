@@ -3,7 +3,8 @@
 This directory exposes industry packages directly under
 `global_bada_business_api_ecosystem/`. Most industry implementations are
 maintained under `industry_api_ecosystems/`; Agriculture, Food & Natural
-Resources is consolidated under `global_agriculture_food_natural_resources_api_ecosystem/industry_api_ecosystems/`.
+Resources is consolidated under
+`global_agriculture_food_natural_resources_api_ecosystem/`.
 Beauty, Fashion & Lifestyle and Mining, Metals & Minerals are maintained directly at this root as explicit layout exceptions. Energy, Utilities & Environment is consolidated under its global API ecosystem package. Finance, Banking & Insurance exposes a global API ecosystem entry point while its maintained implementation remains under industry_api_ecosystems/.
 
 Legacy paths for `media_entertainment_creative_industries` and
@@ -14,7 +15,7 @@ duplicate source trees for compatibility entry points.
 
 ## Industry packages and consolidated entry points (35 root-level packages; 37 registered industry IDs)
 
-- `global_agriculture_food_natural_resources_api_ecosystem/` — canonical consolidated Agriculture, Food & Natural Resources package; `agriculture_food_natural_resources/` remains a compatibility entry point.
+- `global_agriculture_food_natural_resources_api_ecosystem/` — sole canonical Agriculture, Food & Natural Resources package; the former root-level `agriculture_food_natural_resources/` folder has been removed.
 - `international_trade_import_export_customs_global_commerce/` — International Trade, Import-Export, Customs & Global Commerce.
 - `arts_culture_heritage_creative_economy/` — Arts, Culture, Heritage & Creative Economy.
 - `automotive_mobility/`
@@ -52,7 +53,7 @@ duplicate source trees for compatibility entry points.
 
 ## Maintenance rules
 
-- Unless explicitly documented as an exception, modify industry implementation files in `industry_api_ecosystems/<package>/`. Agriculture, Food & Natural Resources is maintained directly under `global_agriculture_food_natural_resources_api_ecosystem/`; the former `agriculture_food_natural_resources/` path is a compatibility entry point.
+- Unless explicitly documented as an exception, modify industry implementation files in `industry_api_ecosystems/<package>/`. Agriculture, Food & Natural Resources is maintained directly under `global_agriculture_food_natural_resources_api_ecosystem/`; do not recreate the former root-level `agriculture_food_natural_resources/` folder.
 - Beauty, Fashion & Lifestyle; Mining, Metals & Minerals; and Manufacturing, Industrial & Industries implementation files live directly at the Bada Business root. Energy, Utilities & Environment lives in `global_energy_utilities_environment_api_ecosystem/`; Finance, Banking & Insurance implementation remains in `industry_api_ecosystems/finance_banking_insurance/` with a consolidated global entry point. Real Estate and Transport now also have consolidated global root entry points that expose their underlying industry packages without duplicating API implementations.
 - Importers may use the documented root package names; avoid duplicate catalogs and services.
 - New industry packages must be registered in the industry ecosystem registry and covered by route, schema and integrity tests.
