@@ -147,5 +147,6 @@ These must remain distinct and be added as versioned datasets with source proven
 - `network_marketing_direct_selling_business_api_ecosystem/` — Bharat and international network-marketing and direct-selling companies, distributors, products and business models.
 - `global_freelancer_gig_independent_work_business_api_ecosystem/` — freelancing, gig and independent work; its `jobs_careers_employment_api_ecosystem/` child owns Jobs, Careers & Employment taxonomy.
 - `global_finance_banking_insurance_api_ecosystem/global_payment_business_api_ecosystem/` — payment platforms and provider packages, including PayPal, Stripe, Epoch, Paxum, Segpay, Verotel and CCBill.
+- `global_water_resources_marine_industries_industrial_business_api_ecosystem/` — Global Water Resources & Marine Industries business-facing entry point; the canonical industry implementation and stable industry ID remain under `industry_api_ecosystems/water_resources_marine_industries/`.
 
 These consolidated folders are business-facing ownership boundaries. Existing canonical detailed industry implementations and stable API contracts are retained where needed; do not duplicate their catalogues.
