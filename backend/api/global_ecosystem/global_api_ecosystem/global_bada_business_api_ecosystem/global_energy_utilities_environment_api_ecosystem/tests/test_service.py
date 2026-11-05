@@ -1,6 +1,6 @@
 """Unit tests for Energy, Utilities & Environment taxonomy service."""
 import unittest
-from energy_utilities_environment.service import EnergyEnvironmentService
+from global_energy_utilities_environment_api_ecosystem.service import EnergyEnvironmentService
 
 class EnergyEnvironmentServiceTests(unittest.TestCase):
     def setUp(self):

@@ -20,7 +20,7 @@ This index separates the ecosystem into independent layers. The layers are inten
 - `services_platforms_integrations_business_api_ecosystem/`
 
 
-Each core domain follows its documented package convention. Finance, Banking & Insurance and Government, Public Services & Social Impact are maintained as canonical industry API ecosystems under `industry_api_ecosystems/`; their former parallel folders are compatibility facades only.
+Each core domain follows its documented package convention. Finance, Banking & Insurance is implemented under `industry_api_ecosystems/finance_banking_insurance/` and exposed through `global_finance_banking_insurance_api_ecosystem/`. Government, Public Services & Social Impact remains under `industry_api_ecosystems/`.
 
 ## 2. Industry vertical API ecosystems — 37 packages
 
@@ -33,9 +33,9 @@ Each core domain follows its documented package convention. Finance, Banking & I
 - `business_companies_corporates/`
 - `digital_infrastructure_telecommunications/`
 - `education_learning_training/`
-- `energy_utilities_environment/`
+- `global_energy_utilities_environment_api_ecosystem/`
 - `fashion_textiles_apparel/`
-- `finance_banking_insurance/`
+- `global_finance_banking_insurance_api_ecosystem/`
 - `food_hospitality_restaurants/`
 - `government_public_services_social_impact/`
 - `healthcare_life_sciences/`

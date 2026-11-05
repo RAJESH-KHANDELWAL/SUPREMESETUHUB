@@ -69,7 +69,7 @@ router.include_router(marketing_media_entertainment_router)
 router.include_router(arts_culture_heritage_router)
 router.include_router(international_trade_router)
 
-from .energy_utilities_environment.routes import router as energy_environment_router
+from ..global_energy_utilities_environment_api_ecosystem.routes import router as energy_environment_router
 from .professional_legal_business_services.routes import router as professional_services_router
 from .government_public_services_social_impact.routes import router as public_impact_router
 from .automotive_mobility.routes import router as automotive_mobility_router
