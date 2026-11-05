@@ -1,9 +1,9 @@
 import importlib
 import unittest
 
-from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.freelance_gig_independent_work_business_api_ecosystem import SUBCATEGORY_IDS
+from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_freelancer_gig_independent_work_business_api_ecosystem import SUBCATEGORY_IDS
 
-PACKAGE = "backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.freelance_gig_independent_work_business_api_ecosystem"
+PACKAGE = "backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_freelancer_gig_independent_work_business_api_ecosystem"
 
 class FreelanceSpecializationPackageTests(unittest.TestCase):
     def test_each_specialization_has_independent_layers(self):
