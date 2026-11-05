@@ -16,7 +16,7 @@ This document defines the direct-root domain package plan for this existing dire
 ## Standardized domain API ecosystem folders (direct children)
 1. `work_careers_employment_business_api_ecosystem/` — jobs, employment types, career guidance, recruitment and staffing.
 2. `freelance_gig_independent_work_business_api_ecosystem/` — freelance skills, gigs, contracts and independent services.
-3. `students_education_skills_business_api_ecosystem/` — school, higher/vocational education, courses, scholarships, internships and skills.
+3. `global_education_learning_training_api_ecosystem/students_education_skills_business_api_ecosystem/` — school, higher/vocational education, courses, scholarships, internships and skills.
 4. `business_companies_trade_business_api_ecosystem/` — entity forms, enterprise sizes, local businesses, wholesale, retail, manufacturing and trade.
 5. `entrepreneurship_startups_business_api_ecosystem/` — business ideas, validation, startup formation, incubators, funding and scaling.
 6. `home_homemaker_care_economy_business_api_ecosystem/` — home businesses, homemaker livelihoods, caregiving and domestic services.
