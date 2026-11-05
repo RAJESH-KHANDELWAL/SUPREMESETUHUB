@@ -1,4 +1,4 @@
-"""Individuals, Couples, Family & Community domain package; classification only, not verified live listings."""
+"""Family, Parenting & Community Support domain package; classification only, not verified live listings."""
 DOMAIN_ID = "family_relationships_community"
 DOMAIN_NAME = "Family, Parenting & Community Support"
 ADULT_RESTRICTED = False
