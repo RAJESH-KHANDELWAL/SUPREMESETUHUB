@@ -8,8 +8,8 @@ This index separates the ecosystem into independent layers. The layers are inten
 
 ## 1. Core work and business domains — 10 canonical packages
 
-- `work_careers_employment_business_api_ecosystem/`
-- `freelance_gig_independent_work_business_api_ecosystem/`
+- `global_freelancer_gig_independent_work_business_api_ecosystem/jobs_careers_employment_api_ecosystem/`
+- `global_freelancer_gig_independent_work_business_api_ecosystem/`
 - `global_education_learning_training_api_ecosystem/students_education_skills_business_api_ecosystem/`
 - `business_companies_trade_business_api_ecosystem/`
 - `global_entrepreneurs_entrepreneurship_msme_sme_startups_solo_women_digital_ai_technology_innovation_business_creation_development_growth_api_ecosystem/`
