@@ -69,12 +69,12 @@ jobs:
 
       - name: Run Freelance Work-Type Package Tests
         run: |
-          python -m unittest backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.freelance_gig_independent_work_business_api_ecosystem.tests.test_work_type_packages -v
+          python -m unittest backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_freelancer_gig_independent_work_business_api_ecosystem.tests.test_work_type_packages -v
 
       - name: Run All Freelance Work-Type Tests
         run: |
           python -m unittest discover \
-            -s backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/freelance_gig_independent_work_business_api_ecosystem \
+            -s backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/global_freelancer_gig_independent_work_business_api_ecosystem \
             -t backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem \
             -p "test_*.py" \
             -v
@@ -93,12 +93,12 @@ jobs:
 
       - name: Run Work and Careers Government Jobs Tests
         run: |
-          python -m unittest backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.work_careers_employment_business_api_ecosystem.government_jobs.tests.test_government_jobs -v
+          python -m unittest backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_freelancer_gig_independent_work_business_api_ecosystem/jobs_careers_employment_api_ecosystem.government_jobs.tests.test_government_jobs -v
 
       - name: Run All Work and Careers Subcategory Tests
         run: |
           python -m unittest discover \
-            -s backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/work_careers_employment_business_api_ecosystem \
+            -s backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/global_freelancer_gig_independent_work_business_api_ecosystem/jobs_careers_employment_api_ecosystem \
             -t backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem \
             -p "test_*.py" \
             -v
