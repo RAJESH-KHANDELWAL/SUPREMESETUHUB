@@ -50,7 +50,7 @@ duplicate source trees for compatibility entry points.
 - `technology_software_ai_cloud/`
 - `automotive_mobility/global_transport_mobility_logistics_supply_chain_business_api_ecosystem/` — consolidated Transport, Mobility, Logistics & Supply Chain entry point nested under Automotive & Mobility.
 - `automotive_mobility/global_transport_mobility_logistics_supply_chain_business_api_ecosystem/global_aviation_aerospace_space_technology_api_ecosystem/` — Aviation, Aerospace & Space Technology entry point nested under Transport.
-- `travel_tourism_hospitality/`
+- `travel_tourism_hospitality/` — canonical Travel, Tourism & Hospitality package maintained directly at the Bada Business root, outside `industry_api_ecosystems/`; its stable industry ID and API routes remain registered.
 - `water_resources_marine_industries/`
 
 ## Maintenance rules
