@@ -8,4 +8,7 @@ from pathlib import Path as _Path
 
 from ..industry_api_ecosystems.automotive_mobility import *
 
-__path__ = [str(_Path(__file__).resolve().parent.parent / "industry_api_ecosystems" / "automotive_mobility")]
+__path__ = [
+    str(_Path(__file__).resolve().parent),
+    str(_Path(__file__).resolve().parent.parent / "industry_api_ecosystems" / "automotive_mobility"),
+]

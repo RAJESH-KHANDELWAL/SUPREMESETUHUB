@@ -27,8 +27,9 @@ Each core domain follows its documented package convention. Finance, Banking & I
 - `agriculture_food_natural_resources/`
 - `international_trade_import_export_customs_global_commerce/` — International Trade, Import-Export, Customs & Global Commerce.
 - `arts_culture_heritage_creative_economy/` — Arts, Culture, Heritage & Creative Economy.
-- `automotive_mobility/`
-- `aviation_aerospace_space_technology/`
+- `automotive_mobility/` — parent entry point for Automotive, Mobility, Transport, Logistics & Supply Chain.
+  - `global_transport_mobility_logistics_supply_chain_business_api_ecosystem/` — nested transport and mobility ecosystem.
+    - `global_aviation_aerospace_space_technology_api_ecosystem/` — nested Aviation, Aerospace & Space Technology entry point.
 - `beauty_fashion_lifestyle/`
 - `business_companies_corporates/`
 - `digital_infrastructure_telecommunications/`

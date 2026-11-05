@@ -18,8 +18,7 @@ duplicate source trees for compatibility entry points.
 - `global_agriculture_food_natural_resources_api_ecosystem/` — sole canonical Agriculture, Food & Natural Resources package; the former root-level `agriculture_food_natural_resources/` folder has been removed.
 - `international_trade_import_export_customs_global_commerce/` — International Trade, Import-Export, Customs & Global Commerce.
 - `arts_culture_heritage_creative_economy/` — Arts, Culture, Heritage & Creative Economy.
-- `automotive_mobility/`
-- `aviation_aerospace_space_technology/`
+- `automotive_mobility/` — parent entry point containing the consolidated Transport, Mobility, Logistics & Supply Chain ecosystem and its nested Aviation/Aerospace entry point.
 - `beauty_fashion_lifestyle/` — maintained directly at this root (not inside `industry_api_ecosystems/`).
 - `business_companies_corporates/`
 - `digital_infrastructure_telecommunications/`
@@ -49,7 +48,8 @@ duplicate source trees for compatibility entry points.
 - `startups_entrepreneurship/`
 - `technology_it_telecommunications/`
 - `technology_software_ai_cloud/`
-- `global_transport_mobility_logistics_supply_chain_business_api_ecosystem/` — consolidated Transport, Mobility, Logistics & Supply Chain entry point.
+- `automotive_mobility/global_transport_mobility_logistics_supply_chain_business_api_ecosystem/` — consolidated Transport, Mobility, Logistics & Supply Chain entry point nested under Automotive & Mobility.
+- `automotive_mobility/global_transport_mobility_logistics_supply_chain_business_api_ecosystem/global_aviation_aerospace_space_technology_api_ecosystem/` — Aviation, Aerospace & Space Technology entry point nested under Transport.
 - `travel_tourism_hospitality/`
 - `water_resources_marine_industries/`
 
