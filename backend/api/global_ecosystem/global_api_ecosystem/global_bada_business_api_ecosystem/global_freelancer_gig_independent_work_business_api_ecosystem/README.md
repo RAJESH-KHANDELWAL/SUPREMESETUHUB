@@ -1,25 +1,19 @@
-# Freelancing, Gig & Independent Work
+# Global Freelancer, Gig & Independent Work Business API Ecosystem
 
-## Purpose
-Independent services, project work, gig assignments and professional contracting across creative, technical, administrative and local-service skills.
+**Coverage:** Bharat + Global  
+**Purpose:** One canonical home for independent work, freelancing, gig assignments, professional contracting, self-employment and related work opportunities.
 
-## Architecture
-Each of the 25 canonical specializations has its own direct-child package folder. Each package owns its README, work-type catalogue, typed model, catalogue functions, service facade, API routes, response schemas, validators and tests. The specialization's `work_types.py` is the single source of truth for stable work-type IDs, names and descriptions.
+## Main areas
+- Freelance services and independent professional specializations
+- Gig work, task work, delivery and local-service assignments
+- Independent contractors, consultants and self-employed professionals
+- Remote, project-based and platform-mediated work
+- Jobs, Careers & Employment as a dedicated child API Ecosystem at `jobs_careers_employment_api_ecosystem/`
 
-Every canonical work type now also has its own child API package under its owning specialization:
-- one folder per work-type ID;
-- its own README, `__init__.py`, `categories.py`, `models.py`, `catalog.py`, `schemas.py`, `services.py`, `routes.py` and `validators.py`;
-- its own `tests/` package and test module;
-- its own API route, mounted by the owning specialization router.
-
-Leaf packages resolve their metadata from the parent specialization's `work_types.py`. This preserves a single source of truth and prevents duplicate or drifting work-type records.
-
-The root `__init__.py` remains the canonical index of stable specialization IDs. `specializations.py` mounts the specialization routers, and each specialization mounts its own work-type routers. Root `catalog.py` and `service.py` remain the domain-level discovery facade.
+## Jobs, Careers & Employment child ecosystem
+The child package contains the detailed employment-context taxonomy, career pathways, recruitment/staffing categories, professional fields and job-family specialization packages. Keep this material nested here as requested, while retaining explicit cross-links for employers and service providers.
 
 ## Boundaries
-This is a taxonomy and API-contract package, not a live listing or verification service. A category does not prove that a job is open, an employer or client is genuine, a business is registered, a professional is licensed or a third-party API is connected. India + Global describe intended coverage, not exhaustive country-level availability.
+This is a taxonomy/API package, not a live vacancy board or verification service. A category does not prove a job is open, an employer/client is genuine, a business is registered, a worker is licensed or a third-party platform is connected. Do not store candidate identity documents, private messages, payment credentials or sensitive personal records here.
 
-Do not store personal profiles, applications, private messages, payment credentials, medical records or other sensitive personal data in this package. Keep operational records in their owning systems and connect them through stable identifiers. Add source provenance, country/jurisdiction, timestamps, verification state, freshness, deduplication and moderation before ingesting listings.
-
-## Maintenance
-Keep specialization and work-type IDs stable and lowercase snake_case. Each specialization folder is the sole owner of its work-type definitions. Each work-type child package is a dedicated API/validation boundary and must continue to resolve its canonical record from the owning specialization. Cross-domain overlaps (for example, SEO as a freelance service and SEO as an employment occupation) must use explicit crosswalk references rather than duplicate detailed records. Add tests for duplicate IDs, empty labels, importability and API serialization. Regulated work must respect local licensing and authorization requirements.
+Use stable IDs, source provenance, jurisdiction, checked timestamps, freshness and verification status. Keep freelance service, occupation, employment context and specific vacancy as separate classification axes connected by references rather than duplicated records.
