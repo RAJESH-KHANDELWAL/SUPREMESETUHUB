@@ -86,6 +86,11 @@ SUBCATEGORIES = [
         "folder": "lgbtq_adult_wellness"
     },
     {
+        "id": "adult_body_fitness_wellness",
+        "name": "Adult Body, Fitness & Intimacy Wellness (18+)",
+        "folder": "adult_body_fitness_wellness"
+    },
+    {
         "id": "sexual_wellness_coaching",
         "name": "Sexual Wellness Coaching",
         "folder": "sexual_wellness_coaching"
