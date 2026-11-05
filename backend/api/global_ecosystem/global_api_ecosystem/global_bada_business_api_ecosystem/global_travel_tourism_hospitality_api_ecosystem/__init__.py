@@ -1,4 +1,4 @@
-"""Travel, Tourism & Hospitality domain package."""
+"""Global Travel, Tourism & Hospitality API business ecosystem package."""
 INDUSTRY_ID="travel_tourism_hospitality"
 INDUSTRY_NAME="Travel, Tourism & Hospitality"
 COVERAGE=("india","global")

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, Query
 from .schemas import TravelListResponse, TravelDetailResponse
 from .service import TravelService
-router=APIRouter(prefix="/travel-tourism-hospitality",tags=["GLOBAL BADA BUSINESS - TRAVEL & HOSPITALITY"])
+router=APIRouter(prefix="/travel-tourism-hospitality",tags=["GLOBAL TRAVEL, TOURISM & HOSPITALITY API ECOSYSTEM"])
 service=TravelService()
 @router.get("/status")
 def status(): return service.get_status()
