@@ -3,7 +3,7 @@
 Stable domain identifier: `healthcare_wellness_fitness`.
 
 ## Scope
-India-and-global taxonomy for fitness, wellbeing, personal care, relationships, family support and donor wellbeing resources.
+India-and-global taxonomy for general fitness, wellbeing, personal care, nutrition, spa, yoga and non-sexual family/social support resources.
 
 ## Endpoints
 - `GET /industries/healthcare-wellness-fitness/status`
@@ -14,9 +14,10 @@ India-and-global taxonomy for fitness, wellbeing, personal care, relationships, 
 The catalog contains 20 top-level categories. Each category is designed to have a dedicated folder and API documentation.
 
 ## Safeguards
-- Adult wellbeing material is limited to lawful education, consent, communication and qualified professional referrals.
-- Couple and intimacy support is for consenting adults.
-- Family, relatives and friends are covered only through non-sexual counselling, communication and social support.
+- Adult sexual wellness education, couples intimacy and adult relationship categories are retained as compatibility cross-references only; their canonical taxonomy is the Kamasutra & Adult Wellness ecosystem.
+- General gym, fitness, sports recovery, nutrition, yoga, spa, massage, mental wellness and non-sexual family/social support remain canonical here.
+- Clinical sexual and reproductive diagnosis or treatment belongs to licensed healthcare providers and the Healthcare, Medical & Life Sciences ecosystem.
+- Family, relatives and friends are covered here only through non-sexual counselling, communication and social support.
 - Donor wellbeing covers support information and referrals to regulated clinics; no informal matching is provided.
 - Fitness, nutrition and wellbeing listings are not medical diagnosis or treatment.
 
