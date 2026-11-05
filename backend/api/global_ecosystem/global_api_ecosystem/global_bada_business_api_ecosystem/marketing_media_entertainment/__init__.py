@@ -1,11 +1,18 @@
-"""Root-level compatibility entry point for the marketing_media_entertainment industry ecosystem.
+"""Marketing, Media & Entertainment industry API domain package."""
 
-The maintained implementation remains in industry_api_ecosystems/marketing_media_entertainment.
-This facade exposes it at the global_bada_business_api_ecosystem root
-without duplicating source files or breaking existing imports.
-"""
-from pathlib import Path as _Path
+INDUSTRY_ID = "marketing_media_entertainment"
+INDUSTRY_NAME = "Marketing, Media & Entertainment"
+COVERAGE = ("india", "global")
+CHANNELS = ("online", "offline", "hybrid")
+STATUS = "taxonomy_scaffold"
 
-from ..industry_api_ecosystems.marketing_media_entertainment import *
+from .service import MarketingMediaEntertainmentService
 
-__path__ = [str(_Path(__file__).resolve().parent.parent / "industry_api_ecosystems" / "marketing_media_entertainment")]
+__all__ = [
+    "INDUSTRY_ID",
+    "INDUSTRY_NAME",
+    "COVERAGE",
+    "CHANNELS",
+    "STATUS",
+    "MarketingMediaEntertainmentService",
+]

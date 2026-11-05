@@ -1,9 +1,9 @@
-"""Legacy root-level compatibility alias for marketing_media_entertainment."""
+"""Legacy import alias for the consolidated marketing/media/entertainment package."""
 
 from pathlib import Path as _Path
 
-from ..industry_api_ecosystems.marketing_media_entertainment import *
+from ..marketing_media_entertainment import *
 
 __path__ = [
-    str(_Path(__file__).resolve().parent.parent / "industry_api_ecosystems" / "marketing_media_entertainment")
+    str(_Path(__file__).resolve().parent.parent / "marketing_media_entertainment")
 ]
