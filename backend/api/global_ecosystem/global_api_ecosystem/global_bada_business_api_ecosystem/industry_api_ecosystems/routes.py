@@ -87,7 +87,7 @@ router.include_router(sports_community_router)
 from .food_hospitality_restaurants.routes import router as food_hospitality_router
 from .security_defence_safety_services.routes import router as security_defence_router
 from .science_research_innovation.routes import router as science_research_router
-from .mining_metals_minerals.routes import router as mining_metals_router
+from ..mining_metals_minerals.routes import router as mining_metals_router
 router.include_router(food_hospitality_router)
 router.include_router(security_defence_router)
 router.include_router(science_research_router)
