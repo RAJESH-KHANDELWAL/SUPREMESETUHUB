@@ -4,7 +4,7 @@ This is a maintained snapshot of the umbrella domain classifications, not a live
 registry. Business providers are discoverable here; personal records remain in
 their owning ecosystems. Keep this catalogue synchronized with Global World.
 """
-from .freelance_gig_independent_work_business_api_ecosystem import SUBCATEGORY_IDS as FREELANCE_SUBCATEGORY_IDS
+from .global_freelancer_gig_independent_work_business_api_ecosystem import SUBCATEGORY_IDS as FREELANCE_SUBCATEGORY_IDS
 from .industry_api_ecosystems.finance_banking_insurance import SUBCATEGORY_IDS as FINANCE_SUBCATEGORY_IDS
 
 GLOBAL_WORLD_CATALOG = (
