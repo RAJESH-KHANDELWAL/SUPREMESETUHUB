@@ -1,6 +1,6 @@
 import unittest
 
-from agriculture_food_natural_resources_api_ecosystem.catalog import get_domain, list_domains
+from ..catalog import get_domain, list_domains
 
 class CatalogTests(unittest.TestCase):
     def test_domain_registry_has_sixteen_entries(self):
