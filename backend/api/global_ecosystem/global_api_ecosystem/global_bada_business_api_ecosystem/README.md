@@ -17,10 +17,10 @@ Keep detailed records in the package that owns that concept. Do not copy the sam
 | Global World → business mapping | Parent `global_world_business_map.py` | Business-facing crosswalk; not a second master catalogue |
 | Business provider categories | Parent `business_catalog.py` and `sectors/` | Provider/business categories and their sector packages |
 | Work/business sector taxonomy | `universal_work_business_taxonomy_catalog.py` | 26 broad sector records (A–Z) |
-| Employment context | `../work_careers_employment_business_api_ecosystem/categories.py` | 24 employment-context categories |
-| Job-family specializations | Each category's own child package under `../work_careers_employment_business_api_ecosystem/<category_id>/` | 234 direct-child specialization folders across the 24 categories |
-| Professional occupations | `../work_careers_employment_business_api_ecosystem/professional_fields/` | 12 professional fields and 81 field subcategories |
-| Freelance and gig specializations | `../freelance_gig_independent_work_business_api_ecosystem/` | 25 independent specialization packages; each owns its work-type catalogue |
+| Employment context | `../global_freelancer_gig_independent_work_business_api_ecosystem/jobs_careers_employment_api_ecosystem/categories.py` | 24 employment-context categories |
+| Job-family specializations | Each category's own child package under `../global_freelancer_gig_independent_work_business_api_ecosystem/jobs_careers_employment_api_ecosystem/<category_id>/` | 234 direct-child specialization folders across the 24 categories |
+| Professional occupations | `../global_freelancer_gig_independent_work_business_api_ecosystem/jobs_careers_employment_api_ecosystem/professional_fields/` | 12 professional fields and 81 field subcategories |
+| Freelance and gig specializations | `../global_freelancer_gig_independent_work_business_api_ecosystem/` | 25 independent specialization packages; each owns its work-type catalogue |
 | Core business/work domains | Parent `domain_registry.py` and the 12 registered domain packages | Domain IDs and subcategory IDs are maintained by their owning packages |
 | Industry verticals | `../industry_api_ecosystems/` | 39 industry implementation packages; root-level industry folders are compatibility facades |
 | Classification standards | `../classification_standards_business_api_ecosystem/` | Standards registry and import/crosswalk boundaries |
