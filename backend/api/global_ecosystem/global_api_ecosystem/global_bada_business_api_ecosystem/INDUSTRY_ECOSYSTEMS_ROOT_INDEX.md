@@ -4,8 +4,7 @@ This directory exposes industry packages directly under
 `global_bada_business_api_ecosystem/`. Most industry implementations are
 maintained under `industry_api_ecosystems/`; Agriculture, Food & Natural
 Resources is consolidated under `global_agriculture_food_natural_resources_api_ecosystem/industry_api_ecosystems/`.
-Beauty, Fashion & Lifestyle, Energy, Utilities & Environment, and Mining,
-Metals & Minerals are maintained directly at this root as explicit layout exceptions.
+Beauty, Fashion & Lifestyle and Mining, Metals & Minerals are maintained directly at this root as explicit layout exceptions. Energy, Utilities & Environment is consolidated under its global API ecosystem package. Finance, Banking & Insurance exposes a global API ecosystem entry point while its maintained implementation remains under industry_api_ecosystems/.
 
 Legacy paths for `media_entertainment_creative_industries` and
 `family_relationships_parenting` are retained as aliases to their consolidated
@@ -24,9 +23,9 @@ duplicate source trees for compatibility entry points.
 - `business_companies_corporates/`
 - `digital_infrastructure_telecommunications/`
 - `education_learning_training/`
-- `energy_utilities_environment/` — maintained directly at this root (not inside `industry_api_ecosystems/`).
+- `global_energy_utilities_environment_api_ecosystem/` — consolidated Energy, Utilities & Environment package.
 - `fashion_textiles_apparel/`
-- `finance_banking_insurance/`
+- `global_finance_banking_insurance_api_ecosystem/` — consolidated public entry point; implementation remains under `industry_api_ecosystems/finance_banking_insurance/`.
 - `food_hospitality_restaurants/`
 - `government_public_services_social_impact/`
 - `healthcare_life_sciences/`
@@ -56,7 +55,7 @@ duplicate source trees for compatibility entry points.
 ## Maintenance rules
 
 - Unless explicitly documented as an exception, modify industry implementation files in `industry_api_ecosystems/<package>/`. Agriculture, Food & Natural Resources is maintained under `global_agriculture_food_natural_resources_api_ecosystem/industry_api_ecosystems/agriculture_food_natural_resources/`.
-- Beauty, Fashion & Lifestyle; Energy, Utilities & Environment; Mining, Metals & Minerals; and Manufacturing, Industrial & Industries implementation files live directly at the Bada Business root.
+- Beauty, Fashion & Lifestyle; Mining, Metals & Minerals; and Manufacturing, Industrial & Industries implementation files live directly at the Bada Business root. Energy, Utilities & Environment lives in `global_energy_utilities_environment_api_ecosystem/`; Finance, Banking & Insurance implementation remains in `industry_api_ecosystems/finance_banking_insurance/` with a consolidated global entry point.
 - Importers may use the documented root package names; avoid duplicate catalogs and services.
 - New industry packages must be registered in the industry ecosystem registry and covered by route, schema and integrity tests.
 - These packages are taxonomy/API modules, not proof of verified businesses, live providers or exhaustive country coverage.

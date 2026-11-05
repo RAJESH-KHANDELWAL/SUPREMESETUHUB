@@ -1,8 +1,8 @@
 # Energy, Utilities & Environment API Ecosystem
 
-**Canonical package location:** `global_bada_business_api_ecosystem/energy_utilities_environment/` (maintained directly at the Bada Business root, outside `industry_api_ecosystems/`).
+**Canonical package location:** `global_bada_business_api_ecosystem/global_energy_utilities_environment_api_ecosystem/` (maintained directly at the Bada Business root, outside `industry_api_ecosystems/`).
 
-This package provides a 12-category taxonomy and 20 business domains spanning energy generation, grids, storage, water utilities, waste, environmental services and climate/sustainability.
+The consolidated canonical package contains the former root-level Energy, Utilities & Environment implementation and its API-ecosystem entry-point behavior. This package provides a 12-category taxonomy and 20 business domains spanning energy generation, grids, storage, water utilities, waste, environmental services and climate/sustainability.
 
 ## Package structure
 - `categories/`: category reference notes
