@@ -1,29 +1,25 @@
 # Global Water Resources & Marine Industries Business API Ecosystem
 
-This package is the Global Bada Business entry point for the Water Resources & Marine Industries domain.
+This directory owns the complete Water Resources & Marine Industries API implementation.
 
-## Package ownership
+## Package structure
+- `catalog.py`: 12-category industry taxonomy
+- `schemas.py`: response schemas
+- `service.py`: category lookup, filtering and status service
+- `routes.py`: FastAPI endpoints
+- `tests/`: service regression tests
 
-- Global entry point: `global_water_resources_marine_industries_industrial_business_api_ecosystem/`
-- Canonical industry implementation: `industry_api_ecosystems/water_resources_marine_industries/`
-- Stable industry ID: `water_resources_marine_industries`
+Stable industry ID: `water_resources_marine_industries`.
 
-The global package re-exports the canonical implementation. Keep the catalogue and API logic in one place; do not create a second copy of the taxonomy.
-
-## Included API surface
-
-The industry router exposes:
-
+## API surface
+The parent ecosystem router mounts this package at the established industry path:
 - `GET /industries/water-resources-marine-industries/status`
 - `GET /industries/water-resources-marine-industries/categories`
 - `GET /industries/water-resources-marine-industries/categories/{category_id}`
 
-The categories endpoint supports an optional `q` search parameter.
+The categories endpoint accepts optional `q` search.
 
-## Current taxonomy coverage
-
-The catalogue currently has 12 top-level areas:
-
+## Taxonomy
 1. Water Resources Management
 2. Water Supply Services
 3. Water Treatment
@@ -37,18 +33,13 @@ The catalogue currently has 12 top-level areas:
 11. Marine Conservation
 12. Blue Economy & Offshore Industries
 
-## Implementation status and limits
+## Status and data limitations
+Status: `taxonomy_scaffold`. Coverage labels: India and global. Channels: online, offline and hybrid.
 
-Status: `taxonomy_scaffold`.
-
-Coverage labels: India and global. Channels: online, offline and hybrid.
-
-This is a structured taxonomy/API scaffold, not a live operational directory. It does not verify water quality, water suppliers, treatment-plant operations, marine operators, ports, fishing licences, environmental permits, certifications, or regulatory compliance. Such records require authoritative sources, jurisdiction, timestamps, provenance and verification workflows before publication.
+This is a taxonomy/API scaffold, not a live operational directory. It does not verify water quality, suppliers, treatment-plant operations, marine operators, ports, fishing licences, environmental permits, certifications or regulatory compliance. Those require authoritative sources, timestamps, provenance and verification workflows.
 
 ## Tests
-
-Run the package service tests from the repository's configured Python test environment:
-
+Run from the repository root:
 ```bash
-python -m unittest backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.industry_api_ecosystems.water_resources_marine_industries.tests.test_service
+python -m unittest backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_water_resources_marine_industries_industrial_business_api_ecosystem.tests.test_service
 ```
