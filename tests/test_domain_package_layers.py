@@ -39,7 +39,7 @@ class DomainPackageLayerTests(unittest.TestCase):
 
 
     def test_work_careers_catalogue_and_government_jobs_package(self):
-        package = f"{PACKAGE_ROOT}.global_freelancer_gig_independent_work_business_api_ecosystem/jobs_careers_employment_api_ecosystem"
+        package = f"{PACKAGE_ROOT}.global_freelancer_gig_independent_work_business_api_ecosystem.jobs_careers_employment_api_ecosystem"
         categories = importlib.import_module(f"{package}.categories")
         catalog = importlib.import_module(f"{package}.catalog")
         integrity = categories.validate_category_definitions()
