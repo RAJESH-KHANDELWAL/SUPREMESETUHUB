@@ -29,7 +29,7 @@ class DomainPackageLayerTests(unittest.TestCase):
                 self.assertEqual(len(catalog.list_categories()), domain["subcategory_count"])
 
     def test_domain_service_exposes_status_and_category_search(self):
-        package = f"{PACKAGE_ROOT}.freelance_gig_independent_work_business_api_ecosystem.service"
+        package = f"{PACKAGE_ROOT}.global_freelancer_gig_independent_work_business_api_ecosystem.service"
         service = importlib.import_module(package).DomainService()
         self.assertEqual(service.get_status()["domain_id"], "freelance_gig_independent_work")
         self.assertTrue(service.search("web_development"))
@@ -37,7 +37,7 @@ class DomainPackageLayerTests(unittest.TestCase):
 
 
     def test_work_careers_catalogue_and_government_jobs_package(self):
-        package = f"{PACKAGE_ROOT}.work_careers_employment_business_api_ecosystem"
+        package = f"{PACKAGE_ROOT}.global_freelancer_gig_independent_work_business_api_ecosystem/jobs_careers_employment_api_ecosystem"
         categories = importlib.import_module(f"{package}.categories")
         catalog = importlib.import_module(f"{package}.catalog")
         integrity = categories.validate_category_definitions()
