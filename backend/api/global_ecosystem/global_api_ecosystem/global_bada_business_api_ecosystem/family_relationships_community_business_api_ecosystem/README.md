@@ -1,7 +1,7 @@
-# Individuals, Couples, Family & Community
+# Family, Parenting & Community Support
 
 ## Scope
-Personal development, relationship and parenting education, family support, caregiver and elder support, community groups and wellbeing education. Keep private personal profiles and sensitive records in their owning systems.
+Personal development, general parenting education, child and family support, caregiver and elder support, community groups, friendship communities and non-sexual wellbeing education. Adult couples, marriage, dating, intimacy and relationship coaching categories are canonically classified in the Kamasutra & Adult Wellness ecosystem and should be referenced there rather than duplicated here. Keep private personal profiles and sensitive records in their owning systems.
 
 ## Package contract
 The adjacent __init__.py exposes the stable domain ID, domain name, discovery flags, subcategory identifiers and list_subcategories() helper.
