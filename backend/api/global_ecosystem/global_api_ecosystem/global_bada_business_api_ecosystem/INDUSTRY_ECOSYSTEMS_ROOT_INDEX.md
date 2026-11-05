@@ -26,7 +26,7 @@ duplicate source trees for compatibility entry points.
 - `global_education_learning_training_api_ecosystem/` — consolidated Education, Learning & Training entry point; its nested `education_learning_training/` compatibility package points to the canonical industry implementation.
 - `education_learning_training/` — retained root compatibility facade; do not delete while legacy imports depend on it.
 - `global_energy_utilities_environment_api_ecosystem/` — consolidated Energy, Utilities & Environment package.
-- `fashion_textiles_apparel/`
+- `global_fashion_textiles_apparel_api_ecosystem/` — canonical Fashion, Textiles & Apparel implementation; former root and industry paths remain compatibility facades only.
 - `global_finance_banking_insurance_api_ecosystem/` — consolidated public entry point; implementation remains under `industry_api_ecosystems/finance_banking_insurance/`.
 - `food_hospitality_restaurants/`
 - `government_public_services_social_impact/`
