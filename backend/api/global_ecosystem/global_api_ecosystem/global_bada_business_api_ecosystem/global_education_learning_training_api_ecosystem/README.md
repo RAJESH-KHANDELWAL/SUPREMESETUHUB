@@ -1,15 +1,15 @@
 # Global Education, Learning & Training API Ecosystem
 
-This folder groups the education and learner-facing taxonomy packages without merging their data models.
+This folder is the canonical parent for the education-industry compatibility entry point and the separate student, learner and skills taxonomy. Their data models remain distinct.
 
 ## Structure
 
 - `education_learning_training/` — compatibility entry point to the canonical industry implementation in `../industry_api_ecosystems/education_learning_training/`.
-- `students_education_skills_business_api_ecosystem/` — separate student, learner and skills taxonomy package. It remains a distinct domain and is not merged into the education-industry catalogue.
+- `students_education_skills_business_api_ecosystem/` — canonical student, learner and skills taxonomy package.
 
-## Compatibility
+## Import ownership
 
-The previous root import paths `education_learning_training`, `education_learning_training_api_ecosystem`, and `students_education_skills_business_api_ecosystem` remain as thin compatibility facades.
+Use the package paths under this global ecosystem. The former root-level `education_learning_training_api_ecosystem/` and `students_education_skills_business_api_ecosystem/` compatibility folders have been removed; runtime imports must target the canonical packages.
 
 ## Boundaries
 
