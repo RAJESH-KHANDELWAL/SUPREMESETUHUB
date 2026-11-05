@@ -51,7 +51,7 @@ duplicate source trees for compatibility entry points.
 - `automotive_mobility/global_transport_mobility_logistics_supply_chain_business_api_ecosystem/` — consolidated Transport, Mobility, Logistics & Supply Chain entry point nested under Automotive & Mobility.
 - `automotive_mobility/global_transport_mobility_logistics_supply_chain_business_api_ecosystem/global_aviation_aerospace_space_technology_api_ecosystem/` — Aviation, Aerospace & Space Technology entry point nested under Transport.
 - `travel_tourism_hospitality/`
-- `water_resources_marine_industries/`
+- `global_water_resources_marine_industries_industrial_business_api_ecosystem/` — Global Water Resources & Marine Industries business-facing entry point; maintained implementation remains under `industry_api_ecosystems/water_resources_marine_industries/`.
 
 ## Maintenance rules
 
