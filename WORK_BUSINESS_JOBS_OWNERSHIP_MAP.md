@@ -18,9 +18,9 @@ The maintained India + Global Bada Business API taxonomy lives at:
 | Business sector packages | `sectors/<sector>_business_sector/` |
 | Detailed industry vertical APIs | `industry_api_ecosystems/<industry>/` |
 | Work/business broad A–Z classification and shared discovery facets | `universal_work_business_taxonomy_api_ecosystem/` |
-| Employment contexts and job-family specializations | `work_careers_employment_business_api_ecosystem/` |
-| Professional occupations and fields | `work_careers_employment_business_api_ecosystem/professional_fields/` |
-| Freelance, gig and independent-work specialization taxonomy | `freelance_gig_independent_work_business_api_ecosystem/` |
+| Employment contexts and job-family specializations | `global_freelancer_gig_independent_work_business_api_ecosystem/jobs_careers_employment_api_ecosystem/` |
+| Professional occupations and fields | `global_freelancer_gig_independent_work_business_api_ecosystem/jobs_careers_employment_api_ecosystem/professional_fields/` |
+| Freelance, gig and independent-work specialization taxonomy | `global_freelancer_gig_independent_work_business_api_ecosystem/` |
 | External classification standards and crosswalks | `classification_standards_business_api_ecosystem/` |
 
 **Current repository structure checked:** 24 employment-context categories; 234 direct-child job-family/specialization folders under those categories; 12 professional-field packages with 81 field subcategories; and 25 freelance/gig specialization packages. These are repository structure counts, not counts of live vacancies, verified businesses, providers or complete worldwide coverage.
