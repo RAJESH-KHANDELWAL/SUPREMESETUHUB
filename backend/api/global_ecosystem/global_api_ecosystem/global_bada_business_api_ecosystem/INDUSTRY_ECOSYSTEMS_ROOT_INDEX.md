@@ -12,7 +12,7 @@ canonical ecosystems. Adult sexual-wellness compatibility exports are now
 included inside the consolidated global Kamasutra ecosystem. Do not create
 duplicate source trees for compatibility entry points.
 
-## Industry packages (37)
+## Industry packages and consolidated entry points (35 root-level packages; 37 registered industry IDs)
 
 - `agriculture_food_natural_resources/`
 - `international_trade_import_export_customs_global_commerce/` — International Trade, Import-Export, Customs & Global Commerce.
@@ -38,8 +38,7 @@ duplicate source trees for compatibility entry points.
 - `mining_metals_minerals/` — maintained directly at this root (not inside `industry_api_ecosystems/`).
 - `personal_lifestyle_wellness/`
 - `professional_legal_business_services/`
-- `real_estate_construction/`
-- `real_estate_construction_infrastructure/`
+- `global_real_estate_construction_infrastructure_PROPERTY_BUSINESS_api_ecosystem/` — consolidated Real Estate, Construction, Infrastructure & Property Business entry point.
 - `retail_ecommerce_consumer_goods/`
 - `science_research_innovation/`
 - `security_defence_safety_services/`
@@ -47,15 +46,14 @@ duplicate source trees for compatibility entry points.
 - `startups_entrepreneurship/`
 - `technology_it_telecommunications/`
 - `technology_software_ai_cloud/`
-- `transport_logistics_supply_chain/`
-- `transport_mobility_logistics/`
+- `global_transport_mobility_logistics_supply_chain_business_api_ecosystem/` — consolidated Transport, Mobility, Logistics & Supply Chain entry point.
 - `travel_tourism_hospitality/`
 - `water_resources_marine_industries/`
 
 ## Maintenance rules
 
 - Unless explicitly documented as an exception, modify industry implementation files in `industry_api_ecosystems/<package>/`. Agriculture, Food & Natural Resources is maintained under `global_agriculture_food_natural_resources_api_ecosystem/industry_api_ecosystems/agriculture_food_natural_resources/`.
-- Beauty, Fashion & Lifestyle; Mining, Metals & Minerals; and Manufacturing, Industrial & Industries implementation files live directly at the Bada Business root. Energy, Utilities & Environment lives in `global_energy_utilities_environment_api_ecosystem/`; Finance, Banking & Insurance implementation remains in `industry_api_ecosystems/finance_banking_insurance/` with a consolidated global entry point.
+- Beauty, Fashion & Lifestyle; Mining, Metals & Minerals; and Manufacturing, Industrial & Industries implementation files live directly at the Bada Business root. Energy, Utilities & Environment lives in `global_energy_utilities_environment_api_ecosystem/`; Finance, Banking & Insurance implementation remains in `industry_api_ecosystems/finance_banking_insurance/` with a consolidated global entry point. Real Estate and Transport now also have consolidated global root entry points that expose their underlying industry packages without duplicating API implementations.
 - Importers may use the documented root package names; avoid duplicate catalogs and services.
 - New industry packages must be registered in the industry ecosystem registry and covered by route, schema and integrity tests.
 - These packages are taxonomy/API modules, not proof of verified businesses, live providers or exhaustive country coverage.
