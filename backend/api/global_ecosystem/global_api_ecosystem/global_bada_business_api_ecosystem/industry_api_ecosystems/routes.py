@@ -56,7 +56,7 @@ router.include_router(retail_ecommerce_router)
 from .technology_it_telecommunications.routes import router as technology_telecom_router
 from ..manufacturing_industrial_services.routes import router as manufacturing_router
 from .transport_logistics_supply_chain.routes import router as transport_logistics_router
-from .travel_tourism_hospitality.routes import router as travel_hospitality_router
+from ..global_travel_tourism_hospitality_api_ecosystem.routes import router as travel_hospitality_router
 from .marketing_media_entertainment.routes import router as marketing_media_entertainment_router
 from .arts_culture_heritage_creative_economy.routes import router as arts_culture_heritage_router
 from .international_trade_import_export_customs_global_commerce.routes import router as international_trade_router
@@ -95,7 +95,7 @@ router.include_router(mining_metals_router)
 
 from .digital_infrastructure_telecommunications.routes import router as digital_infrastructure_router
 from .aviation_aerospace_space_technology.routes import router as aviation_aerospace_router
-from .water_resources_marine_industries.routes import router as water_marine_router
+from ..global_water_resources_marine_industries_api_ecosystem.routes import router as water_marine_router
 from .fashion_textiles_apparel.routes import router as fashion_textiles_router
 router.include_router(digital_infrastructure_router)
 router.include_router(aviation_aerospace_router)

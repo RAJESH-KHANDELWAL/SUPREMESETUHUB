@@ -45,17 +45,17 @@ duplicate source trees for compatibility entry points.
 - `science_research_innovation/`
 - `security_defence_safety_services/`
 - `sports_recreation_community/`
-- `startups_entrepreneurship/`
+- `global_entrepreneurs_entrepreneurship_msme_sme_startups_solo_women_digital_ai_technology_innovation_business_creation_development_growth_api_ecosystem/`
 - `technology_it_telecommunications/`
 - `technology_software_ai_cloud/`
 - `automotive_mobility/global_transport_mobility_logistics_supply_chain_business_api_ecosystem/` — consolidated Transport, Mobility, Logistics & Supply Chain entry point nested under Automotive & Mobility.
 - `automotive_mobility/global_transport_mobility_logistics_supply_chain_business_api_ecosystem/global_aviation_aerospace_space_technology_api_ecosystem/` — Aviation, Aerospace & Space Technology entry point nested under Transport.
-- `travel_tourism_hospitality/`
-- `water_resources_marine_industries/`
+- `global_travel_tourism_hospitality_api_ecosystem/`
+- `global_water_resources_marine_industries_api_ecosystem/`
 
 ## Maintenance rules
 
-- Unless explicitly documented as an exception, modify industry implementation files in `industry_api_ecosystems/<package>/`. Agriculture, Food & Natural Resources is maintained directly under `global_agriculture_food_natural_resources_api_ecosystem/`; food processing and food safety/testing/compliance belong there. Do not recreate the former root-level `agriculture_food_natural_resources/` folder.
+- Unless explicitly documented as an exception, modify industry implementation files in `industry_api_ecosystems/<package>/`. Travel, Tourism & Hospitality and Water Resources & Marine Industries are now maintained in their consolidated global API ecosystem folders. Startups & Entrepreneurship is owned by the consolidated Global Entrepreneurs ecosystem. Agriculture, Food & Natural Resources is maintained directly under `global_agriculture_food_natural_resources_api_ecosystem/`; food processing and food safety/testing/compliance belong there. Do not recreate the former root-level `agriculture_food_natural_resources/` folder.
 - Beauty, Fashion & Lifestyle; Mining, Metals & Minerals; and Manufacturing, Industrial & Industries implementation files live directly at the Bada Business root. Energy, Utilities & Environment lives in `global_energy_utilities_environment_api_ecosystem/`; Finance, Banking & Insurance implementation remains in `industry_api_ecosystems/finance_banking_insurance/` with a consolidated global entry point. Real Estate and Transport now also have consolidated global root entry points that expose their underlying industry packages without duplicating API implementations.
 - Importers must use `global_hospitality_hotels_resorts_restaurants_api_ecosystem/` as the sole root-level Hospitality entry point. The maintained implementation remains under `industry_api_ecosystems/food_hospitality_restaurants/`; the duplicate root-level legacy facades have been removed. Food safety/testing is maintained under Agriculture & Food.
 - New industry packages must be registered in the industry ecosystem registry and covered by route, schema and integrity tests.
