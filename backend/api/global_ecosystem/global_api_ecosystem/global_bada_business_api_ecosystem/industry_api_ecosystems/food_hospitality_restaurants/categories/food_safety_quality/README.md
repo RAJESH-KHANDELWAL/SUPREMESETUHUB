@@ -1,11 +1,9 @@
-# Food Safety & Quality Services
+# Food Safety & Quality — Relocated
 
-Category ID: `food_safety_quality`
+This category has been consolidated into the canonical Agriculture & Food domain:
 
-## Subcategories
-- `food_hygiene`
-- `food_testing`
-- `quality_audits`
-- `food_safety_training`
+`global_agriculture_food_natural_resources_api_ecosystem/food_safety_testing_compliance/`
 
-Keep provider profiles, services, job roles and regional records classified here. Record source, location, verification status and last-checked date. This is taxonomy, not a live verified listing.
+Use that canonical domain for food hygiene, food testing, quality audits, traceability, food safety training and regulatory compliance.
+
+Hospitality businesses (restaurants, hotels, resorts, dhabas and caterers) remain in `global_hospitality_hotels_resorts_restaurants_api_ecosystem/`; their food-safety requirements are classified in the Agriculture & Food domain.
