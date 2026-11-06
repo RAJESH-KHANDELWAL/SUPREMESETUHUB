@@ -24,7 +24,7 @@ class AdobeProvider(IntegrationProvider):
                 "ADOBE_VIDEO_FRAMEIO",
             ],
             "auth_method": "Adobe OAuth 2.0; product-specific scopes and organization access required",
-            "setup_guide": "backend/api/global_ecosystem/global_api_ecosystem/global_adobe_api_ecosystem/README.md",
+            "setup_guide": "backend/api/global_ecosystem/global_api_ecosystem/adobe_api_ecosystem/README.md",
         }
 
     def health(self) -> Dict[str, Any]:
