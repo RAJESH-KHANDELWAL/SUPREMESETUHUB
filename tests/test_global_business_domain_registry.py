@@ -9,7 +9,7 @@ class GlobalBusinessDomainRegistryTests(unittest.TestCase):
     def test_registry_has_twelve_domain_packages(self):
         self.assertEqual(len(DOMAIN_REGISTRY), 12)
         self.assertEqual(len(list_domains()), 11)
-        self.assertEqual(sum(item["subcategory_count"] for item in DOMAIN_REGISTRY), 249)
+        self.assertEqual(sum(item["subcategory_count"] for item in DOMAIN_REGISTRY), 303)
 
     def test_subcategory_ids_are_present_and_unique_within_domains(self):
         for domain in DOMAIN_REGISTRY:
@@ -32,7 +32,7 @@ class GlobalBusinessDomainRegistryTests(unittest.TestCase):
         from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.service import BusinessEcosystemService
         status = BusinessEcosystemService().get_status()
         self.assertEqual(status["domain_package_count"], 12)
-        self.assertEqual(status["domain_subcategory_count"], 249)
+        self.assertEqual(status["domain_subcategory_count"], 303)
         self.assertEqual(status["domain_registry_status"], "taxonomy_only")
 
     def test_api_routes_are_registered(self):
