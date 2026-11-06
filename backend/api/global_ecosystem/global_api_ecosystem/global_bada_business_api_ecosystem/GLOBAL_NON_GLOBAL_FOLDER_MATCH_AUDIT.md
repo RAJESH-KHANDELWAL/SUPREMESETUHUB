@@ -30,7 +30,7 @@ Audit date: 2026-11-06
 - global_universal_work_business_taxonomy_api_ecosystem
 - global_water_resources_marine_industries_api_ecosystem
 
-## 2. Folders WITHOUT the `global_` prefix (42)
+## 2. Folders WITHOUT the `global_` prefix (40)
 
 - arts_culture_heritage_creative_economy
 - automotive_mobility
@@ -68,8 +68,6 @@ Audit date: 2026-11-06
 - shopify_business_api_ecosystem
 - slack_business_api_ecosystem
 - sports_recreation_community
-- technology_it_telecommunications
-- technology_software_ai_cloud
 - tools
 - trafficjunky_business_api_ecosystem
 - transport_logistics_supply_chain
