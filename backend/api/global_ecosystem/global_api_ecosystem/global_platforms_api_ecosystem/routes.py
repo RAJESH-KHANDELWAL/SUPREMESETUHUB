@@ -1,5 +1,6 @@
 """HTTP routes for the GLOBAL PLATFORMS API ECOSYSTEM."""
 from fastapi import APIRouter, HTTPException, Query
+from ..ecosystem_link_registry import get_ecosystem_linkage
 from .catalog import PLATFORM_TYPES, OWNERSHIP_TYPES, BUSINESS_MODELS, VERIFICATION_STATES
 from .schemas import EcosystemStatus, PlatformListResponse
 from .service import get_ecosystem_status, list_domains, get_domain, search_platforms, get_platform
@@ -14,7 +15,7 @@ def ecosystem_status(): return get_ecosystem_status()
 
 @router.get("/architecture")
 def architecture():
-    return {"success":True,"architecture_pattern":"modular_domain_packages_with_shared_platform_registry","canonical_entity":"digital_or_service_platform","independent_dimensions":["domain","platform_type","ownership","business_model","country","verification","adult_safety"],"profile_storage":"local_json_read_only","taxonomy_source":"curated_metadata","live_external_connections":False,"reference_boundary":"Bada Business is a structural reference only; its business catalogue is not reused.","provider_directory":get_provider_directory_status()}
+    return {"success":True,"architecture_pattern":"modular_domain_packages_with_shared_platform_registry","canonical_entity":"digital_or_service_platform","independent_dimensions":["domain","platform_type","ownership","business_model","country","verification","adult_safety"],"profile_storage":"local_json_read_only","taxonomy_source":"curated_metadata","live_external_connections":False,"reference_boundary":"Business categories are linked by read-only crosswalk references; their canonical source remains Global Bada Business.","provider_directory":get_provider_directory_status()}
 
 @router.get("/domains")
 def platform_domains(include_adult: bool = Query(default=False)):
@@ -58,3 +59,9 @@ def platform_details(platform_id: str, include_adult: bool = Query(default=False
     platform = get_platform(platform_id, include_adult=include_adult)
     if platform is None: raise HTTPException(status_code=404, detail="Platform not found")
     return {"success":True,"item":platform}
+
+
+@router.get("/ecosystem-links")
+def platform_ecosystem_links(include_adult: bool = Query(default=False)):
+    """Read-only links to canonical Business and Company taxonomies."""
+    return get_ecosystem_linkage(include_adult=include_adult)
