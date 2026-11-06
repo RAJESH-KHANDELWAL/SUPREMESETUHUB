@@ -202,7 +202,7 @@ from .global_business_governance_compliance_standards_api_ecosystem.global_busin
 router.include_router(business_compliance_router)
 
 # Mount the independent manufacturer-to-customer distribution channel API.
-from .distribution_channels_api_ecosystem.routes import router as distribution_channels_router
+from .global_distribution_channels_api_ecosystem.routes import router as distribution_channels_router
 
 router.include_router(distribution_channels_router)
 
@@ -244,7 +244,7 @@ def get_domain_package(
 
 
 # Mount versioned national and international economic-activity classification standards.
-from .classification_standards_business_api_ecosystem.routes import router as classification_standards_router
+from .global_business_governance_compliance_standards_api_ecosystem.global_classification_standards_business_api_ecosystem.routes import router as classification_standards_router
 router.include_router(classification_standards_router)
 
 
