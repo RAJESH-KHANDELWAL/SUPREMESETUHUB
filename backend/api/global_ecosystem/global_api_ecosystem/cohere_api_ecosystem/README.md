@@ -1,29 +1,51 @@
 # COHERE API ECOSYSTEM
 
-This directory is the canonical provider-owned catalog for Cohere integrations in SUPREMESETUHUB.
+Canonical provider-owned API catalog for Cohere integrations in SUPREMESETUHUB.
 
-## Provider scope
+## Provider structure
 
-Cohere provides enterprise AI capabilities. This catalog covers only relevant, officially supported API families:
+- `cohere_api_ecosystem.py` — provider metadata and API-family listing.
+- `cohere_command_api_ecosystem/` — Command model inference.
+- `cohere_embed_api_ecosystem/` — text and supported multimodal/document embeddings.
+- `cohere_rerank_api_ecosystem/` — search/retrieval reranking.
+- `cohere_tokenize_api_ecosystem/` — tokenization and model metadata where supported.
+- `cohere_classify_api_ecosystem/` — classification capabilities where currently supported.
 
-- **Command models** — text generation and conversational/model inference.
-- **Embed** — text and document embeddings for semantic retrieval.
-- **Rerank** — relevance reranking for search and retrieval pipelines.
-- **Tokenization and model metadata** — only where exposed by the current official API and account access.
+Shared provider adapter: `backend/integrations/providers/cohere.py`.
 
-## Architecture
+Shared integration registration: `backend/integrations/registry.py` (provider key: `COHERE`).
 
-- Provider catalog: `cohere_api_ecosystem.py`
-- Shared category routing: GLOBAL AI and GLOBAL DEVELOPER API ECOSYSTEM mappings.
-- Provider adapter and IntegrationRegistry registration: not yet implemented.
-- Live API connectivity: not verified.
+## API family overview
 
-## Setup boundary
+| Family | Purpose | Setup boundary |
+|---|---|---|
+| Command | Text generation and conversational inference | Check current model availability and supported API version |
+| Embed | Text/document and supported multimodal embeddings | Validate input type, embedding dimensions and model |
+| Rerank | Relevance scoring and document reranking | Validate query/document limits and model |
+| Tokenize & metadata | Token counts/tokenization and model metadata where exposed | Do not assume every utility endpoint is available to every account |
+| Classification | Classification where supported by current Cohere APIs | Confirm endpoint, model and account entitlement before enablement |
 
-A future adapter should accept a Cohere API key from server-side environment configuration (for example, `COHERE_API_KEY`), never from source code or client-side browser storage. It should validate configuration, use official Cohere API endpoints and supported SDK/API versions, apply timeouts and bounded retries, redact credentials from logs, and enforce tenant-level authorization and usage limits.
+## Configuration
 
-Do not treat catalog presence or a configured key as proof of successful connectivity. A live status should be reported only after a safe authenticated API health/model-list request succeeds.
+The readiness adapter checks the server-side environment variable:
 
-## Implementation status
+- `COHERE_API_KEY`
 
-**CATALOG_ONLY** — this directory documents provider scope and routing. It does not currently make network calls, store credentials, or claim that Cohere is connected.
+Supply the key only through deployment environment configuration or a managed secret store. Do not place it in source code, browser storage, frontend variables or logs.
+
+## Security and operations
+
+- Enforce tenant-level authorization and usage limits.
+- Apply bounded timeouts and retries for transient failures.
+- Handle rate limits, quota responses and API errors.
+- Validate model identifiers, input sizes and output schemas.
+- Redact authorization headers and credentials from logs.
+- Keep model access and customer data scoped to the requesting tenant.
+
+## Status semantics
+
+- `NEEDS_CONFIGURATION`: `COHERE_API_KEY` is not present.
+- `CONFIGURED_NOT_VERIFIED`: the key is present; no live request has been validated.
+- `CONNECTED`: only report after a safe authenticated request to a currently supported Cohere endpoint succeeds.
+
+The adapter currently checks only configuration presence. It does not exchange tokens or call Cohere APIs. Each API family remains a documentation/catalog scaffold until implemented and tested independently.
