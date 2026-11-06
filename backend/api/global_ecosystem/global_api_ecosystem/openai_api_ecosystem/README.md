@@ -1,82 +1,67 @@
 # OPENAI API ECOSYSTEM
 
-Canonical provider folder:
+Canonical provider root for OpenAI products, services, developer platforms and API capabilities in SUPREMESETUHUB.
 
-`backend/api/global_ecosystem/global_api_ecosystem/openai_api_ecosystem/`
+## Naming convention
 
-Provider ID: `openai`  
-Display name: `OPENAI API ECOSYSTEM`  
-Catalog module: `openai_api_ecosystem.py`
+Each named OpenAI product or developer service gets its own child folder using:
 
-## Purpose
+`openai_<product_or_service>_api_ecosystem/`
 
-This provider-owned ecosystem is the canonical catalog and onboarding boundary for OpenAI Platform APIs. It is separate from the shared AI, Developer, Tools, Language, Database, and other category ecosystems.
+The display name follows the same provider-first convention:
 
-## Capability map
+`OPENAI <PRODUCT OR SERVICE> API ECOSYSTEM`
 
-The catalog currently defines these 17 independently organizable capability areas:
+## Product and service tree
 
-1. Platform
-2. Models
-3. Responses
-4. Chat Completions
-5. Embeddings
-6. Images
-7. Audio
-8. Realtime
-9. Files
-10. Batch
-11. Vector Stores
-12. Fine-tuning
-13. Moderation
-14. Evaluations
-15. Webhooks
-16. Developer Tools
-17. Assistants migration reference
+- **OPENAI CHATGPT API ECOSYSTEM** — `openai_chatgpt_api_ecosystem/` — `active_catalog`
+- **OPENAI CHATGPT BUSINESS API ECOSYSTEM** — `openai_chatgpt_business_api_ecosystem/` — `active_catalog`
+- **OPENAI CHATGPT ENTERPRISE API ECOSYSTEM** — `openai_chatgpt_enterprise_api_ecosystem/` — `active_catalog`
+- **OPENAI CHATGPT EDU API ECOSYSTEM** — `openai_chatgpt_education_api_ecosystem/` — `active_catalog`
+- **OPENAI CHATGPT HEALTH API ECOSYSTEM** — `openai_chatgpt_health_api_ecosystem/` — `availability_dependent_catalog`
+- **OPENAI CODEX API ECOSYSTEM** — `openai_codex_api_ecosystem/` — `active_catalog`
+- **OPENAI DOTS API ECOSYSTEM** — `openai_dots_api_ecosystem/` — `availability_dependent_catalog`
+- **OPENAI AGENTS API API ECOSYSTEM** — `openai_agents_api_ecosystem/` — `public_beta_catalog`
+- **OPENAI AGENTS SDK API ECOSYSTEM** — `openai_agents_sdk_api_ecosystem/` — `active_catalog`
+- **OPENAI APPS SDK API ECOSYSTEM** — `openai_apps_sdk_api_ecosystem/` — `active_catalog`
+- **OPENAI CHATKIT API ECOSYSTEM** — `openai_chatkit_api_ecosystem/` — `active_catalog`
+- **OPENAI OPENAI SDKS API ECOSYSTEM** — `openai_sdk_libraries_api_ecosystem/` — `active_catalog`
+- **OPENAI PLUGINS AND MCP API ECOSYSTEM** — `openai_plugins_mcp_api_ecosystem/` — `active_catalog`
+- **OPENAI SORA (RETIRED REFERENCE) API ECOSYSTEM** — `openai_sora_api_ecosystem/` — `retired_reference_only`
 
-These are catalog entries, not 17 completed production adapters. Each adapter must be implemented and tested against the current official OpenAI Platform documentation before it is advertised as available.
+## Important distinction
 
-## Intended user connection experience
+This parent catalog is for **named OpenAI products and platforms**, like the Google parent catalog lists Gmail, Drive, Docs and Sheets. API capability families such as Responses, Embeddings, Images, Audio, Files, Batch, Moderation and Webhooks are a separate list in `openai_api_ecosystem.py`; they are not incorrectly presented as user-facing products.
 
-The product-side experience should be simple:
+ChatGPT plans/editions (Business, Enterprise and Education) are represented as distinct product/workspace children for discoverability, while remaining plan variants of ChatGPT. ChatGPT features such as voice, search, custom GPTs and deep research remain under ChatGPT unless OpenAI exposes them as separate products.
 
-1. User opens **OPENAI API ECOSYSTEM**.
-2. User chooses **Connect OpenAI**.
-3. User provides their own OpenAI API key in a protected input (or selects an approved managed-secret integration).
-4. Backend validates the credential with a minimal, documented API request.
-5. UI shows connected / invalid / revoked state without revealing the secret.
-6. User can disconnect, rotate the key, and view usage and cost controls where supported.
+Sora is included only as a retired historical reference. OpenAI announced discontinuation of the Sora web/app experience and API in 2026; it must not be represented as an active service.
 
-Users should not need to configure backend infrastructure themselves. Administrators configure the secret-management service and deployment environment once; individual users only connect their authorized credentials through the product UI.
+## User connection architecture
 
-## Security requirements
+For API-enabled services, the intended user flow is:
 
-- Never commit API keys or place them in source code, logs, URLs, analytics, or error responses.
-- Never send a user's key to the browser after initial submission.
-- Use authenticated, tenant-scoped authorization for every credential operation.
-- Encrypt credentials at rest using a managed KMS or equivalent secret vault.
-- Redact authorization headers and secrets from logs and traces.
-- Apply request timeouts, rate limits, usage metering, and configurable cost limits.
-- Support credential rotation and revocation.
-- Do not confuse ChatGPT subscription access with OpenAI API billing or API-key access.
+1. User opens the relevant OpenAI product/service card.
+2. User chooses Connect, where the product supports an external API connection.
+3. User supplies their own API key or authorizes an official OAuth flow where supported.
+4. Backend validates the credential server-side.
+5. Backend stores credentials in encrypted, tenant-scoped secret storage.
+6. UI displays connection status, supported usage/cost controls, disconnect and rotation actions.
 
-## Implementation status
+A ChatGPT subscription is not the same as OpenAI API billing or API-key access. Do not request API keys for products that do not expose a supported public API.
 
-This folder currently contains provider catalog metadata and architecture guidance only. It does **not** yet provide the full multi-user connection UI, authenticated connection routes, durable encrypted per-user key storage, usage metering, or production endpoint adapters. `live_connection_verified` must remain false until a real credential is safely tested in the deployed environment.
+## Security and implementation status
 
-## Integration points in this repository
+- Never commit API keys or place them in source code, logs, URLs, analytics or error responses.
+- Use authenticated, tenant-scoped authorization and encrypted secret storage.
+- Keep API capabilities separate from products and model families.
+- Verify current official documentation, availability, account entitlements, scopes, terms and regional limitations before implementing any adapter.
+- Catalog presence does not mean a live integration exists. Each child must report its actual implementation and connection status.
 
-- Shared AI category: `global_ai_api_ecosystem/openai_ai_api_ecosystem`
-- Shared Developer category: `global_developer_api_ecosystem/openai_developer_api_ecosystem`
-- Shared Tools category: `global_tools_api_ecosystem/openai_tools_api_ecosystem`
-- Shared Language category: `global_language_api_ecosystem/openai_language_api_ecosystem`
-- Shared Database reference: `global_database_api_ecosystem/openai_database_api_ecosystem`
-- Central provider registry: `backend/api/global_api_ecosystem_catalog.py`
-- Existing runtime image connector: `backend/integrations/connectors/openai_image.py`
-- Existing central AI engine registry: `backend/engines/ai/manager.py`
+## Official references
 
-The category folders are reusable cross-provider capability groupings. The provider-owned folder remains the authoritative OpenAI provider identity and catalog.
-
-## Documentation
-
-Before implementing or enabling any capability, verify current endpoint availability, authentication requirements, model access, account entitlements, regional availability, and lifecycle status in the official OpenAI Platform documentation.
+- OpenAI products: https://openai.com/
+- OpenAI developer platform: https://developers.openai.com/
+- OpenAI API documentation: https://developers.openai.com/api/docs/
+- Agents API announcement: https://openai.com/index/introducing-the-agents-api/
+- Sora discontinuation notice: https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation
