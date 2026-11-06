@@ -24,7 +24,7 @@ class AnthropicProvider(IntegrationProvider):
                 "ANTHROPIC_MANAGED_AGENTS", "ANTHROPIC_TOOL_USE",
                 "ANTHROPIC_WORKLOAD_IDENTITY_FEDERATION",
             ],
-            "auth_method": "Anthropic API key via server-side secret; Workload Identity Federation where configured",
+            "auth_method": "Anthropic API key via server-side ANTHROPIC_API_KEY secret",
             "setup_guide": "backend/api/global_ecosystem/global_api_ecosystem/anthropic_api_ecosystem/README.md",
         }
 
@@ -34,7 +34,7 @@ class AnthropicProvider(IntegrationProvider):
             provider=self.name,
             category=self.category,
             configured=configured,
-            auth_method="Anthropic API key / Workload Identity Federation",
+            auth_method="Anthropic API key",
             required_configuration=["ANTHROPIC_API_KEY"],
             capabilities=[
                 "MESSAGES", "MESSAGE_BATCHES", "MODELS", "TOKEN_COUNTING",
