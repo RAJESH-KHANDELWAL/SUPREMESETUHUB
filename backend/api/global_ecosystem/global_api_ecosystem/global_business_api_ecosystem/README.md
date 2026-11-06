@@ -1,16 +1,16 @@
-# BADA BUSINESS API ECOSYSTEM
+# GLOBAL BUSINESS API ECOSYSTEM
 
-This category root is reserved exclusively for the Bada Business platform's own public resources, product pages, courses, services, referral destinations, partner resources and any officially documented API material.
+This shared category contains cross-provider business, commerce and enterprise API capabilities.
 
-## Ownership boundary
+## Scope
+- Business operations and enterprise workflows
+- Commerce, sales, customer and vendor capabilities
+- Shared business integrations and reusable category interfaces
+- Provider-specific mappings that participate in business workflows
 
-- **BADA BUSINESS API ECOSYSTEM** — this folder; Bada Business platform only.
-- **GLOBAL BADA BUSINESS API ECOSYSTEM** — separate product umbrella at `backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`; this owns the broader business taxonomy, industry domains, modules and services. Do not merge it into this folder.
+## Ownership boundaries
+- Provider-owned ecosystems (for example, `bada_business_api_ecosystem/`) contain that platform's own resources and provider-specific metadata.
+- `global_bada_business_api_ecosystem/` is a separate broad product umbrella for business domains, modules, taxonomies and services.
+- This folder remains the shared **GLOBAL BUSINESS API ECOSYSTEM** category; it is not a Bada Business-only folder.
 
-## Platform link resources
-
-Place the Bada Business platform's owner-supplied links in this category root under a clearly named link catalogue (official website, courses, products, services, referral/affiliate links, partner resources and support/documentation). Every URL must be provided by the owner or checked against an official destination before it is marked verified.
-
-## API status
-
-This folder is a Bada Business platform category boundary, not evidence of a public developer API, partnership or live account connection. Do not create or claim API endpoints until official documentation and authorization exist.
+Catalog entries describe architecture and readiness only. They do not establish live API connectivity.
