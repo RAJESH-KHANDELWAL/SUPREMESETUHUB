@@ -1,5 +1,0 @@
-"""Independent Web Development freelance specialization package."""
-SPECIALIZATION_ID = "web_development"
-SPECIALIZATION_NAME = "Web Development"
-DOMAIN_ID = "freelance_gig_independent_work"
-DESCRIPTION = "Websites, web applications, CMS builds, e-commerce, maintenance and web integrations."

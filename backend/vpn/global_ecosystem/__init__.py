@@ -1,1 +1,0 @@
-"""Global VPN ecosystem namespace."""

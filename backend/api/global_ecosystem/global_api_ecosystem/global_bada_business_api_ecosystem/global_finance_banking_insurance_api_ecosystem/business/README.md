@@ -1,2 +1,0 @@
-# Finance, Banking & Insurance Businesses
-Separate profiles for banks, NBFCs, insurers, brokers, payment firms, fintech providers, accounting practices and advisory firms. Verify registration, licence, service scope and official contact details before listing a provider.

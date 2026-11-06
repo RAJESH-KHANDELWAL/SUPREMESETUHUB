@@ -1,2 +1,0 @@
-# India
-India-specific catalogue for digital infrastructure and telecommunications, including state/city coverage categories, relevant jurisdiction references, business types, services and jobs. Record authoritative sources and last-checked dates; do not claim live coverage without verified data.
