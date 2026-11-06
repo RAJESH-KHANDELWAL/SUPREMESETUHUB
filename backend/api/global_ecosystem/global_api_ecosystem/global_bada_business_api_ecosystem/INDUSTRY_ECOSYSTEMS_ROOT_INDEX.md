@@ -20,7 +20,7 @@ duplicate source trees for compatibility entry points.
 - `arts_culture_heritage_creative_economy/` — Arts, Culture, Heritage & Creative Economy.
 - `automotive_mobility/` — parent entry point containing the consolidated Transport, Mobility, Logistics & Supply Chain ecosystem and its nested Aviation/Aerospace entry point.
 - `beauty_fashion_lifestyle/` — maintained directly at this root (not inside `industry_api_ecosystems/`).
-- `business_companies_corporates/`
+- `global_business_companies_corporates_api_ecosystem/` — Global Businesses, Companies & Corporates taxonomy adapter backed by the canonical Global Company business-enterprise package.
 - `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem/` — canonical digital infrastructure, telecommunications, IT, technology and AI parent; its nested `digital_infrastructure_telecommunications/` folder owns the industry API implementation.
 - `global_education_learning_training_api_ecosystem/` — canonical Education, Learning & Training entry point and implementation; student/learner skills remain in its separate child package.
 - `global_energy_utilities_environment_api_ecosystem/` — consolidated Energy, Utilities & Environment package.
@@ -38,7 +38,7 @@ duplicate source trees for compatibility entry points.
 - `marketing_media_entertainment/`
 - `mining_metals_minerals/` — maintained directly at this root (not inside `industry_api_ecosystems/`).
 - `personal_lifestyle_wellness/`
-- `professional_legal_business_services/`
+- `global_professional_business_services_api_ecosystem/` — canonical non-legal Professional Services implementation; kept separate from Legal Services.
 - `global_real_estate_construction_infrastructure_PROPERTY_BUSINESS_api_ecosystem/` — sole canonical Real Estate & Construction implementation and Property Business entry point; the separate infrastructure identity is nested within it.
 - `retail_ecommerce_consumer_goods/`
 - `science_research_innovation/`
@@ -51,6 +51,8 @@ duplicate source trees for compatibility entry points.
 - `automotive_mobility/global_transport_mobility_logistics_supply_chain_business_api_ecosystem/global_aviation_aerospace_space_technology_api_ecosystem/` — Aviation, Aerospace & Space Technology entry point nested under Transport.
 - `global_travel_tourism_hospitality_api_ecosystem/`
 - `global_water_resources_marine_industries_api_ecosystem/`
+
+- `global_universal_work_business_taxonomy_api_ecosystem/` — canonical A–Z India + Global work/business sector taxonomy.
 
 ## Maintenance rules
 
