@@ -2,7 +2,7 @@
 from __future__ import annotations
 from dataclasses import asdict
 from .catalog import get_category, list_categories
-from ...global_freelancer_gig_independent_work_business_api_ecosystem.jobs_careers_employment_api_ecosystem.catalog import (
+from ..global_freelancer_gig_independent_work_business_api_ecosystem.jobs_careers_employment_api_ecosystem.catalog import (
     get_category as get_employment_category,
     list_categories as list_employment_categories,
 )
