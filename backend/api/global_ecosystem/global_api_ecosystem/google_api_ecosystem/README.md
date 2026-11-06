@@ -1,34 +1,34 @@
-# GLOBAL GOOGLE API ECOSYSTEM
+# GOOGLE API ECOSYSTEM
 
 Canonical provider root for Google-owned APIs and products in SUPREMESETUHUB.
 
 ## Architecture
 
 ```text
-global_google_api_ecosystem/
+google_api_ecosystem/
 ├── google_api_ecosystem.py
 ├── README.md
-├── gmail_api_ecosystem/
-├── drive_api_ecosystem/
-├── calendar_api_ecosystem/
-├── contacts_api_ecosystem/
-├── sheets_api_ecosystem/
-├── docs_api_ecosystem/
-├── slides_api_ecosystem/
-├── forms_api_ecosystem/
-├── chat_api_ecosystem/
-├── meet_api_ecosystem/
-├── admin_sdk_api_ecosystem/
-├── people_api_ecosystem/
-├── youtube_api_ecosystem/
-├── maps_platform_api_ecosystem/
-├── business_profile_api_ecosystem/
-├── ads_api_ecosystem/
-├── analytics_api_ecosystem/
-├── search_console_api_ecosystem/
-├── cloud_api_ecosystem/
-├── firebase_api_ecosystem/
-└── identity_oauth_api_ecosystem/
+├── google_gmail_api_ecosystem/
+├── google_drive_api_ecosystem/
+├── google_calendar_api_ecosystem/
+├── google_contacts_api_ecosystem/
+├── google_sheets_api_ecosystem/
+├── google_docs_api_ecosystem/
+├── google_slides_api_ecosystem/
+├── google_forms_api_ecosystem/
+├── google_chat_api_ecosystem/
+├── google_meet_api_ecosystem/
+├── google_admin_sdk_api_ecosystem/
+├── google_people_api_ecosystem/
+├── google_youtube_api_ecosystem/
+├── google_maps_platform_api_ecosystem/
+├── google_business_profile_api_ecosystem/
+├── google_ads_api_ecosystem/
+├── google_analytics_api_ecosystem/
+├── google_search_console_api_ecosystem/
+├── google_cloud_api_ecosystem/
+├── google_firebase_api_ecosystem/
+└── google_identity_oauth_api_ecosystem/
 ```
 
 ## Rules
@@ -40,4 +40,4 @@ global_google_api_ecosystem/
 - ChatGPT-connected Google accounts, GitHub OAuth and backend Google OAuth are separate permission grants.
 
 ## Gmail
-The Gmail adapter is in `gmail_api_ecosystem/` and uses OAuth 2.0 with the least-privilege send scope. Live sending remains unverified until the deployment owner configures Google Cloud OAuth and consents to the mailbox.
+The Gmail adapter is in `google_gmail_api_ecosystem/` and uses OAuth 2.0 with the least-privilege send scope. Live sending remains unverified until the deployment owner configures Google Cloud OAuth and consents to the mailbox.
