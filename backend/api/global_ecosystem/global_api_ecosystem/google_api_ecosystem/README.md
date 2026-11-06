@@ -1,43 +1,25 @@
-# GOOGLE API ECOSYSTEM
+# Google API Ecosystem
 
-Canonical provider root for Google-owned APIs and products in SUPREMESETUHUB.
+Canonical provider root: `google_api_ecosystem`. Each child directory is a Google product/API family with its own adapter and setup notes.
 
-## Architecture
+## Ecosystem families
+- Workspace: Admin SDK, Calendar, Chat, Contacts/People, Docs, Drive, Forms, Gmail, Meet, Sheets, Slides.
+- Growth and presence: Ads, Analytics, Business Profile, Maps Platform, Search Console, YouTube.
+- Cloud and identity: Google Cloud, Firebase, Identity/OAuth, Vertex AI.
+- AI: Google Gemini Developer API (`google_gemini_api_ecosystem`) and the unified Google AI provider facade (`google_ai_api_ecosystem`).
 
-```text
-google_api_ecosystem/
-├── google_api_ecosystem.py
-├── README.md
-├── google_gmail_api_ecosystem/
-├── google_drive_api_ecosystem/
-├── google_calendar_api_ecosystem/
-├── google_contacts_api_ecosystem/
-├── google_sheets_api_ecosystem/
-├── google_docs_api_ecosystem/
-├── google_slides_api_ecosystem/
-├── google_forms_api_ecosystem/
-├── google_chat_api_ecosystem/
-├── google_meet_api_ecosystem/
-├── google_admin_sdk_api_ecosystem/
-├── google_people_api_ecosystem/
-├── google_youtube_api_ecosystem/
-├── google_maps_platform_api_ecosystem/
-├── google_business_profile_api_ecosystem/
-├── google_ads_api_ecosystem/
-├── google_analytics_api_ecosystem/
-├── google_search_console_api_ecosystem/
-├── google_cloud_api_ecosystem/
-├── google_firebase_api_ecosystem/
-└── google_identity_oauth_api_ecosystem/
-```
+## Intended end-user experience
+The platform owns backend deployment, routes, dependencies, API adapters, validation, health checks, and secret-management infrastructure. An end user should only select a provider, enter the required account data or authorize Google OAuth, and press **Connect**. They should not configure Python, server routes, package dependencies, or backend environment files.
 
-## Rules
-- Google provider catalog is the canonical parent; each child owns its API-family catalog and adapter.
-- Do not duplicate a Google API in unrelated provider roots. Cross-ecosystem links should be references, not copies.
-- Verify official Google API support, availability, scopes, quotas and terms before implementing live integrations.
-- Credentials/tokens belong in environment variables or a managed secret store, never in Git.
-- Catalog presence is not a live connection. Only successful deployment-level authorization and API tests can mark an adapter connected.
-- ChatGPT-connected Google accounts, GitHub OAuth and backend Google OAuth are separate permission grants.
+## Important implementation boundary
+The API adapters and client factories are code-level integrations, not proof of live connectivity. OAuth consent, API enablement, billing, IAM, quotas, product eligibility, and user authorization remain provider-controlled. A production multi-user Connect experience additionally requires:
+1. Authenticated platform account identity (tenant identity must come from verified server-side authentication, never a body field).
+2. Encrypted per-tenant credential storage with key rotation and access auditing.
+3. OAuth state/PKCE validation and token refresh/revocation handling where OAuth is used.
+4. Redaction of secrets from logs, traces, errors, analytics, and support exports.
+5. Per-tenant rate limits, quotas, disconnect/delete controls, and integration health checks.
 
-## Gmail
-The Gmail adapter is in `google_gmail_api_ecosystem/` and uses OAuth 2.0 with the least-privilege send scope. Live sending remains unverified until the deployment owner configures Google Cloud OAuth and consents to the mailbox.
+Gemini API keys are passed to the Gemini adapter at runtime and are not persisted by that adapter. Vertex AI and Google Workspace use their own Google Cloud/OAuth credential models. Do not reuse credentials across products.
+
+## Security
+Never commit API keys, OAuth client secrets, refresh tokens, service-account JSON, or user data. Use a managed secret store for platform-owned credentials and an authenticated encrypted vault for user-owned credentials. A connection is only "verified" after a real provider API request succeeds.
