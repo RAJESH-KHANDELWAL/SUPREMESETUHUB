@@ -1,11 +1,8 @@
-"""Root-level compatibility entry point for the technology_it_telecommunications industry ecosystem.
-
-The maintained implementation remains in industry_api_ecosystems/technology_it_telecommunications.
-This facade exposes it at the global_bada_business_api_ecosystem root
-without duplicating source files or breaking existing imports.
-"""
-from pathlib import Path as _Path
-
-from ...technology_it_telecommunications import *
-
-__path__ = [str(_Path(__file__).resolve().parent.parent.parent / "technology_it_telecommunications")]
+"""Technology, IT & Telecommunications domain package."""
+INDUSTRY_ID="technology_it_telecommunications"
+INDUSTRY_NAME="Technology, IT & Telecommunications"
+COVERAGE=("india","global")
+CHANNELS=("online","offline","hybrid")
+STATUS="taxonomy_scaffold"
+from .service import TechnologyService
+__all__=["INDUSTRY_ID","INDUSTRY_NAME","COVERAGE","CHANNELS","STATUS","TechnologyService"]

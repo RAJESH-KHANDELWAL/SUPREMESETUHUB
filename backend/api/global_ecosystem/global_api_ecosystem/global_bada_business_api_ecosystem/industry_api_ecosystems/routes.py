@@ -53,7 +53,7 @@ router.include_router(finance_banking_router)
 router.include_router(real_estate_router)
 router.include_router(retail_ecommerce_router)
 
-from ..technology_it_telecommunications.routes import router as technology_telecom_router
+from ..global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem.technology_it_telecommunications.routes import router as technology_telecom_router
 from ..manufacturing_industrial_services.routes import router as manufacturing_router
 from ..transport_logistics_supply_chain.routes import router as transport_logistics_router
 from ..global_travel_tourism_hospitality_api_ecosystem.routes import router as travel_hospitality_router

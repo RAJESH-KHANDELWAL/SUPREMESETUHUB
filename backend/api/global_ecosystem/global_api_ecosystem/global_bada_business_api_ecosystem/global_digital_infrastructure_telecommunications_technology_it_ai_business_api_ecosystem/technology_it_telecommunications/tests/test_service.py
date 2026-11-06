@@ -1,6 +1,6 @@
 """Unit tests for technology_it_telecommunications taxonomy service."""
 import unittest
-from technology_it_telecommunications.service import TechnologyService
+from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem.technology_it_telecommunications.service import TechnologyService
 
 class TechnologyServiceTests(unittest.TestCase):
     def setUp(self): self.service = TechnologyService()
