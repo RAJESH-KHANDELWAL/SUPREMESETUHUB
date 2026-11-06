@@ -1,8 +1,4 @@
-"""Google provider-owned API ecosystem catalog.
-
-This is the canonical parent for Google product/API family adapters.
-Catalog membership does not imply an enabled API or live connection.
-"""
+"""Google API ecosystem metadata and child catalog access."""
 from __future__ import annotations
 
 GOOGLE_API_ECOSYSTEM = {
@@ -13,15 +9,13 @@ GOOGLE_API_ECOSYSTEM = {
     "platforms": [
         "Google Workspace", "Google Cloud", "Google Maps Platform",
         "Google Play", "Google Search Console", "Google Analytics", "Firebase",
-        "Google Ads", "Google Business Profile", "YouTube"
+        "Google Ads", "Google Business Profile", "YouTube",
     ],
     "api_families": [
-        "gmail", "drive", "calendar", "contacts", "sheets", "docs",
-        "slides", "forms", "keep", "tasks", "chat", "meet", "admin",
-        "people", "groups", "youtube", "maps", "places", "routes",
-        "geocoding", "business_profile", "ads", "analytics", "search_console",
-        "cloud", "storage", "compute", "iam", "secret_manager",
-        "firebase", "identity_oauth", "vertex_ai_gemini"
+        "gmail", "drive", "calendar", "contacts", "sheets", "docs", "slides",
+        "forms", "chat", "meet", "admin_sdk", "people", "youtube", "maps",
+        "business_profile", "ads", "analytics", "search_console", "cloud",
+        "firebase", "identity_oauth", "vertex_ai",
     ],
     "children": [
         {"id": "gmail", "name": "GOOGLE GMAIL API ECOSYSTEM", "folder": "gmail_api_ecosystem", "status": "adapter_scaffold"},
@@ -34,7 +28,7 @@ GOOGLE_API_ECOSYSTEM = {
         {"id": "forms", "name": "GOOGLE FORMS API ECOSYSTEM", "folder": "forms_api_ecosystem", "status": "catalog_only"},
         {"id": "chat", "name": "GOOGLE CHAT API ECOSYSTEM", "folder": "chat_api_ecosystem", "status": "catalog_only"},
         {"id": "meet", "name": "GOOGLE MEET API ECOSYSTEM", "folder": "meet_api_ecosystem", "status": "catalog_only"},
-        {"id": "admin", "name": "GOOGLE ADMIN SDK API ECOSYSTEM", "folder": "admin_sdk_api_ecosystem", "status": "catalog_only"},
+        {"id": "admin_sdk", "name": "GOOGLE ADMIN SDK API ECOSYSTEM", "folder": "admin_sdk_api_ecosystem", "status": "catalog_only"},
         {"id": "people", "name": "GOOGLE PEOPLE API ECOSYSTEM", "folder": "people_api_ecosystem", "status": "catalog_only"},
         {"id": "youtube", "name": "GOOGLE YOUTUBE API ECOSYSTEM", "folder": "youtube_api_ecosystem", "status": "catalog_only"},
         {"id": "maps", "name": "GOOGLE MAPS PLATFORM API ECOSYSTEM", "folder": "maps_platform_api_ecosystem", "status": "catalog_only"},
@@ -45,24 +39,26 @@ GOOGLE_API_ECOSYSTEM = {
         {"id": "cloud", "name": "GOOGLE CLOUD API ECOSYSTEM", "folder": "cloud_api_ecosystem", "status": "catalog_only"},
         {"id": "firebase", "name": "GOOGLE FIREBASE API ECOSYSTEM", "folder": "firebase_api_ecosystem", "status": "catalog_only"},
         {"id": "identity_oauth", "name": "GOOGLE IDENTITY AND OAUTH API ECOSYSTEM", "folder": "identity_oauth_api_ecosystem", "status": "catalog_only"},
-        {"id": "vertex_ai", "name": "GOOGLE VERTEX AI API ECOSYSTEM", "folder": "vertex_ai_api_ecosystem", "status": "catalog_only"}
+        {"id": "vertex_ai", "name": "GOOGLE VERTEX AI API ECOSYSTEM", "folder": "vertex_ai_api_ecosystem", "status": "catalog_only"},
     ],
     "related_ecosystems": [
         "GLOBAL AI API ECOSYSTEM", "GLOBAL CLOUD API ECOSYSTEM",
         "GLOBAL COMMUNICATION API ECOSYSTEM", "GLOBAL STORAGE API ECOSYSTEM",
-        "GLOBAL SECURITY API ECOSYSTEM", "GLOBAL DEVELOPER API ECOSYSTEM"
+        "GLOBAL SECURITY API ECOSYSTEM", "GLOBAL DEVELOPER API ECOSYSTEM",
     ],
     "adapter_path": "backend/integrations/providers/google.py",
     "credential_source": "environment_or_managed_secret_store",
 }
 
+
 def list_google_api_ecosystems() -> dict[str, object]:
-    """List the Google API child catalogs without implying live connections."""
+    """List child Google API catalogs; this does not assert live connectivity."""
+    children = [dict(item) for item in GOOGLE_API_ECOSYSTEM["children"]]
     return {
         "success": True,
         "provider": GOOGLE_API_ECOSYSTEM["name"],
         "status": GOOGLE_API_ECOSYSTEM["status"],
         "live_connection_verified": False,
-        "count": len(GOOGLE_API_ECOSYSTEM["children"]),
-        "ecosystems": [dict(item) for item in GOOGLE_API_ECOSYSTEM["children"]],
+        "count": len(children),
+        "ecosystems": children,
     }
