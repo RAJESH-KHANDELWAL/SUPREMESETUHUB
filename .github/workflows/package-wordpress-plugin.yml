@@ -1,0 +1,63 @@
+name: Package WordPress Plugins
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "wordpress-plugin/**"
+      - "backend/wordpress/wp-content/plugins/dr-rajesh-khandelwal-ibc/**"
+      - ".github/workflows/package-wordpress-plugin.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "wordpress-plugin/**"
+      - "backend/wordpress/wp-content/plugins/dr-rajesh-khandelwal-ibc/**"
+      - ".github/workflows/package-wordpress-plugin.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    name: Validate and package WordPress plugins
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Validate plugin files and PHP syntax
+        run: |
+          set -e
+          for plugin in supremesetuhub-connector supreme-ecosystem-home supreme-print-on-demand; do
+            test -f "wordpress-plugin/$plugin/readme.md"
+            php_file=$(find "wordpress-plugin/$plugin" -maxdepth 1 -name '*.php' -print -quit)
+            test -n "$php_file"
+            php -l "$php_file"
+          done
+          php -l backend/wordpress/wp-content/plugins/dr-rajesh-khandelwal-ibc/dr-rajesh-khandelwal-ibc.php
+
+      - name: Build installable plugin ZIPs
+        run: |
+          set -e
+          mkdir -p dist
+          for plugin in supremesetuhub-connector supreme-ecosystem-home supreme-print-on-demand; do
+            (cd wordpress-plugin && zip -r "../dist/$plugin.zip" "$plugin")
+            unzip -t "dist/$plugin.zip"
+            unzip -Z1 "dist/$plugin.zip" | grep -q "^$plugin/[^/]*\.php$"
+          done
+          mkdir -p dist/package-root
+          cp -R backend/wordpress/wp-content/plugins/dr-rajesh-khandelwal-ibc dist/package-root/
+          (cd dist/package-root && zip -r ../dr-rajesh-khandelwal-ibc.zip dr-rajesh-khandelwal-ibc)
+          unzip -t dist/dr-rajesh-khandelwal-ibc.zip
+          unzip -Z1 dist/dr-rajesh-khandelwal-ibc.zip | grep -q "^dr-rajesh-khandelwal-ibc/dr-rajesh-khandelwal-ibc.php$"
+
+      - name: Upload WordPress plugin ZIPs
+        uses: actions/upload-artifact@v4
+        with:
+          name: supremesetuhub-wordpress-plugins
+          path: dist/*.zip
+          if-no-files-found: error
+          retention-days: 30

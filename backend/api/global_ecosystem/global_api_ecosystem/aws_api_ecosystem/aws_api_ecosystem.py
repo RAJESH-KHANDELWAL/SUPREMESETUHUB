@@ -13,7 +13,6 @@ AWS_API_ECOSYSTEM = {
         "AWS Management Console", "AWS Marketplace", "AWS Organizations",
         "IAM Identity Center", "AWS Developer Tools"
     ],
-    "service_catalog_module": "aws_api_ecosystem_catalog",
     "api_families": [
         "iam_sts", "compute_ec2", "lightsail", "lambda", "containers",
         "s3_storage", "rds_dynamodb", "route53_dns_domains", "vpc_networking",
