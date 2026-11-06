@@ -1,6 +1,7 @@
-"""Google provider-owned API ecosystem metadata.
+"""Google provider-owned API ecosystem catalog.
 
-Catalog metadata only. This module does not authenticate or make network requests.
+This is the canonical parent for Google product/API family adapters.
+Catalog membership does not imply an enabled API or live connection.
 """
 from __future__ import annotations
 
@@ -10,19 +11,58 @@ GOOGLE_API_ECOSYSTEM = {
     "status": "CATALOG_ONLY_UNLESS_ADAPTER_TESTS_PASS",
     "live_connection_verified": False,
     "platforms": [
-        "Google Workspace", "Google Play", "Google Cloud Console",
-        "Google Maps Platform", "Google Search Console", "Google Analytics",
-        "Firebase"
+        "Google Workspace", "Google Cloud", "Google Maps Platform",
+        "Google Play", "Google Search Console", "Google Analytics", "Firebase",
+        "Google Ads", "Google Business Profile", "YouTube"
     ],
     "api_families": [
-        "identity_oauth", "workspace", "gmail", "calendar", "drive",
-        "docs_sheets", "maps", "analytics", "search_console", "youtube",
-        "cloud", "firebase", "vertex_ai_gemini", "cloud_dns", "iam"
+        "gmail", "drive", "calendar", "contacts", "sheets", "docs",
+        "slides", "forms", "keep", "tasks", "chat", "meet", "admin",
+        "people", "groups", "youtube", "maps", "places", "routes",
+        "geocoding", "business_profile", "ads", "analytics", "search_console",
+        "cloud", "storage", "compute", "iam", "secret_manager",
+        "firebase", "identity_oauth", "vertex_ai_gemini"
+    ],
+    "children": [
+        {"id": "gmail", "name": "GOOGLE GMAIL API ECOSYSTEM", "folder": "gmail_api_ecosystem", "status": "adapter_scaffold"},
+        {"id": "drive", "name": "GOOGLE DRIVE API ECOSYSTEM", "folder": "drive_api_ecosystem", "status": "catalog_only"},
+        {"id": "calendar", "name": "GOOGLE CALENDAR API ECOSYSTEM", "folder": "calendar_api_ecosystem", "status": "catalog_only"},
+        {"id": "contacts", "name": "GOOGLE CONTACTS API ECOSYSTEM", "folder": "contacts_api_ecosystem", "status": "catalog_only"},
+        {"id": "sheets", "name": "GOOGLE SHEETS API ECOSYSTEM", "folder": "sheets_api_ecosystem", "status": "catalog_only"},
+        {"id": "docs", "name": "GOOGLE DOCS API ECOSYSTEM", "folder": "docs_api_ecosystem", "status": "catalog_only"},
+        {"id": "slides", "name": "GOOGLE SLIDES API ECOSYSTEM", "folder": "slides_api_ecosystem", "status": "catalog_only"},
+        {"id": "forms", "name": "GOOGLE FORMS API ECOSYSTEM", "folder": "forms_api_ecosystem", "status": "catalog_only"},
+        {"id": "chat", "name": "GOOGLE CHAT API ECOSYSTEM", "folder": "chat_api_ecosystem", "status": "catalog_only"},
+        {"id": "meet", "name": "GOOGLE MEET API ECOSYSTEM", "folder": "meet_api_ecosystem", "status": "catalog_only"},
+        {"id": "admin", "name": "GOOGLE ADMIN SDK API ECOSYSTEM", "folder": "admin_sdk_api_ecosystem", "status": "catalog_only"},
+        {"id": "people", "name": "GOOGLE PEOPLE API ECOSYSTEM", "folder": "people_api_ecosystem", "status": "catalog_only"},
+        {"id": "youtube", "name": "GOOGLE YOUTUBE API ECOSYSTEM", "folder": "youtube_api_ecosystem", "status": "catalog_only"},
+        {"id": "maps", "name": "GOOGLE MAPS PLATFORM API ECOSYSTEM", "folder": "maps_platform_api_ecosystem", "status": "catalog_only"},
+        {"id": "business_profile", "name": "GOOGLE BUSINESS PROFILE API ECOSYSTEM", "folder": "business_profile_api_ecosystem", "status": "catalog_only"},
+        {"id": "ads", "name": "GOOGLE ADS API ECOSYSTEM", "folder": "ads_api_ecosystem", "status": "catalog_only"},
+        {"id": "analytics", "name": "GOOGLE ANALYTICS API ECOSYSTEM", "folder": "analytics_api_ecosystem", "status": "catalog_only"},
+        {"id": "search_console", "name": "GOOGLE SEARCH CONSOLE API ECOSYSTEM", "folder": "search_console_api_ecosystem", "status": "catalog_only"},
+        {"id": "cloud", "name": "GOOGLE CLOUD API ECOSYSTEM", "folder": "cloud_api_ecosystem", "status": "catalog_only"},
+        {"id": "firebase", "name": "GOOGLE FIREBASE API ECOSYSTEM", "folder": "firebase_api_ecosystem", "status": "catalog_only"},
+        {"id": "identity_oauth", "name": "GOOGLE IDENTITY AND OAUTH API ECOSYSTEM", "folder": "identity_oauth_api_ecosystem", "status": "catalog_only"},
+        {"id": "vertex_ai", "name": "GOOGLE VERTEX AI API ECOSYSTEM", "folder": "vertex_ai_api_ecosystem", "status": "catalog_only"}
     ],
     "related_ecosystems": [
-        "AI", "CLOUD", "COMMUNICATION", "DATABASE", "DEVELOPER",
-        "DNS", "SECURITY", "STORAGE", "WEB", "WEBSITE"
+        "GLOBAL AI API ECOSYSTEM", "GLOBAL CLOUD API ECOSYSTEM",
+        "GLOBAL COMMUNICATION API ECOSYSTEM", "GLOBAL STORAGE API ECOSYSTEM",
+        "GLOBAL SECURITY API ECOSYSTEM", "GLOBAL DEVELOPER API ECOSYSTEM"
     ],
     "adapter_path": "backend/integrations/providers/google.py",
     "credential_source": "environment_or_managed_secret_store",
 }
+
+def list_google_api_ecosystems() -> dict[str, object]:
+    """List the Google API child catalogs without implying live connections."""
+    return {
+        "success": True,
+        "provider": GOOGLE_API_ECOSYSTEM["name"],
+        "status": GOOGLE_API_ECOSYSTEM["status"],
+        "live_connection_verified": False,
+        "count": len(GOOGLE_API_ECOSYSTEM["children"]),
+        "ecosystems": [dict(item) for item in GOOGLE_API_ECOSYSTEM["children"]],
+    }
