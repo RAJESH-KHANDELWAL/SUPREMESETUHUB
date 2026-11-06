@@ -45,8 +45,8 @@ duplicate source trees for compatibility entry points.
 - `security_defence_safety_services/`
 - `sports_recreation_community/`
 - `global_entrepreneurs_entrepreneurship_msme_sme_startups_solo_women_digital_ai_technology_innovation_business_creation_development_growth_api_ecosystem/`
-- `technology_it_telecommunications/`
-- `technology_software_ai_cloud/`
+- `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem/technology_it_telecommunications/` — Technology, IT & Telecommunications industry API implementation.
+- `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem/technology_software_ai_cloud/` — Technology, Software, AI & Cloud domain identity.
 - `automotive_mobility/global_transport_mobility_logistics_supply_chain_business_api_ecosystem/` — consolidated Transport, Mobility, Logistics & Supply Chain entry point nested under Automotive & Mobility.
 - `automotive_mobility/global_transport_mobility_logistics_supply_chain_business_api_ecosystem/global_aviation_aerospace_space_technology_api_ecosystem/` — Aviation, Aerospace & Space Technology entry point nested under Transport.
 - `global_travel_tourism_hospitality_api_ecosystem/`
