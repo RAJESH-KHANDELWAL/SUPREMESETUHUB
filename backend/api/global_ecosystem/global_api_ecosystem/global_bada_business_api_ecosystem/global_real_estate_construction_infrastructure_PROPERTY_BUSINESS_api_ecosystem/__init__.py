@@ -1,10 +1,8 @@
-"""Unified Global Real Estate, Construction, Infrastructure & Property Business entry point."""
-from pathlib import Path as _Path
-from ..real_estate_construction import *
-from ..real_estate_construction_infrastructure import *
-_BASE = _Path(__file__).resolve().parent
-__path__ = [
-    str(_BASE),
-    str(_BASE.parent / "real_estate_construction"),
-    str(_BASE.parent / "real_estate_construction_infrastructure"),
-]
+"""Real Estate & Construction domain package."""
+INDUSTRY_ID = "real_estate_construction"
+INDUSTRY_NAME = "Real Estate & Construction"
+COVERAGE = ("india", "global")
+CHANNELS = ("online", "offline", "hybrid")
+STATUS = "taxonomy_scaffold"
+from .service import RealEstateService
+__all__ = ["INDUSTRY_ID", "INDUSTRY_NAME", "COVERAGE", "CHANNELS", "STATUS", "RealEstateService"]

@@ -43,7 +43,7 @@ from ..global_agriculture_food_natural_resources_api_ecosystem.routes import rou
 from ..global_education_learning_training_api_ecosystem.routes import router as education_learning_router
 from ..healthcare_life_sciences.routes import router as healthcare_router
 from ..global_finance_banking_insurance_api_ecosystem.routes import router as finance_banking_router
-from ..real_estate_construction.routes import router as real_estate_router
+from ..global_real_estate_construction_infrastructure_PROPERTY_BUSINESS_api_ecosystem.routes import router as real_estate_router
 from ..retail_ecommerce_consumer_goods.routes import router as retail_ecommerce_router
 
 router.include_router(agriculture_food_router)
