@@ -20,6 +20,27 @@ class DomainPackageLayerTests(unittest.TestCase):
                 self.assertTrue(hasattr(catalog, "SUBCATEGORIES"), domain["id"])
                 self.assertTrue(hasattr(service_module, "list_profiles"), domain["id"])
                 self.assertTrue(hasattr(service_module, "get_catalog"), domain["id"])
+            elif domain["id"] == "adult_18_plus_lawful_industry":
+                adult_root = f"{PACKAGE_ROOT}.global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_coach_consultant_advisor_professional_services_work_business_api_ecosystem"
+                catalog = importlib.import_module(f"{adult_root}.adult_18_plus_lawful_industry_catalog")
+                models = importlib.import_module(f"{adult_root}.adult_18_plus_lawful_industry_models")
+                service_module = importlib.import_module(f"{adult_root}.adult_18_plus_lawful_industry_service")
+                self.assertTrue(hasattr(models, "CategoryRecord"), domain["id"])
+                self.assertTrue(hasattr(catalog, "list_categories"), domain["id"])
+                self.assertTrue(hasattr(catalog, "get_category"), domain["id"])
+                self.assertTrue(hasattr(service_module, "DomainService"), domain["id"])
+            elif domain["id"] == "finance_banking_insurance":
+                catalog = importlib.import_module(f"{PACKAGE_ROOT}.global_finance_banking_insurance_api_ecosystem.catalog")
+                service_module = importlib.import_module(f"{PACKAGE_ROOT}.global_finance_banking_insurance_api_ecosystem.service")
+                self.assertTrue(hasattr(catalog, "list_categories"), domain["id"])
+                self.assertTrue(hasattr(catalog, "get_category"), domain["id"])
+                self.assertTrue(hasattr(service_module, "FinanceService"), domain["id"])
+            elif domain["id"] == "government_public_services_social_impact":
+                catalog = importlib.import_module(f"{PACKAGE_ROOT}.government_public_services_social_impact.catalog")
+                service_module = importlib.import_module(f"{PACKAGE_ROOT}.government_public_services_social_impact.service")
+                self.assertTrue(hasattr(catalog, "list_categories"), domain["id"])
+                self.assertTrue(hasattr(catalog, "get_category"), domain["id"])
+                self.assertTrue(hasattr(service_module, "PublicImpactService"), domain["id"])
             else:
                 catalog = importlib.import_module(f"{package}.catalog")
                 models = importlib.import_module(f"{package}.models")
@@ -37,12 +58,18 @@ class DomainPackageLayerTests(unittest.TestCase):
                 catalog = importlib.import_module("backend.api.global_ecosystem.global_api_ecosystem.global_company_companies_api_ecosystem.business_catalog")
                 self.assertEqual(len(catalog.SUBCATEGORIES), domain["subcategory_count"])
                 continue
-            catalog = importlib.import_module(f"{package}.catalog")
+            if domain["id"] == "finance_banking_insurance":
+                finance = importlib.import_module(f"{PACKAGE_ROOT}.global_finance_banking_insurance_api_ecosystem")
+                self.assertEqual(len(finance.SUBCATEGORY_IDS), domain["subcategory_count"])
+                continue
             if domain["adult_only"]:
+                adult_root = f"{PACKAGE_ROOT}.global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_coach_consultant_advisor_professional_services_work_business_api_ecosystem"
+                catalog = importlib.import_module(f"{adult_root}.adult_18_plus_lawful_industry_catalog")
                 self.assertEqual(catalog.list_categories(), [])
                 self.assertEqual(len(catalog.list_categories(include_restricted=True)), domain["subcategory_count"])
-            else:
-                self.assertEqual(len(catalog.list_categories()), domain["subcategory_count"])
+                continue
+            catalog = importlib.import_module(f"{package}.catalog")
+            self.assertEqual(len(catalog.list_categories()), domain["subcategory_count"])
 
     def test_domain_service_exposes_status_and_category_search(self):
         package = f"{PACKAGE_ROOT}.global_freelancer_gig_independent_work_business_api_ecosystem.service"
