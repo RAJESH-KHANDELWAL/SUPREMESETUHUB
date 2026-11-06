@@ -124,3 +124,12 @@ The live tree shows existing destination files with overlapping names. For examp
 - jobs_careers_employment contains 843 files while the global freelancer destination contains 5,697 files; a direct overwrite/delete is unsafe.
 
 A safe consolidation must compare conflicting file contents, merge unique subdirectories, reconcile Python imports and package exports, update registries/documentation/tests, then run the relevant test suite. This audit intentionally makes no destructive folder deletion.
+
+
+## 6. Execution result on 2026-11-06
+
+- The obsolete root-level `agriculture_food_natural_resources/` compatibility folder was removed. Its two files were only compatibility shims; the canonical implementation and routes already live in `global_agriculture_food_natural_resources_api_ecosystem/`.
+- The global agriculture package remains intact.
+- No other matched folder was deleted in this pass. Repository code confirms that several apparent matches are still active implementation packages or compatibility entry points used by registries, routes, tests, or global facade imports. Examples include Education, Digital Infrastructure, Finance, Hospitality, Real Estate, Jobs/Careers, and Governance.
+- Moving or deleting those directories without first migrating their implementation and rewriting every dependent import would break the running API. In particular, the existing global Finance/Education/Hospitality/Real Estate packages deliberately expose or point to maintained implementation packages rather than containing independent copies.
+- Therefore this commit performs only the verified safe deletion; the remaining mappings are retained as migration candidates, not reported as completed moves.
