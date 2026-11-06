@@ -42,7 +42,7 @@ Each core domain follows its documented package convention. Finance, Banking & I
 - `healthcare_life_sciences/`
 - `healthcare_wellness_fitness/` — canonical gym, fitness, spa and massage taxonomy.
 - `home_services_property_maintenance_facility_management/` — home services, property maintenance and facility operations.
-- `jobs_careers_employment/`
+- `global_jobs_careers_employment_api_ecosystem/` — 15 industry/service categories and 60 subcategories for recruitment, staffing, HR/payroll, career support and related services.
 - `legal_consulting_professional_services/`
 - `manufacturing_industrial_services/`
 - `marketing_media_entertainment/`
@@ -143,7 +143,7 @@ These must remain distinct and be added as versioned datasets with source proven
 
 - `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem/` — Digital Infrastructure, Telecommunications, Technology, IT, AI, software, cloud and related technology-provider packages.
 - `network_marketing_direct_selling_business_api_ecosystem/` — Bharat and international network-marketing and direct-selling companies, distributors, products and business models.
-- `global_freelancer_gig_independent_work_business_api_ecosystem/` — freelancing, gig and independent work; its `jobs_careers_employment_api_ecosystem/` child owns Jobs, Careers & Employment taxonomy.
+- `global_freelancer_gig_independent_work_business_api_ecosystem/` — freelancing, gig and independent work; its `jobs_careers_employment_api_ecosystem/` child owns the separate 24-category Work, Jobs & Careers employment classification. The 15-category Jobs, Careers & Employment industry/service taxonomy is maintained in `global_jobs_careers_employment_api_ecosystem/`.
 - `global_finance_banking_insurance_api_ecosystem/global_payment_business_api_ecosystem/` — payment platforms and provider packages, including PayPal, Stripe, Epoch, Paxum, Segpay, Verotel and CCBill.
 
 These consolidated folders are business-facing ownership boundaries. Existing canonical detailed industry implementations and stable API contracts are retained where needed; do not duplicate their catalogues.

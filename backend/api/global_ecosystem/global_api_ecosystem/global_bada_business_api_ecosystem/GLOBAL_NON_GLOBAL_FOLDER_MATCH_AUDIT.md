@@ -5,7 +5,7 @@ Branch inspected: `main`
 Parent: `backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`
 Audit basis: GitHub recursive tree at commit `03681882d4a06b9dad811d480053f88bc5c8a9fb`.
 
-## 1. Folders WITH the `global_` prefix (18)
+## 1. Folders WITH the `global_` prefix (21)
 
 - global_affiliate_marketing_business_api_ecosystem
 - global_agriculture_food_natural_resources_api_ecosystem
@@ -20,24 +20,25 @@ Audit basis: GitHub recursive tree at commit `03681882d4a06b9dad811d480053f88bc5
 - global_finance_banking_insurance_api_ecosystem
 - global_freelancer_gig_independent_work_business_api_ecosystem
 - global_hospitality_hotels_resorts_restaurants_api_ecosystem
+- global_jobs_careers_employment_api_ecosystem
 - global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_coach_consultant_advisor_professional_services_work_business_api_ecosystem
 - global_legal_services_api_ecosystem
+- global_professional_business_services_api_ecosystem
 - global_real_estate_construction_infrastructure_PROPERTY_BUSINESS_api_ecosystem
 - global_travel_tourism_hospitality_api_ecosystem
+- global_universal_work_business_taxonomy_api_ecosystem
 - global_water_resources_marine_industries_api_ecosystem
 
-## 2. Folders WITHOUT the `global_` prefix (55)
+## 2. Folders WITHOUT the `global_` prefix (44)
 
-- agriculture_food_natural_resources
 - arts_culture_heritage_creative_economy
 - automotive_mobility
 - aviation_aerospace_space_technology
 - business_capabilities
 - business_companies_corporates
+- business_companies_corporates_business_api_ecosystem
 - exoclick_business_api_ecosystem
 - family_relationships_parenting
-- fashion_textiles_apparel
-- governance
 - government_public_services_social_impact
 - healthcare_life_sciences
 - healthcare_medical_life_sciences_api_ecosystem
@@ -50,16 +51,13 @@ Audit basis: GitHub recursive tree at commit `03681882d4a06b9dad811d480053f88bc5
 - integrations
 - international_trade_import_export_customs_global_commerce
 - investment_finance_support_business_api_ecosystem
-- jobs_careers_employment
 - legal_coach_consultant_advisor_education_learning_training_professional_services_api_ecosystem
-- legal_consulting_professional_services
 - manufacturing_industrial_services
 - marketing_media_entertainment
 - media_entertainment_creative_industries
 - mining_metals_minerals
 - network_marketing_direct_selling_business_api_ecosystem
 - personal_lifestyle_wellness
-- professional_legal_business_services
 - public_nonprofit_social_impact_business_api_ecosystem
 - retail_ecommerce_consumer_goods
 - salesforce_business_api_ecosystem
@@ -95,7 +93,7 @@ These are clear subject matches by folder name and existing destination structur
 | real_estate_construction_infrastructure | global_real_estate_construction_infrastructure_PROPERTY_BUSINESS_api_ecosystem |
 | legal_consulting_professional_services | global_legal_services_api_ecosystem |
 | professional_legal_business_services | global_legal_services_api_ecosystem |
-| jobs_careers_employment | global_freelancer_gig_independent_work_business_api_ecosystem (overlapping work/jobs scope; review subdomain boundaries before merge) |
+| jobs_careers_employment | global_jobs_careers_employment_api_ecosystem (separate 15-category industry/service taxonomy) |
 
 ## 4. Related but NOT safe to merge automatically
 
@@ -115,7 +113,7 @@ The live tree shows existing destination files with overlapping names. For examp
 - fashion source has `__init__.py`; the global destination already has one.
 - finance source has `__init__.py`, `catalog.py`, `routes.py`, `schemas.py`, and `service.py`; some are already present in the global destination.
 - education, digital infrastructure, hospitality, real estate, and legal/work destinations also contain existing package entry points or subtrees.
-- jobs_careers_employment contains 843 files while the global freelancer destination contains 5,697 files; a direct overwrite/delete is unsafe.
+- Jobs, Careers & Employment contains a 15-category industry/service taxonomy (60 subcategories). The Global Freelancer child contains a distinct 24-category employment classification. These datasets are complementary, not duplicate folders.
 
 A safe consolidation must compare conflicting file contents, merge unique subdirectories, reconcile Python imports and package exports, update registries/documentation/tests, then run the relevant test suite. This audit intentionally makes no destructive folder deletion.
 
@@ -145,3 +143,11 @@ A safe consolidation must compare conflicting file contents, merge unique subdir
 - The Real Estate & Construction implementation (7 files) and the separate Infrastructure identity package (1 file) were moved into `global_real_estate_construction_infrastructure_PROPERTY_BUSINESS_api_ecosystem/`; the industry router, registry and service test now target the canonical Global package. Both old root directories were removed.
 
 - The Digital Infrastructure & Telecommunications implementation (14 files) was moved into `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem/digital_infrastructure_telecommunications/`; the industry router, registry and service test now target that canonical Global child package. The old root directory was removed.
+
+
+## 8. Verified Jobs & Careers consolidation on 2026-11-06
+
+- Moved all 843 files from the former root-level `jobs_careers_employment/` package into the new canonical `global_jobs_careers_employment_api_ecosystem/` package without overwriting the separate Global Freelancer child taxonomy.
+- Updated the industry router and registry package path to the new Global package.
+- Updated the root index, complete taxonomy index and consolidation audit to distinguish the 15-category Jobs industry/service taxonomy from the separate 24-category Work & Careers classification under Global Freelancer.
+- The old root-level `jobs_careers_employment/` path was removed only after all files were preserved at the new Global path.

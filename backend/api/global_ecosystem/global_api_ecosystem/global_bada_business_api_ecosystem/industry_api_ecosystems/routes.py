@@ -103,7 +103,7 @@ router.include_router(water_marine_router)
 router.include_router(fashion_textiles_router)
 
 # Jobs, Careers & Employment is deliberately mounted last in the industry API ecosystem.
-from ..jobs_careers_employment.routes import router as jobs_careers_router
+from ..global_jobs_careers_employment_api_ecosystem.routes import router as jobs_careers_router
 router.include_router(jobs_careers_router)
 
 from ..home_services_property_maintenance_facility_management.routes import router as home_facility_router
