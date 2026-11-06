@@ -1,5 +1,5 @@
 import unittest
-from food_hospitality_restaurants.service import FoodHospitalityService
+from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_hospitality_hotels_resorts_restaurants_api_ecosystem.service import FoodHospitalityService
 class FoodHospitalityServiceTests(unittest.TestCase):
  def setUp(self): self.service=FoodHospitalityService()
  def test_count(self): self.assertEqual(len(self.service.list_categories()),11)

@@ -1,6 +1,7 @@
-"""Canonical Global Hotels, Resorts, Restaurants & Hospitality ecosystem facade."""
-from pathlib import Path as _Path
-from ..industry_api_ecosystems import food_hospitality_restaurants as _implementation
-from ..food_hospitality_restaurants import *
-
-__path__ = _implementation.__path__
+"""Hotels, Resorts, Restaurants & Hospitality domain package."""
+INDUSTRY_ID="food_hospitality_restaurants"
+INDUSTRY_NAME="Hotels, Resorts, Restaurants & Hospitality"
+COVERAGE=("india","global")
+CHANNELS=("online","offline","hybrid")
+STATUS="taxonomy_scaffold"
+from .service import FoodHospitalityService
