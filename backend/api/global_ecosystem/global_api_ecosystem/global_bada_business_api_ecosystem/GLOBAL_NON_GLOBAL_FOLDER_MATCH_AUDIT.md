@@ -1,15 +1,16 @@
 # Global vs Non-Global Folder Audit
 
-Repository: `RAJESH-KHANDELWAL/SUPREMESETUHUB`
-Branch inspected: `main`
-Parent: `backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`
-Audit basis: GitHub recursive tree at commit `03681882d4a06b9dad811d480053f88bc5c8a9fb`.
+Repository: `RAJESH-KHANDELWAL/SUPREMESETUHUB`  
+Branch: `main`  
+Scope: direct child folders of `backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`  
+Audit date: 2026-11-06
 
-## 1. Folders WITH the `global_` prefix (21)
+## 1. Folders WITH the `global_` prefix (22)
 
 - global_affiliate_marketing_business_api_ecosystem
 - global_agriculture_food_natural_resources_api_ecosystem
 - global_beauty_fashion_lifestyle_api_ecosystem
+- global_business_companies_corporates_api_ecosystem
 - global_business_governance_compliance_standards_api_ecosystem
 - global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem
 - global_distribution_channels_api_ecosystem
@@ -29,14 +30,12 @@ Audit basis: GitHub recursive tree at commit `03681882d4a06b9dad811d480053f88bc5
 - global_universal_work_business_taxonomy_api_ecosystem
 - global_water_resources_marine_industries_api_ecosystem
 
-## 2. Folders WITHOUT the `global_` prefix (44)
+## 2. Folders WITHOUT the `global_` prefix (42)
 
 - arts_culture_heritage_creative_economy
 - automotive_mobility
 - aviation_aerospace_space_technology
 - business_capabilities
-- business_companies_corporates
-- business_companies_corporates_business_api_ecosystem
 - exoclick_business_api_ecosystem
 - family_relationships_parenting
 - government_public_services_social_impact
@@ -76,78 +75,40 @@ Audit basis: GitHub recursive tree at commit `03681882d4a06b9dad811d480053f88bc5
 - transport_logistics_supply_chain
 - transport_mobility_logistics
 
-## 3. Strong semantic matches (source -> existing global destination)
+## 3. Verified consolidations completed on 2026-11-06
 
-These are clear subject matches by folder name and existing destination structure:
+- `agriculture_food_natural_resources` → `global_agriculture_food_natural_resources_api_ecosystem`: obsolete compatibility files removed after confirming the canonical implementation existed in the Global package.
+- `education_learning_training` → `global_education_learning_training_api_ecosystem/education_learning_training`: implementation moved; router, registry and dependent imports updated; old root folder removed.
+- `fashion_textiles_apparel` → `global_fashion_textiles_apparel_api_ecosystem`: redundant compatibility shim removed; router, registry and service test updated.
+- `finance_banking_insurance` → `global_finance_banking_insurance_api_ecosystem`: implementation moved; router, industry registry, domain registry and related facades updated; old root folder removed.
+- `food_hospitality_restaurants` → `global_hospitality_hotels_resorts_restaurants_api_ecosystem`: implementation moved; router, registry and test updated; old root folder removed.
+- `governance` → `global_business_governance_compliance_standards_api_ecosystem/governance`: compatibility shims removed after routes and tests were redirected to the canonical package.
+- `real_estate_construction` and `real_estate_construction_infrastructure` → `global_real_estate_construction_infrastructure_PROPERTY_BUSINESS_api_ecosystem`: implementation and identity files moved; router, registry and tests updated; old root folders removed.
+- `digital_infrastructure_telecommunications` → `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem/digital_infrastructure_telecommunications`: implementation moved; router, registry and test updated; old root folder removed.
+- `jobs_careers_employment` → `global_jobs_careers_employment_api_ecosystem`: 843 preserved files moved; industry router and registry updated. This 15-category Jobs industry/service taxonomy remains distinct from the 24-category Work & Careers taxonomy under Global Freelancer.
+- `professional_legal_business_services` → `global_professional_business_services_api_ecosystem`: non-legal Professional Services implementation moved; router, registry and service test updated; old root implementation and obsolete `legal_consulting_professional_services` alias removed. It was deliberately NOT merged into Legal Services because the scopes differ.
+- `business_companies_corporates` → `global_business_companies_corporates_api_ecosystem`: domain metadata and category adapter consolidated into the Global package; the adapter reuses the canonical Global Company business-enterprise taxonomy.
+- Flat Universal Work & Business Taxonomy modules → `global_universal_work_business_taxonomy_api_ecosystem`: catalog, model, service and routes moved; root router and tests updated; old flat source modules removed.
 
-| Non-global source | Global destination |
-|---|---|
-| agriculture_food_natural_resources | global_agriculture_food_natural_resources_api_ecosystem |
-| digital_infrastructure_telecommunications | global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem |
-| education_learning_training | global_education_learning_training_api_ecosystem |
-| fashion_textiles_apparel | global_fashion_textiles_apparel_api_ecosystem |
-| finance_banking_insurance | global_finance_banking_insurance_api_ecosystem |
-| food_hospitality_restaurants | global_hospitality_hotels_resorts_restaurants_api_ecosystem |
-| governance | global_business_governance_compliance_standards_api_ecosystem |
-| real_estate_construction | global_real_estate_construction_infrastructure_PROPERTY_BUSINESS_api_ecosystem |
-| real_estate_construction_infrastructure | global_real_estate_construction_infrastructure_PROPERTY_BUSINESS_api_ecosystem |
-| legal_consulting_professional_services | global_legal_services_api_ecosystem |
-| professional_legal_business_services | global_legal_services_api_ecosystem |
-| jobs_careers_employment | global_jobs_careers_employment_api_ecosystem (separate 15-category industry/service taxonomy) |
+## 4. Related folders that must remain separate
 
-## 4. Related but NOT safe to merge automatically
+- International Trade is broader than distribution channels; it is not a duplicate of `global_distribution_channels_api_ecosystem`.
+- Automotive, aviation, transport/logistics and transport/mobility have distinct domain boundaries and nested transport/aviation entry points. Do not collapse them solely by name.
+- Government/Public Services and Nonprofit/Social Impact are not equivalents of governance/compliance.
+- Healthcare, life sciences and wellness folders remain separate scopes; the adult-only Global Kamasutra ecosystem is not a general healthcare replacement.
+- Family/parenting is not interchangeable with the broader adult-industry Global Kamasutra ecosystem.
+- Marketing/media/entertainment folders have distinct content and commercial-media boundaries.
+- Platform-specific folders such as Salesforce, Shopify, Slack, ExoClick and TrafficJunky are integrations/providers, not industry taxonomy duplicates.
+- `global_legal_services_api_ecosystem` is a separate legal-services taxonomy/documentation scope. Non-legal Professional Services are maintained in `global_professional_business_services_api_ecosystem`.
 
-- international_trade_import_export_customs_global_commerce -> global_distribution_channels_api_ecosystem (trade/import-export is broader than distribution)
-- family_relationships_parenting -> global_kamasutra... (the global destination has a family/relationships branch, but its wider adult-industry scope makes a blind merge inappropriate)
-- healthcare_medical_life_sciences_api_ecosystem -> global_kamasutra... (not a valid general healthcare destination; do not merge)
-- automotive_mobility, aviation_aerospace_space_technology, transport_logistics_supply_chain, transport_mobility_logistics -> some transport/aviation branches exist inside other ecosystems, but there is no clearly named standalone global transport/aviation root destination
-- government_public_services_social_impact and public_nonprofit_social_impact_business_api_ecosystem -> no exact global public-services destination; do not assume governance is equivalent
-- marketing_media_entertainment and media_entertainment_creative_industries -> no exact global media destination
-- healthcare_life_sciences, healthcare_wellness_fitness, healthcare_wellness_fitness_api_ecosystem -> no suitable general global healthcare destination in the current 18-folder list
-- all other non-global folders should remain separate until an explicit canonical destination is established
+## 5. Remaining migration policy
 
-## 5. Why source folders have NOT been deleted in this audit
+A non-global folder is not automatically obsolete because a similarly named Global folder exists. Before any further move or deletion:
+1. compare source and destination file contents and collisions;
+2. identify every import, route, registry, test, documentation and runtime reference;
+3. move unique files without overwriting canonical implementations;
+4. update dependent references in the same migration;
+5. run relevant tests and inspect GitHub Actions results;
+6. delete the old source only after the canonical destination is verified.
 
-The live tree shows existing destination files with overlapping names. For example:
-- agriculture source has `__init__.py` and `routes.py`; the global destination already has both.
-- fashion source has `__init__.py`; the global destination already has one.
-- finance source has `__init__.py`, `catalog.py`, `routes.py`, `schemas.py`, and `service.py`; some are already present in the global destination.
-- education, digital infrastructure, hospitality, real estate, and legal/work destinations also contain existing package entry points or subtrees.
-- Jobs, Careers & Employment contains a 15-category industry/service taxonomy (60 subcategories). The Global Freelancer child contains a distinct 24-category employment classification. These datasets are complementary, not duplicate folders.
-
-A safe consolidation must compare conflicting file contents, merge unique subdirectories, reconcile Python imports and package exports, update registries/documentation/tests, then run the relevant test suite. This audit intentionally makes no destructive folder deletion.
-
-
-## 6. Execution result on 2026-11-06
-
-- The obsolete root-level `agriculture_food_natural_resources/` compatibility folder was removed. Its two files were only compatibility shims; the canonical implementation and routes already live in `global_agriculture_food_natural_resources_api_ecosystem/`.
-- The global agriculture package remains intact.
-- No other matched folder was deleted in this pass. Repository code confirms that several apparent matches are still active implementation packages or compatibility entry points used by registries, routes, tests, or global facade imports. Examples include Education, Digital Infrastructure, Finance, Hospitality, Real Estate, Jobs/Careers, and Governance.
-- Moving or deleting those directories without first migrating their implementation and rewriting every dependent import would break the running API. In particular, the existing global Finance/Education/Hospitality/Real Estate packages deliberately expose or point to maintained implementation packages rather than containing independent copies.
-- Therefore this commit performs only the verified safe deletion; the remaining mappings are retained as migration candidates, not reported as completed moves.
-
-
-## 7. Additional verified consolidation on 2026-11-06
-
-- Removed the root-level `fashion_textiles_apparel/` compatibility shim after switching the industry router, registry package path, and service test to the canonical `global_fashion_textiles_apparel_api_ecosystem/` package.
-- Removed the root-level `governance/` compatibility shims after switching the Bada Business router and approved-requirements test to `global_business_governance_compliance_standards_api_ecosystem/governance/` directly.
-- No canonical implementation files were discarded in these two cleanups; both removed directories contained only compatibility imports.
-- Other matching directories remain subject to their documented implementation ownership and dependency requirements; they are not marked migrated merely because their names match.
-
-- The complete `education_learning_training/` implementation (37 files) was moved into `global_education_learning_training_api_ecosystem/education_learning_training/`; the industry router and registry now point to that canonical package, and the old root directory was removed.
-
-- The complete `finance_banking_insurance/` implementation (24 files) was moved into `global_finance_banking_insurance_api_ecosystem/`; the industry router, industry registry, domain registry, world catalogue and investment-finance compatibility facade now reference the canonical Global package. The old root directory was removed.
-
-- The complete `food_hospitality_restaurants/` implementation (30 files) was moved into `global_hospitality_hotels_resorts_restaurants_api_ecosystem/`; the industry router, registry and service test now target that canonical package. The old root directory was removed.
-
-- The Real Estate & Construction implementation (7 files) and the separate Infrastructure identity package (1 file) were moved into `global_real_estate_construction_infrastructure_PROPERTY_BUSINESS_api_ecosystem/`; the industry router, registry and service test now target the canonical Global package. Both old root directories were removed.
-
-- The Digital Infrastructure & Telecommunications implementation (14 files) was moved into `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem/digital_infrastructure_telecommunications/`; the industry router, registry and service test now target that canonical Global child package. The old root directory was removed.
-
-
-## 8. Verified Jobs & Careers consolidation on 2026-11-06
-
-- Moved all 843 files from the former root-level `jobs_careers_employment/` package into the new canonical `global_jobs_careers_employment_api_ecosystem/` package without overwriting the separate Global Freelancer child taxonomy.
-- Updated the industry router and registry package path to the new Global package.
-- Updated the root index, complete taxonomy index and consolidation audit to distinguish the 15-category Jobs industry/service taxonomy from the separate 24-category Work & Careers classification under Global Freelancer.
-- The old root-level `jobs_careers_employment/` path was removed only after all files were preserved at the new Global path.
+The 42 non-global folders above remain because they are separate domains, nested infrastructure, provider integrations, documentation layers, or have no verified one-to-one Global destination. Do not delete them based on naming alone.
