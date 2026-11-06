@@ -56,8 +56,8 @@ Each core domain follows its documented package convention. Finance, Banking & I
 - `security_defence_safety_services/`
 - `sports_recreation_community/`
 - `global_entrepreneurs_entrepreneurship_msme_sme_startups_solo_women_digital_ai_technology_innovation_business_creation_development_growth_api_ecosystem/` — canonical Startups & Entrepreneurship ecosystem.
-- `technology_it_telecommunications/`
-- `technology_software_ai_cloud/`
+- `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem/technology_it_telecommunications/`
+- `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem/technology_software_ai_cloud/`
 - `transport_logistics_supply_chain/`
 - `transport_mobility_logistics/`
 - `global_travel_tourism_hospitality_api_ecosystem/`
