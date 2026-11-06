@@ -1,10 +1,8 @@
-"""Global Finance, Banking & Insurance API ecosystem entry point.
-
-The former finance_banking_insurance and
-finance_banking_insurance_api_ecosystem root packages are consolidated here.
-The maintained implementation remains in industry_api_ecosystems/
-finance_banking_insurance; this package exposes that implementation without
-duplicating its catalogs, services, schemas, or routes.
-"""
+"""Global Finance, Banking & Insurance API ecosystem entry point."""
+from pathlib import Path as _Path
 from ..finance_banking_insurance import *
-from ..finance_banking_insurance import __path__
+_BASE = _Path(__file__).resolve().parent
+_IMPLEMENTATION = _Path(__file__).resolve().parent.parent / "finance_banking_insurance"
+# Expose both local Global payment sub-ecosystems and the current finance
+# implementation while the source package is being consolidated.
+__path__ = [str(_BASE), str(_IMPLEMENTATION)]
