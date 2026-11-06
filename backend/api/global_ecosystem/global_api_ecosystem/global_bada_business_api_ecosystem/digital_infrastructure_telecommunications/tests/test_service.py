@@ -1,5 +1,5 @@
 import unittest
-from digital_infrastructure_telecommunications.service import DigitalInfrastructureService
+from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem.digital_infrastructure_telecommunications.service import DigitalInfrastructureService
 class DigitalInfrastructureServiceTests(unittest.TestCase):
     def setUp(self): self.service = DigitalInfrastructureService()
     def test_count(self): self.assertEqual(len(self.service.list_categories()), 12)
