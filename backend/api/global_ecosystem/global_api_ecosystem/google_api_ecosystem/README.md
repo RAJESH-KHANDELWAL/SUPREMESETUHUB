@@ -28,7 +28,9 @@ google_api_ecosystem/
 ├── google_search_console_api_ecosystem/
 ├── google_cloud_api_ecosystem/
 ├── google_firebase_api_ecosystem/
-└── google_identity_oauth_api_ecosystem/
+├── google_identity_oauth_api_ecosystem/
+├── google_vertex_ai_api_ecosystem/
+└── google_gemini_api_ecosystem/
 ```
 
 ## Rules
