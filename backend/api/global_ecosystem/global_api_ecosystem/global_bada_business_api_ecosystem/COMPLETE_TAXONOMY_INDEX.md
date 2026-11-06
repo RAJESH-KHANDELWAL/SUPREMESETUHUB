@@ -22,6 +22,8 @@ This index separates the ecosystem into independent layers. The layers are inten
 
 Each core domain follows its documented package convention. Finance, Banking & Insurance is implemented directly in `global_finance_banking_insurance_api_ecosystem/`, alongside its separate Global Payment child ecosystem. Government, Public Services & Social Impact remains under `industry_api_ecosystems/`.
 
+- `global_universal_work_business_taxonomy_api_ecosystem/` — canonical A–Z India + Global work/business sector classification.
+
 ## 2. Industry vertical API ecosystems — 37 packages
 
 - `agriculture_food_natural_resources/`
@@ -31,7 +33,7 @@ Each core domain follows its documented package convention. Finance, Banking & I
   - `global_transport_mobility_logistics_supply_chain_business_api_ecosystem/` — nested transport and mobility ecosystem.
     - `global_aviation_aerospace_space_technology_api_ecosystem/` — nested Aviation, Aerospace & Space Technology entry point.
 - `beauty_fashion_lifestyle/`
-- `business_companies_corporates/`
+- `global_business_companies_corporates_api_ecosystem/`
 - `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem/digital_infrastructure_telecommunications/`
 - `global_education_learning_training_api_ecosystem/education_learning_training/`
 - `global_energy_utilities_environment_api_ecosystem/`
@@ -48,7 +50,7 @@ Each core domain follows its documented package convention. Finance, Banking & I
 - `marketing_media_entertainment/`
 - `mining_metals_minerals/`
 - `personal_lifestyle_wellness/`
-- `professional_legal_business_services/`
+- `global_professional_business_services_api_ecosystem/`
 - `retail_ecommerce_consumer_goods/`
 - `science_research_innovation/` — Science, Research, Innovation & Technology, including AI/ML and Generative AI research.
 - `security_defence_safety_services/`
