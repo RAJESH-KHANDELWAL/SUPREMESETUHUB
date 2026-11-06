@@ -1,4 +1,8 @@
 """Global Digital Infrastructure, Telecommunications, Technology, IT & AI API Ecosystem."""
+from pathlib import Path as _Path
+from .digital_infrastructure_telecommunications import *
+_BASE = _Path(__file__).resolve().parent
+__path__ = [str(_BASE), str(_BASE / "digital_infrastructure_telecommunications")]
 DOMAIN_ID = "global_digital_infrastructure_telecommunications_technology_it_ai"
 DOMAIN_NAME = "Global Digital Infrastructure, Telecommunications, Technology, IT & AI API Ecosystem"
 COVERAGE_SCOPE = ("bharat", "global")
