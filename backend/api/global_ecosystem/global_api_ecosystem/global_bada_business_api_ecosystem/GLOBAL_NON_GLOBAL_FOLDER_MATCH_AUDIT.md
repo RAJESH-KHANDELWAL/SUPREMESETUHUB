@@ -87,6 +87,8 @@ Audit date: 2026-11-06
 - `professional_legal_business_services` → `global_professional_business_services_api_ecosystem`: non-legal Professional Services implementation moved; router, registry and service test updated; old root implementation and obsolete `legal_consulting_professional_services` alias removed. It was deliberately NOT merged into Legal Services because the scopes differ.
 - `business_companies_corporates` → `global_business_companies_corporates_api_ecosystem`: domain metadata and category adapter consolidated into the Global package; the adapter reuses the canonical Global Company business-enterprise taxonomy.
 - Flat Universal Work & Business Taxonomy modules → `global_universal_work_business_taxonomy_api_ecosystem`: catalog, model, service and routes moved; root router and tests updated; old flat source modules removed.
+- `technology_it_telecommunications` → `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem/technology_it_telecommunications`: implementation moved; industry router, registry and service test updated; old root folder removed.
+- `technology_software_ai_cloud` → `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem/technology_software_ai_cloud`: domain identity moved; registry package path updated; old root identity file removed.
 
 ## 4. Related folders that must remain separate
 
