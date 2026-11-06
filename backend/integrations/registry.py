@@ -6,6 +6,7 @@ from .providers.microsoft import MicrosoftProvider
 from .providers.apple import AppleProvider
 from .providers.esa import ESAProvider
 from .providers.generic import GenericWebProvider
+from .providers.openai import OpenAIProvider
 
 
 class IntegrationRegistry:
@@ -14,6 +15,7 @@ class IntegrationRegistry:
     def __init__(self):
         self.providers = {
             "GOOGLE": GoogleProvider(),
+            "OPENAI": OpenAIProvider(),
             "MICROSOFT": MicrosoftProvider(),
             "AWS": AWSProvider(),
             "APPLE": AppleProvider(),
@@ -30,7 +32,7 @@ class IntegrationRegistry:
         ]
 
     def health(self) -> List[Dict[str, Any]]:
-        """Return health information for all providers."""
+        """Return configuration readiness without claiming live connectivity."""
 
         return [
             provider.health()
