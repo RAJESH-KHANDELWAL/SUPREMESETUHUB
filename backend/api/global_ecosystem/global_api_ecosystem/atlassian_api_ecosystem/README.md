@@ -1,35 +1,60 @@
 # ATLASSIAN API ECOSYSTEM
 
-Provider-owned catalog for Atlassian cloud products and API surfaces.
+Canonical provider root for Atlassian cloud products and developer/business workflow APIs in SUPREMESETUHUB.
 
-## Product/API areas
+## Provider structure
 
-| Area | Intended scope | Important boundary |
+- `atlassian_api_ecosystem.py` — provider metadata and API-family listing.
+- `atlassian_jira_api_ecosystem/` — Jira Cloud Platform.
+- `atlassian_confluence_api_ecosystem/` — Confluence Cloud.
+- `atlassian_jira_service_management_api_ecosystem/` — Jira Service Management.
+- `atlassian_bitbucket_api_ecosystem/` — Bitbucket Cloud.
+- `atlassian_admin_identity_api_ecosystem/` — Atlassian Administration and identity APIs.
+
+Shared provider adapter: `backend/integrations/providers/atlassian.py`.
+
+Shared integration registration: `backend/integrations/registry.py` (provider key: `ATLASSIAN`).
+
+## Product/API overview
+
+| API family | Scope | Access boundary |
 |---|---|---|
-| Jira Cloud Platform | Projects, issues, workflows, users, comments and work management | Respect site permissions, scopes, pagination and product API limits |
-| Confluence Cloud | Spaces, pages, content, attachments and search | Respect space/page permissions and content restrictions |
-| Jira Service Management | Service projects, requests, queues and customer-service workflows | Request and agent operations have distinct permissions and scopes |
-| Bitbucket Cloud | Workspaces, repositories, pull requests, commits and pipelines | Workspace/repository permissions and token scopes apply |
-| Atlassian Administration & identity | Organization, managed accounts, groups and directory-related administration | Restricted/admin-only APIs; do not assume access from ordinary site membership |
+| Jira Cloud | Projects, issues, workflows, users, comments and work management | Site permissions, OAuth scopes, pagination and API limits |
+| Confluence Cloud | Spaces, pages, content, attachments and search | Space/page permissions and content restrictions |
+| Jira Service Management | Service projects, customer requests, queues and service workflows | Product-specific scopes and agent/customer permissions |
+| Bitbucket Cloud | Workspaces, repositories, pull requests, commits and pipelines | Workspace/repository permissions and Bitbucket scopes |
+| Administration & identity | Organization, managed accounts, groups and directory operations where available | Restricted organization/admin privileges |
 
-## Integration design
+## Setup configuration
 
-- Keep tenant/site URL, OAuth client details and tokens in a server-side secret manager or environment configuration.
-- Prefer OAuth 2.0 (3LO) for user-authorized integrations where supported; use product-specific supported authentication for service-to-service cases.
-- Request minimum scopes and verify exact API version and product availability before enabling an operation.
-- Handle pagination, rate limiting, retries, permission failures and API error responses.
-- Do not expose access tokens, refresh tokens, client secrets or authorization headers to browser code or logs.
-- Separate read and write capabilities; require authorization for destructive or externally visible actions.
+The readiness scaffold recognizes these alternative server-side configuration groups:
 
-## Suggested setup inputs
+**Atlassian OAuth group**
+- `ATLASSIAN_CLIENT_ID`
+- `ATLASSIAN_CLIENT_SECRET`
+- `ATLASSIAN_REDIRECT_URI`
+- `ATLASSIAN_SITE_URL`
 
-1. Atlassian Cloud site URL (for example, `https://example.atlassian.net`).
-2. Product(s): Jira, Confluence, Jira Service Management and/or Bitbucket.
-3. Authentication method and OAuth app configuration appropriate to the selected product.
-4. Minimum required scopes and a test account with the intended permissions.
+**Bitbucket OAuth group**
+- `BITBUCKET_CLIENT_ID`
+- `BITBUCKET_CLIENT_SECRET`
+- `BITBUCKET_REDIRECT_URI`
 
-## Current repository status
+Use the authentication method supported by the selected product and API. OAuth scopes, tenant/site URL, product entitlements and administrator approval must be confirmed before enabling each capability. Do not assume one credential set grants access to every Atlassian product.
 
-This folder is provider catalog/documentation only. No Atlassian provider adapter is currently registered in `backend/integrations/registry.py`, and no live Atlassian API request or credential validation is implemented here. `live_connection_verified` is intentionally `False`.
+## Security and operations
 
-The existence of product names or endpoint documentation does not mean those products are connected. Implement and test each product capability independently before changing its status.
+- Store client secrets and tokens only in server-side environment configuration or a managed secret store.
+- Never commit credentials or expose tokens in browser code, API responses or logs.
+- Request least-privilege scopes and enforce tenant, site, project, space and workspace permissions.
+- Implement pagination, rate-limit handling, bounded retries, timeouts and structured error handling.
+- Keep read and write permissions separate; require explicit confirmation for destructive or externally visible operations.
+- Audit sensitive administrative actions without logging authorization headers or secrets.
+
+## Status semantics
+
+- `NEEDS_CONFIGURATION`: no complete supported OAuth configuration group is present.
+- `CONFIGURED_NOT_VERIFIED`: a complete configuration group is present; credentials and API connectivity have not been tested.
+- `CONNECTED`: only use after token exchange and an API-family smoke test succeed in the deployed environment.
+
+The adapter currently checks configuration presence only. It does not exchange tokens, validate secrets, or make live Atlassian API requests. Each product family remains a catalog/documentation scaffold until separately implemented and tested.
