@@ -1,66 +1,53 @@
-# Root-level Industry Ecosystem Entry Points
+# Global Industry Ecosystems — Folder Ownership Index
 
-This directory exposes industry packages directly under
-`global_bada_business_api_ecosystem/`. Most industry implementations are
-maintained under `industry_api_ecosystems/`; Agriculture, Food & Natural
-Resources is consolidated under
-`global_agriculture_food_natural_resources_api_ecosystem/`.
-Beauty, Fashion & Lifestyle and Mining, Metals & Minerals are maintained directly at this root as explicit layout exceptions. Energy, Utilities & Environment is consolidated under its global API ecosystem package. Finance, Banking & Insurance exposes a global API ecosystem entry point while its maintained implementation remains under industry_api_ecosystems/.
+This index records the consolidation of 22 matching root-level industry folders into their corresponding Global ecosystem packages.
 
-Legacy paths for `media_entertainment_creative_industries` and
-`family_relationships_parenting` are retained as aliases to their consolidated
-canonical ecosystems. Adult sexual-wellness compatibility exports are now
-included inside the consolidated global Kamasutra ecosystem. Do not create
-duplicate source trees for compatibility entry points.
+## Canonical storage rule
 
-## Industry packages and consolidated entry points (35 root-level packages; 37 registered industry IDs)
+Industry-specific source packages moved into:
 
-- `global_agriculture_food_natural_resources_api_ecosystem/` — sole canonical Agriculture, Food & Natural Resources package; the former root-level `agriculture_food_natural_resources/` folder has been removed.
-- `international_trade_import_export_customs_global_commerce/` — International Trade, Import-Export, Customs & Global Commerce.
-- `arts_culture_heritage_creative_economy/` — Arts, Culture, Heritage & Creative Economy.
-- `automotive_mobility/` — parent entry point containing the consolidated Transport, Mobility, Logistics & Supply Chain ecosystem and its nested Aviation/Aerospace entry point.
-- `beauty_fashion_lifestyle/` — maintained directly at this root (not inside `industry_api_ecosystems/`).
-- `business_companies_corporates/`
-- `digital_infrastructure_telecommunications/`
-- `global_education_learning_training_api_ecosystem/` — consolidated Education, Learning & Training entry point; its nested `education_learning_training/` compatibility package points to the canonical industry implementation.
-- `education_learning_training/` — retained root compatibility facade; do not delete while legacy imports depend on it.
-- `global_energy_utilities_environment_api_ecosystem/` — consolidated Energy, Utilities & Environment package.
-- `global_fashion_textiles_apparel_api_ecosystem/` — canonical Fashion, Textiles & Apparel implementation; former root and industry paths remain compatibility facades only.
-- `global_finance_banking_insurance_api_ecosystem/` — consolidated public entry point; implementation remains under `industry_api_ecosystems/finance_banking_insurance/`.
-- `global_hospitality_hotels_resorts_restaurants_api_ecosystem/` — sole canonical root-level Hotels, Resorts, Restaurants & Hospitality entry point; legacy root-level Hospitality facades have been removed.
-- `government_public_services_social_impact/`
-- `healthcare_life_sciences/`
-- `healthcare_wellness_fitness/` — canonical gym, fitness, spa and massage taxonomy.
-- `home_services_property_maintenance_facility_management/` — Home Services, Property Maintenance & Facility Management.
-- `jobs_careers_employment/`
-- `global_legal_services_api_ecosystem/` — consolidated Legal Services taxonomy and API-ecosystem documentation entry point; runtime implementation remains explicitly separate until built and registered.
-- `legal_consulting_professional_services/`
-- `manufacturing_industrial_services/` — Manufacturing, Industrial & Industries API Ecosystem; maintained directly at this root (not inside `industry_api_ecosystems/`).
-- `marketing_media_entertainment/`
-- `mining_metals_minerals/` — maintained directly at this root (not inside `industry_api_ecosystems/`).
-- `personal_lifestyle_wellness/`
-- `professional_legal_business_services/`
-- `global_real_estate_construction_infrastructure_PROPERTY_BUSINESS_api_ecosystem/` — consolidated Real Estate, Construction, Infrastructure & Property Business entry point.
-- `retail_ecommerce_consumer_goods/`
-- `science_research_innovation/`
-- `security_defence_safety_services/`
-- `sports_recreation_community/`
-- `global_entrepreneurs_entrepreneurship_msme_sme_startups_solo_women_digital_ai_technology_innovation_business_creation_development_growth_api_ecosystem/`
-- `technology_it_telecommunications/`
-- `technology_software_ai_cloud/`
-- `automotive_mobility/global_transport_mobility_logistics_supply_chain_business_api_ecosystem/` — consolidated Transport, Mobility, Logistics & Supply Chain entry point nested under Automotive & Mobility.
-- `automotive_mobility/global_transport_mobility_logistics_supply_chain_business_api_ecosystem/global_aviation_aerospace_space_technology_api_ecosystem/` — Aviation, Aerospace & Space Technology entry point nested under Transport.
-- `global_travel_tourism_hospitality_api_ecosystem/`
-- `global_water_resources_marine_industries_api_ecosystem/`
+`<global_ecosystem_package>/industry_domains/<original_industry_folder>/`
+
+The existing Global ecosystem files were preserved. Files were moved by Git blob reference, so source contents were not overwritten by same-named files already present in a Global package. The old root-level source folders were removed after their contents were relocated.
+
+## Consolidated mappings
+
+| Former root folder | Global destination |
+|---|---|
+| `agriculture_food_natural_resources` | `global_agriculture_food_natural_resources_api_ecosystem` |
+| `digital_infrastructure_telecommunications` | `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem` |
+| `technology_it_telecommunications` | `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem` |
+| `technology_software_ai_cloud` | `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem` |
+| `education_learning_training` | `global_education_learning_training_api_ecosystem` |
+| `fashion_textiles_apparel` | `global_fashion_textiles_apparel_api_ecosystem` |
+| `finance_banking_insurance` | `global_finance_banking_insurance_api_ecosystem` |
+| `food_hospitality_restaurants` | `global_hospitality_hotels_resorts_restaurants_api_ecosystem` |
+| `legal_consulting_professional_services` | `global_legal_services_api_ecosystem` |
+| `professional_legal_business_services` | `global_legal_services_api_ecosystem` |
+| `personal_lifestyle_wellness` | `global_beauty_fashion_lifestyle_api_ecosystem` |
+| `real_estate_construction` | `global_real_estate_construction_infrastructure_PROPERTY_BUSINESS_api_ecosystem` |
+| `real_estate_construction_infrastructure` | `global_real_estate_construction_infrastructure_PROPERTY_BUSINESS_api_ecosystem` |
+| `family_relationships_parenting` | `global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_coach_consultant_advisor_professional_services_work_business_api_ecosystem` |
+| `jobs_careers_employment` | `global_freelancer_gig_independent_work_business_api_ecosystem` |
+| `retail_ecommerce_consumer_goods` | `global_distribution_channels_api_ecosystem` |
+| `international_trade_import_export_customs_global_commerce` | `global_distribution_channels_api_ecosystem` |
+| `marketing_media_entertainment` | `global_affiliate_marketing_business_api_ecosystem` |
+| `government_public_services_social_impact` | `global_business_governance_compliance_standards_api_ecosystem` |
+| `home_services_property_maintenance_facility_management` | `global_real_estate_construction_infrastructure_PROPERTY_BUSINESS_api_ecosystem` |
+| `healthcare_wellness_fitness` | `global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_coach_consultant_advisor_professional_services_work_business_api_ecosystem` |
+| `healthcare_life_sciences` | `global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_coach_consultant_advisor_professional_services_work_business_api_ecosystem` |
+
+## Runtime and registry updates
+
+- Industry router imports now resolve through the matching Global package's `industry_domains` subpackage.
+- The industry registry package paths now point to the new canonical locations.
+- Finance and Government/Public Services imports in the central domain registry now resolve through their Global destinations.
+- Relative imports inside each moved industry package remain package-relative.
 
 ## Maintenance rules
 
-- Unless explicitly documented as an exception, modify industry implementation files in `industry_api_ecosystems/<package>/`. Travel, Tourism & Hospitality and Water Resources & Marine Industries are now maintained in their consolidated global API ecosystem folders. Startups & Entrepreneurship is owned by the consolidated Global Entrepreneurs ecosystem. Agriculture, Food & Natural Resources is maintained directly under `global_agriculture_food_natural_resources_api_ecosystem/`; food processing and food safety/testing/compliance belong there. Do not recreate the former root-level `agriculture_food_natural_resources/` folder.
-- Beauty, Fashion & Lifestyle; Mining, Metals & Minerals; and Manufacturing, Industrial & Industries implementation files live directly at the Bada Business root. Energy, Utilities & Environment lives in `global_energy_utilities_environment_api_ecosystem/`; Finance, Banking & Insurance implementation remains in `industry_api_ecosystems/finance_banking_insurance/` with a consolidated global entry point. Real Estate and Transport now also have consolidated global root entry points that expose their underlying industry packages without duplicating API implementations.
-- Importers must use `global_hospitality_hotels_resorts_restaurants_api_ecosystem/` as the sole root-level Hospitality entry point. The maintained implementation remains under `industry_api_ecosystems/food_hospitality_restaurants/`; the duplicate root-level legacy facades have been removed. Food safety/testing is maintained under Agriculture & Food.
-- New industry packages must be registered in the industry ecosystem registry and covered by route, schema and integrity tests.
-- These packages are taxonomy/API modules, not proof of verified businesses, live providers or exhaustive country coverage.
-
-## Standalone adult intimacy ecosystem
-
-- `global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_coach_consultant_advisor_professional_services_work_business_api_ecosystem/` — consolidated adult-only (18+), consent-first Kamasutra, intimacy, relationship, lawful wellness, adult-industry provider catalog and professional-services ecosystem. The former adult 18+ lawful-industry, adult-business and adult-sexual-wellness root folders have been merged into this single package. Its current main-branch scope and implementation status are documented in that folder's `README.md`.
+- Add new industry-specific files under the owning Global package's `industry_domains/<industry_name>/` directory.
+- Do not recreate the removed root-level industry folders.
+- Do not overwrite existing Global package files when names overlap; compare and reconcile deliberately.
+- Keep router imports, registry package paths, tests, and this index synchronized.
+- These packages describe taxonomy and API structure; their presence does not prove verified businesses, live providers, or exhaustive country coverage.
