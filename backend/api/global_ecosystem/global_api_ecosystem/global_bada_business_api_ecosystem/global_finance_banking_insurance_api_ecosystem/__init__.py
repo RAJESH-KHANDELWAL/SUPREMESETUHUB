@@ -1,8 +1,13 @@
-"""Global Finance, Banking & Insurance API ecosystem entry point."""
-from pathlib import Path as _Path
-from ..finance_banking_insurance import *
-_BASE = _Path(__file__).resolve().parent
-_IMPLEMENTATION = _Path(__file__).resolve().parent.parent / "finance_banking_insurance"
-# Expose both local Global payment sub-ecosystems and the current finance
-# implementation while the source package is being consolidated.
-__path__ = [str(_BASE), str(_IMPLEMENTATION)]
+"""Finance, Banking & Insurance industry API domain package."""
+INDUSTRY_ID = "finance_banking_insurance"
+INDUSTRY_NAME = "Finance, Banking & Insurance"
+COVERAGE = ("india", "global")
+CHANNELS = ("online", "offline", "hybrid")
+STATUS = "taxonomy_scaffold"
+from .catalog import FINANCE_BANKING_INSURANCE_CATEGORIES
+SUBCATEGORY_IDS = tuple(dict.fromkeys(
+    [item["id"] for item in FINANCE_BANKING_INSURANCE_CATEGORIES]
+    + [sub for item in FINANCE_BANKING_INSURANCE_CATEGORIES for sub in item["subcategories"]]
+))
+from .service import FinanceService
+__all__ = ["INDUSTRY_ID", "INDUSTRY_NAME", "COVERAGE", "CHANNELS", "STATUS", "SUBCATEGORY_IDS", "FinanceService"]

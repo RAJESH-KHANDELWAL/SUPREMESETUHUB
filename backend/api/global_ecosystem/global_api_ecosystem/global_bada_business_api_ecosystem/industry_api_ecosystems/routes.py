@@ -42,7 +42,7 @@ def get_industry(
 from ..global_agriculture_food_natural_resources_api_ecosystem.routes import router as agriculture_food_router
 from ..global_education_learning_training_api_ecosystem.routes import router as education_learning_router
 from ..healthcare_life_sciences.routes import router as healthcare_router
-from ..finance_banking_insurance.routes import router as finance_banking_router
+from ..global_finance_banking_insurance_api_ecosystem.routes import router as finance_banking_router
 from ..real_estate_construction.routes import router as real_estate_router
 from ..retail_ecommerce_consumer_goods.routes import router as retail_ecommerce_router
 
