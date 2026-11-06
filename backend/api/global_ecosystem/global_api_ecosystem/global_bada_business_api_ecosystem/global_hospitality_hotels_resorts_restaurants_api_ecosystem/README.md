@@ -1,19 +1,9 @@
 # Global Hotels, Resorts, Restaurants & Hospitality API Ecosystem
 
-Canonical root-level entry point for hotels, resorts, restaurants, dhabas, cafes, bakeries, catering, food delivery, institutional dining, banquet venues and hospitality services across India and global markets.
+This folder is the sole canonical implementation for the Hotels, Resorts, Restaurants & Hospitality industry API. The former root-level `food_hospitality_restaurants/` package has been moved here; its catalogue, service, schemas, routes, tests and category documentation now live in this Global package.
 
-The maintained implementation remains in `industry_api_ecosystems/food_hospitality_restaurants/`. This package exposes that implementation without duplicating its Python source.
+Food processing and food-safety compliance remain owned by the Agriculture & Food ecosystem. This package covers restaurants, dining, quick service, cafes, catering, food delivery, accommodation, venues, institutional food services, supply and restaurant technology.
 
-## Classification boundary
-
-- Food production, processing, agricultural food supply chains, food testing and food-safety compliance belong to `global_agriculture_food_natural_resources_api_ecosystem/`.
-- Restaurants, dhabas, cafes, hotels, resorts, catering, prepared-food delivery, accommodation, event venues and restaurant operations belong here.
-- Restaurant procurement, commercial kitchen equipment and restaurant POS/booking technology remain here because they directly support hospitality operators.
-
-## Canonical package rule
-
-Use `global_hospitality_hotels_resorts_restaurants_api_ecosystem/` as the only root-level Hospitality entry point. The former root-level `food_hospitality_restaurants/` and `food_hospitality_restaurants_api_ecosystem/` compatibility facades have been removed. The maintained industry implementation remains under `industry_api_ecosystems/food_hospitality_restaurants/`; do not create duplicate source trees.
-
-## Status
-
-Taxonomy/API scaffold. This package does not imply verified businesses, live reservations, food ordering, payment processing, licences or provider integrations.
+**Stable industry ID:** `food_hospitality_restaurants`  
+**Coverage:** India + Global  
+**Status:** taxonomy/API scaffold only; it does not verify live restaurants, food safety, hotels or providers.

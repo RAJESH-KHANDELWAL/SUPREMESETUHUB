@@ -26,7 +26,7 @@ duplicate source trees for compatibility entry points.
 - `global_energy_utilities_environment_api_ecosystem/` — consolidated Energy, Utilities & Environment package.
 - `global_fashion_textiles_apparel_api_ecosystem/` — sole canonical Fashion, Textiles & Apparel implementation; the redundant root-level compatibility facade has been removed.
 - `global_finance_banking_insurance_api_ecosystem/` — sole canonical Finance, Banking & Insurance implementation and public entry point; payment-provider packages remain nested under its Global Payment child ecosystem.
-- `global_hospitality_hotels_resorts_restaurants_api_ecosystem/` — sole canonical root-level Hotels, Resorts, Restaurants & Hospitality entry point; legacy root-level Hospitality facades have been removed.
+- `global_hospitality_hotels_resorts_restaurants_api_ecosystem/` — sole canonical Hotels, Resorts, Restaurants & Hospitality implementation and public entry point; the former root-level `food_hospitality_restaurants/` package has been moved here.
 - `government_public_services_social_impact/`
 - `healthcare_life_sciences/`
 - `healthcare_wellness_fitness/` — canonical gym, fitness, spa and massage taxonomy.
