@@ -41,3 +41,7 @@ google_api_ecosystem/
 
 ## Gmail
 The Gmail adapter is in `google_gmail_api_ecosystem/` and uses OAuth 2.0 with the least-privilege send scope. Live sending remains unverified until the deployment owner configures Google Cloud OAuth and consents to the mailbox.
+
+
+## Gemini
+The dedicated `google_gemini_api_ecosystem/` child provides a Google Gen AI SDK adapter scaffold for Gemini Developer API key validation and explicit generation calls. It supports per-request BYOK or a deployment-managed key. It does not persist per-user credentials or claim a durable connection; production multi-user connection storage requires an encrypted, user-scoped secret store, authenticated routes, quotas, and revocation.
