@@ -1,7 +1,7 @@
 # Legal Services
 
 Canonical category ID: `legal_services`  
-Canonical package: `professional_legal_business_services`
+Canonical documentation package: `global_legal_services_api_ecosystem`
 
 Civil, criminal, corporate, commercial and litigation service discovery.
 
@@ -11,4 +11,4 @@ This folder is a discovery taxonomy note. It does not establish that a provider 
 
 ## API ownership
 
-Category data and API behavior remain in the canonical `industry_api_ecosystems/professional_legal_business_services` package. Do not fork its catalog or claim this note adds a live integration.
+This folder is a legal-services taxonomy and API-boundary document. A dedicated legal-services runtime catalog and routes are not yet implemented here. Non-legal Professional Services (accounting support, consulting, HR, translation, BPO and documentation) are maintained separately in `global_professional_business_services_api_ecosystem`.
