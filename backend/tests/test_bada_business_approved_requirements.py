@@ -1,13 +1,13 @@
 import unittest
 
-from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.governance.registry import (
+from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_business_governance_compliance_standards_api_ecosystem.governance.registry import (
     APPROVED_REQUIREMENTS,
     APPROVED_SCOPE_CONSTRAINTS,
     list_approved_requirements,
     list_scope_constraints,
     validate_approved_requirements,
 )
-from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.governance.routes import router
+from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_business_governance_compliance_standards_api_ecosystem.governance.routes import router
 
 
 class BadaBusinessApprovedRequirementsTests(unittest.TestCase):

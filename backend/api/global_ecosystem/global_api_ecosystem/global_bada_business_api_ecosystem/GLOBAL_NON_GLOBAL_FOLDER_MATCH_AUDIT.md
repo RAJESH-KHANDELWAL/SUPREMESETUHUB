@@ -133,3 +133,11 @@ A safe consolidation must compare conflicting file contents, merge unique subdir
 - No other matched folder was deleted in this pass. Repository code confirms that several apparent matches are still active implementation packages or compatibility entry points used by registries, routes, tests, or global facade imports. Examples include Education, Digital Infrastructure, Finance, Hospitality, Real Estate, Jobs/Careers, and Governance.
 - Moving or deleting those directories without first migrating their implementation and rewriting every dependent import would break the running API. In particular, the existing global Finance/Education/Hospitality/Real Estate packages deliberately expose or point to maintained implementation packages rather than containing independent copies.
 - Therefore this commit performs only the verified safe deletion; the remaining mappings are retained as migration candidates, not reported as completed moves.
+
+
+## 7. Additional verified consolidation on 2026-11-06
+
+- Removed the root-level `fashion_textiles_apparel/` compatibility shim after switching the industry router, registry package path, and service test to the canonical `global_fashion_textiles_apparel_api_ecosystem/` package.
+- Removed the root-level `governance/` compatibility shims after switching the Bada Business router and approved-requirements test to `global_business_governance_compliance_standards_api_ecosystem/governance/` directly.
+- No canonical implementation files were discarded in these two cleanups; both removed directories contained only compatibility imports.
+- Other matching directories remain subject to their documented implementation ownership and dependency requirements; they are not marked migrated merely because their names match.

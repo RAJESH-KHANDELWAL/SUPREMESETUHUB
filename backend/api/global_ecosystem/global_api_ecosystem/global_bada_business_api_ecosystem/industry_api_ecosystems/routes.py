@@ -96,7 +96,7 @@ router.include_router(mining_metals_router)
 from ..digital_infrastructure_telecommunications.routes import router as digital_infrastructure_router
 from ..aviation_aerospace_space_technology.routes import router as aviation_aerospace_router
 from ..global_water_resources_marine_industries_api_ecosystem.routes import router as water_marine_router
-from ..fashion_textiles_apparel.routes import router as fashion_textiles_router
+from ..global_fashion_textiles_apparel_api_ecosystem.routes import router as fashion_textiles_router
 router.include_router(digital_infrastructure_router)
 router.include_router(aviation_aerospace_router)
 router.include_router(water_marine_router)

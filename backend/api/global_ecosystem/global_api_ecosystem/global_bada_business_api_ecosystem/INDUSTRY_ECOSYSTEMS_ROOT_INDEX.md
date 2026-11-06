@@ -5,7 +5,7 @@ This directory exposes industry packages directly under
 maintained under `industry_api_ecosystems/`; Agriculture, Food & Natural
 Resources is consolidated under
 `global_agriculture_food_natural_resources_api_ecosystem/`.
-Beauty, Fashion & Lifestyle and Mining, Metals & Minerals are maintained directly at this root as explicit layout exceptions. Energy, Utilities & Environment is consolidated under its global API ecosystem package. Finance, Banking & Insurance exposes a global API ecosystem entry point while its maintained implementation remains under industry_api_ecosystems/.
+Beauty, Fashion & Lifestyle and Mining, Metals & Minerals are maintained directly at this root as explicit layout exceptions. Fashion, Textiles & Apparel is maintained only in its canonical `global_fashion_textiles_apparel_api_ecosystem/` package; the redundant root compatibility directory has been removed. Energy, Utilities & Environment is consolidated under its global API ecosystem package. Finance, Banking & Insurance exposes a global API ecosystem entry point while its maintained implementation remains under industry_api_ecosystems/.
 
 Legacy paths for `media_entertainment_creative_industries` and
 `family_relationships_parenting` are retained as aliases to their consolidated
@@ -25,7 +25,7 @@ duplicate source trees for compatibility entry points.
 - `global_education_learning_training_api_ecosystem/` — consolidated Education, Learning & Training entry point; its nested `education_learning_training/` compatibility package points to the canonical industry implementation.
 - `education_learning_training/` — retained root compatibility facade; do not delete while legacy imports depend on it.
 - `global_energy_utilities_environment_api_ecosystem/` — consolidated Energy, Utilities & Environment package.
-- `global_fashion_textiles_apparel_api_ecosystem/` — canonical Fashion, Textiles & Apparel implementation; former root and industry paths remain compatibility facades only.
+- `global_fashion_textiles_apparel_api_ecosystem/` — sole canonical Fashion, Textiles & Apparel implementation; the redundant root-level compatibility facade has been removed.
 - `global_finance_banking_insurance_api_ecosystem/` — consolidated public entry point; implementation remains under `industry_api_ecosystems/finance_banking_insurance/`.
 - `global_hospitality_hotels_resorts_restaurants_api_ecosystem/` — sole canonical root-level Hotels, Resorts, Restaurants & Hospitality entry point; legacy root-level Hospitality facades have been removed.
 - `government_public_services_social_impact/`

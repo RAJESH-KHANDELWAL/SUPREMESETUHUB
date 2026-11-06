@@ -35,7 +35,7 @@ Each core domain follows its documented package convention. Finance, Banking & I
 - `digital_infrastructure_telecommunications/`
 - `education_learning_training/`
 - `global_energy_utilities_environment_api_ecosystem/`
-- `global_fashion_textiles_apparel_api_ecosystem/` — canonical Fashion, Textiles & Apparel implementation; compatibility facades preserve legacy imports.
+- `global_fashion_textiles_apparel_api_ecosystem/` — sole canonical Fashion, Textiles & Apparel implementation; the redundant root-level compatibility facade has been removed.
 - `global_finance_banking_insurance_api_ecosystem/`
 - `global_hospitality_hotels_resorts_restaurants_api_ecosystem/` — canonical Hotels, Resorts, Restaurants & Hospitality ecosystem; food processing and food-safety compliance remain in Agriculture & Food.
 - `government_public_services_social_impact/`
