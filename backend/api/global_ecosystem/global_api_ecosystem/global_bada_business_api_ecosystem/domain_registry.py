@@ -9,8 +9,8 @@ from .industries_professional_services_business_api_ecosystem import DOMAIN_ID a
 from .family_relationships_community_business_api_ecosystem import DOMAIN_ID as FAMILY_ID, DOMAIN_NAME as FAMILY_NAME, SUBCATEGORY_IDS as FAMILY_SUBS
 from .adult_18_plus_lawful_industry_business_api_ecosystem import DOMAIN_ID as ADULT_ID, DOMAIN_NAME as ADULT_NAME, SUBCATEGORY_IDS as ADULT_SUBS
 from .services_platforms_integrations_business_api_ecosystem import DOMAIN_ID as PLATFORM_ID, DOMAIN_NAME as PLATFORM_NAME, SUBCATEGORY_IDS as PLATFORM_SUBS
-from .finance_banking_insurance import INDUSTRY_ID as FINANCE_ID, INDUSTRY_NAME as FINANCE_NAME, SUBCATEGORY_IDS as FINANCE_SUBS
-from .government_public_services_social_impact import INDUSTRY_ID as PUBLIC_ID, INDUSTRY_NAME as PUBLIC_NAME, SUBCATEGORY_IDS as PUBLIC_SUBS
+from .global_finance_banking_insurance_api_ecosystem.industry_domains.finance_banking_insurance import INDUSTRY_ID as FINANCE_ID, INDUSTRY_NAME as FINANCE_NAME, SUBCATEGORY_IDS as FINANCE_SUBS
+from .global_business_governance_compliance_standards_api_ecosystem.industry_domains.government_public_services_social_impact import INDUSTRY_ID as PUBLIC_ID, INDUSTRY_NAME as PUBLIC_NAME, SUBCATEGORY_IDS as PUBLIC_SUBS
 
 _DOMAIN_DEFINITIONS = (
     (WORK_ID, WORK_NAME, WORK_SUBS, False),
