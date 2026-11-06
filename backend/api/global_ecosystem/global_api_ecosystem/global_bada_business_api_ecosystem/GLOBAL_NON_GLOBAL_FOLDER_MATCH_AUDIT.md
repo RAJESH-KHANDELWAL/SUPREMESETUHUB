@@ -62,8 +62,6 @@ Audit basis: GitHub recursive tree at commit `03681882d4a06b9dad811d480053f88bc5
 - personal_lifestyle_wellness
 - professional_legal_business_services
 - public_nonprofit_social_impact_business_api_ecosystem
-- real_estate_construction
-- real_estate_construction_infrastructure
 - retail_ecommerce_consumer_goods
 - salesforce_business_api_ecosystem
 - science_research_innovation
@@ -144,3 +142,5 @@ A safe consolidation must compare conflicting file contents, merge unique subdir
 - The complete `finance_banking_insurance/` implementation (24 files) was moved into `global_finance_banking_insurance_api_ecosystem/`; the industry router, industry registry, domain registry, world catalogue and investment-finance compatibility facade now reference the canonical Global package. The old root directory was removed.
 
 - The complete `food_hospitality_restaurants/` implementation (30 files) was moved into `global_hospitality_hotels_resorts_restaurants_api_ecosystem/`; the industry router, registry and service test now target that canonical package. The old root directory was removed.
+
+- The Real Estate & Construction implementation (7 files) and the separate Infrastructure identity package (1 file) were moved into `global_real_estate_construction_infrastructure_PROPERTY_BUSINESS_api_ecosystem/`; the industry router, registry and service test now target the canonical Global package. Both old root directories were removed.

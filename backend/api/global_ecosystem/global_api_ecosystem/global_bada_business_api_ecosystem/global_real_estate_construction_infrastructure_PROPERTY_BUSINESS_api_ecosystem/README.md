@@ -1,14 +1,5 @@
 # Global Real Estate, Construction, Infrastructure & Property Business API Ecosystem
 
-Consolidated entry point for the former `real_estate_construction/` and
-`real_estate_construction_infrastructure/` root folders. Their package exports
-are combined here; no nested folders named after those source folders are kept.
+This folder is the sole canonical implementation and public entry point for Real Estate & Construction. The former root-level `real_estate_construction/` implementation has been moved here. Its catalogue, service, schemas, routes and tests now live at this package root. The separate infrastructure identity is preserved as the nested `real_estate_construction_infrastructure/` package.
 
-Existing API implementations remain under:
-- `industry_api_ecosystems/real_estate_construction/`
-- `industry_api_ecosystems/real_estate_construction_infrastructure/`
-
-This package adds 13 property-business classification domains and exposes the
-existing industry packages without duplicating their API implementation.
-Taxonomy scaffold only; not a verified property listing, brokerage, valuation,
-legal opinion, construction approval or transaction service.
+The existing property-business classification domains remain in their dedicated child folders. This package is a taxonomy scaffold only; it is not a verified property listing, brokerage, valuation, legal opinion, construction approval or transaction service.

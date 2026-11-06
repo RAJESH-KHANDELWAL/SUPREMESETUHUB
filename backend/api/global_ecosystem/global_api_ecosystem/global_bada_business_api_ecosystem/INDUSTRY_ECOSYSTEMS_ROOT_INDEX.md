@@ -39,7 +39,7 @@ duplicate source trees for compatibility entry points.
 - `mining_metals_minerals/` — maintained directly at this root (not inside `industry_api_ecosystems/`).
 - `personal_lifestyle_wellness/`
 - `professional_legal_business_services/`
-- `global_real_estate_construction_infrastructure_PROPERTY_BUSINESS_api_ecosystem/` — consolidated Real Estate, Construction, Infrastructure & Property Business entry point.
+- `global_real_estate_construction_infrastructure_PROPERTY_BUSINESS_api_ecosystem/` — sole canonical Real Estate & Construction implementation and Property Business entry point; the separate infrastructure identity is nested within it.
 - `retail_ecommerce_consumer_goods/`
 - `science_research_innovation/`
 - `security_defence_safety_services/`
