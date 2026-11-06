@@ -32,7 +32,7 @@ Each core domain follows its documented package convention. Finance, Banking & I
     - `global_aviation_aerospace_space_technology_api_ecosystem/` — nested Aviation, Aerospace & Space Technology entry point.
 - `beauty_fashion_lifestyle/`
 - `business_companies_corporates/`
-- `digital_infrastructure_telecommunications/`
+- `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem/digital_infrastructure_telecommunications/`
 - `global_education_learning_training_api_ecosystem/education_learning_training/`
 - `global_energy_utilities_environment_api_ecosystem/`
 - `global_fashion_textiles_apparel_api_ecosystem/` — sole canonical Fashion, Textiles & Apparel implementation; the redundant root-level compatibility facade has been removed.

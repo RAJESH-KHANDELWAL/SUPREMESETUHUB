@@ -21,7 +21,7 @@ duplicate source trees for compatibility entry points.
 - `automotive_mobility/` — parent entry point containing the consolidated Transport, Mobility, Logistics & Supply Chain ecosystem and its nested Aviation/Aerospace entry point.
 - `beauty_fashion_lifestyle/` — maintained directly at this root (not inside `industry_api_ecosystems/`).
 - `business_companies_corporates/`
-- `digital_infrastructure_telecommunications/`
+- `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem/` — canonical digital infrastructure, telecommunications, IT, technology and AI parent; its nested `digital_infrastructure_telecommunications/` folder owns the industry API implementation.
 - `global_education_learning_training_api_ecosystem/` — canonical Education, Learning & Training entry point and implementation; student/learner skills remain in its separate child package.
 - `global_energy_utilities_environment_api_ecosystem/` — consolidated Energy, Utilities & Environment package.
 - `global_fashion_textiles_apparel_api_ecosystem/` — sole canonical Fashion, Textiles & Apparel implementation; the redundant root-level compatibility facade has been removed.

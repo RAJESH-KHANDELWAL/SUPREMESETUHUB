@@ -34,7 +34,6 @@ Audit basis: GitHub recursive tree at commit `03681882d4a06b9dad811d480053f88bc5
 - aviation_aerospace_space_technology
 - business_capabilities
 - business_companies_corporates
-- digital_infrastructure_telecommunications
 - exoclick_business_api_ecosystem
 - family_relationships_parenting
 - fashion_textiles_apparel
@@ -144,3 +143,5 @@ A safe consolidation must compare conflicting file contents, merge unique subdir
 - The complete `food_hospitality_restaurants/` implementation (30 files) was moved into `global_hospitality_hotels_resorts_restaurants_api_ecosystem/`; the industry router, registry and service test now target that canonical package. The old root directory was removed.
 
 - The Real Estate & Construction implementation (7 files) and the separate Infrastructure identity package (1 file) were moved into `global_real_estate_construction_infrastructure_PROPERTY_BUSINESS_api_ecosystem/`; the industry router, registry and service test now target the canonical Global package. Both old root directories were removed.
+
+- The Digital Infrastructure & Telecommunications implementation (14 files) was moved into `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem/digital_infrastructure_telecommunications/`; the industry router, registry and service test now target that canonical Global child package. The old root directory was removed.
