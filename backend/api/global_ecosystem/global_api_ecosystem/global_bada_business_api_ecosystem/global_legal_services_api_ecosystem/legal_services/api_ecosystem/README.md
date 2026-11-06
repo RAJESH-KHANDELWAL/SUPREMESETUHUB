@@ -1,9 +1,9 @@
 # Legal Services — API Ecosystem
 
 Category ID: `legal_services`  
-Canonical owner: `professional_legal_business_services`
+Canonical documentation owner: `global_legal_services_api_ecosystem`
 
-This page defines the category API boundary and navigation metadata only. The implemented catalog and routes remain owned by the canonical Professional, Legal & Business Services package.
+This page defines the legal-services API boundary and navigation metadata only. A dedicated legal-services runtime catalog and routes are not yet implemented. Non-legal Professional Services are maintained separately in `global_professional_business_services_api_ecosystem`.
 
 ## Minimum future data contract
 
