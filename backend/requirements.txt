@@ -13,3 +13,5 @@ PyMySQL>=1.1,<2
 boto3>=1.35,<2.0
 PyJWT[crypto]>=2.9,<3.0
 google-auth>=2.35,<3.0
+google-auth-oauthlib>=1.2,<2.0
+google-api-python-client>=2.150,<3.0
