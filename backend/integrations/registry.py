@@ -9,6 +9,7 @@ from .providers.generic import GenericWebProvider
 from .providers.openai import OpenAIProvider
 from .providers.anthropic import AnthropicProvider
 from .providers.adobe import AdobeProvider
+from .providers.atlassian import AtlassianProvider
 
 
 class IntegrationRegistry:
@@ -20,6 +21,7 @@ class IntegrationRegistry:
             "OPENAI": OpenAIProvider(),
             "ANTHROPIC": AnthropicProvider(),
             "ADOBE": AdobeProvider(),
+            "ATLASSIAN": AtlassianProvider(),
             "MICROSOFT": MicrosoftProvider(),
             "AWS": AWSProvider(),
             "APPLE": AppleProvider(),
