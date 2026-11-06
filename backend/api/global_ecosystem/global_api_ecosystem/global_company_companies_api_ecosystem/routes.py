@@ -1,5 +1,6 @@
 """FastAPI endpoints for Company, Enterprise and Corporate Group directories."""
 from fastapi import APIRouter, HTTPException, Query
+from ..ecosystem_link_registry import get_ecosystem_linkage
 from .schemas import CompanyAlphabetResponse, CompanyApiStatus, CompanyListResponse
 from .service import get_api_status, get_company_alphabet, search_companies
 from .classification_registry import list_record_classes, get_record_class, validate_record_class_registry
@@ -93,3 +94,9 @@ def company_details(company_id:str):
  company=get_company(company_id)
  if company is None: raise HTTPException(status_code=404,detail="Company not found")
  return {"success":True,"item":company}
+
+
+@router.get("/global/company-directory/ecosystem-links")
+def company_ecosystem_links(include_adult: bool = Query(default=False)):
+    """Read-only links to canonical Business and Platform taxonomies."""
+    return get_ecosystem_linkage(include_adult=include_adult)

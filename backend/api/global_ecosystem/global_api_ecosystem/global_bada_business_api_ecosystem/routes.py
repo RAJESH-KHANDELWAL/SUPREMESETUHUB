@@ -2,6 +2,7 @@ from fastapi import APIRouter, HTTPException, Query
 
 from .schemas import BusinessEcosystemStatus
 from .service import BusinessEcosystemService
+from ..ecosystem_link_registry import get_ecosystem_linkage
 
 from .global_world_catalog import (
     get_domain as get_universal_domain,
@@ -273,3 +274,9 @@ router.include_router(work_careers_specializations_router)
 # Independent freelance specialization APIs and their work-type catalogues.
 from .global_freelancer_gig_independent_work_business_api_ecosystem.specializations import router as freelance_specializations_router
 router.include_router(freelance_specializations_router)
+
+
+@router.get("/ecosystem-links")
+def business_ecosystem_links(include_adult: bool = Query(default=False)):
+    """Read-only links to canonical Company and Platform taxonomies."""
+    return get_ecosystem_linkage(include_adult=include_adult)
