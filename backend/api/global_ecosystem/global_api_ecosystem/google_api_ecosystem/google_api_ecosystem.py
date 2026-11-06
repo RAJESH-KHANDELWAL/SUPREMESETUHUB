@@ -15,7 +15,7 @@ GOOGLE_API_ECOSYSTEM = {
         "gmail", "drive", "calendar", "contacts", "sheets", "docs", "slides",
         "forms", "chat", "meet", "admin_sdk", "people", "youtube", "maps",
         "business_profile", "ads", "analytics", "search_console", "cloud",
-        "firebase", "identity_oauth", "vertex_ai",
+        "firebase", "identity_oauth", "vertex_ai", "gemini",
     ],
     "children": [
         {"id": "gmail", "name": "GOOGLE GMAIL API ECOSYSTEM", "folder": "google_gmail_api_ecosystem", "status": "adapter_scaffold"},
@@ -40,6 +40,7 @@ GOOGLE_API_ECOSYSTEM = {
         {"id": "firebase", "name": "GOOGLE FIREBASE API ECOSYSTEM", "folder": "google_firebase_api_ecosystem", "status": "catalog_only"},
         {"id": "identity_oauth", "name": "GOOGLE IDENTITY AND OAUTH API ECOSYSTEM", "folder": "google_identity_oauth_api_ecosystem", "status": "catalog_only"},
         {"id": "vertex_ai", "name": "GOOGLE VERTEX AI API ECOSYSTEM", "folder": "google_vertex_ai_api_ecosystem", "status": "catalog_only"},
+        {"id": "gemini", "name": "GOOGLE GEMINI API ECOSYSTEM", "folder": "google_gemini_api_ecosystem", "status": "adapter_scaffold"},
     ],
     "related_ecosystems": [
         "GLOBAL AI API ECOSYSTEM", "GLOBAL CLOUD API ECOSYSTEM",
