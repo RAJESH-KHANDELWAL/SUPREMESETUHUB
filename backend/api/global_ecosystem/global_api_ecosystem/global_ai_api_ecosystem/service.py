@@ -10,7 +10,6 @@ class EcosystemService:
     PROVIDERS = (
     {"provider_id": "openai", "provider_name": "OpenAI", "implementation_status": "CATALOG_ONLY", "live_connection_verified": False},
     {"provider_id": "anthropic", "provider_name": "Anthropic", "implementation_status": "CATALOG_ONLY", "live_connection_verified": False},
-    {"provider_id": "google", "provider_name": "Google", "implementation_status": "CATALOG_ONLY", "live_connection_verified": False},
     {"provider_id": "aws", "provider_name": "AWS", "implementation_status": "CATALOG_ONLY", "live_connection_verified": False},
     {"provider_id": "microsoft", "provider_name": "Microsoft", "implementation_status": "CATALOG_ONLY", "live_connection_verified": False},
     {"provider_id": "ibm", "provider_name": "IBM", "implementation_status": "CATALOG_ONLY", "live_connection_verified": False},
