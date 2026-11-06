@@ -11,18 +11,32 @@ class DomainPackageLayerTests(unittest.TestCase):
         for domain in DOMAIN_REGISTRY:
             package_id = {"work_careers_employment": "global_freelancer_gig_independent_work_business_api_ecosystem.jobs_careers_employment_api_ecosystem", "freelance_gig_independent_work": "global_freelancer_gig_independent_work_business_api_ecosystem", "students_education_skills": "global_education_learning_training_api_ecosystem.students_education_skills_business_api_ecosystem", "business_companies_corporates": "business_companies_corporates_business_api_ecosystem"}.get(domain["id"], f"{domain['id']}_business_api_ecosystem")
             package = f"{PACKAGE_ROOT}.{package_id}"
-            catalog = importlib.import_module(f"{package}.catalog")
-            models = importlib.import_module(f"{package}.models")
-            service_module = importlib.import_module(f"{package}.service")
-            self.assertTrue(hasattr(models, "CategoryRecord"), domain["id"])
-            self.assertTrue(hasattr(catalog, "list_categories"), domain["id"])
-            self.assertTrue(hasattr(catalog, "get_category"), domain["id"])
-            self.assertTrue(hasattr(service_module, "DomainService"), domain["id"])
+            if domain["id"] == "business_companies_corporates":
+                company_root = "backend.api.global_ecosystem.global_api_ecosystem.global_company_companies_api_ecosystem"
+                catalog = importlib.import_module(f"{company_root}.business_catalog")
+                models = importlib.import_module(f"{company_root}.business_enterprises_api_ecosystem.models")
+                service_module = importlib.import_module(f"{company_root}.business_enterprises_api_ecosystem.service")
+                self.assertTrue(hasattr(models, "BusinessDirectoryProfile"), domain["id"])
+                self.assertTrue(hasattr(catalog, "SUBCATEGORIES"), domain["id"])
+                self.assertTrue(hasattr(service_module, "list_profiles"), domain["id"])
+                self.assertTrue(hasattr(service_module, "get_catalog"), domain["id"])
+            else:
+                catalog = importlib.import_module(f"{package}.catalog")
+                models = importlib.import_module(f"{package}.models")
+                service_module = importlib.import_module(f"{package}.service")
+                self.assertTrue(hasattr(models, "CategoryRecord"), domain["id"])
+                self.assertTrue(hasattr(catalog, "list_categories"), domain["id"])
+                self.assertTrue(hasattr(catalog, "get_category"), domain["id"])
+                self.assertTrue(hasattr(service_module, "DomainService"), domain["id"])
 
     def test_catalogue_counts_match_central_registry(self):
         for domain in DOMAIN_REGISTRY:
             package_id = {"work_careers_employment": "global_freelancer_gig_independent_work_business_api_ecosystem.jobs_careers_employment_api_ecosystem", "freelance_gig_independent_work": "global_freelancer_gig_independent_work_business_api_ecosystem", "students_education_skills": "global_education_learning_training_api_ecosystem.students_education_skills_business_api_ecosystem"}.get(domain["id"], f"{domain['id']}_business_api_ecosystem")
             package = f"{PACKAGE_ROOT}.{package_id}"
+            if domain["id"] == "business_companies_corporates":
+                catalog = importlib.import_module("backend.api.global_ecosystem.global_api_ecosystem.global_company_companies_api_ecosystem.business_catalog")
+                self.assertEqual(len(catalog.SUBCATEGORIES), domain["subcategory_count"])
+                continue
             catalog = importlib.import_module(f"{package}.catalog")
             if domain["adult_only"]:
                 self.assertEqual(catalog.list_categories(), [])
