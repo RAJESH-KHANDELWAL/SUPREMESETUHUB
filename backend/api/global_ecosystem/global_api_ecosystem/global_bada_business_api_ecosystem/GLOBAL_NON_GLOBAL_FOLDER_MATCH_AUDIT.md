@@ -111,4 +111,4 @@ A non-global folder is not automatically obsolete because a similarly named Glob
 5. run relevant tests and inspect GitHub Actions results;
 6. delete the old source only after the canonical destination is verified.
 
-The 42 non-global folders above remain because they are separate domains, nested infrastructure, provider integrations, documentation layers, or have no verified one-to-one Global destination. Do not delete them based on naming alone.
+The 40 non-global folders above remain because they are separate domains, nested infrastructure, provider integrations, documentation layers, or have no verified one-to-one Global destination. Do not delete them based on naming alone.
