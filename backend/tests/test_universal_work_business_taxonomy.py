@@ -1,7 +1,7 @@
 import unittest
 from fastapi import FastAPI
 from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.routes import router as ecosystem_router
-from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.universal_work_business_taxonomy_api_ecosystem.catalog import list_sectors, validate_catalogue, get_facets
+from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_universal_work_business_taxonomy_api_ecosystem.catalog import list_sectors, validate_catalogue, get_facets
 
 class UniversalWorkBusinessTaxonomyTests(unittest.TestCase):
     def test_catalogue_has_26_unique_a_to_z_codes(self):
