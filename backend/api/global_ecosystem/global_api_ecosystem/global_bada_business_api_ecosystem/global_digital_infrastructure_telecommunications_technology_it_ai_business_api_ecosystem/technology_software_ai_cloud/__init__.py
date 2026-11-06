@@ -1,11 +1,7 @@
-"""Root-level compatibility entry point for the technology_software_ai_cloud industry ecosystem.
+"""Technology, Software, AI & Cloud industry API domain package."""
 
-The maintained implementation remains in industry_api_ecosystems/technology_software_ai_cloud.
-This facade exposes it at the global_bada_business_api_ecosystem root
-without duplicating source files or breaking existing imports.
-"""
-from pathlib import Path as _Path
-
-from ...technology_software_ai_cloud import *
-
-__path__ = [str(_Path(__file__).resolve().parent.parent.parent / "technology_software_ai_cloud")]
+INDUSTRY_ID = "technology_software_ai_cloud"
+INDUSTRY_NAME = "Technology, Software, AI & Cloud"
+COVERAGE = ("india", "global")
+CHANNELS = ("online", "offline", "hybrid")
+STATUS = "taxonomy_scaffold"
