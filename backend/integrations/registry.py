@@ -8,6 +8,7 @@ from .providers.esa import ESAProvider
 from .providers.generic import GenericWebProvider
 from .providers.openai import OpenAIProvider
 from .providers.anthropic import AnthropicProvider
+from .providers.adobe import AdobeProvider
 
 
 class IntegrationRegistry:
@@ -18,6 +19,7 @@ class IntegrationRegistry:
             "GOOGLE": GoogleProvider(),
             "OPENAI": OpenAIProvider(),
             "ANTHROPIC": AnthropicProvider(),
+            "ADOBE": AdobeProvider(),
             "MICROSOFT": MicrosoftProvider(),
             "AWS": AWSProvider(),
             "APPLE": AppleProvider(),
