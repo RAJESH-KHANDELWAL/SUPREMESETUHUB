@@ -1,7 +1,7 @@
 # Finance, Banking & Insurance API Ecosystem
 
 **Canonical domain ID:** `finance_banking_insurance`  
-**Canonical implementation:** `industry_api_ecosystems/finance_banking_insurance/`  
+**Canonical implementation:** `global_finance_banking_insurance_api_ecosystem/`  
 **Coverage:** India + Global
 
 ## Unified scope

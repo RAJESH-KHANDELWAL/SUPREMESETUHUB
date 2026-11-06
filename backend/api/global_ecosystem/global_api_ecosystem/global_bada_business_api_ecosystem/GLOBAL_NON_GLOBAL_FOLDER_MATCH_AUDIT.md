@@ -38,7 +38,6 @@ Audit basis: GitHub recursive tree at commit `03681882d4a06b9dad811d480053f88bc5
 - exoclick_business_api_ecosystem
 - family_relationships_parenting
 - fashion_textiles_apparel
-- finance_banking_insurance
 - food_hospitality_restaurants
 - governance
 - government_public_services_social_impact
@@ -142,3 +141,5 @@ A safe consolidation must compare conflicting file contents, merge unique subdir
 - Other matching directories remain subject to their documented implementation ownership and dependency requirements; they are not marked migrated merely because their names match.
 
 - The complete `education_learning_training/` implementation (37 files) was moved into `global_education_learning_training_api_ecosystem/education_learning_training/`; the industry router and registry now point to that canonical package, and the old root directory was removed.
+
+- The complete `finance_banking_insurance/` implementation (24 files) was moved into `global_finance_banking_insurance_api_ecosystem/`; the industry router, industry registry, domain registry, world catalogue and investment-finance compatibility facade now reference the canonical Global package. The old root directory was removed.
