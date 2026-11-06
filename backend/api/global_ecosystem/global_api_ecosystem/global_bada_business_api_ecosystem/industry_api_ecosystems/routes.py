@@ -39,12 +39,12 @@ def get_industry(
 
 
 # Domain-specific industry APIs
-from ..agriculture_food_natural_resources.routes import router as agriculture_food_router
-from ..education_learning_training.routes import router as education_learning_router
-from ..healthcare_life_sciences.routes import router as healthcare_router
-from ..finance_banking_insurance.routes import router as finance_banking_router
-from ..real_estate_construction.routes import router as real_estate_router
-from ..retail_ecommerce_consumer_goods.routes import router as retail_ecommerce_router
+from ..global_agriculture_food_natural_resources_api_ecosystem.industry_domains.agriculture_food_natural_resources.routes import router as agriculture_food_router
+from ..global_education_learning_training_api_ecosystem.industry_domains.education_learning_training.routes import router as education_learning_router
+from ..global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_coach_consultant_advisor_professional_services_work_business_api_ecosystem.industry_domains.healthcare_life_sciences.routes import router as healthcare_router
+from ..global_finance_banking_insurance_api_ecosystem.industry_domains.finance_banking_insurance.routes import router as finance_banking_router
+from ..global_real_estate_construction_infrastructure_PROPERTY_BUSINESS_api_ecosystem.industry_domains.real_estate_construction.routes import router as real_estate_router
+from ..global_distribution_channels_api_ecosystem.industry_domains.retail_ecommerce_consumer_goods.routes import router as retail_ecommerce_router
 
 router.include_router(agriculture_food_router)
 router.include_router(education_learning_router)
@@ -53,13 +53,13 @@ router.include_router(finance_banking_router)
 router.include_router(real_estate_router)
 router.include_router(retail_ecommerce_router)
 
-from ..technology_it_telecommunications.routes import router as technology_telecom_router
+from ..global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem.industry_domains.technology_it_telecommunications.routes import router as technology_telecom_router
 from ..manufacturing_industrial_services.routes import router as manufacturing_router
 from ..transport_logistics_supply_chain.routes import router as transport_logistics_router
 from ..global_travel_tourism_hospitality_api_ecosystem.routes import router as travel_hospitality_router
-from ..marketing_media_entertainment.routes import router as marketing_media_entertainment_router
+from ..global_affiliate_marketing_business_api_ecosystem.industry_domains.marketing_media_entertainment.routes import router as marketing_media_entertainment_router
 from ..arts_culture_heritage_creative_economy.routes import router as arts_culture_heritage_router
-from ..international_trade_import_export_customs_global_commerce.routes import router as international_trade_router
+from ..global_distribution_channels_api_ecosystem.industry_domains.international_trade_import_export_customs_global_commerce.routes import router as international_trade_router
 
 router.include_router(technology_telecom_router)
 router.include_router(manufacturing_router)
@@ -70,10 +70,10 @@ router.include_router(arts_culture_heritage_router)
 router.include_router(international_trade_router)
 
 from ..global_energy_utilities_environment_api_ecosystem.routes import router as energy_environment_router
-from ..professional_legal_business_services.routes import router as professional_services_router
-from ..government_public_services_social_impact.routes import router as public_impact_router
+from ..global_legal_services_api_ecosystem.industry_domains.professional_legal_business_services.routes import router as professional_services_router
+from ..global_business_governance_compliance_standards_api_ecosystem.industry_domains.government_public_services_social_impact.routes import router as public_impact_router
 from ..automotive_mobility.routes import router as automotive_mobility_router
-from ..personal_lifestyle_wellness.routes import router as personal_wellness_router
+from ..global_beauty_fashion_lifestyle_api_ecosystem.industry_domains.personal_lifestyle_wellness.routes import router as personal_wellness_router
 
 router.include_router(energy_environment_router)
 router.include_router(professional_services_router)
@@ -84,7 +84,7 @@ router.include_router(personal_wellness_router)
 from ..sports_recreation_community.routes import router as sports_community_router
 router.include_router(sports_community_router)
 
-from ..food_hospitality_restaurants.routes import router as food_hospitality_router
+from ..global_hospitality_hotels_resorts_restaurants_api_ecosystem.industry_domains.food_hospitality_restaurants.routes import router as food_hospitality_router
 from ..security_defence_safety_services.routes import router as security_defence_router
 from ..science_research_innovation.routes import router as science_research_router
 from ..mining_metals_minerals.routes import router as mining_metals_router
@@ -93,18 +93,18 @@ router.include_router(security_defence_router)
 router.include_router(science_research_router)
 router.include_router(mining_metals_router)
 
-from ..digital_infrastructure_telecommunications.routes import router as digital_infrastructure_router
+from ..global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem.industry_domains.digital_infrastructure_telecommunications.routes import router as digital_infrastructure_router
 from ..aviation_aerospace_space_technology.routes import router as aviation_aerospace_router
 from ..global_water_resources_marine_industries_api_ecosystem.routes import router as water_marine_router
-from ..fashion_textiles_apparel.routes import router as fashion_textiles_router
+from ..global_fashion_textiles_apparel_api_ecosystem.industry_domains.fashion_textiles_apparel.routes import router as fashion_textiles_router
 router.include_router(digital_infrastructure_router)
 router.include_router(aviation_aerospace_router)
 router.include_router(water_marine_router)
 router.include_router(fashion_textiles_router)
 
 # Jobs, Careers & Employment is deliberately mounted last in the industry API ecosystem.
-from ..jobs_careers_employment.routes import router as jobs_careers_router
+from ..global_freelancer_gig_independent_work_business_api_ecosystem.industry_domains.jobs_careers_employment.routes import router as jobs_careers_router
 router.include_router(jobs_careers_router)
 
-from ..home_services_property_maintenance_facility_management.routes import router as home_facility_router
+from ..global_real_estate_construction_infrastructure_PROPERTY_BUSINESS_api_ecosystem.industry_domains.home_services_property_maintenance_facility_management.routes import router as home_facility_router
 router.include_router(home_facility_router)
