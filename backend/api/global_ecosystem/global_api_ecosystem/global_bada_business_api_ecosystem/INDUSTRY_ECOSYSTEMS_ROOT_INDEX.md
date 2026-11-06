@@ -22,8 +22,7 @@ duplicate source trees for compatibility entry points.
 - `beauty_fashion_lifestyle/` — maintained directly at this root (not inside `industry_api_ecosystems/`).
 - `business_companies_corporates/`
 - `digital_infrastructure_telecommunications/`
-- `global_education_learning_training_api_ecosystem/` — consolidated Education, Learning & Training entry point; its nested `education_learning_training/` compatibility package points to the canonical industry implementation.
-- `education_learning_training/` — retained root compatibility facade; do not delete while legacy imports depend on it.
+- `global_education_learning_training_api_ecosystem/` — canonical Education, Learning & Training entry point and implementation; student/learner skills remain in its separate child package.
 - `global_energy_utilities_environment_api_ecosystem/` — consolidated Energy, Utilities & Environment package.
 - `global_fashion_textiles_apparel_api_ecosystem/` — sole canonical Fashion, Textiles & Apparel implementation; the redundant root-level compatibility facade has been removed.
 - `global_finance_banking_insurance_api_ecosystem/` — consolidated public entry point; implementation remains under `industry_api_ecosystems/finance_banking_insurance/`.
@@ -55,7 +54,7 @@ duplicate source trees for compatibility entry points.
 
 ## Maintenance rules
 
-- Unless explicitly documented as an exception, modify industry implementation files in `industry_api_ecosystems/<package>/`. Travel, Tourism & Hospitality and Water Resources & Marine Industries are now maintained in their consolidated global API ecosystem folders. Startups & Entrepreneurship is owned by the consolidated Global Entrepreneurs ecosystem. Agriculture, Food & Natural Resources is maintained directly under `global_agriculture_food_natural_resources_api_ecosystem/`; food processing and food safety/testing/compliance belong there. Do not recreate the former root-level `agriculture_food_natural_resources/` folder.
+- Unless explicitly documented as an exception, modify industry implementation files in their documented canonical packages, including `global_education_learning_training_api_ecosystem/education_learning_training/` for Education. Travel, Tourism & Hospitality and Water Resources & Marine Industries are now maintained in their consolidated global API ecosystem folders. Startups & Entrepreneurship is owned by the consolidated Global Entrepreneurs ecosystem. Agriculture, Food & Natural Resources is maintained directly under `global_agriculture_food_natural_resources_api_ecosystem/`; food processing and food safety/testing/compliance belong there. Do not recreate the former root-level `agriculture_food_natural_resources/` folder.
 - Beauty, Fashion & Lifestyle; Mining, Metals & Minerals; and Manufacturing, Industrial & Industries implementation files live directly at the Bada Business root. Energy, Utilities & Environment lives in `global_energy_utilities_environment_api_ecosystem/`; Finance, Banking & Insurance implementation remains in `industry_api_ecosystems/finance_banking_insurance/` with a consolidated global entry point. Real Estate and Transport now also have consolidated global root entry points that expose their underlying industry packages without duplicating API implementations.
 - Importers must use `global_hospitality_hotels_resorts_restaurants_api_ecosystem/` as the sole root-level Hospitality entry point. The maintained implementation remains under `industry_api_ecosystems/food_hospitality_restaurants/`; the duplicate root-level legacy facades have been removed. Food safety/testing is maintained under Agriculture & Food.
 - New industry packages must be registered in the industry ecosystem registry and covered by route, schema and integrity tests.

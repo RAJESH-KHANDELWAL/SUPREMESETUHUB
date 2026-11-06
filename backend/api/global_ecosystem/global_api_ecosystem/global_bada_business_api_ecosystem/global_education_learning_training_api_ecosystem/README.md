@@ -4,7 +4,7 @@ This folder is the canonical parent for the education-industry compatibility ent
 
 ## Structure
 
-- `education_learning_training/` — compatibility entry point to the canonical industry implementation in `../industry_api_ecosystems/education_learning_training/`.
+- `education_learning_training/` — canonical Education, Learning & Training implementation, catalogue, schemas, routes and tests.
 - `students_education_skills_business_api_ecosystem/` — canonical student, learner and skills taxonomy package.
 
 ## Import ownership

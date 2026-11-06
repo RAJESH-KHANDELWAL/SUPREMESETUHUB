@@ -1,7 +1,7 @@
 """Tests for EducationLearningService."""
 import unittest
 
-from education_learning_training.service import EducationLearningService
+from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_education_learning_training_api_ecosystem.education_learning_training.service import EducationLearningService
 
 class EducationLearningServiceTests(unittest.TestCase):
     def setUp(self):

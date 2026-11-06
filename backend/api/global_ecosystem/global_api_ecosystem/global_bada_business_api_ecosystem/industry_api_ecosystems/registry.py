@@ -3,7 +3,7 @@ from __future__ import annotations
 
 INDUSTRY_ECOSYSTEMS = (
     {"id": "agriculture_food_natural_resources", "name": "Agriculture, Food & Natural Resources", "package": "agriculture_food_natural_resources", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
-    {"id": "education_learning_training", "name": "Education, Learning & Training", "package": "education_learning_training", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
+    {"id": "education_learning_training", "name": "Education, Learning & Training", "package": "global_education_learning_training_api_ecosystem", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
     {"id": "startups_entrepreneurship", "name": "Startups & Entrepreneurship", "package": "global_entrepreneurs_entrepreneurship_msme_sme_startups_solo_women_digital_ai_technology_innovation_business_creation_development_growth_api_ecosystem", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
     {"id": "business_companies_corporates", "name": "Businesses, Companies & Corporates", "package": "business_companies_corporates", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},
     {"id": "finance_banking_insurance", "name": "Finance, Banking & Insurance", "package": "finance_banking_insurance", "coverage": ["india", "global"], "channels": ["online", "offline", "hybrid"], "status": "taxonomy_scaffold"},

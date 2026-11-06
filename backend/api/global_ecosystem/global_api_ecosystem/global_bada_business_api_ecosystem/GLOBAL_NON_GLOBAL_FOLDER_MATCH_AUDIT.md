@@ -35,7 +35,6 @@ Audit basis: GitHub recursive tree at commit `03681882d4a06b9dad811d480053f88bc5
 - business_capabilities
 - business_companies_corporates
 - digital_infrastructure_telecommunications
-- education_learning_training
 - exoclick_business_api_ecosystem
 - family_relationships_parenting
 - fashion_textiles_apparel
@@ -141,3 +140,5 @@ A safe consolidation must compare conflicting file contents, merge unique subdir
 - Removed the root-level `governance/` compatibility shims after switching the Bada Business router and approved-requirements test to `global_business_governance_compliance_standards_api_ecosystem/governance/` directly.
 - No canonical implementation files were discarded in these two cleanups; both removed directories contained only compatibility imports.
 - Other matching directories remain subject to their documented implementation ownership and dependency requirements; they are not marked migrated merely because their names match.
+
+- The complete `education_learning_training/` implementation (37 files) was moved into `global_education_learning_training_api_ecosystem/education_learning_training/`; the industry router and registry now point to that canonical package, and the old root directory was removed.

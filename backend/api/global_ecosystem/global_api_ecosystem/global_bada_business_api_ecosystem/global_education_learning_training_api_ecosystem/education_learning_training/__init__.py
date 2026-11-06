@@ -1,4 +1,11 @@
-"""Education industry compatibility entry point under the global education ecosystem."""
-from pathlib import Path as _Path
-from ...education_learning_training import *
-__path__ = [str(_Path(__file__).resolve().parent.parent.parent / "education_learning_training")]
+"""Education, Learning & Training industry API domain package."""
+
+INDUSTRY_ID = "education_learning_training"
+INDUSTRY_NAME = "Education, Learning & Training"
+COVERAGE = ("india", "global")
+CHANNELS = ("online", "offline", "hybrid")
+STATUS = "taxonomy_scaffold"
+
+from .service import EducationLearningService
+
+__all__ = ["INDUSTRY_ID", "INDUSTRY_NAME", "COVERAGE", "CHANNELS", "STATUS", "EducationLearningService"]
