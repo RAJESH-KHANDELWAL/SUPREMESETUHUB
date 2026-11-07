@@ -1,8 +1,8 @@
-# GLOBAL KAMASUTRA | INTIMACY | RELATIONSHIP | ADULT HEALTH & WELLNESS API ECOSYSTEM
+# GLOBAL KAMASUTRA | INTIMACY | RELATIONSHIP | SEX | PORN | ADULT HEALTH & WELLNESS API ECOSYSTEM
 
-**Canonical location:** `backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_coach_consultant_advisor_professional_services_work_business_api_ecosystem/`
+**Canonical location:** `backend/api/global_ecosystem/global_api_ecosystem/global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem/`
 
-**Scope:** Bharat + Global World; adults aged 18+; consent-first, privacy-preserving taxonomy and business/work API scaffold.
+**Scope:** Bharat + Global World; adults aged 18+; consent-first, privacy-preserving taxonomy and adult-industry API scaffold.
 
 This is the single consolidated adult-only ecosystem entry point. The former `adult_18_plus_lawful_industry_business_api_ecosystem/`, `adult_business_api_ecosystem/` and `adult_sexual_wellness/` folder layers have been removed from the root; their contents are integrated here.
 
