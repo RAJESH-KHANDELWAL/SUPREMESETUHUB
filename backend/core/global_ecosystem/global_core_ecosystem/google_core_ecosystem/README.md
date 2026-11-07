@@ -1,36 +1,38 @@
 # GOOGLE CORE ECOSYSTEM
 
-**Parent:** GLOBAL CORE ECOSYSTEM
-
+**Parent:** GLOBAL CORE ECOSYSTEM  
 **Folder:** `backend/core/global_ecosystem/global_core_ecosystem/google_core_ecosystem/`
 
 ## Responsibility
 
-The Google Core Ecosystem owns provider-level core registration, module discovery, capability metadata, configuration boundaries, and readiness/status contracts for Google-owned products. It does not duplicate Google API clients.
+The Google Core Ecosystem owns provider-level registration, lifecycle, module discovery, capability metadata, policy boundaries and readiness/status contracts for Google-owned products. It does not duplicate Google API clients.
 
 ## Existing integration layers
 
 - Existing shared Google core contracts: `backend/google/google_ecosystem/core/`
 - Google provider API catalog: `backend/api/global_ecosystem/global_api_ecosystem/google_api_ecosystem/`
-- Shared backend provider adapter: `backend/integrations/providers/google.py`
+- Shared backend Google adapter: `backend/integrations/providers/google.py`
+- Google engine layer: `backend/engines/global_ecosystem/google_engine/`
 
-The core references those modules as the implementation/catalog boundaries. Do not create a second OAuth token manager or a duplicate API service here.
+The Core catalog references these implementation boundaries. Do not create a second OAuth token manager or duplicate API transport.
 
-## Included core children
+## Dedicated Google Core child packages
 
-- Google Gmail Core Ecosystem
-- Google Drive Core Ecosystem
-- Google Calendar Core Ecosystem
-- Google People Core Ecosystem
-- Google Gemini Core Ecosystem
-- Google Vertex AI Core Ecosystem
-- Google Admin SDK, Ads, Analytics, Business Profile, Chat, Cloud, Contacts, Docs, Firebase, Forms, Maps Platform, Meet, Search Console, Sheets, Slides and YouTube Core Ecosystems
+Every family has its own `google_*_core_ecosystem/` package below this folder:
 
-The catalog may be expanded to all Google API families as each service needs a distinct core responsibility, configuration policy, tests, and security review.
+- Gmail, Drive, Calendar, Contacts, People
+- Docs, Sheets, Slides, Forms, Chat, Meet
+- Admin SDK, Identity & OAuth
+- YouTube, Maps Platform, Business Profile
+- Ads, Analytics, Search Console
+- Cloud, Firebase, Gemini, Vertex AI
 
-## Security
+The central catalog currently registers 22 child Core Ecosystems. Each package exposes its Core identity and points to the matching Google API catalog. Gmail also has a Core facade delegating to the existing Gmail API adapter.
+
+## Security and readiness
 
 - OAuth scopes must be least-privilege and consented by the mailbox/user owner.
-- Store secrets and refresh tokens in a managed, tenant-scoped secret store; never commit them.
-- Core status is not evidence of OAuth connection or live API verification.
-- User-specific access, token revocation, disconnect, quota, audit, and retry rules belong to the relevant secure runtime service.
+- Secrets and refresh tokens must be held in a managed, tenant-scoped secret store; never commit credentials.
+- Core and Engine catalog status is not evidence of OAuth consent or a live API connection.
+- User-specific access, token revocation, disconnect, quota, audit and retries belong to the relevant secure runtime service.
+- Product families marked catalog-only need their own runtime adapters and deployment-level tests before use.
