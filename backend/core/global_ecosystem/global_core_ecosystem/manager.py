@@ -67,7 +67,7 @@ class GlobalEcosystemManager:
                 "ecosystem_id": stripe_child["ecosystem_id"],
                 "name": stripe_child["name"],
                 "ecosystem_type": "PROVIDER_CORE_SERVICE",
-                "parent_id": stripe_child["parent_id"],
+                "parent_id": stripe_child.get("parent_id", stripe_catalog["ecosystem_id"]),
                 "capabilities": list(stripe_child.get("capabilities", [])),
                 "metadata": {
                     "core_module": stripe_child.get("module"),
