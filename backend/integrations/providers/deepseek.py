@@ -32,7 +32,7 @@ class DeepSeekProvider(IntegrationProvider):
             "auth_method": "Bearer API key via server-side DEEPSEEK_API_KEY",
             "setup_guide": (
                 "backend/api/global_ecosystem/global_api_ecosystem/"
-                "global_deepseek_api_ecosystem/README.md"
+                "deepseek_api_ecosystem/README.md"
             ),
             "connection": "NOT_TESTED",
             "live_connection_verified": False,
