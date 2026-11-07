@@ -3,6 +3,7 @@ from typing import Any, Dict, List
 from .providers.aws import AWSProvider
 from .providers.google import GoogleProvider
 from .providers.microsoft import MicrosoftProvider
+from .providers.salesforce import SalesforceProvider
 from .providers.apple import AppleProvider
 from .providers.esa import ESAProvider
 from .providers.generic import GenericWebProvider
@@ -34,6 +35,7 @@ class IntegrationRegistry:
             "HUGGINGFACE": HuggingFaceProvider(),
             "IBM": IBMProvider(),
             "MICROSOFT": MicrosoftProvider(),
+            "SALESFORCE": SalesforceProvider(),
             "META": MetaProvider(),
             "AWS": AWSProvider(),
             "APPLE": AppleProvider(),
