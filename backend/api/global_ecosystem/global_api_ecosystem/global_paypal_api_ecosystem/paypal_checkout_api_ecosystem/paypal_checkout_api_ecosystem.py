@@ -7,7 +7,7 @@ from __future__ import annotations
 PAYPAL_CHECKOUT_API_ECOSYSTEM = {
     "provider_id": "paypal",
     "service_id": "checkout",
-    "name": "PAYPAL CHECKOUT API ECOSYSTEM",
+    "name": "GLOBAL PAYPAL CHECKOUT API ECOSYSTEM",
     "description": "Payment button and checkout flows, order approval, capture orchestration, and buyer return flows.",
     "status": "CATALOG_ONLY",
     "live_connection_verified": False,
