@@ -7,7 +7,7 @@ from __future__ import annotations
 PAYPAL_VAULT_PAYMENT_METHODS_API_ECOSYSTEM = {
     "provider_id": "paypal",
     "service_id": "vault_payment_methods",
-    "name": "PAYPAL VAULT PAYMENT METHODS API ECOSYSTEM",
+    "name": "GLOBAL PAYPAL VAULT PAYMENT METHODS API ECOSYSTEM",
     "description": "Vault setup tokens, payment tokens, and stored payment-method lifecycle operations.",
     "status": "CATALOG_ONLY",
     "live_connection_verified": False,
