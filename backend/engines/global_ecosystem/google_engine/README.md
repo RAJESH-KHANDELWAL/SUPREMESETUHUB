@@ -16,3 +16,8 @@ This engine package registers and manages Google provider engine metadata. It is
 The registry derives its initial Google family engine entries from the Google Core catalog, including Gmail, Drive, Calendar, People, Gemini, and Vertex AI. New Google families should be introduced in the core catalog first, then receive an engine entry and tests.
 
 The manager and registry are metadata/orchestration components only. They do not connect to Google, retain credentials, or claim live API status.
+
+
+## Current Google API family coverage
+
+The Google Core catalog is the source of truth for engine registrations. It covers Gmail, Drive, Calendar, Contacts, Docs, Sheets, Slides, Forms, Chat, Meet, Admin SDK, People, YouTube, Maps Platform, Business Profile, Ads, Analytics, Search Console, Cloud, Firebase, Gemini and Vertex AI.
