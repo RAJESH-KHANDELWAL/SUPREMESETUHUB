@@ -242,6 +242,31 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "capabilities": ["SERVER_LIFECYCLE", "HEALTH_CHECKS", "DEPLOYMENT_COORDINATION"],
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
     },
+    {
+        "ecosystem_id": "GOOGLE-CORE-ECOSYSTEM",
+        "name": "GOOGLE CORE ECOSYSTEM",
+        "ecosystem_type": "PROVIDER_CORE",
+        "capabilities": ["GOOGLE_PROVIDER_REGISTRY", "GOOGLE_WORKSPACE_CORE", "GOOGLE_CLOUD_CORE", "GOOGLE_IDENTITY_OAUTH_CORE"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_catalog": "backend/core/global_ecosystem/global_core_ecosystem/google_core_ecosystem",
+            "google_api_catalog": "backend/api/global_ecosystem/global_api_ecosystem/google_api_ecosystem",
+            "existing_google_core": "backend/google/google_ecosystem/core",
+        },
+    },
+    {
+        "ecosystem_id": "GOOGLE-GMAIL-CORE-ECOSYSTEM",
+        "name": "GOOGLE GMAIL CORE ECOSYSTEM",
+        "ecosystem_type": "PROVIDER_CORE_SERVICE",
+        "capabilities": ["MAILBOX_OAUTH", "MAILBOX_STATUS", "MAIL_SEND", "TOKEN_REFRESH_BOUNDARY"],
+        "parent_id": "GOOGLE-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_module": "backend/core/global_ecosystem/global_core_ecosystem/google_core_ecosystem/gmail_core.py",
+            "api_service": "backend/api/global_ecosystem/global_api_ecosystem/google_api_ecosystem/google_gmail_api_ecosystem/service.py",
+            "default_scope": "https://www.googleapis.com/auth/gmail.send",
+            "status": "ADAPTER_SCAFFOLD_NOT_LIVE_VERIFIED",
+        },
+    },
 
     # API hierarchy
     {
