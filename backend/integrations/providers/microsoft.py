@@ -50,7 +50,7 @@ class MicrosoftProvider(IntegrationProvider):
         if missing:
             return {"success": False, "provider": self.name, "status": "NEEDS_CONFIGURATION",
                     "missing_configuration": missing, "live_connection_verified": False}
-        if any(ch in tenant for ch in "/?#") or len(tenant) > 200:
+        if (any(ch in tenant for ch in "/?#") or len(tenant) > 200\n                or tenant.casefold() in {"common", "organizations", "consumers"}):
             return {"success": False, "provider": self.name, "status": "INVALID_CONFIGURATION",
                     "error_code": "MICROSOFT_TENANT_ID_INVALID", "live_connection_verified": False}
         token_url = f"https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token"
