@@ -5,9 +5,9 @@ from copy import deepcopy
 from typing import Any
 
 PROVIDER_ID = "stripe"
-PROVIDER_NAME = "GLOBAL STRIPE API ECOSYSTEM"
+PROVIDER_NAME = "STRIPE API ECOSYSTEM"
 PROVIDER_VENDOR = "Stripe"
-PROVIDER_CATALOG_PATH = "backend/api/global_ecosystem/global_api_ecosystem/global_stripe_api_ecosystem"
+PROVIDER_CATALOG_PATH = "backend/api/global_ecosystem/global_api_ecosystem/stripe_api_ecosystem"
 
 STRIPE_SERVICE_ECOSYSTEMS = [
     {"id":"accounts","name":"STRIPE ACCOUNTS API ECOSYSTEM","folder":"stripe_accounts_api_ecosystem","status":"catalog_only"},
