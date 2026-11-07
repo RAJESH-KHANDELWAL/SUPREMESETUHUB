@@ -1,43 +1,49 @@
-# Global Social Media API Ecosystem
+# GLOBAL SOCIAL MEDIA API ECOSYSTEM
 
-India + worldwide provider directory spanning mainstream social networks, messaging,
-short video, live streaming, professional networks, publishing, Q&A, federated
-communities, creator memberships, social commerce and age-restricted adult platforms.
+India + worldwide social-media provider directory, organized into a dedicated
+folder for every catalogued platform.
 
-## Main catalog
+## Folder architecture
 
-- `social_media_api_ecosystem.py` — provider directory, categories, cautious API-access
-  discovery labels, implementation rules and region/category filters.
-- `integrations/` — integration metadata and service endpoints.
-- `services/` — service-layer files.
-- `tools/` — tool-layer files.
-- `meta_social_media_api_ecosystem/` — Meta provider family.
-- `x_social_media_api_ecosystem/` — X provider family.
+Each provider has its own folder named
+`<provider_id>_social_media_api_ecosystem/` with a `provider.py` metadata module.
+The parent `social_media_api_ecosystem.py` catalog links each provider to its folder.
 
-## Important API status note
+The catalog currently contains 112 provider entries, spanning:
 
-A directory entry does not mean that a public API exists, that access is free, or that
-an integration is live. Some providers require partner approval, paid access, app
-review or region-specific credentials. Others have no general public API or may be
-discontinued. Verify each provider's current official documentation and product
-status before implementation.
+- Global mainstream networks, microblogging and messaging
+- Photo/video, short-video, live streaming and creator communities
+- Professional networks, publishing, blogs, Q&A and forums
+- Federated and decentralized social networks
+- India-first and regional-language social platforms
+- Creator memberships, social commerce and age-restricted adult platforms
 
-## Adult and age-restricted services
+## Core files
 
-Adult creator and adult-video platforms are listed as provider metadata only. Any
-future integration must be lawful, consensual, age-restricted, privacy-preserving and
-compliant with the laws applicable in the user's jurisdiction and the provider's
-terms. This catalog does not create, host, scrape, or distribute explicit media.
+- `social_media_api_ecosystem.py` — master catalog, category metadata and filters
+- `service.py` — provider directory and detail lookup services
+- `routes.py` — FastAPI overview, list and provider-detail routes
+- `schemas.py` — reserved for shared request/response schemas
+- `integrations/` — integration adapters and provider connection workflows
+- `services/` — shared service implementations
+- `tools/` — shared tools
+- `meta_social_media_api_ecosystem/` — Meta provider family
+- `x_social_media_api_ecosystem/` — X provider family
+- `<provider_id>_social_media_api_ecosystem/` — dedicated provider folder
 
-## India and regional availability
+## API access and connection status
 
-Platform availability, legality and access can vary by country, state, court order,
-government direction and provider policy. Verify current Indian legal requirements,
-geo-restrictions, age-assurance requirements and official terms before enabling a
-provider.
+The `api_access` field is a discovery hint, not a guarantee of current availability,
+free access, approval or API scope. Verify official documentation, product status,
+developer approval, regional access and platform terms before implementation.
 
-## Connectivity status
+All provider modules are metadata scaffolds. No credentials are included and no
+provider-wide live connection is claimed. Each connector must be implemented and
+tested independently before marking it connected.
 
-This is a catalog, not a universal live connector. Individual providers must be
-implemented and tested independently. `live_connections_verified` remains false
-until actual authenticated integrations have been verified.
+## Adult and age-restricted platforms
+
+Adult-oriented entries are directory metadata only. Any future account integration
+must be lawful, consensual, age-restricted, privacy-preserving and compliant with
+applicable jurisdictional law and platform terms. This ecosystem does not provide
+explicit media generation, hosting, scraping or distribution.
