@@ -36,3 +36,31 @@ Canonical provider-owned catalog for GitHub's official REST and GraphQL APIs. Th
 - Add endpoint-specific tests before enabling write operations.
 
 Live connection verified: **No**.
+
+## Backend API connection
+
+The backend now includes an authenticated GitHub REST provider at `backend/integrations/providers/github.py`, registered as `GITHUB` in the integration registry.
+
+### Required runtime secret
+
+Set **one** of these environment variables in the backend hosting environment:
+
+- `GITHUB_TOKEN` (recommended), or
+- `GH_TOKEN`
+
+Use a fine-grained personal access token or GitHub App installation token. For the currently implemented read-only routes, grant access only to the required account/repositories and **Metadata: Read-only**. Add further permissions only when additional API operations are implemented. Never paste the token into source files, commit it, or send it in chat.
+
+### Implemented backend routes
+
+- `GET /api/v1/connectors/github/status` — validates the token against `GET /user` and the configured repository.
+- `GET /api/v1/connectors/github/api/user` — returns the authenticated GitHub account identity.
+- `GET /api/v1/connectors/github/api/repositories` — lists repositories visible to the token.
+- `GET /api/v1/connectors/github/api/repository/{owner}/{repo}` — reads repository metadata and granted permissions.
+
+The repository checked by the status route defaults to `RAJESH-KHANDELWAL/SUPREMESETUHUB`; override with `SUPREMESETUHUB_GITHUB_REPOSITORY` if required.
+
+### Activation and verification
+
+After setting the secret in the backend runtime, restart/redeploy the backend and call `/api/v1/connectors/github/status`. A successful authenticated response reports `status: CONNECTED` and `live_connection_verified: true`. If the token is missing, the route reports `NEEDS_CONFIGURATION`.
+
+Current implementation is read-only. Repository writes, issues, pull requests, Actions, webhooks, GraphQL and security operations require separate endpoint implementations, least-privilege permissions and tests. The 12 API-family directories remain architecture/documentation scaffolds until those operations are built.
