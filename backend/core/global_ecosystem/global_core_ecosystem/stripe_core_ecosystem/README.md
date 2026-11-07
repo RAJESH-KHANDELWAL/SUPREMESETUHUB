@@ -16,8 +16,17 @@ The Stripe API implementation remains separate under:
 
 - `catalog.py` — provider Core catalog and 22 child Core registrations
 - `service.py` — read-only status, module discovery and health surface
-- `__init__.py` — public Core exports
-- `stripe_*_core_ecosystem/` — dedicated child Core family packages
+- `stripe_core_ecosystem.py` — public Core entry point
+- `stripe_*_core_ecosystem/` — 22 dedicated child Core packages, each with
+  `catalog.py` and `__init__.py`
+- `tests/` — structural catalog tests
+
+## API-to-Core mapping
+
+All 22 family folders in the Stripe API ecosystem have corresponding Core
+family packages. Core packages reference their API family; they do not copy
+API transport, authentication, HTTP clients, webhook signature handlers or
+credential configuration into the Core layer.
 
 ## Security and operational boundaries
 
