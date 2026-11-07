@@ -1,4 +1,4 @@
-# GLOBAL STRIPE API ECOSYSTEM
+# STRIPE API ECOSYSTEM
 
 Stripe provider package for payment acceptance, billing, subscriptions, customer
 management, financial reporting and platform commerce workflows.
