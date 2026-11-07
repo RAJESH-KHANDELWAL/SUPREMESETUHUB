@@ -15,6 +15,7 @@ from backend.integrations.connectors.openai_image import (
 from backend.integrations.connectors.registry import connector_registry
 from backend.supreme.config import CONNECTED_REPOS
 from backend.integrations.providers.github import GitHubProvider
+from backend.integrations.providers.huggingface import HuggingFaceProvider
 
 
 router = APIRouter(
@@ -313,3 +314,87 @@ def connector_details(name: str):
         "success": True,
         "connector": data,
     }
+
+
+huggingface_api_provider = HuggingFaceProvider()
+
+
+def _huggingface_api_error(exc: httpx.HTTPStatusError) -> HTTPException:
+    status = exc.response.status_code
+    if status == 401:
+        detail = "HUGGINGFACE_TOKEN_INVALID_OR_EXPIRED"
+    elif status == 403:
+        detail = "HUGGINGFACE_PERMISSION_OR_GATED_RESOURCE_ERROR"
+    elif status == 404:
+        detail = "HUGGINGFACE_RESOURCE_NOT_FOUND"
+    else:
+        detail = "HUGGINGFACE_API_REQUEST_FAILED"
+    return HTTPException(status_code=502 if status >= 500 else status, detail=detail)
+
+
+@router.get("/huggingface/status")
+def huggingface_status():
+    if not huggingface_api_provider.token():
+        return {
+            "success": False,
+            "connector": "huggingface",
+            "status": "NEEDS_CONFIGURATION",
+            "required_environment_variables": ["HF_TOKEN (or HUGGINGFACEHUB_API_TOKEN)"],
+            "live_connection_verified": False,
+        }
+    try:
+        identity = huggingface_api_provider.request("GET", "/whoami-v2")
+        return {
+            "success": True,
+            "connector": "huggingface",
+            "status": "CONNECTED",
+            "authenticated_user": identity.get("name") or identity.get("fullname"),
+            "live_connection_verified": True,
+        }
+    except httpx.HTTPStatusError as exc:
+        raise _huggingface_api_error(exc) from exc
+    except (httpx.HTTPError, RuntimeError) as exc:
+        raise HTTPException(status_code=503, detail="HUGGINGFACE_API_UNAVAILABLE_OR_NOT_CONFIGURED") from exc
+
+
+@router.get("/huggingface/api/whoami")
+def huggingface_whoami():
+    try:
+        return {"success": True, "identity": huggingface_api_provider.request("GET", "/whoami-v2")}
+    except RuntimeError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+    except httpx.HTTPStatusError as exc:
+        raise _huggingface_api_error(exc) from exc
+    except httpx.HTTPError as exc:
+        raise HTTPException(status_code=503, detail="HUGGINGFACE_API_UNAVAILABLE") from exc
+
+
+def _huggingface_search(resource: str, search: str | None, limit: int):
+    try:
+        data = huggingface_api_provider.request(
+            "GET",
+            f"/{resource}",
+            params={"search": search or "", "limit": limit},
+        )
+        return {"success": True, "items": data}
+    except RuntimeError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+    except httpx.HTTPStatusError as exc:
+        raise _huggingface_api_error(exc) from exc
+    except httpx.HTTPError as exc:
+        raise HTTPException(status_code=503, detail="HUGGINGFACE_API_UNAVAILABLE") from exc
+
+
+@router.get("/huggingface/api/models")
+def huggingface_models(search: str | None = Query(default=None, max_length=200), limit: int = Query(default=20, ge=1, le=100)):
+    return _huggingface_search("models", search, limit)
+
+
+@router.get("/huggingface/api/datasets")
+def huggingface_datasets(search: str | None = Query(default=None, max_length=200), limit: int = Query(default=20, ge=1, le=100)):
+    return _huggingface_search("datasets", search, limit)
+
+
+@router.get("/huggingface/api/spaces")
+def huggingface_spaces(search: str | None = Query(default=None, max_length=200), limit: int = Query(default=20, ge=1, le=100)):
+    return _huggingface_search("spaces", search, limit)
