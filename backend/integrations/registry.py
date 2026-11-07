@@ -11,6 +11,7 @@ from .providers.anthropic import AnthropicProvider
 from .providers.adobe import AdobeProvider
 from .providers.atlassian import AtlassianProvider
 from .providers.cohere import CohereProvider
+from .providers.deepseek import DeepSeekProvider
 
 
 class IntegrationRegistry:
@@ -24,6 +25,7 @@ class IntegrationRegistry:
             "ADOBE": AdobeProvider(),
             "ATLASSIAN": AtlassianProvider(),
             "COHERE": CohereProvider(),
+            "DEEPSEEK": DeepSeekProvider(),
             "MICROSOFT": MicrosoftProvider(),
             "AWS": AWSProvider(),
             "APPLE": AppleProvider(),
