@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Any
 
 DATA_PATH = Path(__file__).resolve().parent / "data" / "entity_relationships.json"
-ALLOWED_RELATIONSHIPS = {"owns", "operates", "publishes", "distributes", "parent_of", "subsidiary_of", "brand_of", "founded_by", "partner_of", "resells"}
+ALLOWED_RELATIONSHIPS = {"owns", "operates", "publishes", "distributes", "parent_of", "subsidiary_of", "brand_of", "founded_by", "partner_of", "resells", "provides_api_to", "hosts_content_for", "licenses_content_to", "age_verifies_for", "verifies_consent_for", "moderates_for", "processes_payments_for", "handles_payouts_for", "provides_safety_support_to", "supplies_technology_to", "affiliated_with"}
 
 
 def load_relationships() -> list[dict[str, Any]]:
