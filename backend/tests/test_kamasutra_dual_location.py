@@ -5,6 +5,10 @@ GLOBAL_ROOT = "backend.api.global_ecosystem.global_api_ecosystem.global_kamasutr
 BUSINESS_ROOT = "backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem"
 
 
+def _contains_router(parent_router, child_router):
+    return any(getattr(included, "router", None) is child_router for included in parent_router.routes)
+
+
 class KamasutraDualLocationTests(unittest.TestCase):
     def test_both_packages_exist_with_same_folder_basename(self):
         global_package = importlib.import_module(GLOBAL_ROOT)
@@ -13,19 +17,16 @@ class KamasutraDualLocationTests(unittest.TestCase):
         self.assertTrue(hasattr(business_package, "router"))
 
     def test_global_router_is_mounted(self):
-        routes = importlib.import_module("backend.api.global_api_ecosystem_routes").router
-        paths = {route.path for route in routes.routes}
-        self.assertIn("/api/v1/global-api-ecosystem/adult-wellness/status", paths)
+        global_package = importlib.import_module(GLOBAL_ROOT)
+        parent = importlib.import_module("backend.api.global_api_ecosystem_routes").router
+        self.assertTrue(_contains_router(parent, global_package.router))
 
     def test_bada_business_router_is_mounted_from_local_copy(self):
-        routes = importlib.import_module(
+        business_package = importlib.import_module(BUSINESS_ROOT)
+        parent = importlib.import_module(
             "backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.routes"
         ).router
-        paths = {route.path for route in routes.routes}
-        self.assertIn(
-            "/api/v1/global-ecosystem/business/kamasutra/adult-wellness/status",
-            paths,
-        )
+        self.assertTrue(_contains_router(parent, business_package.router))
 
     def test_bada_business_registry_uses_local_copy(self):
         registry = importlib.import_module(
