@@ -7,7 +7,7 @@ from __future__ import annotations
 PAYPAL_BILLING_PLANS_API_ECOSYSTEM = {
     "provider_id": "paypal",
     "service_id": "billing_plans",
-    "name": "PAYPAL BILLING PLANS API ECOSYSTEM",
+    "name": "GLOBAL PAYPAL BILLING PLANS API ECOSYSTEM",
     "description": "Plan and product catalog resources used by recurring billing integrations.",
     "status": "CATALOG_ONLY",
     "live_connection_verified": False,
