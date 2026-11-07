@@ -7,7 +7,7 @@ import json
 
 from backend.database.service import DatabaseService
 from backend.storage.filesystem import LocalFileStorage
-from backend.engines.base import BaseEngine
+from backend.engine.base import BaseEngine
 
 
 class StorageEngine(BaseEngine):

@@ -1,6 +1,6 @@
 """MAIN BASE FOUNDATION media API."""
 
-from backend.engines.media import MediaEngine
+from backend.engine.media import MediaEngine
 
 
 class MediaAPI:

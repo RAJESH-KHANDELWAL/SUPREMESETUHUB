@@ -1,14 +1,14 @@
-from backend.engines.manager import EngineManager
+from backend.engine.manager import EngineManager
 
-from backend.engines.database.manager import DatabaseEngine
-from backend.engines.storage.manager import StorageEngine
-from backend.engines.security.manager import SecurityEngine
-from backend.engines.ai.manager import AIEngine
-from backend.engines.foundation.manager import FoundationEngine
-from backend.engines.work_business import WorkBusinessEngine
-from backend.engines.leads_business import LeadsBusinessEngine
-from backend.engines.sales_business import SalesBusinessEngine
-from backend.engines.customer_business import CustomerBusinessEngine
+from backend.engine.database.manager import DatabaseEngine
+from backend.engine.storage.manager import StorageEngine
+from backend.engine.security.manager import SecurityEngine
+from backend.engine.ai.manager import AIEngine
+from backend.engine.foundation.manager import FoundationEngine
+from backend.engine.work_business import WorkBusinessEngine
+from backend.engine.leads_business import LeadsBusinessEngine
+from backend.engine.sales_business import SalesBusinessEngine
+from backend.engine.customer_business import CustomerBusinessEngine
 
 
 class Bootstrap:

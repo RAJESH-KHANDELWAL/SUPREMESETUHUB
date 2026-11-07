@@ -9,7 +9,7 @@ from dataclasses import dataclass, asdict
 from datetime import datetime, timezone
 from typing import Optional
 
-from backend.engines.database.manager import DatabaseEngine
+from backend.engine.database.manager import DatabaseEngine
 
 
 @dataclass

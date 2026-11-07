@@ -7,7 +7,7 @@ Central management package for:
 - Workflows
 
 Management defines how approved work is organized and controlled.
-Technical execution belongs to backend/engines.
+Technical execution belongs to backend/engine.
 """
 
 from .management import Management

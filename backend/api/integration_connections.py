@@ -1,6 +1,6 @@
 """MAIN BASE FOUNDATION integration connection API."""
 
-from backend.engines.integrations.connections import (
+from backend.engine.integrations.connections import (
     IntegrationConnectionManager,
 )
 

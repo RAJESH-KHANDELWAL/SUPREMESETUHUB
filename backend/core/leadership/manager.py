@@ -6,7 +6,7 @@ Defines the Manager leadership role.
 Managers coordinate assigned business areas, teams,
 workflows and execution.
 
-Technical execution belongs to backend/engines.
+Technical execution belongs to backend/engine.
 """
 
 from typing import Any, Dict

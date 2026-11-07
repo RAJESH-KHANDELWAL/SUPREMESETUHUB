@@ -1,7 +1,7 @@
 from backend.integrations.registry import IntegrationRegistry
 from backend.integrations.providers.apple import AppleProvider
 from backend.integrations.providers.esa import ESAProvider
-from backend.engines.integrations.registry import IntegrationRegistry as EngineIntegrationRegistry
+from backend.engine.integrations.registry import IntegrationRegistry as EngineIntegrationRegistry
 
 
 def test_provider_registry_imports_and_contains_requested_ecosystems():

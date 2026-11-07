@@ -7,7 +7,7 @@ Multiple identities and official brand representations can belong
 to the same Supreme Owner.
 
 This module defines ownership and authority.
-Technical execution belongs to backend/engines.
+Technical execution belongs to backend/engine.
 """
 
 from typing import Any, Dict, List

@@ -4,7 +4,7 @@ CORE Workflow Management
 Defines how approved work moves through a controlled workflow.
 
 CORE manages the workflow state.
-Actual technical execution belongs to backend/engines.
+Actual technical execution belongs to backend/engine.
 """
 
 from typing import Any, Dict, List

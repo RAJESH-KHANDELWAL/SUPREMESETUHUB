@@ -8,7 +8,7 @@ from __future__ import annotations
 from typing import Any
 
 from backend.database.service import DatabaseService
-from backend.engines.storage import StorageEngine
+from backend.engine.storage import StorageEngine
 
 
 class CoreReadinessService:

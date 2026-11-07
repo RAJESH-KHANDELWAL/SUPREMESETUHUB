@@ -7,7 +7,7 @@ from typing import Any, Callable
 
 import httpx
 
-from backend.engines.base import BaseEngine
+from backend.engine.base import BaseEngine
 
 
 logger = logging.getLogger(__name__)

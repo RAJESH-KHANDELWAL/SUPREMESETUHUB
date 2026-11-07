@@ -8,7 +8,7 @@ PROVIDER_AI_ECOSYSTEM = {
     "provider_catalog_path": "backend/api/global_ecosystem/global_api_ecosystem/nsfwinfra_api_ecosystem",
     "category": "AI",
     "capabilities": ["IMAGE_GENERATION", "IMAGE_EDITING", "ANIME_GENERATION"],
-    "runtime_adapter_path": "backend/engines/ai/manager.py",
+    "runtime_adapter_path": "backend/engine/ai/manager.py",
     "status": "RUNTIME_ADAPTER_PRESENT_UNVERIFIED",
     "live_connection_verified": False,
     "adult_content": True,

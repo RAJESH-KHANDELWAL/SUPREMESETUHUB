@@ -5,8 +5,8 @@ from __future__ import annotations
 from datetime import datetime, timezone
 from typing import Any
 
-from backend.engines.global_ecosystem.models import EcosystemIdentity
-from backend.engines.global_ecosystem.registry import GlobalEcosystemRegistry
+from backend.engine.global_ecosystem.models import EcosystemIdentity
+from backend.engine.global_ecosystem.registry import GlobalEcosystemRegistry
 
 
 class GlobalEcosystemManager:

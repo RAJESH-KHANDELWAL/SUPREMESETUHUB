@@ -10,8 +10,8 @@ from typing import Any
 from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel, Field
 
-from backend.engines.freelancer_ecosystem.manager import FreelancerEcosystemEngine
-from backend.engines.freelancer_ecosystem.providers import get_freelancer_provider_status
+from backend.engine.freelancer_ecosystem.manager import FreelancerEcosystemEngine
+from backend.engine.freelancer_ecosystem.providers import get_freelancer_provider_status
 from backend.freelancer.global_freelancer_ecosystem.research_engine import (
     FreelancerResearchEngine,
 )

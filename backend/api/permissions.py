@@ -2,7 +2,7 @@
 
 from typing import Dict, List, Optional
 
-from backend.engines.permissions import PermissionEngine
+from backend.engine.permissions import PermissionEngine
 
 
 class PermissionAPI:

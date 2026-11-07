@@ -4,7 +4,7 @@ CORE Leader Role
 Defines the general leadership role within the CORE layer.
 
 A Leader guides an assigned area, people, project or workflow.
-Technical execution belongs to backend/engines.
+Technical execution belongs to backend/engine.
 """
 
 from typing import Any, Dict

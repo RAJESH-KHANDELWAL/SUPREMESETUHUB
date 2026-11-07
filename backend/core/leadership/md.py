@@ -6,7 +6,7 @@ Defines the Managing Director role.
 In this architecture, MD may be held by the same person
 who is the Supreme Owner, Founder, CEO and CMD.
 
-Technical execution belongs to backend/engines.
+Technical execution belongs to backend/engine.
 """
 
 from typing import Any, Dict

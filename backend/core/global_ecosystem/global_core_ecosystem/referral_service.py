@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from backend.engines.referral_engine import ReferralEngine
+from backend.engine.referral_engine import ReferralEngine
 from backend.storage.referral_store import ReferralStore
 
 

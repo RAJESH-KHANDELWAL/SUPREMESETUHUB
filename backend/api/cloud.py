@@ -1,6 +1,6 @@
 from typing import Dict, Optional
 
-from backend.engines.cloud.manager import CloudEngine
+from backend.engine.cloud.manager import CloudEngine
 
 
 class CloudAPI:

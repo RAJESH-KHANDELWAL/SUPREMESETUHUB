@@ -3,7 +3,7 @@ MAIN BASE FOUNDATION
 Foundation Engine Package
 """
 
-from backend.engines.foundation.manager import (
+from backend.engine.foundation.manager import (
     FoundationEngine,
 )
 

@@ -1,4 +1,4 @@
-from backend.engines.freelancer_ecosystem.providers import get_freelancer_provider_status
+from backend.engine.freelancer_ecosystem.providers import get_freelancer_provider_status
 
 
 def test_provider_catalog_contains_google_microsoft_aws_and_apple(monkeypatch):

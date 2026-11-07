@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from backend.engines.storage import StorageEngine
+from backend.engine.storage import StorageEngine
 
 
 def test_storage_engine_does_not_claim_physical_storage_is_connected(tmp_path, monkeypatch):

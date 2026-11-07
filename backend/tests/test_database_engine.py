@@ -4,7 +4,7 @@ import sqlite3
 
 import pytest
 
-from backend.engines.database import DatabaseEngine
+from backend.engine.database import DatabaseEngine
 
 
 def test_connect_enables_foreign_keys_and_supports_in_memory_database():

@@ -4,7 +4,7 @@ CORE Team Leader Role
 Defines the Team Leader role within the CORE leadership layer.
 
 A Team Leader coordinates a specific team and its assigned work.
-Technical execution belongs to backend/engines.
+Technical execution belongs to backend/engine.
 """
 
 from typing import Any, Dict

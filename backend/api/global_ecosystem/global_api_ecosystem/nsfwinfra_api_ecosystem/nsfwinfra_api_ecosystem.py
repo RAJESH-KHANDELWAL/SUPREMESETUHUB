@@ -28,7 +28,7 @@ PROVIDER_API_ECOSYSTEM = {
     "api_version": "v1",
     "authentication": "Bearer API key",
     "required_configuration": ["NSFWINFRA_API_KEY"],
-    "runtime_adapter_path": "backend/engines/ai/manager.py",
+    "runtime_adapter_path": "backend/engine/ai/manager.py",
     "infrastructure_client_path": "backend/infrastructure/nsfwinfra.py",
     "implementation_status": "IMAGE_GENERATION_ADAPTER_PRESENT_UNVERIFIED",
     "live_connection_verified": False,

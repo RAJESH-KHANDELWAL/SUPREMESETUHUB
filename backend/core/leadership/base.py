@@ -5,7 +5,7 @@ Common foundation for all leadership roles.
 
 This layer defines WHAT a leadership role is.
 It does not perform technical execution.
-Technical execution belongs to backend/engines.
+Technical execution belongs to backend/engine.
 """
 
 from dataclasses import dataclass, field

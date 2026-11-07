@@ -1,6 +1,6 @@
 import pytest
 
-from backend.engines.freelancer_ecosystem.provider_adapters import (
+from backend.engine.freelancer_ecosystem.provider_adapters import (
     AppleSignInAdapter,
     GoogleDriveAdapter,
     MicrosoftOneDriveAdapter,
@@ -47,7 +47,7 @@ def test_google_drive_file_listing_calls_real_api_with_bounded_page(monkeypatch)
         assert timeout == 15.0
         return FakeResponse()
 
-    monkeypatch.setattr("backend.engines.freelancer_ecosystem.provider_adapters.httpx.get", fake_get)
+    monkeypatch.setattr("backend.engine.freelancer_ecosystem.provider_adapters.httpx.get", fake_get)
     result = GoogleDriveAdapter.list_files("transient-test-token", page_size=500)
     assert result["files"][0]["name"] == "portfolio.pdf"
 

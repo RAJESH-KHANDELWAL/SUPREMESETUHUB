@@ -4,7 +4,7 @@ CORE Leadership Layer
 Central leadership-role definitions for the SupremeSetuHub CORE.
 
 This package represents leadership and management responsibilities.
-Actual technical execution belongs to backend/engines.
+Actual technical execution belongs to backend/engine.
 """
 
 from .base import LeadershipRole

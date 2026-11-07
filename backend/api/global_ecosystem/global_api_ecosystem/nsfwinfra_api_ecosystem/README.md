@@ -11,7 +11,7 @@ NSFWInfra describes itself as adult AI infrastructure for developers. Its API pr
 - API version: `v1`
 - Authentication: `Authorization: Bearer <API_KEY>`
 - Server-side secret: `NSFWINFRA_API_KEY`
-- Current project runtime adapter: `backend/engines/ai/manager.py`
+- Current project runtime adapter: `backend/engine/ai/manager.py`
 - Infrastructure client: `backend/infrastructure/nsfwinfra.py`
 - Live customer connection: **not verified**
 

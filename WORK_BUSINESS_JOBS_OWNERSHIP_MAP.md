@@ -50,8 +50,8 @@ These packages are related, but they are not duplicate taxonomies:
 | Business profile API | `backend/api/businesses.py` | API over the canonical Business domain |
 | Large/enterprise business view | `backend/api/big_businesses.py` | Filtered API view over the same Business records; not a second database |
 | General Global Business connection facade | `backend/api/global_business_ecosystem.py` | Connection/search facade; not the Bada Business taxonomy master |
-| Freelancer records, provider readiness and public-source research | `backend/api/global_freelancer_ecosystem.py`, `backend/engines/freelancer_ecosystem/`, `backend/freelancer/global_freelancer_ecosystem/` | Freelancer workflow and research; classification remains in the canonical freelance taxonomy |
-| Work requests, assignments and payment workflow | `backend/engines/work_business.py` | Operational work lifecycle; not a job-category catalogue |
+| Freelancer records, provider readiness and public-source research | `backend/api/global_freelancer_ecosystem.py`, `backend/engine/freelancer_ecosystem/`, `backend/freelancer/global_freelancer_ecosystem/` | Freelancer workflow and research; classification remains in the canonical freelance taxonomy |
+| Work requests, assignments and payment workflow | `backend/engine/work_business.py` | Operational work lifecycle; not a job-category catalogue |
 | Marketplace entry points for work/income | `backend/api/supreme_work_income.py` and `backend/supreme/supreme_ecosystem/work_income/catalog.json` | Marketplace source links, not verified live job listings |
 | LINKSETU job experience | `backend/platform/linksetu/job/` | LINKSETU-specific job posting and application workflow |
 | LINKSETU business experience | `backend/platform/linksetu/business/` | LINKSETU-specific business presence |

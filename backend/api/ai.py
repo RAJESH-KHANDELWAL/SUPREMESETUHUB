@@ -6,7 +6,7 @@ from typing import Any
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
-from backend.engines.ai.manager import AIEngine
+from backend.engine.ai.manager import AIEngine
 
 
 logger = logging.getLogger(__name__)

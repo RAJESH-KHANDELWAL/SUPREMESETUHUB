@@ -1,6 +1,6 @@
 from typing import Dict
 
-from backend.engines.connectivity.manager import ConnectivityEngine
+from backend.engine.connectivity.manager import ConnectivityEngine
 
 
 class ConnectivityAPI:

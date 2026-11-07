@@ -1,4 +1,4 @@
-from backend.engines.subsystem_ecosystem_catalog import (
+from backend.engine.subsystem_ecosystem_catalog import (
     get_subsystem_ecosystem,
     list_subsystem_ecosystems,
 )

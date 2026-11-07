@@ -7,9 +7,9 @@ from backend.database.freelancer_ecosystem import (
     FreelancerEcosystemRepository,
     RECORD_TYPES,
 )
-from backend.engines.storage import StorageEngine
+from backend.engine.storage import StorageEngine
 from backend.storage.provider_registry import get_storage_provider_status
-from backend.engines.freelancer_ecosystem.providers import get_freelancer_provider_status
+from backend.engine.freelancer_ecosystem.providers import get_freelancer_provider_status
 
 
 ECOSYSTEM_ID = "GLOBAL-FREELANCER-ECOSYSTEM"

@@ -6,7 +6,7 @@ Defines the Chairman and Managing Director role.
 In this architecture, CMD may be held by the same person
 who is the Supreme Owner, Founder and CEO.
 
-Technical execution belongs to backend/engines.
+Technical execution belongs to backend/engine.
 """
 
 from typing import Any, Dict

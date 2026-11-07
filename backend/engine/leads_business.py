@@ -5,7 +5,7 @@ from datetime import datetime, timezone
 from enum import Enum
 from typing import Dict, List, Optional
 
-from backend.engines.base import BaseEngine
+from backend.engine.base import BaseEngine
 
 
 class LeadStatus(str, Enum):

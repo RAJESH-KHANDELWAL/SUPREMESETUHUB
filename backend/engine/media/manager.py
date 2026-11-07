@@ -2,7 +2,7 @@
 
 from typing import Dict
 
-from backend.engines.base import BaseEngine
+from backend.engine.base import BaseEngine
 
 
 class MediaEngine(BaseEngine):

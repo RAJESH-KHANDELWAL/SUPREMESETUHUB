@@ -9,7 +9,7 @@ from fastapi.responses import FileResponse
 
 from backend.core.readiness import CoreReadinessService
 from backend.database.service import DatabaseService
-from backend.engines.storage import StorageEngine
+from backend.engine.storage import StorageEngine
 from backend.security.dependencies import get_current_user
 from backend.storage.filesystem import LocalFileStorage
 

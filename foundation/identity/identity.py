@@ -16,7 +16,7 @@ Supported representations:
 from dataclasses import dataclass
 from typing import Optional
 
-from backend.engines.database.manager import DatabaseEngine
+from backend.engine.database.manager import DatabaseEngine
 
 
 @dataclass

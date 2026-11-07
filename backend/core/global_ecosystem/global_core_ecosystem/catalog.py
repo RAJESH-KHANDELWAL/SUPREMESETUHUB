@@ -403,7 +403,7 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "parent_id": "GLOBAL-BUSINESS-ECOSYSTEM",
         "metadata": {
             "api_module": "backend/api/global_freelancer_ecosystem.py",
-            "engine_module": "backend/engines/freelancer_ecosystem/manager.py",
+            "engine_module": "backend/engine/freelancer_ecosystem/manager.py",
             "database_module": "backend/database/freelancer_ecosystem.py",
             "storage_boundary": "MAIN BASE FOUNDATION StorageEngine",
         },

@@ -6,7 +6,7 @@ Defines the Chief Executive Officer role.
 In this architecture, the CEO may be the same person as the
 Supreme Owner and Founder.
 
-Technical execution belongs to backend/engines.
+Technical execution belongs to backend/engine.
 """
 
 from typing import Any, Dict

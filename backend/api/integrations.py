@@ -1,4 +1,4 @@
-from backend.engines.integrations.manager import IntegrationManager
+from backend.engine.integrations.manager import IntegrationManager
 
 
 class IntegrationsAPI:

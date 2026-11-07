@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from backend.engines.global_ecosystem.models import EcosystemIdentity
+from backend.engine.global_ecosystem.models import EcosystemIdentity
 
 
 class GlobalEcosystemRegistry:

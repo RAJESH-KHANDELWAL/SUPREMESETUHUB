@@ -1,6 +1,6 @@
 from backend.core.global_ecosystem.global_core_ecosystem.catalog import get_catalog
 from backend.database.freelancer_ecosystem import FreelancerEcosystemRepository
-from backend.engines.freelancer_ecosystem.manager import FreelancerEcosystemEngine
+from backend.engine.freelancer_ecosystem.manager import FreelancerEcosystemEngine
 
 
 def test_freelancer_records_persist_and_are_owner_scoped(tmp_path, monkeypatch):
