@@ -15,6 +15,7 @@ from .providers.deepseek import DeepSeekProvider
 from .providers.github import GitHubProvider
 from .providers.huggingface import HuggingFaceProvider
 from .providers.ibm import IBMProvider
+from .providers.meta import MetaProvider
 
 
 class IntegrationRegistry:
@@ -33,6 +34,7 @@ class IntegrationRegistry:
             "HUGGINGFACE": HuggingFaceProvider(),
             "IBM": IBMProvider(),
             "MICROSOFT": MicrosoftProvider(),
+            "META": MetaProvider(),
             "AWS": AWSProvider(),
             "APPLE": AppleProvider(),
             "ESA": ESAProvider(),
