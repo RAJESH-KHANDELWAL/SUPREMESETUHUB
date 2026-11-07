@@ -8,6 +8,7 @@ from typing import Any
 
 from .programs.lfp_digital import LFP_DIGITAL
 from .programs.bb_impact import BB_IMPACT
+from .programs.idea_to_ipo import IDEA_TO_IPO
 
 
 ECOSYSTEM_ID = "BADA_BUSINESS"
@@ -40,6 +41,7 @@ PLATFORM_PROFILE: dict[str, Any] = {
 PROGRAMS = {
     "lfp_digital": LFP_DIGITAL,
     "bb_impact": BB_IMPACT,
+    "idea_to_ipo": IDEA_TO_IPO,
 }
 
 def get_catalog() -> dict[str, Any]:
