@@ -14,6 +14,7 @@ from .providers.cohere import CohereProvider
 from .providers.deepseek import DeepSeekProvider
 from .providers.github import GitHubProvider
 from .providers.huggingface import HuggingFaceProvider
+from .providers.ibm import IBMProvider
 
 
 class IntegrationRegistry:
@@ -30,6 +31,7 @@ class IntegrationRegistry:
             "DEEPSEEK": DeepSeekProvider(),
             "GITHUB": GitHubProvider(),
             "HUGGINGFACE": HuggingFaceProvider(),
+            "IBM": IBMProvider(),
             "MICROSOFT": MicrosoftProvider(),
             "AWS": AWSProvider(),
             "APPLE": AppleProvider(),
