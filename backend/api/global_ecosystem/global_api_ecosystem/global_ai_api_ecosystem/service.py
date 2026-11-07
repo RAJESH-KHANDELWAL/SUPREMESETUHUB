@@ -17,7 +17,7 @@ class EcosystemService:
     {"provider_id": "apple", "provider_name": "Apple", "implementation_status": "CATALOG_ONLY", "live_connection_verified": False},
     {"provider_id": "nvidia", "provider_name": "NVIDIA", "implementation_status": "CATALOG_ONLY", "live_connection_verified": False},
     {"provider_id": "cohere", "provider_name": "Cohere", "implementation_status": "CATALOG_ONLY", "live_connection_verified": False},
-    {"provider_id": "mistral", "provider_name": "Mistral", "implementation_status": "CATALOG_ONLY", "live_connection_verified": False},
+    {"provider_id": "mistral", "provider_name": "Mistral AI", "implementation_status": "LIVE_MODELS_ENDPOINT_VERIFICATION_IMPLEMENTED", "live_connection_verified": False},
     {"provider_id": "deepseek", "provider_name": "DeepSeek", "implementation_status": "CATALOG_ONLY", "live_connection_verified": False},
     {"provider_id": "huggingface", "provider_name": "Hugging Face", "implementation_status": "CATALOG_ONLY", "live_connection_verified": False},
     {"provider_id": "oracle", "provider_name": "Oracle", "implementation_status": "CATALOG_ONLY", "live_connection_verified": False},

@@ -1,7 +1,7 @@
 """Mistral AI category mapping for GLOBAL AI API ECOSYSTEM."""
 PROVIDER_AI_ECOSYSTEM = {
     "provider_id": "mistral",
-    "provider_catalog_path": "backend/api/global_ecosystem/global_api_ecosystem/global_mistral_api_ecosystem",
+    "provider_catalog_path": "backend/api/global_ecosystem/global_api_ecosystem/mistral_api_ecosystem",
     "category": "AI",
     "scope": "Mistral inference, embeddings, agents, OCR and supported AI platform APIs.",
     "service_family_count": 9,

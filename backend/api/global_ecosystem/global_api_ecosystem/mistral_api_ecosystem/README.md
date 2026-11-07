@@ -1,4 +1,4 @@
-# GLOBAL MISTRAL AI API ECOSYSTEM
+# MISTRAL AI API ECOSYSTEM
 
 Canonical Mistral AI provider catalog for SUPREMESETUHUB.
 
