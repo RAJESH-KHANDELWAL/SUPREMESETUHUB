@@ -1,0 +1,33 @@
+"use strict";
+/* Browser-safe metadata mirror. Original backend Python/PHP files remain server-side. */
+window.SUPREME_IDENTITY = {
+  "slug": "dr_rajesh_khandelwal_ibc",
+  "display_name": "👑 DR RAJESH KHANDELWAL IBC 👑",
+  "username": "DRRAJESHKHANDELWALIBC",
+  "domain_name": "drrajeshkhandelwalibc.com",
+  "user_id": "supreme-user-dr_rajesh_khandelwal_ibc",
+  "company_id": "supreme-company-khandelwal-group",
+  "business_id": "supreme-business-khandelwal-group",
+  "profile_id": "supreme-profile-dr_rajesh_khandelwal_ibc",
+  "page_id": "supreme-page-dr_rajesh_khandelwal_ibc",
+  "channel_id": "supreme-channel-dr_rajesh_khandelwal_ibc",
+  "community_id": "supreme-community-dr_rajesh_khandelwal_ibc",
+  "group_id": "supreme-group-dr_rajesh_khandelwal_ibc",
+  "scope": "SUPREME",
+  "status": "INTERNAL_REGISTRY_ID_ASSIGNED_EXTERNAL_IDS_UNVERIFIED",
+  "tagline": "GLOBAL BUSINESS COACH | INDEPENDENT BUSINESS CONSULTANT",
+  "source_backend_paths": [
+    "backend/supreme/dr_rajesh_khandelwal_ibc.py",
+    "backend/supreme/dr_rajesh_khandelwal_ibc.php",
+    "backend/supreme/dr_rajesh_khandelwal_ibc/identity.py",
+    "backend/supreme/dr_rajesh_khandelwal_ibc/identity.php",
+    "backend/supreme/identities/dr_rajesh_khandelwal_ibc/identity.py",
+    "backend/supreme/identities/dr_rajesh_khandelwal_ibc/identity.php",
+    "backend/supreme/supreme_ecosystem/dr_rajesh_khandelwal_ibc.py",
+    "backend/supreme/supreme_ecosystem/dr_rajesh_khandelwal_ibc.php",
+    "backend/supreme/supreme_ecosystem/dr_rajesh_khandelwal_ibc/identity.py",
+    "backend/supreme/supreme_ecosystem/dr_rajesh_khandelwal_ibc/identity.php",
+    "backend/supreme/supreme_ecosystem/identities/dr_rajesh_khandelwal_ibc/identity.py",
+    "backend/supreme/supreme_ecosystem/identities/dr_rajesh_khandelwal_ibc/identity.php"
+  ]
+};

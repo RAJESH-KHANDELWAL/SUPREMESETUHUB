@@ -1,0 +1,5 @@
+"""Independent Social Media Management freelance specialization package."""
+SPECIALIZATION_ID = "social_media_management"
+SPECIALIZATION_NAME = "Social Media Management"
+DOMAIN_ID = "freelance_gig_independent_work"
+DESCRIPTION = "Social channel operations, publishing, community engagement and performance reporting."

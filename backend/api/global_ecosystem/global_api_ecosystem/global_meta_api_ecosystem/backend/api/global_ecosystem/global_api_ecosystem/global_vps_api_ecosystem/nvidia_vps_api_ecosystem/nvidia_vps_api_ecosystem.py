@@ -1,0 +1,8 @@
+"""Catalog metadata for NVIDIA Cloud VPS APIs; no live connection is claimed."""
+
+PROVIDER_ID = "nvidia"
+PROVIDER_NAME = "NVIDIA Cloud"
+CATEGORY = "VPS"
+IMPLEMENTATION_STATUS = "CATALOG_ONLY"
+OFFICIAL_API_DOCUMENTATION_VERIFIED = False
+LIVE_CONNECTION_VERIFIED = False

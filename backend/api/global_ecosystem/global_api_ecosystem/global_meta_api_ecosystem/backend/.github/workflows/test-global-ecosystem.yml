@@ -1,0 +1,35 @@
+
+name: Backend GLOBAL ECOSYSTEM Tests
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-global-ecosystem:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run CORE Tests
+        run: |
+          python -m unittest discover \
+            -s backend/tests \
+            -p "test_global_ecosystem_core.py" \
+            -v
+
+      - name: Run API Tests
+        run: |
+          python -m unittest discover \
+            -s backend/tests \
+            -p "test_global_ecosystem_api.py" \
+            -v

@@ -1,0 +1,63 @@
+name: Deploy SUPREME WordPress Connector to Hostinger
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "wordpress-plugin/supremesetuhub-connector/**"
+      - ".github/workflows/deploy-hostinger-wordpress-connector.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hostinger-wordpress-connector-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy connector files via FTPS
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Check required deployment settings
+        env:
+          FTP_SERVER: ${{ secrets.HOSTINGER_FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.HOSTINGER_FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          WP_PLUGIN_DIR: ${{ vars.HOSTINGER_WP_PLUGIN_DIR }}
+        run: |
+          set -eu
+          missing=""
+          [ -n "$FTP_SERVER" ] || missing="$missing HOSTINGER_FTP_SERVER"
+          [ -n "$FTP_USERNAME" ] || missing="$missing HOSTINGER_FTP_USERNAME"
+          [ -n "$FTP_PASSWORD" ] || missing="$missing HOSTINGER_FTP_PASSWORD"
+          [ -n "$WP_PLUGIN_DIR" ] || missing="$missing HOSTINGER_WP_PLUGIN_DIR"
+          if [ -n "$missing" ]; then
+            echo "::error::Configure these GitHub Actions production secrets/variables first:$missing"
+            exit 1
+          fi
+          case "$WP_PLUGIN_DIR" in
+            */wp-content/plugins/supremesetuhub-connector/) ;;
+            *)
+              echo "::error::HOSTINGER_WP_PLUGIN_DIR must end exactly with /wp-content/plugins/supremesetuhub-connector/"
+              exit 1
+              ;;
+          esac
+
+      - name: Check PHP syntax before upload
+        run: php -l wordpress-plugin/supremesetuhub-connector/supremesetuhub-connector.php
+
+      - name: Deploy connector plugin files to Hostinger over FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.HOSTINGER_FTP_SERVER }}
+          username: ${{ secrets.HOSTINGER_FTP_USERNAME }}
+          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: wordpress-plugin/supremesetuhub-connector/
+          server-dir: ${{ vars.HOSTINGER_WP_PLUGIN_DIR }}
+          dangerous-clean-slate: false
+          log-level: standard

@@ -1,0 +1,77 @@
+name: Deploy SUPREME POD Plugins to Hostinger
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "wordpress-plugin/supreme-print-on-demand/**"
+      - "wordpress-plugin/supreme-qikink-woocommerce-bridge/**"
+      - ".github/workflows/deploy-hostinger-pod-plugins.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hostinger-pod-plugins-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Validate and deploy POD plugin files
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Check required deployment settings
+        env:
+          FTP_SERVER: ${{ secrets.HOSTINGER_FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.HOSTINGER_FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          POD_DIR: ${{ vars.HOSTINGER_POD_PLUGIN_DIR }}
+          QIKINK_BRIDGE_DIR: ${{ vars.HOSTINGER_QIKINK_BRIDGE_DIR }}
+        run: |
+          set -eu
+          missing=""
+          [ -n "$FTP_SERVER" ] || missing="$missing HOSTINGER_FTP_SERVER"
+          [ -n "$FTP_USERNAME" ] || missing="$missing HOSTINGER_FTP_USERNAME"
+          [ -n "$FTP_PASSWORD" ] || missing="$missing HOSTINGER_FTP_PASSWORD"
+          [ -n "$POD_DIR" ] || missing="$missing HOSTINGER_POD_PLUGIN_DIR"
+          [ -n "$QIKINK_BRIDGE_DIR" ] || missing="$missing HOSTINGER_QIKINK_BRIDGE_DIR"
+          if [ -n "$missing" ]; then
+            echo "::error::Configure production secrets/variables first:$missing"
+            exit 1
+          fi
+          case "$POD_DIR" in */wp-content/plugins/supreme-print-on-demand/) ;; *) echo "::error::Invalid HOSTINGER_POD_PLUGIN_DIR"; exit 1;; esac
+          case "$QIKINK_BRIDGE_DIR" in */wp-content/plugins/supreme-qikink-woocommerce-bridge/) ;; *) echo "::error::Invalid HOSTINGER_QIKINK_BRIDGE_DIR"; exit 1;; esac
+
+      - name: Validate PHP syntax
+        run: |
+          set -eu
+          php -l wordpress-plugin/supreme-print-on-demand/supreme-print-on-demand.php
+          php -l wordpress-plugin/supreme-qikink-woocommerce-bridge/supreme-qikink-woocommerce-bridge.php
+
+      - name: Deploy SUPREME PRINT ON DEMAND plugin
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.HOSTINGER_FTP_SERVER }}
+          username: ${{ secrets.HOSTINGER_FTP_USERNAME }}
+          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: wordpress-plugin/supreme-print-on-demand/
+          server-dir: ${{ vars.HOSTINGER_POD_PLUGIN_DIR }}
+          dangerous-clean-slate: false
+          log-level: standard
+
+      - name: Deploy disabled-until-configured Qikink bridge
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.HOSTINGER_FTP_SERVER }}
+          username: ${{ secrets.HOSTINGER_FTP_USERNAME }}
+          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: wordpress-plugin/supreme-qikink-woocommerce-bridge/
+          server-dir: ${{ vars.HOSTINGER_QIKINK_BRIDGE_DIR }}
+          dangerous-clean-slate: false
+          log-level: standard
