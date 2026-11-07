@@ -45,7 +45,7 @@ This is the Global copy of the adult-only ecosystem. A matching copy with the ex
 
 ## Implementation status
 
-This is a taxonomy/API scaffold, not a verified provider directory, medical or legal advice, or proof of live integrations. Provider modules remain catalog references unless their documentation and live connections are independently verified. The Global API router is mounted under `/api/v1/global-api-ecosystem/adult-wellness`; the Bada Business copy remains available through the Bada Business catalog endpoints. Both locations must pass regression tests and production access-control checks before launch.
+This is a taxonomy/API scaffold, not a verified provider directory, medical or legal advice, or proof of live integrations. Provider modules remain catalog references unless their documentation and live connections are independently verified. The Global API router is mounted under `/api/v1/global-api-ecosystem/adult-wellness`; the Bada Business copy is mounted at `/api/v1/global-ecosystem/business/kamasutra/adult-wellness` and remains available through the Bada Business catalog endpoints. Both locations must pass regression tests and production access-control checks before launch.
 
 
 ## Dual-location architecture
