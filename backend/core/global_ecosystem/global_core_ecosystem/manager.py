@@ -74,6 +74,41 @@ class GlobalEcosystemManager:
         if self.ROOT_ID not in registered_ids:
             raise RuntimeError("GLOBAL ECOSYSTEM root is missing")
 
+        # Register provider-specific child modules after their parent provider
+        # cores. Provider catalogs are loaded lazily to avoid coupling all
+        # provider engines to the central core manager.
+        google_core = {
+            "ecosystem_id": "GOOGLE-CORE-ECOSYSTEM",
+            "name": "GOOGLE CORE ECOSYSTEM",
+            "ecosystem_type": "PROVIDER_CORE",
+            "parent_id": self.CORE_ID,
+            "capabilities": ["GOOGLE_PROVIDER_REGISTRY", "GOOGLE_WORKSPACE_CORE", "GOOGLE_CLOUD_CORE", "GOOGLE_IDENTITY_OAUTH_CORE"],
+            "metadata": {"core_catalog": "backend/core/global_ecosystem/global_core_ecosystem/google_core_ecosystem"},
+        }
+        if not self.registry.exists(google_core["ecosystem_id"]):
+            self.registry.register(self._to_identity(google_core))
+
+        from backend.core.global_ecosystem.global_core_ecosystem.google_core_ecosystem.catalog import (
+            get_google_core_catalog,
+        )
+        google_catalog = get_google_core_catalog()
+        for child in google_catalog["children"]:
+            if self.registry.exists(child["ecosystem_id"]):
+                continue
+            child_record = {
+                "ecosystem_id": child["ecosystem_id"],
+                "name": child["name"],
+                "ecosystem_type": child["ecosystem_type"],
+                "parent_id": child["parent_id"],
+                "capabilities": list(child.get("capabilities", [])),
+                "metadata": {
+                    "api_catalog_ref": child.get("api_catalog_ref"),
+                    "status": child.get("status", "CORE_CATALOG_ONLY"),
+                    "connected": False,
+                },
+            }
+            self.registry.register(self._to_identity(child_record))
+
     def status(self) -> dict[str, Any]:
         root = self.registry.get(self.ROOT_ID)
 
