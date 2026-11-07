@@ -7,7 +7,7 @@ from __future__ import annotations
 PAYPAL_MERCHANT_ONBOARDING_API_ECOSYSTEM = {
     "provider_id": "paypal",
     "service_id": "merchant_onboarding",
-    "name": "PAYPAL MERCHANT ONBOARDING API ECOSYSTEM",
+    "name": "GLOBAL PAYPAL MERCHANT ONBOARDING API ECOSYSTEM",
     "description": "Merchant onboarding and partner referral operations, subject to PayPal partner approval.",
     "status": "CATALOG_ONLY",
     "live_connection_verified": False,
