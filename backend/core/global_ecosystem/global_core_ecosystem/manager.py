@@ -43,6 +43,41 @@ class GlobalEcosystemManager:
         if not records:
             raise RuntimeError("GLOBAL ECOSYSTEM catalog is empty")
 
+        # Register Stripe Core provider and child modules after shared Core categories.
+        from backend.core.global_ecosystem.global_core_ecosystem.stripe_core_ecosystem.catalog import (
+            get_stripe_core_catalog,
+        )
+        stripe_catalog = get_stripe_core_catalog()
+        stripe_core_record = {
+            "ecosystem_id": stripe_catalog["ecosystem_id"],
+            "name": stripe_catalog["name"],
+            "ecosystem_type": stripe_catalog["ecosystem_type"],
+            "parent_id": stripe_catalog["parent_id"],
+            "capabilities": list(stripe_catalog.get("capabilities", [])),
+            "metadata": {
+                "api_catalog_ref": stripe_catalog.get("api_catalog_ref"),
+                "status": stripe_catalog.get("status", "CORE_CATALOG_ONLY"),
+                "live_connection_verified": False,
+            },
+        }
+        if not any(record["ecosystem_id"] == stripe_core_record["ecosystem_id"] for record in records):
+            records.append(stripe_core_record)
+        for stripe_child in stripe_catalog["children"]:
+            records.append({
+                "ecosystem_id": stripe_child["ecosystem_id"],
+                "name": stripe_child["name"],
+                "ecosystem_type": "PROVIDER_CORE_SERVICE",
+                "parent_id": stripe_child["parent_id"],
+                "capabilities": list(stripe_child.get("capabilities", [])),
+                "metadata": {
+                    "core_module": stripe_child.get("module"),
+                    "api_family": stripe_child.get("api_family"),
+                    "status": stripe_child.get("status", "CORE_CATALOG_ONLY"),
+                    "connected": False,
+                },
+            })
+
+
         registered_ids: set[str] = set()
 
         for record in records:
