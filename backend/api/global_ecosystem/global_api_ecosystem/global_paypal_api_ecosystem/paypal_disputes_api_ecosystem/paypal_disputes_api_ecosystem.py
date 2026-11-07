@@ -7,7 +7,7 @@ from __future__ import annotations
 PAYPAL_DISPUTES_API_ECOSYSTEM = {
     "provider_id": "paypal",
     "service_id": "disputes",
-    "name": "PAYPAL DISPUTES API ECOSYSTEM",
+    "name": "GLOBAL PAYPAL DISPUTES API ECOSYSTEM",
     "description": "Dispute cases, evidence submission, status retrieval, and resolution workflows.",
     "status": "CATALOG_ONLY",
     "live_connection_verified": False,
