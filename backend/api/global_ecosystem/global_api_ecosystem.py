@@ -17,11 +17,6 @@ ECOSYSTEM_VERSION = "1.0.0"
 
 CATEGORY_ECOSYSTEMS: tuple[dict[str, str], ...] = (
     {
-        "id": "business",
-        "name": "GLOBAL BUSINESS API ECOSYSTEM",
-        "folder": "global_business_api_ecosystem",
-    },
-    {
         "id": "companies",
         "name": "GLOBAL COMPANY AND COMPANIES API ECOSYSTEM",
         "folder": "global_company_companies_api_ecosystem",
