@@ -5,7 +5,8 @@ Canonical provider root for Meta-owned developer APIs and platform integrations 
 ## Provider structure
 - `meta_api_ecosystem.py` — provider registry, service-family metadata and safe catalog listing.
 - Each `meta_*_api_ecosystem/` child directory owns its service-family catalog and future adapter boundary.
-- Shared integration adapter target: `backend/integrations/providers/meta.py` (verify implementation before registering).
+- Shared integration readiness adapter: `backend/integrations/providers/meta.py`, registered in `backend/integrations/registry.py` and exposed in the Global API provider catalog.
+- Server-side configuration names: `META_APP_ID`, `META_APP_SECRET`, `META_REDIRECT_URI`. The readiness check only confirms that these values are present; it does not exchange OAuth codes or validate a live API call.
 - Provider credentials must use shared integration and tenant-secret infrastructure.
 
 ## Meta API family tree
@@ -38,7 +39,8 @@ Meta access is product- and asset-specific. Login product, app mode, permissions
 - Never log, return, commit or expose access tokens, app secrets or verification secrets.
 
 ## Status semantics
-- `CATALOG_ONLY_UNLESS_ADAPTER_TESTS_PASS`: catalog exists; no live connection is claimed.
+- `CONFIGURED_NOT_VERIFIED`: Meta app configuration is present; no live connection is claimed.
+- `NEEDS_CONFIGURATION`: one or more required server-side Meta app settings are missing.
 - `NEEDS_CONFIGURATION`: required server configuration is absent.
 - `CONFIGURED_NOT_VERIFIED`: configuration exists but no authenticated provider operation has succeeded.
 - `CONNECTED_VERIFIED`: use only after tenant-scoped authorization and a service-specific smoke test succeeds.
