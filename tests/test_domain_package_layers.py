@@ -57,6 +57,8 @@ class DomainPackageLayerTests(unittest.TestCase):
         for domain in DOMAIN_REGISTRY:
             package_id = {"work_careers_employment": "global_freelancer_gig_independent_work_business_api_ecosystem.jobs_careers_employment_api_ecosystem", "freelance_gig_independent_work": "global_freelancer_gig_independent_work_business_api_ecosystem", "students_education_skills": "global_education_learning_training_api_ecosystem.students_education_skills_business_api_ecosystem", "entrepreneurship_startups": "global_entrepreneurs_entrepreneurship_msme_sme_startups_solo_women_digital_ai_technology_innovation_business_creation_development_growth_api_ecosystem", "family_relationships_community": "global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem.family_relationships_community_business_api_ecosystem", "government_public_services_social_impact": "government_public_services_social_impact"}.get(domain["id"], f"{domain['id']}_business_api_ecosystem")
             package = f"{PACKAGE_ROOT}.{package_id}"
+            if domain["id"] == "family_relationships_community":
+                package = f"{ADULT_PACKAGE_ROOT}.family_relationships_community_business_api_ecosystem"
             if domain["id"] == "business_companies_corporates":
                 catalog = importlib.import_module("backend.api.global_ecosystem.global_api_ecosystem.global_company_companies_api_ecosystem.business_catalog")
                 self.assertEqual(len(catalog.SUBCATEGORIES), domain["subcategory_count"])
