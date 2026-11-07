@@ -10,7 +10,7 @@ from typing import Any
 
 
 PROVIDER_ID = "paypal"
-PROVIDER_NAME = "GLOBAL PAYPAL PAYMENT API ECOSYSTEM"
+PROVIDER_NAME = "GLOBAL PAYPAL API ECOSYSTEM"
 PROVIDER_VENDOR = "PayPal"
 PROVIDER_CATALOG_PATH = (
     "backend/api/global_ecosystem/global_api_ecosystem/"
