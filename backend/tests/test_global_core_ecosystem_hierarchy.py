@@ -92,6 +92,39 @@ class TestGlobalCoreEcosystemHierarchy(unittest.TestCase):
                 ecosystem_id,
             )
 
+    def test_google_core_and_all_google_children_are_registered(self):
+        from backend.core.global_ecosystem.global_core_ecosystem.google_core_ecosystem.catalog import (
+            get_google_core_catalog,
+        )
+        self.assertTrue(self.manager.exists("GOOGLE-CORE-ECOSYSTEM"))
+        google = self.manager.get("GOOGLE-CORE-ECOSYSTEM")
+        self.assertEqual(google["parent_id"], "GLOBAL-CORE-ECOSYSTEM")
+        for child in get_google_core_catalog()["children"]:
+            record = self.manager.get(child["ecosystem_id"])
+            self.assertIsNotNone(record, child["ecosystem_id"])
+            self.assertEqual(record["parent_id"], "GOOGLE-CORE-ECOSYSTEM")
+
+    def test_google_gmail_core_facade_uses_existing_api_service(self):
+        from backend.core.global_ecosystem.global_core_ecosystem.google_core_ecosystem.gmail_core import (
+            GoogleGmailCoreService,
+        )
+        service = GoogleGmailCoreService()
+        self.assertEqual(service.ECOSYSTEM_ID, "GOOGLE-GMAIL-CORE-ECOSYSTEM")
+        result = service.status()
+        self.assertEqual(result["provider"], "google")
+        self.assertFalse(result["live_connection_verified"])
+
+    def test_google_engine_catalog_and_gmail_engine_imports(self):
+        from backend.engines.global_ecosystem.google_engine import GoogleEngineManager
+        from backend.engines.global_ecosystem.google_engine.gmail_engine import GmailEngineManager
+        google = GoogleEngineManager()
+        listing = google.list()
+        self.assertTrue(listing["success"])
+        self.assertGreaterEqual(listing["count"], 20)
+        gmail = GmailEngineManager()
+        self.assertEqual(gmail.ENGINE_ID, "GOOGLE-GMAIL-ENGINE")
+        self.assertFalse(gmail.status()["live_connection_verified"])
+
     def test_tree_places_core_under_global_ecosystem(self):
         tree = self.manager.tree()["tree"]
         children = {child["ecosystem_id"]: child for child in tree["children"]}
