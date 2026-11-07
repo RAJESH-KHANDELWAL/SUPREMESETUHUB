@@ -7,7 +7,7 @@ from __future__ import annotations
 PAYPAL_SUBSCRIPTIONS_API_ECOSYSTEM = {
     "provider_id": "paypal",
     "service_id": "subscriptions",
-    "name": "PAYPAL SUBSCRIPTIONS API ECOSYSTEM",
+    "name": "GLOBAL PAYPAL SUBSCRIPTIONS API ECOSYSTEM",
     "description": "Subscription lifecycle, plan association, activation, suspension, cancellation, and billing status.",
     "status": "CATALOG_ONLY",
     "live_connection_verified": False,
