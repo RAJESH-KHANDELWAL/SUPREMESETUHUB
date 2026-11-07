@@ -213,6 +213,16 @@ GOOGLE_CORE_ECOSYSTEM: dict[str, Any] = {
             "connected": False,
         },
         {
+            "ecosystem_id": "GOOGLE-IDENTITY-OAUTH-CORE-ECOSYSTEM",
+            "name": "GOOGLE IDENTITY AND OAUTH CORE ECOSYSTEM",
+            "ecosystem_type": "PROVIDER_CORE_SERVICE",
+            "parent_id": "GOOGLE-CORE-ECOSYSTEM",
+            "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/google_api_ecosystem/google_identity_oauth_api_ecosystem",
+            "capabilities": ["OAUTH_CLIENT_METADATA", "CONSENT_AND_SCOPE_POLICY", "TOKEN_LIFECYCLE_BOUNDARY"],
+            "status": "CORE_CATALOG_ONLY",
+            "connected": False,
+        },
+        {
             "ecosystem_id": "GOOGLE-DRIVE-CORE-ECOSYSTEM",
             "name": "GOOGLE DRIVE CORE ECOSYSTEM",
             "ecosystem_type": "PROVIDER_CORE_SERVICE",
