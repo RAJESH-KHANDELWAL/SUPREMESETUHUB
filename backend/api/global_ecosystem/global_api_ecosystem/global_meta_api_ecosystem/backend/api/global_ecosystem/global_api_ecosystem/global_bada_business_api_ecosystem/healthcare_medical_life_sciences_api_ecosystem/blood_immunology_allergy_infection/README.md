@@ -1,7 +1,0 @@
-# Blood, Immunology, Allergy & Infection
-
-Haematology, immune system, allergies, infectious diseases and clinical immunology.
-
-Independent domain package in the Healthcare, Medical, Life Sciences & Total Wellness API Ecosystem. Covers prevention, screening, assessment, diagnosis, treatment, surgery, rehabilitation, research, professional services and relevant Bharat/global compliance.
-
-**Status:** taxonomy scaffold only. Provider credentials and clinical outcomes are not verified by this listing.

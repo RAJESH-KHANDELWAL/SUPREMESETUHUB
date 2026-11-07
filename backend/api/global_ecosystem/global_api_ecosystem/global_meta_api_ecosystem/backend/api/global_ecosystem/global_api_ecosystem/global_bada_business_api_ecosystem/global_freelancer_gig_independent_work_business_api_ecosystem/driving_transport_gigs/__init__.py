@@ -1,5 +1,0 @@
-"""Independent Driving Transport Gigs freelance specialization package."""
-SPECIALIZATION_ID = "driving_transport_gigs"
-SPECIALIZATION_NAME = "Driving Transport Gigs"
-DOMAIN_ID = "freelance_gig_independent_work"
-DESCRIPTION = "Driving and passenger or goods transport assignments subject to local licensing and insurance rules."
