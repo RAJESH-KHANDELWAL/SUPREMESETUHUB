@@ -7,7 +7,7 @@ from __future__ import annotations
 PAYPAL_ORDERS_API_ECOSYSTEM = {
     "provider_id": "paypal",
     "service_id": "orders",
-    "name": "PAYPAL ORDERS API ECOSYSTEM",
+    "name": "GLOBAL PAYPAL ORDERS API ECOSYSTEM",
     "description": "Create, retrieve, authorize, capture, update, and confirm PayPal orders.",
     "status": "CATALOG_ONLY",
     "live_connection_verified": False,
