@@ -5,7 +5,7 @@ STRIPE_SERVICE_ECOSYSTEM = {
     "name": "STRIPE_ACCOUNTS_API_ECOSYSTEM",
     "scope": "Accounts, Connect onboarding and account management",
     "primary_endpoint": "/v1/accounts",
-    "parent_catalog_path": "backend/api/global_ecosystem/global_api_ecosystem/global_stripe_api_ecosystem",
+    "parent_catalog_path": "backend/api/global_ecosystem/global_api_ecosystem/stripe_api_ecosystem",
     "status": "CATALOG_ONLY",
     "live_connection_verified": False,
 }
