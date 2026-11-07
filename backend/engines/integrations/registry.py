@@ -49,6 +49,21 @@ class IntegrationRegistry:
 
         self.register(
             IntegrationDefinition(
+                provider="SALESFORCE",
+                category="CRM_AND_BUSINESS_APPLICATIONS",
+                official_api="Salesforce REST / SOAP / Composite / Bulk APIs",
+                authentication="OAUTH2_CLIENT_CREDENTIALS",
+                capabilities=[
+                    "IDENTITY", "CRM_RECORDS", "REST", "SOAP", "COMPOSITE",
+                    "BULK_API_2", "PLATFORM_EVENTS", "METADATA_TOOLING",
+                    "FILES_CONTENT", "SERVICE_CLOUD", "MARKETING_CLOUD",
+                    "DATA_CLOUD", "ANALYTICS",
+                ],
+            )
+        )
+
+        self.register(
+            IntegrationDefinition(
                 provider="AWS",
                 category="CLOUD_INFRASTRUCTURE",
                 official_api="AWS APIs / SDK",
