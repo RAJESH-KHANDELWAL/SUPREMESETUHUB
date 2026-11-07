@@ -64,4 +64,4 @@ duplicate source trees for compatibility entry points.
 
 ## Standalone adult intimacy ecosystem
 
-- `global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_coach_consultant_advisor_professional_services_work_business_api_ecosystem/` — consolidated adult-only (18+), consent-first Kamasutra, intimacy, relationship, lawful wellness, adult-industry provider catalog and professional-services ecosystem. The former adult 18+ lawful-industry, adult-business and adult-sexual-wellness root folders have been merged into this single package. Its current main-branch scope and implementation status are documented in that folder's `README.md`.
+- The standalone adult-only Kamasutra and adult-industry ecosystem is maintained at `backend/api/global_ecosystem/global_api_ecosystem/global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem/`, outside the Bada Business industry package tree.
