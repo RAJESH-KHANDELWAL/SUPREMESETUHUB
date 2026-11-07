@@ -8,7 +8,7 @@ from __future__ import annotations
 GITHUB_API_ECOSYSTEM = {
     "provider_id": "github",
     "name": "GITHUB API ECOSYSTEM",
-    "status": "CATALOG_ONLY",
+    "status": "AUTHENTICATED_REST_CLIENT_CONFIGURATION_REQUIRED",
     "live_connection_verified": False,
     "purpose": "GitHub REST and GraphQL APIs for repository development, collaboration, automation, apps, security and organization operations",
     "api_families": [
