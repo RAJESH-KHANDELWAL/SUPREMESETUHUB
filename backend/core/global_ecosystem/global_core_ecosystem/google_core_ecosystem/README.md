@@ -27,7 +27,7 @@ Every family has its own `google_*_core_ecosystem/` package below this folder:
 - Ads, Analytics, Search Console
 - Cloud, Firebase, Gemini, Vertex AI
 
-The central catalog currently registers 22 child Core Ecosystems. Each package exposes its Core identity and points to the matching Google API catalog. Gmail also has a Core facade delegating to the existing Gmail API adapter.
+The central catalog currently registers 23 child Core Ecosystems. Each package exposes its Core identity and points to the matching Google API catalog. Gmail also has a Core facade delegating to the existing Gmail API adapter.
 
 ## Security and readiness
 
