@@ -1,25 +1,23 @@
 # GLOBAL HUGGING FACE API ECOSYSTEM
 
-This ecosystem groups Hugging Face Hub and inference-related APIs used by SUPREMESETUHUB.
+Hugging Face provider API families under SUPREMESETUHUB.
 
-## Runtime configuration
+| API family | Folder |
+|---|---|
+| Hugging Face Hub APIs | `huggingface_hub_api_ecosystem/` |
+| Hugging Face Inference APIs | `huggingface_inference_api_ecosystem/` |
+| Hugging Face Inference Endpoints APIs | `huggingface_inference_endpoints_api_ecosystem/` |
+| Hugging Face Models APIs | `huggingface_models_api_ecosystem/` |
+| Hugging Face Datasets APIs | `huggingface_datasets_api_ecosystem/` |
+| Hugging Face Spaces APIs | `huggingface_spaces_api_ecosystem/` |
+| Hugging Face Organizations APIs | `huggingface_organizations_api_ecosystem/` |
+| Hugging Face Authentication APIs | `huggingface_authentication_api_ecosystem/` |
+| Hugging Face Webhooks APIs | `huggingface_webhooks_api_ecosystem/` |
+| Hugging Face Evaluation APIs | `huggingface_evaluation_api_ecosystem/` |
+| Hugging Face Discussions APIs | `huggingface_discussions_api_ecosystem/` |
+| Hugging Face Storage APIs | `huggingface_storage_api_ecosystem/` |
+| Hugging Face Billing and Pricing APIs | `huggingface_billing_api_ecosystem/` |
+| Hugging Face Tasks and Pipeline APIs | `huggingface_tasks_api_ecosystem/` |
+| Hugging Face Downloads and Cache APIs | `huggingface_downloads_api_ecosystem/` |
 
-Set `HF_TOKEN` in the backend deployment's secret/environment-variable manager. The legacy `HUGGINGFACEHUB_API_TOKEN` is also accepted. Never commit a token, place it in frontend code, or paste it into chat.
-
-Use a Hugging Face user access token with only the permissions needed for the selected private/gated resources and inference products. Public model and dataset metadata may be readable without authentication, but this connector deliberately uses a server-side token.
-
-## Implemented backend routes
-
-- `GET /api/v1/connectors/huggingface/status` — checks token configuration and validates it with `/whoami-v2`.
-- `GET /api/v1/connectors/huggingface/api/whoami` — authenticated account identity.
-- `GET /api/v1/connectors/huggingface/api/models?search=...&limit=20` — search Hub models.
-- `GET /api/v1/connectors/huggingface/api/datasets?search=...&limit=20` — search Hub datasets.
-- `GET /api/v1/connectors/huggingface/api/spaces?search=...&limit=20` — search Spaces.
-
-## Verification
-
-After adding `HF_TOKEN`, restart/redeploy the backend and call the status route. It reports `CONNECTED` only after Hugging Face confirms the token. Without the secret, the correct status is `NEEDS_CONFIGURATION`; catalog presence is not live connectivity.
-
-## Scope
-
-This implementation provides authenticated identity and Hub search reads. It does not yet implement inference generation, endpoint provisioning, dataset uploads, Space management, or organization administration.
+The family directories are capability boundaries/catalogs. Only API operations implemented in the backend adapter and confirmed against the live service should be described as connected.
