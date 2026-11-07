@@ -10,7 +10,7 @@ from typing import Any
 
 
 PROVIDER_ID = "paypal"
-PROVIDER_NAME = "GLOBAL PAYPAL API ECOSYSTEM"
+PROVIDER_NAME = "GLOBAL PAYPAL PAYMENT API ECOSYSTEM"
 PROVIDER_VENDOR = "PayPal"
 PROVIDER_CATALOG_PATH = (
     "backend/api/global_ecosystem/global_api_ecosystem/"
@@ -18,7 +18,7 @@ PROVIDER_CATALOG_PATH = (
 )
 
 PAYPAL_SERVICE_ECOSYSTEMS = [
-    {"id": "checkout", "name": "PAYPAL CHECKOUT API ECOSYSTEM", "folder": "paypal_checkout_api_ecosystem", "status": "catalog_only"},
+    {"id": "checkout", "name": "GLOBAL PAYPAL CHECKOUT API ECOSYSTEM", "folder": "paypal_checkout_api_ecosystem", "status": "catalog_only"},
     {"id": "orders", "name": "PAYPAL ORDERS API ECOSYSTEM", "folder": "paypal_orders_api_ecosystem", "status": "catalog_only"},
     {"id": "payments", "name": "PAYPAL PAYMENTS API ECOSYSTEM", "folder": "paypal_payments_api_ecosystem", "status": "catalog_only"},
     {"id": "payouts", "name": "PAYPAL PAYOUTS API ECOSYSTEM", "folder": "paypal_payouts_api_ecosystem", "status": "catalog_only"},
@@ -82,7 +82,6 @@ PROVIDER_API_ECOSYSTEM: dict[str, Any] = {
     ],
 }
 
-ORACLE_PLACEHOLDER = None
 PAYPAL_API_ECOSYSTEM = PROVIDER_API_ECOSYSTEM
 
 
