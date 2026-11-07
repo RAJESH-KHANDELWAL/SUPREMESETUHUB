@@ -1,6 +1,6 @@
 import pytest
 
-from global_stripe_api_ecosystem.config import StripeConfig
+from stripe_api_ecosystem.config import StripeConfig
 
 
 def test_config_requires_secret_key():
