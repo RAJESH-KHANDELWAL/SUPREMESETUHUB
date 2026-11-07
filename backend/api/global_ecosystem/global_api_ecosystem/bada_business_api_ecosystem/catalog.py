@@ -7,6 +7,7 @@ from __future__ import annotations
 from typing import Any
 
 from .programs.lfp_digital import LFP_DIGITAL
+from .programs.bb_impact import BB_IMPACT
 
 
 ECOSYSTEM_ID = "BADA_BUSINESS"
@@ -38,6 +39,7 @@ PLATFORM_PROFILE: dict[str, Any] = {
 
 PROGRAMS = {
     "lfp_digital": LFP_DIGITAL,
+    "bb_impact": BB_IMPACT,
 }
 
 def get_catalog() -> dict[str, Any]:

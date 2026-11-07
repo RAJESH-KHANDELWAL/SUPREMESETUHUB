@@ -7,8 +7,10 @@ This is the provider-owned home for Bada Business platform information and resou
 - Platform profile and navigation metadata
 - Program/resource catalog
 - LFP Digital program snapshot
+- BB Impact two-day event snapshot, registration fields, business challenges and speaker profile claims
 - The 52 business-framework titles supplied in the page content
-- Captured plan prices and delivery details, clearly marked as unverified
+- Captured LFP plan prices and delivery details, clearly marked as unverified
+- BB Impact event date, venue and price remain unspecified because they were not included in the supplied capture
 - Catalog access functions in `catalog.py`
 
 ## Ownership boundaries
