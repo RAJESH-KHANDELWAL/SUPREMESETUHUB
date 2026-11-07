@@ -34,7 +34,6 @@ PROVIDERS: list[dict[str, str]] = [
     {"id":"hive_social","name":"Hive Social","region":"global","category":"social_network","api_access":"verify"},
     {"id":"bereal","name":"BeReal","region":"global","category":"photo_social","api_access":"restricted_or_verify"},
     {"id":"nextdoor","name":"Nextdoor","region":"global","category":"neighborhood_community","api_access":"restricted_or_partner"},
-    {"id":"koo","name":"Koo","region":"india","category":"microblogging","api_access":"discontinued_verify"},
     # Messaging, groups, channels and communities
     {"id":"whatsapp","name":"WhatsApp","region":"global","category":"messaging","api_access":"official_business_api"},
     {"id":"messenger","name":"Facebook Messenger","region":"global","category":"messaging","api_access":"official_api"},
@@ -48,7 +47,7 @@ PROVIDERS: list[dict[str, str]] = [
     {"id":"imo","name":"imo","region":"global","category":"messaging","api_access":"verify"},
     {"id":"viber","name":"Rakuten Viber","region":"global","category":"messaging","api_access":"official_business_api"},
     {"id":"signal","name":"Signal","region":"global","category":"private_messaging","api_access":"no_supported_general_public_api"},
-    {"id":" snapchat","name":"Snapchat","region":"global","category":"messaging_ephemeral","api_access":"official_api_restricted"},
+    {"id":"snapchat","name":"Snapchat","region":"global","category":"messaging_ephemeral","api_access":"official_api_restricted"},
     {"id":"element_matrix","name":"Element / Matrix","region":"global","category":"federated_messaging","api_access":"open_protocol_api"},
     {"id":"revolt","name":"Revolt","region":"global","category":"community_messaging","api_access":"verify"},
     # Video, short-form, live and streaming
