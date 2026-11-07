@@ -31,8 +31,6 @@ LFP_DIGITAL = {
     "frameworks": [
         "Arrow Model Part-1",
         "Arrow Model Part-2",
-        "Frameworks to Define Purpose",
-        "Frameworks to Define Strategy",
         "5P's of Strategy Reformation",
         "Changing Consumer Behavior",
         "Customer Experience",
