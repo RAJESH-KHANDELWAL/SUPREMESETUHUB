@@ -13,7 +13,7 @@ This provider engine package registers and manages Google engine metadata. It is
 
 ## Engine coverage
 
-The Google Engine registry derives entries from all 22 Google Core child modules: Gmail, Drive, Calendar, Contacts, People, Docs, Sheets, Slides, Forms, Chat, Meet, Admin SDK, Identity & OAuth, YouTube, Maps Platform, Business Profile, Ads, Analytics, Search Console, Cloud, Firebase, Gemini and Vertex AI.
+The Google Engine registry derives entries from all 23 Google Core child modules: Gmail, Drive, Calendar, Contacts, People, Docs, Sheets, Slides, Forms, Chat, Meet, Admin SDK, Identity & OAuth, YouTube, Maps Platform, Business Profile, Ads, Analytics, Search Console, Cloud, Firebase, Gemini and Vertex AI.
 
 The Gmail Engine has a runtime facade and delegates to Gmail Core and the existing Gmail API adapter. The other family engine entries are metadata/catalog registrations only until their family-specific runtime adapters and tests are implemented.
 
