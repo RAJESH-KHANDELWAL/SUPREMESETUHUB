@@ -12,6 +12,7 @@ from .providers.adobe import AdobeProvider
 from .providers.atlassian import AtlassianProvider
 from .providers.cohere import CohereProvider
 from .providers.deepseek import DeepSeekProvider
+from .providers.github import GitHubProvider
 
 
 class IntegrationRegistry:
@@ -26,6 +27,7 @@ class IntegrationRegistry:
             "ATLASSIAN": AtlassianProvider(),
             "COHERE": CohereProvider(),
             "DEEPSEEK": DeepSeekProvider(),
+            "GITHUB": GitHubProvider(),
             "MICROSOFT": MicrosoftProvider(),
             "AWS": AWSProvider(),
             "APPLE": AppleProvider(),
