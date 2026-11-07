@@ -268,6 +268,17 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         },
     },
     {
+        "ecosystem_id": "GOOGLE-IDENTITY-OAUTH-CORE-ECOSYSTEM",
+        "name": "GOOGLE IDENTITY AND OAUTH CORE ECOSYSTEM",
+        "ecosystem_type": "PROVIDER_CORE_SERVICE",
+        "capabilities": ["OAUTH_CLIENT_METADATA", "CONSENT_AND_SCOPE_POLICY", "TOKEN_LIFECYCLE_BOUNDARY"],
+        "parent_id": "GOOGLE-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_module": "backend/core/global_ecosystem/global_core_ecosystem/google_core_ecosystem/google_identity_oauth_core_ecosystem",
+            "status": "CORE_CATALOG_ONLY",
+        },
+    },
+    {
         "ecosystem_id": "GOOGLE-DRIVE-CORE-ECOSYSTEM",
         "name": "GOOGLE DRIVE CORE ECOSYSTEM",
         "ecosystem_type": "PROVIDER_CORE_SERVICE",
