@@ -1,12 +1,10 @@
 import importlib
 import unittest
 
+from fastapi import FastAPI
+
 GLOBAL_ROOT = "backend.api.global_ecosystem.global_api_ecosystem.global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem"
 BUSINESS_ROOT = "backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem"
-
-
-def _contains_router(parent_router, child_router):
-    return any(getattr(included, "router", None) is child_router for included in parent_router.routes)
 
 
 class KamasutraDualLocationTests(unittest.TestCase):
@@ -15,18 +13,27 @@ class KamasutraDualLocationTests(unittest.TestCase):
         business_package = importlib.import_module(BUSINESS_ROOT)
         self.assertTrue(hasattr(global_package, "router"))
         self.assertTrue(hasattr(business_package, "router"))
+        self.assertEqual(global_package.router.prefix, business_package.router.prefix)
 
     def test_global_router_is_mounted(self):
-        global_package = importlib.import_module(GLOBAL_ROOT)
         parent = importlib.import_module("backend.api.global_api_ecosystem_routes").router
-        self.assertTrue(_contains_router(parent, global_package.router))
+        app = FastAPI()
+        app.include_router(parent)
+        self.assertIn(
+            "/api/v1/global-api-ecosystem/adult-wellness/status",
+            app.openapi()["paths"],
+        )
 
     def test_bada_business_router_is_mounted_from_local_copy(self):
-        business_package = importlib.import_module(BUSINESS_ROOT)
         parent = importlib.import_module(
             "backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.routes"
         ).router
-        self.assertTrue(_contains_router(parent, business_package.router))
+        app = FastAPI()
+        app.include_router(parent)
+        self.assertIn(
+            "/api/v1/global-ecosystem/business/kamasutra/adult-wellness/status",
+            app.openapi()["paths"],
+        )
 
     def test_bada_business_registry_uses_local_copy(self):
         registry = importlib.import_module(
