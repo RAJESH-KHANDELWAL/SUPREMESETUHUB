@@ -19,18 +19,18 @@ PROVIDER_CATALOG_PATH = (
 
 PAYPAL_SERVICE_ECOSYSTEMS = [
     {"id": "checkout", "name": "GLOBAL PAYPAL CHECKOUT API ECOSYSTEM", "folder": "paypal_checkout_api_ecosystem", "status": "catalog_only"},
-    {"id": "orders", "name": "PAYPAL ORDERS API ECOSYSTEM", "folder": "paypal_orders_api_ecosystem", "status": "catalog_only"},
-    {"id": "payments", "name": "PAYPAL PAYMENTS API ECOSYSTEM", "folder": "paypal_payments_api_ecosystem", "status": "catalog_only"},
-    {"id": "payouts", "name": "PAYPAL PAYOUTS API ECOSYSTEM", "folder": "paypal_payouts_api_ecosystem", "status": "catalog_only"},
-    {"id": "subscriptions", "name": "PAYPAL SUBSCRIPTIONS API ECOSYSTEM", "folder": "paypal_subscriptions_api_ecosystem", "status": "catalog_only"},
-    {"id": "invoicing", "name": "PAYPAL INVOICING API ECOSYSTEM", "folder": "paypal_invoicing_api_ecosystem", "status": "catalog_only"},
-    {"id": "billing_plans", "name": "PAYPAL BILLING PLANS API ECOSYSTEM", "folder": "paypal_billing_plans_api_ecosystem", "status": "catalog_only"},
-    {"id": "vault_payment_methods", "name": "PAYPAL VAULT PAYMENT METHODS API ECOSYSTEM", "folder": "paypal_vault_payment_methods_api_ecosystem", "status": "catalog_only"},
-    {"id": "webhooks", "name": "PAYPAL WEBHOOKS API ECOSYSTEM", "folder": "paypal_webhooks_api_ecosystem", "status": "catalog_only"},
-    {"id": "identity_oauth", "name": "PAYPAL IDENTITY AND OAUTH API ECOSYSTEM", "folder": "paypal_identity_oauth_api_ecosystem", "status": "catalog_only"},
-    {"id": "disputes", "name": "PAYPAL DISPUTES API ECOSYSTEM", "folder": "paypal_disputes_api_ecosystem", "status": "catalog_only"},
-    {"id": "transaction_search", "name": "PAYPAL TRANSACTION SEARCH API ECOSYSTEM", "folder": "paypal_transaction_search_api_ecosystem", "status": "catalog_only"},
-    {"id": "merchant_onboarding", "name": "PAYPAL MERCHANT ONBOARDING API ECOSYSTEM", "folder": "paypal_merchant_onboarding_api_ecosystem", "status": "catalog_only"},
+    {"id": "orders", "name": "GLOBAL PAYPAL ORDERS API ECOSYSTEM", "folder": "paypal_orders_api_ecosystem", "status": "catalog_only"},
+    {"id": "payments", "name": "GLOBAL PAYPAL PAYMENTS API ECOSYSTEM", "folder": "paypal_payments_api_ecosystem", "status": "catalog_only"},
+    {"id": "payouts", "name": "GLOBAL PAYPAL PAYOUTS API ECOSYSTEM", "folder": "paypal_payouts_api_ecosystem", "status": "catalog_only"},
+    {"id": "subscriptions", "name": "GLOBAL PAYPAL SUBSCRIPTIONS API ECOSYSTEM", "folder": "paypal_subscriptions_api_ecosystem", "status": "catalog_only"},
+    {"id": "invoicing", "name": "GLOBAL PAYPAL INVOICING API ECOSYSTEM", "folder": "paypal_invoicing_api_ecosystem", "status": "catalog_only"},
+    {"id": "billing_plans", "name": "GLOBAL PAYPAL BILLING PLANS API ECOSYSTEM", "folder": "paypal_billing_plans_api_ecosystem", "status": "catalog_only"},
+    {"id": "vault_payment_methods", "name": "GLOBAL PAYPAL VAULT PAYMENT METHODS API ECOSYSTEM", "folder": "paypal_vault_payment_methods_api_ecosystem", "status": "catalog_only"},
+    {"id": "webhooks", "name": "GLOBAL PAYPAL WEBHOOKS API ECOSYSTEM", "folder": "paypal_webhooks_api_ecosystem", "status": "catalog_only"},
+    {"id": "identity_oauth", "name": "GLOBAL PAYPAL IDENTITY AND OAUTH API ECOSYSTEM", "folder": "paypal_identity_oauth_api_ecosystem", "status": "catalog_only"},
+    {"id": "disputes", "name": "GLOBAL PAYPAL DISPUTES API ECOSYSTEM", "folder": "paypal_disputes_api_ecosystem", "status": "catalog_only"},
+    {"id": "transaction_search", "name": "GLOBAL PAYPAL TRANSACTION SEARCH API ECOSYSTEM", "folder": "paypal_transaction_search_api_ecosystem", "status": "catalog_only"},
+    {"id": "merchant_onboarding", "name": "GLOBAL PAYPAL MERCHANT ONBOARDING API ECOSYSTEM", "folder": "paypal_merchant_onboarding_api_ecosystem", "status": "catalog_only"},
 ]
 
 PROVIDER_API_ECOSYSTEM: dict[str, Any] = {
