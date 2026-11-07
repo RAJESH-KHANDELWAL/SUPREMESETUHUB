@@ -1,20 +1,25 @@
 # BADA BUSINESS API ECOSYSTEM
 
-This provider-owned ecosystem is reserved exclusively for the Bada Business platform.
+This is the provider-owned home for Bada Business platform information and resources.
 
-## Scope
-- Official Bada Business website and platform destinations
-- Courses, products and services
-- Owner-supplied referral and affiliate links
-- Partner resources and support materials
-- Official API documentation, if Bada Business publishes it
+## Included setup
 
-## Ownership boundary
-This folder does not own the wider business taxonomy or cross-industry modules. Those remain in the separate **GLOBAL BADA BUSINESS API ECOSYSTEM** at:
+- Platform profile and navigation metadata
+- Program/resource catalog
+- LFP Digital program snapshot
+- The 52 business-framework titles supplied in the page content
+- Captured plan prices and delivery details, clearly marked as unverified
+- Catalog access functions in `catalog.py`
 
-`backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`
+## Ownership boundaries
 
-The shared **GLOBAL BUSINESS API ECOSYSTEM** remains a separate category root for cross-provider business and commerce capabilities.
+- This package is only for the Bada Business platform itself.
+- The broader Bada Business product/domain umbrella remains separate at:
+  `backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`
+- The former shared `global_business_api_ecosystem` category has been removed. This package does not depend on it.
 
-## Verification
-This folder is a platform resource/catalog boundary. It does not prove that a public developer API, partnership, or live account connection exists. Mark URLs verified only after checking official destinations.
+## Source and verification
+
+Program details, plan prices, and phone number were transcribed from page content pasted by the repository owner. The source URL and capture date were not supplied, and those details have not been independently verified. Recheck prices, availability, contact details and terms with the provider before relying on them.
+
+This is a resource/catalog setup only. It does not establish an official public developer API, partnership, authentication credentials, or live API connectivity.

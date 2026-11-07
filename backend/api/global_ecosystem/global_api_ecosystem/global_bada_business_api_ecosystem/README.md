@@ -6,9 +6,9 @@ This is the umbrella ecosystem for the broader Bada Business product: business m
 
 The Bada Business platform's own public links, courses, products, services and referral destinations are maintained separately in:
 
-`backend/api/global_ecosystem/global_api_ecosystem/global_business_api_ecosystem/bada_business_api_ecosystem/`
+`backend/api/global_ecosystem/global_api_ecosystem/bada_business_api_ecosystem/`
 
-The platform category is not the umbrella taxonomy. Keep the ownership boundaries distinct.
+The platform resource catalog is separate from this umbrella taxonomy. Keep the ownership boundaries distinct.
 
 ## Core implementation
 
