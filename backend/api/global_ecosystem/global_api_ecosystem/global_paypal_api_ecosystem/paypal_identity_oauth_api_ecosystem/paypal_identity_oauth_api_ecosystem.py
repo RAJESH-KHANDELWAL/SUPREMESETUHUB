@@ -7,7 +7,7 @@ from __future__ import annotations
 PAYPAL_IDENTITY_OAUTH_API_ECOSYSTEM = {
     "provider_id": "paypal",
     "service_id": "identity_oauth",
-    "name": "PAYPAL IDENTITY AND OAUTH API ECOSYSTEM",
+    "name": "GLOBAL PAYPAL IDENTITY AND OAUTH API ECOSYSTEM",
     "description": "OAuth 2.0 client credentials, access-token acquisition, expiry, and revocation handling.",
     "status": "CATALOG_ONLY",
     "live_connection_verified": False,
