@@ -17,6 +17,7 @@ from .providers.github import GitHubProvider
 from .providers.huggingface import HuggingFaceProvider
 from .providers.ibm import IBMProvider
 from .providers.meta import MetaProvider
+from .providers.mistral import MistralProvider
 
 
 class IntegrationRegistry:
@@ -37,6 +38,7 @@ class IntegrationRegistry:
             "MICROSOFT": MicrosoftProvider(),
             "SALESFORCE": SalesforceProvider(),
             "META": MetaProvider(),
+            "MISTRAL": MistralProvider(),
             "AWS": AWSProvider(),
             "APPLE": AppleProvider(),
             "ESA": ESAProvider(),
