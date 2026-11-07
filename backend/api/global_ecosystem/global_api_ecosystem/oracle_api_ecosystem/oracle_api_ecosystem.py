@@ -25,6 +25,26 @@ CATEGORY_CATALOG_PATHS = {
     "VPS": "backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem/oracle_vps_api_ecosystem",
 }
 
+ORACLE_SERVICE_ECOSYSTEMS = [
+        {"id": "identity", "name": "ORACLE IDENTITY AND IAM API ECOSYSTEM", "folder": "oracle_identity_api_ecosystem", "category": "CLOUD", "status": "catalog_only"},
+        {"id": "generative_ai", "name": "ORACLE GENERATIVE AI API ECOSYSTEM", "folder": "oracle_generative_ai_api_ecosystem", "category": "AI", "status": "catalog_only"},
+        {"id": "ai_services", "name": "ORACLE AI SERVICES API ECOSYSTEM", "folder": "oracle_ai_services_api_ecosystem", "category": "AI", "status": "catalog_only"},
+        {"id": "data_science", "name": "ORACLE DATA SCIENCE API ECOSYSTEM", "folder": "oracle_data_science_api_ecosystem", "category": "AI", "status": "catalog_only"},
+        {"id": "compute", "name": "ORACLE COMPUTE API ECOSYSTEM", "folder": "oracle_compute_api_ecosystem", "category": "CLOUD", "status": "catalog_only"},
+        {"id": "networking", "name": "ORACLE NETWORKING API ECOSYSTEM", "folder": "oracle_networking_api_ecosystem", "category": "CLOUD", "status": "catalog_only"},
+        {"id": "object_storage", "name": "ORACLE OBJECT STORAGE API ECOSYSTEM", "folder": "oracle_object_storage_api_ecosystem", "category": "CLOUD", "status": "catalog_only"},
+        {"id": "observability", "name": "ORACLE OBSERVABILITY API ECOSYSTEM", "folder": "oracle_observability_api_ecosystem", "category": "CLOUD", "status": "catalog_only"},
+        {"id": "autonomous_database", "name": "ORACLE AUTONOMOUS DATABASE API ECOSYSTEM", "folder": "oracle_autonomous_database_api_ecosystem", "category": "DATABASE", "status": "catalog_only"},
+        {"id": "base_database", "name": "ORACLE BASE DATABASE SERVICE API ECOSYSTEM", "folder": "oracle_base_database_api_ecosystem", "category": "DATABASE", "status": "catalog_only"},
+        {"id": "mysql_heatwave", "name": "ORACLE MYSQL HEATWAVE API ECOSYSTEM", "folder": "oracle_mysql_heatwave_api_ecosystem", "category": "DATABASE", "status": "catalog_only"},
+        {"id": "database_tools", "name": "ORACLE DATABASE TOOLS API ECOSYSTEM", "folder": "oracle_database_tools_api_ecosystem", "category": "DATABASE", "status": "catalog_only"},
+        {"id": "fusion_cloud_applications", "name": "ORACLE FUSION CLOUD APPLICATIONS API ECOSYSTEM", "folder": "oracle_fusion_cloud_applications_api_ecosystem", "category": "BUSINESS", "status": "catalog_only"},
+        {"id": "enterprise_applications", "name": "ORACLE ENTERPRISE APPLICATIONS API ECOSYSTEM", "folder": "oracle_enterprise_applications_api_ecosystem", "category": "BUSINESS", "status": "catalog_only"},
+        {"id": "block_volumes", "name": "ORACLE BLOCK VOLUMES API ECOSYSTEM", "folder": "oracle_block_volumes_api_ecosystem", "category": "VPS", "status": "catalog_only"},
+        {"id": "virtual_cloud_networks", "name": "ORACLE VIRTUAL CLOUD NETWORKS API ECOSYSTEM", "folder": "oracle_virtual_cloud_networks_api_ecosystem", "category": "VPS", "status": "catalog_only"},
+        {"id": "compute_instances", "name": "ORACLE COMPUTE INSTANCES API ECOSYSTEM", "folder": "oracle_compute_instances_api_ecosystem", "category": "VPS", "status": "catalog_only"},
+]
+
 PROVIDER_API_ECOSYSTEM: dict[str, Any] = {
     "provider_id": PROVIDER_ID,
     "name": PROVIDER_NAME,
@@ -67,34 +87,13 @@ PROVIDER_API_ECOSYSTEM: dict[str, Any] = {
         "do_not_assume_single_global_endpoint": True,
     },
     "service_families": {
-        "AI": [
-            "OCI_GENERATIVE_AI",
-            "OCI_AI_SERVICES",
-            "OCI_DATA_SCIENCE",
-        ],
-        "CLOUD": [
-            "OCI_COMPUTE",
-            "OCI_NETWORKING",
-            "OCI_OBJECT_STORAGE",
-            "OCI_IAM",
-            "OCI_OBSERVABILITY",
-        ],
-        "DATABASE": [
-            "ORACLE_AUTONOMOUS_DATABASE",
-            "ORACLE_BASE_DATABASE_SERVICE",
-            "ORACLE_MYSQL_HEATWAVE",
-            "ORACLE_DATABASE_TOOLS",
-        ],
-        "BUSINESS": [
-            "ORACLE_FUSION_CLOUD_APPLICATIONS",
-            "ORACLE_ENTERPRISE_APPLICATION_REST_APIS",
-        ],
-        "VPS": [
-            "OCI_COMPUTE_INSTANCES",
-            "OCI_BLOCK_VOLUMES",
-            "OCI_VIRTUAL_CLOUD_NETWORKS",
-        ],
+        "AI": ["OCI_GENERATIVE_AI", "OCI_AI_SERVICES", "OCI_DATA_SCIENCE"],
+        "CLOUD": ["OCI_COMPUTE", "OCI_NETWORKING", "OCI_OBJECT_STORAGE", "OCI_IAM", "OCI_OBSERVABILITY"],
+        "DATABASE": ["ORACLE_AUTONOMOUS_DATABASE", "ORACLE_BASE_DATABASE_SERVICE", "ORACLE_MYSQL_HEATWAVE", "ORACLE_DATABASE_TOOLS"],
+        "BUSINESS": ["ORACLE_FUSION_CLOUD_APPLICATIONS", "ORACLE_ENTERPRISE_APPLICATION_REST_APIS"],
+        "VPS": ["OCI_COMPUTE_INSTANCES", "OCI_BLOCK_VOLUMES", "OCI_VIRTUAL_CLOUD_NETWORKS"],
     },
+    "children": ORACLE_SERVICE_ECOSYSTEMS,
     "integration_requirements": [
         "official_service_api_reference_review",
         "region_aware_endpoint_resolution",
@@ -121,13 +120,28 @@ def get_oracle_api_ecosystem() -> dict[str, Any]:
     return deepcopy(PROVIDER_API_ECOSYSTEM)
 
 
+def list_oracle_api_ecosystems() -> dict[str, object]:
+    """List Oracle service-family catalogs without asserting live connectivity."""
+    children = [dict(item) for item in ORACLE_SERVICE_ECOSYSTEMS]
+    return {
+        "success": True,
+        "provider": PROVIDER_NAME,
+        "status": PROVIDER_API_ECOSYSTEM["status"],
+        "live_connection_verified": False,
+        "count": len(children),
+        "ecosystems": children,
+    }
+
+
 __all__ = [
     "CATEGORY_CATALOG_PATHS",
     "ORACLE_API_ECOSYSTEM",
+    "ORACLE_SERVICE_ECOSYSTEMS",
     "PROVIDER_API_ECOSYSTEM",
     "PROVIDER_CATALOG_PATH",
     "PROVIDER_ID",
     "PROVIDER_NAME",
     "PROVIDER_VENDOR",
     "get_oracle_api_ecosystem",
+    "list_oracle_api_ecosystems",
 ]
