@@ -7,7 +7,7 @@ from __future__ import annotations
 PAYPAL_INVOICING_API_ECOSYSTEM = {
     "provider_id": "paypal",
     "service_id": "invoicing",
-    "name": "PAYPAL INVOICING API ECOSYSTEM",
+    "name": "GLOBAL PAYPAL INVOICING API ECOSYSTEM",
     "description": "Create, send, retrieve, cancel, and manage merchant invoices.",
     "status": "CATALOG_ONLY",
     "live_connection_verified": False,
