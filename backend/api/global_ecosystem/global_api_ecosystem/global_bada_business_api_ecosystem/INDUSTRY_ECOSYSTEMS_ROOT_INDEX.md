@@ -64,4 +64,4 @@ duplicate source trees for compatibility entry points.
 
 ## Standalone adult intimacy ecosystem
 
-- The standalone adult-only Kamasutra and adult-industry ecosystem is maintained at `backend/api/global_ecosystem/global_api_ecosystem/global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem/`, outside the Bada Business industry package tree.
+- The adult-only Kamasutra and adult-industry ecosystem is maintained in BOTH `backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem/` and `backend/api/global_ecosystem/global_api_ecosystem/global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem/`. Both locations use the exact same folder name and remain active.

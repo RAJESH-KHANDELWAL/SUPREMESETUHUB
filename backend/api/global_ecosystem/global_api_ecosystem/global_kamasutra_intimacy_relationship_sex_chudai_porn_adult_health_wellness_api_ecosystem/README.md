@@ -1,10 +1,10 @@
 # GLOBAL KAMASUTRA | INTIMACY | RELATIONSHIP | SEX | PORN | ADULT HEALTH & WELLNESS API ECOSYSTEM
 
-**Canonical location:** `backend/api/global_ecosystem/global_api_ecosystem/global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem/`
+**Global location:** `backend/api/global_ecosystem/global_api_ecosystem/global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem/`
 
 **Scope:** Bharat + Global World; adults aged 18+; consent-first, privacy-preserving taxonomy and adult-industry API scaffold.
 
-This is the single consolidated adult-only ecosystem entry point. The former `adult_18_plus_lawful_industry_business_api_ecosystem/`, `adult_business_api_ecosystem/` and `adult_sexual_wellness/` folder layers have been removed from the root; their contents are integrated here.
+This is the Global copy of the adult-only ecosystem. A matching copy with the exact same folder name is also maintained under the Bada Business ecosystem; neither location replaces the other. The former `adult_18_plus_lawful_industry_business_api_ecosystem/`, `adult_business_api_ecosystem/` and `adult_sexual_wellness/` folder layers have been removed from the root; their contents are integrated here.
 
 ## Coverage
 
@@ -45,4 +45,12 @@ This is the single consolidated adult-only ecosystem entry point. The former `ad
 
 ## Implementation status
 
-This is a taxonomy/API scaffold, not a verified provider directory, medical or legal advice, or proof of live integrations. Provider modules remain catalog references unless their documentation and live connections are independently verified. Parent API router registration, automated tests and production access controls must be verified before activation.
+This is a taxonomy/API scaffold, not a verified provider directory, medical or legal advice, or proof of live integrations. Provider modules remain catalog references unless their documentation and live connections are independently verified. The Global API router is mounted under `/api/v1/global-api-ecosystem/adult-wellness`; the Bada Business copy remains available through the Bada Business catalog endpoints. Both locations must pass regression tests and production access-control checks before launch.
+
+
+## Dual-location architecture
+
+- Global copy: `backend/api/global_ecosystem/global_api_ecosystem/global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem/`.
+- Bada Business copy: `backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem/`.
+- Both copies use the exact same folder name and retain their own package files. The Global copy is mounted through the Global API router; the Bada Business registry resolves its local copy.
+- This is a non-destructive dual-location arrangement, not a move. Keep both locations in future updates.
