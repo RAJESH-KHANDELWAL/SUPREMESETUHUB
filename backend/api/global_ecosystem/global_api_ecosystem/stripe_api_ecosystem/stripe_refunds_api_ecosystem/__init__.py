@@ -5,7 +5,7 @@ STRIPE_SERVICE_ECOSYSTEM = {
     "name": "STRIPE_REFUNDS_API_ECOSYSTEM",
     "scope": "Refunds and reversals",
     "primary_endpoint": "/v1/refunds",
-    "parent_catalog_path": "backend/api/global_ecosystem/global_api_ecosystem/global_stripe_api_ecosystem",
+    "parent_catalog_path": "backend/api/global_ecosystem/global_api_ecosystem/stripe_api_ecosystem",
     "status": "CATALOG_ONLY",
     "live_connection_verified": False,
 }
