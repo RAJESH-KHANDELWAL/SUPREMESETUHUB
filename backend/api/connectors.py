@@ -14,6 +14,7 @@ from backend.integrations.connectors.openai_image import (
 )
 from backend.integrations.connectors.registry import connector_registry
 from backend.supreme.config import CONNECTED_REPOS
+from backend.integrations.providers.github import GitHubProvider
 
 
 router = APIRouter(
@@ -98,48 +99,129 @@ def generate_openai_image(
         ) from exc
 
 
+github_api_provider = GitHubProvider()
+
+
+def _github_api_error(exc: httpx.HTTPStatusError) -> HTTPException:
+    status = exc.response.status_code
+    if status == 401:
+        detail = "GITHUB_TOKEN_INVALID_OR_EXPIRED"
+    elif status == 403:
+        detail = "GITHUB_PERMISSION_OR_RATE_LIMIT_ERROR"
+    elif status == 404:
+        detail = "GITHUB_RESOURCE_NOT_FOUND_OR_NOT_ACCESSIBLE"
+    else:
+        detail = "GITHUB_API_REQUEST_FAILED"
+    return HTTPException(status_code=502 if status >= 500 else status, detail=detail)
+
+
 @router.get("/github/status")
 def github_repository_status():
+    """Validate the configured server-side GitHub token against the user and repository APIs."""
+    if not github_api_provider.token():
+        return {
+            "success": False,
+            "connector": "github",
+            "status": "NEEDS_CONFIGURATION",
+            "required_environment_variables": ["GITHUB_TOKEN (or GH_TOKEN)"],
+            "live_connection_verified": False,
+        }
+
     repository = os.getenv(
         "SUPREMESETUHUB_GITHUB_REPOSITORY",
         "RAJESH-KHANDELWAL/SUPREMESETUHUB",
-    )
+    ).strip()
 
     try:
-        response = httpx.get(
-            f"https://api.github.com/repos/{repository}",
-            headers={
-                "Accept": "application/vnd.github+json",
-                "X-GitHub-Api-Version": "2022-11-28",
-            },
-            timeout=8.0,
-        )
-
-        if response.status_code != 200:
-            return {
-                "success": False,
-                "connector": "github",
-                "status": "ERROR",
-                "http_status": response.status_code,
-            }
-
-        data = response.json()
-
+        user = github_api_provider.request("GET", "/user")
+        repo_data = github_api_provider.request("GET", f"/repos/{repository}")
         return {
             "success": True,
             "connector": "github",
             "status": "CONNECTED",
-            "repository": data.get("full_name"),
-            "default_branch": data.get("default_branch"),
+            "authenticated_user": user.get("login"),
+            "repository": repo_data.get("full_name"),
+            "default_branch": repo_data.get("default_branch"),
+            "permissions": repo_data.get("permissions", {}),
+            "token_scopes": None,
+            "live_connection_verified": True,
         }
+    except httpx.HTTPStatusError as exc:
+        raise _github_api_error(exc) from exc
+    except (httpx.HTTPError, RuntimeError) as exc:
+        raise HTTPException(
+            status_code=503,
+            detail="GITHUB_API_UNAVAILABLE_OR_NOT_CONFIGURED",
+        ) from exc
 
-    except httpx.HTTPError as exc:
+
+@router.get("/github/api/user")
+def github_authenticated_user():
+    """Return the identity associated with the configured GitHub API token."""
+    try:
+        user = github_api_provider.request("GET", "/user")
         return {
-            "success": False,
-            "connector": "github",
-            "status": "UNAVAILABLE",
-            "error": type(exc).__name__,
+            "success": True,
+            "login": user.get("login"),
+            "name": user.get("name"),
+            "html_url": user.get("html_url"),
+            "type": user.get("type"),
         }
+    except RuntimeError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+    except httpx.HTTPStatusError as exc:
+        raise _github_api_error(exc) from exc
+    except httpx.HTTPError as exc:
+        raise HTTPException(status_code=503, detail="GITHUB_API_UNAVAILABLE") from exc
+
+
+@router.get("/github/api/repositories")
+def github_authenticated_repositories(
+    visibility: str = Query(default="all", pattern="^(all|public|private)$"),
+    per_page: int = Query(default=30, ge=1, le=100),
+):
+    """List repositories visible to the configured GitHub token."""
+    try:
+        data = github_api_provider.request(
+            "GET",
+            "/user/repos",
+            params={
+                "visibility": visibility,
+                "per_page": per_page,
+                "sort": "updated",
+                "direction": "desc",
+            },
+        )
+        return {"success": True, "repositories": data.get("items", [])}
+    except RuntimeError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+    except httpx.HTTPStatusError as exc:
+        raise _github_api_error(exc) from exc
+    except httpx.HTTPError as exc:
+        raise HTTPException(status_code=503, detail="GITHUB_API_UNAVAILABLE") from exc
+
+
+@router.get("/github/api/repository/{owner}/{repo}")
+def github_authenticated_repository(owner: str, repo: str):
+    """Read repository metadata through authenticated GitHub REST API."""
+    try:
+        data = github_api_provider.request("GET", f"/repos/{owner}/{repo}")
+        return {
+            "success": True,
+            "repository": {
+                "full_name": data.get("full_name"),
+                "private": data.get("private"),
+                "default_branch": data.get("default_branch"),
+                "html_url": data.get("html_url"),
+                "permissions": data.get("permissions", {}),
+            },
+        }
+    except RuntimeError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+    except httpx.HTTPStatusError as exc:
+        raise _github_api_error(exc) from exc
+    except httpx.HTTPError as exc:
+        raise HTTPException(status_code=503, detail="GITHUB_API_UNAVAILABLE") from exc
 
 
 @router.get("/github/repositories")
