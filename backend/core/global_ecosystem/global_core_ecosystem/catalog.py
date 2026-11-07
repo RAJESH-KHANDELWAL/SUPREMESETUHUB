@@ -716,6 +716,7 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "name": "GLOBAL API ECOSYSTEM",
         "ecosystem_type": "PLATFORM",
         "capabilities": ["API_CATALOG", "API_ROUTING", "INTEGRATION"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
     },
     {
         "ecosystem_id": "GLOBAL-BUSINESS-API-ECOSYSTEM",

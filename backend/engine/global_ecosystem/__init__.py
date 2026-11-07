@@ -1,7 +1,13 @@
-"""GLOBAL ECOSYSTEM engine package."""
-from backend.engine.global_ecosystem.manager import (
-    GlobalEcosystemManager,
-    EcosystemManager,
-)
+"""GLOBAL ECOSYSTEM engine package exports."""
+from .manager import GlobalEcosystemManager, EcosystemManager
+from .models import EcosystemIdentity, GlobalEcosystemIdentity
+from .registry import GlobalEcosystemRegistry, EcosystemRegistry
 
-__all__ = ["GlobalEcosystemManager", "EcosystemManager"]
+__all__ = [
+    "GlobalEcosystemManager",
+    "EcosystemManager",
+    "EcosystemIdentity",
+    "GlobalEcosystemIdentity",
+    "GlobalEcosystemRegistry",
+    "EcosystemRegistry",
+]

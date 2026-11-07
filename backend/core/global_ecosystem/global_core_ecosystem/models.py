@@ -1,10 +1,13 @@
-
 """GLOBAL CORE ECOSYSTEM identity models."""
-
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from typing import Any
+
+
+def utc_now() -> str:
+    return datetime.now(timezone.utc).isoformat()
 
 
 @dataclass
@@ -21,10 +24,11 @@ class GlobalEcosystemIdentity:
     metadata: dict[str, Any] = field(default_factory=dict)
     message: str | None = None
     parent_id: str | None = None
+    created_at: str = field(default_factory=utc_now)
+    updated_at: str = field(default_factory=utc_now)
 
     def to_dict(self) -> dict[str, Any]:
         """Return a JSON-compatible representation."""
-
         return {
             "ecosystem_id": self.ecosystem_id,
             "name": self.name,
@@ -36,6 +40,8 @@ class GlobalEcosystemIdentity:
             "metadata": dict(self.metadata),
             "message": self.message,
             "parent_id": self.parent_id,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at,
         }
 
 
