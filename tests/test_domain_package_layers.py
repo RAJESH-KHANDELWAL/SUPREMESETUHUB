@@ -66,7 +66,7 @@ class DomainPackageLayerTests(unittest.TestCase):
                 self.assertEqual(len(finance.SUBCATEGORY_IDS), domain["subcategory_count"])
                 continue
             if domain["adult_only"]:
-                adult_root = f"{PACKAGE_ROOT}.global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem"
+                adult_root = ADULT_PACKAGE_ROOT
                 catalog = importlib.import_module(f"{adult_root}.adult_18_plus_lawful_industry_catalog")
                 self.assertEqual(catalog.list_categories(), [])
                 self.assertEqual(len(catalog.list_categories(include_restricted=True)), domain["subcategory_count"])
