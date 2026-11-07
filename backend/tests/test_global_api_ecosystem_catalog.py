@@ -8,11 +8,12 @@ from backend.api.global_api_ecosystem_catalog import (
 
 def test_global_api_ecosystem_contains_provider_families():
     providers = {item["provider_id"]: item for item in list_provider_ecosystems()}
-    assert {"google", "microsoft", "aws", "apple"} <= set(providers)
+    assert {"google", "microsoft", "aws", "apple", "salesforce"} <= set(providers)
     assert providers["google"]["name"] == "GOOGLE API ECOSYSTEM"
     assert providers["microsoft"]["name"] == "MICROSOFT API ECOSYSTEM"
     assert providers["aws"]["name"] == "AWS API ECOSYSTEM"
     assert providers["apple"]["name"] == "APPLE API ECOSYSTEM"
+    assert providers["salesforce"]["name"] == "SALESFORCE API ECOSYSTEM"
 
 
 def test_provider_catalog_does_not_claim_live_connections():
