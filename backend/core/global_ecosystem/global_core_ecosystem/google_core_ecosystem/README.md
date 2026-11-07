@@ -24,6 +24,7 @@ The core references those modules as the implementation/catalog boundaries. Do n
 - Google People Core Ecosystem
 - Google Gemini Core Ecosystem
 - Google Vertex AI Core Ecosystem
+- Google Admin SDK, Ads, Analytics, Business Profile, Chat, Cloud, Contacts, Docs, Firebase, Forms, Maps Platform, Meet, Search Console, Sheets, Slides and YouTube Core Ecosystems
 
 The catalog may be expanded to all Google API families as each service needs a distinct core responsibility, configuration policy, tests, and security review.
 
