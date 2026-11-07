@@ -20,3 +20,14 @@ def test_every_child_has_api_and_core_boundaries():
         assert child["api_family"]
         assert child["module"]
         assert child["status"] == "CORE_CATALOG_ONLY"
+
+def test_every_child_has_complete_parent_and_layer_references():
+    for child in list_stripe_core_modules():
+        assert child["ecosystem_type"] == "PROVIDER_CORE_SERVICE"
+        assert child["parent_id"] == "STRIPE-CORE-ECOSYSTEM"
+        assert child["api_catalog_ref"].startswith(
+            "backend/api/global_ecosystem/global_api_ecosystem/stripe_api_ecosystem/"
+        )
+        assert child["core_module"].startswith(
+            "backend/core/global_ecosystem/global_core_ecosystem/stripe_core_ecosystem/"
+        )
