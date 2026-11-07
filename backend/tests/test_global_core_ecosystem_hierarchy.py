@@ -104,6 +104,44 @@ class TestGlobalCoreEcosystemHierarchy(unittest.TestCase):
             self.assertIsNotNone(record, child["ecosystem_id"])
             self.assertEqual(record["parent_id"], "GOOGLE-CORE-ECOSYSTEM")
 
+    def test_google_core_family_packages_match_all_registered_children(self):
+        import importlib
+        from backend.core.global_ecosystem.global_core_ecosystem.google_core_ecosystem.catalog import (
+            get_google_core_catalog,
+        )
+
+        family_folders = {
+            "GOOGLE-GMAIL-CORE-ECOSYSTEM": "google_gmail_core_ecosystem",
+            "GOOGLE-DRIVE-CORE-ECOSYSTEM": "google_drive_core_ecosystem",
+            "GOOGLE-CALENDAR-CORE-ECOSYSTEM": "google_calendar_core_ecosystem",
+            "GOOGLE-CONTACTS-CORE-ECOSYSTEM": "google_contacts_core_ecosystem",
+            "GOOGLE-SHEETS-CORE-ECOSYSTEM": "google_sheets_core_ecosystem",
+            "GOOGLE-DOCS-CORE-ECOSYSTEM": "google_docs_core_ecosystem",
+            "GOOGLE-SLIDES-CORE-ECOSYSTEM": "google_slides_core_ecosystem",
+            "GOOGLE-FORMS-CORE-ECOSYSTEM": "google_forms_core_ecosystem",
+            "GOOGLE-CHAT-CORE-ECOSYSTEM": "google_chat_core_ecosystem",
+            "GOOGLE-MEET-CORE-ECOSYSTEM": "google_meet_core_ecosystem",
+            "GOOGLE-ADMIN-SDK-CORE-ECOSYSTEM": "google_admin_sdk_core_ecosystem",
+            "GOOGLE-PEOPLE-CORE-ECOSYSTEM": "google_people_core_ecosystem",
+            "GOOGLE-YOUTUBE-CORE-ECOSYSTEM": "google_youtube_core_ecosystem",
+            "GOOGLE-MAPS-CORE-ECOSYSTEM": "google_maps_platform_core_ecosystem",
+            "GOOGLE-BUSINESS-PROFILE-CORE-ECOSYSTEM": "google_business_profile_core_ecosystem",
+            "GOOGLE-ADS-CORE-ECOSYSTEM": "google_ads_core_ecosystem",
+            "GOOGLE-ANALYTICS-CORE-ECOSYSTEM": "google_analytics_core_ecosystem",
+            "GOOGLE-SEARCH-CONSOLE-CORE-ECOSYSTEM": "google_search_console_core_ecosystem",
+            "GOOGLE-CLOUD-CORE-ECOSYSTEM": "google_cloud_core_ecosystem",
+            "GOOGLE-FIREBASE-CORE-ECOSYSTEM": "google_firebase_core_ecosystem",
+            "GOOGLE-IDENTITY-OAUTH-CORE-ECOSYSTEM": "google_identity_oauth_core_ecosystem",
+            "GOOGLE-GEMINI-CORE-ECOSYSTEM": "google_gemini_core_ecosystem",
+            "GOOGLE-VERTEX-AI-CORE-ECOSYSTEM": "google_vertex_ai_core_ecosystem",
+        }
+        package_root = "backend.core.global_ecosystem.global_core_ecosystem.google_core_ecosystem"
+        catalog_ids = {child["ecosystem_id"] for child in get_google_core_catalog()["children"]}
+        self.assertEqual(catalog_ids, set(family_folders))
+        for ecosystem_id, folder in family_folders.items():
+            package = importlib.import_module(f"{package_root}.{folder}")
+            self.assertEqual(package.ECOSYSTEM_ID, ecosystem_id)
+
     def test_google_gmail_core_facade_uses_existing_api_service(self):
         from backend.core.global_ecosystem.global_core_ecosystem.google_core_ecosystem.gmail_core import (
             GoogleGmailCoreService,
