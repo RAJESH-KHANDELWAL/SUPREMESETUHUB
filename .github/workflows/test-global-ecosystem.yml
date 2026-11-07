@@ -47,6 +47,10 @@ jobs:
         run: |
           python -m unittest backend.tests.test_company_platforms_runtime -v
 
+      - name: Run Kamasutra Dual Location Tests
+        run: |
+          python -m unittest backend.tests.test_kamasutra_dual_location -v
+
       - name: Run Global World A-Z Tests
         run: |
           python -m unittest backend.tests.test_global_world_ecosystem -v
