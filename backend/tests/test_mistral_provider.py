@@ -43,5 +43,5 @@ def test_mistral_provider_is_registered():
     assert provider.metadata()["provider_id"] == "mistral"
 
 def test_mistral_service_family_catalog_has_nine_entries():
-    from backend.api.global_ecosystem.global_api_ecosystem.global_mistral_api_ecosystem.mistral_api_ecosystem import PROVIDER_API_ECOSYSTEM
+    from backend.api.global_ecosystem.global_api_ecosystem.mistral_api_ecosystem.mistral_api_ecosystem import PROVIDER_API_ECOSYSTEM
     assert PROVIDER_API_ECOSYSTEM["service_family_count"] == 9
