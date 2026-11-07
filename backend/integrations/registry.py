@@ -13,6 +13,7 @@ from .providers.atlassian import AtlassianProvider
 from .providers.cohere import CohereProvider
 from .providers.deepseek import DeepSeekProvider
 from .providers.github import GitHubProvider
+from .providers.huggingface import HuggingFaceProvider
 
 
 class IntegrationRegistry:
@@ -28,6 +29,7 @@ class IntegrationRegistry:
             "COHERE": CohereProvider(),
             "DEEPSEEK": DeepSeekProvider(),
             "GITHUB": GitHubProvider(),
+            "HUGGINGFACE": HuggingFaceProvider(),
             "MICROSOFT": MicrosoftProvider(),
             "AWS": AWSProvider(),
             "APPLE": AppleProvider(),
