@@ -1,4 +1,4 @@
-"""Salesforce provider-owned API ecosystem metadata; not a live connector."""
+"""Salesforce provider-owned API ecosystem metadata and adapter linkage."""
 from __future__ import annotations
 
 PROVIDER_API_ECOSYSTEM = {
@@ -11,10 +11,12 @@ PROVIDER_API_ECOSYSTEM = {
         "analytics_crm_analytics",
     ],
     "scope": "CRM records, platform APIs, identity, events, metadata, and Salesforce cloud product APIs subject to org configuration, entitlements, and OAuth scopes.",
-    "status": "CATALOG_ONLY_UNLESS_ADAPTER_TESTS_PASS",
+    "status": "LIVE_VERIFICATION_IMPLEMENTED",
+    "adapter_path": "backend/integrations/providers/salesforce.py",
     "live_connection_verified": False,
     "service_family_count": 14,
-    "credential_source": "environment_or_managed_secret_store",
+    "credential_source": "deployment_secret_manager",
+    "credential_persistence_implemented": False,
 }
 
 __all__ = ["PROVIDER_API_ECOSYSTEM"]
