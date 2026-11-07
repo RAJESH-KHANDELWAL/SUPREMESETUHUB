@@ -7,7 +7,7 @@ from __future__ import annotations
 PAYPAL_WEBHOOKS_API_ECOSYSTEM = {
     "provider_id": "paypal",
     "service_id": "webhooks",
-    "name": "PAYPAL WEBHOOKS API ECOSYSTEM",
+    "name": "GLOBAL PAYPAL WEBHOOKS API ECOSYSTEM",
     "description": "Webhook event subscriptions, event retrieval, delivery validation, and signature verification.",
     "status": "CATALOG_ONLY",
     "live_connection_verified": False,
