@@ -1,8 +1,8 @@
 import pytest
 import stripe
 
-from global_stripe_api_ecosystem.config import StripeConfig
-from global_stripe_api_ecosystem.webhooks import verify_webhook
+from stripe_api_ecosystem.config import StripeConfig
+from stripe_api_ecosystem.webhooks import verify_webhook
 
 
 def test_webhook_requires_secret():
