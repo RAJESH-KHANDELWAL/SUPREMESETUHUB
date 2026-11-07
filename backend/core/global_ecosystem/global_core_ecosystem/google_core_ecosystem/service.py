@@ -22,6 +22,7 @@ class GoogleCoreEcosystemService:
             "name": self.NAME,
             "provider": "google",
             "status": catalog["status"],
+            "registry_status": self.manager_status()["registered"],
             "module_count": len(children),
             "connected_modules": sum(1 for child in children if child.get("connected") is True),
             "live_connection_verified": False,
