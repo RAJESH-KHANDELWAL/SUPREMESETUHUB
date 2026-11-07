@@ -8,13 +8,13 @@ Branch: `main`
 Verified from the live recursive Git tree at the time of this update:
 
 - **22** root folders use the `global_` prefix.
-- **40** root folders do not use the `global_` prefix.
+- **39** root folders do not use the `global_` prefix.
 
-This status supersedes earlier preliminary folder counts in the initial audit.
+This status supersedes earlier preliminary folder counts in the initial audit. The transport_mobility_logistics metadata shim was consolidated into the nested Global Transport entry point; the stable industry ID and registry entry remain unchanged.
 
 ## Consolidations verified
 
-The former root-level implementations or compatibility folders for Agriculture, Digital Infrastructure, Education, Fashion, Finance, Hospitality, Governance, Real Estate, Jobs/Careers, Professional Business Services and Business Companies have been consolidated into their documented Global packages or removed after their exports were moved.
+The former root-level implementations or compatibility folders for Agriculture, Digital Infrastructure, Education, Fashion, Finance, Hospitality, Governance, Real Estate, Jobs/Careers, Professional Business Services, Business Companies and Transport/Mobility metadata have been consolidated into their documented Global packages or removed after their exports were moved.
 
 The Jobs, Careers & Employment industry/service taxonomy was moved as **843 files** into `global_jobs_careers_employment_api_ecosystem/`. It remains distinct from the separate 24-category Work & Careers employment classification under the Global Freelancer ecosystem. The two catalogues were not overwritten or merged.
 

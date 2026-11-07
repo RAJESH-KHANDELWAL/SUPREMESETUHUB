@@ -30,7 +30,7 @@ Audit date: 2026-11-06
 - global_universal_work_business_taxonomy_api_ecosystem
 - global_water_resources_marine_industries_api_ecosystem
 
-## 2. Folders WITHOUT the `global_` prefix (40)
+## 2. Folders WITHOUT the `global_` prefix (39)
 
 - arts_culture_heritage_creative_economy
 - automotive_mobility
@@ -71,7 +71,6 @@ Audit date: 2026-11-06
 - tools
 - trafficjunky_business_api_ecosystem
 - transport_logistics_supply_chain
-- transport_mobility_logistics
 
 ## 3. Verified consolidations completed on 2026-11-06
 
@@ -89,6 +88,8 @@ Audit date: 2026-11-06
 - Flat Universal Work & Business Taxonomy modules → `global_universal_work_business_taxonomy_api_ecosystem`: catalog, model, service and routes moved; root router and tests updated; old flat source modules removed.
 - `technology_it_telecommunications` → `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem/technology_it_telecommunications`: implementation moved; industry router, registry and service test updated; old root folder removed.
 - `technology_software_ai_cloud` → `global_digital_infrastructure_telecommunications_technology_it_ai_business_api_ecosystem/technology_software_ai_cloud`: domain identity moved; registry package path updated; old root identity file removed.
+
+- `transport_mobility_logistics` → `automotive_mobility/global_transport_mobility_logistics_supply_chain_business_api_ecosystem`: its single-file industry identity shim was consolidated into the Global entry point; the registry now resolves the stable industry ID there. The separate `transport_logistics_supply_chain` API implementation remains intact.
 
 ## 4. Related folders that must remain separate
 
@@ -111,4 +112,4 @@ A non-global folder is not automatically obsolete because a similarly named Glob
 5. run relevant tests and inspect GitHub Actions results;
 6. delete the old source only after the canonical destination is verified.
 
-The 40 non-global folders above remain because they are separate domains, nested infrastructure, provider integrations, documentation layers, or have no verified one-to-one Global destination. Do not delete them based on naming alone.
+The 39 non-global folders above remain because they are separate domains, nested infrastructure, provider integrations, documentation layers, or have no verified one-to-one Global destination. Do not delete them based on naming alone.

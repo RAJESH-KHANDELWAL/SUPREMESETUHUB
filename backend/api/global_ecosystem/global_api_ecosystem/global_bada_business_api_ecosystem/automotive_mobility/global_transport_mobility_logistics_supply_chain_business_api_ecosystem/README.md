@@ -1,14 +1,19 @@
 # Global Transport, Mobility, Logistics & Supply Chain Business API Ecosystem
 
-Consolidated entry point for the former `transport_mobility_logistics/` and
-`transport_logistics_supply_chain/` root folders. Their package exports are
-combined here; no nested folders named after those source folders are kept.
+Canonical Global entry point for the Transport, Mobility & Logistics industry identity
+(transport_mobility_logistics) and the broader transport-business classification.
 
-Existing API implementations remain under:
-- `industry_api_ecosystems/transport_mobility_logistics/`
-- `industry_api_ecosystems/transport_logistics_supply_chain/`
+The former root-level transport_mobility_logistics/ folder contained only the
+industry identity metadata. That metadata is now defined in this package and the
+industry registry resolves the ID here.
 
-This package adds 9 transport-business classification domains and exposes the
-existing industry packages without duplicating their API implementation.
-Taxonomy scaffold only; not live vehicle tracking, carrier onboarding, booking,
-customs clearance or proof of provider availability.
+The separate transport_logistics_supply_chain/ package remains in place because
+it owns a distinct 12-category API implementation, service, routes, schemas and
+tests currently wired through the industry router. Its exports remain exposed
+through this consolidated package for compatibility; it is not deleted or
+duplicated by this change.
+
+This package also contains the transport-business classification domains and
+nested Aviation/Aerospace entry point. Taxonomy scaffold only; not live vehicle
+tracking, carrier onboarding, booking, customs clearance or proof of provider
+availability.
