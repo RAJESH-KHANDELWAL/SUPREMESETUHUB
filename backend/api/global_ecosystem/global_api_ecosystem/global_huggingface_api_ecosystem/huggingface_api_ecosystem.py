@@ -4,6 +4,6 @@ PROVIDER_API_ECOSYSTEM = {
     "name": "GLOBAL HUGGING FACE API ECOSYSTEM",
     "families": ["AI","DEVELOPER"],
     "scope": "Model Hub, inference providers/endpoints, datasets, spaces and organization APIs subject to account access.",
-    "status": "CATALOG_ONLY_UNLESS_ADAPTER_TESTS_PASS",
+    "status": "AUTHENTICATED_HUB_CLIENT_CONFIGURATION_REQUIRED",
     "live_connection_verified": False,
 }
