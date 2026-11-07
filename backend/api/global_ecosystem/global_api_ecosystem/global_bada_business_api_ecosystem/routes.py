@@ -3,6 +3,7 @@ from fastapi import APIRouter, HTTPException, Query
 from .schemas import BusinessEcosystemStatus
 from .service import BusinessEcosystemService
 from ..ecosystem_link_registry import get_ecosystem_linkage
+from .global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem import router as kamasutra_business_router
 
 from .global_world_catalog import (
     get_domain as get_universal_domain,
@@ -21,6 +22,7 @@ service = BusinessEcosystemService()
 
 from .integrations.routes import router as integrations_router
 router.include_router(integrations_router)
+router.include_router(kamasutra_business_router, prefix="/kamasutra")
 
 
 @router.get("/status", response_model=BusinessEcosystemStatus)

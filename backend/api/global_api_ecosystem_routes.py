@@ -11,6 +11,7 @@ from backend.api.global_ecosystem.global_api_ecosystem.global_company_companies_
 from backend.api.global_ecosystem.global_api_ecosystem.global_platforms_api_ecosystem import router as global_platforms_router
 from backend.api.global_ecosystem.global_api_ecosystem.global_organizations_api_ecosystem import router as global_organizations_router
 from backend.api.global_ecosystem.global_api_ecosystem.global_entity_relationships_api_ecosystem import router as global_entity_relationships_router
+from backend.api.global_ecosystem.global_api_ecosystem.global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem import router as global_kamasutra_router
 
 from backend.api.global_api_ecosystem_catalog import (
     get_provider_ecosystem,
@@ -33,6 +34,7 @@ router.include_router(global_companies_router)
 router.include_router(global_platforms_router)
 router.include_router(global_organizations_router)
 router.include_router(global_entity_relationships_router)
+router.include_router(global_kamasutra_router)
 
 
 @router.get("/status")

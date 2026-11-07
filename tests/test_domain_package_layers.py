@@ -4,13 +4,16 @@ import unittest
 from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.domain_registry import DOMAIN_REGISTRY
 
 PACKAGE_ROOT = "backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem"
+ADULT_PACKAGE_ROOT = "backend.api.global_ecosystem.global_api_ecosystem.global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem"
 
 
 class DomainPackageLayerTests(unittest.TestCase):
     def test_all_twelve_domains_have_catalogue_model_and_service_layers(self):
         for domain in DOMAIN_REGISTRY:
-            package_id = {"work_careers_employment": "global_freelancer_gig_independent_work_business_api_ecosystem.jobs_careers_employment_api_ecosystem", "freelance_gig_independent_work": "global_freelancer_gig_independent_work_business_api_ecosystem", "students_education_skills": "global_education_learning_training_api_ecosystem.students_education_skills_business_api_ecosystem", "entrepreneurship_startups": "global_entrepreneurs_entrepreneurship_msme_sme_startups_solo_women_digital_ai_technology_innovation_business_creation_development_growth_api_ecosystem", "family_relationships_community": "global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_coach_consultant_advisor_professional_services_work_business_api_ecosystem.family_relationships_community_business_api_ecosystem", "business_companies_corporates": "global_business_companies_corporates_api_ecosystem"}.get(domain["id"], f"{domain['id']}_business_api_ecosystem")
+            package_id = {"work_careers_employment": "global_freelancer_gig_independent_work_business_api_ecosystem.jobs_careers_employment_api_ecosystem", "freelance_gig_independent_work": "global_freelancer_gig_independent_work_business_api_ecosystem", "students_education_skills": "global_education_learning_training_api_ecosystem.students_education_skills_business_api_ecosystem", "entrepreneurship_startups": "global_entrepreneurs_entrepreneurship_msme_sme_startups_solo_women_digital_ai_technology_innovation_business_creation_development_growth_api_ecosystem", "family_relationships_community": "global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem.family_relationships_community_business_api_ecosystem", "business_companies_corporates": "global_business_companies_corporates_api_ecosystem"}.get(domain["id"], f"{domain['id']}_business_api_ecosystem")
             package = f"{PACKAGE_ROOT}.{package_id}"
+            if domain["id"] == "family_relationships_community":
+                package = f"{ADULT_PACKAGE_ROOT}.family_relationships_community_business_api_ecosystem"
             if domain["id"] == "business_companies_corporates":
                 company_root = "backend.api.global_ecosystem.global_api_ecosystem.global_company_companies_api_ecosystem"
                 catalog = importlib.import_module(f"{company_root}.business_catalog")
@@ -21,7 +24,7 @@ class DomainPackageLayerTests(unittest.TestCase):
                 self.assertTrue(hasattr(service_module, "list_profiles"), domain["id"])
                 self.assertTrue(hasattr(service_module, "get_catalog"), domain["id"])
             elif domain["id"] == "adult_18_plus_lawful_industry":
-                adult_root = f"{PACKAGE_ROOT}.global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_coach_consultant_advisor_professional_services_work_business_api_ecosystem"
+                adult_root = ADULT_PACKAGE_ROOT
                 catalog = importlib.import_module(f"{adult_root}.adult_18_plus_lawful_industry_catalog")
                 models = importlib.import_module(f"{adult_root}.adult_18_plus_lawful_industry_models")
                 service_module = importlib.import_module(f"{adult_root}.adult_18_plus_lawful_industry_service")
@@ -52,8 +55,10 @@ class DomainPackageLayerTests(unittest.TestCase):
 
     def test_catalogue_counts_match_central_registry(self):
         for domain in DOMAIN_REGISTRY:
-            package_id = {"work_careers_employment": "global_freelancer_gig_independent_work_business_api_ecosystem.jobs_careers_employment_api_ecosystem", "freelance_gig_independent_work": "global_freelancer_gig_independent_work_business_api_ecosystem", "students_education_skills": "global_education_learning_training_api_ecosystem.students_education_skills_business_api_ecosystem", "entrepreneurship_startups": "global_entrepreneurs_entrepreneurship_msme_sme_startups_solo_women_digital_ai_technology_innovation_business_creation_development_growth_api_ecosystem", "family_relationships_community": "global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_coach_consultant_advisor_professional_services_work_business_api_ecosystem.family_relationships_community_business_api_ecosystem", "government_public_services_social_impact": "government_public_services_social_impact"}.get(domain["id"], f"{domain['id']}_business_api_ecosystem")
+            package_id = {"work_careers_employment": "global_freelancer_gig_independent_work_business_api_ecosystem.jobs_careers_employment_api_ecosystem", "freelance_gig_independent_work": "global_freelancer_gig_independent_work_business_api_ecosystem", "students_education_skills": "global_education_learning_training_api_ecosystem.students_education_skills_business_api_ecosystem", "entrepreneurship_startups": "global_entrepreneurs_entrepreneurship_msme_sme_startups_solo_women_digital_ai_technology_innovation_business_creation_development_growth_api_ecosystem", "family_relationships_community": "global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem.family_relationships_community_business_api_ecosystem", "government_public_services_social_impact": "government_public_services_social_impact"}.get(domain["id"], f"{domain['id']}_business_api_ecosystem")
             package = f"{PACKAGE_ROOT}.{package_id}"
+            if domain["id"] == "family_relationships_community":
+                package = f"{ADULT_PACKAGE_ROOT}.family_relationships_community_business_api_ecosystem"
             if domain["id"] == "business_companies_corporates":
                 catalog = importlib.import_module("backend.api.global_ecosystem.global_api_ecosystem.global_company_companies_api_ecosystem.business_catalog")
                 self.assertEqual(len(catalog.SUBCATEGORIES), domain["subcategory_count"])
@@ -63,7 +68,7 @@ class DomainPackageLayerTests(unittest.TestCase):
                 self.assertEqual(len(finance.SUBCATEGORY_IDS), domain["subcategory_count"])
                 continue
             if domain["adult_only"]:
-                adult_root = f"{PACKAGE_ROOT}.global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_coach_consultant_advisor_professional_services_work_business_api_ecosystem"
+                adult_root = ADULT_PACKAGE_ROOT
                 catalog = importlib.import_module(f"{adult_root}.adult_18_plus_lawful_industry_catalog")
                 self.assertEqual(catalog.list_categories(), [])
                 self.assertEqual(len(catalog.list_categories(include_restricted=True)), domain["subcategory_count"])

@@ -22,7 +22,7 @@ Audit date: 2026-11-06
 - global_freelancer_gig_independent_work_business_api_ecosystem
 - global_hospitality_hotels_resorts_restaurants_api_ecosystem
 - global_jobs_careers_employment_api_ecosystem
-- global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_coach_consultant_advisor_professional_services_work_business_api_ecosystem
+- global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem
 - global_legal_services_api_ecosystem
 - global_professional_business_services_api_ecosystem
 - global_real_estate_construction_infrastructure_PROPERTY_BUSINESS_api_ecosystem
@@ -73,6 +73,8 @@ Audit date: 2026-11-06
 - transport_logistics_supply_chain
 
 ## 3. Verified consolidations completed on 2026-11-06
+
+- Adult Kamasutra and lawful adult-industry taxonomy is maintained in BOTH the Bada Business subtree and the Global API root, using the exact same folder name. Both locations remain active; no move or source deletion is intended.
 
 - `agriculture_food_natural_resources` → `global_agriculture_food_natural_resources_api_ecosystem`: obsolete compatibility files removed after confirming the canonical implementation existed in the Global package.
 - `education_learning_training` → `global_education_learning_training_api_ecosystem/education_learning_training`: implementation moved; router, registry and dependent imports updated; old root folder removed.
