@@ -62,6 +62,7 @@ from backend.api.theme_hub import router as theme_hub_router
 from backend.api.wordpress import router as wordpress_router, wordpress_service, require_wordpress_owner
 
 from backend.api.connectors import router as connectors_router
+from backend.api.provider_connections import router as provider_connections_router
 from backend.api.linksetu import router as linksetu_router
 from backend.api.email import router as email_router
 from backend.api.google_ecosystem import router as google_ecosystem_router
@@ -426,6 +427,7 @@ app.include_router(global_business_coach_router)
 app.include_router(global_freelancer_ecosystem_router)
 app.include_router(theme_hub_router)
 app.include_router(connectors_router)
+app.include_router(provider_connections_router)
 app.include_router(linksetu_router)
 app.include_router(email_router)
 app.include_router(google_ecosystem_router)
