@@ -5,7 +5,7 @@ STRIPE_SERVICE_ECOSYSTEM = {
     "name": "STRIPE_EVENTS_API_ECOSYSTEM",
     "scope": "Events and event destinations",
     "primary_endpoint": "/v1/events",
-    "parent_catalog_path": "backend/api/global_ecosystem/global_api_ecosystem/global_stripe_api_ecosystem",
+    "parent_catalog_path": "backend/api/global_ecosystem/global_api_ecosystem/stripe_api_ecosystem",
     "status": "CATALOG_ONLY",
     "live_connection_verified": False,
 }
