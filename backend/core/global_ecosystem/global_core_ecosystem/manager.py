@@ -43,12 +43,47 @@ class GlobalEcosystemManager:
         if not records:
             raise RuntimeError("GLOBAL ECOSYSTEM catalog is empty")
 
-        # Register Stripe Core provider and child modules after shared Core categories.
+        # Load provider Core catalogs before hierarchy validation.
         from backend.core.global_ecosystem.global_core_ecosystem.stripe_core_ecosystem.catalog import (
             get_stripe_core_catalog,
         )
+        from backend.core.global_ecosystem.global_core_ecosystem.google_core_ecosystem.catalog import (
+            get_google_core_catalog,
+        )
+
+        google_catalog = get_google_core_catalog()
+        google_core_record = {
+            "ecosystem_id": "GOOGLE-CORE-ECOSYSTEM",
+            "name": "GOOGLE CORE ECOSYSTEM",
+            "ecosystem_type": "PROVIDER_CORE",
+            "parent_id": self.CORE_ID,
+            "capabilities": [
+                "GOOGLE_PROVIDER_REGISTRY",
+                "GOOGLE_WORKSPACE_CORE",
+                "GOOGLE_CLOUD_CORE",
+                "GOOGLE_IDENTITY_OAUTH_CORE",
+            ],
+            "metadata": {
+                "core_catalog": "backend/core/global_ecosystem/global_core_ecosystem/google_core_ecosystem"
+            },
+        }
+        records.append(google_core_record)
+        for child in google_catalog["children"]:
+            records.append({
+                "ecosystem_id": child["ecosystem_id"],
+                "name": child["name"],
+                "ecosystem_type": child["ecosystem_type"],
+                "parent_id": child.get("parent_id", google_core_record["ecosystem_id"]),
+                "capabilities": list(child.get("capabilities", [])),
+                "metadata": {
+                    "api_catalog_ref": child.get("api_catalog_ref"),
+                    "status": child.get("status", "CORE_CATALOG_ONLY"),
+                    "connected": False,
+                },
+            })
+
         stripe_catalog = get_stripe_core_catalog()
-        stripe_core_record = {
+        records.append({
             "ecosystem_id": stripe_catalog["ecosystem_id"],
             "name": stripe_catalog["name"],
             "ecosystem_type": stripe_catalog["ecosystem_type"],
@@ -59,90 +94,43 @@ class GlobalEcosystemManager:
                 "status": stripe_catalog.get("status", "CORE_CATALOG_ONLY"),
                 "live_connection_verified": False,
             },
-        }
-        if not any(record["ecosystem_id"] == stripe_core_record["ecosystem_id"] for record in records):
-            records.append(stripe_core_record)
-        for stripe_child in stripe_catalog["children"]:
+        })
+        for child in stripe_catalog["children"]:
             records.append({
-                "ecosystem_id": stripe_child["ecosystem_id"],
-                "name": stripe_child["name"],
+                "ecosystem_id": child["ecosystem_id"],
+                "name": child["name"],
                 "ecosystem_type": "PROVIDER_CORE_SERVICE",
-                "parent_id": stripe_child.get("parent_id", stripe_catalog["ecosystem_id"]),
-                "capabilities": list(stripe_child.get("capabilities", [])),
+                "parent_id": child.get("parent_id", stripe_catalog["ecosystem_id"]),
+                "capabilities": list(child.get("capabilities", [])),
                 "metadata": {
-                    "core_module": stripe_child.get("module"),
-                    "api_family": stripe_child.get("api_family"),
-                    "status": stripe_child.get("status", "CORE_CATALOG_ONLY"),
+                    "core_module": child.get("module"),
+                    "api_family": child.get("api_family"),
+                    "status": child.get("status", "CORE_CATALOG_ONLY"),
                     "connected": False,
                 },
             })
 
-
         registered_ids: set[str] = set()
-
         for record in records:
             identity = self._to_identity(record)
             ecosystem_id = identity.ecosystem_id
-
             if ecosystem_id in registered_ids:
-                raise RuntimeError(
-                    f"Duplicate ecosystem ID in catalog: {ecosystem_id}"
-                )
-
+                raise RuntimeError(f"Duplicate ecosystem ID in catalog: {ecosystem_id}")
             parent_id = identity.parent_id
-
             if parent_id and parent_id not in registered_ids:
                 raise RuntimeError(
-                    f"Parent must appear before child: "
-                    f"{ecosystem_id} -> {parent_id}"
+                    f"Parent must appear before child: {ecosystem_id} -> {parent_id}"
                 )
-
             try:
                 self.registry.register(identity)
             except (ValueError, KeyError) as exc:
                 raise RuntimeError(
                     f"Initialization failed for {ecosystem_id}: {exc}"
                 ) from exc
-
             registered_ids.add(ecosystem_id)
 
         if self.ROOT_ID not in registered_ids:
             raise RuntimeError("GLOBAL ECOSYSTEM root is missing")
-
-        # Register provider-specific child modules after their parent provider
-        # cores. Provider catalogs are loaded lazily to avoid coupling all
-        # provider engines to the central core manager.
-        google_core = {
-            "ecosystem_id": "GOOGLE-CORE-ECOSYSTEM",
-            "name": "GOOGLE CORE ECOSYSTEM",
-            "ecosystem_type": "PROVIDER_CORE",
-            "parent_id": self.CORE_ID,
-            "capabilities": ["GOOGLE_PROVIDER_REGISTRY", "GOOGLE_WORKSPACE_CORE", "GOOGLE_CLOUD_CORE", "GOOGLE_IDENTITY_OAUTH_CORE"],
-            "metadata": {"core_catalog": "backend/core/global_ecosystem/global_core_ecosystem/google_core_ecosystem"},
-        }
-        if not self.registry.exists(google_core["ecosystem_id"]):
-            self.registry.register(self._to_identity(google_core))
-
-        from backend.core.global_ecosystem.global_core_ecosystem.google_core_ecosystem.catalog import (
-            get_google_core_catalog,
-        )
-        google_catalog = get_google_core_catalog()
-        for child in google_catalog["children"]:
-            if self.registry.exists(child["ecosystem_id"]):
-                continue
-            child_record = {
-                "ecosystem_id": child["ecosystem_id"],
-                "name": child["name"],
-                "ecosystem_type": child["ecosystem_type"],
-                "parent_id": child["parent_id"],
-                "capabilities": list(child.get("capabilities", [])),
-                "metadata": {
-                    "api_catalog_ref": child.get("api_catalog_ref"),
-                    "status": child.get("status", "CORE_CATALOG_ONLY"),
-                    "connected": False,
-                },
-            }
-            self.registry.register(self._to_identity(child_record))
 
     def status(self) -> dict[str, Any]:
         root = self.registry.get(self.ROOT_ID)
