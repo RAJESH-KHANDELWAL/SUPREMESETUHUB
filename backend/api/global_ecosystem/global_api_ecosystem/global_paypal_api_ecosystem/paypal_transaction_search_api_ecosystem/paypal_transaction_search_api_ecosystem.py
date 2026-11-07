@@ -7,7 +7,7 @@ from __future__ import annotations
 PAYPAL_TRANSACTION_SEARCH_API_ECOSYSTEM = {
     "provider_id": "paypal",
     "service_id": "transaction_search",
-    "name": "PAYPAL TRANSACTION SEARCH API ECOSYSTEM",
+    "name": "GLOBAL PAYPAL TRANSACTION SEARCH API ECOSYSTEM",
     "description": "Transaction history search, detail retrieval, and settlement reconciliation.",
     "status": "CATALOG_ONLY",
     "live_connection_verified": False,
