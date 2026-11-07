@@ -37,6 +37,20 @@ class TestGlobalEcosystemCore(unittest.TestCase):
         self.assertTrue(result["root_exists"])
         self.assertTrue(result["core_exists"])
 
+    def test_google_core_ecosystem_is_registered(self):
+        self.assertTrue(self.manager.exists("GLOBAL-GOOGLE-CORE-ECOSYSTEM"))
+        self.assertTrue(self.manager.exists("GLOBAL-GOOGLE-API-CORE-ECOSYSTEM"))
+        self.assertTrue(self.manager.exists("GLOBAL-GOOGLE-PRODUCT-CORE-ECOSYSTEM"))
+        self.assertTrue(self.manager.exists("GLOBAL-GOOGLE-GEMINI-CORE-ECOSYSTEM"))
+
+    def test_google_core_catalog_exposes_safe_readiness(self):
+        result = self.manager.google_catalog_status()
+        self.assertTrue(result["success"])
+        self.assertGreaterEqual(result["api_family_count"], 20)
+        self.assertGreaterEqual(result["product_count"], 50)
+        self.assertFalse(result["live_connection_verified"])
+        self.assertEqual(result["token_storage_status"], "NOT_IMPLEMENTED")
+
     def test_people_category_exists(self):
         self.assertTrue(
             self.manager.exists("GLOBAL-PEOPLE-ECOSYSTEM")

@@ -28,3 +28,12 @@ def test_google_ecosystem_router_requires_admin():
     assert any(item.dependency is require_admin for item in router.dependencies)
     for route in router.routes:
         assert any(dep.call is require_admin for dep in route.dependant.dependencies)
+
+
+def test_google_core_catalog_mirrors_api_and_product_registry():
+    from backend.core.global_ecosystem.global_core_ecosystem.manager import GlobalEcosystemManager
+    manager = GlobalEcosystemManager()
+    result = manager.google_catalog_status()
+    assert result["api_family_count"] == 23
+    assert result["product_count"] == len(GOOGLE_PRODUCTS)
+    assert result["live_connection_verified"] is False

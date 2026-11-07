@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from .catalog import ROOT_ID, get_catalog
+from .catalog import ROOT_ID, get_catalog, GOOGLE_CORE_ECOSYSTEMS
 from .models import GlobalEcosystemIdentity
 from .registry import GlobalEcosystemRegistry
 
@@ -38,7 +38,7 @@ class GlobalEcosystemManager:
 
     def _initialize(self) -> None:
         """Register catalog entries in parent-first order."""
-        records = get_catalog()
+        records = [*get_catalog(), *GOOGLE_CORE_ECOSYSTEMS]
 
         if not records:
             raise RuntimeError("GLOBAL ECOSYSTEM catalog is empty")
@@ -176,6 +176,53 @@ class GlobalEcosystemManager:
             "success": True,
             "ecosystem": registered,
         }
+
+    def google_catalog_status(self) -> dict[str, Any]:
+        """Expose CORE-side Google catalog and readiness without returning secrets."""
+        from backend.google.google_ecosystem.service import GoogleEcosystemService
+        from backend.api.global_ecosystem.global_api_ecosystem.google_api_ecosystem.google_api_ecosystem import GOOGLE_API_ECOSYSTEM
+        from backend.google.google_ecosystem.cloud.connection import check_cloud_connection
+        import os
+
+        google = GoogleEcosystemService()
+        cloud_configured = bool(
+            os.getenv("GOOGLE_CLOUD_PROJECT", "").strip()
+            and (
+                os.getenv("GOOGLE_APPLICATION_CREDENTIALS", "").strip()
+                or os.getenv("GOOGLE_CLOUD_CREDENTIALS_JSON", "").strip()
+                or os.getenv("GOOGLE_CLOUD_WORKLOAD_IDENTITY_PROVIDER", "").strip()
+            )
+        )
+        oauth_configured = all(
+            os.getenv(name, "").strip()
+            for name in ("GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET", "GOOGLE_REDIRECT_URI")
+        )
+        gemini_configured = bool(os.getenv("GOOGLE_GEMINI_API_KEY", "").strip())
+        return {
+            "success": True,
+            "ecosystem_id": "GLOBAL-GOOGLE-CORE-ECOSYSTEM",
+            "status": "CORE_REGISTERED",
+            "api_family_count": len(GOOGLE_API_ECOSYSTEM["api_families"]),
+            "product_count": len(google.catalog()),
+            "google_oauth_app_configured": oauth_configured,
+            "google_cloud_identity_configured": cloud_configured,
+            "google_gemini_api_key_configured": gemini_configured,
+            "live_connection_verified": False,
+            "oauth_flow_status": "PENDING_IMPLEMENTATION",
+            "token_storage_status": "NOT_IMPLEMENTED",
+            "cloud_connection_check": {
+                "available": cloud_configured,
+                "module": "backend/google/google_ecosystem/cloud/connection.py",
+                "read_only": True,
+                "not_called": True,
+            },
+            "security_note": "CORE catalog metadata only. No Google credential or token is returned or persisted.",
+        }
+
+    def test_google_gemini_connection(self, api_key: str | None = None) -> dict[str, Any]:
+        """Run an explicit Gemini model-list smoke check without persisting the supplied key."""
+        from backend.api.global_ecosystem.global_api_ecosystem.google_api_ecosystem.google_gemini_api_ecosystem.google_gemini_api_ecosystem import GoogleGeminiAPIService
+        return GoogleGeminiAPIService().test_connection(api_key=api_key)
 
     def tree(self) -> dict[str, Any]:
         records = self.registry.list()

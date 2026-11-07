@@ -64,3 +64,21 @@ def test_gemini_generation_uses_explicit_model_and_prompt(monkeypatch):
     assert result["success"] is True
     assert result["text"] == "Hello back"
     assert result["model"] == "test-model"
+
+
+def test_core_google_gemini_connection_delegates_without_persisting_key(monkeypatch):
+    from backend.core.global_ecosystem.global_core_ecosystem.manager import GlobalEcosystemManager
+    class Models:
+        def list(self):
+            return [object()]
+    class Client:
+        models = Models()
+    monkeypatch.setattr(
+        GoogleGeminiAPIService,
+        "_client",
+        staticmethod(lambda api_key=None: Client()),
+    )
+    result = GlobalEcosystemManager().test_google_gemini_connection(api_key="ephemeral-test-key")
+    assert result["success"] is True
+    assert result["credential_persisted"] is False
+    assert "ephemeral-test-key" not in repr(result)
