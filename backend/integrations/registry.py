@@ -18,6 +18,7 @@ from .providers.huggingface import HuggingFaceProvider
 from .providers.ibm import IBMProvider
 from .providers.meta import MetaProvider
 from .providers.mistral import MistralProvider
+from .providers.oracle import OracleProvider
 
 
 class IntegrationRegistry:
@@ -41,13 +42,13 @@ class IntegrationRegistry:
             "MISTRAL": MistralProvider(),
             "AWS": AWSProvider(),
             "APPLE": AppleProvider(),
+            "ORACLE": OracleProvider(),
             "ESA": ESAProvider(),
             "GENERIC_WEB": GenericWebProvider(),
         }
 
     def list(self) -> List[Dict[str, Any]]:
         """Return metadata for all registered providers."""
-
         return [
             provider.metadata()
             for provider in self.providers.values()
@@ -55,26 +56,16 @@ class IntegrationRegistry:
 
     def health(self) -> List[Dict[str, Any]]:
         """Return configuration readiness without claiming live connectivity."""
-
         return [
             provider.health()
             for provider in self.providers.values()
         ]
 
-    def get(
-        self,
-        name: str,
-    ) -> Any:
+    def get(self, name: str) -> Any:
         """Return a provider by name."""
-
         if not isinstance(name, str):
-            raise TypeError(
-                "Provider name must be a string."
-            )
-
-        return self.providers.get(
-            name.upper()
-        )
+            raise TypeError("Provider name must be a string.")
+        return self.providers.get(name.upper())
 
 
 __all__ = [
