@@ -7,7 +7,7 @@ from __future__ import annotations
 PAYPAL_PAYOUTS_API_ECOSYSTEM = {
     "provider_id": "paypal",
     "service_id": "payouts",
-    "name": "PAYPAL PAYOUTS API ECOSYSTEM",
+    "name": "GLOBAL PAYPAL PAYOUTS API ECOSYSTEM",
     "description": "Payout batches, individual payout items, status tracking, and payout reconciliation.",
     "status": "CATALOG_ONLY",
     "live_connection_verified": False,
