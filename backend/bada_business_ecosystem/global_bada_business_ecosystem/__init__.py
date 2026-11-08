@@ -1,19 +1,28 @@
-"""Canonical GLOBAL BADA BUSINESS ECOSYSTEM package."""
+"""GLOBAL ECOSYSTEM package within BADA BUSINESS ECOSYSTEM."""
 from .platform_resources import (
-    ECOSYSTEM_ID, ECOSYSTEM_NAME, get_catalog, get_program, list_programs,
+    ECOSYSTEM_ID,
+    ECOSYSTEM_NAME,
+    get_catalog,
+    get_program,
+    list_programs,
 )
+
 ECOSYSTEM = {
-    "id": ECOSYSTEM_ID,
-    "name": ECOSYSTEM_NAME,
-    "parent": "BADA BUSINESS ECOSYSTEM",
+    "id": "GLOBAL_ECOSYSTEM",
+    "name": "GLOBAL ECOSYSTEM",
+    "parent": "BADA_BUSINESS_ECOSYSTEM",
 }
 
 def get_platform_resource_catalog():
-    """Backward-compatible explicit catalog accessor."""
+    """Return the canonical global platform resource catalog."""
     return get_catalog()
 
 __all__ = [
-    "ECOSYSTEM", "ECOSYSTEM_ID", "ECOSYSTEM_NAME",
-    "get_catalog", "get_platform_resource_catalog", "get_program",
+    "ECOSYSTEM",
+    "ECOSYSTEM_ID",
+    "ECOSYSTEM_NAME",
+    "get_catalog",
+    "get_platform_resource_catalog",
+    "get_program",
     "list_programs",
 ]
