@@ -1,1 +1,0 @@
-"""Program domain namespace; canonical records live in platform_resources/programs."""
