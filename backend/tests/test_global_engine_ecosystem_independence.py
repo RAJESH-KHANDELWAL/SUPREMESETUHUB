@@ -30,3 +30,11 @@ def test_engine_packages_do_not_import_sibling_layers():
     ))
     assert "backend.core.global_ecosystem" not in source
     assert "backend.api.global_ecosystem" not in source
+
+
+def test_engine_catalog_includes_full_provider_hierarchy():
+    from backend.engine.global_ecosystem.catalog import PROVIDER_ECOSYSTEMS, get_provider_catalog, get_catalog
+    assert len(PROVIDER_ECOSYSTEMS) == 58
+    assert len(get_provider_catalog()) == 58
+    assert len(get_catalog()) == 1 + len(PROVIDER_ECOSYSTEMS) + 22
+    assert all(item["ecosystem_id"].endswith("-ENGINE-ECOSYSTEM") for item in get_provider_catalog())
