@@ -20,6 +20,7 @@ from .service import (
     list_servers,
     mark_server_authorized,
     register_server,
+    list_server_artifacts,
 )
 
 router = APIRouter(prefix="/global/server", tags=["GLOBAL SERVER ECOSYSTEM"])
@@ -94,3 +95,8 @@ def disable_server_inventory_item(server_id: str) -> dict[str, Any]:
     if not result["success"]:
         raise HTTPException(status_code=404, detail="SERVER_NOT_FOUND")
     return result
+
+
+@router.get("/inventory/{server_id}/artifacts")
+def server_artifacts(server_id: str) -> dict[str, Any]:
+    return list_server_artifacts(server_id)
