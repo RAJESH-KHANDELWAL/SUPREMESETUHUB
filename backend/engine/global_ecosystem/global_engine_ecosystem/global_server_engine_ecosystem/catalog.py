@@ -1,18 +1,30 @@
-"""Independent ENGINE catalog for GLOBAL SERVER."""
+"""ENGINE-owned catalog for the GLOBAL SERVER execution domain."""
 from .models import EngineDescriptor
+
 PROVIDER = "GLOBAL SERVER"
-CHILD_ECOSYSTEMS = [
-    "ABELOHOST SERVER",
-    "AWS SERVER",
-    "CLOUDFLARE SERVER",
-    "DIGITALOCEAN SERVER",
-    "GOOGLE SERVER",
-    "INTEGRATIONS",
-    "MICROSOFT SERVER",
-    "SERVICES",
-    "TOOLS",
-    "VICETEMPLE SERVER"
-]
-CATALOG = (EngineDescriptor("ENGINE-GLOBAL_SERVER", PROVIDER, PROVIDER, ("LIFECYCLE","EXECUTION_BOUNDARY")),)
+CHILD_ECOSYSTEMS = (
+    "ABELOHOST SERVER", "AWS SERVER", "CLOUDFLARE SERVER",
+    "DIGITALOCEAN SERVER", "GOOGLE SERVER", "INTEGRATIONS",
+    "MICROSOFT SERVER", "SERVICES", "TOOLS", "VICETEMPLE SERVER",
+)
+CATALOG = (
+    EngineDescriptor(
+        engine_id="ENGINE-GLOBAL-SERVER",
+        name=PROVIDER,
+        provider=PROVIDER,
+        capabilities=("LIFECYCLE", "EXECUTION_BOUNDARY", "PROVIDER_ADAPTERS"),
+    ),
+)
+
+
 def list_engines():
-    return [dict(engine_id=x.engine_id,name=x.name,provider=x.provider,capabilities=list(x.capabilities),metadata=dict(x.metadata)) for x in CATALOG]
+    return [
+        {
+            "engine_id": item.engine_id,
+            "name": item.name,
+            "provider": item.provider,
+            "capabilities": list(item.capabilities),
+            "metadata": dict(item.metadata),
+        }
+        for item in CATALOG
+    ]
