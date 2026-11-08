@@ -1,34 +1,51 @@
 # BADA BUSINESS ECOSYSTEM
 
-Canonical home for the complete Bada Business platform ecosystem inside SUPREMESETUHUB.
+Canonical Bada Business platform/product ecosystem inside SUPREMESETUHUB.
 
-## Hierarchy
-GLOBAL ECOSYSTEM -> BADA BUSINESS ECOSYSTEM
+## Canonical root
 
-This package owns the Bada Business platform domain: platform identity, provider links, referral destinations, programs, courses, products, events, registration resources and provider-specific metadata.
+backend/bada_business_ecosystem/
 
-## Package map
-- platform/: platform identity and provider profile
-- links/: public and referral destinations
-- programs/: program-specific resources
-- courses/: course catalog and learning resources
-- products/: product and digital-store resources
-- events/: event and webinar resources
-- registration/: registration and enquiry resource definitions
-- referrals/: referral codes and destination metadata
-- platform_resources/: canonical link and program catalog
-- api_ecosystem/: entry point to the Bada Business API router
+This is the one canonical owner for Bada Business platform-specific data and modules. New Bada Business platform links, referral URLs, programs, courses, products, events, registration definitions and provider metadata belong here—not in the old backend/bada_business path or API resource facade.
 
-## API implementation
-The API transport, route handlers, schemas, business taxonomy, industry registries, capability contracts and integrations are currently implemented at:
+## Package structure
+
+- platform/ — provider identity and platform profile
+- links/ — public platform links and destination registry
+- programs/ — program-specific records
+- courses/ — learning and course resources
+- products/ — products and digital-store resources
+- events/ — event and webinar records
+- registration/ — registration and enquiry definitions
+- referrals/ — referral codes and destinations
+- platform_resources/ — implemented provider resource catalog and program snapshots
+- api_ecosystem/ — adapter exposing the Bada Business API router
+
+## Existing canonical platform resources
+
+The platform_resources catalog now physically contains the link catalog and program data files:
+- LFP Digital
+- Cash Growth Profit
+- Idea to IPO
+- Digital Dukan
+- BB Impact program snapshot
+
+The old platform resource folder delegates imports to this canonical root. API-side Bada Business resource modules also import these canonical files rather than carrying duplicate program data.
+
+## API implementation boundary
+
+The broad Global Bada Business API source tree, its routes, schemas, industry taxonomy, capabilities and integration modules remain at:
 
 backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/
 
-That implementation is exposed from this package through api_ecosystem. The existing API route tree is deliberately retained for import and route-registration compatibility; the new package is the product/domain root. This is a safe integration, not a claim that every API source file has already been physically relocated.
+The top-level api_ecosystem package exposes that router. This preserves existing app route registration and import contracts. It does not mean the large API source tree has already been physically moved into this product/domain package. Keep API transport code in the API layer unless a separately tested full-tree migration is performed.
 
-The older backend/bada_business/global_ecosystem/global_bada_business_ecosystem/ package remains as a legacy compatibility provider for the resource catalog until a complete migration and downstream import audit can be performed.
+## Legacy compatibility
 
-## Resource and verification policy
-Existing catalog links and page snapshots are references supplied by the repository owner or captured in the repository. They do not prove current availability, official developer API access, a commercial partnership or a live provider connection. Prices, program dates, event schedules and contact details must be verified with Bada Business before use.
+backend/bada_business/global_ecosystem/global_bada_business_ecosystem/ is now a compatibility facade. Do not add new Bada Business domain modules there.
 
-The official public API and live connection flags remain false unless independently proven.
+backend/api/global_ecosystem/global_api_ecosystem/bada_business_api_ecosystem/ is a compatibility facade for old API resource imports. It must not maintain a second copy of links or program records.
+
+## Verification
+
+The existing links and program snapshots are sourced from repository records and owner-supplied captures. They do not establish current availability, official developer API access, a partnership or a live integration. Check commercial terms and event schedules with Bada Business before relying on them.
