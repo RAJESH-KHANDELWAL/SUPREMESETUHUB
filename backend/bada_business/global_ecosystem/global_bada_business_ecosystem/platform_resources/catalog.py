@@ -1,5 +1,5 @@
-"""Legacy catalog import facade for the canonical nested Bada Business package."""
-from backend.bada_business_ecosystem.global_bada_business_ecosystem.platform_resources.catalog import (
+"""Legacy catalog import facade."""
+from backend.bada_business_ecosystem.platform_resources.catalog import (
     ECOSYSTEM_ID, ECOSYSTEM_NAME, PROVIDER, STATUS,
     OFFICIAL_PUBLIC_API_VERIFIED, LIVE_CONNECTION_VERIFIED,
     PLATFORM_LINKS, PLATFORM_PROFILE, PROGRAMS,
