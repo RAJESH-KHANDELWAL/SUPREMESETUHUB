@@ -1,1 +1,3 @@
-"""tools package for global_server_api_ecosystem."""
+"""SERVER tools API subpackage."""
+from .routes import router
+__all__ = ["router"]
