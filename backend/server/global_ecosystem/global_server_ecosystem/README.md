@@ -30,14 +30,39 @@ services, manager, tools, and tests.
 - `*_server/`: provider-specific SERVER integration packages.
 - `providers/`: provider catalog namespace.
 
-## Provider and operation safety
+## Runtime and provider status
 
-Catalog entries are not live integrations. Provider handlers must be explicitly
-injected. Unconfigured operations fail closed; no cloud action is simulated.
+The SERVER domain reports `NOT_CONFIGURED` when no provider adapters have been
+explicitly registered, and `CONFIGURED` when at least one adapter is registered.
+Neither state claims that a remote provider is reachable or healthy.
+
+Provider catalog entries are not live integrations. Provider handlers must be
+explicitly injected. Unconfigured providers and operations fail closed; no
+cloud action is simulated. A registered handler is not proof of a successful
+external connection: `external_connections` remains `NOT_ATTEMPTED` until a
+real, separately implemented health probe is deliberately invoked.
+
 Runtime registry entries are process-local and are not durable persistence.
 No credentials or external connections are attempted by importing this package.
+Runtime diagnostics describe the local application process only; they do not
+probe the health of a remote server node.
+
+## Operational capability boundary
+
+The capability catalog defines SERVER-owned responsibility areas such as
+provisioning, deployment, networking, monitoring, security, backup and scaling.
+These are routing contracts, not claims that each provider supports every
+operation. Concrete provider handlers must validate operation names, payloads,
+authorization, and provider-specific capabilities before performing changes.
+
+Read-only diagnostics and catalog tools must not invoke mutating operations.
+Credential storage, durable node persistence, remote health probes, provider
+authentication, provisioning and deployment require explicit production
+integrations and configuration.
 
 ## Offline tests
+
+Run from the repository root:
 
 ```bash
 python -m unittest backend.server.global_ecosystem.global_server_ecosystem.test_server backend.server.global_ecosystem.global_server_ecosystem.test_registry backend.server.global_ecosystem.global_server_ecosystem.test_runtime backend.server.global_ecosystem.global_server_ecosystem.test_operations
