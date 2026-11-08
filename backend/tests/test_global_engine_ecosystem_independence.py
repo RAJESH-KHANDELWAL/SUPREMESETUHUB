@@ -35,9 +35,13 @@ def test_engine_packages_do_not_import_sibling_layers():
 def test_engine_catalog_includes_full_provider_hierarchy():
     from backend.engine.global_ecosystem.catalog import PROVIDER_ECOSYSTEMS, get_provider_catalog, get_catalog
     assert len(PROVIDER_ECOSYSTEMS) == 58
-    assert len(get_provider_catalog()) == 58
-    assert len(get_catalog()) == 1 + len(PROVIDER_ECOSYSTEMS) + 22
-    assert all(item["ecosystem_id"].endswith("-ENGINE-ECOSYSTEM") for item in get_provider_catalog())
+    provider_records = get_provider_catalog()
+    assert len(provider_records) == 3382
+    assert sum(item["ecosystem_type"] == "PROVIDER_OR_DOMAIN" for item in provider_records) == 58
+    assert len(get_catalog()) == 1 + 22 + len(provider_records)
+    assert all(item["ecosystem_id"].endswith("-ENGINE-ECOSYSTEM") for item in provider_records)
+    ids = {item["ecosystem_id"] for item in provider_records}
+    assert all(item["parent_id"] == "GLOBAL-ENGINE-ECOSYSTEM" or item["parent_id"] in ids for item in provider_records)
 
 
 def test_all_engine_categories_have_independent_runtime_modules():
