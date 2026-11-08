@@ -1,4 +1,4 @@
-"""ENGINE-owned catalog for the GLOBAL SERVER execution domain."""
+"""ENGINE-owned catalog for GLOBAL SERVER execution units."""
 from .models import EngineDescriptor
 
 PROVIDER = "GLOBAL SERVER"
@@ -16,15 +16,11 @@ CATALOG = (
     ),
 )
 
-
 def list_engines():
-    return [
-        {
-            "engine_id": item.engine_id,
-            "name": item.name,
-            "provider": item.provider,
-            "capabilities": list(item.capabilities),
-            "metadata": dict(item.metadata),
-        }
-        for item in CATALOG
-    ]
+    return [{
+        "engine_id": item.engine_id,
+        "name": item.name,
+        "provider": item.provider,
+        "capabilities": list(item.capabilities),
+        "metadata": dict(item.metadata),
+    } for item in CATALOG]
