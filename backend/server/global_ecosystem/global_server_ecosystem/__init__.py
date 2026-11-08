@@ -14,6 +14,15 @@ from .operation_catalog import ServerCapability, list_capabilities, get_capabili
 from .operations import (ServerOperationService, ServerOperationError,
                          UnknownServerCapability, ServerCapabilityNotConfigured)
 from .abelohost_server import AbelohostServerEcosystem
+from .abelohost_server_ecosystem import AbelohostServerEcosystem as AbelohostServerProvider
+from .aws_server_ecosystem import AWSServerEcosystem
+from .azure_server_ecosystem import AzureServerEcosystem as AzureAdditionalServerEcosystem
+from .cloudflare_server_ecosystem import CloudflareServerEcosystem as CloudflareServerProvider
+from .digitalocean_server_ecosystem import DigitalOceanServerEcosystem
+from .google_server_ecosystem import GoogleServerEcosystem
+from .hostinger_server_ecosystem import HostingerServerEcosystem
+from .microsoft_server_ecosystem import MicrosoftServerEcosystem as MicrosoftServerProvider
+from .vicetemple_server_ecosystem import ViceTempleServerEcosystem as ViceTempleServerProvider
 from .cloudflare_server import CloudflareServerEcosystem
 from .microsoft_server import MicrosoftServerEcosystem
 from .vicetemple_server import ViceTempleServerEcosystem
@@ -27,4 +36,7 @@ __all__ = [
     "get_capability", "ServerOperationService", "ServerOperationError",
     "UnknownServerCapability", "ServerCapabilityNotConfigured", "AbelohostServerEcosystem",
     "CloudflareServerEcosystem", "MicrosoftServerEcosystem", "ViceTempleServerEcosystem",
+    "AbelohostServerProvider", "AWSServerEcosystem", "AzureAdditionalServerEcosystem",
+    "CloudflareServerProvider", "DigitalOceanServerEcosystem", "GoogleServerEcosystem",
+    "HostingerServerEcosystem", "MicrosoftServerProvider", "ViceTempleServerProvider",
 ]
