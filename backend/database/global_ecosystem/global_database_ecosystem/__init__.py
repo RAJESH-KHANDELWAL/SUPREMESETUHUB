@@ -1,5 +1,18 @@
-"""Provider-specific database and data-service ecosystem adapters."""
+"""Independent GLOBAL DATABASE ECOSYSTEM public interface."""
+from .manager import GlobalDatabaseEcosystemManager
+from .models import DatabaseEcosystemDescriptor, DatabaseEcosystemIdentity, DatabaseHealth
+from .ecosystem_registry import DatabaseEcosystemRegistry
+from .registry import GlobalDatabaseEcosystemRegistry as DatabaseProviderRegistry
 
-from .registry import GlobalDatabaseEcosystemRegistry
+__all__ = [
+    "DatabaseEcosystemDescriptor",
+    "DatabaseEcosystemIdentity",
+    "DatabaseEcosystemManager",
+    "DatabaseEcosystemRegistry",
+    "DatabaseHealth",
+    "DatabaseProviderRegistry",
+    "GlobalDatabaseEcosystemManager",
+]
 
-__all__ = ["GlobalDatabaseEcosystemRegistry"]
+
+DatabaseEcosystemManager = GlobalDatabaseEcosystemManager

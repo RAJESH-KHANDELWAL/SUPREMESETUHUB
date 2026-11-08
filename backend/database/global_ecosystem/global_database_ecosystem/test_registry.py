@@ -1,24 +1,35 @@
-"""Tests for provider registry metadata; tests do not require network credentials."""
+"""Unit tests for DATABASE hierarchy and provider registries."""
+import unittest
 
-from .registry import GlobalDatabaseEcosystemRegistry
-
-
-def test_registry_lists_expected_provider_ecosystems():
-    providers = GlobalDatabaseEcosystemRegistry.list_providers()
-    ids = {provider["provider_id"] for provider in providers}
-    assert ids == {"google", "aws", "microsoft", "proton", "mega"}
-    assert all(provider["connection_status"] == "not_configured" for provider in providers)
+from .ecosystem_registry import DatabaseEcosystemRegistry
+from .manager import GlobalDatabaseEcosystemManager
+from .registry import GlobalDatabaseEcosystemRegistry as ProviderRegistry
 
 
-def test_registry_returns_provider_by_id():
-    provider = GlobalDatabaseEcosystemRegistry.get_provider("google")
-    assert provider.describe()["provider_id"] == "google"
+class TestDatabaseRegistries(unittest.TestCase):
+    def test_hierarchy_registry_enforces_parent(self):
+        registry = DatabaseEcosystemRegistry()
+        with self.assertRaises(ValueError):
+            registry.register({"ecosystem_id": "CHILD", "name": "Child", "parent_id": "MISSING"})
+
+    def test_provider_registry_lists_expected_adapters(self):
+        providers = ProviderRegistry.list_providers()
+        ids = {item["provider_id"] for item in providers}
+        self.assertEqual(ids, {"google", "aws", "microsoft", "proton", "mega"})
+        self.assertTrue(all(item["connection_status"] == "not_configured" for item in providers))
+
+    def test_provider_lookup(self):
+        provider = ProviderRegistry.get_provider("google")
+        self.assertEqual(provider.describe()["provider_id"], "google")
+
+    def test_provider_lookup_rejects_unknown(self):
+        with self.assertRaises(KeyError):
+            ProviderRegistry.get_provider("unknown")
+
+    def test_manager_exposes_provider_discovery(self):
+        manager = GlobalDatabaseEcosystemManager()
+        self.assertEqual(len(manager.list_providers()), 5)
 
 
-def test_registry_rejects_unknown_provider():
-    try:
-        GlobalDatabaseEcosystemRegistry.get_provider("unknown")
-    except KeyError:
-        pass
-    else:
-        raise AssertionError("Unknown providers must raise KeyError")
+if __name__ == "__main__":
+    unittest.main()
