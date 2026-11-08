@@ -7,18 +7,20 @@ from copy import deepcopy
 from typing import Any
 
 class GlobalEcosystemManager:
-    ROOT_ID = "GLOBAL-API-ECOSYSTEM"
-    ROOT_NAME = "GLOBAL API ECOSYSTEM"
+    ROOT_ID = "GLOBAL-ECOSYSTEM"
+    ROOT_NAME = "GLOBAL ECOSYSTEM"
     VERSION = "1.0.0"
 
     def __init__(self) -> None:
         # API owns its own category catalog; no runtime import from CORE/ENGINE.
         categories = (
-            ("companies", "GLOBAL COMPANIES API ECOSYSTEM", "global_company_companies_api_ecosystem"),
+            ("people", "GLOBAL PEOPLE ECOSYSTEM", "global_people_ecosystem"),
+            ("business", "GLOBAL BUSINESS ECOSYSTEM", "global_business_ecosystem"),
+            ("companies", "GLOBAL COMPANY AND COMPANIES API ECOSYSTEM", "global_company_companies_api_ecosystem"),
             ("platforms", "GLOBAL PLATFORMS API ECOSYSTEM", "global_platforms_api_ecosystem"),
             ("server", "GLOBAL SERVER API ECOSYSTEM", "global_server_api_ecosystem"),
             ("ai", "GLOBAL AI API ECOSYSTEM", "global_ai_api_ecosystem"),
-            ("software_ai", "GLOBAL SOFTWARE AI API ECOSYSTEM", "global_software_ai_api_ecosystem"),
+            ("software-ai", "GLOBAL SOFTWARE AI ECOSYSTEM", "global_software_ai_ecosystem"),
             ("cloud", "GLOBAL CLOUD API ECOSYSTEM", "global_cloud_api_ecosystem"),
             ("security", "GLOBAL SECURITY API ECOSYSTEM", "global_security_api_ecosystem"),
             ("individual", "GLOBAL INDIVIDUAL API ECOSYSTEM", "global_individual_api_ecosystem"),
