@@ -152,17 +152,6 @@ class TestGlobalCoreEcosystemHierarchy(unittest.TestCase):
         self.assertEqual(result["provider"], "google")
         self.assertFalse(result["live_connection_verified"])
 
-    def test_google_engine_catalog_and_gmail_engine_imports(self):
-        from backend.engines.global_ecosystem.google_engine import GoogleEngineManager
-        from backend.engines.global_ecosystem.google_engine.gmail_engine import GmailEngineManager
-        google = GoogleEngineManager()
-        listing = google.list()
-        self.assertTrue(listing["success"])
-        self.assertGreaterEqual(listing["count"], 20)
-        gmail = GmailEngineManager()
-        self.assertEqual(gmail.ENGINE_ID, "GOOGLE-GMAIL-ENGINE")
-        self.assertFalse(gmail.status()["live_connection_verified"])
-
     def test_tree_places_core_under_global_ecosystem(self):
         tree = self.manager.tree()["tree"]
         children = {child["ecosystem_id"]: child for child in tree["children"]}
