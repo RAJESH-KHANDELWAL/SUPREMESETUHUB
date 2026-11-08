@@ -1,0 +1,27 @@
+name: SERVER Foundation Tests
+
+on:
+  pull_request:
+    paths:
+      - "backend/server/**"
+      - ".github/workflows/test-server-foundation.yml"
+  push:
+    branches:
+      - main
+      - server-five-layer-foundation
+    paths:
+      - "backend/server/**"
+      - ".github/workflows/test-server-foundation.yml"
+
+jobs:
+  server-foundation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run SERVER foundation tests
+        run: python -m unittest backend.server.global_ecosystem.global_server_ecosystem.test_server -v
