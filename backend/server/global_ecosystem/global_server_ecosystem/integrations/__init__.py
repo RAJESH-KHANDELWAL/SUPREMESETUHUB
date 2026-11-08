@@ -1,0 +1,1 @@
+"""Optional SERVER integration composition points; none are auto-enabled."""

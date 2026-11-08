@@ -1,4 +1,1 @@
-"""Lowercase compatibility namespace for the canonical SERVER domain."""
-from backend.SERVER import DomainService
-
-__all__ = ["DomainService"]
+"""Independent SERVER backend layer namespace; no legacy uppercase re-exports."""

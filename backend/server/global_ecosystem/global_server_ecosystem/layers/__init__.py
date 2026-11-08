@@ -1,0 +1,1 @@
+"""SERVER adapter composition namespace; layer code remains separately owned."""
