@@ -59,6 +59,41 @@ the canonical layer-shaped provider namespaces. Provider namespace creation
 does not imply that every provider supports every server service or that a
 live connection/provisioning adapter exists.
 
+## Complete folder map checked against sibling layers
+
+The sibling layer roots were inspected recursively, including provider folders
+and the shared directories. Their actual provider baseline is seven names:
+`abelohost`, `aws`, `cloudflare`, `digitalocean`, `google`,
+`microsoft`, and `vicetemple`.
+
+Their provider-folder contents differ by owning layer:
+- API: one provider-specific `<provider>_server_api_ecosystem.py` file.
+- CORE: `__init__.py` and `.gitkeep`.
+- ENGINE: `__init__.py` and `engine.py`.
+- DATABASE: `__init__.py` and `.gitkeep`.
+- STORAGE: the inspected SERVER STORAGE root currently contains only
+  `README.md`; it has no provider folders to copy.
+
+SERVER has its own provider-layer package entrypoints. Each
+`<provider>_server_server_ecosystem/` contains:
+- `__init__.py`: public SERVER provider namespace
+- `provider.py`: binding to the existing SERVER adapter
+- `server.py`: SERVER-layer entrypoint and provider metadata
+
+The seven-provider baseline is present. Azure and Hostinger are retained as
+additional SERVER catalog providers because they already existed in this
+SERVER domain; they are not part of the seven-provider sibling baseline.
+
+SERVER shared folders were also inspected:
+- `integrations/`: `__init__.py`, `provider_gateway.py`
+- `services/`: `__init__.py`, `runtime_service.py`
+- `tools/`: `__init__.py`, `diagnostics.py`
+- `providers/`: SERVER provider catalog namespace
+
+These SERVER-owned implementations are retained rather than replaced with
+other layers' files. Their folder names follow the sibling layout, while
+their contents remain specific to SERVER responsibilities.
+
 ## SERVER service-type packages
 
 The service taxonomy has dedicated SERVER-owned packages: `vpn_server/`, `vps_server/`, `cloud_server/`, `web_server/`, `cloud_web_server/`, `dedicated_server/`, `edge_server/`, `application_server/`, and `database_server/`. Each package declares its service-type identity and ownership boundary. These are taxonomy/contract namespaces, not claims of live provisioning or hosting.
