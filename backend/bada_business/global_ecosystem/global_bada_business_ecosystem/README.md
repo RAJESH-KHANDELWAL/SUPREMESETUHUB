@@ -1,11 +1,15 @@
 # LEGACY BADA BUSINESS ECOSYSTEM PATH
 
-This package path is retained for backward-compatible imports during the transition to the canonical top-level package:
+This package is retained for backward-compatible imports only.
+
+The canonical product/domain root is now:
 
 backend/bada_business_ecosystem/
 
-New Bada Business product resources should be added to the top-level package. This legacy package continues to provide the original platform resource implementation until the remaining imports and downstream consumers have been migrated and verified.
+The existing platform resource implementation is temporarily kept here to avoid breaking imports while consumers migrate. The top-level package exposes this catalog through its platform_resources module.
 
-The API transport, route registration, business taxonomy, industry registries and integrations remain in backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/. The top-level Bada Business Ecosystem exposes that API package through its api_ecosystem entry point.
+Do not add new Bada Business domain modules here. Add new platform resources, links, programs, courses, products, events, registration definitions and referral metadata under backend/bada_business_ecosystem/.
 
-Existing resource records are user-supplied or repository-captured references; they do not prove current availability, official API access, partnership or live integration.
+The API implementation remains under backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/ and is exposed through backend/bada_business_ecosystem/api_ecosystem/.
+
+Catalog snapshots and provider links are not verified evidence of current availability, official API access, partnership or a live connection.
