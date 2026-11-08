@@ -45,6 +45,11 @@ class ProviderEcosystemStructureTests(unittest.TestCase):
                 self.assertEqual(module.OWNING_DOMAIN, "SERVER")
                 self.assertTrue(module.DISPLAY_NAME)
                 self.assertTrue(callable(module.ADAPTER_CLASS))
+                self.assertEqual(module.LAYER, "SERVER")
+                self.assertEqual(module.PACKAGE_KIND, "PROVIDER_SERVER_ECOSYSTEM")
+                description = module.describe_server_provider()
+                self.assertEqual(description["provider_id"], provider_id)
+                self.assertEqual(description["connection_status"], "NOT_PROBED")
 
     def test_every_provider_has_all_service_family_namespaces(self):
         expected_types = {item["service_type_id"] for item in list_service_types()}
