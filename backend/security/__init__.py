@@ -1,9 +1,16 @@
-"""Security package exports for SUPREMESETUHUB.
+"""Security package public exports."""
 
-Keep authentication dependencies importable while allowing the security
-service facade to live in this package without a module/package name clash.
-"""
-
+from backend.security.connection import SecurityConnection
 from backend.security.dependencies import get_current_user, require_admin
+from backend.security.model import SecurityCheck, SecurityHealth, SecurityInfo
+from backend.security.service import SecurityService
 
-__all__ = ["get_current_user", "require_admin"]
+__all__ = [
+    "SecurityConnection",
+    "SecurityCheck",
+    "SecurityHealth",
+    "SecurityInfo",
+    "SecurityService",
+    "get_current_user",
+    "require_admin",
+]
