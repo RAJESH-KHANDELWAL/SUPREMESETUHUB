@@ -48,7 +48,6 @@ from backend.api.global_ai_ecosystem import router as global_ai_ecosystem_router
 from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem.relationship_intimacy_routes import router as global_intimacy_ecosystem_router, relationship_router as global_relationship_and_intimacy_ecosystem_router
 from backend.api.global_api_ecosystem_routes import router as global_api_ecosystem_router
 from backend.api.global_ecosystem.global_api_ecosystem.global_people_life_api_ecosystem import router as global_people_life_api_router
-from backend.api.global_ecosystem.global_api_ecosystem.global_world_api_ecosystem import router as global_world_api_router
 from backend.api.global_subsystem_ecosystem import router as global_subsystem_ecosystem_router
 from backend.api.global_business_ecosystem import router as global_business_ecosystem_router
 from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem import router as global_bada_business_api_router
@@ -214,11 +213,7 @@ PUBLIC_API_PATHS = {
 async def private_by_default(request: Request, call_next):
     path = request.url.path
 
-    is_public_global_world_catalog = (
-        path == "/api/v1/global-world"
-        or path.startswith("/api/v1/global-world/")
-    )
-    if request.method == "OPTIONS" or path in PUBLIC_API_PATHS or is_public_global_world_catalog or path == "/":
+    if request.method == "OPTIONS" or path in PUBLIC_API_PATHS or path == "/":
         return await call_next(request)
 
     authorization = request.headers.get("Authorization", "")
@@ -419,7 +414,6 @@ app.include_router(global_relationship_and_intimacy_ecosystem_router)
 app.include_router(global_ai_ecosystem_router)
 app.include_router(global_api_ecosystem_router)
 app.include_router(global_people_life_api_router)
-app.include_router(global_world_api_router)
 app.include_router(global_subsystem_ecosystem_router)
 app.include_router(global_business_ecosystem_router)
 app.include_router(global_bada_business_api_router)
