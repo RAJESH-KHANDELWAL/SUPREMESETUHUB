@@ -1,8 +1,4 @@
-"""Name-matching module for the tools package."""
-
+"""Compatibility facade for SERVER API tools catalog."""
+from .service import list_entries
 FOLDER_NAME = "tools"
-
-
-def list_entries() -> list[dict[str, str]]:
-    """Return configured tools entries; none are registered yet."""
-    return []
+__all__ = ["FOLDER_NAME", "list_entries"]
