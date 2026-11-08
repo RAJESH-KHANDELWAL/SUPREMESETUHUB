@@ -1,10 +1,12 @@
 """Provider adapter boundary owned by GLOBAL SERVER.
 
-A provider is operational only when an explicit callable handler is injected.
-No network calls, credentials, or simulated infrastructure actions are used.
+An injected handler means execution is configured; it does not prove that an
+external provider account is reachable. Health remains unprobed unless a
+provider-specific adapter performs an explicit real health check.
 """
 from __future__ import annotations
 from typing import Any, Callable
+
 
 class ServerProviderAdapter:
     provider_id = "unknown"
@@ -15,16 +17,22 @@ class ServerProviderAdapter:
         self._handler = handler
 
     def describe(self) -> dict[str, Any]:
+        configured = callable(self._handler)
         return {
             "provider_id": self.provider_id,
             "display_name": self.display_name,
             "capabilities": list(self.capabilities),
-            "connection_status": "configured" if callable(self._handler) else "not_configured",
-            "execution_enabled": callable(self._handler),
+            "connection_status": "CONFIGURED_NOT_PROBED" if configured else "NOT_CONFIGURED",
+            "execution_enabled": configured,
         }
 
     def health(self) -> dict[str, Any]:
-        return {**self.describe(), "status": "READY" if callable(self._handler) else "NOT_CONFIGURED"}
+        configured = callable(self._handler)
+        return {
+            **self.describe(),
+            "status": "NOT_PROBED" if configured else "NOT_CONFIGURED",
+            "external_connection": "NOT_ATTEMPTED",
+        }
 
     def execute(self, operation: str, payload: dict[str, Any] | None = None):
         name = str(operation or "").strip()
@@ -36,3 +44,6 @@ class ServerProviderAdapter:
         if result is not None and not isinstance(result, dict):
             raise TypeError("provider handler must return a dict or None")
         return dict(result or {})
+
+
+__all__ = ["ServerProviderAdapter"]
