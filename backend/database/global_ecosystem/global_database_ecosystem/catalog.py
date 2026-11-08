@@ -61,7 +61,7 @@ def _category_records() -> list[dict[str, Any]]:
 
 
 def _provider_records() -> list[dict[str, Any]]:
-    base = Path(__file__).resolve().parent / "global_database_ecosystem"
+    base = Path(__file__).resolve().parent
     records = []
     for provider in PROVIDER_IDS:
         folder = base / f"{provider}_database_ecosystem"
