@@ -2,12 +2,13 @@
 from __future__ import annotations
 
 from typing import Any
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, Field
 
 
 class ServerInventoryCreate(BaseModel):
     """Request model for registering an existing server resource as metadata."""
-    model_config = ConfigDict(extra="forbid")
+    class Config:
+        extra = "forbid"
     server_id: str = Field(min_length=1, max_length=128)
     server_name: str = Field(min_length=1, max_length=200)
     provider_id: str = Field(min_length=1, max_length=80)
