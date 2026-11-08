@@ -1,6 +1,9 @@
-"""AWS server integration scaffold; no live connection is configured."""
-class AWSServerEcosystem:
- provider_id="aws"
- display_name="AWS Compute"
- capabilities=("cloud-server-management",)
- def describe(self): return {"provider_id":self.provider_id,"display_name":self.display_name,"capabilities":list(self.capabilities),"connection_status":"not_configured"}
+"""Amazon Web Services SERVER provider adapter; remote execution requires injection."""
+from ..provider_base import ServerProviderAdapter
+
+class AWSServerEcosystem(ServerProviderAdapter):
+    provider_id = "aws"
+    display_name = "Amazon Web Services"
+    capabilities = ("cloud-server-management", "server-lifecycle")
+
+__all__ = ["AWSServerEcosystem"]
