@@ -66,7 +66,8 @@ def get_category_catalog() -> list[dict[str, Any]]:
 {providerList}
 
 def _slug(value: str) -> str:
-    value = value.removesuffix("_engine_ecosystem")
+    # Preserve nested package suffixes: a plain namespace and a nested
+    # *_engine_ecosystem package can coexist as distinct directories.
     return re.sub(r"[^A-Z0-9]+", "-", value.upper()).strip("-")
 
 def _provider_id(provider: str, parts: tuple[str, ...] = ()) -> str:
