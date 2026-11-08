@@ -1,10 +1,9 @@
 """DigitalOcean provider adapter binding for GLOBAL SERVER.
 
-This namespace follows the provider/layer package convention used by
-API, CORE, ENGINE and DATABASE. It reuses the existing SERVER adapter and
-does not claim a live connection or provider-specific service capability.
+This namespace mirrors sibling layer package naming and reuses the
+existing provider adapter. It does not claim live connectivity.
 """
-from ..digitalocean_server import DigitalOceanServerEcosystem
+from ..digitalocean_server_ecosystem import DigitalOceanServerEcosystem
 
 PROVIDER_ID = "digitalocean"
 DISPLAY_NAME = "DigitalOcean"
