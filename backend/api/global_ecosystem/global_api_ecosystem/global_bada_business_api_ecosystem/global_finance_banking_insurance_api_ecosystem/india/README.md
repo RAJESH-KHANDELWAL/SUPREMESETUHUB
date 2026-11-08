@@ -1,0 +1,2 @@
+# India Directory
+India-specific categories and providers. Capture applicable RBI, SEBI, IRDAI, PFRDA, IFSCA, FIU-IND and other relevant registrations only where applicable; verify current rules and licences before publication.

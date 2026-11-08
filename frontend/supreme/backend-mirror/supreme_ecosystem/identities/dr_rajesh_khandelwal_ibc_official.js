@@ -1,0 +1,10 @@
+"use strict";
+window.SUPREME_IDENTITY_MIRROR = {
+  "slug": "dr_rajesh_khandelwal_ibc_official",
+  "display_name": "👑 DR RAJESH KHANDELWAL IBC OFFICIAL 👑",
+  "username": "DRRAJESHKHANDELWALIBCOFFICIAL",
+  "scope": "SUPREME",
+  "status": "REGISTERED_METADATA",
+  "tagline": "🌍 GLOBAL BUSINESS COACH | 💼 BUSINESS ADVISOR",
+  "mirrored_backend_variant": "ecosystem-identities"
+};

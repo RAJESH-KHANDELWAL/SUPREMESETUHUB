@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Browse Big Businesses, shops, products, videos and shorts in the SUPREMESETUHUB ecosystem.">
+<title>BIG BUSINESSES | SUPREMESETUHUB</title>
+<style>
+:root{color-scheme:dark;--bg:#071426;--panel:#10233c;--line:#28415f;--gold:#f4c96b;--muted:#b9c8dc;--text:#f7f9fc}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#17355a 0,#071426 55%);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+header{padding:42px 20px 28px;text-align:center;border-bottom:1px solid var(--line)}.brand{color:var(--gold);font-size:clamp(1.8rem,5vw,3.2rem);font-weight:850;letter-spacing:.03em;margin:0}.sub{color:var(--muted);margin:8px auto 0;max-width:760px}
+main{max-width:1200px;margin:auto;padding:24px 18px 60px}.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}.toolbar input{flex:1;min-width:220px}.toolbar input,.toolbar select{background:#0d1c30;color:var(--text);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}.filter{border:1px solid var(--line);background:#0d1c30;color:var(--text);border-radius:999px;padding:9px 14px;cursor:pointer}.filter[aria-pressed=true]{background:var(--gold);color:#152137;border-color:var(--gold);font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:18px}.card{background:linear-gradient(160deg,#142b48,#0c1a2c);border:1px solid var(--line);border-radius:18px;overflow:hidden;min-width:0;transition:transform .18s,border-color .18s}.card:hover{transform:translateY(-3px);border-color:var(--gold)}.thumb{aspect-ratio:16/10;background:#091525;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}.thumb img,.thumb video,.thumb iframe{width:100%;height:100%;object-fit:cover;border:0}.placeholder{font-size:3rem;color:var(--gold)}.kind{position:absolute;left:10px;top:10px;background:#06101ddc;border:1px solid #536984;border-radius:999px;padding:4px 9px;font-size:.75rem}.body{padding:15px}.body h2{font-size:1.05rem;margin:0 0 6px}.body p{color:var(--muted);font-size:.9rem;margin:0 0 14px;min-height:2.7em}.open{display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:var(--gold);color:#152137;font-weight:750;padding:10px 13px;border-radius:10px}.empty{padding:34px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:16px;grid-column:1/-1}.foot{text-align:center;color:var(--muted);font-size:.85rem;padding:28px 12px;border-top:1px solid var(--line)}
+@media(max-width:520px){header{padding-top:30px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.body{padding:11px}.body p{font-size:.82rem}.open{font-size:.85rem;padding:9px}.toolbar input{min-width:100%}}
+</style>
+</head>
+<body>
+<header><p class="brand">👑 BIG BUSINESSES 👑</p><p class="sub">Explore shops, products, business links, videos and shorts — all in one place.</p></header>
+<main>
+<div class="toolbar"><input id="search" type="search" placeholder="Search shops, products, videos…" aria-label="Search listings"><select id="sort" aria-label="Sort listings"><option value="featured">Featured first</option><option value="name">Name A–Z</option></select></div>
+<nav class="filters" id="filters" aria-label="Filter by category"></nav>
+<section class="grid" id="grid" aria-live="polite"></section>
+</main>
+<footer class="foot">SUPREMESETUHUB · BIG BUSINESSES · External links open in a new tab.</footer>
+<script>
+/* Add approved destination links here. Each entry supports:
+   title, url, category (Shop/Product/Video/Shorts/Website), description,
+   image (optional direct image URL), type ("youtube" for YouTube previews),
+   featured (true/false). Unknown external sites use a safe fallback card.
+*/
+const LISTINGS = [
+  // Your business/shop/video links will be added here once supplied.
+];
+const CATEGORIES = ["All","Shop","Product","Video","Shorts","Website"];
+const $ = (id) => document.getElementById(id);
+let active = "All";
+function safeUrl(raw){try{const u=new URL(raw);return ["https:","http:"].includes(u.protocol)?u:null}catch{return null}}
+function youtubeId(url){try{const u=new URL(url);if(u.hostname.endsWith("youtu.be"))return u.pathname.slice(1);if(u.hostname.includes("youtube.com"))return u.searchParams.get("v")||u.pathname.match(/\/(?:shorts|embed)\/([^/?]+)/)?.[1]||null}catch{}return null}
+function preview(item){
+  if(item.image && safeUrl(item.image))return '<img loading="lazy" src="'+escapeHtml(item.image)+'" alt="">';
+  const id=youtubeId(item.url);
+  if(id)return '<img loading="lazy" src="https://img.youtube.com/vi/'+encodeURIComponent(id)+'/hqdefault.jpg" alt="Video thumbnail">';
+  return '<span class="placeholder" aria-hidden="true">'+(item.category==="Shorts"?"▶":item.category==="Video"?"▻":item.category==="Shop"||item.category==="Product"?"🛍":"↗")+'</span>';
+}
+function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function renderFilters(){ $("filters").innerHTML=CATEGORIES.map(c=>'<button class="filter" type="button" data-category="'+c+'" aria-pressed="'+(active===c)+'">'+c+'</button>').join("");}
+function render(){
+ const q=$("search").value.trim().toLowerCase();let items=LISTINGS.filter(x=>active==="All"||x.category===active).filter(x=>(x.title+" "+x.description+" "+x.category).toLowerCase().includes(q));
+ if($("sort").value==="name")items.sort((a,b)=>a.title.localeCompare(b.title));else items.sort((a,b)=>Number(!!b.featured)-Number(!!a.featured));
+ $("grid").innerHTML=items.length?items.map(x=>{const u=safeUrl(x.url);if(!u)return "";return '<article class="card"><div class="thumb">'+preview(x)+'<span class="kind">'+escapeHtml(x.category||"Website")+'</span></div><div class="body"><h2>'+escapeHtml(x.title)+'</h2><p>'+escapeHtml(x.description||"Open the original page to view full details.")+'</p><a class="open" href="'+escapeHtml(u.href)+'" target="_blank" rel="noopener noreferrer">Open full page ↗</a></div></article>'}).join(""):'<div class="empty">No links added yet. Once the business links are configured, they will appear here as browseable cards.</div>';
+}
+$("filters").addEventListener("click",e=>{const b=e.target.closest("[data-category]");if(b){active=b.dataset.category;renderFilters();render()}});
+$("search").addEventListener("input",render);$("sort").addEventListener("change",render);renderFilters();render();
+</script>
+</body>
+</html>

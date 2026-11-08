@@ -1,0 +1,10 @@
+"""IBM NS1 Connect domain ecosystem reference; no live adapter is implied."""
+
+PROVIDER_ID = "ns1"
+PROVIDER_NAME = "IBM NS1 Connect"
+CATEGORY_NAME = "GLOBAL DOMAIN API ECOSYSTEM"
+CAPABILITY_SCOPE = "DNS traffic steering API"
+OFFICIAL_DOCUMENTATION_URL = "https://ns1.com/api"
+IMPLEMENTATION_STATUS = "REFERENCE_ONLY"
+OFFICIAL_API_VERIFIED = False
+LIVE_CONNECTION_VERIFIED = False

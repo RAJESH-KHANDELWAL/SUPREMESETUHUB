@@ -1,0 +1,88 @@
+{
+  "title": "SUPREME backend-to-frontend identity audit",
+  "primary_identity_count": 4,
+  "primary_identities": [
+    {
+      "slug": "rajesh_khandelwal",
+      "display_name": "👑 RAJESH KHANDELWAL 👑",
+      "username": "RAJESHKHANDELWAL",
+      "backend_source_files": [
+        "backend/supreme/rajesh_khandelwal.py",
+        "backend/supreme/rajesh_khandelwal.php",
+        "backend/supreme/rajesh_khandelwal/identity.py",
+        "backend/supreme/rajesh_khandelwal/identity.php",
+        "backend/supreme/identities/rajesh_khandelwal/identity.py",
+        "backend/supreme/identities/rajesh_khandelwal/identity.php",
+        "backend/supreme/supreme_ecosystem/rajesh_khandelwal.py",
+        "backend/supreme/supreme_ecosystem/rajesh_khandelwal.php",
+        "backend/supreme/supreme_ecosystem/rajesh_khandelwal/identity.py",
+        "backend/supreme/supreme_ecosystem/rajesh_khandelwal/identity.php",
+        "backend/supreme/supreme_ecosystem/identities/rajesh_khandelwal/identity.py",
+        "backend/supreme/supreme_ecosystem/identities/rajesh_khandelwal/identity.php"
+      ]
+    },
+    {
+      "slug": "rajesh_khandelwal_official",
+      "display_name": "👑 RAJESH KHANDELWAL OFFICIAL 👑",
+      "username": "RAJESHKHANDELWALOFFICIAL",
+      "backend_source_files": [
+        "backend/supreme/rajesh_khandelwal_official.py",
+        "backend/supreme/rajesh_khandelwal_official.php",
+        "backend/supreme/rajesh_khandelwal_official/identity.py",
+        "backend/supreme/rajesh_khandelwal_official/identity.php",
+        "backend/supreme/identities/rajesh_khandelwal_official/identity.py",
+        "backend/supreme/identities/rajesh_khandelwal_official/identity.php",
+        "backend/supreme/supreme_ecosystem/rajesh_khandelwal_official.py",
+        "backend/supreme/supreme_ecosystem/rajesh_khandelwal_official.php",
+        "backend/supreme/supreme_ecosystem/rajesh_khandelwal_official/identity.py",
+        "backend/supreme/supreme_ecosystem/rajesh_khandelwal_official/identity.php",
+        "backend/supreme/supreme_ecosystem/identities/rajesh_khandelwal_official/identity.py",
+        "backend/supreme/supreme_ecosystem/identities/rajesh_khandelwal_official/identity.php"
+      ]
+    },
+    {
+      "slug": "dr_rajesh_khandelwal_ibc",
+      "display_name": "👑 DR RAJESH KHANDELWAL IBC 👑",
+      "username": "DRRAJESHKHANDELWALIBC",
+      "backend_source_files": [
+        "backend/supreme/dr_rajesh_khandelwal_ibc.py",
+        "backend/supreme/dr_rajesh_khandelwal_ibc.php",
+        "backend/supreme/dr_rajesh_khandelwal_ibc/identity.py",
+        "backend/supreme/dr_rajesh_khandelwal_ibc/identity.php",
+        "backend/supreme/identities/dr_rajesh_khandelwal_ibc/identity.py",
+        "backend/supreme/identities/dr_rajesh_khandelwal_ibc/identity.php",
+        "backend/supreme/supreme_ecosystem/dr_rajesh_khandelwal_ibc.py",
+        "backend/supreme/supreme_ecosystem/dr_rajesh_khandelwal_ibc.php",
+        "backend/supreme/supreme_ecosystem/dr_rajesh_khandelwal_ibc/identity.py",
+        "backend/supreme/supreme_ecosystem/dr_rajesh_khandelwal_ibc/identity.php",
+        "backend/supreme/supreme_ecosystem/identities/dr_rajesh_khandelwal_ibc/identity.py",
+        "backend/supreme/supreme_ecosystem/identities/dr_rajesh_khandelwal_ibc/identity.php"
+      ]
+    },
+    {
+      "slug": "dr_rajesh_khandelwal_ibc_official",
+      "display_name": "👑 DR RAJESH KHANDELWAL IBC OFFICIAL 👑",
+      "username": "DRRAJESHKANDELWALIBCOFFICIAL",
+      "backend_source_files": [
+        "backend/supreme/dr_rajesh_khandelwal_ibc_official.py",
+        "backend/supreme/dr_rajesh_khandelwal_ibc_official.php",
+        "backend/supreme/dr_rajesh_khandelwal_ibc_official/identity.py",
+        "backend/supreme/dr_rajesh_khandelwal_ibc_official/identity.php",
+        "backend/supreme/identities/dr_rajesh_khandelwal_ibc_official/identity.py",
+        "backend/supreme/identities/dr_rajesh_khandelwal_ibc_official/identity.php",
+        "backend/supreme/supreme_ecosystem/dr_rajesh_khandelwal_ibc_official.py",
+        "backend/supreme/supreme_ecosystem/dr_rajesh_khandelwal_ibc_official.php",
+        "backend/supreme/supreme_ecosystem/dr_rajesh_khandelwal_ibc_official/identity.py",
+        "backend/supreme/supreme_ecosystem/dr_rajesh_khandelwal_ibc_official/identity.php",
+        "backend/supreme/supreme_ecosystem/identities/dr_rajesh_khandelwal_ibc_official/identity.py",
+        "backend/supreme/supreme_ecosystem/identities/dr_rajesh_khandelwal_ibc_official/identity.php"
+      ]
+    }
+  ],
+  "important_findings": [
+    "Backend identity metadata exists in multiple parallel locations: top-level backend/supreme, backend/supreme/identities, backend/supreme/supreme_ecosystem and backend/supreme/supreme_ecosystem/identities.",
+    "Top-level files carry richer internal registry IDs, while backend/supreme/identities/<name>/identity.py files only carry display name, username, scope, status and tagline. These are not identical schemas.",
+    "backend/supreme/identities/rajesh_khandelwal_personal is a separate additional personal-brand variant, not one of the four primary identities.",
+    "Browser frontend cannot execute Python or PHP files. This mirror uses browser-safe JS/JSON; original backend code remains server-side."
+  ]
+}

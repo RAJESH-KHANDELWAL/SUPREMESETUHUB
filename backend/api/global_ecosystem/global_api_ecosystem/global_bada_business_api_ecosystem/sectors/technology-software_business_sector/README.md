@@ -1,0 +1,28 @@
+# Technology, Software & IT Services
+
+- **Sector ID:** `technology-software`
+- **Business models:** online, hybrid
+- **Classification:** Global business sector taxonomy
+
+## Included business types
+- SaaS
+- software development
+- IT consulting
+- managed services
+- cybersecurity
+- AI and machine learning
+- data services
+- cloud computing
+- enterprise software
+- developer tools
+
+## Planned ecosystem modules
+- Business type and sub-sector registry
+- Country and region coverage
+- Offline, online, and hybrid business profiles
+- Verified company and local-business listings
+- Relevant service-provider and platform integrations
+- Sector-specific API schemas, routes, and validation
+
+## Implementation status
+This folder is a taxonomy scaffold. Business listings, external data sources, verification workflows, and live API integrations must be added and tested separately.
