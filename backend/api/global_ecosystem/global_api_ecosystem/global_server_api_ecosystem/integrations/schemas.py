@@ -1,8 +1,14 @@
-"""Schemas for integrations in global_server_api_ecosystem."""
+"""Schemas for SERVER cross-layer integration metadata."""
 from pydantic import BaseModel
 
-
-class EcosystemEntry(BaseModel):
+class ServerIntegrationEntry(BaseModel):
+    integration_id: str
     name: str
-    description: str = ""
-    status: str = "planned"
+    status: str
+    direction: str
+    purpose: str
+
+class ServerIntegrationCatalog(BaseModel):
+    success: bool
+    count: int
+    integrations: list[ServerIntegrationEntry]
