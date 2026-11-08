@@ -1,6 +1,7 @@
-"""GLOBAL SERVER ECOSYSTEM provider and service-type catalogs."""
-
-from .registry import (
+"""Compatibility imports for the canonical SERVER ecosystem."""
+from backend.SERVER.GLOBAL_ECOSYSTEM.GLOBAL_SERVER_ECOSYSTEM import (
+    EcosystemService,
+    ServerRegistrationRegistry,
     get_provider,
     get_service_type,
     list_providers,
@@ -8,6 +9,8 @@ from .registry import (
 )
 
 __all__ = [
+    "EcosystemService",
+    "ServerRegistrationRegistry",
     "list_providers",
     "get_provider",
     "list_service_types",
