@@ -45,7 +45,7 @@ def test_all_58_provider_roots_have_independent_engine_modules():
             assert (engine_root / filename).is_file(), f"Missing {filename}: {engine_root}"
 
 def test_engine_ecosystem_source_has_no_api_or_core_imports():
-    pattern = re.compile(r"^\\s*(?:from|import)\\s+backend\\.(?:api|core)(?:\\.|\\s|$)", re.MULTILINE)
+    pattern = re.compile(r"^\s*(?:from|import)\s+backend\.(?:api|core)(?:\.|\s|$)", re.MULTILINE)
     for source in (BACKEND / "engine" / "global_ecosystem").rglob("*.py"):
         if pattern.search(source.read_text(encoding="utf-8")):
             raise AssertionError(f"Cross-layer import found in {source}")
