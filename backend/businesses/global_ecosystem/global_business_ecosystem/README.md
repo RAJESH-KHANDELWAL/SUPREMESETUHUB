@@ -1,28 +1,56 @@
-# Global Business Ecosystem
+# Global Business Ecosystem — Intelligence Layer
 
-Canonical public package boundary for the general-purpose Global Business Ecosystem.
+A general-purpose, India-first and global-ready Business domain intelligence
+package. It extends the established Business domain; it does not create a
+parallel record store or duplicate the existing API.
 
-## Scope
-- General business discovery, classification, lifecycle and operating-model concepts.
-- Business records and services that are not specific to the Bada Business product.
-- India-first and global-ready domain boundaries.
+## Capabilities
 
-## Existing implementation and compatibility
+- **Business profile intelligence:** explainable completeness and documentation
+  signals based on supplied profile fields.
+- **Readiness scoring:** deterministic documentation-readiness indicator with
+  maturity bands and transparent assumptions.
+- **Risk signals:** missing profile fields, incomplete compliance evidence,
+  declared non-compliance, and missing platform verification.
+- **Action planning:** prioritized operational follow-up tasks derived from
+  assessment signals.
+- **Portfolio comparison:** compare profile-documentation readiness without
+  claiming market ranking, profitability, creditworthiness or viability.
+- **Provider boundary:** typed provider contract and explicit registry for
+  optional future AI/market-data adapters. No provider is enabled by default.
 
-The established domain implementation remains in the existing modules:
-- `backend/businesses/model.py`
-- `backend/businesses/controller.py`
-- `backend/businesses/service.py`
-- `backend/businesses/connection.py`
+## Architecture and ownership
 
-This package exports `Business`, `BusinessController` and `BusinessService` as the canonical ecosystem import surface. The established modules remain the implementation source during incremental migration; logic is not copied.
+- Existing domain model: `backend/businesses/model.py`
+- Existing persistence/service: `backend/businesses/service.py` and
+  `backend/businesses/connection.py`
+- Existing authenticated API and owner checks:
+  `backend/api/businesses.py`
+- Shared persistence remains the `business_profiles` table through
+  `backend.database.service.DatabaseService`.
+- This package owns intelligence orchestration only. It does not own API
+  transport, CORE orchestration, ENGINE execution, DATABASE, STORAGE, SECURITY
+  or SERVER infrastructure.
 
-Business records are stored in the dedicated `business_profiles` table through the shared `backend.database.service.DatabaseService`. The legacy generic `business` table is not repurposed or overwritten.
+## Current API surface
 
-## Boundaries
-- This package is distinct from Company, Corporate Group, Platform and Person/Freelancer records.
-- Bada Business-specific functionality belongs under `backend/bada_business/global_ecosystem/global_bada_business_ecosystem/`.
-- Existing API routes under `backend/api/businesses.py` remain available for backward compatibility.
-- Do not duplicate registries or claim live provider/government integrations without verified sources.
+Import `GlobalBusinessEcosystemService` from this package and call:
+- `health()`
+- `assess(business_id)`
+- `action_plan(business_id)`
+- `compare(business_ids)`
+- `provider_capabilities()`
 
-The package is now connected to the existing Business domain, but API route relocation and further service decomposition remain incremental tasks requiring dedicated tests.
+Callers must enforce the existing business ownership/authorization checks
+before exposing any assessment or comparison results.
+
+## Scoring and limitations
+
+The readiness score is a deterministic profile-documentation heuristic, not
+an AI model prediction. It does not assess financial health, legal compliance,
+creditworthiness, fraud, business success, or investment suitability.
+All user-supplied data is treated as unverified. No external registry,
+government, credit bureau, LLM or live market source is queried.
+
+External adapters must be independently implemented, security-reviewed,
+credential-managed and tested before they are registered as enabled/live.
