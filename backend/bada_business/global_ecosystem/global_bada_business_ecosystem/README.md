@@ -1,11 +1,15 @@
-# LEGACY BADA BUSINESS ECOSYSTEM PATH
+# LEGACY BADA BUSINESS GLOBAL ECOSYSTEM PATH
 
-This path is retained only as a backward-compatible import facade.
+This directory is a compatibility facade only.
 
-The canonical Bada Business product ecosystem and its complete platform resource implementation now live under:
+The canonical Bada Business product/resource ecosystem is:
+`backend/bada_business_ecosystem/global_ecosystem/`
 
-backend/bada_business_ecosystem/
+Maintain provider profiles, platform links, referral destinations and program
+metadata only in that canonical package.
 
-The platform links, referral destinations, programs, courses, products, events and registration resource definitions must be maintained only in that canonical package.
+The HTTP API router, schemas, routes, taxonomy and integrations remain in the
+separate API layer:
+`backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`
 
-The broader HTTP API router, schemas, taxonomy and industry-specific API implementation currently remain under backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/. The top-level Bada Business package exposes that router through api_ecosystem; API transport code is not duplicated here.
+No API transport code is duplicated here.
