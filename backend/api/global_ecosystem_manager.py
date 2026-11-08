@@ -12,18 +12,42 @@ class GlobalEcosystemManager:
     VERSION = "1.0.0"
 
     def __init__(self) -> None:
-        from backend.api.global_ecosystem.global_api_ecosystem import CATEGORY_ECOSYSTEMS
+        # API owns its own category catalog; no runtime import from CORE/ENGINE.
+        categories = (
+            ("companies", "GLOBAL COMPANIES API ECOSYSTEM", "global_company_companies_api_ecosystem"),
+            ("platforms", "GLOBAL PLATFORMS API ECOSYSTEM", "global_platforms_api_ecosystem"),
+            ("server", "GLOBAL SERVER API ECOSYSTEM", "global_server_api_ecosystem"),
+            ("ai", "GLOBAL AI API ECOSYSTEM", "global_ai_api_ecosystem"),
+            ("software_ai", "GLOBAL SOFTWARE AI API ECOSYSTEM", "global_software_ai_api_ecosystem"),
+            ("cloud", "GLOBAL CLOUD API ECOSYSTEM", "global_cloud_api_ecosystem"),
+            ("security", "GLOBAL SECURITY API ECOSYSTEM", "global_security_api_ecosystem"),
+            ("individual", "GLOBAL INDIVIDUAL API ECOSYSTEM", "global_individual_api_ecosystem"),
+            ("developer", "GLOBAL DEVELOPER API ECOSYSTEM", "global_developer_api_ecosystem"),
+            ("communication", "GLOBAL COMMUNICATION API ECOSYSTEM", "global_communication_api_ecosystem"),
+            ("language", "GLOBAL LANGUAGE API ECOSYSTEM", "global_language_api_ecosystem"),
+            ("video", "GLOBAL VIDEO API ECOSYSTEM", "global_video_api_ecosystem"),
+            ("payment", "GLOBAL PAYMENT API ECOSYSTEM", "global_payment_api_ecosystem"),
+            ("storage", "GLOBAL STORAGE API ECOSYSTEM", "global_storage_api_ecosystem"),
+            ("system", "GLOBAL SYSTEM API ECOSYSTEM", "global_system_api_ecosystem"),
+            ("hosting", "GLOBAL HOSTING API ECOSYSTEM", "global_hosting_api_ecosystem"),
+            ("intimacy", "GLOBAL RELATIONSHIP AND INTIMACY ECOSYSTEM", "global_relationship_and_intimacy_ecosystem"),
+            ("domain", "GLOBAL DOMAIN API ECOSYSTEM", "global_domain_api_ecosystem"),
+            ("web", "GLOBAL WEB API ECOSYSTEM", "global_web_api_ecosystem"),
+            ("social-media", "GLOBAL SOCIAL MEDIA API ECOSYSTEM", "global_social_media_api_ecosystem"),
+            ("freelancer", "GLOBAL FREELANCER API ECOSYSTEM", "global_freelancer_api_ecosystem"),
+            ("database", "GLOBAL DATABASE API ECOSYSTEM", "global_database_api_ecosystem"),
+        )
         self._records: dict[str, dict[str, Any]] = {
             self.ROOT_ID: {"ecosystem_id": self.ROOT_ID, "name": self.ROOT_NAME,
                 "ecosystem_type": "API_ROOT", "parent_id": None, "capabilities": ["API_CATALOG", "API_DISCOVERY"]}
         }
-        for item in CATEGORY_ECOSYSTEMS:
-            key = str(item["id"]).upper().replace("-", "_")
+        for category_id, category_name, folder in categories:
+            key = category_id.upper().replace("-", "_")
             ecosystem_id = f"GLOBAL-{key}-API-ECOSYSTEM"
             self._records[ecosystem_id] = {
-                "ecosystem_id": ecosystem_id, "name": item["name"],
+                "ecosystem_id": ecosystem_id, "name": category_name,
                 "ecosystem_type": "API_CATEGORY", "parent_id": self.ROOT_ID,
-                "capabilities": ["API_DISCOVERY"], "metadata": {"folder": item.get("folder")}
+                "capabilities": ["API_DISCOVERY"], "metadata": {"folder": folder}
             }
 
     def status(self) -> dict[str, Any]:
