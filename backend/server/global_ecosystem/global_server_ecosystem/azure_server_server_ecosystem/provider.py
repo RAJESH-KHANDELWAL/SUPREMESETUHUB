@@ -1,14 +1,13 @@
 """Microsoft Azure provider adapter binding for GLOBAL SERVER.
 
-This namespace follows the provider/layer package convention used by
-API, CORE, ENGINE and DATABASE. It reuses the existing SERVER adapter and
-does not claim a live connection or provider-specific service capability.
+This namespace mirrors sibling layer package naming and reuses the
+existing provider adapter. It does not claim live connectivity.
 """
-from ..azure_server import AzureAdditionalServerEcosystem
+from ..azure_server_ecosystem import AzureServerEcosystem
 
 PROVIDER_ID = "azure"
 DISPLAY_NAME = "Microsoft Azure"
 OWNING_DOMAIN = "SERVER"
-ADAPTER_CLASS = AzureAdditionalServerEcosystem
+ADAPTER_CLASS = AzureServerEcosystem
 
 __all__ = ["PROVIDER_ID", "DISPLAY_NAME", "OWNING_DOMAIN", "ADAPTER_CLASS"]
