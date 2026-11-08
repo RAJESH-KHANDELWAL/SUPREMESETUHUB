@@ -10,7 +10,7 @@ The maintained India + Global Bada Business API taxonomy implementation currentl
 
 `backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`
 
-The top-level Bada Business product/domain package is:
+The sole canonical Bada Business product/domain package is:
 
 `backend/bada_business_ecosystem/`
 
@@ -63,14 +63,14 @@ These packages are related, but they are not duplicate taxonomies:
 | LINKSETU business experience | `backend/platform/linksetu/business/` | LINKSETU-specific business presence |
 | SUPREME business-system status/connection registry | `backend/supreme/supreme_ecosystem/supreme_business_ecosystem/` | System status and connection metadata, not business profiles |
 | Bada Business product/domain root | `backend/bada_business_ecosystem/` | Provider-specific links, programs, courses, products, events, registration and referral metadata; API router exposed by adapter |
-| Legacy Bada Business resource implementation | `backend/bada_business/global_ecosystem/global_bada_business_ecosystem/` | Compatibility source for platform resource catalog; do not add new domain modules here |
+
 
 ## 3. Duplicate and compatibility paths
 
 - Canonical implementation: `backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`
 - Deprecated duplicate path: `backend/api/global_api_ecosystem/global_bada_business_api_ecosystem/`. It now contains only a README pointer. Do not add code or new catalogues there.
 - The separate `backend/businesses/`, `backend/freelancer/`, `backend/platform/linksetu/` and `backend/supreme/` packages have distinct operational responsibilities. Do not delete or merge them into the taxonomy package.
-- `backend/bada_business_ecosystem/` is the canonical Bada Business product/domain root. Its API adapter deliberately delegates to the API-layer implementation; physical relocation of the large API tree is not complete. Keep the legacy resource package as a compatibility source until all import references, test workflows and router registrations are audited.
+- `backend/bada_business_ecosystem/` is the sole canonical Bada Business product/domain root for provider-specific resources. The retired `backend/bada_business/global_ecosystem/global_bada_business_ecosystem/` resource package has been removed; do not recreate it. The API router remains independently owned by `backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`.
 
 ## 4. Router and deployment notes
 
