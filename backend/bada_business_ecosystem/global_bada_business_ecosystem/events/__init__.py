@@ -1,1 +1,0 @@
-"""Events and webinar domain namespace for Bada Business."""
