@@ -1,5 +1,5 @@
 """SERVER domain health aggregation."""
-from .runtime import runtime_status
+from .global_ecosystem.global_server_ecosystem.runtime import runtime_status
 
 class ServerHealthService:
     def __init__(self, registry=None, providers=None):
