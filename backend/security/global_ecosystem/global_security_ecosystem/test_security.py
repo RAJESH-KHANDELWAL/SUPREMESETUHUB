@@ -48,6 +48,16 @@ class SecurityEcosystemTests(unittest.TestCase):
         self.assertEqual(result["status"], "COMPLETED")
         self.assertEqual(result["access"], "READ_ONLY")
 
+    def test_provider_rejects_secret_payload(self):
+        provider = FakeProvider()
+        with self.assertRaises(ValueError):
+            provider.execute("list_findings", {"nested": {"api_key": "do-not-pass"}})
+
+    def test_provider_rejects_secret_result(self):
+        provider = SecurityProviderAdapter(handler=lambda *_: {"access_token": "do-not-return"})
+        with self.assertRaises(ValueError):
+            provider.execute("read", {})
+
     def test_unknown_capability_rejected(self):
         self.assertIsNone(get_capability("DELETE.PROTECTION"))
 
