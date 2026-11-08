@@ -1,4 +1,4 @@
-"""Offline tests for GLOBAL SERVER ENGINE boundary."""
+"""Offline tests for GLOBAL SERVER ENGINE boundaries."""
 import unittest
 from .engine import ProviderEngine
 from .manager import EcosystemEngineManager
