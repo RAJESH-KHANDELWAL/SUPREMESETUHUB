@@ -1,6 +1,7 @@
 """DATABASE ecosystem service for provider catalog and server inventory."""
 from .registry import list_providers, get_provider
 from .server_inventory_repository import ServerInventoryRepository
+from .models import ServerInventoryRecord
 
 class GlobalDatabaseEcosystemService:
     domain = "DATABASE"
@@ -32,7 +33,8 @@ class GlobalDatabaseEcosystemService:
 
     def create_server_inventory(self, record):
         try:
-            return {"success": True, "record": self.server_inventory.create(record)}
+            model = record if isinstance(record, ServerInventoryRecord) else ServerInventoryRecord(**dict(record))
+            return {"success": True, "record": self.server_inventory.create(model)}
         except (TypeError, ValueError) as exc:
             return {"success": False, "error": "DATABASE_SERVER_INVENTORY_CREATE_FAILED", "message": str(exc)}
 
