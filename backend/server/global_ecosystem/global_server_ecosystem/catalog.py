@@ -11,15 +11,15 @@ class ProviderDescriptor:
     capabilities: tuple[str, ...] = ("cloud-server-management",)
 
 _PROVIDERS = (
-    ProviderDescriptor("abelohost", "Abelohost", "abelohost_server"),
-    ProviderDescriptor("aws", "Amazon Web Services", "aws_server"),
-    ProviderDescriptor("cloudflare", "Cloudflare", "cloudflare_server"),
-    ProviderDescriptor("digitalocean", "DigitalOcean", "digitalocean_server"),
-    ProviderDescriptor("google", "Google Cloud", "google_server"),
-    ProviderDescriptor("microsoft", "Microsoft Azure", "microsoft_server"),
-    ProviderDescriptor("vicetemple", "ViceTemple", "vicetemple_server"),
-    ProviderDescriptor("azure", "Microsoft Azure (additional integration)", "azure_server", "ADDITIONAL"),
-    ProviderDescriptor("hostinger", "Hostinger", "hostinger_server", "ADDITIONAL"),
+    ProviderDescriptor("abelohost", "Abelohost", "abelohost_server_ecosystem"),
+    ProviderDescriptor("aws", "Amazon Web Services", "aws_server_ecosystem"),
+    ProviderDescriptor("cloudflare", "Cloudflare", "cloudflare_server_ecosystem"),
+    ProviderDescriptor("digitalocean", "DigitalOcean", "digitalocean_server_ecosystem"),
+    ProviderDescriptor("google", "Google Cloud", "google_server_ecosystem"),
+    ProviderDescriptor("microsoft", "Microsoft Azure", "microsoft_server_ecosystem"),
+    ProviderDescriptor("vicetemple", "ViceTemple", "vicetemple_server_ecosystem"),
+    ProviderDescriptor("azure", "Microsoft Azure (additional integration)", "azure_server_ecosystem", "ADDITIONAL"),
+    ProviderDescriptor("hostinger", "Hostinger", "hostinger_server_ecosystem", "ADDITIONAL"),
 )
 _SERVICE_TYPES = (
     {"service_type_id":"vpn-server","name":"VPN SERVER","category":"Network Server","status":"catalog_only","capabilities":["vpn","secure-networking"]},
