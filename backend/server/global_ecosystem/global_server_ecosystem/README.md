@@ -1,61 +1,39 @@
 # GLOBAL SERVER ECOSYSTEM
 
-Independent SERVER orchestration layer:
+Independent SERVER domain and runtime setup:
 `backend/server/global_ecosystem/global_server_ecosystem/`
 
-## Ownership and boundaries
+## Independent ownership
 
-- **API** owns HTTP routes, request/response schemas and transport.
-- **CORE** owns provider-neutral domain models, validation, lifecycle rules and policy.
-- **ENGINE** owns execution engines and concrete provider execution adapters.
-- **DATABASE** owns durable structured records and database access.
-- **STORAGE** owns file, object and artifact persistence.
-- **SERVER** owns cross-layer composition, adapter registration, orchestration,
-  lifecycle coordination, provider integration entry points and capability routing.
+SERVER is a peer backend domain with its own setup. It does not contain, copy,
+wrap, instantiate, or orchestrate API, CORE, ENGINE, DATABASE, or STORAGE
+implementations. Those remain independent systems in their own directories.
 
-SERVER does not copy the implementation of another layer. All five layer adapters
-are explicitly injected. CORE validation and ENGINE dispatch remain separate.
-DATABASE record reads and STORAGE artifact resolution are routed only through
-their respective registered adapters.
+SERVER owns its own runtime identity, server-node registry, provider entry
+points, capability catalog, operation routing, runtime diagnostics, contracts,
+models, services, manager, and tests.
 
-## Provider alignment
+## SERVER structure
 
-The canonical provider IDs match the GLOBAL SERVER CORE and ENGINE provider set:
-Abelohost, AWS, Cloudflare, DigitalOcean, Google, Microsoft and ViceTemple.
+- `catalog.py`: SERVER provider catalog and server-service taxonomy.
+- `contracts.py`: SERVER provider, runtime and operation contracts only.
+- `models.py`: SERVER-owned node and health value objects.
+- `registry.py`: in-process registry for SERVER runtime nodes.
+- `provider_base.py`: fail-closed provider adapter base.
+- `provider_registry.py`: provider validation, registration and status.
+- `operation_catalog.py` / `operations.py`: SERVER capability definitions and
+  explicitly configured operation routing.
+- `service.py` / `manager.py`: SERVER runtime service and manager.
+- `runtime.py`: safe process diagnostics.
+- `*_server/`: provider-specific SERVER integration packages.
+- `integrations/`, `providers/`: SERVER-owned extension namespaces.
 
-Azure and Hostinger are retained as additional SERVER-specific catalog entries
-for backward compatibility; they are not represented as members of the peer
-layers' canonical seven-provider set.
+## Provider and operation safety
 
-Provider packages expose a common SERVER adapter contract. A provider is
-`NOT_CONFIGURED` until a callable handler is explicitly injected. This package
-does not create credentials, contact cloud APIs or simulate infrastructure
-operations.
-
-## SERVER-owned modules
-
-- `catalog.py`: five layer ownership descriptors, canonical/additional providers,
-  and server service-type catalog.
-- `contracts.py`: protocols for API, CORE, ENGINE, DATABASE, STORAGE and providers.
-- `models.py`: orchestration request/result value objects.
-- `registry.py`: thread-safe five-layer adapter registry.
-- `provider_base.py`: common fail-closed provider adapter contract.
-- `provider_registry.py`: validated provider registration and connection status.
-- `operation_catalog.py` / `operations.py`: provisioning, deployment, networking,
-  monitoring, security, backup and scaling capability routing.
-- `service.py` / `manager.py`: composition, dispatch, health and adapter access.
-- `runtime.py`: read-only process diagnostics.
-- `*_server/`: provider integration entry points.
-- `layers/`, `providers/`, `integrations/`: extension namespaces.
-
-## Operational truth
-
-Catalog presence is not proof of provider support or a live connection.
-A registered adapter is not proof that its credentials or remote service work;
-that must be verified by the adapter implementation. Unconfigured operations fail
-closed. Importing SERVER does not access secrets, provision infrastructure, write
-DATABASE records, or upload STORAGE artifacts. Runtime diagnostics describe only
-the current application process.
+Catalog entries are not live integrations. Provider handlers must be explicitly
+injected. Unconfigured operations fail closed; no cloud action is simulated.
+Runtime registry entries are process-local and are not durable persistence.
+No credentials or external connections are attempted by importing this package.
 
 ## Offline tests
 
