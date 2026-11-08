@@ -1,0 +1,1 @@
+"""Registration and enquiry domain namespace for Bada Business."""
