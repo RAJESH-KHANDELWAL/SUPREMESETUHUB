@@ -1,4 +1,4 @@
-"""SERVER orchestration; implementation remains with each owning layer."""
+"""SERVER orchestration across independently owned backend layers."""
 from typing import Any
 from .catalog import get_layer_catalog, list_providers, list_service_types
 from .models import ServerOrchestrationRequest, ServerOrchestrationResult
@@ -28,17 +28,39 @@ class GlobalServerEcosystemService:
     def execute_operation(self, capability: str, operation: str, payload=None):
         return self.operations.execute(capability, operation, payload)
 
+    def read_server_record(self, server_id: str):
+        """Read through the injected DATABASE adapter; never use a local fake."""
+        adapter = self.layers.get("DATABASE")
+        if adapter is None:
+            raise RuntimeError("DATABASE adapter is not registered")
+        method = getattr(adapter, "read_server_record", None)
+        if not callable(method):
+            raise TypeError("DATABASE adapter must implement read_server_record(server_id)")
+        return method(str(server_id))
+
+    def resolve_artifact(self, artifact_id: str):
+        """Resolve through the injected STORAGE adapter."""
+        adapter = self.layers.get("STORAGE")
+        if adapter is None:
+            raise RuntimeError("STORAGE adapter is not registered")
+        method = getattr(adapter, "resolve_artifact", None)
+        if not callable(method):
+            raise TypeError("STORAGE adapter must implement resolve_artifact(artifact_id)")
+        return method(str(artifact_id))
+
     def health(self):
+        layer_rows = []
+        for item in get_layer_catalog():
+            adapter = self.layers.get(item.name)
+            layer_rows.append({
+                "name": item.name, "responsibility": item.responsibility,
+                "owner_path": item.owner_path, "connected": adapter is not None,
+            })
         return {
             "domain": self.domain,
             "ecosystem": self.ecosystem,
             "status": self.layers.status(),
-            "layers": [
-                {"name": item.name, "responsibility": item.responsibility,
-                 "owner_path": item.owner_path,
-                 "connected": self.layers.get(item.name) is not None}
-                for item in get_layer_catalog()
-            ],
+            "layers": layer_rows,
             "providers": list(self.providers.catalog()),
             "operations": self.operations.status(),
             "external_connections": "NOT_ATTEMPTED",
@@ -46,10 +68,13 @@ class GlobalServerEcosystemService:
         }
 
     def status(self):
+        health = self.health()
         return {
-            "status": "FOUNDATION_READY",
+            "status": "READY" if health["status"]["ready"] else "PARTIALLY_CONNECTED",
+            "connected_layers": health["status"]["registered_layers"],
+            "missing_layers": health["status"]["missing_layers"],
+            "configured_providers": list(self.providers.list_registered()),
             "external_connections": "NOT_ATTEMPTED",
-            "operations": self.operations.status(),
         }
 
     def describe(self):
@@ -76,6 +101,8 @@ class GlobalServerEcosystemService:
                 error="Required CORE and ENGINE adapters are not registered")
         try:
             validated = core.validate_request(dict(request.payload))
+            if not isinstance(validated, dict):
+                raise TypeError("CORE adapter result must be a dict")
             output = engine.dispatch(operation, dict(validated))
             if output is not None and not isinstance(output, dict):
                 raise TypeError("ENGINE adapter result must be a dict or None")
