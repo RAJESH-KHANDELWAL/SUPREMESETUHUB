@@ -30,6 +30,10 @@ services, manager, tools, and tests.
 - `*_server/`: provider-specific SERVER integration packages.
 - `providers/`: provider catalog namespace.
 
+## SERVER service-type packages
+
+The service taxonomy has dedicated SERVER-owned packages: `vpn_server/`, `vps_server/`, `cloud_server/`, `web_server/`, `cloud_web_server/`, `dedicated_server/`, `edge_server/`, `application_server/`, and `database_server/`. Each package declares its service-type identity and ownership boundary. These are taxonomy/contract namespaces, not claims of live provisioning or hosting.
+
 ## Runtime and provider status
 
 The SERVER domain reports `NOT_CONFIGURED` when no provider adapters have been
