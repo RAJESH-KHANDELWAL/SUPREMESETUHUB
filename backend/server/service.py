@@ -59,7 +59,6 @@ class ServerService:
         clean_region = self._clean_required(region or "global", "SERVER_REGION")
         if provider_id != "local":
             try:
-                self.providers.catalog()
                 from .global_ecosystem.global_server_ecosystem.catalog import get_provider
                 get_provider(provider_id)
             except KeyError as exc:
