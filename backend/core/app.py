@@ -6,7 +6,6 @@ from backend.auth.service import AuthenticationService
 from backend.status.service import StatusService
 from backend.storage.service import StorageService
 from backend.security.service import SecurityService
-from backend.api.service import APIService
 from backend.users.service import UserService
 from backend.organizations.service import OrganizationService
 from backend.roles.service import RoleService
@@ -24,7 +23,6 @@ class MainBaseFoundation:
         self.status = StatusService()
         self.storage = StorageService()
         self.security = SecurityService()
-        self.api = APIService()
 
         self.users = UserService()
         self.organizations = OrganizationService()
@@ -46,7 +44,6 @@ class MainBaseFoundation:
 
         storage = self.storage.initialize()
         security = self.security.initialize()
-        api = self.api.initialize()
 
         users = self.users.initialize()
         organizations = self.organizations.initialize()
@@ -85,8 +82,6 @@ class MainBaseFoundation:
             "storage": storage,
 
             "security": security,
-
-            "api": api,
 
             "users": users,
 
