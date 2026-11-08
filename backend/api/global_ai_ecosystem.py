@@ -75,7 +75,7 @@ def global_ai_capabilities():
     return {
         "success": True,
         "system": "GLOBAL AI ECOSYSTEM",
-        "capabilities": sorted(ai_engine.CAPABILITIES),
+        "capabilities": _global_ai_engine.status()["capabilities"],
     }
 
 
@@ -84,11 +84,13 @@ def global_ai_providers():
     return {
         "success": True,
         "system": "GLOBAL AI ECOSYSTEM",
-        "registered_runtime_providers": ai_engine.list_providers(),
+        "registered_runtime_providers": _global_ai_engine.provider_status(),
+        "central_ai_engine_providers": ai_engine.list_providers(),
         "api_provider_ecosystems": list_ai_api_provider_ecosystems(),
         "note": (
             "registered_runtime_providers are the providers currently registered in "
-            "the central AI engine; api_provider_ecosystems is the wider catalog. "
+            "the Global AI Engine; central_ai_engine_providers lists shared platform providers; "
+            "api_provider_ecosystems is the wider catalog. "
             "Catalog presence does not mean credentials or live API access are configured."
         ),
     }
@@ -103,5 +105,5 @@ def global_ai_api_ecosystems():
         "parent": "GLOBAL API ECOSYSTEM",
         "count": len(providers),
         "providers": providers,
-        "runtime_registry": ai_engine.list_providers(),
+        "runtime_registry": _global_ai_engine.provider_status(),
     }
