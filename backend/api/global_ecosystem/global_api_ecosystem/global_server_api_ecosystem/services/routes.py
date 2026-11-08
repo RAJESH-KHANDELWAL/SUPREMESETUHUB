@@ -1,4 +1,10 @@
-"""Route definitions for services in global_server_api_ecosystem."""
+"""API routes for server service-type catalog."""
 from fastapi import APIRouter
+from .service import list_entries
 
-router = APIRouter(tags=["global-server-services"])
+router = APIRouter(prefix="/services", tags=["GLOBAL SERVER SERVICES"])
+
+@router.get("")
+def server_services():
+    items = list_entries()
+    return {"success": True, "count": len(items), "services": items}
