@@ -8,8 +8,7 @@
 - `apple_ecosystem/`
 
 ## Global culture, civilization, and business ecosystems
-- `global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_ecosystem/`
-- `global_world_culture_ecosystem/`
+- `global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem/` — Vasudhaiva Kutumbakam, Sanatan Dharma, Bharat, and Global World Culture
 - `global_bada_business_ecosystem/`
 - `global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_ecosystem/`
 

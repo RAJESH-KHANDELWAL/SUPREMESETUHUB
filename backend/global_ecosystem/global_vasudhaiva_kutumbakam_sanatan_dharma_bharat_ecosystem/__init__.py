@@ -1,1 +1,0 @@
-"""Global ecosystem namespace marker."""
