@@ -38,3 +38,33 @@ def test_engine_catalog_includes_full_provider_hierarchy():
     assert len(get_provider_catalog()) == 58
     assert len(get_catalog()) == 1 + len(PROVIDER_ECOSYSTEMS) + 22
     assert all(item["ecosystem_id"].endswith("-ENGINE-ECOSYSTEM") for item in get_provider_catalog())
+
+
+def test_all_engine_categories_have_independent_runtime_modules():
+    from pathlib import Path
+    import backend.engine.global_ecosystem.global_engine_ecosystem as engine_root
+    root = Path(engine_root.__file__).parent
+    categories = (
+        "companies", "platforms", "server", "ai", "software_ai", "cloud",
+        "security", "individual", "developer", "communication", "language",
+        "video", "payment", "storage", "system", "hosting", "intimacy",
+        "domain", "web", "social_media", "freelancer", "database",
+    )
+    required = {"models.py", "catalog.py", "registry.py", "manager.py", "engine.py"}
+    for category in categories:
+        package = root / f"global_{category}_engine_ecosystem"
+        assert required.issubset({item.name for item in package.iterdir()})
+
+
+def test_provider_engine_packages_are_scaffolded_without_sibling_layer_imports():
+    from pathlib import Path
+    import backend.engine.global_ecosystem.global_engine_ecosystem as engine_root
+    root = Path(engine_root.__file__).parent
+    assert (root / "global_ai_engine_ecosystem" / "openai_ai_engine_ecosystem" / "engine.py").exists()
+    assert (root / "aws_engine_ecosystem" / "aws_lambda_engine_ecosystem" / "engine.py").exists()
+    for path in root.rglob("*.py"):
+        source = path.read_text(encoding="utf-8")
+        assert "from backend.api." not in source
+        assert "import backend.api." not in source
+        assert "from backend.core." not in source
+        assert "import backend.core." not in source
