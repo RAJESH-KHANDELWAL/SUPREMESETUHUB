@@ -1,31 +1,19 @@
-# BADA BUSINESS API ECOSYSTEM
+# BADA BUSINESS PLATFORM RESOURCE COMPATIBILITY PACKAGE
 
-This is the provider-owned home for Bada Business platform information and resources.
+The canonical Bada Business platform resources now live under:
 
-## Included setup
+`backend/bada_business/global_ecosystem/global_bada_business_ecosystem/platform_resources/`
 
-- Platform profile and navigation metadata
-- Program/resource catalog
-- LFP Digital program snapshot
-- BB Impact two-day event snapshot, registration fields, business challenges and speaker profile claims
-- Idea to IPO webinar snapshot, 8 business-readiness challenges and 15 growth strategies
-- The 52 business-framework titles supplied in the LFP page content
-- Captured LFP plan prices and delivery details, clearly marked as unverified
-- Catalog access functions in `catalog.py`
+This API-side package is retained as a backward-compatible import facade only. It does not own a second copy of platform links or program catalogs.
 
-## Idea to IPO date status
+## API ownership
 
-The supplied Idea to IPO page advertises **9 June 2026 at 8:00 PM**. That date has passed as of 7 November 2026. The catalog records it as a historical advertised webinar date; it does not imply that registration is currently open or that another session is scheduled. The supplied capture did not include a price, venue, or timezone.
+The broader API implementation remains at:
 
-## Ownership boundaries
+`backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`
 
-- This package is only for the Bada Business platform itself.
-- The broader Bada Business product/domain umbrella remains separate at:
-  `backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`
-- The former shared `global_business_api_ecosystem` category has been removed. This package does not depend on it.
+That package owns HTTP routes, taxonomy, industry registries, capability contracts and integrations. It exposes the canonical platform resource catalog through its read-only resource endpoint.
 
-## Source and verification
+## Verification
 
-Program details, plan prices, phone number, and event information were transcribed from page content pasted by the repository owner. The Idea to IPO source URL was supplied as `https://www.badabusiness.com/ideatoipo?pp_code=BIRK076336`. Details have not been independently verified. Recheck dates, prices, availability, contact details and terms with the provider before relying on them.
-
-This is a resource/catalog setup only. It does not establish an official public developer API, partnership, authentication credentials, or live API connectivity.
+The catalog contains user-supplied page snapshots and existing repository referral links. They are not independently verified and do not establish an official public developer API, partnership or live integration. Recheck availability, prices, dates, contact details and terms directly with Bada Business.
