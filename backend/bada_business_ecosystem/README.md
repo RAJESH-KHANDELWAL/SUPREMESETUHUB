@@ -1,25 +1,34 @@
 # BADA BUSINESS ECOSYSTEM
 
-Canonical top-level home for the complete Bada Business product ecosystem in SUPREMESETUHUB.
+Canonical home for the complete Bada Business platform ecosystem inside SUPREMESETUHUB.
 
 ## Hierarchy
+GLOBAL ECOSYSTEM -> BADA BUSINESS ECOSYSTEM
 
-backend/bada_business_ecosystem/ is the product/domain root. It owns Bada Business platform resources: links, programs, courses, products, events, registration and referral destinations.
+This package owns the Bada Business platform domain: platform identity, provider links, referral destinations, programs, courses, products, events, registration resources and provider-specific metadata.
 
-## Components
+## Package map
+- platform/: platform identity and provider profile
+- links/: public and referral destinations
+- programs/: program-specific resources
+- courses/: course catalog and learning resources
+- products/: product and digital-store resources
+- events/: event and webinar resources
+- registration/: registration and enquiry resource definitions
+- referrals/: referral codes and destination metadata
+- platform_resources/: canonical link and program catalog
+- api_ecosystem/: entry point to the Bada Business API router
 
-- platform_resources/: canonical catalog of platform links and program snapshots.
-- platform/, links/, programs/, courses/, products/, events/, registration/, referrals/: domain boundaries for structured modules. Do not invent live data where no source exists.
-- api_ecosystem/: stable entry point to the separately implemented API transport layer.
+## API implementation
+The API transport, route handlers, schemas, business taxonomy, industry registries, capability contracts and integrations are currently implemented at:
 
-## API boundary
+backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/
 
-The API implementation and its existing route tree remain under backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/ so existing imports, route registration and integrations are not broken by a mass move. The api_ecosystem package exposes that implementation from this top-level ecosystem. The API consumes the canonical resource catalog; it does not own duplicate platform links.
+That implementation is exposed from this package through api_ecosystem. The existing API route tree is deliberately retained for import and route-registration compatibility; the new package is the product/domain root. This is a safe integration, not a claim that every API source file has already been physically relocated.
 
-## Legacy compatibility
+The older backend/bada_business/global_ecosystem/global_bada_business_ecosystem/ package remains as a legacy compatibility provider for the resource catalog until a complete migration and downstream import audit can be performed.
 
-The earlier backend/bada_business/global_ecosystem/global_bada_business_ecosystem/ path remains as a compatibility package during migration. New Bada Business product resources should be added here.
+## Resource and verification policy
+Existing catalog links and page snapshots are references supplied by the repository owner or captured in the repository. They do not prove current availability, official developer API access, a commercial partnership or a live provider connection. Prices, program dates, event schedules and contact details must be verified with Bada Business before use.
 
-## Verification
-
-Catalog entries are resource references, not proof of official API access, partnership or live integration. Provider terms, prices, event dates and availability must be independently checked.
+The official public API and live connection flags remain false unless independently proven.
