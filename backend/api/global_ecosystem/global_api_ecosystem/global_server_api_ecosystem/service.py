@@ -19,6 +19,9 @@ from backend.storage.global_ecosystem.global_storage_ecosystem import (
     GlobalStorageEcosystemManager as StorageEcosystemService,
 )
 from backend.server.global_ecosystem.global_server_ecosystem.models import ServerInventoryRecord
+
+# Server artifact APIs remain catalog-only until an explicit storage object
+# contract is defined; do not construct unsupported artifact model objects.
 _core = ServerCoreService()
 _inventory = ServerInventoryService()
 _database = GlobalDatabaseEcosystemService()
@@ -91,6 +94,6 @@ def disable_server(server_id: str):
     if not local["success"]: return local
     return {"success": True, "server": local["server"], "database": persisted}
 def register_server_artifact(payload: dict[str, Any]):
-    return _storage.register_server_artifact(ServerArtifact(**dict(payload)))
+    return {"success": False, "error": "SERVER_ARTIFACT_STORAGE_CONTRACT_NOT_IMPLEMENTED", "message": "Server artifact persistence is not configured."}
 def list_server_artifacts(server_id: str):
-    return _storage.list_server_artifacts(server_id)
+    return {"success": True, "count": 0, "artifacts": [], "server_id": server_id, "storage_enabled": False}
