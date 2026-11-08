@@ -1,13 +1,17 @@
-"""Bada Business platform-owned ecosystem metadata."""
+"""Bada Business API ecosystem transport and taxonomy metadata."""
 
-ECOSYSTEM_ID = "BADA_BUSINESS"
-ECOSYSTEM_NAME = "BADA BUSINESS API ECOSYSTEM"
+ECOSYSTEM_ID = "GLOBAL_BADA_BUSINESS_API_ECOSYSTEM"
+ECOSYSTEM_NAME = "GLOBAL BADA BUSINESS API ECOSYSTEM"
 SCOPE = (
-    "Bada Business platform links, courses, products, services, referrals, "
-    "partner resources and official API documentation if available."
+    "HTTP routes, taxonomy, industry registries, capability contracts and "
+    "integrations for the Bada Business domain."
 )
-CANONICAL_PLATFORM_PACKAGE = "backend/api/global_ecosystem/global_api_ecosystem/bada_business_api_ecosystem"
-GLOBAL_PRODUCT_ECOSYSTEM = "backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem"
+CANONICAL_PLATFORM_RESOURCES = (
+    "backend/bada_business/global_ecosystem/global_bada_business_ecosystem/platform_resources"
+)
+GLOBAL_PRODUCT_ECOSYSTEM = (
+    "backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem"
+)
 OFFICIAL_PUBLIC_API_VERIFIED = False
 LIVE_CONNECTION_VERIFIED = False
-RESOURCE_CATALOG_STATUS = "RESOURCE_CATALOG_ONLY"
+RESOURCE_CATALOG_STATUS = "CANONICAL_CATALOG_EXPOSED_BY_READ_ONLY_API"
