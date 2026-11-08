@@ -7,6 +7,7 @@ from fastapi import APIRouter, HTTPException, status
 
 from .schemas import ServerInventoryCreate
 from .services import router as services_router
+from .integrations import router as integrations_router
 from .tools import router as tools_router
 from .service import (
     disable_server,
@@ -23,6 +24,7 @@ from .service import (
 
 router = APIRouter(prefix="/global/server", tags=["GLOBAL SERVER ECOSYSTEM"])
 router.include_router(services_router)
+router.include_router(integrations_router)
 router.include_router(tools_router)
 
 
