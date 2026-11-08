@@ -1,4 +1,10 @@
-"""Route definitions for integrations in global_server_api_ecosystem."""
+"""API routes for SERVER cross-layer integration metadata."""
 from fastapi import APIRouter
+from .service import list_entries
 
-router = APIRouter(tags=["global-server-integrations"])
+router = APIRouter(prefix="/integrations", tags=["GLOBAL SERVER INTEGRATIONS"])
+
+@router.get("")
+def server_integrations():
+    items = list_entries()
+    return {"success": True, "count": len(items), "integrations": items}
