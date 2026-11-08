@@ -1,1 +1,1 @@
-"""Bada Business product backend namespace."""
+"""Bada Business backend namespace; canonical product ecosystem owner."""
