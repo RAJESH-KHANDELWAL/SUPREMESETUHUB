@@ -4,6 +4,7 @@ from .catalog import get_layer_catalog, list_providers, list_service_types
 from .models import ServerOrchestrationRequest, ServerOrchestrationResult
 from .registry import ServerLayerRegistry
 from .provider_registry import ServerProviderRegistry
+from .runtime import runtime_status
 class GlobalServerEcosystemService:
     domain = "SERVER"
     ecosystem = "GLOBAL_SERVER_ECOSYSTEM"
@@ -24,12 +25,14 @@ class GlobalServerEcosystemService:
                        for x in get_layer_catalog()],
             "providers": list(self.providers.catalog()),
             "external_connections": "NOT_ATTEMPTED",
+            "runtime": runtime_status(),
         }
     def status(self):
         return {"status": "FOUNDATION_READY", "external_connections": "NOT_ATTEMPTED"}
     def describe(self):
         return {"ecosystem": self.ecosystem, "providers": list_providers(),
-                "service_types": list_service_types(), "live_connections_enabled": False}
+                "service_types": list_service_types(), "live_connections_enabled": False,
+                "runtime": runtime_status()}
     def dispatch(self, request: ServerOrchestrationRequest) -> ServerOrchestrationResult:
         operation = str(request.operation or "").strip()
         if not operation:
