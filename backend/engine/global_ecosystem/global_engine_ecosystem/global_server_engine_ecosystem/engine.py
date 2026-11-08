@@ -10,11 +10,9 @@ class ProviderEngine:
 
     def health(self):
         configured = callable(self._handler)
-        return {
-            "provider": self.provider, "layer": self.layer,
-            "status": "READY" if configured else "NOT_CONFIGURED",
-            "execution_enabled": configured,
-        }
+        return {"provider": self.provider, "layer": self.layer,
+                "status": "READY" if configured else "NOT_CONFIGURED",
+                "execution_enabled": configured}
 
     def execute(self, operation: str, payload: dict[str, Any] | None = None):
         if not callable(self._handler):
