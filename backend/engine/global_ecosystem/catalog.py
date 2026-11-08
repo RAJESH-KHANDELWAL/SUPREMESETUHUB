@@ -45,7 +45,7 @@ def get_catalog() -> list[dict[str, Any]]:
             "enabled": True, "repository_ref": None, "metadata": {}})
     return records
 def get_category_catalog() -> list[dict[str, Any]]:
-    return get_catalog()[1:]
+    return _original_get_catalog()[1:]
 
 
 # Provider and domain ecosystems mirrored from the repository's API taxonomy.
