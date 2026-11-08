@@ -1,6 +1,9 @@
-"""Azure server integration scaffold; no live connection is configured."""
-class AzureServerEcosystem:
- provider_id="azure"
- display_name="Azure Compute"
- capabilities=("cloud-server-management",)
- def describe(self): return {"provider_id":self.provider_id,"display_name":self.display_name,"capabilities":list(self.capabilities),"connection_status":"not_configured"}
+"""Microsoft Azure SERVER provider adapter; remote execution requires injection."""
+from ..provider_base import ServerProviderAdapter
+
+class AzureServerEcosystem(ServerProviderAdapter):
+    provider_id = "azure"
+    display_name = "Microsoft Azure"
+    capabilities = ("cloud-server-management", "server-lifecycle")
+
+__all__ = ["AzureServerEcosystem"]
