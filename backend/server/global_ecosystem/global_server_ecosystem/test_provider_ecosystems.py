@@ -22,7 +22,7 @@ class ProviderEcosystemStructureTests(unittest.TestCase):
         for provider_id in PROVIDER_IDS:
             self.assertEqual(
                 rows[provider_id].package,
-                f"{provider_id}_server_ecosystem",
+                f"{provider_id}_server_server_ecosystem",
             )
 
     def test_every_provider_package_imports_and_declares_identity(self):
@@ -34,6 +34,17 @@ class ProviderEcosystemStructureTests(unittest.TestCase):
                 self.assertEqual(module.PROVIDER_ID, provider_id)
                 self.assertEqual(module.OWNING_DOMAIN, "SERVER")
                 self.assertTrue(module.DISPLAY_NAME)
+
+    def test_server_layer_packages_follow_sibling_layer_convention(self):
+        for provider_id in PROVIDER_IDS:
+            with self.subTest(provider=provider_id):
+                module = importlib.import_module(
+                    f"{BASE}.{provider_id}_server_server_ecosystem"
+                )
+                self.assertEqual(module.PROVIDER_ID, provider_id)
+                self.assertEqual(module.OWNING_DOMAIN, "SERVER")
+                self.assertTrue(module.DISPLAY_NAME)
+                self.assertTrue(callable(module.ADAPTER_CLASS))
 
     def test_every_provider_has_all_service_family_namespaces(self):
         expected_types = {item["service_type_id"] for item in list_service_types()}
@@ -67,7 +78,7 @@ class ProviderEcosystemStructureTests(unittest.TestCase):
     def test_catalog_exposes_canonical_package_names(self):
         packages = {row["provider_id"]: row["package"] for row in list_providers()}
         for provider_id in PROVIDER_IDS:
-            self.assertEqual(packages[provider_id], f"{provider_id}_server_ecosystem")
+            self.assertEqual(packages[provider_id], f"{provider_id}_server_server_ecosystem")
 
 
 if __name__ == "__main__":
