@@ -1,20 +1,20 @@
 # GLOBAL BADA BUSINESS ECOSYSTEM
 
-Canonical Bada Business ecosystem package under backend/bada_business_ecosystem/.
+This is the canonical Bada Business provider/product ecosystem under:
 
-This folder is the requested child ecosystem package. It owns the provider-specific Bada Business platform resource catalog, resource metadata and program snapshots.
+backend/bada_business_ecosystem/global_bada_business_ecosystem/
 
-## Package structure
+It owns the Bada Business platform profile, provider links, referral destinations, and program snapshots.
 
-- platform_resources/catalog.py — platform links, provider profile and program catalog
-- platform_resources/programs/lfp_digital.py — LFP Digital record
-- platform_resources/programs/bb_impact.py — BB Impact record
-- platform_resources/programs/idea_to_ipo.py — Idea to IPO record
+## Structure
+- platform_resources/catalog.py — provider identity and the canonical resource catalog
+- platform_resources/programs/ — LFP Digital, BB Impact and Idea to IPO records
+- __init__.py — package identity and catalog exports
 
-## API integration
+The parent backend/bada_business_ecosystem/ package owns the broader Bada Business product ecosystem and exposes this child package.
 
-The broad GLOBAL BADA BUSINESS API implementation remains in the API layer at backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/. Its router is exposed at backend/bada_business_ecosystem/api_ecosystem/. This separation preserves the API transport layer and existing router imports; no physical API mega-tree move is claimed here.
+## API layer
+The broader HTTP API implementation remains in backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/. Its existing router is exposed through backend/bada_business_ecosystem/api_ecosystem/ to preserve route registration and compatibility. It has not been physically moved in this step.
 
-## Data verification
-
-Links and program snapshots are resource metadata from existing repository references and user-supplied content. They do not establish official API access, commercial partnership, current price, event availability or live integration.
+## Verification
+The current provider links and program snapshots are resource metadata from existing repository links and owner-supplied page captures. They do not establish official API access, partnership, current availability, or live integration.
