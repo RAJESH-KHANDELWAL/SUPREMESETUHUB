@@ -13,7 +13,7 @@ from pathlib import Path
 __path__ = [str(Path(__file__).with_suffix(""))]
 
 from backend.api.global_ecosystem_modules import GlobalEcosystemModules
-from backend.core.global_ecosystem.manager import GlobalEcosystemManager
+from backend.api.global_ecosystem_manager import GlobalEcosystemManager
 
 
 class GlobalEcosystemAPI:
