@@ -1,9 +1,9 @@
 """Read-only discovery routes for the global relationship and intimacy ecosystem."""
 from fastapi import APIRouter, HTTPException, Query
 
-from . import list_category_packages
-from .schemas import IntimacyCategory, IntimacyEcosystemStatus, IntimacyProvider
-from .service import get_ecosystem_status, list_categories, list_providers
+from .relationship_intimacy_catalog import list_category_packages
+from .relationship_intimacy_schemas import IntimacyCategory, IntimacyEcosystemStatus, IntimacyProvider
+from .relationship_intimacy_service import get_ecosystem_status, list_categories, list_providers
 from .providers import list_entries as list_provider_entries
 from .integrations.routes import router as integrations_router
 from .services.routes import router as services_router

@@ -4,7 +4,7 @@
 
 **Scope:** Bharat + Global World; adults aged 18+; consent-first, privacy-preserving taxonomy and adult-industry API scaffold.
 
-This is the Bada Business copy of the adult-only ecosystem. A matching copy with the exact same folder name is also maintained at the Global API root; neither location replaces the other. The former `adult_18_plus_lawful_industry_business_api_ecosystem/`, `adult_business_api_ecosystem/` and `adult_sexual_wellness/` folder layers have been removed from the root; their contents are integrated here.
+This is the single Bada Business home for the Kamasutra, relationship, intimacy, sexual-wellness, and lawful adult-industry ecosystem. Relationship/intimacy categories, providers, integrations, services, and tools are consolidated directly into this folder; there is no separate nested relationship ecosystem. The former `adult_18_plus_lawful_industry_business_api_ecosystem/`, `adult_business_api_ecosystem/` and `adult_sexual_wellness/` folder layers have been removed from the root; their contents are integrated here.
 
 ## Coverage
 
@@ -54,3 +54,8 @@ This is a taxonomy/API scaffold, not a verified provider directory, medical or l
 - Bada Business copy: `backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem/`.
 - Both copies use the exact same folder name and retain their own package files. The Global copy is mounted through the Global API router; the Bada Business registry resolves its local copy.
 - This is a non-destructive dual-location arrangement, not a move. Keep both locations in future updates.
+
+
+## Consolidated relationship and intimacy modules
+
+The former `global_relationship_and_intimacy_ecosystem/` package has been merged into this folder. Its category directories, provider directories, integrations, services, and tools now live directly under this ecosystem. The read-only discovery API modules are retained as `relationship_intimacy_routes.py`, `relationship_intimacy_schemas.py`, `relationship_intimacy_service.py`, and `relationship_intimacy_catalog.py` to avoid overwriting the existing Kamasutra wellness API modules.

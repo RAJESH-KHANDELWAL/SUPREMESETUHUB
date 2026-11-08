@@ -1,11 +1,4 @@
-"""Global relationship and intimacy API ecosystem.
-
-This package owns its relationship, intimacy, sexual-health, and adult-industry
-category packages directly. A catalog entry is not proof that a third-party API
-exists, is permitted, or is connected.
-"""
-
-from .service import get_ecosystem_status, list_categories, list_providers
+"""Relationship and intimacy category package index consolidated into Kamasutra Bada Business."""
 
 CATEGORY_PACKAGE_IDS: tuple[str, ...] = (
     "adult_advertising_affiliates",
@@ -43,23 +36,9 @@ CATEGORY_PACKAGE_IDS: tuple[str, ...] = (
     "sexual_health",
 )
 
-
 def list_category_packages() -> list[dict[str, str]]:
-    """Return category IDs and their direct package paths."""
+    """Return direct package paths within the consolidated Kamasutra ecosystem."""
     return [
-        {
-            "category_id": package_id.upper(),
-            "package": package_id,
-            "path": package_id,
-        }
+        {"category_id": package_id.upper(), "package": package_id, "path": package_id}
         for package_id in CATEGORY_PACKAGE_IDS
     ]
-
-
-__all__ = [
-    "CATEGORY_PACKAGE_IDS",
-    "get_ecosystem_status",
-    "list_categories",
-    "list_category_packages",
-    "list_providers",
-]
