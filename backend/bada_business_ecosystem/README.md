@@ -1,20 +1,24 @@
 # BADA BUSINESS ECOSYSTEM
 
-Canonical root for the Bada Business product and provider-resource ecosystem.
+Canonical product and provider-resource package for Bada Business.
 
-## Canonical hierarchy
-```
-backend/
-└── bada_business_ecosystem/
-    ├── global_ecosystem/   # Global Bada Business platform/resource ecosystem
-    └── api_ecosystem/      # API router exposure only
-```
+## Structure
 
-The global ecosystem owns provider profiles, platform links, referrals,
-program records and other product-resource metadata.
+- `courses/` — course resource namespace
+- `events/` — event and webinar resources
+- `links/` — official and referral destinations
+- `platform/` — platform identity and profile
+- `platform_resources/` — provider catalog and program snapshots
+- `products/` — product resources
+- `programs/` — program domain namespace
+- `referrals/` — referral metadata
+- `registration/` — registration resources
 
-The actual HTTP API implementation, schemas, routes, industry taxonomy and
-integrations remain separately implemented under:
-`backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`
+There is no nested GLOBAL ECOSYSTEM package and no API facade in this
+product/resource package.
 
-The previous child package name `global_bada_business_ecosystem` is retired.
+## API boundary
+
+HTTP routers, schemas, routes, taxonomy and integrations remain separately
+owned by `backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`.
+Do not import API transport code from this package.
