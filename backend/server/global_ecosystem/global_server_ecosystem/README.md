@@ -100,3 +100,13 @@ Run from the repository root:
 ```bash
 python -m unittest backend.server.global_ecosystem.global_server_ecosystem.test_server backend.server.global_ecosystem.global_server_ecosystem.test_registry backend.server.global_ecosystem.global_server_ecosystem.test_runtime backend.server.global_ecosystem.global_server_ecosystem.test_operations backend.server.global_ecosystem.global_server_ecosystem.test_provider_ecosystems
 ```
+
+
+## Public SERVER service integration
+
+The package is the provider/runtime coordination layer consumed by
+`backend.server.ServerService`. Its provider registry, gateway and operation
+service are surfaced through the SERVER manager/controller. Provider health
+is `NOT_PROBED` until a provider-specific real health probe is implemented;
+registration alone never proves external connectivity. All remote operations
+remain fail-closed until an explicit adapter is registered.
