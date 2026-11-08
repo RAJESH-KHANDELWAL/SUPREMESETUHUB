@@ -1,6 +1,6 @@
 """Thread-safe registry owned by GLOBAL STORAGE ECOSYSTEM."""
 from threading import RLock
-from typing import Any
+from typing import Any, List
 from .models import StorageEcosystemIdentity, utc_now
 
 class StorageEcosystemRegistry:
@@ -41,7 +41,7 @@ class StorageEcosystemRegistry:
         with self._lock:
             return [item.to_dict() for item in self._records.values()]
 
-    def names(self) -> list[str]:
+    def names(self) -> List[str]:
         with self._lock:
             return [item.name for item in self._records.values()]
 
