@@ -50,7 +50,7 @@ def global_api_ecosystem_status():
         "ecosystem_count": len(ecosystems),
         "provider_ecosystem_count": len(providers),
         "ai_api_provider_count": len(list_ai_api_provider_ecosystems()),
-        "live_connections_verified": sum(1 for provider in providers if provider["live_connection_verified"]),
+        "live_connections_verified": sum(1 for provider in providers if provider.get("live_connection_verified", False)),
         "catalog_only_is_not_connected": True,
     }
 
