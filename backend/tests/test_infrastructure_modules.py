@@ -77,4 +77,4 @@ def test_main_base_foundation_bootstraps_core_modules(tmp_path, monkeypatch):
     assert result["database"] is not None
     assert result["storage"]["status"] == "Ready"
     assert result["security"]["status"] == "Ready"
-    assert result["api"]["transport"] == "FastAPI"
+    assert "api" not in result  # API lifecycle belongs to backend.api, not CORE.
