@@ -1,19 +1,15 @@
-# BADA BUSINESS PLATFORM RESOURCE COMPATIBILITY PACKAGE
+# BADA BUSINESS API RESOURCE COMPATIBILITY PACKAGE
 
-The canonical Bada Business platform resources now live under:
+This older API-side folder is retained for backward-compatible imports only.
 
-`backend/bada_business/global_ecosystem/global_bada_business_ecosystem/platform_resources/`
+The canonical Bada Business resource catalog is exposed from:
 
-This API-side package is retained as a backward-compatible import facade only. It does not own a second copy of platform links or program catalogs.
+backend/bada_business_ecosystem/platform_resources/
 
-## API ownership
+The API router implementation remains in:
 
-The broader API implementation remains at:
+backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/
 
-`backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`
+New platform links, program resources and referral destinations must be maintained under the top-level Bada Business Ecosystem, not duplicated here.
 
-That package owns HTTP routes, taxonomy, industry registries, capability contracts and integrations. It exposes the canonical platform resource catalog through its read-only resource endpoint.
-
-## Verification
-
-The catalog contains user-supplied page snapshots and existing repository referral links. They are not independently verified and do not establish an official public developer API, partnership or live integration. Recheck availability, prices, dates, contact details and terms directly with Bada Business.
+Catalog resources are source references, not independently verified claims of current availability or live provider integration.
