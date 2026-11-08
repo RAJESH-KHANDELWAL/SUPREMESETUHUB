@@ -2,7 +2,7 @@
 
 All platform-specific information is owned under backend.bada_business_ecosystem.
 """
-from .platform_resources import get_catalog, get_program, list_programs
+from .platform_resources import get_catalog, get_program, list_programs, get_catalog as get_platform_resource_catalog
 from .api_ecosystem import router as api_router
 
 ECOSYSTEM = {
@@ -16,4 +16,4 @@ ECOSYSTEM = {
     ],
 }
 
-__all__ = ["ECOSYSTEM", "get_catalog", "get_program", "list_programs", "api_router"]
+__all__ = ["ECOSYSTEM", "get_catalog", "get_platform_resource_catalog", "get_program", "list_programs", "api_router"]
