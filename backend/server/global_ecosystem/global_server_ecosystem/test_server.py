@@ -2,12 +2,15 @@
 import unittest
 from backend.server.global_ecosystem.global_server_ecosystem import (
     GlobalServerEcosystemManager, GlobalServerEcosystemService, ServerNode,
-    ServerProviderAdapter, get_provider_catalog,
+    ServerProviderAdapter, get_provider_catalog, server_diagnostics, server_catalog,
 )
 
 class FakeProvider(ServerProviderAdapter):
     provider_id = "aws"
     display_name = "AWS test adapter"
+
+    def __init__(self):
+        super().__init__(lambda operation, payload: {"operation": operation, **payload})
 
 class ServerFoundationTests(unittest.TestCase):
     def test_server_setup_does_not_register_or_require_peer_layers(self):
@@ -45,10 +48,22 @@ class ServerFoundationTests(unittest.TestCase):
         self.assertEqual(result["external_connections"], "NOT_ATTEMPTED")
         self.assertEqual(result["configured_provider_count"], 0)
 
-    def test_provider_registration_is_owned_by_server(self):
+    def test_provider_registration_and_gateway_execution(self):
         manager = GlobalServerEcosystemManager()
         manager.register_provider("aws", FakeProvider())
         self.assertEqual(manager.status()["configured_providers"], 1)
+        result = manager.execute_provider_operation("aws", "inspect", {"server_id": "srv-1"})
+        self.assertEqual(result["operation"], "inspect")
+        self.assertEqual(result["server_id"], "srv-1")
+
+    def test_unconfigured_provider_fails_closed(self):
+        with self.assertRaises(RuntimeError):
+            GlobalServerEcosystemService().execute_provider_operation("aws", "inspect")
+
+    def test_tools_expose_read_only_diagnostics_and_catalog(self):
+        service = GlobalServerEcosystemService()
+        self.assertEqual(server_diagnostics(service)["domain"], "SERVER")
+        self.assertIn("providers", server_catalog())
 
 if __name__ == "__main__":
     unittest.main()
