@@ -1,4 +1,4 @@
-"""Pydantic request and response schemas for GLOBAL SERVER API."""
+"""Pydantic schemas for GLOBAL SERVER API request contracts."""
 from __future__ import annotations
 
 from typing import Any
@@ -6,6 +6,7 @@ from pydantic import BaseModel, ConfigDict, Field
 
 
 class ServerInventoryCreate(BaseModel):
+    """Request model for registering an existing server resource as metadata."""
     model_config = ConfigDict(extra="forbid")
     server_id: str = Field(min_length=1, max_length=128)
     server_name: str = Field(min_length=1, max_length=200)
@@ -18,6 +19,24 @@ class ServerInventoryCreate(BaseModel):
     endpoint: str | None = Field(default=None, max_length=2048)
     protocol: str | None = Field(default=None, max_length=32)
     metadata: dict[str, Any] = Field(default_factory=dict)
+
+    def to_core_payload(self) -> dict[str, Any]:
+        """Return only CORE ServerIdentity fields; endpoint stays inventory metadata."""
+        return {
+            "server_id": self.server_id,
+            "provider_id": self.provider_id,
+            "server_type": self.server_type,
+            "server_role": self.server_role,
+            "country": self.country,
+            "region": self.region,
+            "environment": self.environment,
+            "metadata": {
+                **self.metadata,
+                **({"endpoint": self.endpoint} if self.endpoint else {}),
+                **({"protocol": self.protocol} if self.protocol else {}),
+                "server_name": self.server_name,
+            },
+        }
 
 
 class EcosystemStatus(BaseModel):
