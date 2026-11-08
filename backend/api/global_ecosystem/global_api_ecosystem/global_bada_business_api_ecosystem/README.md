@@ -17,3 +17,11 @@ The existing API router, taxonomy registries, industry ecosystems, capability co
 ## Integration status
 
 External provider references and link catalog entries are metadata only. They do not imply commercial partnerships, official API access, verified providers or live connections.
+
+## Global services API ecosystem
+
+The dedicated Global Services API ecosystem is maintained under this Bada Business umbrella at:
+
+`backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/global_services_api_ecosystem`
+
+Its routes, schemas, service modules, integrations, tools and category package structure belong to this business-services ecosystem.
