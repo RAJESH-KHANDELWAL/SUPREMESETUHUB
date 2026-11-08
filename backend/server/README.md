@@ -10,7 +10,7 @@ CORE, ENGINE, DATABASE and STORAGE.
 - `registry.py`: default in-process inventory (non-durable)
 - `lifecycle.py`: control-plane lifecycle state transitions
 - `health.py`: runtime, inventory and provider health aggregation
-- `service.py`, `manager.py`, `controller.py`: application/service interfaces
+- `service.py`, `manager.py`, `controller.py`: complete inventory CRUD, control-plane lifecycle, provider gateway and capability dispatch interfaces
 - `operation_catalog.py`: SERVER capability catalog
 - `operations.py`: fail-closed adapter registry and operational dispatcher
 - `global_ecosystem/global_server_ecosystem/`: global provider ecosystem,
@@ -53,3 +53,18 @@ remote machines. Provider catalog entries do not prove live connectivity.
 Durable inventory requires a DATABASE adapter; artifact persistence requires a
 STORAGE adapter; actual infrastructure actions require configured provider
 adapters and credentials. No secrets or external services are accessed at import.
+
+
+## Completed SERVER application surface
+
+The public `ServerService`, `ServerManager` and `ServerController` expose:
+- Inventory create, read, list, update and local-record delete.
+- Start, stop and restart request-state transitions.
+- Provider registration, provider description, health status and explicit operation dispatch.
+- Capability adapter registration and operation dispatch.
+- Read-only health and runtime diagnostics.
+
+Provider handlers and capability adapters must be explicitly injected. A
+configured handler is reported as `NOT_PROBED`, not as a reachable provider.
+Inventory deletion and lifecycle state changes affect SERVER metadata only;
+they do not delete, start, stop or restart remote infrastructure.
