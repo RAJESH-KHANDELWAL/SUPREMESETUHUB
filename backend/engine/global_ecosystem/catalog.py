@@ -46,3 +46,88 @@ def get_catalog() -> list[dict[str, Any]]:
     return records
 def get_category_catalog() -> list[dict[str, Any]]:
     return get_catalog()[1:]
+
+
+# Provider and domain ecosystems mirrored from the repository's API taxonomy.
+# These are ENGINE-owned identifiers and metadata, not imported API records.
+PROVIDER_ECOSYSTEMS = (
+    "adobe",
+    "anthropic",
+    "apple",
+    "atlassian",
+    "aws",
+    "bada_business",
+    "cohere",
+    "deepseek",
+    "digitalocean",
+    "github",
+    "global_ai",
+    "global_app",
+    "global_bada_business",
+    "global_cloud",
+    "global_cloudflare",
+    "global_communication",
+    "global_company_companies",
+    "global_database",
+    "global_developer",
+    "global_domain",
+    "global_entity_relationships",
+    "global_hosting",
+    "global_individual",
+    "global_integrations",
+    "global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness",
+    "global_language",
+    "global_organizations",
+    "global_payment",
+    "global_people_life",
+    "global_platforms",
+    "global_programming_language",
+    "global_security",
+    "global_server",
+    "global_social_media",
+    "global_software",
+    "global_storage",
+    "global_system",
+    "global_tools",
+    "global_video",
+    "global_vps",
+    "global_web",
+    "global_website",
+    "google",
+    "huggingface",
+    "ibm",
+    "meta",
+    "microsoft",
+    "mistral",
+    "nsfwinfra",
+    "nvidia",
+    "openai",
+    "oracle",
+    "paypal",
+    "salesforce",
+    "shopify",
+    "slack",
+    "stripe",
+    "twilio",
+)
+
+def get_provider_catalog() -> list[dict[str, Any]]:
+    records = []
+    for slug in PROVIDER_ECOSYSTEMS:
+        label = slug.replace("_", " ").upper()
+        records.append({
+            "ecosystem_id": "GLOBAL-PROVIDER-" + slug.upper().replace("_", "-") + "-ENGINE-ECOSYSTEM",
+            "name": label + " ENGINE ECOSYSTEM",
+            "ecosystem_type": "PROVIDER_OR_DOMAIN",
+            "parent_id": ROOT_ID,
+            "capabilities": ["PROVIDER_RUNTIME_BOUNDARY", "ENGINE_LIFECYCLE"],
+            "status": "REGISTERED", "enabled": True,
+            "repository_ref": "backend/engine/global_ecosystem/global_engine_ecosystem/" + slug + "_engine_ecosystem",
+            "metadata": {"source_taxonomy": "ENGINE_OWNED_MIRROR", "implementation_state": "SCAFFOLDED"},
+        })
+    return records
+
+# The manager consumes both the 22 domain categories and the complete provider/domain catalog.
+_original_get_catalog = get_catalog
+def get_catalog() -> list[dict[str, Any]]:
+    return _original_get_catalog() + get_provider_catalog()
