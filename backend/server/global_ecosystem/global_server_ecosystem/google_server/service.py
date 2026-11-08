@@ -1,6 +1,9 @@
-"""Google Cloud server integration scaffold; no live connection is configured."""
-class GoogleServerEcosystem:
- provider_id="google"
- display_name="Google Cloud Compute"
- capabilities=("cloud-server-management",)
- def describe(self): return {"provider_id":self.provider_id,"display_name":self.display_name,"capabilities":list(self.capabilities),"connection_status":"not_configured"}
+"""Google Cloud SERVER provider adapter; remote execution requires injection."""
+from ..provider_base import ServerProviderAdapter
+
+class GoogleServerEcosystem(ServerProviderAdapter):
+    provider_id = "google"
+    display_name = "Google Cloud"
+    capabilities = ("cloud-server-management", "server-lifecycle")
+
+__all__ = ["GoogleServerEcosystem"]
