@@ -1,12 +1,9 @@
-"""ABELOHOST ADULT HOSTING ECOSYSTEM SERVER category metadata; not a live adapter."""
-
-PROVIDER_ID = "abelohost"
-PROVIDER_NAME = "ABELOHOST ADULT HOSTING ECOSYSTEM"
-CATEGORY_ID = "SERVER"
-CATEGORY_NAME = "GLOBAL SERVER API ECOSYSTEM"
-PROVIDER_CATALOG_PATH = "backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem/abelohost_adult_industry_ecosystem"
-CATEGORY_CATALOG_PATH = "backend/api/global_ecosystem/global_api_ecosystem/global_server_api_ecosystem"
-SCOPE = "Provider-to-category mapping for GLOBAL SERVER API ECOSYSTEM; verify official product/API support before implementation."
-IMPLEMENTATION_STATUS = "CATALOG_ONLY"
-API_DOCUMENTATION_VERIFIED = False
-LIVE_CONNECTION_VERIFIED = False
+"""ABELOHOST server category routing metadata; not a live connector."""
+PROVIDER_CATEGORY_ECOSYSTEM = {
+    "provider_id": "abelohost",
+    "family": "SERVER",
+    "name": "GLOBAL ABELOHOST SERVER API ECOSYSTEM",
+    "provider_ecosystem_path": None,
+    "status": "CATALOG_ONLY_UNLESS_ADAPTER_TESTS_PASS",
+    "live_connection_verified": False,
+}
