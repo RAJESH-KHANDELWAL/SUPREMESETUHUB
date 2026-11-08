@@ -45,7 +45,11 @@ class GlobalEcosystemManager:
         }
         for category_id, category_name, folder in categories:
             key = category_id.upper().replace("-", "_")
-            ecosystem_id = f"GLOBAL-{key}-API-ECOSYSTEM"
+            ecosystem_id = (
+                f"GLOBAL-{key}-ECOSYSTEM"
+                if category_id in {"people", "business"}
+                else f"GLOBAL-{key}-API-ECOSYSTEM"
+            )
             self._records[ecosystem_id] = {
                 "ecosystem_id": ecosystem_id, "name": category_name,
                 "ecosystem_type": "API_CATEGORY", "parent_id": self.ROOT_ID,
