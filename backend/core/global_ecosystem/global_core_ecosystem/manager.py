@@ -176,16 +176,20 @@ class GlobalEcosystemManager:
 
     def google_catalog_status(self) -> dict[str, Any]:
         """Report CORE-owned Google catalog readiness without consulting API modules."""
-        google_records = [
-            item for item in self.registry.list()
-            if item["ecosystem_id"].startswith("GLOBAL-GOOGLE-")
-        ]
-        root = self.registry.get("GLOBAL-GOOGLE-CORE-ECOSYSTEM")
+        from backend.core.global_ecosystem.global_core_ecosystem.google_core_ecosystem.catalog import (
+            get_google_core_catalog,
+        )
+        from backend.google.google_ecosystem.service import GoogleEcosystemService
+
+        google_catalog = get_google_core_catalog()
+        root = self.registry.get("GOOGLE-CORE-ECOSYSTEM")
         return {
             "success": root is not None,
             "ecosystem_id": "GLOBAL-GOOGLE-CORE-ECOSYSTEM",
             "status": "CORE_REGISTERED" if root else "NOT_REGISTERED",
-            "core_module_count": len(google_records),
+            "api_family_count": len(google_catalog["children"]),
+            "product_count": len(GoogleEcosystemService().catalog()),
+            "core_module_count": len(google_catalog["children"]),
             "live_connection_verified": False,
             "oauth_flow_status": "PENDING_IMPLEMENTATION",
             "token_storage_status": "NOT_IMPLEMENTED",
