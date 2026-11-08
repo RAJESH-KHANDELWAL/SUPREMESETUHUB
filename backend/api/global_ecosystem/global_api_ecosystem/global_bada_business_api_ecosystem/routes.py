@@ -2,6 +2,7 @@ from fastapi import APIRouter, HTTPException, Query
 
 from .schemas import BusinessEcosystemStatus
 from .service import BusinessEcosystemService
+from backend.bada_business.global_ecosystem.global_bada_business_ecosystem.platform_resources import get_catalog as get_platform_resource_catalog
 from ..ecosystem_link_registry import get_ecosystem_linkage
 from .global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem import router as kamasutra_business_router
 
@@ -282,3 +283,9 @@ router.include_router(freelance_specializations_router)
 def business_ecosystem_links(include_adult: bool = Query(default=False)):
     """Read-only links to canonical Company and Platform taxonomies."""
     return get_ecosystem_linkage(include_adult=include_adult)
+
+
+@router.get("/platform-resources")
+def list_bada_business_platform_resources():
+    """Return Bada Business links/program resources from the canonical ecosystem."""
+    return get_platform_resource_catalog()
