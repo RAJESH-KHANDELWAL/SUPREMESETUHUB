@@ -1,14 +1,13 @@
 """Abelohost provider adapter binding for GLOBAL SERVER.
 
-This namespace follows the provider/layer package convention used by
-API, CORE, ENGINE and DATABASE. It reuses the existing SERVER adapter and
-does not claim a live connection or provider-specific service capability.
+This namespace mirrors sibling layer package naming and reuses the
+existing provider adapter. It does not claim live connectivity.
 """
-from ..abelohost_server import AbelohostServerProvider
+from ..abelohost_server_ecosystem import AbelohostServerEcosystem
 
 PROVIDER_ID = "abelohost"
 DISPLAY_NAME = "Abelohost"
 OWNING_DOMAIN = "SERVER"
-ADAPTER_CLASS = AbelohostServerProvider
+ADAPTER_CLASS = AbelohostServerEcosystem
 
 __all__ = ["PROVIDER_ID", "DISPLAY_NAME", "OWNING_DOMAIN", "ADAPTER_CLASS"]
