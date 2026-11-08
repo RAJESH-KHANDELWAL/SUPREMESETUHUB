@@ -1,0 +1,1 @@
+"""Course domain namespace for Bada Business."""
