@@ -1,1 +1,3 @@
-"""Optional SERVER integration composition points; none are auto-enabled."""
+"""SERVER-owned provider integration interfaces."""
+from .provider_gateway import ServerProviderGateway
+__all__ = ["ServerProviderGateway"]
