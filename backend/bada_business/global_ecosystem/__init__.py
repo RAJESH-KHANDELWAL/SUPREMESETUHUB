@@ -1,1 +1,1 @@
-"""Global ecosystem namespace for the Bada Business product."""
+"""Global ecosystem namespace for Bada Business Ecosystem."""
