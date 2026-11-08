@@ -1,21 +1,19 @@
-"""Canonical Bada Business ecosystem package."""
-from .platform_resources import (
-    ECOSYSTEM_ID,
-    ECOSYSTEM_NAME,
-    get_catalog as get_platform_resource_catalog,
-    get_program,
-    list_programs,
-)
+"""Canonical Bada Business product ecosystem package.
+
+All platform-specific information is owned under backend.bada_business_ecosystem.
+"""
+from .platform_resources import get_catalog, get_program, list_programs
+from .api_ecosystem import router as api_router
 
 ECOSYSTEM = {
     "id": "BADA_BUSINESS_ECOSYSTEM",
     "name": "BADA BUSINESS ECOSYSTEM",
     "parent": "GLOBAL ECOSYSTEM",
-    "api_ecosystem": "GLOBAL BADA BUSINESS API ECOSYSTEM",
-    "platform_resources": "platform_resources",
+    "components": [
+        "platform", "links", "programs", "courses", "products",
+        "events", "registration", "referrals", "platform_resources",
+        "api_ecosystem",
+    ],
 }
 
-__all__ = [
-    "ECOSYSTEM", "ECOSYSTEM_ID", "ECOSYSTEM_NAME",
-    "get_platform_resource_catalog", "get_program", "list_programs",
-]
+__all__ = ["ECOSYSTEM", "get_catalog", "get_program", "list_programs", "api_router"]
