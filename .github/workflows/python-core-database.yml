@@ -94,6 +94,9 @@ jobs:
       - name: Run GLOBAL CORE Ecosystem Hierarchy Tests
         run: python -m unittest backend.tests.test_global_core_ecosystem_hierarchy -v
 
+      - name: Run GLOBAL AI Ecosystem Layer Tests
+        run: python -m unittest backend.tests.test_global_ai_ecosystem -v
+
       - name: Run Global Business Ecosystem Intelligence and AI Tests
         run: python -m unittest backend.businesses.global_ecosystem.global_business_ecosystem.test_intelligence -v
 
