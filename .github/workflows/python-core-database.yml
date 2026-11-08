@@ -22,6 +22,7 @@ on:
       - "backend/api/auth.py"
       - "backend/api/businesses.py"
       - "backend/businesses/**"
+      - "backend/bada_business/**"
       - "backend/api/supreme_ecosystem.py"
       - "backend/api/supreme_whatsapp_ai.py"
       - "backend/core/**"
@@ -96,6 +97,9 @@ jobs:
 
       - name: Run GLOBAL AI Ecosystem Layer Tests
         run: python -m unittest backend.tests.test_global_ai_ecosystem -v
+
+      - name: Run Bada Business Ecosystem Resource Tests
+        run: python -m pytest -q backend/tests/test_bada_business_ecosystem_resources.py
 
       - name: Run Global Business Ecosystem Rule-Based Tests
         run: python -m unittest backend.businesses.global_ecosystem.global_business_ecosystem.test_intelligence -v
