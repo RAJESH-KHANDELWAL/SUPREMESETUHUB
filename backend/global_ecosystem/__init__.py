@@ -1,7 +1,1 @@
-"""GLOBAL ECOSYSTEM package."""
-
-from backend.core.global_ecosystem.manager import (
-    GlobalEcosystemManager,
-)
-
-__all__ = ["GlobalEcosystemManager"]
+"""Google product ecosystem namespace. Product logic belongs in its canonical CORE/API layers."""
