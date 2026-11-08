@@ -1,1 +1,1 @@
-"""Global ecosystem namespace for server services."""
+"""Global ecosystem namespace for the independent SERVER domain."""

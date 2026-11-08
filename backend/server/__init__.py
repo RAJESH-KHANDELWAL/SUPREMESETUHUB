@@ -1,4 +1,3 @@
-"""Lowercase compatibility namespace for the canonical SERVER domain."""
-from backend.SERVER import DomainService
-
-__all__ = ["DomainService"]
+"""Lowercase SERVER domain namespace."""
+from .global_ecosystem.global_server_ecosystem import GlobalServerEcosystemService
+__all__ = ["GlobalServerEcosystemService"]
