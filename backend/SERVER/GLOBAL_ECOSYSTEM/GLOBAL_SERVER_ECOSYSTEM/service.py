@@ -1,8 +1,9 @@
 """Service facade for SERVER inventory and ecosystem metadata."""
 from .registry import ServerRegistrationRegistry, list_providers, list_service_types
 
+
 class EcosystemService:
-    """Own local server inventory lifecycle; no remote provisioning occurs here."""
+    """Own local inventory lifecycle; it does not provision remote infrastructure."""
     def __init__(self, registry=None):
         self.registry = registry or ServerRegistrationRegistry()
 
