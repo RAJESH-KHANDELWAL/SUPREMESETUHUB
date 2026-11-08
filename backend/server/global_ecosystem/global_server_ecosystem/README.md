@@ -1,53 +1,64 @@
 # GLOBAL SERVER ECOSYSTEM
 
-Independent SERVER orchestration layer at
-`backend/server/global_ecosystem/global_server_ecosystem/`.
+Independent SERVER orchestration layer:
+`backend/server/global_ecosystem/global_server_ecosystem/`
 
-## Ownership boundaries
+## Ownership and boundaries
 
-- API owns HTTP routes, schemas and transport.
-- CORE owns domain contracts, models, rules and policies.
-- ENGINE owns execution and concrete provider adapters.
-- DATABASE owns durable structured records and database access.
-- STORAGE owns files, objects and artifact persistence.
-- SERVER owns cross-layer composition, adapter registration, orchestration,
-  lifecycle coordination and capability routing.
+- **API** owns HTTP routes, request/response schemas and transport.
+- **CORE** owns provider-neutral domain models, validation, lifecycle rules and policy.
+- **ENGINE** owns execution engines and concrete provider execution adapters.
+- **DATABASE** owns durable structured records and database access.
+- **STORAGE** owns file, object and artifact persistence.
+- **SERVER** owns cross-layer composition, adapter registration, orchestration,
+  lifecycle coordination, provider integration entry points and capability routing.
 
-SERVER connects to these layers through explicit injected contracts. It does not
-copy their implementations, data models, database access, storage code, or
-provider execution engines. CORE validation and ENGINE dispatch remain separate.
+SERVER does not copy the implementation of another layer. All five layer adapters
+are explicitly injected. CORE validation and ENGINE dispatch remain separate.
+DATABASE record reads and STORAGE artifact resolution are routed only through
+their respective registered adapters.
 
-## Package modules
+## Provider alignment
 
-- `catalog.py`: layer ownership and provider metadata.
-- `contracts.py`: SERVER-owned adapter protocols.
+The canonical provider IDs match the GLOBAL SERVER CORE and ENGINE provider set:
+Abelohost, AWS, Cloudflare, DigitalOcean, Google, Microsoft and ViceTemple.
+
+Azure and Hostinger are retained as additional SERVER-specific catalog entries
+for backward compatibility; they are not represented as members of the peer
+layers' canonical seven-provider set.
+
+Provider packages expose a common SERVER adapter contract. A provider is
+`NOT_CONFIGURED` until a callable handler is explicitly injected. This package
+does not create credentials, contact cloud APIs or simulate infrastructure
+operations.
+
+## SERVER-owned modules
+
+- `catalog.py`: five layer ownership descriptors, canonical/additional providers,
+  and server service-type catalog.
+- `contracts.py`: protocols for API, CORE, ENGINE, DATABASE, STORAGE and providers.
 - `models.py`: orchestration request/result value objects.
-- `registry.py`: explicitly injected API/CORE/ENGINE/DATABASE/STORAGE adapters.
-- `provider_registry.py`: cloud/server provider adapter registration.
-- `operation_catalog.py`: provisioning, deployment, networking, monitoring,
-  security, backup and scaling capability definitions.
-- `operations.py`: fail-closed execution through explicitly registered
-  capability adapters.
-- `manager.py` and `service.py`: composition, health and orchestration.
+- `registry.py`: thread-safe five-layer adapter registry.
+- `provider_base.py`: common fail-closed provider adapter contract.
+- `provider_registry.py`: validated provider registration and connection status.
+- `operation_catalog.py` / `operations.py`: provisioning, deployment, networking,
+  monitoring, security, backup and scaling capability routing.
+- `service.py` / `manager.py`: composition, dispatch, health and adapter access.
 - `runtime.py`: read-only process diagnostics.
+- `*_server/`: provider integration entry points.
 - `layers/`, `providers/`, `integrations/`: extension namespaces.
-- `aws_server/`, `azure_server/`, `digitalocean_server/`, `google_server/`,
-  `hostinger_server/`: provider integration packages.
 
-## Safety and current implementation status
+## Operational truth
 
-Catalog entries are capability definitions, not proof of live infrastructure.
-Unregistered layer, provider and operation adapters remain disconnected.
-Operational calls fail closed when their adapter is missing. Registered adapters
-must implement the documented interface and own the actual remote action.
-Importing this package does not contact providers, access secrets, provision
-resources, connect to DATABASE, or write to STORAGE. Runtime diagnostics only
-describe the current application process; they do not control remote servers.
+Catalog presence is not proof of provider support or a live connection.
+A registered adapter is not proof that its credentials or remote service work;
+that must be verified by the adapter implementation. Unconfigured operations fail
+closed. Importing SERVER does not access secrets, provision infrastructure, write
+DATABASE records, or upload STORAGE artifacts. Runtime diagnostics describe only
+the current application process.
 
-DATABASE and STORAGE remain separate domains and must be injected through their
-own adapters. No persistent SERVER inventory adapter is configured by default.
+## Offline tests
 
-## Tests
-
-Run:
-`python -m unittest backend.server.global_ecosystem.global_server_ecosystem.test_server backend.server.global_ecosystem.global_server_ecosystem.test_registry backend.server.global_ecosystem.global_server_ecosystem.test_runtime backend.server.global_ecosystem.global_server_ecosystem.test_operations`
+```bash
+python -m unittest backend.server.global_ecosystem.global_server_ecosystem.test_server backend.server.global_ecosystem.global_server_ecosystem.test_registry backend.server.global_ecosystem.global_server_ecosystem.test_runtime backend.server.global_ecosystem.global_server_ecosystem.test_operations
+```
