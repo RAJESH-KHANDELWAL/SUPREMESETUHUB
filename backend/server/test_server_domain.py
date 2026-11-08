@@ -73,7 +73,8 @@ class ServerDomainTests(unittest.TestCase):
         result = service.execute_provider_operation("aws", "inspect", {"server_id": "s1"})
         self.assertEqual(result["operation"], "inspect")
         self.assertEqual(result["payload"]["server_id"], "s1")
-        self.assertEqual(service.provider_health("aws")["status"], "READY")
+        self.assertEqual(service.provider_health("aws")["status"], "NOT_PROBED")
+        self.assertEqual(service.provider_health("aws")["external_connection"], "NOT_ATTEMPTED")
 
     def test_unconfigured_provider_fails_closed(self):
         with self.assertRaises(RuntimeError):
