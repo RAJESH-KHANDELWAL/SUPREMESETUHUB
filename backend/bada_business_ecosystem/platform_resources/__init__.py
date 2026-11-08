@@ -1,4 +1,4 @@
-"""Bada Business platform resource catalog exports."""
+"""Canonical platform resources for BADA BUSINESS ECOSYSTEM."""
 from .catalog import (
     ECOSYSTEM_ID, ECOSYSTEM_NAME, PROVIDER, STATUS,
     OFFICIAL_PUBLIC_API_VERIFIED, LIVE_CONNECTION_VERIFIED,
