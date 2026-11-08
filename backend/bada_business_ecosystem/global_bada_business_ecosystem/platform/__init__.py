@@ -1,1 +1,0 @@
-"""Platform identity namespace for Bada Business."""
