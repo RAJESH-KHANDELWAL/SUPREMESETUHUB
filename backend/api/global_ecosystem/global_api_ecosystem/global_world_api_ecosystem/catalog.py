@@ -53,6 +53,6 @@ ECOSYSTEM_LINKS = (
     {"id":"global-app","name":"Global APP API Ecosystem","path":"global_app_api_ecosystem","role":"application platforms and integrations"},
     {"id":"global-cloud","name":"Global Cloud API Ecosystem","path":"global_cloud_api_ecosystem","role":"cloud infrastructure and services"},
     {"id":"global-database","name":"Global Database API Ecosystem","path":"global_database_api_ecosystem","role":"database providers and services"},
-    {"id":"global-relationship-intimacy","name":"Global Relationship & Intimacy Ecosystem","path":"global_relationship_and_intimacy_ecosystem","role":"relationship and intimacy services"},
+    {"id":"global-relationship-intimacy","name":"Global Relationship & Intimacy Ecosystem","path":"global_bada_business_api_ecosystem/global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem/global_relationship_and_intimacy_ecosystem","role":"relationship and intimacy services"},
     {"id":"global-adult-industry","name":"Global Adult Industry API Ecosystem","path":"global_adult_industry_api_ecosystem.py","role":"separately classified lawful adult-industry taxonomy; 18+ safeguards required"},
 )

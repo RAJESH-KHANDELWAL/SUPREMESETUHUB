@@ -3,7 +3,7 @@
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
-from backend.api.global_ecosystem.global_api_ecosystem.global_relationship_and_intimacy_ecosystem.routes import router, relationship_router
+from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem.global_relationship_and_intimacy_ecosystem.routes import router, relationship_router
 
 app = FastAPI()
 app.include_router(router)

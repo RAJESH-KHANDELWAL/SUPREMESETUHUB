@@ -99,7 +99,7 @@ CATEGORY_ECOSYSTEMS: tuple[dict[str, str], ...] = (
     {
         "id": "intimacy",
         "name": "GLOBAL RELATIONSHIP AND INTIMACY ECOSYSTEM",
-        "folder": "global_relationship_and_intimacy_ecosystem",
+        "folder": "global_bada_business_api_ecosystem/global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem/global_relationship_and_intimacy_ecosystem",
     },
     {
         "id": "domain",
