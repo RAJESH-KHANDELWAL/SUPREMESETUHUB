@@ -5,12 +5,14 @@ from backend.server.global_ecosystem.global_server_ecosystem import (
     ServerProviderAdapter, get_provider_catalog, server_diagnostics, server_catalog,
 )
 
+
 class FakeProvider(ServerProviderAdapter):
     provider_id = "aws"
     display_name = "AWS test adapter"
 
     def __init__(self):
         super().__init__(lambda operation, payload: {"operation": operation, **payload})
+
 
 class ServerFoundationTests(unittest.TestCase):
     def test_server_setup_does_not_register_or_require_peer_layers(self):
@@ -19,6 +21,19 @@ class ServerFoundationTests(unittest.TestCase):
         self.assertEqual(health["domain"], "SERVER")
         self.assertNotIn("layers", health)
         self.assertNotIn("API", health)
+
+    def test_unconfigured_domain_is_not_misreported_as_healthy(self):
+        service = GlobalServerEcosystemService()
+        self.assertEqual(service.health()["status"], "NOT_CONFIGURED")
+        self.assertEqual(service.status()["external_connections"], "NOT_ATTEMPTED")
+
+    def test_registered_provider_changes_configuration_state_not_live_connectivity(self):
+        manager = GlobalServerEcosystemManager()
+        manager.register_provider("aws", FakeProvider())
+        status = manager.status()
+        self.assertEqual(status["status"], "CONFIGURED")
+        self.assertEqual(status["configured_providers"], 1)
+        self.assertEqual(status["external_connections"], "NOT_ATTEMPTED")
 
     def test_server_node_registry_lifecycle(self):
         manager = GlobalServerEcosystemManager()
@@ -64,6 +79,7 @@ class ServerFoundationTests(unittest.TestCase):
         service = GlobalServerEcosystemService()
         self.assertEqual(server_diagnostics(service)["domain"], "SERVER")
         self.assertIn("providers", server_catalog())
+
 
 if __name__ == "__main__":
     unittest.main()
