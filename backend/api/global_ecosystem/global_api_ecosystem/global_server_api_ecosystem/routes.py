@@ -5,6 +5,7 @@ from typing import Any
 
 from fastapi import APIRouter, HTTPException, status
 
+from .schemas import ServerInventoryCreate
 from .service import (
     disable_server,
     get_server,
@@ -66,8 +67,8 @@ def server_inventory_item(server_id: str) -> dict[str, Any]:
 
 
 @router.post("/inventory", status_code=status.HTTP_201_CREATED)
-def create_server_inventory_item(payload: dict[str, Any]) -> dict[str, Any]:
-    result = register_server(payload)
+def create_server_inventory_item(payload: ServerInventoryCreate) -> dict[str, Any]:
+    result = register_server(payload.model_dump(exclude_none=True))
     if not result["success"]:
         raise HTTPException(status_code=422, detail=result)
     return result
