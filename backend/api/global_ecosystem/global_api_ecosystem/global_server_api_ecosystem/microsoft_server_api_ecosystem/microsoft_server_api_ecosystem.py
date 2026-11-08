@@ -1,4 +1,4 @@
-"""Microsoft server category routing metadata; not a live connector."""
+"""MICROSOFT server category routing metadata; not a live connector."""
 PROVIDER_CATEGORY_ECOSYSTEM = {
     "provider_id": "microsoft",
     "family": "SERVER",
