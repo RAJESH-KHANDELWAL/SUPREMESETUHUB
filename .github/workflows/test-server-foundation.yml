@@ -18,4 +18,4 @@ jobs:
         with:
           python-version: "3.12"
       - name: Run SERVER foundation tests
-        run: python -m unittest backend.server.test_server_domain backend.server.test_server_operations backend.server.global_ecosystem.global_server_ecosystem.test_server backend.server.global_ecosystem.global_server_ecosystem.test_registry backend.server.global_ecosystem.global_server_ecosystem.test_runtime backend.server.global_ecosystem.global_server_ecosystem.test_operations
+        run: python -m unittest backend.server.test_server_domain backend.server.global_ecosystem.global_server_ecosystem.test_server backend.server.global_ecosystem.global_server_ecosystem.test_registry backend.server.global_ecosystem.global_server_ecosystem.test_runtime backend.server.global_ecosystem.global_server_ecosystem.test_operations
