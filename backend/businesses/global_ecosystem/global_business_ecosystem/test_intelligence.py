@@ -3,8 +3,20 @@ import unittest
 from types import SimpleNamespace
 
 from backend.businesses.global_ecosystem.global_business_ecosystem.intelligence import BusinessIntelligence
-from backend.businesses.global_ecosystem.global_business_ecosystem.providers import ProviderRegistry
+from backend.businesses.global_ecosystem.global_business_ecosystem.providers import (
+    BusinessAIProvider, ProviderDescriptor, ProviderRegistry,
+)
+from backend.businesses.global_ecosystem.global_business_ecosystem.openai_provider import OpenAIBusinessAIProvider
 from backend.businesses.global_ecosystem.global_business_ecosystem.recommendations import BusinessActionPlanner
+
+
+class FakeProvider(BusinessAIProvider):
+    @property
+    def descriptor(self):
+        return ProviderDescriptor("fake", "business_analysis", enabled=True)
+
+    def analyze(self, *, task, business_context):
+        return {"analysis": f"Task: {task}", "received": business_context}
 
 
 class BusinessIntelligenceTests(unittest.TestCase):
@@ -53,6 +65,19 @@ class BusinessIntelligenceTests(unittest.TestCase):
         self.assertEqual(registry.capabilities(), [])
         with self.assertRaises(LookupError):
             registry.analyze("not-configured", task="summary", business_context={})
+
+    def test_fake_provider_can_analyze(self):
+        registry = ProviderRegistry()
+        registry.register(FakeProvider())
+        result = registry.analyze("fake", task="growth plan", business_context={"name": "Acme"})
+        self.assertIn("growth plan", result["analysis"])
+
+    def test_openai_context_excludes_contact_and_metadata(self):
+        safe = OpenAIBusinessAIProvider.safe_context({
+            "business_id": "B-1", "name": "Acme",
+            "public_contact": "private@example.test", "metadata": {"secret": "omit"},
+        })
+        self.assertEqual(safe, {"business_id": "B-1", "name": "Acme"})
 
     def test_missing_business_id_is_rejected(self):
         with self.assertRaises(ValueError):
