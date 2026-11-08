@@ -1,14 +1,13 @@
 """ViceTemple provider adapter binding for GLOBAL SERVER.
 
-This namespace follows the provider/layer package convention used by
-API, CORE, ENGINE and DATABASE. It reuses the existing SERVER adapter and
-does not claim a live connection or provider-specific service capability.
+This namespace mirrors sibling layer package naming and reuses the
+existing provider adapter. It does not claim live connectivity.
 """
-from ..vicetemple_server import ViceTempleServerProvider
+from ..vicetemple_server_ecosystem import ViceTempleServerEcosystem
 
 PROVIDER_ID = "vicetemple"
 DISPLAY_NAME = "ViceTemple"
 OWNING_DOMAIN = "SERVER"
-ADAPTER_CLASS = ViceTempleServerProvider
+ADAPTER_CLASS = ViceTempleServerEcosystem
 
 __all__ = ["PROVIDER_ID", "DISPLAY_NAME", "OWNING_DOMAIN", "ADAPTER_CLASS"]
