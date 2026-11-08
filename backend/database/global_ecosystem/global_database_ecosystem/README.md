@@ -1,28 +1,20 @@
 # GLOBAL DATABASE ECOSYSTEM
 
-Independent database and data-persistence domain under:
+Independent DATABASE-owned hierarchy and provider discovery package.
 
-`backend/database/global_ecosystem/global_database_ecosystem/`
+## Runtime modules
 
-## Architecture
-
-- `catalog.py`: canonical database taxonomy metadata.
-- `models.py`: database ecosystem descriptors and health metadata.
-- `manager.py`: database-owned provider discovery and status.
-- `provider_base.py`: adapter contract.
-- `registry.py`: provider adapter registry.
-- Provider packages: AWS, Google, Mega, Microsoft, Proton, plus mirrored database-domain taxonomy folders.
+- `catalog.py`: DATABASE-owned root, category and provider taxonomy.
+- `models.py`: identity and health models with UTC lifecycle timestamps.
+- `ecosystem_registry.py`: thread-safe hierarchy registry with parent validation.
+- `registry.py`: provider adapter registry (AWS, Google, Microsoft, Proton and Mega).
+- `manager.py`: initialization, registration, lookup, listing, status, health, tree and relationship map.
+- `test_manager.py`, `test_registry.py`: standard-library unittest coverage.
 
 ## Layer boundary
 
-This package is DATABASE-owned. It must not import, copy, or depend on implementation code from API, CORE, or ENGINE. Shared interaction, when required, must happen through stable contracts at the application composition boundary.
+This package does not import or copy implementation code from API, CORE or ENGINE. Its catalog and registry are DATABASE-owned. Any future cross-layer interaction must be wired at the application composition boundary through explicit contracts.
 
-## Mirrored taxonomy
+## Operational status
 
-The directory taxonomy is structurally aligned with the API ecosystem directory tree. Folder alignment does not imply an API integration, database implementation, schema, migration, credential, or live connection.
-
-Existing provider adapters and files are preserved. Missing taxonomy leaf folders are represented by `.gitkeep`.
-
-## Operational truth
-
-Provider discovery is metadata-only. Live database connectivity, migrations, persistence behavior, backup/restore, transactions, and production readiness must be independently implemented and tested per provider.
+The hierarchy and provider discovery are implemented locally. Existing provider adapters currently expose metadata and report `not_configured`; this package does not claim live database connectivity. Production persistence, provider authentication, migrations, transactions, backup/restore and integration tests remain separate implementation work.
