@@ -1,9 +1,7 @@
-"""Enterprise API namespace sharing the canonical persistent Business domain."""
+""""Enterprise API namespace sharing the canonical persistent Business domain."""
 from typing import Any
 
-from fastapi import APIRouter, Body, Depends, HTTPException
-
-from backend.businesses.intelligence_service import BigBusinessIntelligenceService
+from fastapi import APIRouter, Depends, HTTPException
 
 from backend.api import businesses as business_api
 from backend.security.dependencies import get_current_user
@@ -12,7 +10,6 @@ from backend.schemas.business import BusinessCreateRequest
 router = APIRouter(prefix="/big-businesses", tags=["Big Businesses"])
 
 BIG_BUSINESS_TYPES = {"LARGE_BUSINESS", "ENTERPRISE"}
-intelligence_service = BigBusinessIntelligenceService()
 
 
 def _big_business_records(current_user: dict[str, Any]) -> list[dict[str, Any]]:
@@ -82,85 +79,3 @@ def get_big_business(
         # Do not disclose whether a non-enterprise business belongs to another user.
         raise HTTPException(status_code=404, detail="BIG_BUSINESS_NOT_FOUND")
     return {"message": "Big Business retrieved successfully", "data": data}
-
-
-@router.get("/intelligence/health")
-def intelligence_health(current_user: dict[str, Any] = Depends(get_current_user)):
-    """Return non-sensitive readiness information for the intelligence service."""
-    return intelligence_service.health()
-
-
-@router.post("/compare")
-def compare_big_businesses(
-    payload: dict[str, Any] = Body(...),
-    current_user: dict[str, Any] = Depends(get_current_user),
-):
-    """Compare documentation readiness for businesses visible to this user."""
-    business_ids = payload.get("business_ids")
-    if (
-        not isinstance(business_ids, list)
-        or not business_ids
-        or len(business_ids) > 50
-        or any(not isinstance(item, str) or not item.strip() for item in business_ids)
-    ):
-        raise HTTPException(
-            status_code=422,
-            detail="business_ids must be a non-empty list of up to 50 business IDs",
-        )
-
-    # Resolve access through the established owner-scoped Business API first.
-    visible_ids = {
-        str(item.get("business_id", ""))
-        for item in _big_business_records(current_user)
-    }
-    if any(item not in visible_ids for item in business_ids):
-        raise HTTPException(status_code=404, detail="BIG_BUSINESS_NOT_FOUND")
-
-    try:
-        results = intelligence_service.compare(business_ids)
-    except ValueError as exc:
-        raise HTTPException(status_code=422, detail=str(exc)) from exc
-    except LookupError as exc:
-        raise HTTPException(status_code=404, detail="BIG_BUSINESS_NOT_FOUND") from exc
-
-    return {
-        "message": "Big Business intelligence comparison completed",
-        "count": len(results),
-        "data": results,
-        "note": "This compares profile documentation readiness, not market position or financial performance.",
-    }
-
-
-@router.get("/{business_id}/intelligence")
-def get_big_business_intelligence(
-    business_id: str,
-    current_user: dict[str, Any] = Depends(get_current_user),
-):
-    """Return explainable profile completeness, readiness and risk signals."""
-    # Existing API performs owner/admin authorization and hides inaccessible IDs.
-    get_big_business(business_id=business_id, current_user=current_user)
-    try:
-        assessment = intelligence_service.assess(business_id)
-    except LookupError as exc:
-        raise HTTPException(status_code=404, detail="BIG_BUSINESS_NOT_FOUND") from exc
-    return {
-        "message": "Big Business intelligence assessment completed",
-        "data": assessment.to_dict(),
-    }
-
-
-@router.get("/{business_id}/action-plan")
-def get_big_business_action_plan(
-    business_id: str,
-    current_user: dict[str, Any] = Depends(get_current_user),
-):
-    """Return prioritized follow-up tasks derived from the assessment."""
-    get_big_business(business_id=business_id, current_user=current_user)
-    try:
-        plan = intelligence_service.action_plan(business_id)
-    except LookupError as exc:
-        raise HTTPException(status_code=404, detail="BIG_BUSINESS_NOT_FOUND") from exc
-    return {
-        "message": "Big Business action plan generated",
-        "data": plan,
-    }
