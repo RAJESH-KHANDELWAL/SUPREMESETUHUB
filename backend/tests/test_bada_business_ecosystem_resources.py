@@ -1,37 +1,34 @@
-"""Tests for the canonical nested Bada Business ecosystem and compatibility imports."""
+"""Tests for the canonical Bada Business ecosystem resource package."""
 from backend.bada_business_ecosystem import ECOSYSTEM
-from backend.bada_business_ecosystem.global_bada_business_ecosystem import (
-    ECOSYSTEM as GLOBAL_ECOSYSTEM,
+from backend.bada_business_ecosystem.platform_resources import (
+    ECOSYSTEM_ID,
+    ECOSYSTEM_NAME,
+    OFFICIAL_PUBLIC_API_VERIFIED,
+    LIVE_CONNECTION_VERIFIED,
     get_catalog,
-    get_platform_resource_catalog,
-)
-from backend.api.global_ecosystem.global_api_ecosystem.bada_business_api_ecosystem.catalog import (
-    get_catalog as get_legacy_catalog,
+    get_program,
+    list_programs,
 )
 
-def test_top_level_and_child_ecosystem_hierarchy():
+
+def test_canonical_ecosystem_identity():
     assert ECOSYSTEM["id"] == "BADA_BUSINESS_ECOSYSTEM"
-    assert "GLOBAL_BADA_BUSINESS_ECOSYSTEM" in ECOSYSTEM["child_ecosystems"]
-    assert GLOBAL_ECOSYSTEM["id"] == "GLOBAL_BADA_BUSINESS_ECOSYSTEM"
-    assert GLOBAL_ECOSYSTEM["parent"] == "BADA_BUSINESS_ECOSYSTEM"
+    assert ECOSYSTEM_ID == "BADA_BUSINESS_ECOSYSTEM"
+    assert ECOSYSTEM_NAME == "BADA BUSINESS ECOSYSTEM"
 
-def test_canonical_child_catalog_links_and_programs():
+
+def test_canonical_platform_resource_catalog():
     catalog = get_catalog()
-    assert get_platform_resource_catalog() == catalog
-    assert catalog["ecosystem_id"] == "GLOBAL_BADA_BUSINESS_ECOSYSTEM"
-    assert catalog["ecosystem_name"] == "GLOBAL BADA BUSINESS ECOSYSTEM"
-    assert catalog["link_count"] >= 4
-    urls = {item["url"] for item in catalog["links"]}
-    assert "https://www.badabusiness.com/lfp?pp_code=BIRK076336" in urls
-    assert "https://www.badabusiness.com/cash-growth-profit?pp_code=BIRK076336" in urls
-    assert "https://www.badabusiness.com/ideatoipo?pp_code=BIRK076336" in urls
-    assert "https://www.badabusiness.com/digitaldukan/BIRK076336" in urls
-    assert {"lfp_digital", "bb_impact", "idea_to_ipo"} == set(catalog["programs"])
+    assert catalog["ecosystem_id"] == ECOSYSTEM_ID
+    assert catalog["ecosystem_name"] == ECOSYSTEM_NAME
+    assert catalog["status"] == "RESOURCE_CATALOG_ONLY"
+    assert catalog["link_count"] == 4
+    assert catalog["program_count"] == 3
+    assert OFFICIAL_PUBLIC_API_VERIFIED is False
+    assert LIVE_CONNECTION_VERIFIED is False
 
-def test_old_api_resource_catalog_remains_compatible():
-    canonical = get_catalog()
-    legacy = get_legacy_catalog()
-    assert legacy["links"] == canonical["links"]
-    assert legacy["programs"] == canonical["programs"]
-    assert legacy["official_public_api_verified"] is False
-    assert legacy["live_connection_verified"] is False
+
+def test_program_lookup_and_listing():
+    assert get_program("lfp_digital") is not None
+    assert get_program("IDEA_TO_IPO") is not None
+    assert len(list_programs()) == 3
