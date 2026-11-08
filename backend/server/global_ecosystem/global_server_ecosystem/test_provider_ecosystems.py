@@ -50,6 +50,20 @@ class ProviderEcosystemStructureTests(unittest.TestCase):
                     self.assertEqual(module.EXECUTION_MODE, "EXPLICIT_ADAPTER_REQUIRED")
                     self.assertIn(module.SERVICE_TYPE_ID, expected_types)
 
+
+    def test_canonical_provider_classes_are_exported_from_public_package(self):
+        public = importlib.import_module(BASE)
+        expected_exports = (
+            "AbelohostServerProvider", "AWSServerEcosystem",
+            "AzureAdditionalServerEcosystem", "CloudflareServerProvider",
+            "DigitalOceanServerEcosystem", "GoogleServerEcosystem",
+            "HostingerServerEcosystem", "MicrosoftServerProvider",
+            "ViceTempleServerProvider",
+        )
+        for export in expected_exports:
+            with self.subTest(export=export):
+                self.assertTrue(hasattr(public, export), export)
+
     def test_catalog_exposes_canonical_package_names(self):
         packages = {row["provider_id"]: row["package"] for row in list_providers()}
         for provider_id in PROVIDER_IDS:
