@@ -1,4 +1,4 @@
-"""GLOBAL ECOSYSTEM API facade backed by CORE and API modules."""
+"""Independent GLOBAL ECOSYSTEM API facade."""
 
 from __future__ import annotations
 
