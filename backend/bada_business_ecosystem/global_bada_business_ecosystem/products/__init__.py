@@ -1,0 +1,1 @@
+"""Product and digital-store domain namespace for Bada Business."""
