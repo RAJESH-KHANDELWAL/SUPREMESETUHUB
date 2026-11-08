@@ -32,32 +32,32 @@ services, manager, tools, and tests.
 
 ## Provider-wise ecosystem hierarchy
 
-Each registered provider has a canonical `<provider>_server_ecosystem/` package.
-Inside it, provider-scoped service-family namespaces follow the
-`<provider>_<service>_server_ecosystem/` convention.
+The canonical SERVER-layer provider package convention mirrors the sibling
+API, CORE, ENGINE and DATABASE server ecosystems:
+`<provider>_server_server_ecosystem/`.
 
-Provider roots:
-- `abelohost_server_ecosystem/`
-- `aws_server_ecosystem/`
-- `azure_server_ecosystem/` (additional integration; distinct from Microsoft canonical entry)
-- `cloudflare_server_ecosystem/`
-- `digitalocean_server_ecosystem/`
-- `google_server_ecosystem/`
-- `hostinger_server_ecosystem/`
-- `microsoft_server_ecosystem/`
-- `vicetemple_server_ecosystem/`
+Each provider package contains:
+- `__init__.py`: public namespace exports
+- `provider.py`: binding to the existing SERVER provider adapter
 
-Each provider root contains the SERVER service-family namespaces:
-`vpn`, `vps`, `cloud`, `web`, `cloud_web`, `dedicated`, `edge`,
-`application`, and `database`. For example:
-`aws_server_ecosystem/aws_vps_server_ecosystem/`.
+Canonical provider packages:
+- `abelohost_server_server_ecosystem/`
+- `aws_server_server_ecosystem/`
+- `azure_server_server_ecosystem/` (additional)
+- `cloudflare_server_server_ecosystem/`
+- `digitalocean_server_server_ecosystem/`
+- `google_server_server_ecosystem/`
+- `hostinger_server_server_ecosystem/` (additional)
+- `microsoft_server_server_ecosystem/`
+- `vicetemple_server_server_ecosystem/`
 
-These packages establish ownership and naming boundaries only. A namespace
-does not assert that a provider offers that service, nor that provisioning,
-authentication, monitoring, or remote execution is implemented. Provider
-support must be verified against the provider's actual product/API and wired
-through an explicit, fail-closed adapter. Existing `*_server/` packages remain
-as compatibility adapter packages; they are not deleted or silently moved.
+The common baseline of seven providers matches API, CORE, ENGINE and DATABASE.
+Azure and Hostinger remain additional SERVER catalog entries. The older
+`<provider>_server_ecosystem/` service-family taxonomy packages and
+`<provider>_server/` adapters are retained for compatibility; they are not
+the canonical layer-shaped provider namespaces. Provider namespace creation
+does not imply that every provider supports every server service or that a
+live connection/provisioning adapter exists.
 
 ## SERVER service-type packages
 
