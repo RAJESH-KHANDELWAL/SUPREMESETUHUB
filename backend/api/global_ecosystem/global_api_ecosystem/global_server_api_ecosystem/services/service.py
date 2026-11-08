@@ -1,5 +1,5 @@
 """API-facing catalog for server service categories."""
-from backend.SERVER.GLOBAL_ECOSYSTEM.GLOBAL_SERVER_ECOSYSTEM import list_service_types
+from backend.server.global_ecosystem.global_server_ecosystem import list_service_types
 
 def list_entries():
     return [

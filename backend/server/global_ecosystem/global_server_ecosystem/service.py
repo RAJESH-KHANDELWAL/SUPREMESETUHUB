@@ -1,6 +1,6 @@
 """SERVER orchestration; all layer behavior remains with its owning package."""
 from typing import Any
-from .catalog import get_layer_catalog
+from .catalog import get_layer_catalog, list_providers, list_service_types
 from .models import ServerOrchestrationRequest, ServerOrchestrationResult
 from .registry import ServerLayerRegistry
 from .provider_registry import ServerProviderRegistry
@@ -25,6 +25,11 @@ class GlobalServerEcosystemService:
             "providers": list(self.providers.catalog()),
             "external_connections": "NOT_ATTEMPTED",
         }
+    def status(self):
+        return {"status": "FOUNDATION_READY", "external_connections": "NOT_ATTEMPTED"}
+    def describe(self):
+        return {"ecosystem": self.ecosystem, "providers": list_providers(),
+                "service_types": list_service_types(), "live_connections_enabled": False}
     def dispatch(self, request: ServerOrchestrationRequest) -> ServerOrchestrationResult:
         operation = str(request.operation or "").strip()
         if not operation:
@@ -45,7 +50,7 @@ class GlobalServerEcosystemService:
                 layers={"CORE": "VALIDATED", "ENGINE": "DISPATCHED"},
                 result=dict(output or {}))
         except Exception as exc:
-            return ServerOrchestrationResult(
-                False, operation, "FAILED",
-                error=f"{type(exc).__name__}: {exc}")
-__all__ = ["GlobalServerEcosystemService"]
+            return ServerOrchestrationResult(False, operation, "FAILED",
+                                             error=f"{type(exc).__name__}: {exc}")
+EcosystemService = GlobalServerEcosystemService
+__all__ = ["GlobalServerEcosystemService", "EcosystemService"]

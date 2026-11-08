@@ -1,14 +1,10 @@
-"""SERVER domain facade backed by its canonical ecosystem."""
-from backend.SERVER.GLOBAL_ECOSYSTEM.GLOBAL_SERVER_ECOSYSTEM import EcosystemService
-
-
+"""Uppercase legacy compatibility facade; implementation lives in lowercase SERVER."""
+from backend.server.global_ecosystem.global_server_ecosystem import EcosystemService
 class DomainService:
     domain = "SERVER"
-    ecosystem_package = "backend.SERVER.GLOBAL_ECOSYSTEM.GLOBAL_SERVER_ECOSYSTEM"
-
+    ecosystem_package = "backend.server.global_ecosystem.global_server_ecosystem"
     def __init__(self):
         self.ecosystem = EcosystemService()
-
     def describe(self):
         return {
             "domain": self.domain,

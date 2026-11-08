@@ -1,17 +1,14 @@
 """API use cases for GLOBAL SERVER ECOSYSTEM.
 
 API owns HTTP orchestration. CORE validates provider-neutral identities.
-ENGINE executes configured provider adapters. DATABASE persists inventory.
-STORAGE owns file and backup objects. This module joins these layers through
-explicit service boundaries; no remote API or cloud operation is run by default.
+SERVER owns server identity/catalog orchestration. DATABASE persists structured
+inventory. STORAGE owns artifact persistence. Each layer is imported from its
+own namespace; no implementation is copied into API or SERVER.
 """
 from __future__ import annotations
 from typing import Any
-
-from backend.core.global_ecosystem.global_core_ecosystem.global_server_core_ecosystem import (
-    ServerCoreService,
-)
-from backend.SERVER.GLOBAL_ECOSYSTEM.GLOBAL_SERVER_ECOSYSTEM import (
+from backend.core.global_ecosystem.global_core_ecosystem.global_server_core_ecosystem import ServerCoreService
+from backend.server.global_ecosystem.global_server_ecosystem import (
     EcosystemService as ServerInventoryService,
     get_provider, get_service_type, list_providers, list_service_types,
 )
@@ -21,12 +18,10 @@ from backend.DATABASE.GLOBAL_ECOSYSTEM.GLOBAL_DATABASE_ECOSYSTEM import (
 from backend.STORAGE.GLOBAL_ECOSYSTEM.GLOBAL_STORAGE_ECOSYSTEM import (
     EcosystemService as StorageEcosystemService, ServerArtifact,
 )
-
 _core = ServerCoreService()
 _inventory = ServerInventoryService()
 _database = GlobalDatabaseEcosystemService()
 _storage = StorageEcosystemService()
-
 
 def get_server_ecosystem_status() -> dict[str, Any]:
     return {
@@ -35,59 +30,35 @@ def get_server_ecosystem_status() -> dict[str, Any]:
         "provider_count": len(list_providers()),
         "service_type_count": len(list_service_types()),
         "registered_server_count": _inventory.registry.count(),
-        "core": _core.health(),
-        "database": _database.describe(),
-        "storage": _storage.describe(),
-        "live_connections_verified": False,
-        "durable_persistence_enabled": False,
-        "binary_storage_enabled": False,
+        "core": _core.health(), "database": _database.describe(),
+        "storage": _storage.describe(), "live_connections_verified": False,
+        "durable_persistence_enabled": False, "binary_storage_enabled": False,
     }
-
-
 def list_server_providers():
     items = list_providers()
     return {"success": True, "count": len(items), "providers": items}
-
-
 def get_server_provider(provider_id: str):
-    try:
-        return {"success": True, "provider": get_provider(provider_id)}
-    except KeyError:
-        return None
-
-
+    try: return {"success": True, "provider": get_provider(provider_id)}
+    except KeyError: return None
 def list_server_types():
     items = list_service_types()
     return {"success": True, "count": len(items), "service_types": items}
-
-
 def get_server_type(service_type_id: str):
-    try:
-        return {"success": True, "service_type": get_service_type(service_type_id)}
-    except KeyError:
-        return None
-
-
+    try: return {"success": True, "service_type": get_service_type(service_type_id)}
+    except KeyError: return None
 def list_servers():
     records = _database.list_server_inventory()
     if records["count"]:
         return {"success": True, "count": records["count"], "servers": records["records"]}
     return _inventory.list_servers()
-
-
 def get_server(server_id: str):
     persisted = _database.get_server_inventory(server_id)
-    if persisted is not None:
-        return {"success": True, "server": persisted["record"]}
+    if persisted is not None: return {"success": True, "server": persisted["record"]}
     local = _inventory.get_server(server_id)
     return local if local["success"] else None
-
-
 def register_server(payload: dict[str, Any]):
-    """Run CORE validation, register SERVER identity, then call DATABASE."""
     validated = _core.validate_identity(payload)
-    if not validated["success"]:
-        return validated
+    if not validated["success"]: return validated
     data = validated["identity"]
     server_name = data.get("metadata", {}).get("server_name") or data["server_id"]
     record = ServerInventoryRecord(
@@ -103,46 +74,22 @@ def register_server(payload: dict[str, Any]):
         server_role=record.server_role, country=record.country,
         region=record.region, environment=record.environment,
     )
-    if not created["success"]:
-        return created
+    if not created["success"]: return created
     persisted = _database.create_server_inventory(record)
-    return {
-        "success": True,
-        "server": created["server"],
-        "database": persisted,
-        "persistence_backend": "IN_MEMORY_REFERENCE_ADAPTER",
-        "durable_persistence_enabled": False,
-    }
-
-
+    return {"success": True, "server": created["server"], "database": persisted,
+            "persistence_backend": "IN_MEMORY_REFERENCE_ADAPTER",
+            "durable_persistence_enabled": False}
 def mark_server_authorized(server_id: str):
-    """Set local metadata flags only; no cloud IAM operation is implied."""
     local = _inventory.authorize_server(server_id)
-    persisted = _database.update_server_inventory(
-        server_id, authorized=True, status="AUTHORIZED"
-    )
-    if not local["success"]:
-        return local
+    persisted = _database.update_server_inventory(server_id, authorized=True, status="AUTHORIZED")
+    if not local["success"]: return local
     return {"success": True, "server": local["server"], "database": persisted}
-
-
 def disable_server(server_id: str):
-    """Disable inventory metadata only; does not shut down provider compute."""
     local = _inventory.disable_server(server_id)
-    persisted = _database.update_server_inventory(
-        server_id, enabled=False, status="DISABLED"
-    )
-    if not local["success"]:
-        return local
+    persisted = _database.update_server_inventory(server_id, enabled=False, status="DISABLED")
+    if not local["success"]: return local
     return {"success": True, "server": local["server"], "database": persisted}
-
-
 def register_server_artifact(payload: dict[str, Any]):
-    """Register an artifact reference in STORAGE; does not upload bytes."""
-    validated = dict(payload)
-    artifact = ServerArtifact(**validated)
-    return _storage.register_server_artifact(artifact)
-
-
+    return _storage.register_server_artifact(ServerArtifact(**dict(payload)))
 def list_server_artifacts(server_id: str):
     return _storage.list_server_artifacts(server_id)
