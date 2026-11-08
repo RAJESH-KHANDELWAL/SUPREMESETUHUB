@@ -1,8 +1,4 @@
-"""Public interfaces for GLOBAL SERVER ENGINE."""
-from .catalog import list_engines
-from .engine import ProviderEngine
-from .manager import EcosystemEngineManager
-from .models import EngineDescriptor, EngineExecution
-from .provider_catalog import get_provider, list_providers
-from .registry import EngineRegistry
-__all__ = ["list_engines","ProviderEngine","EcosystemEngineManager","EngineDescriptor","EngineExecution","get_provider","list_providers","EngineRegistry"]
+"""ENGINE-owned provider catalog and server inventory adapter."""
+from .registry import ROOT_ECOSYSTEM_ID, SERVER_ECOSYSTEM_ID, ServerRegistrationRegistry, get_provider, get_service_type, list_providers, list_service_types
+from .service import EcosystemService
+__all__ = ["EcosystemService", "ServerRegistrationRegistry", "ROOT_ECOSYSTEM_ID", "SERVER_ECOSYSTEM_ID", "get_provider", "get_service_type", "list_providers", "list_service_types"]

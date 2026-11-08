@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from backend.SERVER.GLOBAL_ECOSYSTEM.GLOBAL_SERVER_ECOSYSTEM import (
+from backend.engine.global_ecosystem.global_engine_ecosystem.global_server_engine_ecosystem import (
     EcosystemService,
     get_provider as get_canonical_provider,
     get_service_type as get_canonical_service_type,

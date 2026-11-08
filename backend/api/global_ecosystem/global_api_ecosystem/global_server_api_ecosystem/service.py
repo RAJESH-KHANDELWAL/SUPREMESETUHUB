@@ -11,7 +11,7 @@ from typing import Any
 from backend.core.global_ecosystem.global_core_ecosystem.global_server_core_ecosystem import (
     ServerCoreService,
 )
-from backend.SERVER.GLOBAL_ECOSYSTEM.GLOBAL_SERVER_ECOSYSTEM import (
+from backend.engine.global_ecosystem.global_engine_ecosystem.global_server_engine_ecosystem import (
     EcosystemService as ServerInventoryService,
     get_provider, get_service_type, list_providers, list_service_types,
 )
