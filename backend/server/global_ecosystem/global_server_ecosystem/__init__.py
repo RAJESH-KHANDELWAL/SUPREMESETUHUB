@@ -23,6 +23,27 @@ from .google_server_ecosystem import GoogleServerEcosystem
 from .hostinger_server_ecosystem import HostingerServerEcosystem
 from .microsoft_server_ecosystem import MicrosoftServerEcosystem as MicrosoftServerProvider
 from .vicetemple_server_ecosystem import ViceTempleServerEcosystem as ViceTempleServerProvider
+from .abelohost_server_server_ecosystem import ADAPTER_CLASS as AbelohostServerLayerAdapter
+from .aws_server_server_ecosystem import ADAPTER_CLASS as AWSServerLayerAdapter
+from .azure_server_server_ecosystem import ADAPTER_CLASS as AzureServerLayerAdapter
+from .cloudflare_server_server_ecosystem import ADAPTER_CLASS as CloudflareServerLayerAdapter
+from .digitalocean_server_server_ecosystem import ADAPTER_CLASS as DigitalOceanServerLayerAdapter
+from .google_server_server_ecosystem import ADAPTER_CLASS as GoogleServerLayerAdapter
+from .hostinger_server_server_ecosystem import ADAPTER_CLASS as HostingerServerLayerAdapter
+from .microsoft_server_server_ecosystem import ADAPTER_CLASS as MicrosoftServerLayerAdapter
+from .vicetemple_server_server_ecosystem import ADAPTER_CLASS as ViceTempleServerLayerAdapter
+
+SERVER_LAYER_PROVIDER_PACKAGES = {
+    "abelohost": AbelohostServerLayerAdapter,
+    "aws": AWSServerLayerAdapter,
+    "azure": AzureServerLayerAdapter,
+    "cloudflare": CloudflareServerLayerAdapter,
+    "digitalocean": DigitalOceanServerLayerAdapter,
+    "google": GoogleServerLayerAdapter,
+    "hostinger": HostingerServerLayerAdapter,
+    "microsoft": MicrosoftServerLayerAdapter,
+    "vicetemple": ViceTempleServerLayerAdapter,
+}
 from .cloudflare_server import CloudflareServerEcosystem
 from .microsoft_server import MicrosoftServerEcosystem
 from .vicetemple_server import ViceTempleServerEcosystem
@@ -39,4 +60,8 @@ __all__ = [
     "AbelohostServerProvider", "AWSServerEcosystem", "AzureAdditionalServerEcosystem",
     "CloudflareServerProvider", "DigitalOceanServerEcosystem", "GoogleServerEcosystem",
     "HostingerServerEcosystem", "MicrosoftServerProvider", "ViceTempleServerProvider",
+    "SERVER_LAYER_PROVIDER_PACKAGES", "AbelohostServerLayerAdapter", "AWSServerLayerAdapter",
+    "AzureServerLayerAdapter", "CloudflareServerLayerAdapter", "DigitalOceanServerLayerAdapter",
+    "GoogleServerLayerAdapter", "HostingerServerLayerAdapter", "MicrosoftServerLayerAdapter",
+    "ViceTempleServerLayerAdapter",
 ]
