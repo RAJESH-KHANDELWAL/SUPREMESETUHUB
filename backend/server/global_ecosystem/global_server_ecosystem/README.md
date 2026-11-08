@@ -9,9 +9,9 @@ SERVER is a peer backend domain with its own setup. It does not contain, copy,
 wrap, instantiate, or orchestrate API, CORE, ENGINE, DATABASE, or STORAGE
 implementations. Those remain independent systems in their own directories.
 
-SERVER owns its own runtime identity, server-node registry, provider entry
-points, capability catalog, operation routing, runtime diagnostics, contracts,
-models, services, manager, and tests.
+SERVER owns its runtime identity, server-node registry, provider integrations,
+capability catalog, operation routing, runtime diagnostics, contracts, models,
+services, manager, tools, and tests.
 
 ## SERVER structure
 
@@ -24,9 +24,11 @@ models, services, manager, and tests.
 - `operation_catalog.py` / `operations.py`: SERVER capability definitions and
   explicitly configured operation routing.
 - `service.py` / `manager.py`: SERVER runtime service and manager.
-- `runtime.py`: safe process diagnostics.
+- `services/`: SERVER runtime diagnostics service.
+- `integrations/`: SERVER provider integration gateway and provider adapters.
+- `tools/`: read-only SERVER diagnostics and catalog tools.
 - `*_server/`: provider-specific SERVER integration packages.
-- `integrations/`, `providers/`: SERVER-owned extension namespaces.
+- `providers/`: provider catalog namespace.
 
 ## Provider and operation safety
 
