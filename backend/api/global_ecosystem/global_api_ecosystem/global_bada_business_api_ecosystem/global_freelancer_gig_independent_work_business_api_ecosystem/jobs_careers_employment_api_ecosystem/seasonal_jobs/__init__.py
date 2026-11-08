@@ -1,1 +1,0 @@
-"""Seasonal Jobs taxonomy package."""

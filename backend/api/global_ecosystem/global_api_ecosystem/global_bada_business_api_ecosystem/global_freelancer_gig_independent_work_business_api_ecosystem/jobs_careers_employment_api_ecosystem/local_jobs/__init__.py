@@ -1,1 +1,0 @@
-"""Local Jobs taxonomy package."""
