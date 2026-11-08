@@ -1,52 +1,55 @@
 # SERVER — MAIN BASE FOUNDATION
 
-SERVER is an independent backend domain, structured at the same architectural
-level as API, CORE, ENGINE, DATABASE and STORAGE.
+SERVER is an independent backend domain at the same architectural level as API,
+CORE, ENGINE, DATABASE and STORAGE.
 
-## Domain layout
+## SERVER domain modules
 
-- `config.py`: runtime configuration
-- `models.py`: server inventory models and request objects
-- `contracts.py`: repository, provider and lifecycle contracts
-- `exceptions.py`: typed domain errors
-- `registry.py`: default in-process inventory registry
-- `lifecycle.py`: server lifecycle state transitions
-- `health.py`: health aggregation
-- `service.py`: SERVER application service
-- `manager.py`: lifecycle and management facade
-- `controller.py`: framework-neutral controller
-- `global_ecosystem/global_server_ecosystem/`: provider catalog, adapters,
-  layer contracts, orchestration and cloud-provider ecosystem
+- `config.py`, `models.py`, `exceptions.py`: configuration and domain types
+- `contracts.py`: explicit repository, provider and lifecycle interfaces
+- `registry.py`: default in-process inventory (non-durable)
+- `lifecycle.py`: control-plane lifecycle state transitions
+- `health.py`: runtime, inventory and provider health aggregation
+- `service.py`, `manager.py`, `controller.py`: application/service interfaces
+- `operation_catalog.py`: SERVER capability catalog
+- `operations.py`: fail-closed adapter registry and operational dispatcher
+- `global_ecosystem/global_server_ecosystem/`: global provider ecosystem,
+  provider registry, layer adapters and orchestration contracts
 
-## Public entry point
+## Operational capability domains
 
-```python
-from backend.server import ServerManager
+SERVER now has explicit boundaries for:
+- Provisioning and deprovisioning
+- Application deployment and rollback
+- Networking, DNS, addressing and firewall integrations
+- Monitoring, metrics and operational events
+- Security and access-policy integrations
+- Backup and recovery
+- Capacity and scaling
 
-server = ServerManager()
-record = server.register(name="Primary Web", server_type="WEB")
-print(server.get(record["server_id"]))
-print(server.health())
-```
+These are capability boundaries, not claims that remote operations are already
+connected. Each operation requires an explicitly registered adapter owned by
+the relevant provider or infrastructure integration. An unconfigured capability
+fails closed instead of pretending that a server was provisioned or deployed.
 
-## Layer boundaries
+## Layer ownership
 
-- API owns HTTP routes and transport.
+- API owns HTTP routes, schemas and transport.
 - CORE owns foundation rules and policies.
 - ENGINE owns execution engines.
-- DATABASE owns durable structured data.
-- STORAGE owns file and object persistence.
-- SERVER owns server inventory, provider integration boundaries, server
-  lifecycle orchestration, deployment and runtime control-plane concerns.
+- DATABASE owns durable structured records and database access.
+- STORAGE owns file/object and artifact persistence.
+- SERVER owns server inventory, lifecycle orchestration, provider coordination,
+  deployment/networking/monitoring/security control-plane boundaries.
 
-SERVER does not copy API, CORE, ENGINE, DATABASE or STORAGE implementations.
-They remain independent and can be connected through explicit adapter contracts
-at the application composition root.
+SERVER does not copy the implementation of API, CORE, ENGINE, DATABASE or
+STORAGE. Cross-layer connections use explicit contracts and injected adapters.
 
 ## Current operational limitations
 
 The default inventory registry is in-memory and is not durable across restarts.
-Lifecycle methods only update control-plane status; they do not provision,
-start or stop remote machines. Provider entries in the catalog are not proof
-of live provider connectivity. Durable inventory and live provisioning require
-explicit DATABASE and provider adapters.
+Lifecycle methods update control-plane status only; they do not power on/off
+remote machines. Provider catalog entries do not prove live connectivity.
+Durable inventory requires a DATABASE adapter; artifact persistence requires a
+STORAGE adapter; actual infrastructure actions require configured provider
+adapters and credentials. No secrets or external services are accessed at import.
