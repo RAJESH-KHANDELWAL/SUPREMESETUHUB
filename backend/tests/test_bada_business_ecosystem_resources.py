@@ -1,5 +1,5 @@
 """Tests for canonical Bada Business Ecosystem platform resources."""
-from backend.bada_business.global_ecosystem.global_bada_business_ecosystem import (
+from backend.bada_business_ecosystem import (
     ECOSYSTEM,
     get_platform_resource_catalog,
 )
