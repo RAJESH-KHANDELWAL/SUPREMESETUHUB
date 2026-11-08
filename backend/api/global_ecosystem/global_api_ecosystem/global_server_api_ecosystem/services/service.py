@@ -1,6 +1,14 @@
-"""Service layer for services in global_server_api_ecosystem."""
+"""API-facing catalog for server service categories."""
+from backend.SERVER.GLOBAL_ECOSYSTEM.GLOBAL_SERVER_ECOSYSTEM import list_service_types
 
-
-def list_entries() -> list[dict[str, str]]:
-    """Return configured entries; no entries are registered yet."""
-    return []
+def list_entries():
+    return [
+        {
+            "name": item["name"],
+            "description": item.get("category", ""),
+            "status": item.get("status", "catalog_only"),
+            "service_type_id": item["service_type_id"],
+            "capabilities": list(item.get("capabilities", [])),
+        }
+        for item in list_service_types()
+    ]
