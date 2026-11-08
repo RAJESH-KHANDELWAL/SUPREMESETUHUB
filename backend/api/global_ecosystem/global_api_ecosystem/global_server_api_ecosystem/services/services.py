@@ -1,8 +1,4 @@
-"""Name-matching module for the services package."""
-
+"""Compatibility facade for server service catalog."""
+from .service import list_entries
 FOLDER_NAME = "services"
-
-
-def list_entries() -> list[dict[str, str]]:
-    """Return configured services entries; none are registered yet."""
-    return []
+__all__ = ["FOLDER_NAME", "list_entries"]
