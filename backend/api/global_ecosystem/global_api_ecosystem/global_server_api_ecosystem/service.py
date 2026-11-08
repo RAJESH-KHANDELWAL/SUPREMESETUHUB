@@ -13,11 +13,13 @@ from backend.server.global_ecosystem.global_server_ecosystem import (
     get_provider, get_service_type, list_providers, list_service_types,
 )
 from backend.database.global_ecosystem.global_database_ecosystem import (
-    GlobalDatabaseEcosystemService, ServerInventoryRecord,
+    GlobalDatabaseEcosystemManager as GlobalDatabaseEcosystemService,
 )
+from backend.database.global_ecosystem.global_database_ecosystem.models import ServerInventoryRecord
 from backend.storage.global_ecosystem.global_storage_ecosystem import (
-    EcosystemService as StorageEcosystemService, ServerArtifact,
+    GlobalStorageEcosystemManager as StorageEcosystemService,
 )
+from backend.storage.global_ecosystem.global_storage_ecosystem.models import ServerArtifact
 _core = ServerCoreService()
 _inventory = ServerInventoryService()
 _database = GlobalDatabaseEcosystemService()
