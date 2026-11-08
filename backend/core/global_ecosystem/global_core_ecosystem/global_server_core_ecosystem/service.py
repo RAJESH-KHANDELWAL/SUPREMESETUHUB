@@ -1,7 +1,7 @@
 """Provider-neutral SERVER CORE service layer."""
 from __future__ import annotations
 from typing import Any
-from . import CAPABILITIES, ECOSYSTEM_ID, ECOSYSTEM_NAME
+from .constants import CAPABILITIES, ECOSYSTEM_ID, ECOSYSTEM_NAME
 from .models import ServerIdentity
 from .policy import SUPPORTED_ENVIRONMENTS, SUPPORTED_SERVER_TYPES
 from .registry import ServerCoreRegistry
