@@ -97,7 +97,7 @@ jobs:
       - name: Run GLOBAL AI Ecosystem Layer Tests
         run: python -m unittest backend.tests.test_global_ai_ecosystem -v
 
-      - name: Run Global Business Ecosystem Intelligence and AI Tests
+      - name: Run Global Business Ecosystem Rule-Based Tests
         run: python -m unittest backend.businesses.global_ecosystem.global_business_ecosystem.test_intelligence -v
 
       - name: Run central database service tests
