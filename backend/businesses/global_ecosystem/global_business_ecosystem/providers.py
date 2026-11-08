@@ -1,4 +1,8 @@
-"""Provider contracts and explicit registry for Business Ecosystem AI."""
+"""Optional AI-provider boundary for future verified integrations.
+
+No network calls or provider credentials are used in this package. Concrete
+adapters must be implemented and tested separately before being registered.
+"""
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
