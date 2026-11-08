@@ -1,8 +1,13 @@
-"""Schemas for tools in global_server_api_ecosystem."""
+"""Schemas for SERVER tools metadata."""
 from pydantic import BaseModel
 
-
-class EcosystemEntry(BaseModel):
+class ServerToolEntry(BaseModel):
+    tool_id: str
     name: str
-    description: str = ""
-    status: str = "planned"
+    status: str
+    purpose: str
+
+class ServerToolCatalog(BaseModel):
+    success: bool
+    count: int
+    tools: list[ServerToolEntry]
