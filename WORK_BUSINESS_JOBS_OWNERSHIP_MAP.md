@@ -70,7 +70,7 @@ These packages are related, but they are not duplicate taxonomies:
 - Canonical implementation: `backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`
 - Deprecated duplicate path: `backend/api/global_api_ecosystem/global_bada_business_api_ecosystem/`. It now contains only a README pointer. Do not add code or new catalogues there.
 - The separate `backend/businesses/`, `backend/freelancer/`, `backend/platform/linksetu/` and `backend/supreme/` packages have distinct operational responsibilities. Do not delete or merge them into the taxonomy package.
-- `backend/bada_business_ecosystem/` is the sole canonical Bada Business product/domain root for provider-specific resources. The retired `backend/bada_business/global_ecosystem/global_bada_business_ecosystem/` resource package has been removed; do not recreate it. The API router remains independently owned by `backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`.
+- `backend/bada_business_ecosystem/` is the sole canonical Bada Business product/domain root for provider-specific resources. The API router remains independently owned by `backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`.
 
 ## 4. Router and deployment notes
 
