@@ -15,11 +15,10 @@ from backend.server.global_ecosystem.global_server_ecosystem import (
 from backend.database.global_ecosystem.global_database_ecosystem import (
     GlobalDatabaseEcosystemManager as GlobalDatabaseEcosystemService,
 )
-from backend.database.global_ecosystem.global_database_ecosystem.models import ServerInventoryRecord
 from backend.storage.global_ecosystem.global_storage_ecosystem import (
     GlobalStorageEcosystemManager as StorageEcosystemService,
 )
-from backend.storage.global_ecosystem.global_storage_ecosystem.models import ServerArtifact
+from backend.server.global_ecosystem.global_server_ecosystem.models import ServerInventoryRecord
 _core = ServerCoreService()
 _inventory = ServerInventoryService()
 _database = GlobalDatabaseEcosystemService()
