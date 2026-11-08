@@ -1,22 +1,22 @@
-"""API-facing service for GLOBAL SERVER ECOSYSTEM.
+"""API layer service for GLOBAL SERVER ECOSYSTEM.
 
-The API layer exposes validated metadata and local inventory operations. It does
-not contain provider SDK code or persist inventory; those responsibilities stay
-with ENGINE adapters and DATABASE respectively.
+API owns HTTP-facing use cases and input/output orchestration. Core contracts and
+inventory validation are delegated to CORE; engine execution stays in ENGINE;
+durable persistence stays in DATABASE; object/file handling stays in STORAGE.
 """
 from __future__ import annotations
-
 from typing import Any
 
+from backend.core.global_ecosystem.global_core_ecosystem.global_server_core_ecosystem import (
+    ServerCoreService,
+)
 from backend.SERVER.GLOBAL_ECOSYSTEM.GLOBAL_SERVER_ECOSYSTEM import (
-    EcosystemService,
-    get_provider,
-    get_service_type,
-    list_providers,
-    list_service_types,
+    EcosystemService as ServerInventoryService,
+    get_provider, get_service_type, list_providers, list_service_types,
 )
 
-_inventory = EcosystemService()
+_core = ServerCoreService()
+_inventory = ServerInventoryService()
 
 
 def get_server_ecosystem_status() -> dict[str, Any]:
@@ -27,6 +27,7 @@ def get_server_ecosystem_status() -> dict[str, Any]:
         "provider_count": len(list_providers()),
         "service_type_count": len(list_service_types()),
         "registered_server_count": _inventory.registry.count(),
+        "core": _core.health(),
         "live_connections_verified": False,
         "persistence_enabled": False,
     }
@@ -45,8 +46,8 @@ def get_server_provider(provider_id: str) -> dict[str, Any] | None:
 
 
 def list_server_types() -> dict[str, Any]:
-    service_types = list_service_types()
-    return {"success": True, "count": len(service_types), "service_types": service_types}
+    items = list_service_types()
+    return {"success": True, "count": len(items), "service_types": items}
 
 
 def get_server_type(service_type_id: str) -> dict[str, Any] | None:
@@ -66,16 +67,18 @@ def get_server(server_id: str) -> dict[str, Any] | None:
 
 
 def register_server(payload: dict[str, Any]) -> dict[str, Any]:
-    """Register local metadata only; this does not provision a real server."""
+    """Validate identity through CORE before adding a local inventory record."""
+    core_result = _core.register_identity(payload)
+    if not core_result["success"]:
+        return core_result
     return _inventory.register_server(**dict(payload))
 
 
 def mark_server_authorized(server_id: str) -> dict[str, Any]:
-    """Mark local inventory metadata; this does not authenticate with a provider."""
-    result = _inventory.authorize_server(server_id)
-    return result
+    """Set a local authorization marker only; this is not provider authentication."""
+    return _inventory.authorize_server(server_id)
 
 
 def disable_server(server_id: str) -> dict[str, Any]:
-    """Disable a local inventory entry; it does not power off a remote server."""
+    """Disable the local inventory entry; this does not shut down a remote host."""
     return _inventory.disable_server(server_id)
