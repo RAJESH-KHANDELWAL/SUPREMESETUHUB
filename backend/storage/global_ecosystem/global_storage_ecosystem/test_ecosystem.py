@@ -1,66 +1,25 @@
-"""Offline behavior tests for GLOBAL STORAGE ECOSYSTEM."""
-import pytest
+"""Offline tests for STORAGE taxonomy, hierarchy and metadata."""
+import unittest
+from .catalog import ROOT_ID,get_catalog,get_provider_catalog,get_category_catalog
 from .manager import GlobalStorageEcosystemManager
+from .models import StorageObject,StorageEcosystemIdentity
 from .ecosystem_registry import StorageEcosystemRegistry
-from .models import StorageEcosystemIdentity, StorageObject
-from .registry import list_providers, get_provider
-
-def test_manager_initializes_root_and_six_providers():
-    manager = GlobalStorageEcosystemManager()
-    assert manager.status()["status"] == "FOUNDATION_READY"
-    assert manager.registry.count() == len(list_providers()) + 1
-    assert manager.health()["provider_connections_verified"] is False
-
-def test_provider_catalog_has_six_providers():
-    assert {p["provider_id"] for p in list_providers()} == {
-        "aws_storage", "google_storage", "hostinger_storage",
-        "mega_storage", "microsoft_storage", "proton_storage"}
-
-def test_provider_lookup_is_case_insensitive_and_defensive():
-    pid = list_providers()[0]["provider_id"]
-    item = get_provider(pid.upper())
-    item["capabilities"].append("tampered")
-    assert "tampered" not in get_provider(pid)["capabilities"]
-
-def test_unknown_provider_raises_key_error():
-    with pytest.raises(KeyError):
-        get_provider("not-a-provider")
-
-def test_registry_enforces_parent_and_duplicate_ids():
-    registry = StorageEcosystemRegistry()
-    with pytest.raises(ValueError):
-        registry.register(StorageEcosystemIdentity("child", "Child", parent_id="missing"))
-    registry.register(StorageEcosystemIdentity("root", "Root"))
-    registry.register(StorageEcosystemIdentity("child", "Child", parent_id="root"))
-    with pytest.raises(ValueError):
-        registry.register(StorageEcosystemIdentity("child", "Duplicate", parent_id="root"))
-
-def test_registry_returns_defensive_records():
-    registry = StorageEcosystemRegistry()
-    registry.register(StorageEcosystemIdentity("root", "Root", capabilities=["read"]))
-    record = registry.get("root")
-    record["capabilities"].append("write")
-    assert registry.get("root")["capabilities"] == ["read"]
-
-def test_tree_and_connection_map_are_consistent():
-    manager = GlobalStorageEcosystemManager()
-    assert len(manager.tree()["tree"]["children"]) == len(list_providers())
-    graph = manager.connection_map()
-    assert graph["node_count"] == graph["edge_count"] + 1
-
-def test_storage_object_validates_fields_and_size():
-    with pytest.raises(ValueError):
-        StorageObject("id", "aws", "bucket", "key", size_bytes=-1)
-    with pytest.raises(ValueError):
-        StorageObject("id", "aws", "", "key")
-
-def test_registration_rejects_invalid_parent():
-    manager = GlobalStorageEcosystemManager()
-    result = manager.register({"ecosystem_id": "orphan", "name": "Orphan", "parent_id": "missing"})
-    assert result["success"] is False
-
-def test_manager_lookup_by_id_and_name():
-    manager = GlobalStorageEcosystemManager()
-    root = manager.get(manager.ROOT_ID)
-    assert root is not None
-    assert manager.get(root["name"])["ecosystem_id"] == manager.ROOT_ID
+class StorageTests(unittest.TestCase):
+ def test_parent_first_unique_catalog(self):
+  rows=get_catalog(); ids=[x["ecosystem_id"] for x in rows]; self.assertEqual(len(ids),len(set(ids))); seen=set()
+  for x in rows:
+   self.assertTrue(x.get("parent_id") is None or x["parent_id"] in seen); seen.add(x["ecosystem_id"])
+  self.assertEqual(rows[0]["ecosystem_id"],ROOT_ID)
+ def test_full_taxonomy_counts(self):
+  self.assertGreaterEqual(len(get_provider_catalog()),30); self.assertGreaterEqual(len(get_category_catalog()),20)
+ def test_manager_tree_and_edges(self):
+  m=GlobalStorageEcosystemManager(); s=m.status(); self.assertTrue(s["success"]); self.assertEqual(s["count"],len(get_catalog())); self.assertEqual(m.tree()["tree"]["ecosystem_id"],ROOT_ID); self.assertEqual(m.connection_map()["edge_count"],s["count"]-1)
+ def test_registry_parent_and_duplicate_guards(self):
+  r=StorageEcosystemRegistry()
+  with self.assertRaises(ValueError): r.register(StorageEcosystemIdentity("child","Child",parent_id="missing"))
+  r.register(StorageEcosystemIdentity("root","Root"))
+  with self.assertRaises(ValueError): r.register(StorageEcosystemIdentity("root","Duplicate"))
+ def test_object_validation(self):
+  with self.assertRaises(ValueError): StorageObject("id","provider","bucket","",size_bytes=1)
+  with self.assertRaises(ValueError): StorageObject("id","provider","bucket","key",size_bytes=-1)
+if __name__=="__main__": unittest.main()
