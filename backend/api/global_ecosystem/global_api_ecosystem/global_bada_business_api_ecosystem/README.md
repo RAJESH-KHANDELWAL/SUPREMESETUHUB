@@ -1,27 +1,17 @@
 # GLOBAL BADA BUSINESS API ECOSYSTEM
 
-This is the umbrella ecosystem for the broader Bada Business product: business modules, business and company domains, entrepreneur and MSME coverage, work and services, industries, industry taxonomies, business capabilities and supporting APIs.
+This package is the API implementation exposed by the top-level BADA BUSINESS ECOSYSTEM.
 
-## Separate platform category
+Product/domain ownership belongs to:
 
-The Bada Business platform's own public links, courses, products, services and referral destinations are maintained separately in:
+backend/bada_business_ecosystem/
 
-`backend/api/global_ecosystem/global_api_ecosystem/bada_business_api_ecosystem/`
+The API package owns HTTP transport, route handlers, request/response schemas, business taxonomy, industry registries, capability contracts and integrations. It consumes platform-owned links and program resources from the top-level Bada Business Ecosystem catalog; it must not maintain duplicate provider referral/course catalogs.
 
-The platform resource catalog is separate from this umbrella taxonomy. Keep the ownership boundaries distinct.
+## API router
+The existing router and nested API modules remain in this location to preserve current import paths, route registration and integration compatibility. The top-level package exposes the router through:
 
-## Core implementation
-
-The existing API router, taxonomy registries, industry ecosystems, capability contracts and integration reference catalog remain in this package tree. Preserve route paths, imports, schemas and tests while adding modules.
+backend/bada_business_ecosystem/api_ecosystem/
 
 ## Integration status
-
-External provider references and link catalog entries are metadata only. They do not imply commercial partnerships, official API access, verified providers or live connections.
-
-## Global services API ecosystem
-
-The dedicated Global Services API ecosystem is maintained under this Bada Business umbrella at:
-
-`backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/global_services_api_ecosystem`
-
-Its routes, schemas, service modules, integrations, tools and category package structure belong to this business-services ecosystem.
+Provider references are metadata only. They do not imply a partnership, official developer API access, authentication or live external connectivity.
