@@ -1,6 +1,19 @@
 """Fail-closed SECURITY provider adapter boundary."""
 from typing import Any, Callable
 
+_SECRET_KEYS = {"password", "secret", "token", "access_token", "refresh_token", "api_key", "private_key", "credential", "authorization"}
+
+def _reject_secret_material(value: Any, *, location: str = "payload") -> None:
+    if isinstance(value, dict):
+        for key, child in value.items():
+            normalized = str(key).strip().lower().replace("-", "_")
+            if normalized in _SECRET_KEYS:
+                raise ValueError(f"SECURITY_SECRET_MATERIAL_FORBIDDEN:{location}.{normalized}")
+            _reject_secret_material(child, location=f"{location}.{normalized}")
+    elif isinstance(value, (list, tuple)):
+        for index, child in enumerate(value):
+            _reject_secret_material(child, location=f"{location}[{index}]")
+
 class SecurityProviderAdapter:
     provider_id = "unknown"
     display_name = "Unknown security provider"
@@ -29,9 +42,12 @@ class SecurityProviderAdapter:
             raise ValueError("operation is required")
         if not callable(self._handler):
             raise NotImplementedError(f"{self.provider_id} security handler is not configured")
-        result = self._handler(name, dict(payload or {}))
+        safe_payload = dict(payload or {})
+        _reject_secret_material(safe_payload)
+        result = self._handler(name, safe_payload)
         if not isinstance(result, dict):
             raise TypeError("security provider handler must return a dictionary")
+        _reject_secret_material(result, location="result")
         return result
 
 __all__ = ["SecurityProviderAdapter"]
