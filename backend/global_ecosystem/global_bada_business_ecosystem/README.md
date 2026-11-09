@@ -35,4 +35,4 @@ This global namespace is an index/ownership marker only. Keep canonical catalogs
 
 ## YOUTAG integration status
 
-The YOUTAG business and app entries here define ecosystem boundaries only. They do not assert verified official APIs, account authentication, live connectivity, payment processing, recharge execution, or transaction status. Those capabilities require separately verified provider documentation, credentials, contracts, and tests.
+The YOUTAG business and app entries here define ecosystem boundaries only. The owner-provided referral profile (ID `2043272`) is maintained under `global_youtag_business_ecosystem/referral_profiles/rajesh_khandelwal.json` and referenced by the API, AI, CORE, ENGINE, DATABASE and STORAGE layer namespaces. They do not assert verified official APIs, account authentication, live connectivity, payment processing, recharge execution, or transaction status. Those capabilities require separately verified provider documentation, credentials, contracts, and tests.
