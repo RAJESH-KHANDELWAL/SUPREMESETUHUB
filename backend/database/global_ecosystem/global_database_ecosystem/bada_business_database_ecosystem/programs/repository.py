@@ -20,7 +20,7 @@ class BadaBusinessProgramRepository:
         for statement in schema_statements():
             self.database.execute(statement)
         self.database.execute(
-            f"INSERT OR IGNORE INTO bada_business_program_migrations (migration_id) VALUES (?)",
+            "INSERT OR IGNORE INTO bada_business_program_migrations (migration_id) VALUES (?)",
             (SCHEMA_VERSION,),
         )
 
