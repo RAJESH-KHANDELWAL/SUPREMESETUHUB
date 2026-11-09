@@ -17,6 +17,7 @@ class GlobalConnectionService:
         return self.manager.register(
             request.connection_id, request.provider_id, request.server_id,
             request.connection_type, request.protocol, request.endpoint,
+            namespace=request.namespace,
         )
 
     def authorize(self, connection_id, approved=False):
