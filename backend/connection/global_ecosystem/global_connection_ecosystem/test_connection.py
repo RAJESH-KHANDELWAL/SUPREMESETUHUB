@@ -19,6 +19,7 @@ class GlobalConnectionTests(unittest.TestCase):
 
     def test_register_and_approval_gate(self):
         self.assertTrue(self.service.register(self.request)["success"])
+        self.assertEqual(self.service.manager.connections["c1"].namespace, "global")
         self.assertEqual(self.service.authorize("c1")["error"], "APPROVAL_REQUIRED")
         self.assertTrue(self.service.authorize("c1", approved=True)["success"])
 
