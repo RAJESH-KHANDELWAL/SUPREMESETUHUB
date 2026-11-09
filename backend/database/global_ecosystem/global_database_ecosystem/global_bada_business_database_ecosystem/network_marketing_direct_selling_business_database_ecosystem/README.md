@@ -2,6 +2,10 @@
 
 Database namespace for network-marketing/direct-selling business records under Bada Business.
 
+## Child affiliate-marketing ecosystem
+
+- `global_affiliate_marketing_business_database_ecosystem/` — child index for iDigitalPreneur, LeadsGuru and Millionaire Track; canonical platform data namespaces remain in the Bada Business affiliate DATABASE package.
+
 ## Registered child business ecosystems
 
 - `global_youtag_business_database_ecosystem/` — one YOUTAG business identity, two app records, and an owner-provided referral-profile schema reference.
