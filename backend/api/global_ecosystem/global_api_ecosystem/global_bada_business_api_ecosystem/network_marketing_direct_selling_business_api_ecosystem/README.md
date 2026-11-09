@@ -18,3 +18,10 @@ Only businesses whose core model is network marketing or direct selling belong h
 
 ## Verification and consumer protection
 This is a taxonomy/catalogue starting point, not a live company-verification service, investment advice, income guarantee or payment/API integration. A listing does not prove that a company, product, income claim or opportunity is genuine. Record official source, jurisdiction, checked date, legal status and verification status before publishing company or opportunity data. Distinguish lawful direct selling from pyramid schemes and misleading income claims.
+
+## Registered YOUTAG business ecosystem
+
+- `global_youtag_business_api_ecosystem/` — one YOUTAG business identity with Wellness and Recharges app channels.
+- Owner-provided referral profile: `backend/global_ecosystem/global_bada_business_ecosystem/global_network_marketing_direct_selling_business_ecosystem/global_youtag_business_ecosystem/referral_profiles/rajesh_khandelwal.json`.
+
+The referral URL is public metadata supplied by the owner, not an API credential. No live provider endpoint or registration callback is implied.
