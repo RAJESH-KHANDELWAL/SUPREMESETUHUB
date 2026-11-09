@@ -34,8 +34,20 @@ class BadaBusinessAIService:
         if not agent_id.strip() or not task.strip():
             raise ValueError("BADA_BUSINESS_AI_AGENT_AND_TASK_REQUIRED")
         agent = get_bada_business_agent(agent_id)
+
+        # Approval-required agents must stop before the execution boundary.
+        if agent.get("approval_required", False):
+            return {
+                "ecosystem": "BADA_BUSINESS_AI_ECOSYSTEM",
+                "agent_id": agent["id"],
+                "status": "pending_approval",
+                "requires_approval": True,
+                "message": "Explicit human approval is required before this agent can execute.",
+            }
+
         if self._executor is None:
             raise RuntimeError("BADA_BUSINESS_AI_EXECUTOR_NOT_CONFIGURED")
+
         resources = load_provider_resources()
         result = self._executor(
             ecosystem="BADA_BUSINESS_AI_ECOSYSTEM",
