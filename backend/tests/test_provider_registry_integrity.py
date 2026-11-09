@@ -1,6 +1,6 @@
 from backend.integrations.registry import IntegrationRegistry
-from backend.integrations.providers.apple import AppleProvider
-from backend.integrations.providers.esa import ESAProvider
+from backend.integrations.provider.apple import AppleProvider
+from backend.integrations.provider.esa import ESAProvider
 from backend.engine.integrations.registry import IntegrationRegistry as EngineIntegrationRegistry
 
 
