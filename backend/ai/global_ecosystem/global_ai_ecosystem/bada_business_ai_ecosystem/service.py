@@ -27,7 +27,7 @@ class BadaBusinessAIService:
             "ecosystem": "BADA BUSINESS AI ECOSYSTEM",
             "layer": "AI",
             "status": "AI_DOMAIN_FOUNDATION_READY",
-            "runtime_status": "READY" if self._executor is not None else "NOT_CONFIGURED",
+            "runtime_status": "CONFIGURED_NOT_VERIFIED" if self._executor is not None else "NOT_CONFIGURED",
         }
 
     def execute(self, agent_id: str, task: str, context: dict[str, Any] | None = None) -> dict[str, Any]:
