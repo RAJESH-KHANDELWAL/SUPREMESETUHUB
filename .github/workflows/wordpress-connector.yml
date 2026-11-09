@@ -1,0 +1,41 @@
+name: WordPress Connector Checks
+
+on:
+  pull_request:
+    paths:
+      - "wordpress-plugin/**"
+      - "backend/api/print_on_demand.py"
+      - "backend/api/app.py"
+      - "backend/tests/test_print_on_demand_public_api.py"
+      - ".github/workflows/wordpress-connector.yml"
+  push:
+    branches: [main]
+    paths:
+      - "wordpress-plugin/**"
+      - "backend/api/print_on_demand.py"
+      - "backend/api/app.py"
+      - "backend/tests/test_print_on_demand_public_api.py"
+      - ".github/workflows/wordpress-connector.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  php-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Validate connector PHP syntax
+        run: php -l wordpress-plugin/supremesetuhub-connector/supremesetuhub-connector.php
+
+  backend-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Install backend requirements
+        run: python -m pip install -r backend/requirements.txt
+      - name: Test public POD storefront API
+        run: python -m pytest backend/tests/test_print_on_demand_public_api.py -q

@@ -1,0 +1,7 @@
+"""Tax Core ecosystem package."""
+from .catalog import STRIPE_TAX_CORE_ECOSYSTEM, get_catalog
+
+ECOSYSTEM_ID = "STRIPE-TAX-CORE-ECOSYSTEM"
+ECOSYSTEM_NAME = "STRIPE TAX CORE ECOSYSTEM"
+
+__all__ = ["STRIPE_TAX_CORE_ECOSYSTEM", "get_catalog", "ECOSYSTEM_ID", "ECOSYSTEM_NAME"]

@@ -1,0 +1,2 @@
+# Food & Hospitality API Ecosystem
+Documentation area for API contracts, authentication, rate limits, data schemas, provider integrations, consent, audit logs, security and testing. The existing Python implementation remains the maintained API foundation. Documentation folders do not create production integrations.

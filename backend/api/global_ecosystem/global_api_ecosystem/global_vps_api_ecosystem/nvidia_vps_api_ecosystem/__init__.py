@@ -1,0 +1,7 @@
+"""NVIDIA Cloud VPS API ecosystem catalog scaffold."""
+
+PROVIDER_ID = "nvidia"
+PROVIDER_NAME = "NVIDIA Cloud"
+CATEGORY = "VPS"
+IMPLEMENTATION_STATUS = "CATALOG_ONLY"
+LIVE_CONNECTION_VERIFIED = False

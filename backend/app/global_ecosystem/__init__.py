@@ -1,0 +1,1 @@
+"""GLOBAL APP ecosystem namespace."""

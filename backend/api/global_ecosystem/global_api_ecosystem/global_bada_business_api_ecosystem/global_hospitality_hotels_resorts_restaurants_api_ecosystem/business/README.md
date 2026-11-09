@@ -1,0 +1,2 @@
+# Food & Hospitality Businesses
+Separate business profiles for restaurants, cafes, bakeries, cloud kitchens, caterers, food trucks, hotels, venues, suppliers, beverage brands and food technology providers. Verify identity, licences, location, menu/service details and official contacts.

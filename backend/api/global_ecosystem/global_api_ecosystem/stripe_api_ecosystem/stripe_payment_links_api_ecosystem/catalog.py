@@ -1,0 +1,10 @@
+"""STRIPE PAYMENT LINKS API ECOSYSTEM service-family metadata."""
+STRIPE_SERVICE_ECOSYSTEM = {
+    "provider_id": "stripe",
+    "service_id": "payment_links",
+    "name": "STRIPE_PAYMENT_LINKS_API_ECOSYSTEM",
+    "parent_catalog_path": "backend/api/global_ecosystem/global_api_ecosystem/global_stripe_api_ecosystem",
+    "status": "CATALOG_ONLY",
+    "live_connection_verified": False,
+}
+__all__ = ["STRIPE_SERVICE_ECOSYSTEM"]

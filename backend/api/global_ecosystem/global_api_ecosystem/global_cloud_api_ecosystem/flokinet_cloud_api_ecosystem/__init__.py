@@ -1,0 +1,6 @@
+"""FlokiNET cloud/hosting catalog scaffold."""
+PROVIDER_ID = "flokinet"
+PROVIDER_NAME = "FlokiNET"
+CATEGORY = "CLOUD"
+IMPLEMENTATION_STATUS = "CATALOG_ONLY"
+LIVE_CONNECTION_VERIFIED = False

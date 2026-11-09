@@ -1,0 +1,3 @@
+# Core folder placeholder
+
+This directory mirrors the corresponding API ecosystem folder structure. Add Core-only business logic, models, services, and integrations here; do not place API implementation code in this directory.

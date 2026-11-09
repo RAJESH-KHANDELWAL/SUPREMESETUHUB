@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SUPREME Platform Collaboration Proposal",
+  "description": "Proposal schema only. Submission is not approval or a binding contract.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "proposal_id",
+    "partner_name",
+    "partner_type",
+    "business_purpose",
+    "benefit_model",
+    "permissions",
+    "status"
+  ],
+  "properties": {
+    "proposal_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "partner_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "partner_type": {
+      "type": "string",
+      "enum": [
+        "platform",
+        "business",
+        "creator",
+        "agency",
+        "technology_provider",
+        "service_provider",
+        "other"
+      ]
+    },
+    "official_website": {
+      "type": "string",
+      "format": "uri"
+    },
+    "authorized_contact_name": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "business_purpose": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 5000
+    },
+    "scope_and_deliverables": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1000
+      },
+      "minItems": 1
+    },
+    "benefit_model": {
+      "type": "string",
+      "enum": [
+        "percentage",
+        "fixed_per_eligible_order",
+        "tiered",
+        "referral_or_lead",
+        "fixed_fee_or_milestone",
+        "reciprocal_or_in_kind",
+        "hybrid",
+        "custom"
+      ]
+    },
+    "commercial_terms": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "percentage_rate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "fixed_amount_minor": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "eligible_event": {
+          "type": "string",
+          "enum": [
+            "qualified_lead",
+            "approved_referral",
+            "paid_order",
+            "completed_order",
+            "milestone_accepted",
+            "other"
+          ]
+        },
+        "eligible_base_definition": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "attribution_window_days": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3650
+        },
+        "refund_chargeback_rule": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "payout_schedule": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "cap_minor": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 3000
+        }
+      }
+    },
+    "permissions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contact_permission",
+        "commercial_terms_approved",
+        "integration_permission",
+        "data_sharing_permission",
+        "public_announcement_permission"
+      ],
+      "properties": {
+        "contact_permission": {
+          "type": "boolean"
+        },
+        "commercial_terms_approved": {
+          "type": "boolean"
+        },
+        "integration_permission": {
+          "type": "boolean"
+        },
+        "data_sharing_permission": {
+          "type": "boolean"
+        },
+        "public_announcement_permission": {
+          "type": "boolean"
+        },
+        "approved_scopes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "maxLength": 200
+          }
+        },
+        "approved_by_partner": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "approved_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "agreement_reference": {
+          "type": "string",
+          "maxLength": 300
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "proposed",
+        "identity_check_pending",
+        "terms_discussion",
+        "awaiting_both_approvals",
+        "approved_for_testing",
+        "testing",
+        "approved_for_launch",
+        "active",
+        "paused",
+        "rejected",
+        "terminated"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "review_notes": {
+      "type": "string",
+      "maxLength": 5000
+    }
+  }
+}

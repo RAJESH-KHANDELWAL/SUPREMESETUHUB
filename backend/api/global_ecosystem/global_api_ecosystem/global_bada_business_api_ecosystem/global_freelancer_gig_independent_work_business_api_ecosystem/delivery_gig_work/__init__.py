@@ -1,0 +1,5 @@
+"""Independent Delivery Gig Work freelance specialization package."""
+SPECIALIZATION_ID = "delivery_gig_work"
+SPECIALIZATION_NAME = "Delivery Gig Work"
+DOMAIN_ID = "freelance_gig_independent_work"
+DESCRIPTION = "On-demand delivery, courier, parcel and local logistics assignments."

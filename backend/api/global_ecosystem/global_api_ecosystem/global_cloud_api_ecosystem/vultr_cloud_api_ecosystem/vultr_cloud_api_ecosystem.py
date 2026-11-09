@@ -1,0 +1,8 @@
+"""Catalog metadata for Vultr cloud APIs; no live adapter is claimed."""
+
+PROVIDER_ID = "vultr"
+PROVIDER_NAME = "Vultr"
+CATEGORY = "CLOUD"
+IMPLEMENTATION_STATUS = "CATALOG_ONLY"
+OFFICIAL_API_DOCUMENTATION_VERIFIED = False
+LIVE_CONNECTION_VERIFIED = False

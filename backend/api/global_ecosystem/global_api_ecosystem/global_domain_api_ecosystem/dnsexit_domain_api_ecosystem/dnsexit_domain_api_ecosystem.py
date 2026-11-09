@@ -1,0 +1,10 @@
+"""DNSExit domain ecosystem reference; no live adapter is implied."""
+
+PROVIDER_ID = "dnsexit"
+PROVIDER_NAME = "DNSExit"
+CATEGORY_NAME = "GLOBAL DOMAIN API ECOSYSTEM"
+CAPABILITY_SCOPE = "DNS and dynamic DNS"
+OFFICIAL_DOCUMENTATION_URL = "https://dnsexit.com/"
+IMPLEMENTATION_STATUS = "REFERENCE_ONLY"
+OFFICIAL_API_VERIFIED = False
+LIVE_CONNECTION_VERIFIED = False

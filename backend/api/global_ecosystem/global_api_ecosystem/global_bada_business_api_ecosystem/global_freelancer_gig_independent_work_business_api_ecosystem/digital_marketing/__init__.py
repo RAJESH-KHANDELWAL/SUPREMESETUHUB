@@ -1,0 +1,5 @@
+"""Independent Digital Marketing freelance specialization package."""
+SPECIALIZATION_ID = "digital_marketing"
+SPECIALIZATION_NAME = "Digital Marketing"
+DOMAIN_ID = "freelance_gig_independent_work"
+DESCRIPTION = "Digital campaign execution, content distribution, lead generation and performance measurement."

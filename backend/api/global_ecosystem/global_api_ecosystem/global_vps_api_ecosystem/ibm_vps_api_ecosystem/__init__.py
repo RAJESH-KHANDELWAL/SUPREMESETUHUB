@@ -1,0 +1,7 @@
+"""IBM Cloud VPS API ecosystem catalog scaffold."""
+
+PROVIDER_ID = "ibm"
+PROVIDER_NAME = "IBM Cloud"
+CATEGORY = "VPS"
+IMPLEMENTATION_STATUS = "CATALOG_ONLY"
+LIVE_CONNECTION_VERIFIED = False

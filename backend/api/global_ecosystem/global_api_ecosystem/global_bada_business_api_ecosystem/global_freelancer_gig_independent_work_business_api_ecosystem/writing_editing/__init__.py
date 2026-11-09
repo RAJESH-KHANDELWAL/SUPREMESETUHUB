@@ -1,0 +1,5 @@
+"""Independent Writing Editing freelance specialization package."""
+SPECIALIZATION_ID = "writing_editing"
+SPECIALIZATION_NAME = "Writing Editing"
+DOMAIN_ID = "freelance_gig_independent_work"
+DESCRIPTION = "Written content creation, editing, proofreading and business communication deliverables."
