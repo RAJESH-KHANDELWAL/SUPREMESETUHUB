@@ -41,3 +41,7 @@ This namespace does not establish that either app is connected to a live provide
 - Canonical source of truth: `backend/global_ecosystem/global_bada_business_ecosystem/global_network_marketing_direct_selling_business_ecosystem/global_youtag_business_ecosystem/referral_profiles/rajesh_khandelwal.json`
 
 Keep the URL exactly as supplied. This is owner-provided public referral metadata, not an API credential or proof of registration, commission, provider partnership or live integration. Read the canonical profile rather than creating alternate referral records.
+
+## Company knowledge base — 2026
+
+Searchable Hinglish source reference: [`company_knowledge/YOUTAG_WELLNESS_BASIC_KNOWLEDGE_2026_HINGLISH.md`](company_knowledge/YOUTAG_WELLNESS_BASIC_KNOWLEDGE_2026_HINGLISH.md). It covers the company profile, terms, principles, ranks, 20-level plan, source-stated income categories and rank benefits, plus verification gaps. It is transcribed from the owner-uploaded five-page 2026 PDF. The figures and business/earnings claims are source statements, not independently verified facts or guaranteed outcomes. Consult current official documents before relying on them.
