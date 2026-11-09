@@ -1,53 +1,42 @@
 # GLOBAL BADA BUSINESS ECOSYSTEM
 
-Canonical global namespace: `backend/global_ecosystem/global_bada_business_ecosystem/`
+Canonical Bada Business ecosystem root:
+`backend/global_ecosystem/global_bada_business_ecosystem/`
 
-This namespace indexes the Bada Business and direct-selling business families within SUPREMESETUHUB. It owns ecosystem identity and navigation only.
+This directory is the single canonical home for Bada Business ecosystem identity, platform resources, course/event/product references, links, programs and referrals inside the Global Ecosystem.
 
-## Ecosystem hierarchy
+## Structure
 
-```text
-GLOBAL BADA BUSINESS ECOSYSTEM
-└── GLOBAL NETWORK MARKETING & DIRECT SELLING BUSINESS ECOSYSTEM
-    └── GLOBAL YOUTAG BUSINESS ECOSYSTEM
-        ├── YOUTAG WELLNESS APP / PLATFORM
-        └── YOUTAG RECHARGES APP / PLATFORM
-```
+- `courses/` — course resource namespace
+- `events/` — event and webinar resources
+- `links/` — official and owner-provided referral destinations
+- `platform/` — platform identity and profile
+- `platform_resources/` — provider catalog and program snapshots
+- `products/` — product resource namespace
+- `referrals/` — referral metadata
+- `registration/` — registration resources
+- `course_resources/` — Bada Business Community course-link directory
+- `global_network_marketing_direct_selling_business_ecosystem/` — direct-selling business families, including YOUTAG
+- `provider_resources/` — provider-supplied resource references
 
-YOUTAG is one business/company ecosystem. Wellness and Recharges are two separate apps/platforms under that same business identity—not separate companies or business ecosystems.
+## Canonical ownership and boundaries
 
-## Architecture boundaries
+All Bada Business ecosystem product/resource documentation and catalog files live here. The former `backend/bada_business_ecosystem/` package has been consolidated into this directory and is no longer a separate canonical root.
 
-- This directory owns the global ecosystem namespace and its documentation/index.
-- CORE owns canonical business identities and lifecycle rules.
-- API owns HTTP contracts and integration endpoints.
-- ENGINE owns orchestration and business workflows.
-- DATABASE owns persistence and schema.
-- Authentication, credentials, account access, payments, and live provider connections remain in their separately owned layers.
-- Do not copy or relocate existing implementations into this namespace.
-- Namespace presence does not mean a service, provider, account connection, product catalog, recharge transaction, or dataset is implemented or verified.
+Architecture implementation remains separately owned:
+- API: `backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`
+- CORE, ENGINE, DATABASE, AI, STORAGE, authentication and connection layers remain in their own architecture namespaces.
+- Do not duplicate API transport logic, core business rules, engine orchestration, persistence schemas, credentials or live integrations here.
 
-## Existing Bada Business resources
+## Platform resources and claims
 
-Canonical Bada Business resources remain in `backend/bada_business_ecosystem/`. API implementation remains in `backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`.
+Provider URLs, program snapshots, course links, package details, pricing, commissions, event dates, instructor descriptions and promotional claims are reference data supplied by the repository owner or source documents. They do not establish current availability, official API access, partnership, entitlement, accreditation, income guarantees or live connectivity. Verify current commercial terms and access directly with the provider.
 
-This global namespace is an index/ownership marker only. Keep canonical catalogs, API routes, CORE, ENGINE, DATABASE, authentication, and runtime implementations in their respective layers.
+## Related business families
 
-## YOUTAG integration status
+YOUTAG Wellness and YOUTAG Recharges remain separate apps under the YOUTAG business ecosystem. iDigitalPreneur and LeadsGuru remain separately scoped platforms under the affiliate-marketing ecosystem. Do not merge their referral identities or source data into Bada Business.
 
-The YOUTAG business and app entries here define ecosystem boundaries only. The owner-provided referral profile (ID `2043272`) is maintained under `global_youtag_business_ecosystem/referral_profiles/rajesh_khandelwal.json` and referenced by the API, AI, CORE, ENGINE, DATABASE and STORAGE layer namespaces. They do not assert verified official APIs, account authentication, live connectivity, payment processing, recharge execution, or transaction status. Those capabilities require separately verified provider documentation, credentials, contracts, and tests.
+## YOUTAG referral reference
 
-## Owner-provided YOUTAG referral link
-
-- Owner: Rajesh Khandelwal
-- Referral ID: `2043272`
-- Registration link: [Install YOUTAG Business and register with referral ID 2043272](https://play.google.com/store/apps/details?id=com.youtagindia.business&referrer=utm_source%3Dgoogle%26utm_campaign%3D2043272)
-- App package: `com.youtagindia.business`
-- Owner-declared scope: YOUTAG WELLNESS and YOUTAG RECHARGES; the supplied Play Store URL identifies the Business app package, and separate app attribution has not been independently verified.
-- Canonical source of truth: `backend/global_ecosystem/global_bada_business_ecosystem/global_network_marketing_direct_selling_business_ecosystem/global_youtag_business_ecosystem/referral_profiles/rajesh_khandelwal.json`
-
-Keep the URL exactly as supplied. This is owner-provided public referral metadata, not an API credential or proof of registration, commission, provider partnership or live integration. Read the canonical profile rather than creating alternate referral records.
-
-## Bada Business Community course resources
-
-Owner-provided directory of 11 course destinations: [`course_resources/BADA_BUSINESS_COMMUNITY_COURSE_LINKS.md`](course_resources/BADA_BUSINESS_COMMUNITY_COURSE_LINKS.md). This is a link index only; course content, current access rights and link availability are not verified here.
+The canonical owner-provided YOUTAG referral profile remains at:
+`global_network_marketing_direct_selling_business_ecosystem/global_youtag_business_ecosystem/referral_profiles/rajesh_khandelwal.json`.
