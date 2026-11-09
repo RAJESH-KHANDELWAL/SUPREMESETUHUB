@@ -10,6 +10,10 @@ Folder names use the `*_ecosystem` convention. These directories organize global
     - `global_youtag_business_ecosystem/`
       - `youtag_wellness_app/`
       - `youtag_recharges_app/`
+    - `global_affiliate_marketing_business_ecosystem/`
+      - `i_digitalpreneur/`
+      - `leadsguru/`
+      - `millionaire_track/`
 - `global_cloud_ecosystem/`
 - `global_cloudflare_ecosystem/`
 - `global_communication_ecosystem/`
