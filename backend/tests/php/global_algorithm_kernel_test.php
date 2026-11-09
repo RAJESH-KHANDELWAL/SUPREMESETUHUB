@@ -1,9 +1,10 @@
 <?php
 declare(strict_types=1);
 
-require_once dirname(__DIR__, 2) . '/php/GlobalAlgorithmKernel.php';
+require_once dirname(__DIR__, 2) . '/php/global_ecosystem/global_php_ecosystem/bootstrap.php';
 
-use SupremeSetuHub\GlobalCore\GlobalAlgorithmKernel as Kernel;
+use SupremeSetuHub\\GlobalEcosystem\\PHP\\GlobalAlgorithmKernel as Kernel;
+use SupremeSetuHub\\GlobalEcosystem\\PHP\\BadaBusiness\\BadaBusinessPHPAdapter;
 
 function expect(bool $condition, string $message): void
 {
@@ -17,11 +18,11 @@ expect(Kernel::normalizeIdentifier('  Hello World / API  ') === 'hello-world-api
 expect(
     Kernel::canonicalJson(['z' => 1, 'a' => ['y' => 2, 'x' => 1]])
         === Kernel::canonicalJson(['a' => ['x' => 1, 'y' => 2], 'z' => 1]),
-    'canonical JSON must be key-order independent'
+    'canonical JSON key ordering'
 );
 expect(
     Kernel::stableHash(['b' => 2, 'a' => 1]) === Kernel::stableHash(['a' => 1, 'b' => 2]),
-    'stable hash must be key-order independent'
+    'stable hash key ordering'
 );
 
 $page = Kernel::paginate([10, 20, 30, 40, 50], 2, 2, 3);
@@ -38,6 +39,13 @@ $clean = Kernel::redact([
 ]);
 expect($clean['api_key'] === '[REDACTED]', 'top-level secret redaction');
 expect($clean['nested']['access_token'] === '[REDACTED]', 'nested secret redaction');
-expect($clean['nested']['safe'] === 'visible', 'non-secret data preserved');
+expect($clean['nested']['safe'] === 'visible', 'safe data preserved');
 
-echo "All global PHP algorithm kernel tests passed.\n";
+$bada = new BadaBusinessPHPAdapter([
+    ['id' => 'digital-dukan', 'name' => 'Digital Dukan', 'type' => 'catalog'],
+    ['id' => 'program-alpha', 'name' => 'Business Program', 'type' => 'program'],
+]);
+expect($bada->catalog()['connected'] === false, 'Bada Business adapter must not claim live connection');
+expect(count($bada->search('digital')) === 1, 'Bada Business catalog search');
+
+echo "All global PHP ecosystem tests passed.\n";
