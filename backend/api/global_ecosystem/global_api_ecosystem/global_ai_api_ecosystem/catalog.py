@@ -1,0 +1,77 @@
+"""Canonical declarative catalogue for GLOBAL AI; no live calls or SDKs."""
+PROVIDERS = (
+ {"provider_id":"openai","provider_name":"OpenAI","provider_type":"model_platform","catalog_path":"openai_api_ecosystem","integration_status":"NOT_CONFIGURED"},
+ {"provider_id":"anthropic","provider_name":"Anthropic","provider_type":"model_platform","catalog_path":"anthropic_api_ecosystem","integration_status":"NOT_CONFIGURED"},
+ {"provider_id":"google","provider_name":"Google AI","provider_type":"model_platform","catalog_path":"google_api_ecosystem","integration_status":"NOT_CONFIGURED"},
+ {"provider_id":"aws","provider_name":"AWS AI","provider_type":"cloud_ai_platform","catalog_path":"aws_api_ecosystem","integration_status":"NOT_CONFIGURED"},
+ {"provider_id":"microsoft","provider_name":"Microsoft AI","provider_type":"cloud_ai_platform","catalog_path":"microsoft_api_ecosystem","integration_status":"NOT_CONFIGURED"},
+ {"provider_id":"ibm","provider_name":"IBM watsonx","provider_type":"enterprise_ai_platform","catalog_path":"ibm_api_ecosystem","integration_status":"NOT_CONFIGURED"},
+ {"provider_id":"meta","provider_name":"Meta AI","provider_type":"model_platform","catalog_path":"meta_api_ecosystem","integration_status":"NOT_CONFIGURED"},
+ {"provider_id":"apple","provider_name":"Apple Intelligence","provider_type":"on_device_ai_platform","catalog_path":"apple_api_ecosystem","integration_status":"NOT_CONFIGURED"},
+ {"provider_id":"nvidia","provider_name":"NVIDIA AI","provider_type":"ai_infrastructure_platform","catalog_path":"nvidia_api_ecosystem","integration_status":"NOT_CONFIGURED"},
+ {"provider_id":"cohere","provider_name":"Cohere","provider_type":"model_platform","catalog_path":"cohere_api_ecosystem","integration_status":"NOT_CONFIGURED"},
+ {"provider_id":"mistral","provider_name":"Mistral AI","provider_type":"model_platform","catalog_path":"mistral_api_ecosystem","integration_status":"NOT_CONFIGURED"},
+ {"provider_id":"deepseek","provider_name":"DeepSeek","provider_type":"model_platform","catalog_path":"deepseek_api_ecosystem","integration_status":"NOT_CONFIGURED"},
+ {"provider_id":"huggingface","provider_name":"Hugging Face","provider_type":"model_hub_and_inference","catalog_path":"huggingface_api_ecosystem","integration_status":"NOT_CONFIGURED"},
+ {"provider_id":"oracle","provider_name":"Oracle AI","provider_type":"enterprise_ai_platform","catalog_path":"oracle_api_ecosystem","integration_status":"NOT_CONFIGURED"},
+ {"provider_id":"adobe","provider_name":"Adobe Firefly","provider_type":"creative_ai_platform","catalog_path":"adobe_api_ecosystem","integration_status":"NOT_CONFIGURED"},
+ {"provider_id":"cloudflare","provider_name":"Cloudflare AI","provider_type":"edge_ai_platform","catalog_path":"global_cloudflare_api_ecosystem","integration_status":"NOT_CONFIGURED"},
+ {"provider_id":"nsfwinfra","provider_name":"NSFWInfra","provider_type":"specialized_generation_platform","catalog_path":"nsfwinfra_api_ecosystem","integration_status":"NOT_CONFIGURED"},
+)
+CAPABILITIES = (
+ {"capability_id":"text_generation","name":"Text generation","modality":"text"},
+ {"capability_id":"reasoning","name":"Reasoning","modality":"text"},
+ {"capability_id":"vision","name":"Image and visual understanding","modality":"image"},
+ {"capability_id":"image_generation","name":"Image generation and editing","modality":"image"},
+ {"capability_id":"audio_input","name":"Audio understanding and transcription","modality":"audio"},
+ {"capability_id":"audio_output","name":"Speech and audio generation","modality":"audio"},
+ {"capability_id":"video","name":"Video understanding and generation","modality":"video"},
+ {"capability_id":"embeddings","name":"Embeddings","modality":"vector"},
+ {"capability_id":"reranking","name":"Semantic reranking","modality":"vector"},
+ {"capability_id":"code","name":"Code generation and analysis","modality":"code"},
+ {"capability_id":"document_intelligence","name":"Document intelligence","modality":"document"},
+ {"capability_id":"agents","name":"Agent and tool orchestration","modality":"workflow"},
+ {"capability_id":"moderation","name":"Safety moderation","modality":"safety"},
+ {"capability_id":"fine_tuning","name":"Model fine-tuning","modality":"training"},
+ {"capability_id":"evaluation","name":"Model evaluation","modality":"quality"},
+)
+SERVICES = (
+ {"service_id":"inference","name":"Model inference","description":"Provider-neutral text and multimodal inference contract.","status":"CONTRACT_DEFINED"},
+ {"service_id":"embeddings","name":"Embedding service","description":"Vector generation contract for semantic retrieval.","status":"CONTRACT_DEFINED"},
+ {"service_id":"reranking","name":"Reranking service","description":"Relevance scoring contract for retrieved results.","status":"CONTRACT_DEFINED"},
+ {"service_id":"image-generation","name":"Image generation","description":"Image generation and editing capability boundary.","status":"CONTRACT_DEFINED"},
+ {"service_id":"audio","name":"Audio service","description":"Speech input, transcription and audio output boundary.","status":"CONTRACT_DEFINED"},
+ {"service_id":"video","name":"Video service","description":"Video understanding and generation boundary.","status":"CONTRACT_DEFINED"},
+ {"service_id":"document-ai","name":"Document intelligence","description":"Document parsing, extraction and Q&A boundary.","status":"CONTRACT_DEFINED"},
+ {"service_id":"agent-orchestration","name":"Agent orchestration","description":"Tool-using agent workflow contract; runtime disabled.","status":"CONTRACT_DEFINED"},
+ {"service_id":"model-evaluation","name":"Model evaluation","description":"Quality and performance evaluation contract.","status":"CONTRACT_DEFINED"},
+ {"service_id":"moderation","name":"Safety moderation","description":"Input and output policy screening contract.","status":"CONTRACT_DEFINED"},
+)
+TOOLS = (
+ {"tool_id":"structured-output","name":"Structured output","purpose":"Validate model responses against schemas.","status":"SPECIFIED_NOT_EXECUTABLE"},
+ {"tool_id":"function-calling","name":"Function calling","purpose":"Represent typed tool calls and validated arguments.","status":"SPECIFIED_NOT_EXECUTABLE"},
+ {"tool_id":"prompt-templates","name":"Prompt templates","purpose":"Version system and task prompts.","status":"SPECIFIED_NOT_EXECUTABLE"},
+ {"tool_id":"retrieval","name":"Retrieval","purpose":"Connect model workflows to indexed knowledge.","status":"SPECIFIED_NOT_EXECUTABLE"},
+ {"tool_id":"file-processing","name":"File processing","purpose":"Prepare documents and media for model input.","status":"SPECIFIED_NOT_EXECUTABLE"},
+ {"tool_id":"web-search","name":"Web search","purpose":"Controlled external information retrieval interface.","status":"SPECIFIED_NOT_EXECUTABLE"},
+ {"tool_id":"code-execution","name":"Code execution","purpose":"Sandbox boundary for code workflows.","status":"SPECIFIED_NOT_EXECUTABLE"},
+ {"tool_id":"safety-guardrails","name":"Safety guardrails","purpose":"Apply input, output and tool-use policy checks.","status":"SPECIFIED_NOT_EXECUTABLE"},
+ {"tool_id":"token-usage","name":"Token and usage accounting","purpose":"Normalize provider usage and cost metadata.","status":"SPECIFIED_NOT_EXECUTABLE"},
+)
+INTEGRATIONS = (
+ {"integration_id":"provider-adapters","name":"AI provider adapters","target":"Registered model and cloud AI providers","status":"PLANNED_NOT_CONNECTED"},
+ {"integration_id":"vector-databases","name":"Vector databases","target":"Vector storage and retrieval backends","status":"PLANNED_NOT_CONNECTED"},
+ {"integration_id":"object-storage","name":"Object storage","target":"Document and media assets","status":"PLANNED_NOT_CONNECTED"},
+ {"integration_id":"secrets-management","name":"Secrets management","target":"Environment and managed secrets","status":"PLANNED_NOT_CONNECTED"},
+ {"integration_id":"observability","name":"AI observability","target":"Logs, traces, latency, tokens and cost","status":"PLANNED_NOT_CONNECTED"},
+ {"integration_id":"workflow-runtime","name":"Workflow runtime","target":"Asynchronous jobs and agent workflows","status":"PLANNED_NOT_CONNECTED"},
+)
+ARCHITECTURE = (
+ {"layer":"catalog","responsibility":"Provider, capability, service, tool and integration metadata."},
+ {"layer":"contracts","responsibility":"Typed provider-neutral request and response contracts."},
+ {"layer":"adapters","responsibility":"Provider-specific clients, independently implemented and tested."},
+ {"layer":"orchestration","responsibility":"Routing, retries, fallbacks and agent workflows."},
+ {"layer":"governance","responsibility":"Credentials, privacy, policy checks, audit and usage controls."},
+ {"layer":"observability","responsibility":"Health, latency, errors, token usage and cost telemetry."},
+)
+MODEL_REGISTRY = {"items":[],"status":"DYNAMIC_DISCOVERY_NOT_CONFIGURED","note":"Model IDs and availability require a configured and verified provider adapter."}
