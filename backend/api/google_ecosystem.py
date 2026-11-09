@@ -3,8 +3,8 @@ from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException
 
-from backend.google.google_ecosystem.cloud.connection import check_cloud_connection
-from backend.google.google_ecosystem.service import GoogleEcosystemService
+from backend.global_ecosystem.google_ecosystem.runtime.cloud.connection import check_cloud_connection
+from backend.global_ecosystem.google_ecosystem.runtime.service import GoogleEcosystemService
 from backend.security.dependencies import require_admin
 
 router = APIRouter(
