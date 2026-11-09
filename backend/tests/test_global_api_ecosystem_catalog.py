@@ -47,11 +47,11 @@ def test_google_provider_links_existing_cross_subsystem_modules():
     google = get_provider_ecosystem("google")
     paths = set(google["related_ecosystem_paths"])
     assert {
-        "backend/google.py",
-        "backend/google.php",
-        "backend/google/google_ecosystem.py",
-        "backend/google/google_ecosystem.php",
-        "backend/google/google_ecosystem/service.py",
+        "backend/global_ecosystem/google_ecosystem/facade.py",
+        "backend/global_ecosystem/google_ecosystem/google.php",
+        "backend/global_ecosystem/google_ecosystem/facade.py",
+        "backend/global_ecosystem/google_ecosystem/google_ecosystem.php",
+        "backend/global_ecosystem/google_ecosystem/runtime/service.py",
         "backend/api/google_ecosystem.py",
         "backend/cloud/global_ecosystem/global_cloud_ecosystem/google_cloud/service.py",
         "backend/database/global_ecosystem/global_database_ecosystem/google_database_ecosystem/service.py",
