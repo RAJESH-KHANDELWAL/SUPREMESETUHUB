@@ -58,25 +58,25 @@ Source: owner-uploaded **Wellness Products Details _compressed.pdf** (52 pages; 
 
 | Catalogue page | Product name |
 |---:|---|
-| 47 | Calcium Suspension |
-| 48 | Fat Booster Powder |
+| 46 | Calcium Suspension |
+| 47 | Fat Booster Powder |
 
 ## AGROVED / agriculture products
 
 | Catalogue page | Product name |
 |---:|---|
-| 50 | Agro Super Sprider |
-| 51 | Bhu Green Power |
-| 52 | Agro N.P.K |
-| 53 | Agro Fungicide |
+| 49 | Agro Super Sprider |
+| 50 | Bhu Green Power |
+| 51 | Agro N.P.K |
+| 52 | Agro Fungicide |
 
 ## Other catalogue sections
 
 - Page 2: **LEAD THE BUSINESS** — YOUTAG training and education programme overview.
 - Page 3: YOUTAG Wellness product catalogue cover.
 - Pages 5–44: wellness product pages.
-- Pages 46–48: PASHUVED overview and veterinary products.
-- Pages 49–53: AGROVED overview and agriculture products.
+- Page 45: PASHUVED overview; pages 46–47: veterinary products.
+- Page 48: AGROVED overview; pages 49–52: agriculture products.
 
 ## Data-quality and safety notes
 
@@ -89,7 +89,7 @@ Source: owner-uploaded **Wellness Products Details _compressed.pdf** (52 pages; 
 ## Referral profile
 
 Use the parent YOUTAG ecosystem's canonical owner-provided referral profile:
-`../referral_profiles/rajesh_khandelwal.json` (relative path from the YOUTAG business ecosystem root; from this catalogue file, resolve via the parent directories).
+`../../referral_profiles/rajesh_khandelwal.json` (relative to this catalogue file).
 
 - Owner: Rajesh Khandelwal
 - Referral ID: `2043272`
