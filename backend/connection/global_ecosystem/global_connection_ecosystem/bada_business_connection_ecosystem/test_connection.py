@@ -21,6 +21,7 @@ class BadaBusinessConnectionTests(unittest.TestCase):
 
     def test_register_and_approve(self):
         self.assertTrue(self.service.register(self.request)["success"])
+        self.assertEqual(self.global_service.manager.connections["bb1"].namespace, "bada_business")
         self.assertEqual(self.service.authorize("bb1")["error"], "APPROVAL_REQUIRED")
         self.assertTrue(self.service.authorize("bb1", approved=True)["success"])
 
