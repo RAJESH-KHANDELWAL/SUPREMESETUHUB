@@ -1,7 +1,6 @@
 from __future__ import annotations
-from .openai_image import OpenAIImageConnector
 
-from dataclasses import dataclass, asdict
+from dataclasses import asdict, dataclass
 from typing import Any, Callable
 
 
@@ -15,128 +14,62 @@ class Connector:
     auth: str
     official_api: str
     handler: Callable[..., Any] | None = None
+    availability_status: str | None = None
 
     def public_info(self) -> dict[str, Any]:
         data = asdict(self)
         data.pop("handler", None)
         data["capabilities"] = list(self.capabilities)
-        data["status"] = (
-            "CONNECTED"
-            if self.handler
-            else "AVAILABLE"
-        )
+        if self.handler is not None:
+            data["status"] = "CONNECTED"
+        else:
+            data["status"] = self.availability_status or "NOT_CONFIGURED"
         return data
 
 
 class ConnectorRegistry:
-    """
-    Universal external connector registry.
-
-    External AI/platform services remain on their
-    own official infrastructure.
-
-    SUPREMESETUHUB only maintains connector metadata
-    and authorized adapter execution.
-    """
+    """Registry for external providers and locally available catalog adapters."""
 
     def __init__(self) -> None:
         self._connectors: dict[str, Connector] = {}
 
-    def register(
-        self,
-        connector: Connector,
-    ) -> dict[str, Any]:
-
+    def register(self, connector: Connector) -> dict[str, Any]:
         key = connector.name.strip().lower()
-
         if not key:
-            raise ValueError(
-                "CONNECTOR_NAME_REQUIRED"
-            )
-
+            raise ValueError("CONNECTOR_NAME_REQUIRED")
         self._connectors[key] = connector
-
         return connector.public_info()
 
     def get(self, name: str) -> Connector:
-
         key = name.strip().lower()
-
         connector = self._connectors.get(key)
-
         if connector is None:
-            raise ValueError(
-                "CONNECTOR_NOT_FOUND"
-            )
-
+            raise ValueError("CONNECTOR_NOT_FOUND")
         return connector
 
-    def list(
-        self,
-        category: str | None = None,
-    ) -> list[dict[str, Any]]:
-
-        wanted = (
-            category.strip().lower()
-            if category
-            else None
-        )
-
+    def list(self, category: str | None = None) -> list[dict[str, Any]]:
+        wanted = category.strip().lower() if category else None
         result = []
-
         for connector in self._connectors.values():
-
-            if (
-                wanted
-                and connector.category.lower()
-                != wanted
-            ):
+            if wanted and connector.category.lower() != wanted:
                 continue
-
-            result.append(
-                connector.public_info()
-            )
-
-        return sorted(
-            result,
-            key=lambda item: item["name"],
-        )
+            result.append(connector.public_info())
+        return sorted(result, key=lambda item: item["name"])
 
     def categories(self) -> list[str]:
+        return sorted({item.category for item in self._connectors.values()})
 
-        return sorted(
-            {
-                connector.category
-                for connector
-                in self._connectors.values()
-            }
-        )
-
-    def execute(
-        self,
-        name: str,
-        **payload: Any,
-    ) -> Any:
-
+    def execute(self, name: str, **payload: Any) -> Any:
         connector = self.get(name)
-
         if connector.handler is None:
-            raise ValueError(
-                "CONNECTOR_NOT_CONFIGURED"
-            )
-
-        return connector.handler(
-            **payload
-        )
+            raise ValueError("CONNECTOR_NOT_CONFIGURED")
+        return connector.handler(**payload)
 
 
 connector_registry = ConnectorRegistry()
 
 
-# ============================================================
-# REGISTERED EXTERNAL PROVIDERS AND CATALOG CONNECTORS
-# ============================================================
-
+# Registered external providers and resource-catalog connectors.
 connector_registry.register(
     Connector(
         name="openai_image",
@@ -149,8 +82,6 @@ connector_registry.register(
         handler=None,
     )
 )
-
-
 connector_registry.register(
     Connector(
         name="google_veo",
@@ -159,14 +90,10 @@ connector_registry.register(
         region="GLOBAL",
         capabilities=("video",),
         auth="environment/provider_credentials",
-        official_api=(
-            "https://generativelanguage.googleapis.com"
-        ),
+        official_api="https://generativelanguage.googleapis.com",
         handler=None,
     )
 )
-
-
 connector_registry.register(
     Connector(
         name="bada_business",
@@ -182,5 +109,6 @@ connector_registry.register(
         auth="NOT_REQUIRED_FOR_CATALOG; PROVIDER_AUTH_NOT_CONFIGURED",
         official_api="https://www.badabusiness.com",
         handler=None,
+        availability_status="CATALOG_ONLY",
     )
 )
