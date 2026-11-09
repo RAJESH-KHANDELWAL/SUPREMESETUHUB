@@ -179,7 +179,7 @@ class GlobalEcosystemManager:
         from backend.core.global_ecosystem.global_core_ecosystem.google_core_ecosystem.catalog import (
             get_google_core_catalog,
         )
-        from backend.google.google_ecosystem.service import GoogleEcosystemService
+        from backend.global_ecosystem.google_ecosystem.runtime.service import GoogleEcosystemService
 
         google_catalog = get_google_core_catalog()
         root = self.registry.get("GOOGLE-CORE-ECOSYSTEM")
