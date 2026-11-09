@@ -8,7 +8,7 @@ This directory organizes the Global Bada Business Ecosystem, including provider-
 ## Main domains
 
 - `business_ecosystem/` — general business taxonomy, business capabilities, resources, and domain indexes.
-- `global_vasudhaiva_kutumbakam_business_ecosystem/` — separate business domain for ethical ventures, cultural and heritage services, education, artisan commerce, and community-benefiting initiatives connected with Vasudhaiva Kutumbakam and world cultures.
+- `global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_business_ecosystem/` — separate business domain for ethical ventures, cultural and heritage services, education, artisan commerce, and community-benefiting initiatives connected with Vasudhaiva Kutumbakam and world cultures.
 - `courses/` — course resource namespace.
 - `events/` — event and webinar resources.
 - `links/` — official and owner-provided destinations.

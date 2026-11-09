@@ -1,9 +1,9 @@
-# GLOBAL VASUDHAIVA KUTUMBAKAM BUSINESS ECOSYSTEM
+# GLOBAL VASUDHAIVA KUTUMBAKAM | SANATAN DHARMA | BHARAT SANSKRITI | WORLD CULTURE BUSINESS ECOSYSTEM
 
 Canonical path:
-`backend/global_ecosystem/global_bada_business_ecosystem/global_vasudhaiva_kutumbakam_business_ecosystem/`
+`backend/global_ecosystem/global_bada_business_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_business_ecosystem/`
 
-A distinct business-domain package for ethical, sustainable, and community-benefiting ventures connected with Vasudhaiva Kutumbakam, Sanatan Dharma heritage, Bharat's civilizational knowledge and Sanskriti, and respectful cultural exchange across the world.
+A dedicated business-domain package for ethical, sustainable, and community-benefiting ventures connected with Vasudhaiva Kutumbakam, Sanatan Dharma heritage, Bharat's civilizational knowledge and Sanskriti, and respectful cultural exchange across the world.
 
 ## Business domains
 
