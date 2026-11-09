@@ -36,3 +36,7 @@ Contract/documentation namespace only. No YOUTAG official API, endpoint, authent
 - Canonical source of truth: `backend/global_ecosystem/global_bada_business_ecosystem/global_network_marketing_direct_selling_business_ecosystem/global_youtag_business_ecosystem/referral_profiles/rajesh_khandelwal.json`
 
 Keep the URL exactly as supplied. This is owner-provided public referral metadata, not an API credential or proof of registration, commission, provider partnership or live integration. Read the canonical profile rather than creating alternate referral records.
+
+## Company knowledge resource
+
+Canonical source reference: `backend/global_ecosystem/global_bada_business_ecosystem/global_network_marketing_direct_selling_business_ecosystem/global_youtag_business_ecosystem/company_knowledge/YOUTAG_WELLNESS_BASIC_KNOWLEDGE_2026_HINGLISH.md`. If a future API exposes this material, return it as source information with version/source metadata. Do not convert source-stated income, rank benefits or success figures into guaranteed claims. No knowledge API endpoint is implemented or verified by this documentation link.
