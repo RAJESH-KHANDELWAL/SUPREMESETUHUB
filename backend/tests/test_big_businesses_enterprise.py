@@ -1,4 +1,4 @@
-from backend.businesses.service import BusinessService
+from backend.api.businesses import BusinessService
 from backend.database.service import DatabaseService
 from backend.schemas.business import BusinessCreateRequest
 
