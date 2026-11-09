@@ -1,8 +1,8 @@
 """Readiness reporting must be truthful and never expose credentials."""
-from backend.integrations.providers.google import GoogleProvider
-from backend.integrations.providers.microsoft import MicrosoftProvider
-from backend.integrations.providers.aws import AWSProvider
-from backend.integrations.providers.apple import AppleProvider
+from backend.integrations.provider.google import GoogleProvider
+from backend.integrations.provider.microsoft import MicrosoftProvider
+from backend.integrations.provider.aws import AWSProvider
+from backend.integrations.provider.apple import AppleProvider
 
 
 def _clear_provider_env(monkeypatch):
