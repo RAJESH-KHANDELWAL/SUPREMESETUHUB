@@ -1,4 +1,4 @@
-from backend.google.google_ecosystem.service import GoogleEcosystemService, GOOGLE_PRODUCTS
+from backend.global_ecosystem.google_ecosystem.runtime.service import GoogleEcosystemService, GOOGLE_PRODUCTS
 
 
 def test_google_ecosystem_catalog_covers_major_product_families():
