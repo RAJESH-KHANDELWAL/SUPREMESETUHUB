@@ -6,6 +6,8 @@ from typing import Any
 from .agents import AGENT_COMPONENTS
 from .global_ai_agents.catalog import AGENT_CATALOG
 from .bada_business_ai_ecosystem.catalog import AI_CAPABILITIES, AI_ECOSYSTEM_PROFILE
+from .bada_business_ai_ecosystem.agents import BADA_BUSINESS_AGENTS
+from .bada_business_ai_ecosystem.workflows import BADA_BUSINESS_WORKFLOWS
 from .capabilities import CAPABILITIES
 from .governance import GOVERNANCE_CONTROLS
 from .infrastructure import INFRASTRUCTURE
@@ -30,6 +32,8 @@ CATALOG: dict[str, tuple] = {
     "integrations": INTEGRATIONS,
     "business_ai_ecosystems": (AI_ECOSYSTEM_PROFILE,),
     "business_ai_capabilities": AI_CAPABILITIES,
+    "business_ai_agents": BADA_BUSINESS_AGENTS,
+    "business_ai_workflows": BADA_BUSINESS_WORKFLOWS,
 }
 
 
