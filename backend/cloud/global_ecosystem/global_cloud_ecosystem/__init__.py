@@ -19,3 +19,15 @@ __all__ = [
     "GlobalCloudEcosystemManager", "cloud_diagnostics",
     "LAYER", "ECOSYSTEM_ID", "STATUS",
 ]
+
+# Bada Business-specific cloud integration package.
+from .bada_business_cloud_ecosystem import (
+    BadaBusinessCloudManager,
+    BadaBusinessCloudService,
+    get_bada_business_cloud_catalog,
+)
+__all__ += [
+    "BadaBusinessCloudManager",
+    "BadaBusinessCloudService",
+    "get_bada_business_cloud_catalog",
+]
