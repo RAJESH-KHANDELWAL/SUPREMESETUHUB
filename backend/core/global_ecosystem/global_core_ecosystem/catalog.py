@@ -451,7 +451,7 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "metadata": {
             "core_catalog": "backend/core/global_ecosystem/global_core_ecosystem/google_core_ecosystem",
             "google_api_catalog": "backend/api/global_ecosystem/global_api_ecosystem/google_api_ecosystem",
-            "existing_google_core": "backend/google/google_ecosystem/core",
+            "existing_google_core": "backend/global_ecosystem/google_ecosystem/runtime/core",
         },
     },
     {
@@ -897,13 +897,13 @@ GOOGLE_CORE_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
         "metadata": {
             "provider_id": "google",
             "api_catalog_module": "backend/api/global_ecosystem/global_api_ecosystem/google_api_ecosystem/google_api_ecosystem.py",
-            "product_catalog_module": "backend/google/google_ecosystem/service.py",
+            "product_catalog_module": "backend/global_ecosystem/google_ecosystem/runtime/service.py",
             "provider_adapter_module": "backend/integrations/providers/google.py",
             "gemini_adapter_module": "backend/api/global_ecosystem/global_api_ecosystem/google_api_ecosystem/google_gemini_api_ecosystem/google_gemini_api_ecosystem.py",
-            "cloud_readiness_module": "backend/google/google_ecosystem/cloud/connection.py",
+            "cloud_readiness_module": "backend/global_ecosystem/google_ecosystem/runtime/cloud/connection.py",
             "live_connection_verified": False,
             "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
-            "catalog_source_of_truth": "backend/google/google_ecosystem/service.py",
+            "catalog_source_of_truth": "backend/global_ecosystem/google_ecosystem/runtime/service.py",
         },
     },
     {
@@ -926,7 +926,7 @@ GOOGLE_CORE_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
         "capabilities": ["PRODUCT_CATALOG", "PRODUCT_CAPABILITY_METADATA", "AVAILABILITY_METADATA"],
         "parent_id": "GLOBAL-GOOGLE-CORE-ECOSYSTEM",
         "metadata": {
-            "source_module": "backend/google/google_ecosystem/service.py",
+            "source_module": "backend/global_ecosystem/google_ecosystem/runtime/service.py",
             "product_count": 129,
             "product_ids": ["gmail","google_chat","meet","calendar","contacts","google_voice","google_groups","drive","docs","sheets","google_slides","google_forms","google_sites","google_keep","tasks","google_jamboard","google_workspace_admin","google_one","cloud","firebase","maps","google_places","google_routes","google_geocoding","google_earth","google_search","google_search_console","analytics","google_tag_manager","google_ads","google_ad_manager","google_play_console","google_play_services","google_gemini","vertex_ai","google_ai_studio","google_colab","bigquery","look_studio","looker","google_cloud_storage","google_cloud_dns","google_compute_engine","google_kubernetes_engine","cloud_run","cloud_functions","cloud_sql","pub_sub","google_workspace_marketplace","youtube","youtube_analytics","photos","google_play_books","google_news","google_shopping","google_business_profile","google_translate","google_speech","google_text_to_speech","google_vision","google_document_ai","google_recaptcha","google_safe_browsing","google_identity","google_authenticator","google_wallet","google_pay","google_flights","google_travel","google_classroom","google_assignments","google_appsheet","google_apps_script","google_blogger","google_books","google_fonts","google_developers","google_play_console_reporting","google_android_management","google_play_integrity","google_cloud_identity","google_vault","google_endpoint_management","google_workspace_migrate","firebase_authentication","cloud_firestore","firebase_realtime_database","firebase_hosting","firebase_app_distribution","firebase_crashlytics","firebase_remote_config","firebase_performance","firebase_cloud_messaging","firebase_app_check","google_cloud_iam","google_secret_manager","google_cloud_kms","google_cloud_logging","google_cloud_monitoring","google_cloud_build","google_artifact_registry","google_cloud_armor","google_cloud_cdn","google_cloud_load_balancing","google_cloud_vpc","google_dataflow","google_dataproc","google_cloud_composer","google_app_engine","google_vertex_ai_search","google_dialogflow","google_natural_language","google_video_intelligence","google_recommendations_ai","google_adsense","google_admob","google_merchant_center","google_street_view","google_maps_elevation","google_maps_time_zone","google_maps_directions_legacy","google_art_and_culture","google_podcasts","google_duo","google_play_games","google_family_link","google_store","google_pixel","google_nest"],
             "live_connection_verified": False,
@@ -953,7 +953,7 @@ GOOGLE_CORE_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
         "capabilities": ["CLOUD_PROJECT_DISCOVERY", "READ_ONLY_CLOUD_PROJECT_HEALTH"],
         "parent_id": "GLOBAL-GOOGLE-CORE-ECOSYSTEM",
         "metadata": {
-            "source_module": "backend/google/google_ecosystem/cloud/connection.py",
+            "source_module": "backend/global_ecosystem/google_ecosystem/runtime/cloud/connection.py",
             "project_env": "GOOGLE_CLOUD_PROJECT",
             "authentication": "APPLICATION_DEFAULT_CREDENTIALS",
             "read_only": True,
