@@ -1,0 +1,45 @@
+name: GLOBAL PHP ECOSYSTEM Tests
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "backend/php/**"
+      - "backend/tests/php/**"
+      - ".github/workflows/test-global-php-ecosystem.yml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "backend/php/**"
+      - "backend/tests/php/**"
+      - ".github/workflows/test-global-php-ecosystem.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-global-php-ecosystem:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          coverage: none
+
+      - name: Validate GLOBAL PHP ECOSYSTEM syntax
+        run: |
+          php -l backend/php/global_ecosystem/global_php_ecosystem/GlobalAlgorithmKernel.php
+          php -l backend/php/global_ecosystem/global_php_ecosystem/bootstrap.php
+          php -l backend/php/global_ecosystem/global_php_ecosystem/bada_business_php_ecosystem/BadaBusinessPHPAdapter.php
+          php -l backend/php/global_ecosystem/global_php_ecosystem/bada_business_php_ecosystem/bootstrap.php
+          php -l backend/tests/php/global_algorithm_kernel_test.php
+
+      - name: Run GLOBAL PHP ECOSYSTEM smoke tests
+        run: php backend/tests/php/global_algorithm_kernel_test.php
