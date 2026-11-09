@@ -1,5 +1,8 @@
-"""Public entry point for GLOBAL CORE ECOSYSTEM."""
+"""Public entry point for GLOBAL CORE ECOSYSTEM.
 
+The package is nested under GLOBAL ECOSYSTEM; keep the master root identity
+and the CORE child identity separate in all public responses.
+"""
 from .manager import GlobalEcosystemManager
 
 LAYER = "CORE"
@@ -20,19 +23,33 @@ def _get_manager() -> GlobalEcosystemManager:
 def status():
     manager = _get_manager()
     result = manager.status()
-    result.setdefault("ecosystem_id", ECOSYSTEM_ID)
-    result.setdefault("ecosystem", ECOSYSTEM_NAME)
+    result["ecosystem_id"] = ECOSYSTEM_ID
+    result["ecosystem"] = ECOSYSTEM_NAME
+    result["name"] = ECOSYSTEM_NAME
     return result
 
 
 def tree():
-    return _get_manager().tree()
+    """Return the GLOBAL ECOSYSTEM root with CORE as a child."""
+    result = _get_manager().tree()
+    root = result.get("tree") if isinstance(result, dict) else None
+    return {
+        "success": bool(result.get("success")) if isinstance(result, dict) else False,
+        "id": ECOSYSTEM_ID,
+        "name": ECOSYSTEM_NAME,
+        "children": [root] if root else [],
+        "tree": root,
+    }
 
 
 def list_modules():
-    manager = _get_manager()
-    records = manager.list()
-    return {"success": True, "count": len(records), "items": records}
+    records = _get_manager().list()["ecosystems"]
+    core_records = [
+        item for item in records
+        if item.get("ecosystem_id") == ECOSYSTEM_ID
+        or item.get("parent_id") == ECOSYSTEM_ID
+    ]
+    return {"success": True, "count": len(core_records), "items": core_records}
 
 
 def get_module(module_id: str):
@@ -43,13 +60,6 @@ def get_module(module_id: str):
 
 
 __all__ = [
-    "LAYER",
-    "ECOSYSTEM_ID",
-    "ECOSYSTEM_NAME",
-    "ROOT_ID",
-    "GlobalEcosystemManager",
-    "status",
-    "tree",
-    "list_modules",
-    "get_module",
+    "LAYER", "ECOSYSTEM_ID", "ECOSYSTEM_NAME", "ROOT_ID",
+    "GlobalEcosystemManager", "status", "tree", "list_modules", "get_module",
 ]
