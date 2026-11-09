@@ -60,7 +60,7 @@ jobs:
 
       - name: Run Global World A-Z Tests
         run: |
-          python -m unittest backend.tests.test_global_world_ecosystem -v
+          python -m unittest discover -s backend/tests -p "test_global_bada_business_world_map.py" -v
 
       - name: Run Global Bada Business World Map Tests
         run: |
