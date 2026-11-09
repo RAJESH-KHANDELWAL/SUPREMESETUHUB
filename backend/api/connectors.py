@@ -14,8 +14,8 @@ from backend.integrations.connectors.openai_image import (
 )
 from backend.integrations.connectors.registry import connector_registry
 from backend.supreme.config import CONNECTED_REPOS
-from backend.integrations.providers.github import GitHubProvider
-from backend.integrations.providers.huggingface import HuggingFaceProvider
+from backend.integrations.provider.github import GitHubProvider
+from backend.integrations.provider.huggingface import HuggingFaceProvider
 
 
 router = APIRouter(
