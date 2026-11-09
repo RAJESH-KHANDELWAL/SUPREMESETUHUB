@@ -17,7 +17,7 @@ GOOGLE_CORE_ECOSYSTEM: dict[str, Any] = {
     "status": "REGISTERED",
     "enabled": True,
     "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/google_api_ecosystem",
-    "existing_google_core_ref": "backend/google/google_ecosystem/core",
+    "existing_google_core_ref": "backend/global_ecosystem/google_ecosystem/runtime/core",
     "capabilities": [
         "GOOGLE_PROVIDER_CORE_REGISTRY",
         "GOOGLE_WORKSPACE_CORE",
