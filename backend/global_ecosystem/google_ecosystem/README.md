@@ -2,14 +2,14 @@
 
 Canonical global hierarchy: `backend/global_ecosystem/google_ecosystem/`
 
-Each Google product is represented by an independent `google_*_ecosystem/` namespace. The directory names are derived from the existing 129-entry Google product catalog in `backend/google/google_ecosystem/service.py`.
+Each Google product is represented by an independent `google_*_ecosystem/` namespace. The directory names are derived from the existing 129-entry Google product catalog in `backend/global_ecosystem/google_ecosystem/runtime/service.py`.
 
 ## Architecture boundaries
 
 - This directory owns global product ecosystem namespaces and the product index.
 - Google CORE remains under `backend/core/global_ecosystem/global_core_ecosystem/google_core_ecosystem/`.
 - Google API remains under `backend/api/global_ecosystem/global_api_ecosystem/google_api_ecosystem/`.
-- Existing Google integration/runtime code under `backend/google/google_ecosystem/` is preserved; no CORE/API implementation is copied here.
+- Google provider catalog and runtime metadata now live under `runtime/` in this canonical global ecosystem namespace.
 - Namespace creation does not mean a product has a working API integration or live credentials.
 
 ## Product namespaces
