@@ -52,3 +52,7 @@ explicitly wired through the composition root and verified with tests. This
 package does not claim a Bada Business official developer API, partnership,
 provider account access, live AI integration, current pricing or guaranteed
 program outcomes.
+
+## Network marketing and affiliate AI domains
+
+The related AI-domain namespaces are organized under `network_marketing_direct_selling_business_ai_ecosystem/`, including the single YOUTAG business identity and the separate affiliate-marketing platform directory. YOUTAG owner referral metadata is maintained in the canonical GLOBAL ECOSYSTEM profile; this AI package does not duplicate or own the provider URL.
