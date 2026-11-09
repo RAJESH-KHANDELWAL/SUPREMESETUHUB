@@ -7,12 +7,12 @@ import httpx
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel, Field
 
-from backend.integrations.connectors.adapters import ConnectorAdapter
-from backend.integrations.connectors.manager import ConnectorManager
-from backend.integrations.connectors.openai_image import (
+from backend.integrations.connector.adapters import ConnectorAdapter
+from backend.integrations.connector.manager import ConnectorManager
+from backend.integrations.connector.openai_image import (
     OpenAIImageConnector,
 )
-from backend.integrations.connectors.registry import connector_registry
+from backend.integrations.connector.registry import connector_registry
 from backend.supreme.config import CONNECTED_REPOS
 from backend.integrations.provider.github import GitHubProvider
 from backend.integrations.provider.huggingface import HuggingFaceProvider
