@@ -1,5 +1,7 @@
 """SUPREMESETUHUB external connectors."""
 
+from .bada_business import BadaBusinessConnector, bada_business_connector
+
 from .adapters import ConnectorAdapter
 from .https import ExternalHTTPSConnector
 from .http import ExternalHTTPConnector
@@ -11,6 +13,8 @@ from .tls import TLSConfiguration
 from .tls import tls_configuration
 
 __all__ = [
+    "BadaBusinessConnector",
+    "bada_business_connector",
     "Connector",
     "ConnectorRegistry",
     "connector_registry",
