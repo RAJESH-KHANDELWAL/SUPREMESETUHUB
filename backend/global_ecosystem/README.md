@@ -72,10 +72,11 @@ Folder names use the `*_ecosystem` convention. These directories organize global
 - `stripe_ecosystem/`
 - `twilio_ecosystem/`
 
-## Existing culture and business ecosystems
+## Existing culture ecosystems
 - `global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem/`
-- `global_bada_business_ecosystem/`
 - `global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_ecosystem/`
+
+`global_bada_business_ecosystem/` is listed only once under **Global domain ecosystems**. Its network-marketing/direct-selling and affiliate-marketing ecosystems are nested beneath it; they are not separate top-level directories.
 
 These are catalog namespaces, not completed runtime integrations. API, CORE, ENGINE, DATABASE, credentials, authentication, and authorization remain in their separately owned architecture layers.
 
