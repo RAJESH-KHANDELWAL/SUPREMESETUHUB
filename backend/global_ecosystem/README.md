@@ -6,6 +6,7 @@ Folder names use the `*_ecosystem` convention. These directories organize global
 - `global_ai_ecosystem/`
 - `global_app_ecosystem/`
 - `global_bada_business_ecosystem/`
+  - `business_ecosystem/` — broad business domain: entrepreneurship, companies, MSMEs, startups, commerce, operations, and business services.
   - `global_network_marketing_direct_selling_business_ecosystem/`
     - `global_youtag_business_ecosystem/`
       - `youtag_wellness_app/`
@@ -45,6 +46,9 @@ Folder names use the `*_ecosystem` convention. These directories organize global
 - `global_web_ecosystem/`
 - `global_website_ecosystem/`
 
+## Cultural ecosystem
+- `global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem/` — Vasudhaiva Kutumbakam, Sanatan Dharma, Bharat heritage and Sanskriti, and world cultures. This remains a separate cultural domain.
+
 ## Vendor ecosystems
 - `adobe_ecosystem/`
 - `anthropic_ecosystem/`
@@ -72,15 +76,9 @@ Folder names use the `*_ecosystem` convention. These directories organize global
 - `stripe_ecosystem/`
 - `twilio_ecosystem/`
 
-## Distinct global and business domains
-- `business_ecosystem/` — general business domain covering entrepreneurship, companies, MSMEs, startups, commerce, business operations, and business services.
-- `global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem/` — Vasudhaiva Kutumbakam, Sanatan Dharma, Bharat heritage and Sanskriti, and world cultures.
-
 ## Provider-specific Bada Business packages
-- `bada_business_ecosystem/` — standalone Bada Business provider/product resource package.
-- `global_bada_business_ecosystem/` — separate global Bada Business package, including its global network-marketing/direct-selling and affiliate-marketing domains.
-
-The general `business_ecosystem/` is not a replacement for either Bada Business package. All four directories remain independent siblings; do not merge, nest, or move their contents between one another.
+- `bada_business_ecosystem/` — standalone Bada Business provider/product resource package; remains separate.
+- `global_bada_business_ecosystem/` — global Bada Business package. Its general business domain and network-marketing/direct-selling domains are nested beneath it.
 
 These are catalog namespaces, not completed runtime integrations. API, CORE, ENGINE, DATABASE, credentials, authentication, and authorization remain in their separately owned architecture layers.
 
