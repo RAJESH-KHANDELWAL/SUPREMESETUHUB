@@ -1,6 +1,6 @@
 """Mistral provider configuration and live verification tests."""
-from backend.integrations.provider.mistral import MistralProvider
-from backend.integrations.registry import IntegrationRegistry
+from backend.integration.provider.mistral import MistralProvider
+from backend.integration.registry import IntegrationRegistry
 
 class FakeResponse:
     status_code = 200
@@ -29,7 +29,7 @@ def test_mistral_verify_without_key_does_not_make_request(monkeypatch):
 
 def test_mistral_live_verification_lists_models_without_returning_key(monkeypatch):
     monkeypatch.setenv("MISTRAL_API_KEY", "test-secret-key")
-    monkeypatch.setattr("backend.integrations.provider.mistral.httpx.Client", FakeClient)
+    monkeypatch.setattr("backend.integration.provider.mistral.httpx.Client", FakeClient)
     result = MistralProvider().verify_connection()
     assert result["success"] is True
     assert result["status"] == "CONNECTED"
