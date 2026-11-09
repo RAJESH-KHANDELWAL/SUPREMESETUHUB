@@ -6,6 +6,7 @@ availability. Verify commercial terms directly with the provider.
 """
 from __future__ import annotations
 from typing import Any
+from ..links.platform_links import PLATFORM_LINKS
 from .programs.lfp_digital import LFP_DIGITAL
 from .programs.bb_impact import BB_IMPACT
 from .programs.idea_to_ipo import IDEA_TO_IPO
@@ -16,13 +17,6 @@ PROVIDER = "Bada Business"
 STATUS = "RESOURCE_CATALOG_ONLY"
 OFFICIAL_PUBLIC_API_VERIFIED = False
 LIVE_CONNECTION_VERIFIED = False
-
-PLATFORM_LINKS = [
-    {"id": "lfp_digital", "name": "LFP Digital", "url": "https://www.badabusiness.com/lfp?pp_code=BIRK076336", "type": "PROGRAM", "source": "existing SUPREME homepage link"},
-    {"id": "cash_growth_profit", "name": "Cash Growth Profit", "url": "https://www.badabusiness.com/cash-growth-profit?pp_code=BIRK076336", "type": "PROGRAM", "source": "existing SUPREME homepage link"},
-    {"id": "idea_to_ipo", "name": "Idea to IPO", "url": "https://www.badabusiness.com/ideatoipo?pp_code=BIRK076336", "type": "WEBINAR_OR_PROGRAM", "availability": "historical advertised date; recheck current sessions", "source": "user-provided page URL"},
-    {"id": "digital_dukan", "name": "Digital Dukan", "url": "https://www.badabusiness.com/digitaldukan/BIRK076336", "type": "DIGITAL_STORE", "source": "existing SUPREME homepage link"},
-]
 
 PLATFORM_PROFILE: dict[str, Any] = {
     "provider": PROVIDER,
