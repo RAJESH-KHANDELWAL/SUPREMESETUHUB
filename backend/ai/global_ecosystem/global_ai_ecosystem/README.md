@@ -15,10 +15,11 @@ knowledge/RAG components, infrastructure, governance controls and integrations.
 - **CORE:** application-level validation and business orchestration.
 - **ENGINE:** actual runtime dispatch, model execution and provider execution.
 
-The `global_ai_agents/` package owns agent profiles, request/result contracts,
-tool allowlists, memory policy descriptors, planning metadata and agent-domain
-service boundaries. The parent `agents.py` retains shared agent building-block
-taxonomy; the dedicated package provides concrete agent-domain organization.
+The `global_ai_agents/` package owns generic agent profiles, request/result
+contracts, tool allowlists, memory policy descriptors and planning metadata.
+The `bada_business_ai_ecosystem/` package owns Bada Business-specific AI
+capabilities, agent profiles, workflows, evidence policies and the read-only
+adapter to the canonical Bada Business resource catalog.
 
 No provider SDKs, API keys, network calls, database clients or runtime engines
 are initialized by importing this package. Runtime execution is delegated only
@@ -57,10 +58,11 @@ model availability, pricing, or live service health.
 
 ```python
 from backend.ai.global_ecosystem.global_ai_ecosystem import (
+    BadaBusinessAIService,
     GlobalAIEcosystemService,
     get_catalog,
 )
-from backend.ai.global_ecosystem.global_ai_ecosystem.bada_business_ai_ecosystem import (\n    BadaBusinessAIService,\n)\nfrom backend.ai.global_ecosystem.global_ai_ecosystem.global_ai_agents import (
+from backend.ai.global_ecosystem.global_ai_ecosystem.global_ai_agents import (
     GlobalAIAgentService,
     list_agents,
 )
@@ -68,7 +70,8 @@ from backend.ai.global_ecosystem.global_ai_ecosystem.bada_business_ai_ecosystem 
 catalog = get_catalog()
 service = GlobalAIEcosystemService()
 agent_profiles = list_agents()
-agent_service = GlobalAIAgentService()\nbada_business_ai = BadaBusinessAIService()
+agent_service = GlobalAIAgentService()
+bada_business_ai = BadaBusinessAIService()
 
 # Runtime execution stays disabled until an executor is explicitly injected.
 ```
