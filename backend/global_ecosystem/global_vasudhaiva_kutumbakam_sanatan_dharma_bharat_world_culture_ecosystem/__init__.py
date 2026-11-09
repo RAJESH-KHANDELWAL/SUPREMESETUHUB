@@ -1,1 +1,1 @@
-"""Global Vasudhaiva Kutumbakam, Bharat, and world culture ecosystem namespace."""
+"""Global Vasudhaiva Kutumbakam, Sanatan Dharma, Bharat Sanskriti, and world culture ecosystem namespace."""

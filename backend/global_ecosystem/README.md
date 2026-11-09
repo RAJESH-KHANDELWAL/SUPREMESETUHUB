@@ -72,11 +72,15 @@ Folder names use the `*_ecosystem` convention. These directories organize global
 - `stripe_ecosystem/`
 - `twilio_ecosystem/`
 
-## Existing culture ecosystems
-- `global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem/`
-- `global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_ecosystem/`
+## Distinct global and business domains
+- `business_ecosystem/` — general business domain covering entrepreneurship, companies, MSMEs, startups, commerce, business operations, and business services.
+- `global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem/` — Vasudhaiva Kutumbakam, Sanatan Dharma, Bharat heritage and Sanskriti, and world cultures.
 
-`global_bada_business_ecosystem/` is listed only once under **Global domain ecosystems**. Its network-marketing/direct-selling and affiliate-marketing ecosystems are nested beneath it; they are not separate top-level directories.
+## Provider-specific Bada Business packages
+- `bada_business_ecosystem/` — standalone Bada Business provider/product resource package.
+- `global_bada_business_ecosystem/` — separate global Bada Business package, including its global network-marketing/direct-selling and affiliate-marketing domains.
+
+The general `business_ecosystem/` is not a replacement for either Bada Business package. All four directories remain independent siblings; do not merge, nest, or move their contents between one another.
 
 These are catalog namespaces, not completed runtime integrations. API, CORE, ENGINE, DATABASE, credentials, authentication, and authorization remain in their separately owned architecture layers.
 
