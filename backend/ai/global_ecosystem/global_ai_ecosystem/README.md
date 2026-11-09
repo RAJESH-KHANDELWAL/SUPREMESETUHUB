@@ -43,7 +43,8 @@ model availability, pricing, or live service health.
 | `providers.py` / `models.py` | Provider and model metadata |
 | `capabilities.py` / `services.py` | Capability and service taxonomy |
 | `agents.py` / `workflows.py` | Shared agent components and workflow patterns |
-| `global_ai_agents/` | Dedicated agent profiles, policies, contracts and planning |
+| `global_ai_agents/` | Generic agent profiles, policies, contracts and planning |
+| `bada_business_ai_ecosystem/` | Bada Business-specific AI capabilities, agents, workflows and resource adapter |
 | `knowledge.py` | Ingestion, retrieval and RAG building blocks |
 | `infrastructure.py` | Compute, serving and observability metadata |
 | `governance.py` | Security, privacy, policy and cost controls |
@@ -59,7 +60,7 @@ from backend.ai.global_ecosystem.global_ai_ecosystem import (
     GlobalAIEcosystemService,
     get_catalog,
 )
-from backend.ai.global_ecosystem.global_ai_ecosystem.global_ai_agents import (
+from backend.ai.global_ecosystem.global_ai_ecosystem.bada_business_ai_ecosystem import (\n    BadaBusinessAIService,\n)\nfrom backend.ai.global_ecosystem.global_ai_ecosystem.global_ai_agents import (
     GlobalAIAgentService,
     list_agents,
 )
@@ -67,7 +68,7 @@ from backend.ai.global_ecosystem.global_ai_ecosystem.global_ai_agents import (
 catalog = get_catalog()
 service = GlobalAIEcosystemService()
 agent_profiles = list_agents()
-agent_service = GlobalAIAgentService()
+agent_service = GlobalAIAgentService()\nbada_business_ai = BadaBusinessAIService()
 
 # Runtime execution stays disabled until an executor is explicitly injected.
 ```
