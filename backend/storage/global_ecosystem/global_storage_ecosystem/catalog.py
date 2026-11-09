@@ -123,16 +123,6 @@ PROVIDERS = [
         "implementation_state": "CATALOG_ONLY"
     },
     {
-        "provider_id": "global_bada_business",
-        "name": "Global Bada Business",
-        "capabilities": [
-            "STORAGE_DISCOVERY",
-            "PROVIDER_ADAPTER_CONTRACT"
-        ],
-        "status": "NOT_CONFIGURED",
-        "implementation_state": "CATALOG_ONLY"
-    },
-    {
         "provider_id": "global_cloud",
         "name": "Global Cloud",
         "capabilities": [
