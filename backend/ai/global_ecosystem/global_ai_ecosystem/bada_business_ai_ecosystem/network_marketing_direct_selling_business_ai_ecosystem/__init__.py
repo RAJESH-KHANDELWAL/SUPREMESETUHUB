@@ -1,0 +1,7 @@
+"""AI namespace for network marketing and direct selling business domains."""
+
+LAYER = "AI"
+ECOSYSTEM_ID = "GLOBAL-NETWORK-MARKETING-DIRECT-SELLING-BUSINESS-AI-ECOSYSTEM"
+CHILD_ECOSYSTEMS = ("GLOBAL-YOUTAG-BUSINESS-AI-ECOSYSTEM",)
+
+__all__ = ["LAYER", "ECOSYSTEM_ID", "CHILD_ECOSYSTEMS"]
