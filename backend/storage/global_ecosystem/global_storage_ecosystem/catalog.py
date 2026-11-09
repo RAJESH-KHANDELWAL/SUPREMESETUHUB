@@ -607,12 +607,6 @@ CATEGORIES = [
         "status": "CATALOG_ONLY"
     },
     {
-        "category_id": "bada_business",
-        "name": "BADA BUSINESS",
-        "ecosystem_id": "GLOBAL-BADA-BUSINESS-STORAGE-ECOSYSTEM",
-        "status": "CATALOG_ONLY"
-    },
-    {
         "category_id": "cloud",
         "name": "CLOUD",
         "ecosystem_id": "GLOBAL-CLOUD-STORAGE-ECOSYSTEM",
