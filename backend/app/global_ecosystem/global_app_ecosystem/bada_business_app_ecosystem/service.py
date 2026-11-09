@@ -15,6 +15,8 @@ class BadaBusinessAppService:
         self.lifecycle = BadaBusinessAppLifecycle()
 
     def configure(self) -> dict[str, Any]:
+        if self.lifecycle.state == AppState.READY:
+            return self.status()
         self.registry.register_defaults()
         if self.lifecycle.state == AppState.CREATED:
             self.lifecycle.transition(AppState.REGISTERED)
