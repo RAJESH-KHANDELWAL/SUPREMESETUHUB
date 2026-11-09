@@ -1,4 +1,4 @@
-from backend.google.google_ecosystem.engine.service import (
+from backend.global_ecosystem.google_ecosystem.runtime.engine.service import (
     get_subsystem,
     list_subsystems,
 )
