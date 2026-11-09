@@ -1,4 +1,4 @@
-"""Bada Business database persistence package."""
+"""Bada Business program persistence package."""
 
 from .repository import BadaBusinessProgramRepository
 from .service import BadaBusinessProgramPersistenceService
