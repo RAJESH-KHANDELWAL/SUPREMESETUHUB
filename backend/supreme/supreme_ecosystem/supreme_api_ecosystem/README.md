@@ -1,6 +1,6 @@
 # SUPREME API ECOSYSTEM
 
-Canonical API package: `backend/supreme/supreme_ecosystem/api/`
+Canonical API package: `backend/supreme/supreme_ecosystem/supreme_api_ecosystem/`
 
 This package is the API boundary of the SUPREME ecosystem. It owns HTTP-facing contracts and transport concerns—not core business logic, execution engines, or persistence.
 
