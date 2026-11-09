@@ -19,6 +19,10 @@ Only businesses whose core model is network marketing or direct selling belong h
 ## Verification and consumer protection
 This is a taxonomy/catalogue starting point, not a live company-verification service, investment advice, income guarantee or payment/API integration. A listing does not prove that a company, product, income claim or opportunity is genuine. Record official source, jurisdiction, checked date, legal status and verification status before publishing company or opportunity data. Distinguish lawful direct selling from pyramid schemes and misleading income claims.
 
+## Child affiliate-marketing ecosystem
+
+- `global_affiliate_marketing_business_api_ecosystem/` — child index for iDigitalPreneur, LeadsGuru and Millionaire Track. Canonical platform API namespaces remain in the Bada Business affiliate API package.
+
 ## Registered YOUTAG business ecosystem
 
 - `global_youtag_business_api_ecosystem/` — one YOUTAG business identity with Wellness and Recharges app channels.
