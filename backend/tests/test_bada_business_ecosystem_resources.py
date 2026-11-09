@@ -22,7 +22,7 @@ def test_canonical_platform_resource_catalog():
     assert catalog["ecosystem_id"] == ECOSYSTEM_ID
     assert catalog["ecosystem_name"] == ECOSYSTEM_NAME
     assert catalog["status"] == "RESOURCE_CATALOG_ONLY"
-    assert catalog["link_count"] == 4
+    assert catalog["link_count"] == 9  # canonical resource catalog contains nine links
     assert catalog["program_count"] == 3
     assert OFFICIAL_PUBLIC_API_VERIFIED is False
     assert LIVE_CONNECTION_VERIFIED is False
