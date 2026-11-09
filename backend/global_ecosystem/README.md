@@ -7,8 +7,9 @@ Folder names use the `*_ecosystem` convention. These directories organize global
 - `global_app_ecosystem/`
 - `global_bada_business_ecosystem/`
   - `global_network_marketing_direct_selling_business_ecosystem/`
-    - `global_youtag_wellness_ecosystem/`
-    - `global_youtag_recharges_ecosystem/`
+    - `global_youtag_business_ecosystem/`
+      - `youtag_wellness_app/`
+      - `youtag_recharges_app/`
 - `global_cloud_ecosystem/`
 - `global_cloudflare_ecosystem/`
 - `global_communication_ecosystem/`
