@@ -17,6 +17,10 @@ GLOBAL YOUTAG BUSINESS ECOSYSTEM
 
 The two apps may have different user experiences, features, catalogs, service workflows and app integrations. Their common company/business identity remains the single YOUTAG business ecosystem.
 
+## Owner-provided referral profile
+
+The owner-provided YOUTAG referral profile is stored in `referral_profiles/rajesh_khandelwal.json`. It records Referral ID `2043272`, owner `Rajesh Khandelwal`, and the exact Google Play URL supplied by the owner. The owner states that this is the personal referral link for YOUTAG WELLNESS and YOUTAG RECHARGES. The package identifier in the supplied URL is `com.youtagindia.business`; separate attribution for each app is not independently verified. Treat the profile as public referral metadata, not an authentication credential or proof of a completed registration.
+
 ## Architecture boundaries
 
 This folder owns only the global business identity and app/platform directory. CORE owns canonical business rules and identities; API owns endpoint contracts; ENGINE owns workflows; DATABASE owns persistence; authentication, credentials, payments and provider connections remain in their respective layers.
