@@ -9,7 +9,7 @@ The Google Core Ecosystem owns provider-level registration, lifecycle, module di
 
 ## Existing integration layers
 
-- Existing shared Google core contracts: `backend/google/google_ecosystem/core/`
+- Existing shared Google core contracts: `backend/global_ecosystem/google_ecosystem/runtime/core/`
 - Google provider API catalog: `backend/api/global_ecosystem/global_api_ecosystem/google_api_ecosystem/`
 - Shared backend Google adapter: `backend/integrations/providers/google.py`
 - Google engine layer: `backend/engines/global_ecosystem/google_engine/`
