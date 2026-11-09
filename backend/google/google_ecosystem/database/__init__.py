@@ -1,1 +1,0 @@
-"""Google database capability metadata."""
