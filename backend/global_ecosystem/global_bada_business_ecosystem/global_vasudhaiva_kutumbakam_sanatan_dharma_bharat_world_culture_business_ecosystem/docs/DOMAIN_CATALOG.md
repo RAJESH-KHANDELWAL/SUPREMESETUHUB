@@ -87,3 +87,20 @@ Discovery and search; multilingual content; provider verification; consent and r
 - Status: proposed, under review, verified, published, paused, rejected or archived.
 
 Never publish private personal information or sensitive community knowledge in a public catalog.
+
+
+## 11. Dedicated domain packages
+
+The detailed vertical packages are maintained under `domains/`:
+- `heritage_tourism_business_ecosystem/`
+- `arts_crafts_handloom_business_ecosystem/`
+- `cultural_education_language_business_ecosystem/`
+- `research_archives_knowledge_business_ecosystem/`
+- `events_festivals_exhibitions_business_ecosystem/`
+- `publishing_media_content_business_ecosystem/`
+- `ethical_products_responsible_commerce_business_ecosystem/`
+- `community_enterprise_social_impact_business_ecosystem/`
+- `hospitality_food_heritage_experience_business_ecosystem/`
+- `global_cultural_exchange_partnerships_business_ecosystem/`
+
+The root `catalog.py` is the static taxonomy index. Each entry remains `proposed` until evidence-backed onboarding and review are completed.

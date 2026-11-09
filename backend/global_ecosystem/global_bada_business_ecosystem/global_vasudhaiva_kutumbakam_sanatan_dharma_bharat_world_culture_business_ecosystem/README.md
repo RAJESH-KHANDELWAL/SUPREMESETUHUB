@@ -164,3 +164,31 @@ At this stage, this folder is a documented domain blueprint and taxonomy. A fold
 Before any live launch, define: legal entity and jurisdiction; accountable owners; community consultation process; rights and consent register; partner due diligence; customer support and grievance route; pricing and refund rules; privacy notice and data map; security review; payment and tax compliance; accessibility requirements; service-level expectations; and pilot acceptance criteria.
 
 See the files under `docs/`, `strategy/`, `governance/`, `operations/` and `resources/` for the detailed blueprint.
+
+
+## 13. Expanded business packages and resource namespaces
+
+### Vertical business domains
+- `domains/heritage_tourism_business_ecosystem/`
+- `domains/arts_crafts_handloom_business_ecosystem/`
+- `domains/cultural_education_language_business_ecosystem/`
+- `domains/research_archives_knowledge_business_ecosystem/`
+- `domains/events_festivals_exhibitions_business_ecosystem/`
+- `domains/publishing_media_content_business_ecosystem/`
+- `domains/ethical_products_responsible_commerce_business_ecosystem/`
+- `domains/community_enterprise_social_impact_business_ecosystem/`
+- `domains/hospitality_food_heritage_experience_business_ecosystem/`
+- `domains/global_cultural_exchange_partnerships_business_ecosystem/`
+
+### Functional business namespaces
+`catalogs/`, `providers/`, `products/`, `services/`, `marketplace/`, `customers/`, `partnerships/`, `locations/`, `courses/`, `events/`, `media/`, `finance_commercial/`, `quality_assurance/`, `support/`, `analytics/`, `contracts/`, `schemas/`, `integrations/`, `workflows/` and `policies/` each have a dedicated README describing their scope and controls.
+
+### Supporting files
+- `catalog.py` — static taxonomy registry; entries are proposed, not live listings.
+- `schemas/business_listing.schema.json` — proposed listing metadata contract.
+- `contracts/DOMAIN_BOUNDARIES.md` — technical ownership boundaries.
+- `workflows/WORKFLOW_CATALOG.md` — business lifecycle workflow index.
+- `resources/RESOURCE_RECORD_TEMPLATE.md` — permission-aware resource record template.
+- `tests/` — static taxonomy consistency checks.
+
+All new directories are within this named business folder. No sibling ecosystem or shared technical layer is moved, renamed or overwritten.
