@@ -1,2 +1,7 @@
-"""ENGINE-owned namespace: global_affiliate_marketing_business_api_ecosystem."""
+"""ENGINE namespace for affiliate marketing platform workflows."""
+
 LAYER = "ENGINE"
+ECOSYSTEM_ID = "GLOBAL-AFFILIATE-MARKETING-BUSINESS-ENGINE-ECOSYSTEM"
+PLATFORM_IDS = ("I-DIGITALPRENEUR", "LEADSGURU", "MILLIONAIRE-TRACK")
+
+__all__ = ["LAYER", "ECOSYSTEM_ID", "PLATFORM_IDS"]
