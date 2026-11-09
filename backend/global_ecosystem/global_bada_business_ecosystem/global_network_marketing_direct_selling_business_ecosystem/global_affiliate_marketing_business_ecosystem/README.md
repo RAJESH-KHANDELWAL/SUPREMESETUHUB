@@ -21,3 +21,13 @@ Do not copy platform credentials, user accounts, commission ledgers, payout reco
 ## Verification boundary
 
 Namespace registration does not imply official API availability, account access, affiliate approval, commission eligibility, payout processing or live connectivity. Verify official documentation, program terms, legal entity and integration access before implementing those capabilities.
+
+
+## iDigitalPreneur source catalog
+
+- Platform directory: [`i_digitalpreneur/README.md`](i_digitalpreneur/README.md)
+- The Brief package and course catalogue: [`i_digitalpreneur/catalogs/THE_BRIEF_PACKAGE_AND_COURSE_CATALOG.md`](i_digitalpreneur/catalogs/THE_BRIEF_PACKAGE_AND_COURSE_CATALOG.md)
+- Premium Plus package guide: [`i_digitalpreneur/catalogs/PREMIUM_PLUS_PACKAGE_GUIDE.md`](i_digitalpreneur/catalogs/PREMIUM_PLUS_PACKAGE_GUIDE.md)
+- Training and instructor directory: [`i_digitalpreneur/catalogs/TRAINING_AND_INSTRUCTORS.md`](i_digitalpreneur/catalogs/TRAINING_AND_INSTRUCTORS.md)
+
+The catalog records brochure-stated information only; current commercial terms and affiliate rules require confirmation from the platform.
