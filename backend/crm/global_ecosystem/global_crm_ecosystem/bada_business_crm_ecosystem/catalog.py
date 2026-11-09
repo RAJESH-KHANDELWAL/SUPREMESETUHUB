@@ -13,7 +13,7 @@ CAPABILITIES = (
     "CONSENT_AWARE_COMMUNICATION",
 )
 CANONICAL_CRM_MODULE = "backend.crm"
-CANONICAL_BUSINESS_RESOURCE_CATALOG = "backend.bada_business_ecosystem.platform_resources.catalog"
+CANONICAL_BUSINESS_RESOURCE_CATALOG = "backend.global_ecosystem.global_bada_business_ecosystem.platform_resources.catalog"
 PROVIDER_API_CONNECTED = False
 AUTOMATIC_OUTREACH_ENABLED = False
 

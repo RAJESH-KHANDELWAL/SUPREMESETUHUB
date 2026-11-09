@@ -1,6 +1,6 @@
 """Tests for the canonical Bada Business ecosystem resource package."""
-from backend.bada_business_ecosystem import ECOSYSTEM
-from backend.bada_business_ecosystem.platform_resources import (
+from backend.global_ecosystem.global_bada_business_ecosystem import ECOSYSTEM
+from backend.global_ecosystem.global_bada_business_ecosystem.platform_resources import (
     ECOSYSTEM_ID,
     ECOSYSTEM_NAME,
     OFFICIAL_PUBLIC_API_VERIFIED,

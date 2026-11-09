@@ -21,7 +21,7 @@ This package is the Bada Business-specific application composition layer, parall
 - **DATABASE / STORAGE** own persistence and storage adapters.
 - **APP** only composes and presents these capabilities.
 
-The APP catalog does not duplicate provider URLs, program records or resource metadata. The canonical resource owner remains `backend.bada_business_ecosystem/`.
+The APP catalog does not duplicate provider URLs, program records or resource metadata. The canonical resource owner remains `backend.global_ecosystem.global_bada_business_ecosystem/`.
 
 ## Current behavior
 - Six application module descriptors are registered in an in-memory registry.

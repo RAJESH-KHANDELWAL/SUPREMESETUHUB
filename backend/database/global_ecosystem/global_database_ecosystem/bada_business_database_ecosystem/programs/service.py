@@ -7,7 +7,7 @@ from .repository import BadaBusinessProgramRepository
 
 
 class BadaBusinessProgramPersistenceService:
-    CANONICAL_CATALOG = "backend.bada_business_ecosystem.platform_resources.catalog"
+    CANONICAL_CATALOG = "backend.global_ecosystem.global_bada_business_ecosystem.platform_resources.catalog"
 
     def __init__(self, repository=None, catalog_loader=None):
         self.repository = repository or BadaBusinessProgramRepository()
@@ -43,7 +43,7 @@ class BadaBusinessProgramPersistenceService:
     def sync_canonical_catalog(self, owner_user_id: str, *, source_version: str = ""):
         self._identity(owner_user_id)
         if self.catalog_loader is None:
-            from backend.bada_business_ecosystem.platform_resources.catalog import list_programs
+            from backend.global_ecosystem.global_bada_business_ecosystem.platform_resources.catalog import list_programs
             programs = list_programs()
         else:
             programs = self.catalog_loader()

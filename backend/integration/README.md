@@ -4,10 +4,10 @@ SUPREMESETUHUB currently provides a **catalog-only Bada Business integration**. 
 
 ## Canonical data ownership
 
-- Ecosystem package: `backend/bada_business_ecosystem/`
-- Canonical destination links: `backend/bada_business_ecosystem/links/platform_links.py`
-- Program snapshots: `backend/bada_business_ecosystem/platform_resources/programs/`
-- Canonical catalog: `backend/bada_business_ecosystem/platform_resources/catalog.py`
+- Ecosystem package: `backend/global_ecosystem/global_bada_business_ecosystem/`
+- Canonical destination links: `backend/global_ecosystem/global_bada_business_ecosystem/links/platform_links.py`
+- Program snapshots: `backend/global_ecosystem/global_bada_business_ecosystem/platform_resources/programs/`
+- Canonical catalog: `backend/global_ecosystem/global_bada_business_ecosystem/platform_resources/catalog.py`
 
 The catalog currently exposes 9 destination links and 3 program records. These counts describe repository data, not current provider availability or purchasable offers.
 

@@ -11,7 +11,7 @@ program records.
 
 ## Architecture boundary
 - Canonical program descriptions, links, prices and provider facts remain in
-  `backend/bada_business_ecosystem/platform_resources/programs/`.
+  `backend/global_ecosystem/global_bada_business_ecosystem/platform_resources/programs/`.
 - Business rules and program workflows belong in CORE.
 - HTTP endpoints and request/response validation belong in API.
 - No customer registration, payment processing, provider API calls or external

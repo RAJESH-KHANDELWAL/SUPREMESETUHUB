@@ -46,7 +46,7 @@ class BadaBusinessProgramsService:
             "layer": "CORE",
             "status": "READY",
             "program_count": catalog.get("program_count", 0),
-            "canonical_source": "backend.bada_business_ecosystem.platform_resources.catalog",
+            "canonical_source": "backend.global_ecosystem.global_bada_business_ecosystem.platform_resources.catalog",
             "live_registration_enabled": False,
             "payment_processing_enabled": False,
         }

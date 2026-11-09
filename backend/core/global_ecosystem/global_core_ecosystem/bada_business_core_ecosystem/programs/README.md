@@ -14,7 +14,7 @@ This package implements the CORE domain for Bada Business program discovery and 
 ## Architecture boundary
 
 - Program facts, descriptions, links, prices and event snapshots remain owned by
-  `backend/bada_business_ecosystem/platform_resources/`.
+  `backend/global_ecosystem/global_bada_business_ecosystem/platform_resources/`.
 - This package imports the canonical resource catalog through
   `resource_adapter.py`; it does not duplicate provider data.
 - API routes and HTTP schemas belong in API.

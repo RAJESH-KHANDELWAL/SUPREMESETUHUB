@@ -7,7 +7,7 @@ SCOPE = (
     "integrations for the Bada Business domain."
 )
 CANONICAL_PLATFORM_RESOURCES = (
-    "backend/bada_business_ecosystem/platform_resources"
+    "backend/global_ecosystem/global_bada_business_ecosystem/platform_resources"
 )
 GLOBAL_PRODUCT_ECOSYSTEM = (
     "backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem"

@@ -1,6 +1,6 @@
 """Bada Business-specific configuration capability metadata.
 
-Canonical Bada Business platform resources remain in backend.bada_business_ecosystem.
+Canonical Bada Business platform resources remain in backend.global_ecosystem.global_bada_business_ecosystem.
 This catalog contains configuration capabilities only, not provider URLs or referrals.
 """
 

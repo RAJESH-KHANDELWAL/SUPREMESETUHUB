@@ -11,7 +11,7 @@ descriptions, registration URLs, pricing data or business rules.
 ## Architecture
 
 - DATABASE: schema, migration, repository and persistence service.
-- Canonical provider facts: `backend/bada_business_ecosystem/`.
+- Canonical provider facts: `backend/global_ecosystem/global_bada_business_ecosystem/`.
 - Program business rules: CORE.
 - HTTP transport: API.
 - External provider execution: injected integration/runtime adapters.

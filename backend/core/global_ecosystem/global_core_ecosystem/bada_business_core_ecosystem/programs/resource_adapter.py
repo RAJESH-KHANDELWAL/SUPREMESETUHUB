@@ -1,6 +1,6 @@
 """Read-only adapter to the canonical Bada Business resource catalog."""
 
-from backend.bada_business_ecosystem.platform_resources.catalog import (
+from backend.global_ecosystem.global_bada_business_ecosystem.platform_resources.catalog import (
     get_catalog,
     get_program,
     list_programs,

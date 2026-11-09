@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from typing import Any, Callable
 
-from backend.bada_business_ecosystem.platform_resources.catalog import (
+from backend.global_ecosystem.global_bada_business_ecosystem.platform_resources.catalog import (
     get_program as get_canonical_program,
     list_programs as list_canonical_programs,
 )
@@ -77,7 +77,7 @@ class BadaBusinessProgramEngine:
             "layer": self.layer,
             "operations": sorted(SUPPORTED_OPERATIONS),
             "execution_mode": "INJECTED_HANDLER",
-            "catalog_source": "backend.bada_business_ecosystem.platform_resources.catalog",
+            "catalog_source": "backend.global_ecosystem.global_bada_business_ecosystem.platform_resources.catalog",
         }
 
     def execute(

@@ -1,12 +1,12 @@
 """Bada Business integration provider metadata and resource catalog adapter.
 
 Canonical URLs and program/resource facts remain owned by
-backend.bada_business_ecosystem. This adapter exposes that catalog to the
+backend.global_ecosystem.global_bada_business_ecosystem. This adapter exposes that catalog to the
 integration registry without claiming an official API or live connection.
 """
 from typing import Any, Dict
 
-from backend.bada_business_ecosystem.platform_resources import (
+from backend.global_ecosystem.global_bada_business_ecosystem.platform_resources import (
     ECOSYSTEM_ID,
     ECOSYSTEM_NAME,
     LIVE_CONNECTION_VERIFIED,
@@ -37,7 +37,7 @@ class BadaBusinessProvider(IntegrationProvider):
                 "ecosystem_id": ECOSYSTEM_ID,
                 "ecosystem_name": ECOSYSTEM_NAME,
                 "catalog_status": STATUS,
-                "canonical_catalog": "backend.bada_business_ecosystem.platform_resources",
+                "canonical_catalog": "backend.global_ecosystem.global_bada_business_ecosystem.platform_resources",
                 "connector_id": "bada_business",
                 "integration_mode": "READ_ONLY_RESOURCE_CATALOG",
                 "capabilities": [

@@ -18,7 +18,7 @@ A Bada Business-specific cloud integration package parallel to the Bada Business
 ## Architecture boundaries
 - This package owns Bada Business cloud capability mapping and cloud-operation approval policy.
 - Shared provider catalog, provider adapters and provider execution contracts remain in the parent `global_cloud_ecosystem`.
-- Canonical Bada Business courses, programs, product records and provider URLs remain in `backend/bada_business_ecosystem/`; this package does not copy them.
+- Canonical Bada Business courses, programs, product records and provider URLs remain in `backend/global_ecosystem/global_bada_business_ecosystem/`; this package does not copy them.
 - API owns HTTP routes; AI owns agents and workflows; CORE owns business rules; ENGINE owns runtime execution; DATABASE owns persistence; STORAGE owns application storage behavior.
 
 ## Safety and runtime

@@ -4,7 +4,7 @@ This older API-side folder is retained for backward-compatible imports only.
 
 The canonical Bada Business resource catalog is exposed from:
 
-backend/bada_business_ecosystem/platform_resources/
+backend/global_ecosystem/global_bada_business_ecosystem/platform_resources/
 
 The API router implementation remains in:
 

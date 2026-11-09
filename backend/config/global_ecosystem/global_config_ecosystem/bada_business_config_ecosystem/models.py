@@ -11,7 +11,7 @@ class BadaBusinessConfig:
     require_approval: bool = True
     request_timeout_seconds: int = 15
     default_locale: str = "en-IN"
-    resource_catalog_module: str = "backend.bada_business_ecosystem.platform_resources.catalog"
+    resource_catalog_module: str = "backend.global_ecosystem.global_bada_business_ecosystem.platform_resources.catalog"
 
     def as_dict(self) -> Mapping[str, Any]:
         return {

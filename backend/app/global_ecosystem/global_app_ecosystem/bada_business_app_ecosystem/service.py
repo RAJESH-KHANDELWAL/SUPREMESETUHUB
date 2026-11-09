@@ -44,6 +44,6 @@ class BadaBusinessAppService:
                 "app_registry": "ready" if self.registry.list() else "empty",
                 "api_interface": "injected" if self.api_service is not None else "not_injected",
                 "ai_interface": "injected" if self.ai_service is not None else "not_injected",
-                "provider_catalog_owner": "backend.bada_business_ecosystem",
+                "provider_catalog_owner": "backend.global_ecosystem.global_bada_business_ecosystem",
             },
         }

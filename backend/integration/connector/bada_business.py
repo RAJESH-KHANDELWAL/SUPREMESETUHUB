@@ -9,7 +9,7 @@ from __future__ import annotations
 from copy import deepcopy
 from typing import Any
 
-from backend.bada_business_ecosystem.platform_resources import (
+from backend.global_ecosystem.global_bada_business_ecosystem.platform_resources import (
     ECOSYSTEM_ID,
     ECOSYSTEM_NAME,
     LIVE_CONNECTION_VERIFIED,

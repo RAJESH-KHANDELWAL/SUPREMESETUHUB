@@ -14,7 +14,7 @@ domain. It does not create a second contact table or duplicate provider catalog.
 
 - CRM records and database operations remain in `backend.crm`.
 - Bada Business programs, prices, registration URLs and course facts remain in
-  `backend.bada_business_ecosystem`.
+  `backend.global_ecosystem.global_bada_business_ecosystem`.
 - No automatic WhatsApp/email outreach, provider API connection or payments
   are enabled.
 - The authenticated application must supply owner and actor IDs.

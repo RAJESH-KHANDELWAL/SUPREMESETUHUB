@@ -21,7 +21,7 @@ This directory is the single canonical home for Bada Business ecosystem identity
 
 ## Canonical ownership and boundaries
 
-All Bada Business ecosystem product/resource documentation and catalog files live here. The former `backend/bada_business_ecosystem/` package has been consolidated into this directory and is no longer a separate canonical root.
+All Bada Business ecosystem product/resource documentation and catalog files live here. The former `backend/global_ecosystem/global_bada_business_ecosystem/` package has been consolidated into this directory and is no longer a separate canonical root.
 
 Architecture implementation remains separately owned:
 - API: `backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/`

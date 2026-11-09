@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException, Query
 
 from .schemas import BusinessEcosystemStatus
 from .service import BusinessEcosystemService
-from backend.bada_business_ecosystem.platform_resources import get_catalog as get_platform_resource_catalog
+from backend.global_ecosystem.global_bada_business_ecosystem.platform_resources import get_catalog as get_platform_resource_catalog
 from ..ecosystem_link_registry import get_ecosystem_linkage
 from .global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem import router as kamasutra_business_router
 

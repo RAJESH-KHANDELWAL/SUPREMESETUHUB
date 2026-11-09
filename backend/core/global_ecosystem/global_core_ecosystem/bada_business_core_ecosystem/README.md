@@ -6,7 +6,7 @@ This package owns Bada Business domain rules and orchestration contracts.
 
 The `programs/` package provides program discovery, lookup, search and
 enrollment-request validation. It reads program facts from the canonical
-resource catalog at `backend/bada_business_ecosystem/platform_resources/`.
+resource catalog at `backend/global_ecosystem/global_bada_business_ecosystem/platform_resources/`.
 
 Provider facts are not copied into CORE. Registration submission, payment
 processing, API transport, AI recommendations and live provider connectivity

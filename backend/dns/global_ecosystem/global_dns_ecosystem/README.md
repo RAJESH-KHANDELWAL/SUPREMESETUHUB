@@ -18,7 +18,7 @@ Any Bada Business-specific domain policy, tenant ownership, onboarding,
 subscription, or product workflow belongs to the appropriate Bada Business
 domain package (CORE/API); this DNS package only handles DNS record contracts
 and provider dispatch. Canonical Bada Business program/catalog facts stay in
-`backend/bada_business_ecosystem/`.
+`backend/global_ecosystem/global_bada_business_ecosystem/`.
 
 ## Boundaries
 - Provider SDKs, credentials, signing, transport and API-version details belong

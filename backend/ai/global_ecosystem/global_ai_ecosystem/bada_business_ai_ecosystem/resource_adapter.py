@@ -9,7 +9,7 @@ from typing import Any
 def load_provider_resources() -> dict[str, Any]:
     """Load canonical resources from the product/resource ownership layer."""
     try:
-        from backend.bada_business_ecosystem.platform_resources.catalog import get_catalog
+        from backend.global_ecosystem.global_bada_business_ecosystem.platform_resources.catalog import get_catalog
     except ImportError as exc:
         raise RuntimeError("BADA_BUSINESS_RESOURCE_CATALOG_UNAVAILABLE") from exc
 

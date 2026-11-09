@@ -7,7 +7,7 @@ AI_ECOSYSTEM_PROFILE = {
     "name": "BADA BUSINESS AI ECOSYSTEM",
     "layer": "AI",
     "parent": "GLOBAL AI ECOSYSTEM",
-    "provider_resource_owner": "backend.bada_business_ecosystem",
+    "provider_resource_owner": "backend.global_ecosystem.global_bada_business_ecosystem",
     "status": "AI_DOMAIN_FOUNDATION_READY",
     "runtime_status": "NOT_CONFIGURED",
     "description": (
@@ -74,6 +74,6 @@ def get_ai_catalog() -> dict[str, Any]:
         "ecosystem": dict(AI_ECOSYSTEM_PROFILE),
         "capabilities": [dict(item) for item in AI_CAPABILITIES],
         "capability_count": len(AI_CAPABILITIES),
-        "resource_source": "backend.bada_business_ecosystem.platform_resources.catalog",
+        "resource_source": "backend.global_ecosystem.global_bada_business_ecosystem.platform_resources.catalog",
         "runtime_configured": False,
     }

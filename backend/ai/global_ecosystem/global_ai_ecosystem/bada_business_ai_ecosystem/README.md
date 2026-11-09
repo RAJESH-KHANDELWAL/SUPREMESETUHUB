@@ -15,7 +15,7 @@ analysis from supplied metrics.
 
 | Layer | Responsibility |
 |---|---|
-| Product resources | `backend/bada_business_ecosystem/` owns provider identity, official/referral URLs, programs, courses, products and events |
+| Product resources | `backend/global_ecosystem/global_bada_business_ecosystem/` owns provider identity, official/referral URLs, programs, courses, products and events |
 | AI | This package owns Bada Business-specific AI capabilities, agent profiles, evidence policies and workflow descriptions |
 | CORE | Owns application/business rules, validation and business orchestration |
 | ENGINE | Owns actual model/provider execution, tool dispatch and runtime lifecycle |

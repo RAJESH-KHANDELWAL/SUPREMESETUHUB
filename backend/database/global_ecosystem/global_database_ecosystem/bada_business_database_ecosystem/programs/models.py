@@ -19,7 +19,7 @@ class BadaBusinessProgramRecord:
     program_name: str
     program_status: str = "UNCONFIRMED"
     provider_id: str = "bada_business"
-    source_catalog: str = "backend.bada_business_ecosystem.platform_resources.catalog"
+    source_catalog: str = "backend.global_ecosystem.global_bada_business_ecosystem.platform_resources.catalog"
     source_version: str = ""
     snapshot: dict[str, Any] = field(default_factory=dict)
 

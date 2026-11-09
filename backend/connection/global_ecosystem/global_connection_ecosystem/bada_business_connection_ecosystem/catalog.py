@@ -15,5 +15,5 @@ def get_bada_business_connection_catalog():
         "namespace": "bada_business",
         "version": "1.0",
         "capabilities": dict(BADA_BUSINESS_CONNECTION_CAPABILITIES),
-        "canonical_resource_catalog": "backend.bada_business_ecosystem.platform_resources.catalog",
+        "canonical_resource_catalog": "backend.global_ecosystem.global_bada_business_ecosystem.platform_resources.catalog",
     }

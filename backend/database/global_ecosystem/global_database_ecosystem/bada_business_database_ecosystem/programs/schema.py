@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS {PROGRAM_TABLE} (
     provider_id TEXT NOT NULL DEFAULT 'bada_business',
     program_name TEXT NOT NULL,
     program_status TEXT NOT NULL DEFAULT 'UNCONFIRMED',
-    source_catalog TEXT NOT NULL DEFAULT 'backend.bada_business_ecosystem.platform_resources.catalog',
+    source_catalog TEXT NOT NULL DEFAULT 'backend.global_ecosystem.global_bada_business_ecosystem.platform_resources.catalog',
     source_version TEXT NOT NULL DEFAULT '',
     snapshot_json TEXT NOT NULL DEFAULT '{{}}',
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,

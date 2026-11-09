@@ -20,7 +20,7 @@ Tenant-aware DNS facade for Bada Business-owned domains.
 - Provider SDKs, credentials and network calls remain behind shared DNS
   provider adapters.
 - Canonical Bada Business programs, prices and links remain in
-  `backend/bada_business_ecosystem/`; no catalog facts are copied here.
+  `backend/global_ecosystem/global_bada_business_ecosystem/`; no catalog facts are copied here.
 
 ## Integration contract
 Provide a repository implementing

@@ -3,7 +3,7 @@
 ECOSYSTEM_ID = "BADA-BUSINESS-DATABASE-PROGRAMS"
 LAYER = "DATABASE"
 TABLES = ("bada_business_program_records", "bada_business_program_migrations")
-CANONICAL_RESOURCE_CATALOG = "backend.bada_business_ecosystem.platform_resources.catalog"
+CANONICAL_RESOURCE_CATALOG = "backend.global_ecosystem.global_bada_business_ecosystem.platform_resources.catalog"
 PERSISTENCE_MODEL = "OWNER_SCOPED_PROGRAM_SNAPSHOT"
 EXTERNAL_PROVIDER_SYNC = False
 PAYMENT_DATA_STORED = False
