@@ -1,4 +1,4 @@
-"""Owner-authenticated API for the Bada Business integration catalog."""
+"""API routes for the Bada Business resource catalog."""
 from __future__ import annotations
 
 from fastapi import APIRouter, HTTPException, Query
@@ -24,12 +24,9 @@ def bada_business_integration_catalog():
 
 
 @router.get("/links")
-def bada_business_integration_links():
-    return {
-        "success": True,
-        "count": len(bada_business_connector.links()),
-        "links": bada_business_connector.links(),
-    }
+def bada_business_integration_links(q: str | None = Query(default=None, description="Optional text search")):
+    links = bada_business_connector.search_links(q or "")
+    return {"success": True, "count": len(links), "links": links}
 
 
 @router.get("/links/{link_id}")
@@ -41,8 +38,8 @@ def bada_business_integration_link(link_id: str):
 
 
 @router.get("/programs")
-def bada_business_integration_programs():
-    programs = bada_business_connector.programs()
+def bada_business_integration_programs(q: str | None = Query(default=None, description="Optional text search")):
+    programs = bada_business_connector.search_programs(q or "")
     return {"success": True, "count": len(programs), "programs": programs}
 
 
