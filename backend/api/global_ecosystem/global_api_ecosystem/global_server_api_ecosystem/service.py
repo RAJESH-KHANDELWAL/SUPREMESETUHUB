@@ -25,7 +25,6 @@ from backend.database.global_ecosystem.global_database_ecosystem import (
 _core = ServerCoreService()
 _inventory = ServerInventoryService()
 _database = GlobalDatabaseEcosystemService()
-_storage = StorageEcosystemService()
 
 
 def _server_dict(server: ServerNode) -> dict[str, Any]:
