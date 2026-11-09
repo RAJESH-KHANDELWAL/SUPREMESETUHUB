@@ -1,7 +1,0 @@
-"""Events Core ecosystem package."""
-from .catalog import STRIPE_EVENTS_CORE_ECOSYSTEM, get_catalog
-
-ECOSYSTEM_ID = "STRIPE-EVENTS-CORE-ECOSYSTEM"
-ECOSYSTEM_NAME = "STRIPE EVENTS CORE ECOSYSTEM"
-
-__all__ = ["STRIPE_EVENTS_CORE_ECOSYSTEM", "get_catalog", "ECOSYSTEM_ID", "ECOSYSTEM_NAME"]

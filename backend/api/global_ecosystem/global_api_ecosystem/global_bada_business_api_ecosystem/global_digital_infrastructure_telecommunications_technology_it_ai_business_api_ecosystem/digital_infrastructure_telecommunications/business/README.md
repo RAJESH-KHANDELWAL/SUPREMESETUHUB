@@ -1,2 +1,0 @@
-# Business
-Organize telecom operators, internet service providers, data centres, cloud providers, network equipment, digital infrastructure companies and business services. Separate business profiles from verified registrations and live service availability.

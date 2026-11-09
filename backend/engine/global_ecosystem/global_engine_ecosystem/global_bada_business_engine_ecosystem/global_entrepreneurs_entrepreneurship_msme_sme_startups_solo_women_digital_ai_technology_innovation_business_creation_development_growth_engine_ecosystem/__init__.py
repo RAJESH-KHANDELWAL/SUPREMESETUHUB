@@ -1,2 +1,0 @@
-"""ENGINE-owned namespace: global_entrepreneurs_entrepreneurship_msme_sme_startups_solo_women_digital_ai_technology_innovation_business_creation_development_growth_api_ecosystem."""
-LAYER = "ENGINE"

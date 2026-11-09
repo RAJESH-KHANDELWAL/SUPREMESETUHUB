@@ -1,2 +1,0 @@
-# India Food & Hospitality Directory
-India-specific food businesses, services, suppliers, jobs and hospitality providers. Capture applicable FSSAI licence/registration, local trade permissions, GST details where relevant, source and verification date. Verify current legal requirements before publication.

@@ -1,2 +1,0 @@
-# Food & Hospitality Jobs
-Separate roles for chefs, cooks, bakers, servers, restaurant managers, hotel staff, catering teams, food technologists, delivery operations, food safety and hospitality support. Job records need source, location, employment type, posting date and verification status. No live vacancies are supplied.

@@ -1,5 +1,0 @@
-"""Independent Graphic Design freelance specialization package."""
-SPECIALIZATION_ID = "graphic_design"
-SPECIALIZATION_NAME = "Graphic Design"
-DOMAIN_ID = "freelance_gig_independent_work"
-DESCRIPTION = "Visual communication, brand assets, marketing design and production-ready creative files."
