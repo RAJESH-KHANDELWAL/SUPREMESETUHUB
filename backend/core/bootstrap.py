@@ -4,6 +4,7 @@ from backend.engine.database.manager import DatabaseEngine
 from backend.engine.storage.manager import StorageEngine
 from backend.engine.security.manager import SecurityEngine
 from backend.engine.ai.manager import AIEngine
+from backend.engine.app.manager import AppEngine
 from backend.engine.foundation.manager import FoundationEngine
 from backend.engine.work_business import WorkBusinessEngine
 from backend.engine.leads_business import LeadsBusinessEngine
@@ -20,6 +21,7 @@ class Bootstrap:
         self.engine_manager.register_engine("storage", StorageEngine())
         self.engine_manager.register_engine("security", SecurityEngine())
         self.engine_manager.register_engine("ai", AIEngine())
+        self.engine_manager.register_engine("app", AppEngine())
         self.engine_manager.register_engine("foundation", FoundationEngine())
         self.engine_manager.register_engine("work_business", WorkBusinessEngine())
         self.engine_manager.register_engine("leads_business", LeadsBusinessEngine())
@@ -45,6 +47,7 @@ class Bootstrap:
                 "Security",
                 "API",
                 "AI",
+                "APP",
                 "Foundation",
                 "Leads Business",
                 "Sales Business",
