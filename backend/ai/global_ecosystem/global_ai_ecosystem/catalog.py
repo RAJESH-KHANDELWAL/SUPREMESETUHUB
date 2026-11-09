@@ -5,6 +5,7 @@ from typing import Any
 
 from .agents import AGENT_COMPONENTS
 from .global_ai_agents.catalog import AGENT_CATALOG
+from .bada_business_ai_ecosystem.catalog import AI_CAPABILITIES, AI_ECOSYSTEM_PROFILE
 from .capabilities import CAPABILITIES
 from .governance import GOVERNANCE_CONTROLS
 from .infrastructure import INFRASTRUCTURE
@@ -27,6 +28,8 @@ CATALOG: dict[str, tuple] = {
     "infrastructure": INFRASTRUCTURE,
     "governance": GOVERNANCE_CONTROLS,
     "integrations": INTEGRATIONS,
+    "business_ai_ecosystems": (AI_ECOSYSTEM_PROFILE,),
+    "business_ai_capabilities": AI_CAPABILITIES,
 }
 
 
