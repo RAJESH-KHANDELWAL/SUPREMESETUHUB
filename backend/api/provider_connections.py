@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from fastapi import APIRouter, HTTPException
 
-from backend.integrations.registry import IntegrationRegistry
+from backend.integration.registry import IntegrationRegistry
 
 router = APIRouter(prefix="/api/v1/integrations/providers", tags=["Provider Connections"])
 registry = IntegrationRegistry()
