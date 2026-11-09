@@ -1,6 +1,6 @@
 from types import SimpleNamespace
 
-from backend.google.google_ecosystem.cloud.connection import check_cloud_connection
+from backend.global_ecosystem.google_ecosystem.runtime.cloud.connection import check_cloud_connection
 
 
 def test_cloud_connection_reports_missing_credentials(monkeypatch):
