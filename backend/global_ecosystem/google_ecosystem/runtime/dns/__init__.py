@@ -1,0 +1,1 @@
+"""Google DNS capability metadata."""
