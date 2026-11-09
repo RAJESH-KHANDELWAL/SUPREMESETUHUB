@@ -31,3 +31,11 @@ Namespace registration does not imply official API availability, account access,
 - Training and instructor directory: [`i_digitalpreneur/catalogs/TRAINING_AND_INSTRUCTORS.md`](i_digitalpreneur/catalogs/TRAINING_AND_INSTRUCTORS.md)
 
 The catalog records brochure-stated information only; current commercial terms and affiliate rules require confirmation from the platform.
+
+## LeadsGuru referral profile
+
+- Platform directory: [`leadsguru/README.md`](leadsguru/README.md)
+- Owner-provided referral record: [`leadsguru/referral_profiles/rajesh_khandelwal.md`](leadsguru/referral_profiles/rajesh_khandelwal.md)
+- Referral URL: https://leadsguru.in/register.aspx?refid=a8fa5989-2324-4f5e-87ab-7a16375c3033
+
+Referral ownership, attribution and payout terms remain subject to confirmation by LeadsGuru.
