@@ -10,15 +10,20 @@ knowledge/RAG components, infrastructure, governance controls and integrations.
 
 - **API:** HTTP transport, request/response contracts and route mounting. This
   package does not import or modify API modules.
-- **AI:** provider/model/capability catalog, ecosystem metadata, policy
-  descriptors and orchestration contracts. This package lives here.
+- **AI:** provider/model/capability catalogs, agent definitions, ecosystem
+  metadata, policy descriptors and orchestration contracts.
 - **CORE:** application-level validation and business orchestration.
-- **ENGINE:** actual runtime dispatch and provider execution.
+- **ENGINE:** actual runtime dispatch, model execution and provider execution.
+
+The `global_ai_agents/` package owns agent profiles, request/result contracts,
+tool allowlists, memory policy descriptors, planning metadata and agent-domain
+service boundaries. The parent `agents.py` retains shared agent building-block
+taxonomy; the dedicated package provides concrete agent-domain organization.
 
 No provider SDKs, API keys, network calls, database clients or runtime engines
-are initialized by importing this package. The service accepts an executor
-through dependency injection; the composition root is responsible for wiring
-it to the existing CORE/ENGINE path.
+are initialized by importing this package. Runtime execution is delegated only
+through explicit dependency injection. The composition root is responsible
+for wiring that boundary to the existing CORE/ENGINE path.
 
 ## Status semantics
 
@@ -37,13 +42,14 @@ model availability, pricing, or live service health.
 | `catalog.py` | Unified read-only ecosystem catalog |
 | `providers.py` / `models.py` | Provider and model metadata |
 | `capabilities.py` / `services.py` | Capability and service taxonomy |
-| `agents.py` / `workflows.py` | Agent and workflow contracts |
+| `agents.py` / `workflows.py` | Shared agent components and workflow patterns |
+| `global_ai_agents/` | Dedicated agent profiles, policies, contracts and planning |
 | `knowledge.py` | Ingestion, retrieval and RAG building blocks |
 | `infrastructure.py` | Compute, serving and observability metadata |
 | `governance.py` | Security, privacy, policy and cost controls |
 | `integrations.py` | Integration descriptors |
 | `schemas.py` | Typed metadata contracts |
-| `registry.py` | In-memory, explicit registration boundary |
+| `registry.py` | In-memory, explicit provider registration boundary |
 | `service.py` | Catalog queries and injected execution boundary |
 
 ## Quick use
@@ -53,13 +59,18 @@ from backend.ai.global_ecosystem.global_ai_ecosystem import (
     GlobalAIEcosystemService,
     get_catalog,
 )
+from backend.ai.global_ecosystem.global_ai_ecosystem.global_ai_agents import (
+    GlobalAIAgentService,
+    list_agents,
+)
 
 catalog = get_catalog()
 service = GlobalAIEcosystemService()
-summary = service.status()
+agent_profiles = list_agents()
+agent_service = GlobalAIAgentService()
 
-# Runtime execution is disabled until an executor is explicitly injected.
+# Runtime execution stays disabled until an executor is explicitly injected.
 ```
 
-This is a structured foundation, not a claim that external AI providers are
-already connected or that live generation has been enabled.
+This is a structured foundation, not a claim that external AI providers,
+models, tools or agent runtimes are already connected or operational.
