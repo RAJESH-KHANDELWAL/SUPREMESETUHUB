@@ -1,8 +1,8 @@
-"""Bada Business integration provider metadata and readiness contract.
+"""Bada Business integration provider metadata and resource catalog adapter.
 
-Canonical platform links and program/resource facts remain owned by
-backend.bada_business_ecosystem. This module does not claim an official API
-or a verified live connection.
+Canonical URLs and program/resource facts remain owned by
+backend.bada_business_ecosystem. This adapter exposes that catalog to the
+integration registry without claiming an official API or live connection.
 """
 from typing import Any, Dict
 
@@ -13,18 +13,24 @@ from backend.bada_business_ecosystem.platform_resources import (
     OFFICIAL_PUBLIC_API_VERIFIED,
     PROVIDER,
     STATUS,
+    get_catalog,
 )
 from backend.integrations.base import IntegrationProvider
 
 
 class BadaBusinessProvider(IntegrationProvider):
-    """Expose canonical Bada Business ecosystem metadata to integrations."""
+    """Expose canonical Bada Business catalog data to integrations."""
 
     name = "BADA_BUSINESS"
     category = "BUSINESS_ECOSYSTEM"
 
+    def catalog(self) -> Dict[str, Any]:
+        """Return the canonical resource catalog without duplicating its data."""
+        return get_catalog()
+
     def metadata(self) -> Dict[str, Any]:
         data = super().metadata()
+        catalog = self.catalog()
         data.update(
             {
                 "provider": PROVIDER,
@@ -32,6 +38,9 @@ class BadaBusinessProvider(IntegrationProvider):
                 "ecosystem_name": ECOSYSTEM_NAME,
                 "catalog_status": STATUS,
                 "canonical_catalog": "backend.bada_business_ecosystem.platform_resources",
+                "resource_catalog": catalog,
+                "link_count": catalog["link_count"],
+                "program_count": catalog["program_count"],
                 "official_public_api_verified": OFFICIAL_PUBLIC_API_VERIFIED,
                 "live_connection_verified": LIVE_CONNECTION_VERIFIED,
             }
@@ -48,7 +57,7 @@ class BadaBusinessProvider(IntegrationProvider):
             "live_connection_verified": False,
             "status": "CATALOG_AVAILABLE",
             "message": (
-                "Canonical Bada Business resource catalog is available; "
+                "Canonical Bada Business links and program catalog are available; "
                 "no official public API or live provider connection is verified."
             ),
         }
