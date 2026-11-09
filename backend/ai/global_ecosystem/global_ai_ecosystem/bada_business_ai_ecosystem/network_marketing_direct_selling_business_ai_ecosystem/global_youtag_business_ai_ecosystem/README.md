@@ -21,3 +21,7 @@ No live YOUTAG AI assistant, provider API or autonomous registration flow is con
 - Canonical source of truth: `backend/global_ecosystem/global_bada_business_ecosystem/global_network_marketing_direct_selling_business_ecosystem/global_youtag_business_ecosystem/referral_profiles/rajesh_khandelwal.json`
 
 Keep the URL exactly as supplied. This is owner-provided public referral metadata, not an API credential or proof of registration, commission, provider partnership or live integration. Read the canonical profile rather than creating alternate referral records.
+
+## 2026 company knowledge source
+
+Use the canonical Hinglish knowledge reference at `backend/global_ecosystem/global_bada_business_ecosystem/global_network_marketing_direct_selling_business_ecosystem/global_youtag_business_ecosystem/company_knowledge/YOUTAG_WELLNESS_BASIC_KNOWLEDGE_2026_HINGLISH.md` for source-grounded answers about company profile, terms, ranks, plan and source-stated income categories/benefits. Preserve source wording and flag unverified claims; do not present earnings, success rates or benefits as guaranteed or independently verified. This is a knowledge reference, not a live AI integration.
