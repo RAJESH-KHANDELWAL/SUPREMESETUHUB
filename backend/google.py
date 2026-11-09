@@ -2,14 +2,14 @@
 
 The canonical implementation remains in backend/google/google_ecosystem/service.py.
 This file is a script/facade; Python package imports should use
-backend.google.google_ecosystem directly because the sibling package directory
+backend.global_ecosystem.google_ecosystem.runtime because the sibling package directory
 and this same-named module share the name 'google'.
 """
 from __future__ import annotations
 
 from typing import Any
 
-from backend.google.google_ecosystem.service import GOOGLE_PRODUCTS, GoogleEcosystemService
+from backend.global_ecosystem.google_ecosystem.runtime.service import GOOGLE_PRODUCTS, GoogleEcosystemService
 
 _service = GoogleEcosystemService()
 
