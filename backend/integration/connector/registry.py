@@ -134,7 +134,7 @@ connector_registry = ConnectorRegistry()
 
 
 # ============================================================
-# EXISTING REAL EXTERNAL PROVIDERS
+# REGISTERED EXTERNAL PROVIDERS AND CATALOG CONNECTORS
 # ============================================================
 
 connector_registry.register(
@@ -162,6 +162,25 @@ connector_registry.register(
         official_api=(
             "https://generativelanguage.googleapis.com"
         ),
+        handler=None,
+    )
+)
+
+
+connector_registry.register(
+    Connector(
+        name="bada_business",
+        display_name="Bada Business",
+        category="business_ecosystem",
+        region="IN",
+        capabilities=(
+            "RESOURCE_CATALOG",
+            "REFERRAL_LINK_DIRECTORY",
+            "PROGRAM_DIRECTORY",
+            "RESOURCE_LOOKUP",
+        ),
+        auth="NOT_REQUIRED_FOR_CATALOG; PROVIDER_AUTH_NOT_CONFIGURED",
+        official_api="https://www.badabusiness.com",
         handler=None,
     )
 )
