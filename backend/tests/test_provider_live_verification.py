@@ -1,7 +1,7 @@
 """Live provider verification must not expose or persist OAuth tokens."""
-from backend.integrations.provider.microsoft import MicrosoftProvider
-from backend.integrations.provider.salesforce import SalesforceProvider
-from backend.integrations.registry import IntegrationRegistry
+from backend.integration.provider.microsoft import MicrosoftProvider
+from backend.integration.provider.salesforce import SalesforceProvider
+from backend.integration.registry import IntegrationRegistry
 
 
 class FakeResponse:
@@ -51,7 +51,7 @@ def test_microsoft_live_verification_never_returns_token(monkeypatch):
     monkeypatch.setenv("MICROSOFT_TENANT_ID", "tenant-id")
     monkeypatch.setenv("MICROSOFT_CLIENT_ID", "client-id")
     monkeypatch.setenv("MICROSOFT_CLIENT_SECRET", "secret-value")
-    monkeypatch.setattr("backend.integrations.provider.microsoft.httpx.Client", FakeClient)
+    monkeypatch.setattr("backend.integration.provider.microsoft.httpx.Client", FakeClient)
     result = MicrosoftProvider().verify_connection()
     assert result["success"] is True
     assert result["tenant_name"] == "Example Tenant"
@@ -62,7 +62,7 @@ def test_microsoft_live_verification_never_returns_token(monkeypatch):
 def test_salesforce_live_verification_never_returns_token(monkeypatch):
     monkeypatch.setenv("SALESFORCE_CLIENT_ID", "client-id")
     monkeypatch.setenv("SALESFORCE_CLIENT_SECRET", "secret-value")
-    monkeypatch.setattr("backend.integrations.provider.salesforce.httpx.Client", FakeClient)
+    monkeypatch.setattr("backend.integration.provider.salesforce.httpx.Client", FakeClient)
     result = SalesforceProvider().verify_connection()
     assert result["success"] is True
     assert result["instance_host"] == "example.my.salesforce.com"
