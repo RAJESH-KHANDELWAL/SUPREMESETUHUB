@@ -4,6 +4,7 @@ from __future__ import annotations
 from typing import Any
 
 from .agents import AGENT_COMPONENTS
+from .global_ai_agents.catalog import AGENT_CATALOG
 from .capabilities import CAPABILITIES
 from .governance import GOVERNANCE_CONTROLS
 from .infrastructure import INFRASTRUCTURE
@@ -20,6 +21,7 @@ CATALOG: dict[str, tuple] = {
     "capabilities": CAPABILITIES,
     "services": SERVICES,
     "agent_components": AGENT_COMPONENTS,
+    "agent_profiles": tuple(AGENT_CATALOG.values()),
     "workflows": WORKFLOWS,
     "knowledge": KNOWLEDGE_COMPONENTS,
     "infrastructure": INFRASTRUCTURE,
@@ -30,7 +32,10 @@ CATALOG: dict[str, tuple] = {
 
 def get_catalog() -> dict[str, list[dict[str, Any]]]:
     return {
-        category: [record.to_dict() for record in records]
+        category: [
+            record.to_dict() if hasattr(record, "to_dict") else dict(record)
+            for record in records
+        ]
         for category, records in CATALOG.items()
     }
 
