@@ -1,4 +1,4 @@
-from backend.google.google_ecosystem.service import GoogleEcosystemService, GOOGLE_PRODUCTS
+from backend.global_ecosystem.google_ecosystem.runtime.service import GoogleEcosystemService, GOOGLE_PRODUCTS
 from backend.api.google_ecosystem import router
 from backend.security.dependencies import require_admin
 
