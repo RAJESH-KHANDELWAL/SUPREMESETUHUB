@@ -1,4 +1,4 @@
-"""Bada Business provider, connector and API remain catalog-only and truthful."""
+"""Bada Business catalog integration tests."""
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
@@ -15,7 +15,7 @@ def test_bada_business_connector_exposes_canonical_catalog():
     assert catalog["program_count"] == 3
     assert connector.link("digital_dukan")["id"] == "digital_dukan"
     assert connector.program("lfp_digital") is not None
-    assert connector.status()["status"] == "CATALOG_AVAILABLE"
+    assert connector.status()["status"] == "CATALOG_ONLY"
     assert connector.status()["connection"] == "NOT_CONNECTED"
 
 
@@ -26,11 +26,17 @@ def test_bada_business_connector_catalog_is_defensive_copy():
     assert connector.catalog()["links"][0]["name"] != "MUTATED"
 
 
+def test_bada_business_connector_search():
+    connector = BadaBusinessConnector()
+    assert connector.search_links("dukan")[0]["id"] == "digital_dukan"
+    assert connector.search_programs("impact")[0]["program_id"] == "bb_impact"
+
+
 def test_bada_business_is_registered_as_catalog_connector():
     connector = connector_registry.get("bada_business")
     assert connector.display_name == "Bada Business"
     assert connector.handler is None
-    assert connector.public_info()["status"] == "AVAILABLE"
+    assert connector.public_info()["status"] == "CATALOG_ONLY"
 
 
 def test_bada_business_provider_and_connector_do_not_claim_live_api():
@@ -48,7 +54,7 @@ def test_bada_business_catalog_api_routes():
 
     status = client.get("/api/v1/bada-business-integration/status")
     assert status.status_code == 200
-    assert status.json()["status"] == "CATALOG_AVAILABLE"
+    assert status.json()["status"] == "CATALOG_ONLY"
 
     catalog = client.get("/api/v1/bada-business-integration/catalog")
     assert catalog.status_code == 200
@@ -58,6 +64,14 @@ def test_bada_business_catalog_api_routes():
     link = client.get("/api/v1/bada-business-integration/links/digital_dukan")
     assert link.status_code == 200
     assert link.json()["link"]["id"] == "digital_dukan"
+
+    searched = client.get("/api/v1/bada-business-integration/links?q=dukan")
+    assert searched.status_code == 200
+    assert searched.json()["count"] == 1
+
+    program = client.get("/api/v1/bada-business-integration/programs?q=impact")
+    assert program.status_code == 200
+    assert program.json()["count"] == 1
 
     missing = client.get("/api/v1/bada-business-integration/programs/not-real")
     assert missing.status_code == 404
