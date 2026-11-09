@@ -47,3 +47,7 @@ The YOUTAG business and app entries here define ecosystem boundaries only. The o
 - Canonical source of truth: `backend/global_ecosystem/global_bada_business_ecosystem/global_network_marketing_direct_selling_business_ecosystem/global_youtag_business_ecosystem/referral_profiles/rajesh_khandelwal.json`
 
 Keep the URL exactly as supplied. This is owner-provided public referral metadata, not an API credential or proof of registration, commission, provider partnership or live integration. Read the canonical profile rather than creating alternate referral records.
+
+## Bada Business Community course resources
+
+Owner-provided directory of 11 course destinations: [`course_resources/BADA_BUSINESS_COMMUNITY_COURSE_LINKS.md`](course_resources/BADA_BUSINESS_COMMUNITY_COURSE_LINKS.md). This is a link index only; course content, current access rights and link availability are not verified here.
