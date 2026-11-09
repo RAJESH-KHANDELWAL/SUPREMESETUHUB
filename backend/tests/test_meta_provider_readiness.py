@@ -1,8 +1,8 @@
-from backend.integrations.provider.meta import MetaProvider
+from backend.integration.provider.meta import MetaProvider
 
 
 def test_meta_provider_is_registered_and_reports_capabilities():
-    from backend.integrations.registry import IntegrationRegistry
+    from backend.integration.registry import IntegrationRegistry
 
     registry = IntegrationRegistry()
     provider = registry.get("META")
