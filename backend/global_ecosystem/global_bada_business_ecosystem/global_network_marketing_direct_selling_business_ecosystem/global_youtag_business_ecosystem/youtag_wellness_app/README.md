@@ -16,3 +16,7 @@ Keep app-specific UI, product presentation and app workflows associated with thi
 - Canonical source of truth: `backend/global_ecosystem/global_bada_business_ecosystem/global_network_marketing_direct_selling_business_ecosystem/global_youtag_business_ecosystem/referral_profiles/rajesh_khandelwal.json`
 
 Preserve the URL exactly. It is owner-provided public referral metadata, not an API credential or proof of registration, commission, provider partnership or live integration. Read the canonical profile rather than creating alternate referral records.
+
+## Product catalogue index
+
+The owner-uploaded YOUTAG product PDF has been indexed in [`catalogs/PRODUCT_CATALOG.md`](catalogs/PRODUCT_CATALOG.md). The index records the catalogue's YOUVED wellness products and also identifies the PASHUVED veterinary and AGROVED agriculture sections included in the same 52-page source. Product claims, current prices, SKUs, stock and regulatory status are not independently verified; confirm current official details before publishing or selling.
