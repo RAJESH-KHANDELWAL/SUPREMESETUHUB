@@ -1,24 +1,25 @@
 from typing import Any, Dict, List
 
-from .providers.aws import AWSProvider
-from .providers.google import GoogleProvider
-from .providers.microsoft import MicrosoftProvider
-from .providers.salesforce import SalesforceProvider
-from .providers.apple import AppleProvider
-from .providers.esa import ESAProvider
-from .providers.generic import GenericWebProvider
-from .providers.openai import OpenAIProvider
-from .providers.anthropic import AnthropicProvider
-from .providers.adobe import AdobeProvider
-from .providers.atlassian import AtlassianProvider
-from .providers.cohere import CohereProvider
-from .providers.deepseek import DeepSeekProvider
-from .providers.github import GitHubProvider
-from .providers.huggingface import HuggingFaceProvider
-from .providers.ibm import IBMProvider
-from .providers.meta import MetaProvider
-from .providers.mistral import MistralProvider
-from .providers.oracle import OracleProvider
+from .provider.bada_business import BadaBusinessProvider
+from .provider.aws import AWSProvider
+from .provider.google import GoogleProvider
+from .provider.microsoft import MicrosoftProvider
+from .provider.salesforce import SalesforceProvider
+from .provider.apple import AppleProvider
+from .provider.esa import ESAProvider
+from .provider.generic import GenericWebProvider
+from .provider.openai import OpenAIProvider
+from .provider.anthropic import AnthropicProvider
+from .provider.adobe import AdobeProvider
+from .provider.atlassian import AtlassianProvider
+from .provider.cohere import CohereProvider
+from .provider.deepseek import DeepSeekProvider
+from .provider.github import GitHubProvider
+from .provider.huggingface import HuggingFaceProvider
+from .provider.ibm import IBMProvider
+from .provider.meta import MetaProvider
+from .provider.mistral import MistralProvider
+from .provider.oracle import OracleProvider
 
 
 class IntegrationRegistry:
@@ -26,6 +27,7 @@ class IntegrationRegistry:
 
     def __init__(self):
         self.providers = {
+            "BADA_BUSINESS": BadaBusinessProvider(),
             "GOOGLE": GoogleProvider(),
             "OPENAI": OpenAIProvider(),
             "ANTHROPIC": AnthropicProvider(),
@@ -49,17 +51,11 @@ class IntegrationRegistry:
 
     def list(self) -> List[Dict[str, Any]]:
         """Return metadata for all registered providers."""
-        return [
-            provider.metadata()
-            for provider in self.providers.values()
-        ]
+        return [provider.metadata() for provider in self.providers.values()]
 
     def health(self) -> List[Dict[str, Any]]:
-        """Return configuration readiness without claiming live connectivity."""
-        return [
-            provider.health()
-            for provider in self.providers.values()
-        ]
+        """Return provider health without overstating live connectivity."""
+        return [provider.health() for provider in self.providers.values()]
 
     def get(self, name: str) -> Any:
         """Return a provider by name."""
@@ -68,6 +64,4 @@ class IntegrationRegistry:
         return self.providers.get(name.upper())
 
 
-__all__ = [
-    "IntegrationRegistry",
-]
+__all__ = ["IntegrationRegistry"]
