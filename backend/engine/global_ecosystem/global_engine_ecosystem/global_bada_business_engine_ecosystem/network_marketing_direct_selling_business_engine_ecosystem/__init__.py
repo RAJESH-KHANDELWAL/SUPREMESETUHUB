@@ -1,2 +1,7 @@
-"""ENGINE-owned namespace: network_marketing_direct_selling_business_api_ecosystem."""
+"""ENGINE namespace for network marketing and direct-selling workflows."""
+
 LAYER = "ENGINE"
+ECOSYSTEM_ID = "GLOBAL-NETWORK-MARKETING-DIRECT-SELLING-BUSINESS-ENGINE-ECOSYSTEM"
+CHILD_ECOSYSTEMS = ("GLOBAL-YOUTAG-BUSINESS-ENGINE-ECOSYSTEM",)
+
+__all__ = ["LAYER", "ECOSYSTEM_ID", "CHILD_ECOSYSTEMS"]
