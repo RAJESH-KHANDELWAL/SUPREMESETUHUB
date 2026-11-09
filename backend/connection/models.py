@@ -6,15 +6,16 @@ from typing import Optional
 
 @dataclass
 class Connection:
-    """Represent an authorized provider/server connection."""
+    """Represent a provider/server connection and its ecosystem namespace."""
 
     connection_id: str
     provider_id: str
     server_id: str
     connection_type: str
     protocol: str
+    endpoint: Optional[str] = None
+    namespace: str = "global"
     status: str = "REGISTERED"
     authorized: bool = False
     enabled: bool = True
-    endpoint: Optional[str] = None
     error: Optional[str] = None
