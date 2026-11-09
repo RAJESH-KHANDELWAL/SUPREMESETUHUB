@@ -61,5 +61,6 @@ class GlobalConnectionService:
             "registered_connections": health["registered_connections"],
             "connected": health["connected"],
             "configured_adapters": sorted(self.adapters),
-            "live_provider_connectivity": bool(self.adapters),
+            "adapter_configuration": "configured" if self.adapters else "not_configured",
+            "live_provider_connectivity": "not_verified",
         }
