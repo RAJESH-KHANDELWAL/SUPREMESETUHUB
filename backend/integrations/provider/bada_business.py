@@ -15,7 +15,7 @@ from backend.bada_business_ecosystem.platform_resources import (
     STATUS,
     get_catalog,
 )
-from backend.integrations.base import IntegrationProvider
+from backend.integration.base import IntegrationProvider
 
 
 class BadaBusinessProvider(IntegrationProvider):
