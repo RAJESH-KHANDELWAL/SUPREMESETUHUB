@@ -1,4 +1,4 @@
-from backend.integrations.providers.meta import MetaProvider
+from backend.integrations.provider.meta import MetaProvider
 
 
 def test_meta_provider_is_registered_and_reports_capabilities():
