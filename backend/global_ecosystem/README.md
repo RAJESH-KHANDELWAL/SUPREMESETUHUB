@@ -10,6 +10,7 @@ Folder names use the `*_ecosystem` convention. These directories organize global
     - `global_youtag_business_ecosystem/`
       - `youtag_wellness_app/`
       - `youtag_recharges_app/`
+      - `referral_profiles/rajesh_khandelwal.json` — owner-provided YOUTAG referral profile (ID 2043272).
     - `global_affiliate_marketing_business_ecosystem/`
       - `i_digitalpreneur/`
       - `leadsguru/`
