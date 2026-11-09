@@ -21,9 +21,6 @@ from backend.server.global_ecosystem.global_server_ecosystem import (
 from backend.database.global_ecosystem.global_database_ecosystem import (
     GlobalDatabaseEcosystemManager as GlobalDatabaseEcosystemService,
 )
-from backend.storage.global_ecosystem.global_storage_ecosystem import (
-    GlobalStorageEcosystemManager as StorageEcosystemService,
-)
 
 _core = ServerCoreService()
 _inventory = ServerInventoryService()
@@ -45,7 +42,7 @@ def get_server_ecosystem_status() -> dict[str, Any]:
         "registered_server_count": _inventory.registry.count(),
         "core": _core.health(),
         "database": _database.describe(),
-        "storage": _storage.describe(),
+        "storage": {"status": "CATALOG_ONLY", "manager_initialized": False},
         "live_connections_verified": False,
         "durable_persistence_enabled": False,
         "binary_storage_enabled": False,
