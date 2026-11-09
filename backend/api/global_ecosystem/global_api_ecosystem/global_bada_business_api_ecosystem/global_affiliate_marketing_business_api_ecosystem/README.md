@@ -19,3 +19,7 @@ Central catalogue for affiliate marketing, referral commerce, publisher monetiza
 - A catalogue record is not a live API connector. Live integrations require official documentation, secure credentials, implementation and tests.
 
 Each provider record must eventually include official source URL, operator, market, eligibility, commission model, payout method/currency, restrictions, API status, last-checked date and verification status.
+
+## Platform directory
+
+Platform-specific API documentation is organized under `platforms/`: iDigitalPreneur, LeadsGuru and Millionaire Track. Keep their API contracts and credentials separate; official API availability must be verified independently.
