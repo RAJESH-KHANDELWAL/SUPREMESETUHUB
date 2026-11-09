@@ -1,9 +1,9 @@
 """Canonical AI capability identifiers for domain-level contracts."""
 
-from enum import StrEnum
+from enum import Enum
 
 
-class AICapability(StrEnum):
+class AICapability(str, Enum):
     TEXT = "text"
     IMAGE = "image"
     VIDEO = "video"
