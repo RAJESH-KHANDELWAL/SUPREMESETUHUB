@@ -1,5 +1,9 @@
 # GLOBAL ECOSYSTEM DIRECTORY
 
+## Global software and system domains
+- `global_software_ecosystem/` — global software products, platforms, vendors, standards, and software relationships.
+- `global_system_ecosystem/` — global system platforms, operating environments, infrastructure concepts, and system relationships.
+
 ## Vendor ecosystems
 - `google_ecosystem/`
 - `meta_ecosystem/`
