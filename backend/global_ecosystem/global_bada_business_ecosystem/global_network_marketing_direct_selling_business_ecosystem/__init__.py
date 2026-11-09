@@ -1,10 +1,11 @@
-"""Global namespace for network marketing and direct-selling business ecosystems."""
+"""Global namespace for network marketing, direct selling and affiliate business ecosystems."""
 
 ECOSYSTEM_ID = "GLOBAL-NETWORK-MARKETING-DIRECT-SELLING-BUSINESS-ECOSYSTEM"
 ECOSYSTEM_NAME = "GLOBAL NETWORK MARKETING & DIRECT SELLING BUSINESS ECOSYSTEM"
 
 CHILD_ECOSYSTEMS = (
     "GLOBAL-YOUTAG-BUSINESS-ECOSYSTEM",
+    "GLOBAL-AFFILIATE-MARKETING-BUSINESS-ECOSYSTEM",
 )
 
 __all__ = ["ECOSYSTEM_ID", "ECOSYSTEM_NAME", "CHILD_ECOSYSTEMS"]
