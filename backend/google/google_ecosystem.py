@@ -1,9 +1,9 @@
-"""Google Ecosystem facade beside the backend/google/google_ecosystem/ folder."""
+"""Google Ecosystem facade beside the backend/global_ecosystem/google_ecosystem/runtime/ folder."""
 from __future__ import annotations
 
 from typing import Any
 
-from .google_ecosystem.service import GOOGLE_PRODUCTS, GoogleEcosystemService
+from backend.global_ecosystem.google_ecosystem.runtime.service import GOOGLE_PRODUCTS, GoogleEcosystemService
 
 _service = GoogleEcosystemService()
 
