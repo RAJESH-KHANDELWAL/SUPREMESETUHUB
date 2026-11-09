@@ -1,7 +1,7 @@
-from backend.integrations.registry import IntegrationRegistry
-from backend.integrations.provider.apple import AppleProvider
-from backend.integrations.provider.bada_business import BadaBusinessProvider
-from backend.integrations.provider.esa import ESAProvider
+from backend.integration.registry import IntegrationRegistry
+from backend.integration.provider.apple import AppleProvider
+from backend.integration.provider.bada_business import BadaBusinessProvider
+from backend.integration.provider.esa import ESAProvider
 from backend.engine.integrations.registry import IntegrationRegistry as EngineIntegrationRegistry
 
 
