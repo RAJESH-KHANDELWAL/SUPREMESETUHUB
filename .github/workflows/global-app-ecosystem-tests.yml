@@ -5,13 +5,19 @@ on:
   paths:
    - "backend/global_ecosystem/global_app_ecosystem/**"
    - "backend/app/global_ecosystem/global_app_ecosystem/**"
-   - "backend/engine/app/**"
+   - "backend/api/global_ecosystem/global_api_ecosystem/global_app_api_ecosystem/**"
+   - "backend/core/global_ecosystem/global_core_ecosystem/global_app_core_ecosystem/**"
+   - "backend/engine/global_ecosystem/global_engine_ecosystem/global_app_engine_ecosystem/**"
+   - "backend/database/global_ecosystem/global_database_ecosystem/global_app_database_ecosystem/**"
    - ".github/workflows/global-app-ecosystem-tests.yml"
  pull_request:
   paths:
    - "backend/global_ecosystem/global_app_ecosystem/**"
    - "backend/app/global_ecosystem/global_app_ecosystem/**"
-   - "backend/engine/app/**"
+   - "backend/api/global_ecosystem/global_api_ecosystem/global_app_api_ecosystem/**"
+   - "backend/core/global_ecosystem/global_core_ecosystem/global_app_core_ecosystem/**"
+   - "backend/engine/global_ecosystem/global_engine_ecosystem/global_app_engine_ecosystem/**"
+   - "backend/database/global_ecosystem/global_database_ecosystem/global_app_database_ecosystem/**"
    - ".github/workflows/global-app-ecosystem-tests.yml"
 jobs:
  test:
@@ -21,13 +27,16 @@ jobs:
    - uses: actions/setup-python@v5
      with:
       python-version: "3.11"
-   - name: Compile APP ecosystem
-     run: python -m compileall -q backend/global_ecosystem/global_app_ecosystem backend/app/global_ecosystem/global_app_ecosystem backend/engine/app
+   - name: Install API schema dependencies
+     run: python -m pip install "fastapi>=0.115,<1.0" "pydantic>=2.7,<3.0"
+   - name: Compile APP ecosystem layers
+     run: python -m compileall -q backend/global_ecosystem/global_app_ecosystem backend/app/global_ecosystem/global_app_ecosystem backend/api/global_ecosystem/global_api_ecosystem/global_app_api_ecosystem backend/core/global_ecosystem/global_core_ecosystem/global_app_core_ecosystem backend/engine/global_ecosystem/global_engine_ecosystem/global_app_engine_ecosystem backend/database/global_ecosystem/global_database_ecosystem/global_app_database_ecosystem backend/engine/app
    - name: Run APP ecosystem tests
      env:
       PYTHONPATH: .
      run: |
       python -m unittest \
        backend.global_ecosystem.global_app_ecosystem.test_catalog \
+       backend.global_ecosystem.global_app_ecosystem.test_layers \
        backend.app.global_ecosystem.global_app_ecosystem.test_app \
        backend.engine.app.test_app_engine
