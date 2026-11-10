@@ -25,10 +25,19 @@ class ProviderChatEngine:
             raise ValueError(f"AI_PROVIDER_NOT_IN_DOMAIN_REGISTRY: {provider_id}")
 
     def _model_id(self) -> str | None:
-        if self.PROVIDER_ID == "microsoft_azure_ai":
-            return os.getenv("AZURE_OPENAI_DEPLOYMENT")
+        provider_defaults = {
+            "microsoft_azure_ai": "AZURE_OPENAI_DEPLOYMENT",
+            "ollama": "OLLAMA_MODEL",
+            "vllm": "VLLM_MODEL",
+            "aws_bedrock": "AWS_BEDROCK_MODEL_ID",
+            "huggingface": "HF_MODEL_ID",
+        }
         env_name = f"GLOBAL_AI_{self.PROVIDER_ID.upper()}_MODEL"
-        return os.getenv(env_name) or (os.getenv("GLOBAL_AI_MODEL") if self.PROVIDER_ID == "openai_chatgpt" else None)
+        return (
+            os.getenv(env_name)
+            or os.getenv(provider_defaults.get(self.PROVIDER_ID, ""))
+            or (os.getenv("GLOBAL_AI_MODEL") if self.PROVIDER_ID == "openai_chatgpt" else None)
+        )
 
     def _configuration_ready(self) -> bool:
         provider_id = self.PROVIDER_ID
