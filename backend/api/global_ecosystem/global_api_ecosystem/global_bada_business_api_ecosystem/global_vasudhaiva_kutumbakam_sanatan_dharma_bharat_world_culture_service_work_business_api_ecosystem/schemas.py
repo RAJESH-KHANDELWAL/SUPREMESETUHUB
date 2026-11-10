@@ -5,10 +5,8 @@ from typing import Any
 from pydantic import BaseModel, ConfigDict, Field, HttpUrl, field_validator
 
 
-# Keep request validation aligned with CORE governance.ALLOWED_STATUSES.
-ALLOWED_RECORD_STATUSES = frozenset(
-    {"DRAFT", "SUBMITTED", "REVIEWED", "APPROVED", "REJECTED", "ARCHIVED"}
-)
+# Public submissions cannot self-assign moderation outcomes. CORE retains the full lifecycle.
+ALLOWED_RECORD_STATUSES = frozenset({"DRAFT", "SUBMITTED"})
 
 
 class CultureServiceWorkBusinessRecordRequest(BaseModel):
