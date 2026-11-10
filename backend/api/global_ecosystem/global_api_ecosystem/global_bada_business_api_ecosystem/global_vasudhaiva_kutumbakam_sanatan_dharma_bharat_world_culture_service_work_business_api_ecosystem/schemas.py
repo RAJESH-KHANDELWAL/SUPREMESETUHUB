@@ -5,6 +5,12 @@ from typing import Any
 from pydantic import BaseModel, ConfigDict, Field, HttpUrl, field_validator
 
 
+# Keep request validation aligned with CORE governance.ALLOWED_STATUSES.
+ALLOWED_RECORD_STATUSES = frozenset(
+    {"DRAFT", "SUBMITTED", "REVIEWED", "APPROVED", "REJECTED", "ARCHIVED"}
+)
+
+
 class CultureServiceWorkBusinessRecordRequest(BaseModel):
     model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
 
@@ -24,8 +30,7 @@ class CultureServiceWorkBusinessRecordRequest(BaseModel):
     @classmethod
     def normalize_status(cls, value: str) -> str:
         normalized = value.upper()
-        allowed = {"DRAFT", "PENDING", "APPROVED", "REJECTED", "ARCHIVED"}
-        if normalized not in allowed:
+        if normalized not in ALLOWED_RECORD_STATUSES:
             raise ValueError("INVALID_RECORD_STATUS")
         return normalized
 
@@ -35,6 +40,7 @@ class CultureServiceWorkBusinessRecordRequest(BaseModel):
         if value is None:
             return None
         from pydantic import TypeAdapter, ValidationError
+
         try:
             TypeAdapter(HttpUrl).validate_python(value)
         except ValidationError as exc:
