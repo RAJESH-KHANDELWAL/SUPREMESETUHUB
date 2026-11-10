@@ -15,6 +15,10 @@ on:
     paths:
       - "backend/global_ecosystem/global_ai_ecosystem/**"
       - "backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem/**"
+      - "backend/engine/global_ecosystem/global_engine_ecosystem/global_ai_engine_ecosystem/**"
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem/**"
+      - "backend/api/global_ai_ecosystem.py"
+      - "backend/tests/test_global_ai_ecosystem.py"
       - ".github/workflows/global-ai-ecosystem-tests.yml"
 
 jobs:
