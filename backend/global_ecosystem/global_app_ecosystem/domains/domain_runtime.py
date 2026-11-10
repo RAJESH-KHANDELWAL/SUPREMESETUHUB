@@ -37,7 +37,7 @@ class AppDomainService:
         checks = ["payload_shape_valid", "domain_registered"]
         safeguards = tuple(self.profile.get("safeguards", ()))
         adult = self.domain_id.startswith("adult_") or self.domain_id == "adult_age_restricted_platform_apps"
-        rights_domain = any(x in self.domain_id for x in ("adult_creator", "adult_entertainment", "adult_content_safety"))
+        rights_domain = any(x in self.domain_id for x in ("adult_age_restricted", "adult_creator", "adult_entertainment", "adult_content_safety"))
         if adult:
             required = {"age_verified": "age verification", "participants_are_adults": "adult participants", "consent_confirmed": "informed consent"}
             for key, label in required.items():
