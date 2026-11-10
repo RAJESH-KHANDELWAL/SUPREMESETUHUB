@@ -27,7 +27,7 @@ class GlobalAIGenerateRequest(BaseModel):
     context: dict = Field(default_factory=dict)
     provider_id: str = Field(default="openai", min_length=1, max_length=80)
     capability: str = Field(default="text", min_length=1, max_length=80)
-    model_id: str | None = Field(default=None, max_length=160)
+    model_id: str | None = Field(default=None, min_length=1, max_length=160)
 
 
 @router.post("/generate")
