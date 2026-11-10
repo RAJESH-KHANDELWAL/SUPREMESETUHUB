@@ -27,6 +27,16 @@ DOMAIN_PROFILES = {
             "blockchain_and_distributed_apps", "research_and_frontier_computing"
         ]
     },
+    "global_domain_ecosystem": {
+        "id": "global_domain_ecosystem",
+        "name": "Global Master Domain Ecosystem",
+        "description": "Master taxonomy covering society, business, technology, health, adult-only lawful services, media, industry, infrastructure and services from Bharat to global markets.",
+        "categories": [
+            "society_and_public", "business_and_economy", "technology_and_digital",
+            "knowledge_and_people", "health_and_life", "adult_only_media_and_services",
+            "media_and_entertainment", "industry_and_infrastructure", "places_and_services"
+        ]
+    },
     "global_education_ecosystem": {
         "id": "global_education_ecosystem",
         "name": "Education & Knowledge",
