@@ -17,11 +17,12 @@ class OpenAICompatibleChatAdapter:
         self.provider_id = provider["id"]
         self.provider_name = provider["name"]
         self.api_key = api_key or os.getenv(provider.get("credential_env") or "")
+        self.auth_mode = provider.get("auth_mode", "required")
         self.base_url = (base_url or provider.get("api_endpoint") or "").rstrip("/")
         self.http_client = http_client or JsonHttpClient()
         if not self.base_url:
             raise ProviderConfigurationError(f"No API endpoint is configured for {self.provider_name}.")
-        if not self.api_key:
+        if not self.api_key and self.auth_mode == "required":
             raise ProviderConfigurationError(
                 f"Set {provider.get('credential_env') or 'the provider API credential'} before using {self.provider_name}."
             )
@@ -38,7 +39,7 @@ class OpenAICompatibleChatAdapter:
             payload["max_tokens"] = request.max_tokens
         result = self.http_client.post_json(
             f"{self.base_url}/chat/completions",
-            headers={"Authorization": f"Bearer {self.api_key}"},
+            headers=({"Authorization": f"Bearer {self.api_key}"} if self.api_key else {}),
             payload=payload,
             idempotency_key=request.metadata.get("idempotency_key"),
         )
