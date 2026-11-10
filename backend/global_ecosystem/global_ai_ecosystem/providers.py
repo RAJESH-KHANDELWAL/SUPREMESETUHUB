@@ -46,6 +46,25 @@ from .hanooman_ecosystem.catalog import PROVIDER as HANOOMAN
 from .oracle_cloud_ai_ecosystem.catalog import PROVIDER as ORACLE_CLOUD_AI
 from .salesforce_einstein_ecosystem.catalog import PROVIDER as SALESFORCE_EINSTEIN
 from .snowflake_cortex_ecosystem.catalog import PROVIDER as SNOWFLAKE_CORTEX
+from .apple_intelligence_ecosystem.catalog import PROVIDER as APPLE_INTELLIGENCE
+from .autogen_ecosystem.catalog import PROVIDER as AUTOGEN
+from .bloom_model_ecosystem.catalog import PROVIDER as BLOOM_MODELS
+from .crewai_ecosystem.catalog import PROVIDER as CREWAI
+from .dspy_ecosystem.catalog import PROVIDER as DSPY
+from .gemma_model_ecosystem.catalog import PROVIDER as GEMMA_MODELS
+from .haystack_ecosystem.catalog import PROVIDER as HAYSTACK
+from .langchain_ecosystem.catalog import PROVIDER as LANGCHAIN
+from .langgraph_ecosystem.catalog import PROVIDER as LANGGRAPH
+from .llama_model_ecosystem.catalog import PROVIDER as LLAMA_MODELS
+from .llamaindex_ecosystem.catalog import PROVIDER as LLAMAINDEX
+from .microsoft_copilot_ecosystem.catalog import PROVIDER as MICROSOFT_COPILOT
+from .nemotron_model_ecosystem.catalog import PROVIDER as NEMOTRON_MODELS
+from .phi_model_ecosystem.catalog import PROVIDER as PHI_MODELS
+from .sap_joule_ecosystem.catalog import PROVIDER as SAP_JOULE
+from .semantic_kernel_ecosystem.catalog import PROVIDER as SEMANTIC_KERNEL
+from .stable_diffusion_model_ecosystem.catalog import PROVIDER as STABLE_DIFFUSION_MODELS
+from .flux_model_ecosystem.catalog import PROVIDER as FLUX_MODELS
+from .granite_model_ecosystem.catalog import PROVIDER as GRANITE_MODELS
 from .anthropic_claude_ecosystem.catalog import PROVIDER as ANTHROPIC_CLAUDE
 from .aws_bedrock_ecosystem.catalog import PROVIDER as AWS_BEDROCK
 from .cohere_ecosystem.catalog import PROVIDER as COHERE
@@ -60,6 +79,24 @@ from .openai_chatgpt_ecosystem.catalog import PROVIDER as OPENAI_CHATGPT
 
 _PROVIDER_CATALOG: tuple[dict[str, Any], ...] = (
     GOOGLE_GEMINI,
+    APPLE_INTELLIGENCE,
+    AUTOGEN,
+    BLOOM_MODELS,
+    CREWAI,
+    DSPY,
+    GEMMA_MODELS,
+    HAYSTACK,
+    LANGCHAIN,
+    LANGGRAPH,
+    LLAMA_MODELS,
+    MICROSOFT_COPILOT,
+    NEMOTRON_MODELS,
+    PHI_MODELS,
+    SAP_JOULE,
+    SEMANTIC_KERNEL,
+    STABLE_DIFFUSION_MODELS,
+    FLUX_MODELS,
+    GRANITE_MODELS,
     ADOBE_FIREFLY,
     AI4BHARAT,
     BHARATGPT,
