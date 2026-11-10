@@ -18,7 +18,7 @@ class AppEngineTests(unittest.TestCase):
 
     def test_component_inventory_is_delegated_to_app_layer(self):
         engine = AppEngine()
-        self.assertEqual(engine.list_components(), [])
+        self.assertEqual(engine.list_components(), ())
 
     def test_execution_is_explicit_only(self):
         engine = AppEngine()
