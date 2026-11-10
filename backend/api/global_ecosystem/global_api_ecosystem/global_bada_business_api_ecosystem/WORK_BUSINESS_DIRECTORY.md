@@ -15,6 +15,18 @@ Routes are mounted beneath `/api/v1/global-ecosystem/business`:
 
 The facades provide classification and discovery only. They do not represent live service availability, verified employers/clients, vacancies, payment execution or placement outcomes.
 
+## Cultural service, work and business API facade
+
+The cultural service/work/business API is maintained under the Global Bada Business API ecosystem:
+
+- Package: `global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_api_ecosystem/`
+- Parent router: `routes.py` mounts the package router under `/api/v1/global-ecosystem/business/culture-service-work-business/`.
+- Parent package: `__init__.py` exports `global_culture_service_work_business_api_router`.
+- Module catalogue: `service.py` registers `culture-service-work-business-api` in `BusinessEcosystemService.MODULES`.
+- API capabilities: status, catalogue, search, AI context and cultural records.
+
+The API layer composes its dedicated CORE, ENGINE, AI, DATABASE, STORAGE and CLOUD adapters; those layers remain separately owned and are not copied into this API package.
+
 ## Existing components preserved
 - `global_world_catalog.py`: umbrella Global World A–Z domain snapshot; not the detailed occupation or vacancy catalogue.
 - `global_world_business_map.py`: crosswalk from Global World domains to business-facing categories and owning ecosystems.
