@@ -47,6 +47,12 @@ class GlobalDomainTaxonomyTests(unittest.TestCase):
         self.assertEqual(result["count"], 29)
         self.assertIn("bharat_india", result["geographic_scopes"])
 
+    def test_package_root_exports_runtime_operations(self):
+        from backend.global_ecosystem import get_domain_catalog as package_catalog
+        from backend.global_ecosystem import search_domains as package_search
+        self.assertEqual(package_catalog()["count"], 29)
+        self.assertEqual(package_search("finance")[0]["id"], "global_finance_ecosystem")
+
     def test_integrity_validation_passes(self):
         result = validate_domain_taxonomy()
         self.assertTrue(result["structurally_valid"], result["issues"])
