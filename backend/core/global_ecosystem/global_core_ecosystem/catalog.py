@@ -883,6 +883,14 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "capabilities": ["CULTURAL_DOMAIN_RULES", "KNOWLEDGE_GOVERNANCE", "EVIDENCE_REVIEW", "CULTURAL_TAXONOMY"],
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
         "metadata": {"module_path": "global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem", "implementation_state": "FOUNDATION_READY"},
+    },
+    {
+        "ecosystem_id": "GLOBAL-VASUDHAIVA-CULTURE-SERVICE-WORK-BUSINESS-CORE-ECOSYSTEM",
+        "name": "GLOBAL VASUDHAIVA KUTUMBAKAM CULTURE SERVICE WORK BUSINESS CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["CULTURAL_SERVICE_TAXONOMY", "CULTURAL_WORK_CLASSIFICATION", "BUSINESS_CAPABILITY_GOVERNANCE", "RECORD_VALIDATION"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {"module_path": "global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_core_ecosystem", "implementation_state": "IMPLEMENTED_FOUNDATION"},
     }
 )
 
