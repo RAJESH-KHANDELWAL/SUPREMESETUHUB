@@ -32,6 +32,7 @@ class GlobalCultureServiceWorkBusinessAPIService:
     """Coordinate layer calls without absorbing their implementation."""
 
     ALLOWED_DOMAINS = frozenset({"SERVICE", "WORK", "BUSINESS"})
+    PUBLIC_SUBMISSION_STATUSES = frozenset({"DRAFT", "SUBMITTED"})
 
     def __init__(
         self,
@@ -119,6 +120,9 @@ class GlobalCultureServiceWorkBusinessAPIService:
 
     def save_record(self, record: dict[str, Any]) -> dict[str, Any]:
         """Validate with CORE and persist through the DATABASE repository."""
+        requested_status = str(record.get("status", "DRAFT")).upper()
+        if requested_status not in self.PUBLIC_SUBMISSION_STATUSES:
+            raise ValueError("PUBLIC_API_CANNOT_SET_MODERATION_STATUS")
         errors = self.core.validate(record)
         if errors:
             raise ValueError("RECORD_VALIDATION_FAILED:" + ",".join(errors))
