@@ -36,6 +36,9 @@ jobs:
             -p "test_global_ecosystem_core.py" \
             -v
 
+      - name: Run Culture Service Work Business Layer Tests
+        run: python -m unittest discover -s tests -p "test_global_culture_service_work_business_ecosystem.py" -v
+
       - name: Run API Tests
         run: |
           python -m unittest discover \
