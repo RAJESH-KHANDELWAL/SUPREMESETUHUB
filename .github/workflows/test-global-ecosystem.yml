@@ -32,6 +32,9 @@ jobs:
       - name: Run Bharat-to-Global Domain Taxonomy Runtime Tests
         run: python -m unittest discover -s tests -p "test_global_domain_taxonomy.py" -v
 
+      - name: Run Affiliate Marketing CORE and DATABASE Workflow Tests
+        run: python -m unittest discover -s tests -p "test_global_affiliate_marketing.py" -v
+
       - name: Run CORE Tests
         run: |
           python -m unittest discover \
