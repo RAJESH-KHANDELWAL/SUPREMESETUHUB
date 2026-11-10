@@ -12,6 +12,21 @@ MATURITY_LEVELS = (
     "enterprise_industrial", "research", "frontier", "supreme_long_horizon",
 )
 DOMAIN_PROFILES = {
+    "global_developer_ecosystem": {
+        "id": "global_developer_ecosystem",
+        "name": "Global Developer & Software Ecosystem",
+        "description": "Bharat-to-global software and digital product development: websites, apps, AI, APIs, platforms, cloud-native systems, open source, enterprise engineering and lawful adult-only products.",
+        "categories": [
+            "web_development", "mobile_and_desktop_apps", "backend_and_api_engineering",
+            "frontend_and_design_systems", "ai_and_machine_learning", "data_and_analytics",
+            "cloud_and_devops", "cybersecurity_and_privacy", "open_source_and_developer_tools",
+            "enterprise_and_industry_software", "game_and_interactive_development",
+            "adult_only_content_platforms", "age_assurance_and_consent", "creator_and_subscription_platforms",
+            "content_moderation_and_safety", "accessibility_and_localisation",
+            "testing_and_quality_engineering", "systems_and_embedded_development",
+            "blockchain_and_distributed_apps", "research_and_frontier_computing"
+        ]
+    },
     "global_education_ecosystem": {
         "id": "global_education_ecosystem",
         "name": "Education & Knowledge",
