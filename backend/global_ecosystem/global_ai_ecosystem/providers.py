@@ -36,6 +36,16 @@ from .stability_ai_ecosystem.catalog import PROVIDER as STABILITY_AI
 from .suno_ai_ecosystem.catalog import PROVIDER as SUNO_AI
 from .tencent_hunyuan_ecosystem.catalog import PROVIDER as TENCENT_HUNYUAN
 from .zhipu_glm_ecosystem.catalog import PROVIDER as ZHIPU_GLM
+from .adobe_firefly_ecosystem.catalog import PROVIDER as ADOBE_FIREFLY
+from .ai4bharat_ecosystem.catalog import PROVIDER as AI4BHARAT
+from .bharatgpt_ecosystem.catalog import PROVIDER as BHARATGPT
+from .corover_ai_ecosystem.catalog import PROVIDER as COROVER_AI
+from .databricks_ai_ecosystem.catalog import PROVIDER as DATABRICKS_AI
+from .gnani_ai_ecosystem.catalog import PROVIDER as GNANI_AI
+from .hanooman_ecosystem.catalog import PROVIDER as HANOOMAN
+from .oracle_cloud_ai_ecosystem.catalog import PROVIDER as ORACLE_CLOUD_AI
+from .salesforce_einstein_ecosystem.catalog import PROVIDER as SALESFORCE_EINSTEIN
+from .snowflake_cortex_ecosystem.catalog import PROVIDER as SNOWFLAKE_CORTEX
 from .anthropic_claude_ecosystem.catalog import PROVIDER as ANTHROPIC_CLAUDE
 from .aws_bedrock_ecosystem.catalog import PROVIDER as AWS_BEDROCK
 from .cohere_ecosystem.catalog import PROVIDER as COHERE
@@ -50,6 +60,16 @@ from .openai_chatgpt_ecosystem.catalog import PROVIDER as OPENAI_CHATGPT
 
 _PROVIDER_CATALOG: tuple[dict[str, Any], ...] = (
     GOOGLE_GEMINI,
+    ADOBE_FIREFLY,
+    AI4BHARAT,
+    BHARATGPT,
+    COROVER_AI,
+    DATABRICKS_AI,
+    GNANI_AI,
+    HANOOMAN,
+    ORACLE_CLOUD_AI,
+    SALESFORCE_EINSTEIN,
+    SNOWFLAKE_CORTEX,
     AI21,
     ASSEMBLYAI,
     BAIDU_ERNIE,
