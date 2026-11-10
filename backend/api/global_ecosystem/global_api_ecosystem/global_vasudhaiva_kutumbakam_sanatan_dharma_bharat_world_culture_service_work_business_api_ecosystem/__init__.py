@@ -1,8 +1,4 @@
-"""API package boundary for culture-related services, work and business capabilities."""
-
-ECOSYSTEM_ID = "GLOBAL_VASUDHAIVA_KUTUMBAKAM_SANATAN_DHARMA_BHARAT_WORLD_CULTURE_SERVICE_WORK_BUSINESS"
-LAYER = "API"
-DOMAIN_SCOPE = ("CULTURE", "SERVICE", "WORK", "BUSINESS")
-IMPLEMENTATION_STATE = "FOUNDATION"
-
-__all__ = ["ECOSYSTEM_ID", "LAYER", "DOMAIN_SCOPE", "IMPLEMENTATION_STATE"]
+"""Culture Service Work Business API ecosystem."""
+from .routes import router
+from .service import GlobalCultureServiceWorkBusinessAPIService
+__all__=["router","GlobalCultureServiceWorkBusinessAPIService"]
