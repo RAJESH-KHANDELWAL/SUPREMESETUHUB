@@ -21,6 +21,7 @@ class ProviderChatEngine:
     def __init__(self, provider_id: str):
         self.PROVIDER_ID = provider_id
         self.provider = get_ai_provider(provider_id)
+        self._live_verified = False
         if self.provider is None:
             raise ValueError(f"AI_PROVIDER_NOT_IN_DOMAIN_REGISTRY: {provider_id}")
 
@@ -66,7 +67,7 @@ class ProviderChatEngine:
             "capabilities": list(self.CAPABILITIES),
             "model": self._model_id(),
             "enabled": self._configuration_ready(),
-            "live_verified": False,
+            "live_verified": self._live_verified,
             "credential_source": source,
             "adapter_available": True,
         }
@@ -102,6 +103,7 @@ class ProviderChatEngine:
             ))
         messages.append(ChatMessage(role="user", content=prompt))
         response = adapter.chat(ChatRequest(model=selected_model, messages=messages))
+        self._live_verified = True
         return {
             "provider": self.PROVIDER_ID,
             "model": response.model,
