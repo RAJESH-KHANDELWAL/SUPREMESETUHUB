@@ -16,6 +16,8 @@ class BusinessEcosystemService:
         {"id": "companies", "name": "COMPANIES", "description": "Company information, structures and management"},
         {"id": "entrepreneurs", "name": "ENTREPRENEURS", "description": "Entrepreneurs, founders and initiatives"},
         {"id": "services", "name": "BUSINESS SERVICES", "description": "Professional, local, digital and enterprise services"},
+        {"id": "global-services-api", "name": "GLOBAL SERVICES API", "description": "Dedicated service-category discovery API backed by the canonical services and integrations taxonomy"},
+        {"id": "work-business-api", "name": "GLOBAL WORK & BUSINESS API", "description": "Aggregate discovery API for work/business sectors, freelance specializations and jobs/careers taxonomy"},
         {"id": "partnerships", "name": "PARTNERSHIPS", "description": "Business partnerships and collaboration"},
         {"id": "opportunities", "name": "BUSINESS OPPORTUNITIES", "description": "Business opportunities, markets and collaboration"},
         {"id": "online-businesses", "name": "ONLINE BUSINESSES", "description": "Digital-first and internet-enabled business models"},
