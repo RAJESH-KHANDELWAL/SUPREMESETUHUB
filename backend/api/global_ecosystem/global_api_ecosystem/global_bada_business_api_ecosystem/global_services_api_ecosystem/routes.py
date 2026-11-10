@@ -2,7 +2,7 @@
 from fastapi import APIRouter, HTTPException, Query
 from .service import GlobalServicesAPIService
 
-router = APIRouter(prefix="/global/services", tags=["GLOBAL SERVICES API ECOSYSTEM"])
+router = APIRouter(prefix="/services", tags=["GLOBAL SERVICES API ECOSYSTEM"])
 service = GlobalServicesAPIService()
 
 @router.get("/status")
