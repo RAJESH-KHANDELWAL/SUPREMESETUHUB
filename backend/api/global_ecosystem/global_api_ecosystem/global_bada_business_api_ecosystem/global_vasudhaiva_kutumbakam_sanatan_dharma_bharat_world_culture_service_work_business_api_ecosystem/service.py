@@ -80,9 +80,10 @@ class GlobalCultureServiceWorkBusinessAPIService:
                 "domain_filtering": True,
                 "relevance_search": True,
                 "retrieval_grounded_ai_context": True,
-                "record_persistence": database_status.get("status") == "READY",
+                # DatabaseService.health() exposes a boolean, not a status string.
+                "record_persistence": database_status.get("healthy") is True,
                 "asset_storage": storage_status.get("status") == "READY",
-                "cloud_sync": cloud_status.get("sync_enabled", False),
+                "cloud_sync": cloud_status.get("sync_enabled") is True,
             },
             "scope": {
                 "domains": sorted(self.ALLOWED_DOMAINS),
