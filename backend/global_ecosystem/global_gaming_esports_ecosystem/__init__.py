@@ -1,5 +1,5 @@
 """Domain package entry point; detailed metadata is maintained centrally."""
-from .domain_registry import get_domain_profile
+from ..domain_registry import get_domain_profile
 
 _DOMAIN_ID = __name__.rsplit(".", 1)[-1]
 DOMAIN_PROFILE = get_domain_profile(_DOMAIN_ID)

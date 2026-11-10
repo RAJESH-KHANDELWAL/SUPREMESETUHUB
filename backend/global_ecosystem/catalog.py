@@ -1,15 +1,8 @@
 """Index of existing domain/vendor namespaces and shared taxonomy exports."""
 from .domain_taxonomy import (
-    DOMAIN_TAXONOMY,
-    GEOGRAPHIC_SCOPES,
-    IMPLEMENTATION_STATUSES,
-    MATURITY_LEVELS,
-    get_domain,
-    get_domain_by_name,
-    get_domain_catalog,
-    list_domains,
-    search_domains,
-    validate_domain_taxonomy,
+    DOMAIN_TAXONOMY, GEOGRAPHIC_SCOPES, IMPLEMENTATION_STATUSES, MATURITY_LEVELS,
+    get_domain, get_domain_by_name, get_domain_catalog, list_domains,
+    search_domains, validate_domain_taxonomy,
 )
 
 GLOBAL_DOMAIN_ECOSYSTEMS = (
@@ -25,17 +18,15 @@ GLOBAL_DOMAIN_ECOSYSTEMS = (
     "global_software_ecosystem", "global_storage_ecosystem", "global_system_ecosystem",
     "global_tools_ecosystem", "global_video_ecosystem", "global_vps_ecosystem",
     "global_web_ecosystem", "global_website_ecosystem",
-)
+) + tuple(item["id"] for item in DOMAIN_TAXONOMY)
 
 VENDOR_ECOSYSTEMS = (
-    "adobe_ecosystem", "anthropic_ecosystem", "apple_ecosystem",
-    "atlassian_ecosystem", "aws_ecosystem", "cohere_ecosystem",
-    "deepseek_ecosystem", "digitalocean_ecosystem", "github_ecosystem",
-    "google_ecosystem", "huggingface_ecosystem", "ibm_ecosystem",
-    "meta_ecosystem", "microsoft_ecosystem", "mistral_ecosystem",
-    "nsfwinfra_ecosystem", "nvidia_ecosystem", "openai_ecosystem",
-    "oracle_ecosystem", "paypal_ecosystem", "salesforce_ecosystem",
-    "shopify_ecosystem", "slack_ecosystem", "stripe_ecosystem",
+    "adobe_ecosystem", "anthropic_ecosystem", "apple_ecosystem", "atlassian_ecosystem",
+    "aws_ecosystem", "cohere_ecosystem", "deepseek_ecosystem", "digitalocean_ecosystem",
+    "github_ecosystem", "google_ecosystem", "huggingface_ecosystem", "ibm_ecosystem",
+    "meta_ecosystem", "microsoft_ecosystem", "mistral_ecosystem", "nsfwinfra_ecosystem",
+    "nvidia_ecosystem", "openai_ecosystem", "oracle_ecosystem", "paypal_ecosystem",
+    "salesforce_ecosystem", "shopify_ecosystem", "slack_ecosystem", "stripe_ecosystem",
     "twilio_ecosystem",
 )
 
