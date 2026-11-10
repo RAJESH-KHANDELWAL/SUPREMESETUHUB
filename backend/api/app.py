@@ -45,6 +45,7 @@ from backend.api.organizations import router as organizations_router
 from backend.api.user_hub import router as user_hub_router
 from backend.api.ai import router as ai_router
 from backend.api.global_ai_ecosystem import router as global_ai_ecosystem_router
+from backend.api.global_cultural_knowledge import router as global_cultural_knowledge_router
 from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem.relationship_intimacy_routes import router as global_intimacy_ecosystem_router, relationship_router as global_relationship_and_intimacy_ecosystem_router
 from backend.api.global_api_ecosystem_routes import router as global_api_ecosystem_router
 from backend.api.global_ecosystem.global_api_ecosystem.global_people_life_api_ecosystem import router as global_people_life_api_router
@@ -413,6 +414,7 @@ app.include_router(ai_router)
 app.include_router(global_intimacy_ecosystem_router)
 app.include_router(global_relationship_and_intimacy_ecosystem_router)
 app.include_router(global_ai_ecosystem_router)
+app.include_router(global_cultural_knowledge_router)
 app.include_router(global_api_ecosystem_router)
 app.include_router(global_people_life_api_router)
 app.include_router(global_subsystem_ecosystem_router)
