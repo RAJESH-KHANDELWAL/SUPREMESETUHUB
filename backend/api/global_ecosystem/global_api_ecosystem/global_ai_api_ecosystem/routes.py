@@ -73,8 +73,11 @@ def list_integrations():
 
 
 @router.get("/registry/providers")
-def list_global_registry_providers():
-    items = registry_service.list_providers()
+def list_global_registry_providers(
+    category: str | None = Query(default=None, max_length=80),
+    integration_status: str | None = Query(default=None, max_length=40),
+):
+    items = registry_service.list_providers(category=category, integration_status=integration_status)
     return {"success": True, "count": len(items), "providers": items}
 
 
@@ -112,3 +115,9 @@ def list_global_ai_domains():
 @router.post("/registry/policy/precheck")
 def precheck_ai_use_policy(payload: PolicyPrecheckRequest):
     return {"success": True, "result": registry_service.policy_precheck(payload.dict())}
+
+
+@router.get("/registry/categories")
+def list_global_registry_categories():
+    items = registry_service.list_categories()
+    return {"success": True, "count": len(items), "categories": items}
