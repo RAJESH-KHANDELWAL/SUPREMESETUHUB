@@ -25,7 +25,7 @@ class OpenAITextEngine:
         return {
             "provider_id": self.PROVIDER_ID,
             "capabilities": [self.CAPABILITY],
-            "model": model_id or self.model,
+            "model": self.model,
             "enabled": self._client is not None,
             "live_verified": self._live_verified,
             "credential_source": "SERVER_ENVIRONMENT",
@@ -70,7 +70,7 @@ class OpenAITextEngine:
         usage = getattr(response, "usage", None)
         return {
             "provider": self.PROVIDER_ID,
-            "model": self.model,
+            "model": model_id or self.model,
             "output": output,
             "live_verified": True,
             "usage": {
