@@ -102,7 +102,7 @@ jobs:
       - name: Run All Work and Careers Subcategory Tests
         run: |
           python -m unittest discover \
-            -s backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem.global_freelancer_gig_independent_work_business_api_ecosystem.jobs_careers_employment_api_ecosystem \
+            -s backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/global_freelancer_gig_independent_work_business_api_ecosystem/jobs_careers_employment_api_ecosystem \
             -t backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem \
             -p "test_*.py" \
             -v
