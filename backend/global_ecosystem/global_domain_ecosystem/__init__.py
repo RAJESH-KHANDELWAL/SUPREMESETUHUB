@@ -13,3 +13,19 @@ __all__ = [
     "validate_domain_profile", "get_adult_domain_requirements",
     "validate_adult_domain", "get_regional_scope", "classify_domain",
 ]
+
+from .business import get_business_domain_map
+from .technology import get_technology_domain_map
+from .health_and_life import get_health_and_life_map
+from .society_and_governance import get_society_domain_map
+from .industry_and_infrastructure import get_industry_domain_map
+from .media_and_entertainment import get_media_domain_map
+from .education_and_research import get_education_domain_map
+from .travel_and_services import get_travel_services_map
+
+__all__ += [
+    "get_business_domain_map", "get_technology_domain_map",
+    "get_health_and_life_map", "get_society_domain_map",
+    "get_industry_domain_map", "get_media_domain_map",
+    "get_education_domain_map", "get_travel_services_map",
+]
