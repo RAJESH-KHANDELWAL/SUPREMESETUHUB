@@ -40,6 +40,7 @@ jobs:
           python -m unittest \
             backend.global_ecosystem.global_ai_ecosystem.test_capabilities \
             backend.global_ecosystem.global_ai_ecosystem.test_registry \
+            backend.global_ecosystem.global_ai_ecosystem.test_task_contracts \
             backend.global_ecosystem.global_ai_ecosystem.governance.test_policy \
             backend.global_ecosystem.global_ai_ecosystem.adapters.tests.test_contracts \
             backend.global_ecosystem.global_ai_ecosystem.adapters.tests.test_chat_adapter \
