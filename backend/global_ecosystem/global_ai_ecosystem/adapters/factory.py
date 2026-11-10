@@ -10,6 +10,8 @@ from ..openrouter_ecosystem.adapter import OpenRouterAdapter
 from ..perplexity_ecosystem.adapter import PerplexityAdapter
 from ..together_ai_ecosystem.adapter import TogetherAIAdapter
 from ..xai_grok_ecosystem.adapter import XaiGrokAdapter
+from ..ollama_ecosystem.adapter import OllamaAdapter
+from ..vllm_ecosystem.adapter import VLLMAdapter
 
 _ADAPTERS = {
     "xai_grok": XaiGrokAdapter,
@@ -19,6 +21,8 @@ _ADAPTERS = {
     "fireworks_ai": FireworksAIAdapter,
     "openrouter": OpenRouterAdapter,
     "perplexity": PerplexityAdapter,
+    "ollama": OllamaAdapter,
+    "vllm": VLLMAdapter,
 }
 
 
