@@ -12,7 +12,7 @@ from .model import (
 )
 from .service import DatabaseService
 from .wordpress_registry import WordPressDatabaseRegistry
-from .wordpress_connection import WordPressDatabaseConnection
+from .cultural_knowledge_repository import CulturalKnowledgeRepository
 
 
 __all__ = [
@@ -24,4 +24,5 @@ __all__ = [
     "DatabaseService",
     "WordPressDatabaseRegistry",
     "WordPressDatabaseConnection",
+    "CulturalKnowledgeRepository",
 ]
