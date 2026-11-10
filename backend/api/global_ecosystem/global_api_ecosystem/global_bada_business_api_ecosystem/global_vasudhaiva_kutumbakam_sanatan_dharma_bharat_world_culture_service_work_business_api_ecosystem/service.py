@@ -113,31 +113,20 @@ class GlobalCultureServiceWorkBusinessAPIService:
         )
 
     def validate_record(self, record: dict[str, Any]) -> list[str]:
-        return self.core.validate(record)
+        from .records import CultureServiceWorkBusinessRecords
+        return CultureServiceWorkBusinessRecords(self.core, self.repository).validate(record)
 
     def can_publish_record(self, record: dict[str, Any]) -> bool:
-        return self.core.can_publish(record)
+        from .records import CultureServiceWorkBusinessRecords
+        return CultureServiceWorkBusinessRecords(self.core, self.repository).can_publish(record)
 
     def save_record(self, record: dict[str, Any]) -> dict[str, Any]:
-        """Validate with CORE and persist through the DATABASE repository."""
-        requested_status = str(record.get("status", "DRAFT")).upper()
-        if requested_status not in self.PUBLIC_SUBMISSION_STATUSES:
-            raise ValueError("PUBLIC_API_CANNOT_SET_MODERATION_STATUS")
-        errors = self.core.validate(record)
-        if errors:
-            raise ValueError("RECORD_VALIDATION_FAILED:" + ",".join(errors))
-        self.repository.save(record)
-        return {
-            "record_id": record["record_id"],
-            "status": str(record.get("status", "DRAFT")).upper(),
-            "publication_allowed": self.core.can_publish(record),
-        }
+        from .records import CultureServiceWorkBusinessRecords
+        return CultureServiceWorkBusinessRecords(self.core, self.repository).submit(record)
 
     def get_record(self, record_id: str) -> dict[str, Any] | None:
-        normalized_id = str(record_id or "").strip()
-        if not normalized_id:
-            raise ValueError("RECORD_ID_REQUIRED")
-        return self.repository.get(normalized_id)
+        from .records import CultureServiceWorkBusinessRecords
+        return CultureServiceWorkBusinessRecords(self.core, self.repository).get(record_id)
 
     def search_records(
         self,
@@ -145,23 +134,24 @@ class GlobalCultureServiceWorkBusinessAPIService:
         capability_id: str | None = None,
         limit: int = 50,
     ) -> list[dict[str, Any]]:
-        normalized_query = str(query or "").strip()
-        normalized_capability = (
-            str(capability_id).strip() if capability_id is not None else None
-        )
-        return self.repository.search(
-            normalized_query, normalized_capability, limit
+        from .records import CultureServiceWorkBusinessRecords
+        return CultureServiceWorkBusinessRecords(self.core, self.repository).search(
+            query, capability_id, limit
         )
 
     def store_asset(self, stream: Any, filename: str, max_bytes: int = 25 * 1024 * 1024) -> dict[str, Any]:
-        """Delegate binary persistence to STORAGE; the API stores no file bytes."""
-        return self.storage.store_asset(stream, filename, max_bytes)
+        from .assets import CultureServiceWorkBusinessAssets
+        return CultureServiceWorkBusinessAssets(self.storage).store(
+            stream, filename, max_bytes
+        )
 
     def open_asset(self, storage_key: str) -> Any:
-        return self.storage.open_asset(storage_key)
+        from .assets import CultureServiceWorkBusinessAssets
+        return CultureServiceWorkBusinessAssets(self.storage).open(storage_key)
 
     def delete_asset(self, storage_key: str) -> bool:
-        return self.storage.delete_asset(storage_key)
+        from .assets import CultureServiceWorkBusinessAssets
+        return CultureServiceWorkBusinessAssets(self.storage).delete(storage_key)
 
     def sync_to_cloud(self, payload: dict[str, Any]) -> Any:
         """Delegate sync to CLOUD; unconfigured adapters fail explicitly."""
