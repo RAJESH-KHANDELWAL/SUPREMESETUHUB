@@ -2,6 +2,19 @@
 
 This document defines the direct-root domain package plan for this existing directory.
 
+## Dedicated Global Services and Work & Business API facades
+
+Two dedicated API packages are mounted under the existing Global Bada Business router:
+
+- `global_services_api_ecosystem/` — service-category API facade. It reuses the canonical `services_platforms_integrations_business_api_ecosystem/` catalogue; it does not duplicate category records or claim live provider connections.
+- `global_work_business_api_ecosystem/` — aggregate Work & Business discovery facade. It references the canonical A–Z work/business taxonomy, Freelance/Gig specialization registry and Jobs/Careers service.
+
+Routes are mounted beneath `/api/v1/global-ecosystem/business`:
+- `/services/status`, `/services/categories`, `/services/categories/search`, `/services/categories/{category_id}`
+- `/work-business-directory/status`, `/work-business-directory/sectors`, `/work-business-directory/sectors/search`, `/work-business-directory/sectors/{sector_id}`, `/work-business-directory/facets`, `/work-business-directory/freelance-specializations`, `/work-business-directory/jobs-careers/status`
+
+The facades provide classification and discovery only. They do not represent live service availability, verified employers/clients, vacancies, payment execution or placement outcomes.
+
 ## Existing components preserved
 - `global_world_catalog.py`: umbrella Global World A–Z domain snapshot; not the detailed occupation or vacancy catalogue.
 - `global_world_business_map.py`: crosswalk from Global World domains to business-facing categories and owning ecosystems.
