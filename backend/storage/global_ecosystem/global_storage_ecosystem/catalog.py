@@ -775,6 +775,12 @@ CATEGORIES = [
         "status": "CATALOG_ONLY"
     },
     {
+        "category_id": "cultural_knowledge",
+        "name": "CULTURAL KNOWLEDGE",
+        "ecosystem_id": "GLOBAL-CULTURAL-KNOWLEDGE-STORAGE-ECOSYSTEM",
+        "status": "FOUNDATION_READY"
+    },
+    {
         "category_id": "website",
         "name": "WEBSITE",
         "ecosystem_id": "GLOBAL-WEBSITE-STORAGE-ECOSYSTEM",
