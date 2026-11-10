@@ -46,6 +46,8 @@ def evaluate_use_context(
         "domain": normalized,
         "allowed_by_precheck": not missing,
         "missing_safeguards": missing,
+        "final_authorization": False,
+        "note": "This is a safeguards precheck only; it does not authorize an activity or override applicable law, provider policy or human review.",
         "requires_independent_policy_and_legal_review": normalized in {
             "adult", "adult_content", "adult_platform", "intimacy", "healthcare",
             "medical", "finance", "legal", "government", "safety_critical",
