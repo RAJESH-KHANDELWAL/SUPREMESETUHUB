@@ -27,6 +27,7 @@ class GlobalAIGenerateRequest(BaseModel):
     context: dict = Field(default_factory=dict)
     provider_id: str = Field(default="openai", min_length=1, max_length=80)
     capability: str = Field(default="text", min_length=1, max_length=80)
+    model_id: str | None = Field(default=None, max_length=160)
 
 
 @router.post("/generate")
@@ -37,6 +38,7 @@ def global_ai_generate(request: GlobalAIGenerateRequest):
             context=request.context,
             provider_id=request.provider_id,
             capability=request.capability,
+            model_id=request.model_id,
         )
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
