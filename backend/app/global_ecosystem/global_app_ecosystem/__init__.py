@@ -1,12 +1,28 @@
-"""Independent GLOBAL APP ECOSYSTEM public interface."""
-from .catalog import list_component_types, get_component_type
-from .models import AppComponent
-from .registry import AppComponentRegistry
-from .component_base import AppComponentAdapter
-from .component_registry import AppAdapterRegistry
-from .lifecycle import AppLifecycle, InvalidLifecycleTransition
-from .runtime import runtime_status
-from .diagnostics import app_diagnostics
-from .service import GlobalAppEcosystemService, EcosystemService
-from .manager import GlobalAppEcosystemManager
-__all__ = ["list_component_types","get_component_type","AppComponent","AppComponentRegistry","AppComponentAdapter","AppAdapterRegistry","AppLifecycle","InvalidLifecycleTransition","runtime_status","app_diagnostics","GlobalAppEcosystemService","EcosystemService","GlobalAppEcosystemManager"]
+"""Compatibility facade for the canonical GLOBAL APP ecosystem package.
+
+The domain implementation lives under backend.global_ecosystem.global_app_ecosystem.
+This legacy import path remains available to existing APP and ENGINE consumers.
+"""
+from backend.global_ecosystem.global_app_ecosystem import (
+    AppAdapterRegistry,
+    AppComponent,
+    AppComponentAdapter,
+    AppComponentRegistry,
+    AppLifecycle,
+    EcosystemService,
+    GlobalAppEcosystemManager,
+    GlobalAppEcosystemService,
+    InvalidLifecycleTransition,
+    app_diagnostics,
+    get_component_type,
+    list_component_types,
+    runtime_status,
+)
+
+__all__ = [
+    "AppAdapterRegistry", "AppComponent", "AppComponentAdapter",
+    "AppComponentRegistry", "AppLifecycle", "EcosystemService",
+    "GlobalAppEcosystemManager", "GlobalAppEcosystemService",
+    "InvalidLifecycleTransition", "app_diagnostics",
+    "get_component_type", "list_component_types", "runtime_status",
+]
