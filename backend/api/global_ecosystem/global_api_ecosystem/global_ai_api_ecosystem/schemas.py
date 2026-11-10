@@ -26,3 +26,12 @@ class ProviderRecord(BaseModel):
     catalog_path: str
     integration_status: str
     live_connection_verified: bool = False
+
+
+class PolicyPrecheckRequest(BaseModel):
+    domain: str
+    age_verified: bool = False
+    consent_confirmed: bool = False
+    rights_confirmed: bool = False
+    human_review_available: bool = False
+    purpose: str | None = None
