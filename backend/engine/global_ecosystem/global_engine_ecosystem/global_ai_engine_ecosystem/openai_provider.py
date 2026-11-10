@@ -25,13 +25,13 @@ class OpenAITextEngine:
         return {
             "provider_id": self.PROVIDER_ID,
             "capabilities": [self.CAPABILITY],
-            "model": self.model,
+            "model": model_id or self.model,
             "enabled": self._client is not None,
             "live_verified": self._live_verified,
             "credential_source": "SERVER_ENVIRONMENT",
         }
 
-    def generate(self, *, task: str, context: dict[str, Any] | None = None) -> dict[str, Any]:
+    def generate(self, *, task: str, context: dict[str, Any] | None = None, model_id: str | None = None) -> dict[str, Any]:
         if self._client is None:
             raise RuntimeError("OPENAI_API_KEY_NOT_CONFIGURED")
         prompt = task.strip()
@@ -45,7 +45,7 @@ class OpenAITextEngine:
             raise ValueError("AI_CONTEXT_TOO_LARGE")
 
         response = self._client.responses.create(
-            model=self.model,
+            model=model_id or self.model,
             instructions=(
                 "You are the intelligence assistant for SUPREMESETUHUB GLOBAL AI ECOSYSTEM. "
                 "Be accurate, structured and explicit about uncertainty. Separate supplied "
