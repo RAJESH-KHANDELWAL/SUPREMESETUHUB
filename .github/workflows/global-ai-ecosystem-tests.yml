@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "backend/global_ecosystem/global_ai_ecosystem/**"
+      - "backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem/**"
       - ".github/workflows/global-ai-ecosystem-tests.yml"
   pull_request:
     paths:
@@ -32,4 +33,5 @@ jobs:
             backend.global_ecosystem.global_ai_ecosystem.test_registry \
             backend.global_ecosystem.global_ai_ecosystem.governance.test_policy \
             backend.global_ecosystem.global_ai_ecosystem.adapters.tests.test_contracts \
-            backend.global_ecosystem.global_ai_ecosystem.adapters.tests.test_chat_adapter
+            backend.global_ecosystem.global_ai_ecosystem.adapters.tests.test_chat_adapter \
+            backend.api.global_ecosystem.global_api_ecosystem.global_ai_api_ecosystem.tests.test_registry_service
