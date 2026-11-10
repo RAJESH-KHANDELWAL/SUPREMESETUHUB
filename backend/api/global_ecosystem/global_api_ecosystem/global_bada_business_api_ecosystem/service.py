@@ -18,6 +18,7 @@ class BusinessEcosystemService:
         {"id": "services", "name": "BUSINESS SERVICES", "description": "Professional, local, digital and enterprise services"},
         {"id": "global-services-api", "name": "GLOBAL SERVICES API", "description": "Dedicated service-category discovery API backed by the canonical services and integrations taxonomy"},
         {"id": "work-business-api", "name": "GLOBAL WORK & BUSINESS API", "description": "Aggregate discovery API for work/business sectors, freelance specializations and jobs/careers taxonomy"},
+        {"id": "culture-service-work-business-api", "name": "GLOBAL CULTURE SERVICE, WORK & BUSINESS API", "description": "Cultural service, work and business catalogue, search, AI context and record API"},
         {"id": "partnerships", "name": "PARTNERSHIPS", "description": "Business partnerships and collaboration"},
         {"id": "opportunities", "name": "BUSINESS OPPORTUNITIES", "description": "Business opportunities, markets and collaboration"},
         {"id": "online-businesses", "name": "ONLINE BUSINESSES", "description": "Digital-first and internet-enabled business models"},
