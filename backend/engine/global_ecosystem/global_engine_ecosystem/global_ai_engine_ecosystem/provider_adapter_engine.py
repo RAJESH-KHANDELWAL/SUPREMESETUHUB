@@ -45,9 +45,9 @@ class ProviderChatEngine:
         if provider_id == "aws_bedrock":
             return bool(os.getenv("AWS_REGION") or os.getenv("AWS_DEFAULT_REGION"))
         if provider_id == "ollama":
-            return True  # local default endpoint; connectivity is checked only on request
+            return bool(os.getenv("OLLAMA_ENDPOINT") or os.getenv("OLLAMA_HOST"))
         if provider_id == "vllm":
-            return True  # self-hosted endpoint defaults to localhost; connectivity is checked only on request
+            return bool(os.getenv("VLLM_ENDPOINT"))
         if provider_id == "microsoft_azure_ai":
             return all(os.getenv(key) for key in (
                 "AZURE_OPENAI_ENDPOINT", "AZURE_OPENAI_API_KEY", "AZURE_OPENAI_DEPLOYMENT",
