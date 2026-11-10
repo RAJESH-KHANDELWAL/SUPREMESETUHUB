@@ -875,7 +875,15 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
             "database_module": "backend/database/freelancer_ecosystem.py",
             "storage_boundary": "MAIN BASE FOUNDATION StorageEngine",
         },
-    },
+    },,
+    {
+        "ecosystem_id": "GLOBAL-VASUDHAIVA-KUTUMBAKAM-CULTURE-CORE-ECOSYSTEM",
+        "name": "GLOBAL VASUDHAIVA KUTUMBAKAM SANATAN DHARMA BHARAT WORLD CULTURE CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["CULTURAL_DOMAIN_RULES", "KNOWLEDGE_GOVERNANCE", "EVIDENCE_REVIEW", "CULTURAL_TAXONOMY"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {"module_path": "global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem", "implementation_state": "FOUNDATION_READY"},
+    }
 )
 
 
