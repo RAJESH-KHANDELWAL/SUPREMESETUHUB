@@ -1,0 +1,36 @@
+name: Global APP Ecosystem Tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "backend/global_ecosystem/global_app_ecosystem/**"
+      - "backend/app/global_ecosystem/global_app_ecosystem/**"
+      - "backend/engine/app/**"
+      - ".github/workflows/global-app-ecosystem-tests.yml"
+  pull_request:
+    paths:
+      - "backend/global_ecosystem/global_app_ecosystem/**"
+      - "backend/app/global_ecosystem/global_app_ecosystem/**"
+      - "backend/engine/app/**"
+      - ".github/workflows/global-app-ecosystem-tests.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile APP domain and engine
+        run: python -m compileall -q backend/global_ecosystem/global_app_ecosystem backend/app/global_ecosystem/global_app_ecosystem backend/engine/app
+      - name: Run APP domain and engine tests
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m unittest \
+            backend.app.global_ecosystem.global_app_ecosystem.test_app \
+            backend.engine.app.test_app_engine
