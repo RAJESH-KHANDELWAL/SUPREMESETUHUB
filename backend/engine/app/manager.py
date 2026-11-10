@@ -9,7 +9,7 @@ from __future__ import annotations
 from typing import Any
 
 from backend.engine.base import BaseEngine
-from backend.app.global_ecosystem.global_app_ecosystem import (
+from backend.global_ecosystem.global_app_ecosystem import (
     GlobalAppEcosystemManager,
 )
 

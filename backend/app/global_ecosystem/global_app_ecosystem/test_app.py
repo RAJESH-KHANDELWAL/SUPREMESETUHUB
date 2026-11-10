@@ -1,6 +1,6 @@
 """Offline tests for independent APP composition and lifecycle foundation."""
 import unittest
-from backend.app.global_ecosystem.global_app_ecosystem import AppComponent,AppComponentAdapter,AppLifecycle,GlobalAppEcosystemManager,GlobalAppEcosystemService,InvalidLifecycleTransition,app_diagnostics,get_component_type,list_component_types
+from backend.global_ecosystem.global_app_ecosystem import AppComponent,AppComponentAdapter,AppLifecycle,GlobalAppEcosystemManager,GlobalAppEcosystemService,InvalidLifecycleTransition,app_diagnostics,get_component_type,list_component_types
 class AppFoundationTests(unittest.TestCase):
     def test_catalog_categories(self):
         ids={x["type_id"] for x in list_component_types()};self.assertTrue({"api-router","middleware","startup-hook","shutdown-hook"}.issubset(ids));self.assertEqual(get_component_type("api_router")["type_id"],"api-router")
