@@ -15,7 +15,7 @@ class CohereAdapter:
 
     def __init__(self, *, api_key: str | None = None, base_url: str | None = None, http_client: JsonHttpClient | None = None):
         self.api_key = api_key or os.getenv(PROVIDER["credential_env"])
-        self.base_url = (base_url or PROVIDER["api_endpoint"]).rstrip("/")
+        self.base_url = (base_url or os.getenv("COHERE_ENDPOINT") or PROVIDER["api_endpoint"]).rstrip("/")
         self.http_client = http_client or JsonHttpClient()
         if not self.api_key:
             raise ProviderConfigurationError("Set COHERE_API_KEY before using Cohere.")
