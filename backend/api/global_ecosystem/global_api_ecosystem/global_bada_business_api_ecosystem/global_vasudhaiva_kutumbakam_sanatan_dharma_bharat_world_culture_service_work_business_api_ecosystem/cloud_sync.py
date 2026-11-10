@@ -15,4 +15,3 @@ class CultureServiceWorkBusinessCloudSync:
         if not isinstance(payload, dict):
             raise ValueError("CLOUD_SYNC_PAYLOAD_MUST_BE_OBJECT")
         return self.cloud.sync(payload)
-}
