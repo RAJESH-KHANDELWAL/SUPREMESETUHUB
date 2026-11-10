@@ -1,1 +1,5 @@
-"""Google product ecosystem namespace. Product logic belongs in its canonical CORE/API layers."""
+"""Bharat-to-global domain ecosystem taxonomy namespace.
+
+This package organizes domain metadata. Runtime ownership remains in the
+canonical API, CORE, ENGINE, DATABASE and SECURITY layers.
+"""
