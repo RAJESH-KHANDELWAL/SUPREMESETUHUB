@@ -5,6 +5,7 @@ from unittest.mock import patch
 from backend.core.global_ecosystem.global_core_ecosystem.global_ai_core_ecosystem.service import GlobalAICoreService
 from backend.engine.global_ecosystem.global_engine_ecosystem.global_ai_engine_ecosystem.manager import EcosystemEngineManager
 from backend.engine.global_ecosystem.global_engine_ecosystem.global_ai_engine_ecosystem.openai_provider import OpenAITextEngine
+from backend.engine.global_ecosystem.global_engine_ecosystem.global_ai_engine_ecosystem.provider_adapter_engine import ProviderChatEngine
 
 
 class GlobalAIEcosystemTests(unittest.TestCase):
@@ -39,6 +40,28 @@ class GlobalAIEcosystemTests(unittest.TestCase):
             manager = EcosystemEngineManager()
             self.assertEqual(manager.provider_status()[0]["provider_id"], "openai")
             self.assertFalse(manager.provider_status()[0]["enabled"])
+
+    def test_engine_executes_through_injected_provider_adapter(self):
+        class FakeAdapter:
+            def chat(self, request):
+                self.request = request
+                return type("Response", (), {
+                    "model": request.model, "content": "provider result",
+                    "request_id": "req-test", "usage": {"total_tokens": 5},
+                })()
+        fake = FakeAdapter()
+        with patch(
+            "backend.engine.global_ecosystem.global_engine_ecosystem.global_ai_engine_ecosystem.provider_adapter_engine.create_chat_adapter",
+            return_value=fake,
+        ):
+            engine = ProviderChatEngine("groq")
+            result = engine.generate(
+                task="hello", context={"sector": "retail"}, model_id="test-model",
+            )
+        self.assertEqual(result["output"], "provider result")
+        self.assertEqual(result["provider"], "groq")
+        self.assertEqual(fake.request.model, "test-model")
+        self.assertEqual(fake.request.messages[-1].content, "hello")
 
     def test_engine_registers_all_supported_chat_adapters(self):
         with patch.dict("os.environ", {"OPENAI_API_KEY": ""}):
