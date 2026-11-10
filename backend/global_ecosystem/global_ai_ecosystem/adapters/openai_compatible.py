@@ -18,7 +18,8 @@ class OpenAICompatibleChatAdapter:
         self.provider_name = provider["name"]
         self.api_key = api_key or os.getenv(provider.get("credential_env") or "")
         self.auth_mode = provider.get("auth_mode", "required")
-        self.base_url = (base_url or provider.get("api_endpoint") or "").rstrip("/")
+        endpoint_env = provider.get("endpoint_env") or (provider["id"].upper() + "_ENDPOINT")
+        self.base_url = (base_url or os.getenv(endpoint_env) or provider.get("api_endpoint") or "").rstrip("/")
         self.http_client = http_client or JsonHttpClient()
         if not self.base_url:
             raise ProviderConfigurationError(f"No API endpoint is configured for {self.provider_name}.")
