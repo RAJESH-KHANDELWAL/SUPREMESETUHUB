@@ -47,4 +47,3 @@ class CultureServiceWorkBusinessRecords:
             str(capability_id).strip() if capability_id is not None else None,
             limit,
         )
-}
