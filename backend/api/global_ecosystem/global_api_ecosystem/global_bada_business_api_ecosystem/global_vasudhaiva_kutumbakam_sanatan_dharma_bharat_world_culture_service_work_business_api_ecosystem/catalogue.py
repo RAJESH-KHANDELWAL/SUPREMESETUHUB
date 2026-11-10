@@ -25,4 +25,3 @@ class CultureServiceWorkBusinessCatalogue:
         if not normalized:
             raise ValueError("SEARCH_QUERY_REQUIRED")
         return self.engine.search(normalized, domain)
-}
