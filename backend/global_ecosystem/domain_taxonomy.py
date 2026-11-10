@@ -1,8 +1,14 @@
-"""Extensible Bharat-to-global domain taxonomy for the Global Ecosystem.
+"""Extensible Bharat-to-global domain taxonomy and query service.
 
-Entries are scope definitions and planned namespace identifiers. They do not
-assert that a corresponding package, provider integration, or live service exists.
+This module owns domain metadata and read-only catalogue operations only.
+It does not implement domain business logic or claim that a provider/service
+is integrated. Runtime ownership remains in canonical CORE/API/ENGINE/
+DATABASE/SECURITY layers.
 """
+from __future__ import annotations
+
+import re
+from typing import Any
 
 DOMAIN_TAXONOMY = (
     {"id": "global_education_ecosystem", "name": "Education & Knowledge", "description": "Schools, universities, vocational training, tutoring, research libraries, learning platforms, assessment, credentials and lifelong learning."},
@@ -37,51 +43,114 @@ DOMAIN_TAXONOMY = (
 )
 
 GEOGRAPHIC_SCOPES = (
-    "bharat_india",
-    "south_asia",
-    "asia_pacific",
-    "middle_east",
-    "africa",
-    "europe",
-    "north_america",
-    "latin_america_caribbean",
-    "oceania",
+    "bharat_india", "south_asia", "asia_pacific", "middle_east", "africa",
+    "europe", "north_america", "latin_america_caribbean", "oceania",
     "global_cross_border",
 )
-
 MATURITY_LEVELS = (
-    "basic_normal",
-    "standard",
-    "professional",
-    "advanced",
-    "expert",
-    "enterprise_industrial",
-    "research",
-    "frontier",
-    "supreme_long_horizon",
+    "basic_normal", "standard", "professional", "advanced", "expert",
+    "enterprise_industrial", "research", "frontier", "supreme_long_horizon",
 )
-
 IMPLEMENTATION_STATUSES = (
-    "SCOPE_DEFINED",
-    "CATALOGED",
-    "ROADMAP",
-    "RESEARCH",
-    "POLICY_GATED_SCOPE",
-    "IMPLEMENTED",
-    "INTEGRATED",
-    "PRODUCTION_READY",
+    "SCOPE_DEFINED", "CATALOGED", "ROADMAP", "RESEARCH",
+    "POLICY_GATED_SCOPE", "IMPLEMENTED", "INTEGRATED", "PRODUCTION_READY",
 )
+_REQUIRED_FIELDS = ("id", "name", "description")
+_ID_PATTERN = re.compile(r"^[a-z][a-z0-9_]*$")
 
 
-def get_domain(domain_id: str):
-    """Return a matching domain definition, or None when it is not in this expansion."""
-    return next((item for item in DOMAIN_TAXONOMY if item["id"] == domain_id), None)
+def _copy_domain(item: dict[str, str]) -> dict[str, str]:
+    """Return a detached record so callers cannot mutate the source catalogue."""
+    return dict(item)
+
+
+def list_domains() -> list[dict[str, str]]:
+    """Return all 29 domain definitions in their stable catalogue order."""
+    return [_copy_domain(item) for item in DOMAIN_TAXONOMY]
+
+
+def get_domain(domain_id: str) -> dict[str, str] | None:
+    """Look up a domain by stable ID; matching is whitespace/case insensitive."""
+    key = str(domain_id or "").strip().casefold()
+    if not key:
+        return None
+    for item in DOMAIN_TAXONOMY:
+        if item["id"].casefold() == key:
+            return _copy_domain(item)
+    return None
+
+
+def get_domain_by_name(name: str) -> dict[str, str] | None:
+    """Look up a domain by its display name, ignoring case and outer whitespace."""
+    key = str(name or "").strip().casefold()
+    if not key:
+        return None
+    for item in DOMAIN_TAXONOMY:
+        if item["name"].casefold() == key:
+            return _copy_domain(item)
+    return None
+
+
+def search_domains(query: str) -> list[dict[str, str]]:
+    """Search domain IDs, names and descriptions using case-insensitive matching."""
+    needle = str(query or "").strip().casefold()
+    if not needle:
+        return []
+    return [
+        _copy_domain(item)
+        for item in DOMAIN_TAXONOMY
+        if needle in " ".join((item["id"], item["name"], item["description"])).casefold()
+    ]
+
+
+def get_domain_catalog() -> dict[str, Any]:
+    """Return catalogue data and scope facets without implying runtime readiness."""
+    return {
+        "success": True,
+        "catalogue": "bharat_to_global_domain_taxonomy",
+        "registry_status": "taxonomy_only",
+        "count": len(DOMAIN_TAXONOMY),
+        "domains": list_domains(),
+        "geographic_scopes": list(GEOGRAPHIC_SCOPES),
+        "maturity_levels": list(MATURITY_LEVELS),
+        "implementation_statuses": list(IMPLEMENTATION_STATUSES),
+    }
+
+
+def validate_domain_taxonomy() -> dict[str, Any]:
+    """Run structural integrity checks on IDs and required domain metadata."""
+    ids = [str(item.get("id", "")) for item in DOMAIN_TAXONOMY]
+    duplicate_ids = sorted({value for value in ids if ids.count(value) > 1})
+    missing_fields = [
+        {"index": index, "fields": [field for field in _REQUIRED_FIELDS if not item.get(field)]}
+        for index, item in enumerate(DOMAIN_TAXONOMY)
+        if any(not item.get(field) for field in _REQUIRED_FIELDS)
+    ]
+    invalid_ids = sorted(value for value in ids if not _ID_PATTERN.fullmatch(value))
+    checks = {
+        "unique_domain_ids": not duplicate_ids,
+        "required_fields_present": not missing_fields,
+        "domain_ids_follow_slug_contract": not invalid_ids,
+        "geographic_scopes_unique": len(GEOGRAPHIC_SCOPES) == len(set(GEOGRAPHIC_SCOPES)),
+        "maturity_levels_unique": len(MATURITY_LEVELS) == len(set(MATURITY_LEVELS)),
+        "implementation_statuses_unique": len(IMPLEMENTATION_STATUSES) == len(set(IMPLEMENTATION_STATUSES)),
+    }
+    return {
+        "structurally_valid": all(checks.values()),
+        "registry_status": "taxonomy_only",
+        "domain_count": len(DOMAIN_TAXONOMY),
+        "checks": checks,
+        "issues": {
+            "duplicate_ids": duplicate_ids,
+            "missing_fields": missing_fields,
+            "invalid_ids": invalid_ids,
+        },
+    }
 
 
 __all__ = [
-    "DOMAIN_TAXONOMY",
-    "GEOGRAPHIC_SCOPES",
-    "MATURITY_LEVELS",
-    "IMPLEMENTATION_STATUSES",
-    "get_domain",
+    "DOMAIN_TAXONOMY", "GEOGRAPHIC_SCOPES", "MATURITY_LEVELS",
+    "IMPLEMENTATION_STATUSES", "list_domains", "get_domain",
+    "get_domain_by_name", "search_domains", "get_domain_catalog",
+    "validate_domain_taxonomy",
 ]
