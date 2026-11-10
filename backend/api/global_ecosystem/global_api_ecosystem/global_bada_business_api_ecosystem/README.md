@@ -15,3 +15,11 @@ backend/global_ecosystem/global_bada_business_ecosystem/api_ecosystem/
 
 ## Integration status
 Provider references are metadata only. They do not imply a partnership, official developer API access, authentication or live external connectivity.
+
+## Dedicated service and work/business APIs
+
+- `global_services_api_ecosystem/` exposes the canonical Services, Platforms & Technology Integrations category catalogue through dedicated service routes.
+- `global_work_business_api_ecosystem/` aggregates the A–Z work/business taxonomy, freelance/gig specialization registry and Jobs/Careers status without copying their canonical records.
+
+Both routers are mounted by this package's main `routes.py` under the existing `/api/v1/global-ecosystem/business` prefix. These endpoints are taxonomy/discovery APIs; they do not imply live providers, vacancies, verified clients or payment execution.
+
