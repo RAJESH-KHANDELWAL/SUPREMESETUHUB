@@ -10,6 +10,7 @@ on:
   pull_request:
     paths:
       - "backend/global_ecosystem/global_ai_ecosystem/**"
+      - "backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem/**"
       - ".github/workflows/global-ai-ecosystem-tests.yml"
 
 jobs:
@@ -23,7 +24,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: Compile AI ecosystem packages
-        run: python -m compileall -q backend/global_ecosystem/global_ai_ecosystem
+        run: python -m compileall -q backend/global_ecosystem/global_ai_ecosystem backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem
       - name: Run AI ecosystem unit tests
         env:
           PYTHONPATH: .
