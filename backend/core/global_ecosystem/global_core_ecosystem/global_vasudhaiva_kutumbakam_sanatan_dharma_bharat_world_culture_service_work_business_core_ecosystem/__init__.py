@@ -1,8 +1,5 @@
-"""Canonical domain contracts and governance for culture-related services, work and business."""
-
-ECOSYSTEM_ID = "GLOBAL_VASUDHAIVA_KUTUMBAKAM_SANATAN_DHARMA_BHARAT_WORLD_CULTURE_SERVICE_WORK_BUSINESS"
-LAYER = "CORE"
-DOMAIN_SCOPE = ("CULTURE", "SERVICE", "WORK", "BUSINESS")
-IMPLEMENTATION_STATE = "FOUNDATION"
-
-__all__ = ["ECOSYSTEM_ID", "LAYER", "DOMAIN_SCOPE", "IMPLEMENTATION_STATE"]
+"""CORE contracts for the Culture Service Work Business API ecosystem."""
+from .service import GlobalCultureServiceWorkBusinessCore
+from .catalog import ECOSYSTEM_ID, list_capabilities, get_capability
+from .governance import validate_record, publication_allowed
+__all__ = ["GlobalCultureServiceWorkBusinessCore", "ECOSYSTEM_ID", "list_capabilities", "get_capability", "validate_record", "publication_allowed"]
