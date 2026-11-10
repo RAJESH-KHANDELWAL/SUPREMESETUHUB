@@ -1,4 +1,4 @@
-"""Environment-backed Instagram configuration; credentials are never logged."""
+"""Environment-backed Paytm configuration; secrets are never logged."""
 from __future__ import annotations
 from dataclasses import dataclass
 import os
@@ -9,7 +9,7 @@ class ProviderConfig:
 
     @classmethod
     def from_env(cls) -> "ProviderConfig":
-        value = os.getenv("META_ACCESS_TOKEN")
+        value = os.getenv("PAYTM_MERCHANT_KEY")
         return cls(credential=value.strip() if value and value.strip() else None)
 
     @property

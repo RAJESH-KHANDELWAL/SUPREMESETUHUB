@@ -1,4 +1,4 @@
-"""Explicit handler boundary for Reddit; no undocumented API calls."""
+"""Explicit handler boundary for IRCTC; no undocumented endpoints are called."""
 from __future__ import annotations
 from collections.abc import Callable, Mapping
 from typing import Any
@@ -7,7 +7,7 @@ from .config import ProviderConfig
 
 Handler = Callable[[str, Mapping[str, Any]], Any]
 
-class RedditAppAdapter:
+class IrctcAppAdapter:
     provider = PROVIDER
 
     def __init__(self, config: ProviderConfig | None = None, handler: Handler | None = None):
@@ -22,9 +22,9 @@ class RedditAppAdapter:
         if not isinstance(operation, str) or not operation.strip():
             raise ValueError("operation must be a non-empty string")
         if not self.config.configured:
-            raise RuntimeError("Reddit credentials are not configured")
+            raise RuntimeError("IRCTC credentials are not configured")
         if self._handler is None:
-            raise RuntimeError("Reddit handler is not installed; no live API call was attempted")
+            raise RuntimeError("IRCTC handler is not installed; no live API call was attempted")
         return self._handler(operation, payload or {})
 
-__all__ = ["RedditAppAdapter"]
+__all__ = ["IrctcAppAdapter"]

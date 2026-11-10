@@ -1,4 +1,4 @@
-"""Explicit handler boundary for Instagram; no undocumented API calls."""
+"""Explicit handler boundary for Paytm; no undocumented endpoints are called."""
 from __future__ import annotations
 from collections.abc import Callable, Mapping
 from typing import Any
@@ -7,7 +7,7 @@ from .config import ProviderConfig
 
 Handler = Callable[[str, Mapping[str, Any]], Any]
 
-class InstagramAppAdapter:
+class PaytmAppAdapter:
     provider = PROVIDER
 
     def __init__(self, config: ProviderConfig | None = None, handler: Handler | None = None):
@@ -22,9 +22,9 @@ class InstagramAppAdapter:
         if not isinstance(operation, str) or not operation.strip():
             raise ValueError("operation must be a non-empty string")
         if not self.config.configured:
-            raise RuntimeError("Instagram credentials are not configured")
+            raise RuntimeError("Paytm credentials are not configured")
         if self._handler is None:
-            raise RuntimeError("Instagram handler is not installed; no live API call was attempted")
+            raise RuntimeError("Paytm handler is not installed; no live API call was attempted")
         return self._handler(operation, payload or {})
 
-__all__ = ["InstagramAppAdapter"]
+__all__ = ["PaytmAppAdapter"]

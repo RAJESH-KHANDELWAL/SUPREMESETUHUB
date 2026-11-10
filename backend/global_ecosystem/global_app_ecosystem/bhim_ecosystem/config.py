@@ -1,4 +1,4 @@
-"""Environment-backed Reddit configuration; credentials are never logged."""
+"""Environment-backed BHIM configuration; secrets are never logged."""
 from __future__ import annotations
 from dataclasses import dataclass
 import os
@@ -9,7 +9,7 @@ class ProviderConfig:
 
     @classmethod
     def from_env(cls) -> "ProviderConfig":
-        value = os.getenv("REDDIT_CLIENT_ID")
+        value = os.getenv("BHIM_PARTNER_CREDENTIAL")
         return cls(credential=value.strip() if value and value.strip() else None)
 
     @property
