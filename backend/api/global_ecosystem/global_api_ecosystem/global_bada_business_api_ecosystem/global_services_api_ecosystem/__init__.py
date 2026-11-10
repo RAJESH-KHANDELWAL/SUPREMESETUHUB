@@ -1,5 +1,4 @@
 """GLOBAL SERVICES API ECOSYSTEM package."""
-
 from .routes import router
-
-__all__ = ["router"]
+from .service import GlobalServicesAPIService
+__all__ = ["router", "GlobalServicesAPIService"]
