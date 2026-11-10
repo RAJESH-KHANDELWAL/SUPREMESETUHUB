@@ -18,6 +18,11 @@ from ..mistral_ecosystem.adapter import MistralAdapter
 from ..openai_chatgpt_ecosystem.adapter import OpenAIAdapter
 from ..ollama_ecosystem.adapter import OllamaAdapter
 from ..vllm_ecosystem.adapter import VLLMAdapter
+from ..aws_bedrock_ecosystem.adapter import AWSBedrockAdapter
+from ..cohere_ecosystem.adapter import CohereAdapter
+from ..microsoft_azure_ai_ecosystem.adapter import AzureOpenAIAdapter
+from ..nvidia_ai_ecosystem.adapter import NVIDIAAdapter
+from ..huggingface_ecosystem.adapter import HuggingFaceAdapter
 
 _ADAPTERS = {
     "xai_grok": XaiGrokAdapter,
@@ -35,6 +40,11 @@ _ADAPTERS = {
     "deepseek": DeepSeekAdapter,
     "mistral": MistralAdapter,
     "alibaba_qwen": QwenAdapter,
+    "nvidia_ai": NVIDIAAdapter,
+    "cohere": CohereAdapter,
+    "aws_bedrock": AWSBedrockAdapter,
+    "microsoft_azure_ai": AzureOpenAIAdapter,
+    "huggingface": HuggingFaceAdapter,
 }
 
 
