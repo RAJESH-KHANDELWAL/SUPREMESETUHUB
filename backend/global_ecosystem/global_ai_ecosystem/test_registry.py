@@ -6,7 +6,7 @@ from .providers import list_ai_providers, validate_provider_registry
 class ProviderRegistryTests(unittest.TestCase):
     def test_registry_contains_all_catalogued_entries(self):
         providers = list_ai_providers()
-        self.assertGreaterEqual(len(providers), 49)
+        self.assertGreaterEqual(len(providers), 68)
         self.assertEqual(len({item["id"] for item in providers}), len(providers))
 
     def test_registry_metadata_is_consistent(self):
