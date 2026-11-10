@@ -192,3 +192,26 @@ See the files under `docs/`, `strategy/`, `governance/`, `operations/` and `reso
 - `tests/` — static taxonomy consistency checks.
 
 All new directories are within this named business folder. No sibling ecosystem or shared technical layer is moved, renamed or overwritten.
+
+
+## 14. Cultural identity connection — business expression
+
+The separate cultural home is:
+[**GLOBAL VASUDHAIVA KUTUMBAKAM | SANATAN DHARMA | BHARAT SANSKRITI | WORLD CULTURE ECOSYSTEM**](../../global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem/README.md)
+
+That cultural namespace owns the meaning, cultural context, heritage knowledge, educational framing, documentation and community-centered preservation. This business namespace expresses suitable, permissioned capabilities through ethical enterprises, services, products, learning programs, events, hospitality, artisan commerce and partnerships.
+
+### From cultural identity to ethical business value
+
+| Cultural foundation | Business expression |
+|---|---|
+| Heritage, history and cultural places | Responsible heritage tourism and interpretation |
+| Arts, crafts and living traditions | Artisan-led products, commissions and fair commerce |
+| Texts, languages and knowledge | Education, courses, publishing and translation |
+| Festivals and cultural gatherings | Events, exhibitions and cultural programs |
+| Community knowledge and creativity | Community enterprises and fair benefit-sharing |
+| Global cultural dialogue | Cross-border partnerships and exchange programs |
+
+**Important boundary:** Cultural information, public visibility or community participation does not automatically grant commercial rights. Every business offering must independently verify permissions, licenses, provenance, attribution, fair compensation and applicable law.
+
+This is the business-facing expression of the cultural vision—not a replacement for the cultural ecosystem. Both namespaces remain separate, linked and complementary.

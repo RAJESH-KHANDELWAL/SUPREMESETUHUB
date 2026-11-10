@@ -93,3 +93,11 @@ These are catalog namespaces, not completed runtime integrations. API, CORE, ENG
 - Canonical source of truth: `backend/global_ecosystem/global_bada_business_ecosystem/global_network_marketing_direct_selling_business_ecosystem/global_youtag_business_ecosystem/referral_profiles/rajesh_khandelwal.json`
 
 Keep the URL exactly as supplied. This is owner-provided public referral metadata, not an API credential or proof of registration, commission, provider partnership or live integration. Read the canonical profile rather than creating alternate referral records.
+
+
+## Cultural identity and business expression
+
+- `global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem/` — the independent cultural home for Vasudhaiva Kutumbakam, Sanatan Dharma heritage, Bharat Sanskriti and world cultures: identity, knowledge, education, preservation and cultural exchange.
+- `global_bada_business_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_business_ecosystem/` — the separate business expression: ethical offerings, provider/creator directories, products, services, marketplace requirements, learning, tourism, events, partnerships and fair livelihoods.
+
+The cultural namespace defines context and safeguards; the business namespace defines ethical commercial organization. Commercial use requires independent rights, consent, attribution and agreements. Neither namespace implies that an offering or integration is live.

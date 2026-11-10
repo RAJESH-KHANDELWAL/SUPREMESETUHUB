@@ -31,3 +31,8 @@ API, CORE, ENGINE, DATABASE, AI, STORAGE, authentication and connection layers r
 - `backend/global_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem/` — cultural and civilizational domain; remains separate from this business package.
 
 Provider URLs, program snapshots, course links, package details, pricing, commissions, event dates and promotional claims are reference data. They do not establish current availability, official API access, partnership, entitlement, accreditation, income guarantees or live connectivity. Verify current terms directly with the provider.
+
+
+## Cultural identity connection
+
+The related cultural home is `backend/global_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem/`. It owns cultural identity, heritage context, knowledge, preservation and respectful exchange. The child business domain under this directory owns the separate business expression: ethical ventures, services, creator commerce, education, tourism, events and partnerships. Keep both separate and linked; require independent rights and consent before commercial use.
