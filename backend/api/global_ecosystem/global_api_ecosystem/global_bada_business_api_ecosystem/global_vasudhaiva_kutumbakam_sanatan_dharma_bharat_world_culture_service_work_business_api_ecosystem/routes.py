@@ -3,7 +3,7 @@ from __future__ import annotations
 from fastapi import APIRouter,HTTPException,Query
 from .schemas import CultureServiceWorkBusinessRecordRequest,CultureServiceWorkBusinessAIRequest
 from .service import GlobalCultureServiceWorkBusinessAPIService
-router=APIRouter(prefix="/api/v1/global-culture-service-work-business",tags=["GLOBAL CULTURE SERVICE WORK BUSINESS API"])
+router=APIRouter(prefix="/culture-service-work-business",tags=["GLOBAL BADA BUSINESS - CULTURE SERVICE WORK BUSINESS API"])
 service=GlobalCultureServiceWorkBusinessAPIService()
 @router.get("/status")
 def status():return {"success":True,**service.status()}
