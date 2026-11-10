@@ -1,11 +1,13 @@
 """HTTP routes for the GLOBAL AI catalogue and contracts."""
 from fastapi import APIRouter, HTTPException, Query
 
-from .schemas import EcosystemStatus
+from .schemas import EcosystemStatus, PolicyPrecheckRequest
+from .registry_service import AIRegistryAPIService
 from .service import EcosystemService
 
 router = APIRouter(prefix="/ai", tags=["GLOBAL AI API ECOSYSTEM"])
 service = EcosystemService()
+registry_service = AIRegistryAPIService()
 
 
 @router.get("/status", response_model=EcosystemStatus)
@@ -68,3 +70,45 @@ def list_tools():
 def list_integrations():
     items = service.list_integrations()
     return {"success": True, "count": len(items), "items": items}
+
+
+@router.get("/registry/providers")
+def list_global_registry_providers():
+    items = registry_service.list_providers()
+    return {"success": True, "count": len(items), "providers": items}
+
+
+@router.get("/registry/providers/{provider_id}")
+def get_global_registry_provider(provider_id: str):
+    item = registry_service.get_provider(provider_id)
+    if item is None:
+        raise HTTPException(status_code=404, detail={"error": "PROVIDER_NOT_FOUND", "provider_id": provider_id})
+    return {"success": True, "provider": item}
+
+
+@router.get("/registry/adapters")
+def list_registered_chat_adapters():
+    return {"success": True, **registry_service.list_adapters()}
+
+
+@router.get("/registry/validation")
+def validate_global_registry():
+    result = registry_service.get_registry_validation()
+    return {"success": result["valid"], **result}
+
+
+@router.get("/registry/capabilities")
+def list_global_ai_capabilities():
+    result = registry_service.list_capabilities()
+    return {"success": True, "modalities": result["modalities"], "groups": result["groups"]}
+
+
+@router.get("/registry/domains")
+def list_global_ai_domains():
+    result = registry_service.list_domains()
+    return {"success": True, **result}
+
+
+@router.post("/registry/policy/precheck")
+def precheck_ai_use_policy(payload: PolicyPrecheckRequest):
+    return {"success": True, "result": registry_service.policy_precheck(payload.dict())}
