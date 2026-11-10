@@ -1,8 +1,8 @@
 """Global AI ecosystem namespace.
 
-The canonical AI implementation remains in backend.ai. This package exposes
-that implementation through the global ecosystem namespace without duplicating
-provider execution, CORE contracts, ENGINE orchestration, or data-layer logic.
+Provider-specific packages live beside this module. Canonical execution,
+CORE contracts, ENGINE orchestration, and persistence remain in their
+respective backend layers; this namespace provides discovery and routing metadata.
 """
 from backend.ai.global_ecosystem.global_ai_ecosystem import (
     ECOSYSTEM_ID,
@@ -12,10 +12,13 @@ from backend.ai.global_ecosystem.global_ai_ecosystem import (
     get_provider,
     list_providers,
 )
+from .providers import get_ai_provider, list_ai_providers
 from .scope import (
     AI_MATURITY_LEVELS,
     AI_SCOPE_DOMAINS,
+    get_domain,
     get_scope_catalog,
+    list_domain_ids,
 )
 
 __all__ = [
@@ -28,4 +31,8 @@ __all__ = [
     "AI_MATURITY_LEVELS",
     "AI_SCOPE_DOMAINS",
     "get_scope_catalog",
+    "get_domain",
+    "list_domain_ids",
+    "get_ai_provider",
+    "list_ai_providers",
 ]
