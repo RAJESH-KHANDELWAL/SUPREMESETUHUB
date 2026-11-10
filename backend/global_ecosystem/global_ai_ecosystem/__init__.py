@@ -15,6 +15,7 @@ from backend.ai.global_ecosystem.global_ai_ecosystem import (
 from .providers import get_ai_provider, list_ai_providers, validate_provider_registry
 from .capabilities import list_ai_capability_groups, list_ai_modalities
 from .governance import evaluate_use_context, get_policy_catalog
+from .adapters import create_chat_adapter, list_chat_adapter_provider_ids
 from .scope import (
     AI_MATURITY_LEVELS,
     AI_SCOPE_DOMAINS,
@@ -42,4 +43,6 @@ __all__ = [
     "list_ai_capability_groups",
     "evaluate_use_context",
     "get_policy_catalog",
+    "create_chat_adapter",
+    "list_chat_adapter_provider_ids",
 ]
