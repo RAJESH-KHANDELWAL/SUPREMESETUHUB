@@ -64,6 +64,9 @@ jobs:
             backend.database.global_ecosystem.global_database_ecosystem.test_manager \
             -v
 
+      - name: Run Bada Business Domain Service Tests
+        run: python -m unittest discover -s backend/global_ecosystem/global_bada_business_ecosystem/tests -p "test_*.py" -v
+
       - name: Run Global Bada Business World Map Tests
         run: |
           python -m unittest backend.tests.test_global_bada_business_world_map -v
