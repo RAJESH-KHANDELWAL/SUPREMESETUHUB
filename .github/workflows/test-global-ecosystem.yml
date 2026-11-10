@@ -29,6 +29,9 @@ jobs:
         run: |
           python -m pip install "fastapi>=0.115,<1.0" "pydantic>=2.7,<3.0"
 
+      - name: Run Bharat-to-Global Domain Taxonomy Runtime Tests
+        run: python -m unittest tests.test_global_domain_taxonomy -v
+
       - name: Run CORE Tests
         run: |
           python -m unittest discover \
@@ -47,12 +50,10 @@ jobs:
             -v
 
       - name: Run Company and Platforms Runtime Tests
-        run: |
-          python -m unittest backend.tests.test_company_platforms_runtime -v
+        run: python -m unittest backend.tests.test_company_platforms_runtime -v
 
       - name: Run Kamasutra Dual Location Tests
-        run: |
-          python -m unittest backend.tests.test_kamasutra_dual_location -v
+        run: python -m unittest backend.tests.test_kamasutra_dual_location -v
 
       - name: Run DATABASE Ecosystem Tests
         run: |
@@ -62,24 +63,19 @@ jobs:
             -v
 
       - name: Run Global Bada Business World Map Tests
-        run: |
-          python -m unittest backend.tests.test_global_bada_business_world_map -v
+        run: python -m unittest backend.tests.test_global_bada_business_world_map -v
 
       - name: Run Full Global World Catalogue Tests
-        run: |
-          python -m unittest backend.tests.test_global_bada_business_full_world_catalog -v
+        run: python -m unittest backend.tests.test_global_bada_business_full_world_catalog -v
 
       - name: Run India and Global Domain Registry Tests
-        run: |
-          python -m unittest discover -s tests -p "test_global_business_domain_registry.py" -v
+        run: python -m unittest discover -s tests -p "test_global_business_domain_registry.py" -v
 
       - name: Run Domain Package Layer Tests
-        run: |
-          python -m unittest discover -s tests -p "test_domain_package_layers.py" -v
+        run: python -m unittest discover -s tests -p "test_domain_package_layers.py" -v
 
       - name: Run Freelance Work-Type Package Tests
-        run: |
-          python -m unittest backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_freelancer_gig_independent_work_business_api_ecosystem.tests.test_work_type_packages -v
+        run: python -m unittest backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_freelancer_gig_independent_work_business_api_ecosystem.tests.test_work_type_packages -v
 
       - name: Run All Freelance Work-Type Tests
         run: |
@@ -90,8 +86,7 @@ jobs:
             -v
 
       - name: Run Jobs and Careers Industry Package Tests
-        run: |
-          python -m unittest backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_jobs_careers_employment_api_ecosystem.tests.test_category_packages -v
+        run: python -m unittest backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_jobs_careers_employment_api_ecosystem.tests.test_category_packages -v
 
       - name: Run All Jobs and Careers Industry Category and Subcategory Tests
         run: |
@@ -102,13 +97,12 @@ jobs:
             -v
 
       - name: Run Work and Careers Government Jobs Tests
-        run: |
-          python -m unittest backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_freelancer_gig_independent_work_business_api_ecosystem.jobs_careers_employment_api_ecosystem.government_jobs.tests.test_government_jobs -v
+        run: python -m unittest backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_freelancer_gig_independent_work_business_api_ecosystem.jobs_careers_employment_api_ecosystem.government_jobs.tests.test_government_jobs -v
 
       - name: Run All Work and Careers Subcategory Tests
         run: |
           python -m unittest discover \
-            -s backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/global_freelancer_gig_independent_work_business_api_ecosystem/jobs_careers_employment_api_ecosystem \
+            -s backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem.global_freelancer_gig_independent_work_business_api_ecosystem.jobs_careers_employment_api_ecosystem \
             -t backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem \
             -p "test_*.py" \
             -v
