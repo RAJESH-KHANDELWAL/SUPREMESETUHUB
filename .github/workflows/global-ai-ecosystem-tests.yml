@@ -44,4 +44,5 @@ jobs:
             backend.global_ecosystem.global_ai_ecosystem.adapters.tests.test_contracts \
             backend.global_ecosystem.global_ai_ecosystem.adapters.tests.test_chat_adapter \
             backend.api.global_ecosystem.global_api_ecosystem.global_ai_api_ecosystem.tests.test_registry_service \
-            backend.tests.test_global_ai_ecosystem
+            backend.tests.test_global_ai_ecosystem \
+            backend.tests.test_global_engine_ecosystem_independence
