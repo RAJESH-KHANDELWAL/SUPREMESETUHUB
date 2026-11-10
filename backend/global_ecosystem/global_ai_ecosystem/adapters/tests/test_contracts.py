@@ -16,7 +16,7 @@ class AdapterContractTests(unittest.TestCase):
             ChatMessage(role="root", content="hello")
 
     def test_compatible_provider_allowlist(self):
-        self.assertEqual(len(list_chat_adapter_provider_ids()), 7)
+        self.assertEqual(len(list_chat_adapter_provider_ids()), 15)
         self.assertIn("groq", list_chat_adapter_provider_ids())
 
     def test_adapter_requires_credentials(self):
