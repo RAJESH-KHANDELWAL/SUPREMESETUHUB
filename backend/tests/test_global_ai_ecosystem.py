@@ -17,6 +17,7 @@ class GlobalAIEcosystemTests(unittest.TestCase):
         self.assertEqual(result["system"], "GLOBAL AI ECOSYSTEM")
         self.assertEqual(result["output"], "analysis")
         self.assertEqual(calls[0]["capability"], "text")
+        self.assertIsNone(calls[0]["model_id"])
 
     def test_core_rejects_empty_task(self):
         service = GlobalAICoreService(lambda **kwargs: {})
@@ -33,6 +34,18 @@ class GlobalAIEcosystemTests(unittest.TestCase):
             manager = EcosystemEngineManager()
             self.assertEqual(manager.provider_status()[0]["provider_id"], "openai")
             self.assertFalse(manager.provider_status()[0]["enabled"])
+
+    def test_engine_registers_all_supported_chat_adapters(self):
+        with patch.dict("os.environ", {"OPENAI_API_KEY": ""}):
+            manager = EcosystemEngineManager()
+            statuses = manager.provider_status()
+            provider_ids = {item["provider_id"] for item in statuses}
+            self.assertEqual(manager.registry.count(), len(statuses))
+            self.assertGreaterEqual(len(statuses), 21)
+            self.assertIn("google_gemini", provider_ids)
+            self.assertIn("anthropic_claude", provider_ids)
+            self.assertIn("ollama", provider_ids)
+            self.assertTrue(all(item["live_verified"] is False for item in statuses))
 
 
 if __name__ == "__main__":
