@@ -45,6 +45,21 @@ class AIRegistryAPIService:
             return None
         return next((record for record in self.list_providers() if record["provider_id"] == item["id"]), None)
 
+    def get_status(self):
+        providers = list_ai_providers()
+        adapters = self._adapter_ids()
+        validation = self.get_registry_validation()
+        return {
+            "ecosystem": "GLOBAL AI ECOSYSTEM",
+            "registry_provider_entries": len(providers),
+            "chat_adapter_count": len(adapters),
+            "category_count": len({item.get("category") for item in providers}),
+            "registry_valid": validation["valid"],
+            "registry_error_count": validation["error_count"],
+            "live_provider_connections_verified": False,
+            "runtime_execution_enabled": False,
+        }
+
     def list_categories(self):
         counts = {}
         for item in list_ai_providers():
