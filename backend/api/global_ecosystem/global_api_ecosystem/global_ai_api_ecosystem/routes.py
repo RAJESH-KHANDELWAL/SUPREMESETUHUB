@@ -121,3 +121,8 @@ def precheck_ai_use_policy(payload: PolicyPrecheckRequest):
 def list_global_registry_categories():
     items = registry_service.list_categories()
     return {"success": True, "count": len(items), "categories": items}
+
+
+@router.get("/registry/status")
+def get_global_registry_status():
+    return {"success": True, **registry_service.get_status()}
