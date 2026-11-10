@@ -111,9 +111,42 @@ _PROVIDER_CATALOG: tuple[dict[str, Any], ...] = (
 )
 
 
-def list_ai_providers() -> tuple[dict[str, Any], ...]:
-    """Return all registered provider records as defensive copies."""
-    return tuple(deepcopy(item) for item in _PROVIDER_CATALOG)
+def list_ai_providers(
+    *, category: str | None = None, integration_status: str | None = None
+) -> tuple[dict[str, Any], ...]:
+    """Return defensive copies, optionally filtered by category or readiness."""
+    records = _PROVIDER_CATALOG
+    if category is not None:
+        records = tuple(item for item in records if item.get("category") == category)
+    if integration_status is not None:
+        records = tuple(
+            item for item in records
+            if item.get("integration_status") == integration_status
+        )
+    return tuple(deepcopy(item) for item in records)
+
+
+def validate_provider_registry() -> tuple[str, ...]:
+    """Return registry integrity errors; an empty tuple means metadata is consistent."""
+    errors: list[str] = []
+    seen: set[str] = set()
+    for index, item in enumerate(_PROVIDER_CATALOG):
+        provider_id = item.get("id")
+        if not isinstance(provider_id, str) or not provider_id.strip():
+            errors.append(f"entry[{index}] has no valid id")
+            continue
+        if provider_id in seen:
+            errors.append(f"duplicate provider id: {provider_id}")
+        seen.add(provider_id)
+        if not item.get("name") or not item.get("category"):
+            errors.append(f"{provider_id} is missing name or category")
+        if item.get("integration_status") not in {
+            "scaffold", "catalog_only", "integration_in_progress", "live",
+        }:
+            errors.append(f"{provider_id} has an unknown integration_status")
+        if item.get("integration_status") == "live" and not item.get("api_endpoint"):
+            errors.append(f"{provider_id} is marked live without an API endpoint")
+    return tuple(errors)
 
 
 def get_ai_provider(provider_id: str) -> dict[str, Any] | None:
