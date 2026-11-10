@@ -1,7 +1,4 @@
-"""Cloudflare product and capability catalog.
-
-Metadata is descriptive and does not prove account access or live integration.
-"""
+"""Cloudflare product and capability catalog; metadata is not proof of live access."""
 from __future__ import annotations
 from copy import deepcopy
 from typing import Any
@@ -30,33 +27,23 @@ _PRODUCTS: tuple[dict[str, Any], ...] = (
     {"id":"waf","name":"Web Application Firewall","category":"security","capabilities":("web_application_firewall","rate_limiting")},
     {"id":"api","name":"Cloudflare API","category":"developer_platform","capabilities":("account_and_zone_apis","api_tokens")},
 )
-
 def get_cloudflare_catalog() -> dict[str, Any]:
-    """Return a detached catalog with an explicit non-connected status."""
-    return {
-        "provider_id": "cloudflare",
-        "provider_name": "Cloudflare",
-        "provider_type": "edge_network_and_cloud_platform",
-        "integration_status": "catalog_only",
-        "live_connection_verified": False,
-        "capabilities": deepcopy(CLOUDFLARE_CAPABILITIES),
-        "products": deepcopy(_PRODUCTS),
-        "credential_policy": "Never store API tokens in this package or source control.",
-        "runtime_owner": "canonical API/CORE/ENGINE/DATABASE/SECURITY layers",
-    }
-
+    """Return detached catalog metadata with explicit non-connected status."""
+    return {"provider_id":"cloudflare","provider_name":"Cloudflare",
+            "provider_type":"edge_network_and_cloud_platform",
+            "integration_status":"catalog_only","live_connection_verified":False,
+            "capabilities":deepcopy(CLOUDFLARE_CAPABILITIES),
+            "products":deepcopy(_PRODUCTS),
+            "credential_policy":"Never store API tokens in this package or source control.",
+            "runtime_owner":"canonical API/CORE/ENGINE/DATABASE/SECURITY layers"}
 def validate_cloudflare_catalog() -> tuple[str, ...]:
-    """Check catalog identifiers, categories and capability references."""
+    """Validate IDs, category references, and capability references."""
     errors: list[str] = []
-    ids = [item["id"] for item in _PRODUCTS]
-    if len(ids) != len(set(ids)):
-        errors.append("duplicate Cloudflare product IDs")
-    known = {cap for values in CLOUDFLARE_CAPABILITIES.values() for cap in values}
+    ids=[item["id"] for item in _PRODUCTS]
+    if len(ids)!=len(set(ids)): errors.append("duplicate Cloudflare product IDs")
+    known={cap for values in CLOUDFLARE_CAPABILITIES.values() for cap in values}
     for item in _PRODUCTS:
-        if item["category"] not in CLOUDFLARE_CAPABILITIES:
-            errors.append(f"{item['id']} has unknown category")
-        if not item["capabilities"] or not set(item["capabilities"]).issubset(known):
-            errors.append(f"{item['id']} has unknown capabilities")
+        if item["category"] not in CLOUDFLARE_CAPABILITIES: errors.append(f"{item['id']} has unknown category")
+        if not item["capabilities"] or not set(item["capabilities"]).issubset(known): errors.append(f"{item['id']} has unknown capabilities")
     return tuple(errors)
-
-__all__ = ["CLOUDFLARE_CAPABILITIES", "get_cloudflare_catalog", "validate_cloudflare_catalog"]
+__all__=["CLOUDFLARE_CAPABILITIES","get_cloudflare_catalog","validate_cloudflare_catalog"]
