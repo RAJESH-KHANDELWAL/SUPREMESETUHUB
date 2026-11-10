@@ -3,11 +3,10 @@
 Canonical root:
 `backend/global_ecosystem/global_bada_business_ecosystem/`
 
-This directory organizes the Global Bada Business Ecosystem, including provider-specific resources and the broader business-domain taxonomy.
+This directory organizes the Global Bada Business Ecosystem, including provider-specific resources and its dedicated business verticals.
 
 ## Main domains
 
-- `business_ecosystem/` — general business taxonomy, business capabilities, resources, and domain indexes.
 - `global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_business_ecosystem/` — separate business domain for ethical ventures, cultural and heritage services, education, artisan commerce, and community-benefiting initiatives connected with Vasudhaiva Kutumbakam and world cultures.
 - `courses/` — course resource namespace.
 - `events/` — event and webinar resources.
@@ -31,7 +30,6 @@ API, CORE, ENGINE, DATABASE, AI, STORAGE, authentication and connection layers r
 - `backend/global_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem/` — cultural and civilizational domain; remains separate from this business package.
 
 Provider URLs, program snapshots, course links, package details, pricing, commissions, event dates and promotional claims are reference data. They do not establish current availability, official API access, partnership, entitlement, accreditation, income guarantees or live connectivity. Verify current terms directly with the provider.
-
 
 ## Cultural identity connection
 
