@@ -49,13 +49,19 @@ class EcosystemEngineManager:
 
     def status(self):
         providers = self.provider_status()
+        configured_count = sum(bool(item["enabled"]) for item in providers)
+        live_verified_count = sum(bool(item["live_verified"]) for item in providers)
         return {
             "layer": "ENGINE",
             "ecosystem": "GLOBAL AI",
             "catalog_count": len(self.catalog),
             "registered_count": self.registry.count(),
             "provider_count": len(providers),
+            "configured_provider_count": configured_count,
+            "live_verified_provider_count": live_verified_count,
+            "runtime_execution_available": configured_count > 0,
+            "live_connections_verified": live_verified_count > 0,
             "providers": providers,
             "capabilities": sorted({cap for item in providers for cap in item["capabilities"]}),
-            "status": "READY",
+            "status": "CONFIGURED" if configured_count else "CATALOG_READY",
         }
