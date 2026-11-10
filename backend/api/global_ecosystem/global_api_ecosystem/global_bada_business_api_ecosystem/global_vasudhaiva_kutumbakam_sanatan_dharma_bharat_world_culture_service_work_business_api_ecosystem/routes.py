@@ -76,6 +76,7 @@ def records(
 
 @router.get("/records/{record_id}")
 def get_record(record_id: str):
+    """Expose approved records only; draft/review records are not public."""
     try:
         record = service.get_record(record_id)
     except ValueError as exc:
@@ -85,7 +86,8 @@ def get_record(record_id: str):
             status_code=503,
             detail="CULTURE_SERVICE_WORK_BUSINESS_DATABASE_UNAVAILABLE",
         ) from exc
-    if record is None:
+    if record is None or str(record.get("status", "")).upper() != "APPROVED":
+        # Do not reveal whether an unpublished record ID exists.
         raise HTTPException(status_code=404, detail="RECORD_NOT_FOUND")
     return {"success": True, "record": record}
 
@@ -116,10 +118,11 @@ def get_capability(capability_id: str):
 @router.post("/records/validate")
 def validate_record(request: CultureServiceWorkBusinessRecordRequest):
     """Validate a proposed record without persisting it."""
-    errors = service.validate_record(request.model_dump())
+    record = request.model_dump()
+    errors = service.validate_record(record)
     return {
         "success": not errors,
         "valid": not errors,
         "errors": errors,
-        "publication_allowed": service.can_publish_record(request.model_dump()),
+        "publication_allowed": service.can_publish_record(record),
     }
