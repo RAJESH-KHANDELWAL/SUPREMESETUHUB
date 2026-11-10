@@ -23,3 +23,10 @@ Provider references are metadata only. They do not imply a partnership, official
 
 Both routers are mounted by this package's main `routes.py` under the existing `/api/v1/global-ecosystem/business` prefix. These endpoints are taxonomy/discovery APIs; they do not imply live providers, vacancies, verified clients or payment execution.
 
+## Cultural service, work and business API
+
+- `global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_api_ecosystem/` provides the cultural service/work/business API facade for catalogue discovery, search, AI context and records.
+- The package is mounted by the parent `routes.py` and exported by `__init__.py`; its endpoints are served under `/api/v1/global-ecosystem/business/culture-service-work-business/`.
+- CORE, ENGINE, AI, DATABASE, STORAGE and CLOUD remain separately owned layers. This API facade composes those layers and does not duplicate their implementations.
+- The module is taxonomy/discovery infrastructure; it does not claim live providers, jobs, gigs, service availability or payment execution.
+
