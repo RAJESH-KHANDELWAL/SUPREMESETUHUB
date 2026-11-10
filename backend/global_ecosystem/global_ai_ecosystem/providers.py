@@ -16,6 +16,12 @@ from .perplexity_ecosystem.catalog import PROVIDER as PERPLEXITY
 from .replicate_ecosystem.catalog import PROVIDER as REPLICATE
 from .together_ai_ecosystem.catalog import PROVIDER as TOGETHER_AI
 from .xai_grok_ecosystem.catalog import PROVIDER as XAI_GROK
+from .alibaba_qwen_ecosystem.catalog import PROVIDER as ALIBABA_QWEN
+from .ibm_watsonx_ecosystem.catalog import PROVIDER as IBM_WATSONX
+from .litellm_ecosystem.catalog import PROVIDER as LITELLM
+from .ollama_ecosystem.catalog import PROVIDER as OLLAMA
+from .sarvam_ai_ecosystem.catalog import PROVIDER as SARVAM_AI
+from .vllm_ecosystem.catalog import PROVIDER as VLLM
 from .anthropic_claude_ecosystem.catalog import PROVIDER as ANTHROPIC_CLAUDE
 from .aws_bedrock_ecosystem.catalog import PROVIDER as AWS_BEDROCK
 from .cohere_ecosystem.catalog import PROVIDER as COHERE
@@ -30,6 +36,12 @@ from .openai_chatgpt_ecosystem.catalog import PROVIDER as OPENAI_CHATGPT
 
 _PROVIDER_CATALOG: tuple[dict[str, Any], ...] = (
     GOOGLE_GEMINI,
+    ALIBABA_QWEN,
+    IBM_WATSONX,
+    SARVAM_AI,
+    OLLAMA,
+    VLLM,
+    LITELLM,
     XAI_GROK,
     PERPLEXITY,
     GROQ,
