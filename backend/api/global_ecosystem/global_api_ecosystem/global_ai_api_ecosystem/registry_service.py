@@ -22,8 +22,9 @@ class AIRegistryAPIService:
     def _adapter_ids() -> set[str]:
         return set(list_chat_adapter_provider_ids())
 
-    def list_providers(self):
+    def list_providers(self, *, category=None, integration_status=None):
         adapter_ids = self._adapter_ids()
+        records = list_ai_providers(category=category, integration_status=integration_status)
         return [
             {
                 "provider_id": item["id"],
@@ -35,7 +36,7 @@ class AIRegistryAPIService:
                 "live_connection_verified": False,
                 "models_or_services": list(item.get("models_or_services", [])),
             }
-            for item in list_ai_providers()
+            for item in records
         ]
 
     def get_provider(self, provider_id: str):
@@ -43,6 +44,13 @@ class AIRegistryAPIService:
         if item is None:
             return None
         return next((record for record in self.list_providers() if record["provider_id"] == item["id"]), None)
+
+    def list_categories(self):
+        counts = {}
+        for item in list_ai_providers():
+            category = item.get("category", "uncategorized")
+            counts[category] = counts.get(category, 0) + 1
+        return [{"category": key, "count": counts[key]} for key in sorted(counts)]
 
     def list_adapters(self):
         ids = self._adapter_ids()
