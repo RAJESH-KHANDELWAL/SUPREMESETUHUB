@@ -209,6 +209,10 @@ router.include_router(global_services_api_router)
 from .global_work_business_api_ecosystem import router as global_work_business_api_router
 router.include_router(global_work_business_api_router)
 
+# Cultural service, work and business API; mounted under the Global Bada Business API.
+from .global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_api_ecosystem import router as global_culture_service_work_business_api_router
+router.include_router(global_culture_service_work_business_api_router)
+
 # Mount the independent business registration and compliance discovery API.
 from .global_business_governance_compliance_standards_api_ecosystem.global_business_compliance_api_ecosystem.routes import router as business_compliance_router
 router.include_router(business_compliance_router)
