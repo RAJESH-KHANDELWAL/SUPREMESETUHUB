@@ -33,6 +33,8 @@ class GlobalAICoreService:
             raise ValueError("AI_CONTEXT_MUST_BE_OBJECT")
         if not provider_id.strip() or not capability.strip():
             raise ValueError("AI_PROVIDER_AND_CAPABILITY_REQUIRED")
+        if model_id is not None and (not isinstance(model_id, str) or not model_id.strip() or len(model_id) > 160):
+            raise ValueError("AI_MODEL_ID_INVALID")
         result = self._executor(
             provider_id=provider_id,
             capability=capability,
