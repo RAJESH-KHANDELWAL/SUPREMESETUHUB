@@ -1,8 +1,3 @@
-"""Provider-neutral cloud integration boundary for culture-related services, work and business."""
-
-ECOSYSTEM_ID = "GLOBAL_VASUDHAIVA_KUTUMBAKAM_SANATAN_DHARMA_BHARAT_WORLD_CULTURE_SERVICE_WORK_BUSINESS"
-LAYER = "CLOUD"
-DOMAIN_SCOPE = ("CULTURE", "SERVICE", "WORK", "BUSINESS")
-IMPLEMENTATION_STATE = "FOUNDATION"
-
-__all__ = ["ECOSYSTEM_ID", "LAYER", "DOMAIN_SCOPE", "IMPLEMENTATION_STATE"]
+"""CLOUD integration boundary for Culture Service Work Business."""
+from .bridge import GlobalCultureServiceWorkBusinessCloud
+__all__ = ["GlobalCultureServiceWorkBusinessCloud"]
