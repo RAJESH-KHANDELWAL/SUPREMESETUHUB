@@ -23,6 +23,7 @@ class GlobalAICoreService:
         context: dict[str, Any] | None = None,
         provider_id: str = "openai",
         capability: str = "text",
+        model_id: str | None = None,
     ) -> dict[str, Any]:
         if not isinstance(task, str) or not task.strip():
             raise ValueError("AI_TASK_REQUIRED")
@@ -35,6 +36,7 @@ class GlobalAICoreService:
         result = self._executor(
             provider_id=provider_id,
             capability=capability,
+            model_id=model_id,
             task=task.strip(),
             context=context or {},
         )
