@@ -13,4 +13,3 @@ class CultureServiceWorkBusinessAIContext:
         if not normalized:
             raise ValueError("AI_QUESTION_REQUIRED")
         return self.ai.build_context(normalized, domain)
-}
