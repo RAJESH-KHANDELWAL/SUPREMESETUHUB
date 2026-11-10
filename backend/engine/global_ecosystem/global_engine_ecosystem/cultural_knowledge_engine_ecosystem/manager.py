@@ -22,7 +22,7 @@ class CulturalKnowledgeEngineManager:
             search_fn = getattr(package, "search_records", None)
             if callable(search_fn):
                 domain_result.extend({"domain": domain_id, "record": item}
-                                     for item in search_fn(needle))
+                                     for item in search_fn((), needle))
         return {"query": needle, "foundational_matches": results,
                 "domain_matches": domain_result,
                 "domain_count_searched": len(selected)}
