@@ -80,8 +80,8 @@ class GlobalCultureServiceWorkBusinessAPIService:
                 "domain_filtering": True,
                 "relevance_search": True,
                 "retrieval_grounded_ai_context": True,
-                # DatabaseService.health() exposes a boolean, not a status string.
-                "record_persistence": database_status.get("healthy") is True,
+                # The ecosystem repository wraps DatabaseService health as READY/UNAVAILABLE.
+                "record_persistence": database_status.get("status") == "READY",
                 "asset_storage": storage_status.get("status") == "READY",
                 "cloud_sync": cloud_status.get("sync_enabled") is True,
             },
