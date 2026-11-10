@@ -8,6 +8,14 @@ from __future__ import annotations
 from copy import deepcopy
 from typing import Any
 
+from .cerebras_ecosystem.catalog import PROVIDER as CEREBRAS
+from .fireworks_ai_ecosystem.catalog import PROVIDER as FIREWORKS_AI
+from .groq_ecosystem.catalog import PROVIDER as GROQ
+from .openrouter_ecosystem.catalog import PROVIDER as OPENROUTER
+from .perplexity_ecosystem.catalog import PROVIDER as PERPLEXITY
+from .replicate_ecosystem.catalog import PROVIDER as REPLICATE
+from .together_ai_ecosystem.catalog import PROVIDER as TOGETHER_AI
+from .xai_grok_ecosystem.catalog import PROVIDER as XAI_GROK
 from .anthropic_claude_ecosystem.catalog import PROVIDER as ANTHROPIC_CLAUDE
 from .aws_bedrock_ecosystem.catalog import PROVIDER as AWS_BEDROCK
 from .cohere_ecosystem.catalog import PROVIDER as COHERE
@@ -22,6 +30,14 @@ from .openai_chatgpt_ecosystem.catalog import PROVIDER as OPENAI_CHATGPT
 
 _PROVIDER_CATALOG: tuple[dict[str, Any], ...] = (
     GOOGLE_GEMINI,
+    XAI_GROK,
+    PERPLEXITY,
+    GROQ,
+    CEREBRAS,
+    TOGETHER_AI,
+    FIREWORKS_AI,
+    OPENROUTER,
+    REPLICATE,
     OPENAI_CHATGPT,
     AWS_BEDROCK,
     ANTHROPIC_CLAUDE,
