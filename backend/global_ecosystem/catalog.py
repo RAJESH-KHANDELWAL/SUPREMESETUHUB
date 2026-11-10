@@ -1,4 +1,11 @@
-"""Index of global domain and vendor ecosystem namespaces."""
+"""Index of existing domain/vendor namespaces and shared taxonomy exports."""
+
+from .domain_taxonomy import (
+    DOMAIN_TAXONOMY,
+    GEOGRAPHIC_SCOPES,
+    IMPLEMENTATION_STATUSES,
+    MATURITY_LEVELS,
+)
 
 GLOBAL_DOMAIN_ECOSYSTEMS = (
     "global_ai_ecosystem",
@@ -36,30 +43,14 @@ GLOBAL_DOMAIN_ECOSYSTEMS = (
 )
 
 VENDOR_ECOSYSTEMS = (
-    "adobe_ecosystem",
-    "anthropic_ecosystem",
-    "apple_ecosystem",
-    "atlassian_ecosystem",
-    "aws_ecosystem",
-    "cohere_ecosystem",
-    "deepseek_ecosystem",
-    "digitalocean_ecosystem",
-    "github_ecosystem",
-    "google_ecosystem",
-    "huggingface_ecosystem",
-    "ibm_ecosystem",
-    "meta_ecosystem",
-    "microsoft_ecosystem",
-    "mistral_ecosystem",
-    "nsfwinfra_ecosystem",
-    "nvidia_ecosystem",
-    "openai_ecosystem",
-    "oracle_ecosystem",
-    "paypal_ecosystem",
-    "salesforce_ecosystem",
-    "shopify_ecosystem",
-    "slack_ecosystem",
-    "stripe_ecosystem",
+    "adobe_ecosystem", "anthropic_ecosystem", "apple_ecosystem",
+    "atlassian_ecosystem", "aws_ecosystem", "cohere_ecosystem",
+    "deepseek_ecosystem", "digitalocean_ecosystem", "github_ecosystem",
+    "google_ecosystem", "huggingface_ecosystem", "ibm_ecosystem",
+    "meta_ecosystem", "microsoft_ecosystem", "mistral_ecosystem",
+    "nsfwinfra_ecosystem", "nvidia_ecosystem", "openai_ecosystem",
+    "oracle_ecosystem", "paypal_ecosystem", "salesforce_ecosystem",
+    "shopify_ecosystem", "slack_ecosystem", "stripe_ecosystem",
     "twilio_ecosystem",
 )
 
@@ -69,4 +60,12 @@ GLOBAL_CULTURE_AND_BUSINESS_ECOSYSTEMS = (
     "global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_ecosystem",
 )
 
-__all__ = ["GLOBAL_DOMAIN_ECOSYSTEMS", "VENDOR_ECOSYSTEMS", "GLOBAL_CULTURE_AND_BUSINESS_ECOSYSTEMS"]
+__all__ = [
+    "GLOBAL_DOMAIN_ECOSYSTEMS",
+    "VENDOR_ECOSYSTEMS",
+    "GLOBAL_CULTURE_AND_BUSINESS_ECOSYSTEMS",
+    "DOMAIN_TAXONOMY",
+    "GEOGRAPHIC_SCOPES",
+    "MATURITY_LEVELS",
+    "IMPLEMENTATION_STATUSES",
+]
