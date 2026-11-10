@@ -22,6 +22,20 @@ from .litellm_ecosystem.catalog import PROVIDER as LITELLM
 from .ollama_ecosystem.catalog import PROVIDER as OLLAMA
 from .sarvam_ai_ecosystem.catalog import PROVIDER as SARVAM_AI
 from .vllm_ecosystem.catalog import PROVIDER as VLLM
+from .ai21_ecosystem.catalog import PROVIDER as AI21
+from .assemblyai_ecosystem.catalog import PROVIDER as ASSEMBLYAI
+from .baidu_ernie_ecosystem.catalog import PROVIDER as BAIDU_ERNIE
+from .black_forest_labs_ecosystem.catalog import PROVIDER as BLACK_FOREST_LABS
+from .bytedance_doubao_ecosystem.catalog import PROVIDER as BYTEDANCE_DOUBAO
+from .elevenlabs_ecosystem.catalog import PROVIDER as ELEVENLABS
+from .krutrim_ecosystem.catalog import PROVIDER as KRUTRIM
+from .minimax_ecosystem.catalog import PROVIDER as MINIMAX
+from .moonshot_kimi_ecosystem.catalog import PROVIDER as MOONSHOT_KIMI
+from .runway_ai_ecosystem.catalog import PROVIDER as RUNWAY_AI
+from .stability_ai_ecosystem.catalog import PROVIDER as STABILITY_AI
+from .suno_ai_ecosystem.catalog import PROVIDER as SUNO_AI
+from .tencent_hunyuan_ecosystem.catalog import PROVIDER as TENCENT_HUNYUAN
+from .zhipu_glm_ecosystem.catalog import PROVIDER as ZHIPU_GLM
 from .anthropic_claude_ecosystem.catalog import PROVIDER as ANTHROPIC_CLAUDE
 from .aws_bedrock_ecosystem.catalog import PROVIDER as AWS_BEDROCK
 from .cohere_ecosystem.catalog import PROVIDER as COHERE
@@ -36,6 +50,20 @@ from .openai_chatgpt_ecosystem.catalog import PROVIDER as OPENAI_CHATGPT
 
 _PROVIDER_CATALOG: tuple[dict[str, Any], ...] = (
     GOOGLE_GEMINI,
+    AI21,
+    ASSEMBLYAI,
+    BAIDU_ERNIE,
+    BLACK_FOREST_LABS,
+    BYTEDANCE_DOUBAO,
+    ELEVENLABS,
+    KRUTRIM,
+    MINIMAX,
+    MOONSHOT_KIMI,
+    RUNWAY_AI,
+    STABILITY_AI,
+    SUNO_AI,
+    TENCENT_HUNYUAN,
+    ZHIPU_GLM,
     ALIBABA_QWEN,
     IBM_WATSONX,
     SARVAM_AI,
