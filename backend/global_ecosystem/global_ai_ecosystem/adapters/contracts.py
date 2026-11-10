@@ -11,7 +11,7 @@ class ChatMessage:
     content: str
 
     def __post_init__(self) -> None:
-        if self.role not in {"system", "developer", "user", "assistant", "tool"}:
+        if self.role not in {"system", "developer", "user", "assistant"}:
             raise ValueError(f"Unsupported chat role: {self.role}")
         if not isinstance(self.content, str):
             raise TypeError("Chat message content must be a string.")
