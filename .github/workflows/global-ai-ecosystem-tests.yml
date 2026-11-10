@@ -1,0 +1,35 @@
+name: Global AI Ecosystem Tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "backend/global_ecosystem/global_ai_ecosystem/**"
+      - ".github/workflows/global-ai-ecosystem-tests.yml"
+  pull_request:
+    paths:
+      - "backend/global_ecosystem/global_ai_ecosystem/**"
+      - ".github/workflows/global-ai-ecosystem-tests.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile AI ecosystem packages
+        run: python -m compileall -q backend/global_ecosystem/global_ai_ecosystem
+      - name: Run AI ecosystem unit tests
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m unittest \
+            backend.global_ecosystem.global_ai_ecosystem.test_capabilities \
+            backend.global_ecosystem.global_ai_ecosystem.test_registry \
+            backend.global_ecosystem.global_ai_ecosystem.governance.test_policy \
+            backend.global_ecosystem.global_ai_ecosystem.adapters.tests.test_contracts \
+            backend.global_ecosystem.global_ai_ecosystem.adapters.tests.test_chat_adapter
