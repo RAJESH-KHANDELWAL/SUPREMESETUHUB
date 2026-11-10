@@ -201,6 +201,14 @@ router.include_router(industry_api_ecosystems_router)
 
 
 
+# Dedicated Global Services API facade; canonical service category data remains in its domain package.
+from .global_services_api_ecosystem import router as global_services_api_router
+router.include_router(global_services_api_router)
+
+# Unified Work & Business discovery API; canonical work, freelance and jobs catalogues remain in their owning packages.
+from .global_work_business_api_ecosystem import router as global_work_business_api_router
+router.include_router(global_work_business_api_router)
+
 # Mount the independent business registration and compliance discovery API.
 from .global_business_governance_compliance_standards_api_ecosystem.global_business_compliance_api_ecosystem.routes import router as business_compliance_router
 router.include_router(business_compliance_router)
