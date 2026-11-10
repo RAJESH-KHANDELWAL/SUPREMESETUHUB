@@ -12,7 +12,7 @@ from backend.ai.global_ecosystem.global_ai_ecosystem import (
     get_provider,
     list_providers,
 )
-from .providers import get_ai_provider, list_ai_providers
+from .providers import get_ai_provider, list_ai_providers, validate_provider_registry
 from .scope import (
     AI_MATURITY_LEVELS,
     AI_SCOPE_DOMAINS,
@@ -35,4 +35,5 @@ __all__ = [
     "list_domain_ids",
     "get_ai_provider",
     "list_ai_providers",
+    "validate_provider_registry",
 ]
