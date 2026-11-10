@@ -19,4 +19,3 @@ class CultureServiceWorkBusinessAssets:
 
     def delete(self, storage_key: str) -> bool:
         return self.storage.delete_asset(storage_key)
-}
