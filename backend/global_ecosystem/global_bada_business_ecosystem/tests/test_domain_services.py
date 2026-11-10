@@ -2,7 +2,7 @@
 from datetime import date
 import unittest
 
-from backend.global_ecosystem.global_bada_business_ecosystem.courses.catalog import (
+from backend.global_ecosystem.global_bada_business_ecosystem.global_network_marketing_direct_selling_business_ecosystem.catalog import (\n    find_platform, get_business_ecosystem, validate_business_ecosystems,\n)\nfrom backend.global_ecosystem.global_bada_business_ecosystem.courses.catalog import (
     get_course, list_courses, search_courses, validate_course_catalog,
 )
 from backend.global_ecosystem.global_bada_business_ecosystem.events.service import (
@@ -62,7 +62,7 @@ class RegistrationTests(unittest.TestCase):
         self.assertIn("mobile_number", errors)
 
 
-class ReferralTests(unittest.TestCase):
+class NetworkMarketingRegistryTests(unittest.TestCase):\n    def test_registry_integrity(self):\n        self.assertEqual(validate_business_ecosystems(), ())\n\n    def test_youtag_apps_share_one_business_parent(self):\n        wellness = find_platform("youtag_wellness_app")\n        recharges = find_platform("youtag_recharges_app")\n        self.assertEqual(wellness["parent_ecosystem_id"], recharges["parent_ecosystem_id"])\n        self.assertEqual(wellness["parent_ecosystem_id"], "global_youtag_business_ecosystem")\n\n    def test_affiliate_platforms_are_separate_namespaces(self):\n        self.assertEqual(find_platform("leadsguru")["category"], "affiliate_marketing")\n        self.assertIsNotNone(get_business_ecosystem("global_affiliate_marketing_business_ecosystem"))\n\n\nclass ReferralTests(unittest.TestCase):
     def test_referral_code_is_added_and_extracted(self):
         url = normalize_referral_url("https://www.badabusiness.com/lfp?x=1", "BIRK076336")
         self.assertEqual(extract_referral_code(url), "BIRK076336")
