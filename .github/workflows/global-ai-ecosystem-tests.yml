@@ -31,6 +31,8 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - name: Install minimal API test dependencies
+        run: python -m pip install "fastapi>=0.115,<1.0" "pydantic>=2.7,<3.0"
       - name: Compile AI ecosystem packages
         run: python -m compileall -q backend/global_ecosystem/global_ai_ecosystem backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem backend/engine/global_ecosystem/global_engine_ecosystem/global_ai_engine_ecosystem backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem backend/api/global_ai_ecosystem.py
       - name: Run AI ecosystem unit tests
