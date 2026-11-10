@@ -6,7 +6,6 @@ Folder names use the `*_ecosystem` convention. These directories organize global
 - `global_ai_ecosystem/`
 - `global_app_ecosystem/`
 - `global_bada_business_ecosystem/`
-  - `business_ecosystem/` — broad business domain: entrepreneurship, companies, MSMEs, startups, commerce, operations, and business services.
   - `global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_business_ecosystem/` — distinct business domain for cultural heritage, education, artisan commerce, responsible tourism, and community-benefiting ventures.
   - `global_network_marketing_direct_selling_business_ecosystem/`
     - `global_youtag_business_ecosystem/`
@@ -79,7 +78,7 @@ Folder names use the `*_ecosystem` convention. These directories organize global
 
 ## Provider-specific Bada Business packages
 - `bada_business_ecosystem/` — standalone Bada Business provider/product resource package; remains separate.
-- `global_bada_business_ecosystem/` — global Bada Business package. Its general business domain, full-name cultural-business domain, and network-marketing/direct-selling domains are nested beneath it.
+- `global_bada_business_ecosystem/` — global Bada Business package. Its cultural-business and network-marketing/direct-selling domains are nested beneath it.
 
 These are catalog namespaces, not completed runtime integrations. API, CORE, ENGINE, DATABASE, credentials, authentication, and authorization remain in their separately owned architecture layers.
 
@@ -93,7 +92,6 @@ These are catalog namespaces, not completed runtime integrations. API, CORE, ENG
 - Canonical source of truth: `backend/global_ecosystem/global_bada_business_ecosystem/global_network_marketing_direct_selling_business_ecosystem/global_youtag_business_ecosystem/referral_profiles/rajesh_khandelwal.json`
 
 Keep the URL exactly as supplied. This is owner-provided public referral metadata, not an API credential or proof of registration, commission, provider partnership or live integration. Read the canonical profile rather than creating alternate referral records.
-
 
 ## Cultural identity and business expression
 
