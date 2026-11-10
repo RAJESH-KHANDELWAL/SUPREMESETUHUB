@@ -6,8 +6,8 @@ PROVIDER = {
     "vendor": "Microsoft",
     "category": "ai_provider",
     "api_endpoint": None,
-    "credential_env": "AZURE_AI_ENDPOINT",
+    "credential_env": "AZURE_OPENAI_API_KEY",
     "models_or_services": ["azure-openai-deployment","azure-ai-model-deployment"],
     "integration_status": "scaffold",
-    "notes": "Azure endpoints and deployments are resource-specific.",
+    "notes": "Azure OpenAI adapter requires AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_API_KEY and AZURE_OPENAI_DEPLOYMENT; resource endpoints are deployment-specific.",
 }
