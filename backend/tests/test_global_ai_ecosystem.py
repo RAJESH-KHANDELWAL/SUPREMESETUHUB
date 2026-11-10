@@ -13,11 +13,16 @@ class GlobalAIEcosystemTests(unittest.TestCase):
         def executor(**kwargs):
             calls.append(kwargs)
             return {"provider": "fake", "model": "test", "output": "analysis", "live_verified": True}
-        result = GlobalAICoreService(executor).generate(task="analyze", context={"sector": "retail"})
+        result = GlobalAICoreService(executor).generate(task="analyze", context={"sector": "retail"}, model_id="model-test")
         self.assertEqual(result["system"], "GLOBAL AI ECOSYSTEM")
         self.assertEqual(result["output"], "analysis")
         self.assertEqual(calls[0]["capability"], "text")
-        self.assertIsNone(calls[0]["model_id"])
+        self.assertEqual(calls[0]["model_id"], "model-test")
+
+    def test_core_rejects_invalid_model_identifier(self):
+        service = GlobalAICoreService(lambda **kwargs: {"output": "unused"})
+        with self.assertRaises(ValueError):
+            service.generate(task="analyze", model_id=" ")
 
     def test_core_rejects_empty_task(self):
         service = GlobalAICoreService(lambda **kwargs: {})
