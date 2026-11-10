@@ -20,7 +20,7 @@ class ProviderConfig:
         )
 
     def validate(self) -> None:
-        if PROVIDER["id"] not in ("ollama",) and not self.credential:
+        if PROVIDER["id"] not in ("ollama", "vllm") and not self.credential:
             raise RuntimeError(f"Set {PROVIDER['credential_env']} before using {PROVIDER['name']}.")
         if not self.endpoint:
             raise RuntimeError(f"Configure the endpoint for {PROVIDER['name']}.")
