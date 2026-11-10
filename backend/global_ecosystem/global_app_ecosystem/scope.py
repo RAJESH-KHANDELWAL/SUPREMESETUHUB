@@ -57,7 +57,7 @@ APP_SCOPE_DOMAINS: tuple[dict[str, Any], ...] = (
  {"id":"adult_content_safety_rights_apps","name":"Adult content safety, rights and compliance apps","examples":["age assurance","consent and release records","content rights management","moderation","reporting and takedowns","privacy controls"],"safeguards":["adults_only","informed_consent","verified_rights","no_minors","no_nonconsensual_intimate_content","no_exploitation","auditability","applicable_law"]},
 )
 def get_scope_catalog() -> dict[str, list[dict[str, Any]]]:
- return {"maturity_levels":[dict(x) for x in APP_MATURITY_LEVELS],"domains":[{**x,"examples":list(x.get("examples",[])),"safeguards":list(x.get("safeguards",[]))} for x in APP_SCOPE_DOMAINS]}
+ return {"maturity_levels":[dict(x) for x in APP_MATURITY_LEVELS],"capability_levels":[dict(x) for x in APP_CAPABILITY_LEVELS],"domains":[{**x,"examples":list(x.get("examples",[])),"safeguards":list(x.get("safeguards",[]))} for x in APP_SCOPE_DOMAINS]}
 def get_domain(domain_id: str) -> dict[str, Any] | None:
  for item in APP_SCOPE_DOMAINS:
   if item["id"]==domain_id:return {**item,"examples":list(item.get("examples",[])),"safeguards":list(item.get("safeguards",[]))}

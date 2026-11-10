@@ -11,12 +11,12 @@ from .service import GlobalAppEcosystemService, EcosystemService
 from .manager import GlobalAppEcosystemManager
 from .providers import list_app_providers, get_app_provider, validate_app_provider_registry
 from .capabilities import list_app_types, list_app_capability_groups
-from .scope import APP_MATURITY_LEVELS, APP_SCOPE_DOMAINS, get_scope_catalog, get_domain, list_domain_ids
+from .scope import APP_MATURITY_LEVELS, APP_CAPABILITY_LEVELS, APP_SCOPE_DOMAINS, get_scope_catalog, get_domain, list_domain_ids
 __all__ = [
  "list_component_types","get_component_type","AppComponent","AppComponentRegistry",
  "AppComponentAdapter","AppAdapterRegistry","AppLifecycle","InvalidLifecycleTransition",
  "runtime_status","app_diagnostics","GlobalAppEcosystemService","EcosystemService",
  "GlobalAppEcosystemManager","list_app_providers","get_app_provider",
  "validate_app_provider_registry","list_app_types","list_app_capability_groups",
- "APP_MATURITY_LEVELS","APP_SCOPE_DOMAINS","get_scope_catalog","get_domain","list_domain_ids",
+ "APP_MATURITY_LEVELS","APP_CAPABILITY_LEVELS","APP_SCOPE_DOMAINS","get_scope_catalog","get_domain","list_domain_ids",
 ]
