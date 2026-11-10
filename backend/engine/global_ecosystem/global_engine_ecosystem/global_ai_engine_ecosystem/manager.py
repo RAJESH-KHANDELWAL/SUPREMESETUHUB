@@ -38,6 +38,8 @@ class EcosystemEngineManager:
         self, *, provider_id: str, capability: str, task: str,
         context: dict[str, Any] | None = None, model_id: str | None = None,
     ) -> dict[str, Any]:
+        if model_id is not None and (not isinstance(model_id, str) or not model_id.strip() or len(model_id) > 160):
+            raise ValueError("AI_MODEL_ID_INVALID")
         provider = self._providers.get(provider_id.strip().lower())
         if provider is None:
             raise LookupError("AI_PROVIDER_NOT_REGISTERED")
