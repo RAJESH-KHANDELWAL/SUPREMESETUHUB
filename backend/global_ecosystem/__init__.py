@@ -1,5 +1,22 @@
-"""Bharat-to-global domain ecosystem taxonomy namespace.
+"""Bharat-to-global domain taxonomy package.
 
-This package organizes domain metadata. Runtime ownership remains in the
-canonical API, CORE, ENGINE, DATABASE and SECURITY layers.
+This package exposes read-only catalogue operations. It does not own runtime
+business logic; CORE, API, ENGINE, DATABASE and SECURITY remain independent.
 """
+from .domain_taxonomy import (
+    get_domain,
+    get_domain_by_name,
+    get_domain_catalog,
+    list_domains,
+    search_domains,
+    validate_domain_taxonomy,
+)
+
+__all__ = [
+    "list_domains",
+    "get_domain",
+    "get_domain_by_name",
+    "search_domains",
+    "get_domain_catalog",
+    "validate_domain_taxonomy",
+]
