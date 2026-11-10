@@ -10,6 +10,12 @@ from ..openrouter_ecosystem.adapter import OpenRouterAdapter
 from ..perplexity_ecosystem.adapter import PerplexityAdapter
 from ..together_ai_ecosystem.adapter import TogetherAIAdapter
 from ..xai_grok_ecosystem.adapter import XaiGrokAdapter
+from ..alibaba_qwen_ecosystem.adapter import QwenAdapter
+from ..anthropic_claude_ecosystem.adapter import AnthropicClaudeAdapter
+from ..deepseek_ecosystem.adapter import DeepSeekAdapter
+from ..google_gemini_ecosystem.adapter import GeminiAdapter
+from ..mistral_ecosystem.adapter import MistralAdapter
+from ..openai_chatgpt_ecosystem.adapter import OpenAIAdapter
 from ..ollama_ecosystem.adapter import OllamaAdapter
 from ..vllm_ecosystem.adapter import VLLMAdapter
 
@@ -23,6 +29,12 @@ _ADAPTERS = {
     "perplexity": PerplexityAdapter,
     "ollama": OllamaAdapter,
     "vllm": VLLMAdapter,
+    "openai_chatgpt": OpenAIAdapter,
+    "google_gemini": GeminiAdapter,
+    "anthropic_claude": AnthropicClaudeAdapter,
+    "deepseek": DeepSeekAdapter,
+    "mistral": MistralAdapter,
+    "alibaba_qwen": QwenAdapter,
 }
 
 
