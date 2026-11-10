@@ -59,7 +59,7 @@ class EcosystemEngineManager:
             "provider_count": len(providers),
             "configured_provider_count": configured_count,
             "live_verified_provider_count": live_verified_count,
-            "runtime_execution_available": configured_count > 0,
+            "provider_configuration_ready": configured_count > 0,
             "live_connections_verified": live_verified_count > 0,
             "providers": providers,
             "capabilities": sorted({cap for item in providers for cap in item["capabilities"]}),
