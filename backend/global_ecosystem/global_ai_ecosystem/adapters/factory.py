@@ -61,6 +61,11 @@ def create_chat_adapter(
     adapter_type = _ADAPTERS.get(normalized)
     if adapter_type is None:
         raise ValueError(f"No chat adapter is registered for: {normalized}")
+    if normalized == "aws_bedrock":
+        # boto3 resolves credentials through its standard AWS credential chain.
+        return adapter_type()
+    if normalized == "microsoft_azure_ai":
+        return adapter_type(endpoint=base_url, api_key=api_key, http_client=http_client)
     kwargs = {"api_key": api_key, "base_url": base_url}
     if http_client is not None:
         kwargs["http_client"] = http_client
