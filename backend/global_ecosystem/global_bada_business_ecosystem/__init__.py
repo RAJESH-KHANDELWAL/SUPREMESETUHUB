@@ -9,6 +9,11 @@ from .courses import get_course, list_courses, search_courses
 from .events import get_event, list_events
 from .registration import RegistrationDraft, create_registration_draft, validate_registration
 from .referrals import extract_referral_code, normalize_referral_url
+from .business_verticals import (
+    list_verticals, get_vertical, search_verticals,
+    geographic_scopes, maturity_levels, get_vertical_guardrails,
+    validate_adult_business_record,
+)
 
 ECOSYSTEM = {
     "id": "GLOBAL_BADA_BUSINESS_ECOSYSTEM",
@@ -22,4 +27,7 @@ __all__ = [
     "search_courses", "get_event", "list_events", "RegistrationDraft",
     "create_registration_draft", "validate_registration",
     "extract_referral_code", "normalize_referral_url",
+    "list_verticals", "get_vertical", "search_verticals",
+    "geographic_scopes", "maturity_levels", "get_vertical_guardrails",
+    "validate_adult_business_record",
 ]
