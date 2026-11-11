@@ -3,12 +3,14 @@ from __future__ import annotations
 from copy import deepcopy
 from .catalog import BUSINESS_ECOSYSTEMS
 
+PARENT_ID = "global_business_ecosystem"
+
 def list_business_ecosystems(*, category: str | None = None) -> tuple[dict, ...]:
     items = BUSINESS_ECOSYSTEMS
     if category:
         normalized = category.strip().lower()
         items = tuple(item for item in items if item["category"] == normalized)
-    return tuple(deepcopy(item) for item in items)
+    return tuple({**deepcopy(item), "parent_id": PARENT_ID} for item in items)
 
 def get_business_ecosystem(ecosystem_id: str) -> dict | None:
     if not isinstance(ecosystem_id, str):
@@ -16,7 +18,7 @@ def get_business_ecosystem(ecosystem_id: str) -> dict | None:
     key = ecosystem_id.strip().lower()
     for item in BUSINESS_ECOSYSTEMS:
         if item["id"] == key:
-            return deepcopy(item)
+            return {**deepcopy(item), "parent_id": PARENT_ID}
     return None
 
 def search_business_ecosystems(query: str) -> tuple[dict, ...]:
@@ -27,7 +29,7 @@ def search_business_ecosystems(query: str) -> tuple[dict, ...]:
     for item in BUSINESS_ECOSYSTEMS:
         haystack = " ".join((item["id"], item["name"], item["category"], item.get("relationship", ""))).casefold()
         if term in haystack:
-            found.append(deepcopy(item))
+            found.append({**deepcopy(item), "parent_id": PARENT_ID})
     return tuple(found)
 
 def validate_registry() -> tuple[str, ...]:
