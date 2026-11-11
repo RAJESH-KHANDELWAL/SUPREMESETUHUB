@@ -12,6 +12,8 @@ Bharat / India-first, followed by South Asia, Asia-Pacific, Middle East, Africa,
 
 ## Existing canonical domain packages
 
+- `global_business_ecosystem/` — master business umbrella; connects the canonical `global_bada_business_ecosystem/` as a child provider/business vertical through a Python package adapter.
+
 - `global_ai_ecosystem/`
 - `global_app_ecosystem/`
 - `global_bada_business_ecosystem/`
