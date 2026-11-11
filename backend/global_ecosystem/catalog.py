@@ -1,23 +1,34 @@
-"""Index of existing domain/vendor namespaces and shared taxonomy exports."""
+"""Index of global domain, business, and vendor namespaces."""
 from .domain_taxonomy import (
     DOMAIN_TAXONOMY, GEOGRAPHIC_SCOPES, IMPLEMENTATION_STATUSES, MATURITY_LEVELS,
     get_domain, get_domain_by_name, get_domain_catalog, list_domains,
     search_domains, validate_domain_taxonomy,
 )
 
+GLOBAL_BUSINESS_ECOSYSTEMS = (
+    "global_business_ecosystem",
+    "global_bada_business_ecosystem",
+    "global_company_companies_ecosystem",
+    "global_organizations_ecosystem",
+    "global_finance_ecosystem",
+    "global_payment_ecosystem",
+)
+
 GLOBAL_DOMAIN_ECOSYSTEMS = (
-    "global_ai_ecosystem", "global_app_ecosystem", "global_bada_business_ecosystem",
-    "global_cloud_ecosystem", "global_cloudflare_ecosystem", "global_communication_ecosystem",
-    "global_company_companies_ecosystem", "global_database_ecosystem", "global_developer_ecosystem",
-    "global_domain_ecosystem", "global_entity_relationships_ecosystem", "global_hosting_ecosystem",
+    "global_ai_ecosystem", "global_app_ecosystem", "global_business_ecosystem",
+    "global_bada_business_ecosystem", "global_cloud_ecosystem", "global_cloudflare_ecosystem",
+    "global_communication_ecosystem", "global_company_companies_ecosystem",
+    "global_database_ecosystem", "global_developer_ecosystem", "global_domain_ecosystem",
+    "global_entity_relationships_ecosystem", "global_hosting_ecosystem",
     "global_individual_ecosystem", "global_integrations_ecosystem",
     "global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_ecosystem",
     "global_language_ecosystem", "global_organizations_ecosystem", "global_payment_ecosystem",
-    "global_people_life_ecosystem", "global_platforms_ecosystem", "global_programming_language_ecosystem",
-    "global_security_ecosystem", "global_server_ecosystem", "global_social_media_ecosystem",
-    "global_software_ecosystem", "global_storage_ecosystem", "global_system_ecosystem",
-    "global_tools_ecosystem", "global_video_ecosystem", "global_vps_ecosystem",
-    "global_web_ecosystem", "global_website_ecosystem",
+    "global_people_life_ecosystem", "global_platforms_ecosystem",
+    "global_programming_language_ecosystem", "global_security_ecosystem",
+    "global_server_ecosystem", "global_social_media_ecosystem", "global_software_ecosystem",
+    "global_storage_ecosystem", "global_system_ecosystem", "global_tools_ecosystem",
+    "global_video_ecosystem", "global_vps_ecosystem", "global_web_ecosystem",
+    "global_website_ecosystem",
 ) + tuple(item["id"] for item in DOMAIN_TAXONOMY)
 
 VENDOR_ECOSYSTEMS = (
@@ -32,12 +43,13 @@ VENDOR_ECOSYSTEMS = (
 
 GLOBAL_CULTURE_AND_BUSINESS_ECOSYSTEMS = (
     "global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem",
+    "global_business_ecosystem",
     "global_bada_business_ecosystem",
     "global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_ecosystem",
 )
 
 __all__ = [
-    "GLOBAL_DOMAIN_ECOSYSTEMS", "VENDOR_ECOSYSTEMS",
+    "GLOBAL_DOMAIN_ECOSYSTEMS", "GLOBAL_BUSINESS_ECOSYSTEMS", "VENDOR_ECOSYSTEMS",
     "GLOBAL_CULTURE_AND_BUSINESS_ECOSYSTEMS", "DOMAIN_TAXONOMY",
     "GEOGRAPHIC_SCOPES", "MATURITY_LEVELS", "IMPLEMENTATION_STATUSES",
     "list_domains", "get_domain", "get_domain_by_name", "search_domains",
