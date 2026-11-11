@@ -25,3 +25,11 @@ The catalog is metadata, not a guarantee of account/region/plan availability. No
 
 ## Tests
 From repository root: `python -m unittest backend.global_ecosystem.digitalocean_ecosystem.tests.test_ecosystem -v`
+
+## Expanded global workload architecture
+- `workload_domains.py`: Bharat/India and global market scopes; ten maturity levels from Normal to Supreme; cross-industry workload domains including AI, software, business, finance, education, healthcare, media, industry, agriculture, relationships, and lawful adult-only services.
+- `deployment_profiles.py`: reference infrastructure profiles for each maturity level, mapped to catalog capability IDs. These are not provider plan, price, quota, or availability claims.
+- `governance.py`: baseline security/privacy controls and additional age assurance, consent, performer-rights, moderation, takedown, and legal-review requirements for adult-only services.
+- `tests/test_scope_and_profiles.py`: coverage for geographic scope, maturity levels, workload mapping, deployment profiles, and adult-only safeguards.
+
+The geography list describes target markets, not DigitalOcean datacenter presence. Confirm DigitalOcean product and region availability independently before deployment.
