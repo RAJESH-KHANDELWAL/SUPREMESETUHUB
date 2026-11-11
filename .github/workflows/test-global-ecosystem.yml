@@ -67,6 +67,13 @@ jobs:
             backend.database.global_ecosystem.global_database_ecosystem.test_manager \
             -v
 
+      - name: Run DigitalOcean Provider Ecosystem Tests
+        run: |
+          python -m unittest \
+            backend.global_ecosystem.digitalocean_ecosystem.tests.test_ecosystem \
+            backend.global_ecosystem.digitalocean_ecosystem.tests.test_scope_and_profiles \
+            -v
+
       - name: Run Bada Business Domain Service Tests
         run: python -m unittest discover -s backend/global_ecosystem/global_bada_business_ecosystem/tests -p "test_*.py" -v
 
