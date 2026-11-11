@@ -1,0 +1,1 @@
+CATEGORY={"id":"managers_and_supervisors","name":"Managers and Supervisors","role_names":["Manager","General Manager","Operations Manager","Department Head","Supervisor","Team Lead"],"responsibilities":["Plan work and allocate resources","Coordinate teams and monitor delivery"]}
