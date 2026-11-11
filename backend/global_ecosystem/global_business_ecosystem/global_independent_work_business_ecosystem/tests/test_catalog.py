@@ -1,5 +1,5 @@
 import unittest
-from global_independent_work_business_ecosystem.catalog import CATEGORIES,get_category,search_roles
+from backend.global_ecosystem.global_business_ecosystem.global_independent_work_business_ecosystem.catalog import CATEGORIES,get_category,search_roles
 class TestIndependentWorkCatalogue(unittest.TestCase):
     def test_category_ids_unique(self):
         self.assertEqual(len(CATEGORIES),len(set(CATEGORIES)))
