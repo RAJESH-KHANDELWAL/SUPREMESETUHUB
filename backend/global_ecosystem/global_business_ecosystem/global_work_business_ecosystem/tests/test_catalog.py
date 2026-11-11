@@ -1,5 +1,5 @@
 import unittest
-from global_work_business_ecosystem.catalog import CATEGORIES,get_category,search_roles
+from backend.global_ecosystem.global_business_ecosystem.global_work_business_ecosystem.catalog import CATEGORIES,get_category,search_roles
 class TestWorkCatalogue(unittest.TestCase):
     def test_categories_have_ids_and_aliases(self):
         self.assertTrue(CATEGORIES)
