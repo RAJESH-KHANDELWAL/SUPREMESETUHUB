@@ -20,6 +20,10 @@ This directory organizes the Global Bada Business Ecosystem, including provider-
 - `global_network_marketing_direct_selling_business_ecosystem/` — direct-selling business families, including YOUTAG.
 - `provider_resources/` — provider-supplied resource references.
 
+## Parent business ecosystem connection
+
+This canonical Bada Business vertical is registered under `backend/global_ecosystem/global_business_ecosystem/`. The parent uses `global_business_ecosystem/adapters/bada_business.py` to read this package's catalog, programs, courses, events and network-marketing/direct-selling registry. This is a code-level package connection, not a live provider API integration. Keep this package as the source of truth for Bada Business records.
+
 ## Architecture boundaries
 
 API, CORE, ENGINE, DATABASE, AI, STORAGE, authentication and connection layers remain in their own architecture namespaces. Do not duplicate API transport logic, core business rules, engine orchestration, persistence schemas, credentials or live integrations here.
