@@ -1,8 +1,7 @@
 <?php
 declare(strict_types=1);
 
-require_once dirname(__DIR__, 2) . '/config.php';
 require_once dirname(__DIR__, 2) . '/database.php';
 
-/** Load the dedicated GDE database configuration; no WordPress fallback. */
-return supreme_database_config('GDE_DB_');
+/** Canonical GDE config alias; returns the central SUPREMESETUHUB DB. */
+return supreme_main_database_connection_config();
