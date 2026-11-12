@@ -54,8 +54,6 @@ if (!function_exists('supreme_database_config')) {
             throw new InvalidArgumentException($prefix . 'CONNECT_TIMEOUT must be positive');
         }
 
-        // Protect the primary WordPress database. The separately selected
-        // second Hostinger database may be assigned to GDE by the owner.
         $primaryWordPressDb = supreme_database_env('WORDPRESS_DB_NAME');
         if ($prefix === 'GDE_DB_' && $primaryWordPressDb !== null
             && hash_equals($primaryWordPressDb, (string) $config['database'])) {
@@ -75,23 +73,38 @@ if (!function_exists('supreme_database_config')) {
 }
 
 /**
- * SUPREMESETUHUB — one main database foundation with multiple identities/gates.
+ * SUPREMESETUHUB — one central database with one primary identity and four
+ * identity gates. This returns configuration only; it does not connect to
+ * MySQL or create/modify database tables.
  *
- * This returns configuration only; it does not open a connection or modify
- * database tables. Set SUPREME_DB_HOST to the exact MySQL hostname shown by
- * Hostinger. The hostname is deliberately not guessed from the project name.
+ * Set SUPREME_DB_HOST to the exact MySQL hostname shown in Hostinger hPanel.
+ * Never put the database password in this source file.
  */
 if (!function_exists('supreme_main_foundation_config')) {
     function supreme_main_foundation_config(): array
     {
+        $identities = [
+            'SUPREMESETUHUB',
+            'RAJESHKHANDELWOFFICIAL',
+            'RAJESHKHANDELW',
+            'DRRAJESHKHANDELWIBCOFFICIAL',
+            'DRRAJESHKHANDELWIBC',
+        ];
+
         return [
             'system' => 'SUPREMESETUHUB',
-            'architecture' => 'ONE_DATABASE_MULTIPLE_GATES',
+            'architecture' => 'ONE_DATABASE_ONE_PRIMARY_FOUR_IDENTITY_GATES',
+            'primary_identity' => 'SUPREMESETUHUB',
+            'identity_gates' => [
+                'RAJESHKHANDELWOFFICIAL',
+                'RAJESHKHANDELW',
+                'DRRAJESHKHANDELWIBCOFFICIAL',
+                'DRRAJESHKHANDELWIBC',
+            ],
+            'identities' => $identities,
 
             'database' => [
                 'driver' => 'mysql',
-                // Hostinger's actual server hostname must be supplied here
-                // through SUPREME_DB_HOST; do not assume it equals the DB name.
                 'host' => supreme_database_env('SUPREME_DB_HOST', ''),
                 'name' => supreme_database_env(
                     'SUPREME_DB_NAME',
@@ -102,81 +115,12 @@ if (!function_exists('supreme_main_foundation_config')) {
                     'u664492673_SUPREMESETUHUB'
                 ),
                 'password' => supreme_database_env('SUPREME_DB_PASSWORD', ''),
-                // Owner-provided port; verify it against Hostinger's connection details.
                 'port' => (int) supreme_database_env('SUPREME_DB_PORT', '2468'),
                 'charset' => 'utf8mb4',
                 'connect_timeout' => 10,
             ],
 
-            'identities' => [
-                'SUPREMESETUHUB',
-                'RAJESHKHANDELWALOFFICIAL',
-                'RAJESHKHANDELWAL',
-                'DRRAJESHKHANDELWALIBCOFFICIAL',
-                'DRRAJESHKHANDELWALIBC',
-            ],
-
-            'gates' => [
-                'GITHUB',
-                'WEBSITE',
-                'WORDPRESS',
-                'AI',
-                'API',
-                'APP',
-                'BUSINESS',
-                'ADMIN',
-                'GLOBAL',
-                'SUPREME',
-            ],
-        ];
-    }
-}
-
-
-
-
-/**
- * SUPREMESETUHUB — one main database foundation with multiple identities/gates.
- *
- * This returns configuration only; it does not open a connection or modify
- * database tables. Set SUPREME_DB_HOST to the exact MySQL hostname shown by
- * Hostinger. The hostname is deliberately not guessed from the project name.
- */
-if (!function_exists('supreme_main_foundation_config')) {
-    function supreme_main_foundation_config(): array
-    {
-        return [
-            'system' => 'SUPREMESETUHUB',
-            'architecture' => 'ONE_DATABASE_MULTIPLE_GATES',
-
-            'database' => [
-                'driver' => 'mysql',
-                // Hostinger's actual server hostname must be supplied here
-                // through SUPREME_DB_HOST; do not assume it equals the DB name.
-                'host' => supreme_database_env('SUPREME_DB_HOST', ''),
-                'name' => supreme_database_env(
-                    'SUPREME_DB_NAME',
-                    'RAJESHKHANDELWAL'
-                ),
-                'username' => supreme_database_env(
-                    'SUPREME_DB_USER',
-                    'RAJESHKHANDELWAL'
-                ),
-                'password' => supreme_database_env('SUPREME_DB_PASSWORD', ''),
-                // Owner-provided port; verify it against Hostinger's connection details.
-                'port' => (int) supreme_database_env('SUPREME_DB_PORT', '2468'),
-                'charset' => 'utf8mb4',
-                'connect_timeout' => 11,
-            ],
-
-            'identities' => [
-                'SUPREMESETUHUB',
-                'RAJESHKHANDELWALOFFICIAL',
-                'RAJESHKHANDELWAL',
-                'DRRAJESHKHANDELWALIBCOFFICIAL',
-                'DRRAJESHKHANDELWALIBC',
-            ],
-
+            // Application entry points that may use the central identity system.
             'gates' => [
                 'GITHUB',
                 'WEBSITE',
