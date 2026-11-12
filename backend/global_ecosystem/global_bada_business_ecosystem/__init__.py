@@ -1,4 +1,4 @@
-"""Canonical GLOBAL BADA BUSINESS ECOSYSTEM package.
+"""Canonical BADA BUSINESS ECOSYSTEM package.
 
 This package owns Bada Business resource discovery and domain-level workflows.
 Public HTTP routes, shared CORE contracts, orchestration ENGINE, and persistent
@@ -16,8 +16,8 @@ from .business_verticals import (
 )
 
 ECOSYSTEM = {
-    "id": "GLOBAL_BADA_BUSINESS_ECOSYSTEM",
-    "name": "GLOBAL BADA BUSINESS ECOSYSTEM",
+    "id": ECOSYSTEM_ID,
+    "name": ECOSYSTEM_NAME,
     "provider": "Bada Business",
 }
 
