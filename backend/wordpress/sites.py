@@ -53,12 +53,43 @@ DR_RAjesh_KHANDELWAL_IBC = WordPressSite(
     provider="Hostinger",
     database_name="u664492673_MzL97",  # Verified from wp-config.php; credentials remain in environment variables.
     table_prefix="wp_",
-    status="PENDING_CONNECTION",
+    status="REGISTERED",
     environment="production",
     description=(
         "Second independent domain gate for SUPREMESETUHUB; "
         "database credentials must be configured as private environment variables."
     ),
+)
+
+
+# ==============================================================
+# FUTURE WORDPRESS INSTALLATIONS
+# ==============================================================
+# These identities/domains are reserved in the registry. No WordPress
+# installation, database, or live connection is claimed yet.
+
+RAJESH_KHANDELWAL = WordPressSite(
+    site_id="rajeshkhandelwal",
+    domain="rajeshkhandelwal.com",
+    site_url="https://rajeshkhandelwal.com",
+    provider=None,
+    database_name=None,
+    table_prefix="wp_",
+    status="PLANNED",
+    environment="production",
+    description="Reserved future WordPress installation; not installed or connected yet.",
+)
+
+DR_RAjesh_KHANDELWAL_IBC_OFFICIAL = WordPressSite(
+    site_id="drrajeshkhandelwalibcofficial",
+    domain="drrajeshkhandelwalibcofficial.com",
+    site_url="https://drrajeshkhandelwalibcofficial.com",
+    provider=None,
+    database_name=None,
+    table_prefix="wp_",
+    status="PLANNED",
+    environment="production",
+    description="Reserved future WordPress installation; not installed or connected yet.",
 )
 
 
@@ -69,11 +100,15 @@ DR_RAjesh_KHANDELWAL_IBC = WordPressSite(
 WORDPRESS_SITES = [
     RAJESH_KHANDELWAL_OFFICIAL,
     DR_RAjesh_KHANDELWAL_IBC,
+    RAJESH_KHANDELWAL,
+    DR_RAjesh_KHANDELWAL_IBC_OFFICIAL,
 ]
 
 
 __all__ = [
     "RAJESH_KHANDELWAL_OFFICIAL",
     "DR_RAjesh_KHANDELWAL_IBC",
+    "RAJESH_KHANDELWAL",
+    "DR_RAjesh_KHANDELWAL_IBC_OFFICIAL",
     "WORDPRESS_SITES",
 ]

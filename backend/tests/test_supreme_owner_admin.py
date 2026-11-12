@@ -94,9 +94,18 @@ def test_wordpress_sites_are_in_owner_platform_registry(monkeypatch):
     monkeypatch.setenv("WORDPRESS_APPLICATION_PASSWORD", "private-test-value")
     sites = SupremeOwnerAdminService().owned_platforms()
     by_id = {site["site_id"]: site for site in sites}
-    assert {"rajeshkhandelwalofficial", "drrajeshkhandelwalibc"} <= set(by_id)
+    assert {
+        "rajeshkhandelwalofficial",
+        "drrajeshkhandelwalibc",
+        "rajeshkhandelwal",
+        "drrajeshkhandelwalibcofficial",
+    } == set(by_id)
     assert by_id["rajeshkhandelwalofficial"]["credentials_configured"] is True
+    assert by_id["rajeshkhandelwalofficial"]["installation_status"] == "INSTALLED"
     assert by_id["rajeshkhandelwalofficial"]["live_connection_verified"] is False
+    assert by_id["rajeshkhandelwal"]["installation_status"] == "PLANNED"
+    assert by_id["drrajeshkhandelwalibcofficial"]["installation_status"] == "PLANNED"
+    assert by_id["rajeshkhandelwal"]["url"] == "https://rajeshkhandelwal.com"
     assert "application_password" not in by_id["rajeshkhandelwalofficial"]
 
 
