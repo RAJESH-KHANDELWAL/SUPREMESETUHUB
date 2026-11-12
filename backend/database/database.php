@@ -4,12 +4,19 @@ declare(strict_types=1);
 require_once __DIR__ . '/config.php';
 
 /**
- * MAIN BASE FOUNDATION — shared PDO connection factory.
- * Requiring this file does not open a connection or modify any database.
+ * SUPREMESETUHUB central PDO connection factory.
+ * All five identities/gates resolve to the same owner-configured database.
+ * Requiring this file does not connect or alter schema/data.
  */
 if (!function_exists('supreme_database_connect')) {
     function supreme_database_connect(array $config): PDO
     {
+        // Accept either the normalized connection shape or the nested
+        // "database" section returned by supreme_main_foundation_config().
+        if (isset($config['name']) && !isset($config['database'])) {
+            $config['database'] = $config['name'];
+        }
+
         foreach (['host', 'database', 'username', 'password', 'port'] as $key) {
             if (!array_key_exists($key, $config) || $config[$key] === null || $config[$key] === '') {
                 throw new InvalidArgumentException('Missing database connection field: ' . $key);
@@ -44,5 +51,38 @@ if (!function_exists('supreme_database_connect')) {
         }
 
         return new PDO($dsn, (string) $config['username'], (string) $config['password'], $options);
+    }
+}
+
+if (!function_exists('supreme_main_database_connection_config')) {
+    /** Return the one central SUPREMESETUHUB connection configuration. */
+    function supreme_main_database_connection_config(): array
+    {
+        $main = supreme_main_foundation_config();
+        $db = $main['database'];
+        return [
+            'host' => $db['host'],
+            'database' => $db['name'],
+            'username' => $db['username'],
+            'password' => $db['password'],
+            'port' => $db['port'],
+            'connect_timeout' => $db['connect_timeout'] ?? 10,
+            'charset' => $db['charset'] ?? 'utf8mb4',
+            'primary_identity' => $main['primary_identity'],
+            'identities' => $main['identities'],
+        ];
+    }
+}
+
+if (!function_exists('supreme_main_database_connection')) {
+    /** Open/reuse the one central database connection. */
+    function supreme_main_database_connection(): PDO
+    {
+        static $connection = null;
+        if ($connection instanceof PDO) {
+            return $connection;
+        }
+        $connection = supreme_database_connect(supreme_main_database_connection_config());
+        return $connection;
     }
 }
