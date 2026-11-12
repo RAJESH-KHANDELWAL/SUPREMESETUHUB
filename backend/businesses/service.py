@@ -14,7 +14,6 @@ SUPPORTED_BUSINESS_TYPES = {
 class BusinessService:
     def __init__(self, database: DatabaseService | None = None) -> None:
         self.repository = BusinessRepository(database)
-        self.repository.initialize()
 
     def create_business(self, *, business_id: str, owner_id: str, name: str, **values: Any) -> Business:
         if not str(owner_id).strip():
