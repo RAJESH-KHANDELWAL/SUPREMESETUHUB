@@ -98,6 +98,9 @@ jobs:
       - name: Run GLOBAL AI Ecosystem Layer Tests
         run: python -m unittest backend.tests.test_global_ai_ecosystem -v
 
+      - name: Run GDE database configuration tests
+        run: python -m pytest -q backend/tests/test_gde_connection.py
+
       - name: Run Bada Business Ecosystem Resource Tests
         run: python -m pytest -q backend/tests/test_bada_business_ecosystem_resources.py
 
