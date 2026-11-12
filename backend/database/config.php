@@ -7,14 +7,6 @@ declare(strict_types=1);
  * located outside the public web root. Never commit real credentials.
  */
 
-$privateConfigPath = supreme_database_private_config_path();
-if ($privateConfigPath !== null && is_file($privateConfigPath)) {
-    $privateConfig = require $privateConfigPath;
-    if (is_array($privateConfig)) {
-        $GLOBALS['SUPREME_DB_PRIVATE_VALUES'] = $privateConfig;
-    }
-}
-
 if (!function_exists('supreme_database_private_config_path')) {
     function supreme_database_private_config_path(): ?string
     {
@@ -23,6 +15,14 @@ if (!function_exists('supreme_database_private_config_path')) {
             return trim($configured);
         }
         return null;
+    }
+}
+
+$privateConfigPath = supreme_database_private_config_path();
+if ($privateConfigPath !== null && is_file($privateConfigPath)) {
+    $privateConfig = require $privateConfigPath;
+    if (is_array($privateConfig)) {
+        $GLOBALS['SUPREME_DB_PRIVATE_VALUES'] = $privateConfig;
     }
 }
 
