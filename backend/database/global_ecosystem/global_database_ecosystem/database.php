@@ -2,12 +2,11 @@
 declare(strict_types=1);
 
 require_once dirname(__DIR__, 2) . '/database.php';
-require_once __DIR__ . '/gde-database.php';
 
-/** Generic database entry point within Global Database Ecosystem. */
+/** Generic GDE entry point; uses the one central PDO connection. */
 if (!function_exists('global_database_ecosystem_database')) {
     function global_database_ecosystem_database(): PDO
     {
-        return gde_database_connection();
+        return supreme_main_database_connection();
     }
 }
