@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 require_once dirname(__DIR__, 2) . '/php/global_ecosystem/global_php_ecosystem/bootstrap.php';
+require_once dirname(__DIR__, 2) . '/php/global_ecosystem/global_php_ecosystem/bada_business_php_ecosystem/bootstrap.php';
 
 use SupremeSetuHub\GlobalEcosystem\PHP\GlobalAlgorithmKernel as Kernel;
 use SupremeSetuHub\GlobalEcosystem\PHP\BadaBusiness\BadaBusinessPHPAdapter;
