@@ -163,7 +163,7 @@ if (!function_exists('supreme_identity_database_config')) {
         foreach (['host', 'name', 'username', 'password'] as $key) {
             if ($config[$key] === null || $config[$key] === '') {
                 $missing[] = $prefix . strtoupper(
-                    $key === 'username' ? 'USER' : ($key === 'name' ? 'NAME' : $key)
+                    $key === 'username' ? 'READONLY_DB_USER' : ($key === 'name' ? 'NAME' : $key)
                 );
             }
         }
@@ -191,8 +191,9 @@ if (!function_exists('supreme_wordpress_database_config')) {
             'driver' => 'mysql',
             'host' => supreme_database_env('WORDPRESS_DB_HOST', ''),
             'name' => supreme_database_env('WORDPRESS_DB_NAME', ''),
-            'username' => supreme_database_env('WORDPRESS_DB_USER', ''),
-            'password' => supreme_database_env('WORDPRESS_DB_PASSWORD'),
+            // Dedicated Hostinger account with SELECT-only grants; never use the site's own DB user.
+            'username' => supreme_database_env('WORDPRESS_READONLY_DB_USER', ''),
+            'password' => supreme_database_env('WORDPRESS_READONLY_DB_PASSWORD'),
             'port' => (int) supreme_database_env('WORDPRESS_DB_PORT', '3306'),
             'charset' => 'utf8mb4',
             'table_prefix' => supreme_database_env('WORDPRESS_TABLE_PREFIX', 'wp_'),
