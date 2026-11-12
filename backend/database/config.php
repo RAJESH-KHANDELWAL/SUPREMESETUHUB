@@ -163,7 +163,7 @@ if (!function_exists('supreme_identity_database_config')) {
         foreach (['host', 'name', 'username', 'password'] as $key) {
             if ($config[$key] === null || $config[$key] === '') {
                 $missing[] = $prefix . strtoupper(
-                    $key === 'username' ? 'READONLY_DB_USER' : ($key === 'name' ? 'NAME' : $key)
+                    $key === 'username' ? 'USER' : ($key === 'name' ? 'NAME' : $key)
                 );
             }
         }
@@ -208,9 +208,9 @@ if (!function_exists('supreme_wordpress_database_config')) {
         $missing = [];
         foreach (['host', 'name', 'username', 'password'] as $key) {
             if ($config[$key] === null || $config[$key] === '') {
-                $missing[] = 'WORDPRESS_DB_' . strtoupper(
-                    $key === 'username' ? 'USER' : ($key === 'name' ? 'NAME' : $key)
-                );
+                $missing[] = $key === 'username'
+                    ? 'WORDPRESS_READONLY_DB_USER'
+                    : 'WORDPRESS_DB_' . strtoupper($key === 'name' ? 'NAME' : $key);
             }
         }
 
