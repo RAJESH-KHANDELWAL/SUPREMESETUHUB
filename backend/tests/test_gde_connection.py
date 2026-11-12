@@ -59,6 +59,7 @@ def test_gde_config_requires_ca_when_ssl_is_required(monkeypatch):
     with pytest.raises(ValueError, match="GDE_DB_SSL_CA"):
         config.validate()
 
+
 def test_gde_config_allows_owner_designated_second_hostinger_database(monkeypatch):
     monkeypatch.setenv("WORDPRESS_DB_NAME", "primary_wordpress_db")
     monkeypatch.setenv("WORDPRESS_IBC_DB_NAME", "owner_selected_gde_db")
@@ -70,4 +71,3 @@ def test_gde_config_allows_owner_designated_second_hostinger_database(monkeypatc
         password="secret",
     )
     config.validate()
-
