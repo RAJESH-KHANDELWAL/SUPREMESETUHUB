@@ -1,0 +1,48 @@
+<?php
+declare(strict_types=1);
+
+require_once __DIR__ . '/config.php';
+
+/**
+ * MAIN BASE FOUNDATION — shared PDO connection factory.
+ * Requiring this file does not open a connection or modify any database.
+ */
+if (!function_exists('supreme_database_connect')) {
+    function supreme_database_connect(array $config): PDO
+    {
+        foreach (['host', 'database', 'username', 'password', 'port'] as $key) {
+            if (!array_key_exists($key, $config) || $config[$key] === null || $config[$key] === '') {
+                throw new InvalidArgumentException('Missing database connection field: ' . $key);
+            }
+        }
+
+        $dsn = sprintf(
+            'mysql:host=%s;port=%d;dbname=%s;charset=utf8mb4',
+            $config['host'],
+            (int) $config['port'],
+            $config['database']
+        );
+
+        $options = [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES => false,
+            PDO::ATTR_TIMEOUT => max(1, (int) ($config['connect_timeout'] ?? 10)),
+        ];
+
+        if (!empty($config['ssl_required'])) {
+            if (empty($config['ssl_ca']) || !is_readable($config['ssl_ca'])) {
+                throw new RuntimeException('A readable database TLS CA certificate is required.');
+            }
+            if (!defined('PDO::MYSQL_ATTR_SSL_CA')) {
+                throw new RuntimeException('PDO MySQL TLS support is unavailable in this PHP runtime.');
+            }
+            $options[constant('PDO::MYSQL_ATTR_SSL_CA')] = $config['ssl_ca'];
+            if (defined('PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT')) {
+                $options[constant('PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT')] = true;
+            }
+        }
+
+        return new PDO($dsn, (string) $config['username'], (string) $config['password'], $options);
+    }
+}
