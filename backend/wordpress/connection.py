@@ -7,6 +7,7 @@ It never imports a SQL dump or changes WordPress content.
 """
 from __future__ import annotations
 
+import hmac
 import os
 import re
 from dataclasses import dataclass
@@ -49,22 +50,28 @@ class WordPressConnectionConfig:
 
         host = clean(f"{prefix}_DB_HOST")
         name = clean(f"{prefix}_DB_NAME")
-        user = clean(f"{prefix}_DB_USER")
+        user = clean(f"{prefix}_READONLY_DB_USER")
+        primary_user = clean(f"{prefix}_PRIMARY_DB_USER")
         # Do not strip the password: spaces can be part of a valid secret.
-        password = os.getenv(f"{prefix}_DB_PASSWORD", "")
+        password = os.getenv(f"{prefix}_READONLY_DB_PASSWORD", "")
         port_text = clean(f"{prefix}_DB_PORT") or "3306"
         table_prefix = clean(f"{prefix}_TABLE_PREFIX") or "wp_"
 
         required = {
             f"{prefix}_DB_HOST": host,
             f"{prefix}_DB_NAME": name,
-            f"{prefix}_DB_USER": user,
-            f"{prefix}_DB_PASSWORD": password,
+            f"{prefix}_READONLY_DB_USER": user,
+            f"{prefix}_READONLY_DB_PASSWORD": password,
+            f"{prefix}_PRIMARY_DB_USER": primary_user,
         }
         missing = [key for key, value in required.items() if not value]
         if missing:
             raise RuntimeError(
                 "MISSING_WORDPRESS_DATABASE_SETTINGS: " + ", ".join(missing)
+            )
+        if hmac.compare_digest(user.casefold(), primary_user.casefold()):
+            raise ValueError(
+                f"{prefix}_READONLY_DB_USER_MUST_DIFFER_FROM_PRIMARY"
             )
 
         try:
@@ -100,12 +107,26 @@ class WordPressDatabaseConnection:
         self.config = config
         self.connection: Optional[Any] = None
 
+    @staticmethod
+    def _enable_read_only_session(connection: Any) -> None:
+        """Require every MySQL session to default transactions to read-only."""
+        cursor = None
+        try:
+            cursor = connection.cursor()
+            cursor.execute("SET SESSION TRANSACTION READ ONLY")
+        finally:
+            if cursor is not None:
+                cursor.close()
+
     def connect(self):
-        """Open or recover the configured connection."""
+        """Open or recover a connection and enforce its read-only session."""
         if self.connection is not None:
             try:
                 if self.connection.is_connected():
+                    # ping(reconnect=True) may transparently establish a new
+                    # session, so re-apply the read-only transaction policy.
                     self.connection.ping(reconnect=True, attempts=1, delay=0)
+                    self._enable_read_only_session(self.connection)
                     return self.connection
             except Exception:
                 try:
@@ -114,7 +135,7 @@ class WordPressDatabaseConnection:
                     pass
                 self.connection = None
 
-        self.connection = mysql.connector.connect(
+        connection = mysql.connector.connect(
             host=self.config.database_host,
             port=self.config.database_port,
             database=self.config.database_name,
@@ -126,6 +147,16 @@ class WordPressDatabaseConnection:
             use_unicode=True,
             autocommit=True,
         )
+        try:
+            self._enable_read_only_session(connection)
+        except Exception:
+            try:
+                connection.close()
+            except Exception:
+                pass
+            raise
+
+        self.connection = connection
         return self.connection
 
     def disconnect(self) -> None:

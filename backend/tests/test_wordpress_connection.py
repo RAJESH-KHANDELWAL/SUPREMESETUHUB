@@ -11,15 +11,16 @@ from backend.wordpress.connection import (
 def set_db_env(monkeypatch, prefix="WORDPRESS"):
     monkeypatch.setenv(f"{prefix}_DB_HOST", "mysql.example.test")
     monkeypatch.setenv(f"{prefix}_DB_NAME", "wordpress_db")
-    monkeypatch.setenv(f"{prefix}_DB_USER", "wordpress_reader")
-    monkeypatch.setenv(f"{prefix}_DB_PASSWORD", "test-password")
+    monkeypatch.setenv(f"{prefix}_READONLY_DB_USER", "wordpress_reader")
+    monkeypatch.setenv(f"{prefix}_READONLY_DB_PASSWORD", "test-password")
+    monkeypatch.setenv(f"{prefix}_PRIMARY_DB_USER", "wordpress_application")
     monkeypatch.setenv(f"{prefix}_DB_PORT", "3306")
     monkeypatch.setenv(f"{prefix}_TABLE_PREFIX", "wp_")
 
 
 def test_config_reads_private_environment_without_changing_password(monkeypatch):
     set_db_env(monkeypatch)
-    monkeypatch.setenv("WORDPRESS_DB_PASSWORD", " password with spaces ")
+    monkeypatch.setenv("WORDPRESS_READONLY_DB_PASSWORD", " password with spaces ")
 
     config = WordPressConnectionConfig.from_environment(
         "rajeshkhandelwalofficial",
@@ -30,6 +31,7 @@ def test_config_reads_private_environment_without_changing_password(monkeypatch)
     assert config.database_host == "mysql.example.test"
     assert config.database_name == "wordpress_db"
     assert config.database_password == " password with spaces "
+    assert config.database_user == "wordpress_reader"
     assert config.table_prefix == "wp_"
     assert config.ssl_enabled is True
 
@@ -39,6 +41,22 @@ def test_config_rejects_unknown_environment_prefix(monkeypatch):
     with pytest.raises(ValueError, match="WORDPRESS_ENVIRONMENT_PREFIX_NOT_ALLOWED"):
         WordPressConnectionConfig.from_environment(
             "unknown", "example.test", "UNTRUSTED_PREFIX"
+        )
+
+
+def test_config_rejects_primary_application_database_user(monkeypatch):
+    set_db_env(monkeypatch)
+    monkeypatch.setenv("WORDPRESS_READONLY_DB_USER", "WordPress_Application")
+    monkeypatch.setenv("WORDPRESS_PRIMARY_DB_USER", "wordpress_application")
+
+    with pytest.raises(
+        ValueError,
+        match="WORDPRESS_READONLY_DB_USER_MUST_DIFFER_FROM_PRIMARY",
+    ):
+        WordPressConnectionConfig.from_environment(
+            "rajeshkhandelwalofficial",
+            "rajeshkhandelwalofficial.com",
+            "WORDPRESS",
         )
 
 
@@ -58,8 +76,9 @@ def test_config_reports_missing_environment_names_only(monkeypatch):
     for name in (
         "WORDPRESS_DB_HOST",
         "WORDPRESS_DB_NAME",
-        "WORDPRESS_DB_USER",
-        "WORDPRESS_DB_PASSWORD",
+        "WORDPRESS_READONLY_DB_USER",
+        "WORDPRESS_READONLY_DB_PASSWORD",
+        "WORDPRESS_PRIMARY_DB_USER",
     ):
         monkeypatch.delenv(name, raising=False)
 
@@ -72,7 +91,8 @@ def test_config_reports_missing_environment_names_only(monkeypatch):
 
 
 class FakeCursor:
-    def __init__(self):
+    def __init__(self, connection=None):
+        self.connection = connection
         self.last_query = ""
         self.last_params = None
         self.closed = False
@@ -80,6 +100,8 @@ class FakeCursor:
     def execute(self, query, params=None):
         self.last_query = query
         self.last_params = params
+        if self.connection is not None:
+            self.connection.queries.append(query)
 
     def fetchone(self):
         if "information_schema.tables" in self.last_query:
@@ -92,7 +114,8 @@ class FakeCursor:
 
 class FakeConnection:
     def __init__(self):
-        self.cursor_instance = FakeCursor()
+        self.queries = []
+        self.cursor_instance = FakeCursor(self)
         self.closed = False
 
     def is_connected(self):
@@ -117,6 +140,46 @@ def test_health_uses_safe_select_and_closes_cursor(monkeypatch):
     )
     connection = WordPressDatabaseConnection(config)
     fake = FakeConnection()
+    connect_kwargs = {}
+    def fake_connect(**kwargs):
+        connect_kwargs.update(kwargs)
+        return fake
+    monkeypatch.setattr(
+        "backend.wordpress.connection.mysql.connector.connect",
+        fake_connect,
+    )
+
+    result = connection.health()
+
+    assert result["success"] is True
+    assert result["status"] == "CONNECTED"
+    assert fake.queries == ["SET SESSION TRANSACTION READ ONLY", "SELECT 1"]
+    assert fake.cursor_instance.closed is True
+    assert connect_kwargs["user"] == "wordpress_reader"
+    assert connect_kwargs["password"] == "test-password"
+
+
+def test_connection_fails_closed_if_read_only_session_cannot_be_enabled(monkeypatch):
+    set_db_env(monkeypatch)
+    config = WordPressConnectionConfig.from_environment(
+        "rajeshkhandelwalofficial",
+        "rajeshkhandelwalofficial.com",
+        "WORDPRESS",
+    )
+    connection = WordPressDatabaseConnection(config)
+
+    class RejectReadOnlyCursor(FakeCursor):
+        def execute(self, query, params=None):
+            if query == "SET SESSION TRANSACTION READ ONLY":
+                raise RuntimeError("read-only mode unavailable")
+            super().execute(query, params)
+
+    class RejectReadOnlyConnection(FakeConnection):
+        def __init__(self):
+            super().__init__()
+            self.cursor_instance = RejectReadOnlyCursor(self)
+
+    fake = RejectReadOnlyConnection()
     monkeypatch.setattr(
         "backend.wordpress.connection.mysql.connector.connect",
         lambda **kwargs: fake,
@@ -124,10 +187,10 @@ def test_health_uses_safe_select_and_closes_cursor(monkeypatch):
 
     result = connection.health()
 
-    assert result["success"] is True
-    assert result["status"] == "CONNECTED"
-    assert fake.cursor_instance.last_query == "SELECT 1"
-    assert fake.cursor_instance.closed is True
+    assert result["success"] is False
+    assert result["status"] == "CONNECTION_FAILED"
+    assert fake.closed is True
+    assert connection.connection is None
 
 
 def test_table_check_uses_parameterized_schema_queries(monkeypatch):
