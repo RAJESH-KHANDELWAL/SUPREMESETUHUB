@@ -69,5 +69,6 @@ def test_gde_config_allows_owner_designated_second_hostinger_database(monkeypatc
         database="owner_selected_gde_db",
         username="gde_user",
         password="secret",
+        ssl_required=False,
     )
     config.validate()
