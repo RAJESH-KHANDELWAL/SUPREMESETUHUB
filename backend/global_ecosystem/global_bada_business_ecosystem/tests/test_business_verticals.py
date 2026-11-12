@@ -1,8 +1,9 @@
 import unittest
 
-from global_bada_business_ecosystem.business_verticals import (
+from backend.global_ecosystem.global_bada_business_ecosystem.business_verticals import (
     get_vertical, list_verticals, search_verticals, validate_adult_business_record,
 )
+
 
 class BusinessVerticalTests(unittest.TestCase):
     def test_catalog_has_broad_verticals(self):
@@ -30,6 +31,7 @@ class BusinessVerticalTests(unittest.TestCase):
             "jurisdiction_reviewed": True,
         }
         self.assertEqual(validate_adult_business_record(record), [])
+
 
 if __name__ == "__main__":
     unittest.main()
