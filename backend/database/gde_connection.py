@@ -67,6 +67,11 @@ class SupremeDatabaseConfig:
             raise ValueError("SUPREME_DB_PORT must be between 1 and 65535")
         if self.connect_timeout < 1:
             raise ValueError("SUPREME_DB_CONNECT_TIMEOUT must be positive")
+        wordpress_database = os.getenv("WORDPRESS_DB_NAME", "").strip()
+        if wordpress_database and self.database.casefold() == wordpress_database.casefold():
+            raise ValueError(
+                "The central SUPREME_DB_NAME must not be the primary WordPress database."
+            )
         if self.ssl_required and not self.ssl_ca:
             raise ValueError("SUPREME_DB_SSL_REQUIRED is enabled; set SUPREME_DB_SSL_CA.")
 

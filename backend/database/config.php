@@ -178,6 +178,57 @@ if (!function_exists('supreme_identity_database_config')) {
     }
 }
 
+
+if (!function_exists('supreme_wordpress_database_config')) {
+    /**
+     * Build the separate connection config for the existing WordPress database.
+     * This is intentionally separate from the SUPREMESETUHUB central database.
+     */
+    function supreme_wordpress_database_config(): array
+    {
+        $config = [
+            'identity' => 'WORDPRESS',
+            'driver' => 'mysql',
+            'host' => supreme_database_env('WORDPRESS_DB_HOST', ''),
+            'name' => supreme_database_env('WORDPRESS_DB_NAME', ''),
+            'username' => supreme_database_env('WORDPRESS_DB_USER', ''),
+            'password' => supreme_database_env('WORDPRESS_DB_PASSWORD'),
+            'port' => (int) supreme_database_env('WORDPRESS_DB_PORT', '3306'),
+            'charset' => 'utf8mb4',
+            'table_prefix' => supreme_database_env('WORDPRESS_TABLE_PREFIX', 'wp_'),
+            'connect_timeout' => (int) supreme_database_env('WORDPRESS_DB_CONNECT_TIMEOUT', '10'),
+            'ssl_required' => filter_var(
+                supreme_database_env('WORDPRESS_DB_SSL_ENABLED', 'false'),
+                FILTER_VALIDATE_BOOLEAN
+            ),
+            'ssl_ca' => supreme_database_env('WORDPRESS_DB_SSL_CA'),
+        ];
+
+        $missing = [];
+        foreach (['host', 'name', 'username', 'password'] as $key) {
+            if ($config[$key] === null || $config[$key] === '') {
+                $missing[] = 'WORDPRESS_DB_' . strtoupper(
+                    $key === 'username' ? 'USER' : ($key === 'name' ? 'NAME' : $key)
+                );
+            }
+        }
+
+        if ($config['port'] < 1 || $config['port'] > 65535) {
+            $missing[] = 'WORDPRESS_DB_PORT_INVALID';
+        }
+        if ($config['connect_timeout'] < 1) {
+            $missing[] = 'WORDPRESS_DB_CONNECT_TIMEOUT_INVALID';
+        }
+        if ($config['ssl_required'] && !$config['ssl_ca']) {
+            $missing[] = 'WORDPRESS_DB_SSL_CA';
+        }
+
+        $config['missing_settings'] = $missing;
+        $config['configured'] = $missing === [];
+        return $config;
+    }
+}
+
 /**
  * Return the central foundation and all four dedicated identity databases.
  * Database names and credentials for the four gates are intentionally not
@@ -246,6 +297,9 @@ if (!function_exists('supreme_main_foundation_config')) {
 
             // All five databases, keyed by their exact identity.
             'databases' => $identityDatabases,
+
+            // Existing WordPress database remains separate from the central database.
+            'wordpress_database' => supreme_wordpress_database_config(),
 
             // Four identity gates remain governed by the central foundation.
             'gates' => [
