@@ -22,11 +22,16 @@ declare(strict_types=1);
 if (!function_exists('supreme_database_private_config_path')) {
     function supreme_database_private_config_path(): ?string
     {
+        // Optional explicit override (for hosting environments that support it).
         $configured = getenv('SUPREME_DB_PRIVATE_CONFIG');
         if ($configured !== false && trim($configured) !== '') {
             return trim($configured);
         }
-        return null;
+
+        // Default for: public_html/backend/database/config.php
+        // Place supreme-db-private.php one level above public_html.
+        $defaultPath = dirname(__DIR__, 3) . DIRECTORY_SEPARATOR . 'supreme-db-private.php';
+        return $defaultPath;
     }
 }
 
