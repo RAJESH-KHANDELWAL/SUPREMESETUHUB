@@ -63,14 +63,11 @@ class GDEDatabaseConfig:
         if self.connect_timeout < 1:
             raise ValueError("GDE_DB_CONNECT_TIMEOUT must be positive")
 
-        wordpress_databases = {
-            os.getenv("WORDPRESS_DB_NAME", "").strip(),
-            os.getenv("WORDPRESS_IBC_DB_NAME", "").strip(),
-        } - {""}
-        if self.database in wordpress_databases:
+        primary_wordpress_database = os.getenv("WORDPRESS_DB_NAME", "").strip()
+        if primary_wordpress_database and self.database == primary_wordpress_database:
             raise ValueError(
-                "GDE_DB_NAME must be a separate database; WordPress databases "
-                "are protected and cannot be selected as the GDE database."
+                "GDE_DB_NAME must not point to the primary WordPress database. "
+                "The owner-designated second Hostinger database may be used for GDE."
             )
         if self.ssl_required and not self.ssl_ca:
             raise ValueError(
