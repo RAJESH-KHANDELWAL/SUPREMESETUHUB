@@ -11,6 +11,7 @@ from .model import (
     DatabaseSchemaInfo,
 )
 from .service import DatabaseService
+from .gde_connection import GDEDatabaseConfig, GDEDatabaseConnection
 from .wordpress_registry import WordPressDatabaseRegistry
 from .cultural_knowledge_repository import CulturalKnowledgeRepository
 
@@ -22,6 +23,8 @@ __all__ = [
     "DatabaseTableInfo",
     "DatabaseSchemaInfo",
     "DatabaseService",
+    "GDEDatabaseConfig",
+    "GDEDatabaseConnection",
     "WordPressDatabaseRegistry",
     "WordPressDatabaseConnection",
     "CulturalKnowledgeRepository",
