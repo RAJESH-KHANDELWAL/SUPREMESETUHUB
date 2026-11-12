@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 require_once dirname(__DIR__, 2) . '/database.php';
-require_once __DIR__ . '/gde-database-config.php';
+require_once __DIR__ . '/gde-database.php';
 
 /** Generic database entry point within Global Database Ecosystem. */
 if (!function_exists('global_database_ecosystem_database')) {
