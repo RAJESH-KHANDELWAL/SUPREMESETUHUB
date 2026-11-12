@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace SupremeSetuHub\\GlobalEcosystem\\PHP\\BadaBusiness;
+namespace SupremeSetuHub\GlobalEcosystem\PHP\BadaBusiness;
 
 /**
  * Read-only PHP adapter for the Bada Business resource catalog.
