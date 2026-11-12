@@ -25,3 +25,53 @@ services:
         sync: false
       - key: GALLERY_WOULT_MAX_UPLOAD_BYTES
         value: "104857600"
+
+      # Primary WordPress site: rajeshkhandelwalofficial.com
+      # Public site metadata is declared here; credentials remain private.
+      - key: WORDPRESS_SITE_URL
+        value: "https://rajeshkhandelwalofficial.com"
+      - key: WORDPRESS_DB_NAME
+        value: "u664492673_hRjtu"
+      - key: WORDPRESS_DB_PORT
+        value: "3306"
+      - key: WORDPRESS_TABLE_PREFIX
+        value: "wp_"
+      - key: WORDPRESS_DB_SSL_ENABLED
+        value: "true"
+      - key: WORDPRESS_DB_HOST
+        sync: false
+      - key: WORDPRESS_READONLY_DB_USER
+        sync: false
+      - key: WORDPRESS_READONLY_DB_PASSWORD
+        sync: false
+      - key: WORDPRESS_PRIMARY_DB_USER
+        sync: false
+      - key: WORDPRESS_USERNAME
+        sync: false
+      - key: WORDPRESS_APPLICATION_PASSWORD
+        sync: false
+
+      # Second WordPress site: drrajeshkhandelwalibc.com
+      # Uses its own database and its own private credentials.
+      - key: WORDPRESS_IBC_SITE_URL
+        value: "https://drrajeshkhandelwalibc.com"
+      - key: WORDPRESS_IBC_DB_NAME
+        value: "u664492673_MzL97"
+      - key: WORDPRESS_IBC_DB_PORT
+        value: "3306"
+      - key: WORDPRESS_IBC_TABLE_PREFIX
+        value: "wp_"
+      - key: WORDPRESS_IBC_DB_SSL_ENABLED
+        value: "true"
+      - key: WORDPRESS_IBC_DB_HOST
+        sync: false
+      - key: WORDPRESS_IBC_READONLY_DB_USER
+        sync: false
+      - key: WORDPRESS_IBC_READONLY_DB_PASSWORD
+        sync: false
+      - key: WORDPRESS_IBC_PRIMARY_DB_USER
+        sync: false
+      - key: WORDPRESS_IBC_USERNAME
+        sync: false
+      - key: WORDPRESS_IBC_APPLICATION_PASSWORD
+        sync: false
