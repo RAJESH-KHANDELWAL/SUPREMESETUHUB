@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace SupremeSetuHub\\GlobalEcosystem\\PHP;
+namespace SupremeSetuHub\GlobalEcosystem\PHP;
 
 final class GlobalAlgorithmKernel
 {
@@ -25,7 +25,7 @@ final class GlobalAlgorithmKernel
             JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRESERVE_ZERO_FRACTION
         );
         if ($json === false) {
-            throw new \\InvalidArgumentException('Canonical JSON encoding failed: ' . json_last_error_msg());
+            throw new \InvalidArgumentException('Canonical JSON encoding failed: ' . json_last_error_msg());
         }
         return $json;
     }
@@ -33,7 +33,7 @@ final class GlobalAlgorithmKernel
     public static function stableHash(mixed $value, string $algorithm = 'sha256'): string
     {
         if (!in_array($algorithm, hash_algos(), true)) {
-            throw new \\InvalidArgumentException('Unsupported hash algorithm.');
+            throw new \InvalidArgumentException('Unsupported hash algorithm.');
         }
         return hash($algorithm, self::canonicalJson($value));
     }
@@ -41,7 +41,7 @@ final class GlobalAlgorithmKernel
     public static function paginate(array $items, int $page = 1, int $perPage = 25, int $maxPerPage = 100): array
     {
         if ($page < 1 || $perPage < 1 || $maxPerPage < 1) {
-            throw new \\InvalidArgumentException('Page and page-size values must be positive.');
+            throw new \InvalidArgumentException('Page and page-size values must be positive.');
         }
         $perPage = min($perPage, $maxPerPage);
         $total = count($items);
@@ -57,7 +57,7 @@ final class GlobalAlgorithmKernel
     public static function retryDelaySeconds(int $attempt, int $baseSeconds = 1, int $maxSeconds = 60): int
     {
         if ($attempt < 1 || $baseSeconds < 0 || $maxSeconds < 0) {
-            throw new \\InvalidArgumentException('Invalid retry delay parameters.');
+            throw new \InvalidArgumentException('Invalid retry delay parameters.');
         }
         return min($maxSeconds, $baseSeconds * (2 ** min($attempt - 1, 30)));
     }
@@ -88,7 +88,7 @@ final class GlobalAlgorithmKernel
         }
         if (!is_array($value)) {
             if (is_resource($value)) {
-                throw new \\InvalidArgumentException('Resources cannot be serialized.');
+                throw new \InvalidArgumentException('Resources cannot be serialized.');
             }
             return $value;
         }
