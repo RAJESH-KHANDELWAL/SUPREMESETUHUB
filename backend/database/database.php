@@ -118,9 +118,14 @@ if (!function_exists('supreme_wordpress_database_connection')) {
             return $connection;
         }
 
-        $connection = supreme_database_connect(
-            supreme_wordpress_database_connection_config()
-        );
+        $config = supreme_wordpress_database_connection_config();
+        $connection = supreme_database_connect($config);
+
+        // Defense in depth: subsequent transactions default to read-only.
+        // Hostinger must still grant this account SELECT only; session mode
+        // does not replace database-level least-privilege permissions.
+        $connection->exec('SET SESSION TRANSACTION READ ONLY');
+
         return $connection;
     }
 }
