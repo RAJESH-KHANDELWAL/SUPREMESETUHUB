@@ -189,9 +189,9 @@ if (!function_exists('supreme_wordpress_database_config')) {
         $config = [
             'identity' => 'WORDPRESS',
             'driver' => 'mysql',
-            'host' => supreme_database_env('WORDPRESS_DB_HOST', '127.0.0.1'),
-            'name' => supreme_database_env('WORDPRESS_DB_NAME', 'u664492673_hRjtu'),
-            'username' => supreme_database_env('WORDPRESS_DB_USER', 'u664492673_ZkUpR'),
+            'host' => supreme_database_env('WORDPRESS_DB_HOST', ''),
+            'name' => supreme_database_env('WORDPRESS_DB_NAME', ''),
+            'username' => supreme_database_env('WORDPRESS_DB_USER', ''),
             'password' => supreme_database_env('WORDPRESS_DB_PASSWORD'),
             'port' => (int) supreme_database_env('WORDPRESS_DB_PORT', '3306'),
             'charset' => 'utf8mb4',
