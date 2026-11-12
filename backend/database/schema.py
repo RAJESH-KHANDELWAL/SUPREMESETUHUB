@@ -35,6 +35,7 @@ class DatabaseSchema:
         "users",
         "customers",
         "freelancer",
+        "tenancy",
     )
 
     # ==========================================================
@@ -78,6 +79,68 @@ class DatabaseSchema:
             created_at TEXT DEFAULT CURRENT_TIMESTAMP,
 
             updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+        )
+        """,
+
+        # ======================================================
+        # CENTRAL MULTI-TENANT SPACES AND WEBSITE GATES
+        # ======================================================
+
+        "tenants": """
+        CREATE TABLE IF NOT EXISTS tenants (
+            tenant_id TEXT PRIMARY KEY,
+            tenant_name TEXT NOT NULL,
+            tenant_type TEXT NOT NULL DEFAULT 'BUSINESS',
+            owner_user_id TEXT NOT NULL,
+            status TEXT NOT NULL DEFAULT 'ACTIVE',
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+        )
+        """,
+
+        "tenant_site_bindings": """
+        CREATE TABLE IF NOT EXISTS tenant_site_bindings (
+            tenant_id TEXT NOT NULL,
+            site_id TEXT NOT NULL,
+            gate_count INTEGER NOT NULL CHECK (gate_count IN (1, 2, 4)),
+            status TEXT NOT NULL DEFAULT 'ACTIVE',
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (tenant_id, site_id),
+            FOREIGN KEY (tenant_id) REFERENCES tenants(tenant_id) ON DELETE CASCADE
+        )
+        """,
+
+        "tenant_memberships": """
+        CREATE TABLE IF NOT EXISTS tenant_memberships (
+            tenant_id TEXT NOT NULL,
+            site_id TEXT NOT NULL,
+            user_id TEXT NOT NULL,
+            gate_level INTEGER NOT NULL CHECK (gate_level BETWEEN 1 AND 4),
+            member_role TEXT NOT NULL DEFAULT 'MEMBER',
+            status TEXT NOT NULL DEFAULT 'ACTIVE',
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (tenant_id, site_id, user_id),
+            FOREIGN KEY (tenant_id, site_id)
+                REFERENCES tenant_site_bindings(tenant_id, site_id) ON DELETE CASCADE
+        )
+        """,
+
+        "tenant_records": """
+        CREATE TABLE IF NOT EXISTS tenant_records (
+            record_id TEXT PRIMARY KEY,
+            tenant_id TEXT NOT NULL,
+            site_id TEXT NOT NULL,
+            domain_key TEXT NOT NULL,
+            record_type TEXT NOT NULL,
+            min_gate INTEGER NOT NULL CHECK (min_gate BETWEEN 1 AND 4),
+            payload_json TEXT NOT NULL,
+            created_by TEXT NOT NULL,
+            status TEXT NOT NULL DEFAULT 'ACTIVE',
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (tenant_id, site_id)
+                REFERENCES tenant_site_bindings(tenant_id, site_id) ON DELETE CASCADE
         )
         """,
 
