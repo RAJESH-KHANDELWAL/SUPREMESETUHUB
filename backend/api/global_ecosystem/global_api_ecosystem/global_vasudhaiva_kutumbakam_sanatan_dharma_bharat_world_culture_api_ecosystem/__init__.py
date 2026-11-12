@@ -6,6 +6,7 @@ authentication and payments) remains in its separately owned architecture.
 """
 from .domain import CULTURAL_PILLARS, CULTURAL_AREAS, CulturalResource
 from .governance import assess_publication
+from .routes import router
 from .knowledge import (
     KNOWLEDGE_ID,
     CORE_IDEA as VASUDHAIVA_CORE_IDEA,
@@ -65,5 +66,5 @@ __all__ = [
     "assess_publication", "KNOWLEDGE_ID", "VASUDHAIVA_CORE_IDEA",
     "VASUDHAIVA_PRIMARY_TEXT", "VASUDHAIVA_HISTORICAL_QUESTIONS",
     "get_core_idea", "get_primary_text", "answer_historical_question",
-    "get_complete_knowledge", "search_knowledge", "CULTURAL_DOMAINS",
+    "get_complete_knowledge", "search_knowledge", "CULTURAL_DOMAINS", "router",
 ]
