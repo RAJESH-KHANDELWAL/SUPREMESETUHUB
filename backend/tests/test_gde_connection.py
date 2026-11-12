@@ -1,74 +1,73 @@
-"""Tests for the isolated Global Database Ecosystem DB configuration."""
+"""Compatibility tests for the central SUPREMESETUHUB database config."""
 import pytest
 
-from backend.database.gde_connection import GDEDatabaseConfig
+from backend.database.gde_connection import GDEDatabaseConfig, SupremeDatabaseConfig
 
 
-def test_gde_config_loads_only_gde_environment(monkeypatch):
-    monkeypatch.setenv("GDE_DB_HOST", "db.example.test")
-    monkeypatch.setenv("GDE_DB_NAME", "global_data")
-    monkeypatch.setenv("GDE_DB_USER", "gde_user")
-    monkeypatch.setenv("GDE_DB_PASSWORD", "not-a-real-password")
-    monkeypatch.setenv("GDE_DB_SSL_REQUIRED", "false")
-    monkeypatch.setenv("WORDPRESS_DB_HOST", "wordpress.example.test")
-    monkeypatch.setenv("WORDPRESS_DB_NAME", "wordpress_db")
+def test_legacy_gde_name_is_alias_for_central_config():
+    assert GDEDatabaseConfig is SupremeDatabaseConfig
+
+
+def test_config_loads_only_central_environment(monkeypatch):
+    monkeypatch.setenv("SUPREME_DB_HOST", "db.example.test")
+    monkeypatch.setenv("SUPREME_DB_NAME", "supreme_main")
+    monkeypatch.setenv("SUPREME_DB_USER", "supreme_user")
+    monkeypatch.setenv("SUPREME_DB_PASSWORD", "not-a-real-password")
+    monkeypatch.setenv("SUPREME_DB_SSL_REQUIRED", "false")
+    monkeypatch.setenv("GDE_DB_HOST", "ignored.example.test")
+    monkeypatch.setenv("GDE_DB_NAME", "legacy_gde_db")
+    monkeypatch.setenv("GDE_DB_USER", "legacy_gde_user")
+    monkeypatch.setenv("GDE_DB_PASSWORD", "ignored-password")
+
     config = GDEDatabaseConfig.from_environment()
     config.validate()
+
     assert config.host == "db.example.test"
-    assert config.database == "global_data"
-    assert config.username == "gde_user"
+    assert config.database == "supreme_main"
+    assert config.username == "supreme_user"
 
 
-def test_gde_config_rejects_wordpress_database(monkeypatch):
+def test_config_rejects_wordpress_database(monkeypatch):
     monkeypatch.setenv("WORDPRESS_DB_NAME", "wordpress_db")
-    monkeypatch.setenv("GDE_DB_SSL_REQUIRED", "false")
-    config = GDEDatabaseConfig(
+    config = SupremeDatabaseConfig(
         host="db.example.test",
         database="wordpress_db",
-        username="gde_user",
+        username="supreme_user",
         password="secret",
     )
     with pytest.raises(ValueError, match="primary WordPress database"):
         config.validate()
 
 
-def test_gde_config_requires_own_credentials(monkeypatch):
-    for key in (
-        "GDE_DB_HOST",
-        "GDE_DB_NAME",
-        "GDE_DB_USER",
-        "GDE_DB_PASSWORD",
-    ):
+def test_config_requires_central_credentials(monkeypatch):
+    for key in ("SUPREME_DB_HOST", "SUPREME_DB_PASSWORD"):
         monkeypatch.delenv(key, raising=False)
-    monkeypatch.setenv("GDE_DB_SSL_REQUIRED", "false")
-    config = GDEDatabaseConfig.from_environment()
-    with pytest.raises(ValueError, match="Missing GDE database settings"):
+    config = SupremeDatabaseConfig.from_environment()
+    with pytest.raises(ValueError, match="Missing central database settings"):
         config.validate()
 
 
-def test_gde_config_requires_ca_when_ssl_is_required(monkeypatch):
-    monkeypatch.setenv("GDE_DB_SSL_REQUIRED", "true")
-    config = GDEDatabaseConfig(
+def test_config_requires_ca_when_ssl_is_required():
+    config = SupremeDatabaseConfig(
         host="db.example.test",
-        database="global_data",
-        username="gde_user",
+        database="supreme_main",
+        username="supreme_user",
         password="secret",
         ssl_required=True,
         ssl_ca=None,
     )
-    with pytest.raises(ValueError, match="GDE_DB_SSL_CA"):
+    with pytest.raises(ValueError, match="SUPREME_DB_SSL_CA"):
         config.validate()
 
 
-def test_gde_config_allows_owner_designated_second_hostinger_database(monkeypatch):
+def test_central_database_can_be_separate_from_wordpress_database(monkeypatch):
     monkeypatch.setenv("WORDPRESS_DB_NAME", "primary_wordpress_db")
-    monkeypatch.setenv("WORDPRESS_IBC_DB_NAME", "owner_selected_gde_db")
-    monkeypatch.setenv("GDE_DB_SSL_REQUIRED", "false")
-    config = GDEDatabaseConfig(
+    config = SupremeDatabaseConfig(
         host="db.example.test",
-        database="owner_selected_gde_db",
-        username="gde_user",
+        database="supreme_main_db",
+        username="supreme_user",
         password="secret",
         ssl_required=False,
     )
     config.validate()
+    assert config.database != "primary_wordpress_db"
