@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace SupremeSetuHub\\GlobalEcosystem\\PHP;
+namespace SupremeSetuHub\GlobalEcosystem\PHP;
 
 final class GlobalAlgorithmKernel
 {
