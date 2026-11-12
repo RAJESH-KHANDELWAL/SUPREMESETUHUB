@@ -120,10 +120,10 @@ if (!function_exists('supreme_main_foundation_config')) {
             'architecture' => 'ONE_DATABASE_ONE_PRIMARY_FOUR_IDENTITY_GATES',
             'primary_identity' => 'SUPREMESETUHUB',
             'identity_gates' => [
-                'RAJESHKHANDELWOFFICIAL',
-                'RAJESHKHANDELW',
-                'DRRAJESHKHANDELWIBCOFFICIAL',
-                'DRRAJESHKHANDELWIBC',
+                'RAJESHKHANDELWALOFFICIAL',
+                'RAJESHKHANDELWAL',
+                'DRRAJESHKHANDELWALIBCOFFICIAL',
+                'DRRAJESHKHANDELWALIBC',
             ],
             'identities' => $identities,
 
