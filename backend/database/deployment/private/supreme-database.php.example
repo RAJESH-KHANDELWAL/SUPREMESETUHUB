@@ -1,0 +1,19 @@
+<?php
+declare(strict_types=1);
+
+/**
+ * PRIVATE TEMPLATE ONLY.
+ * Copy this file to a directory OUTSIDE public_html, rename it
+ * supreme-database.php, and enter the real values there.
+ * Never upload the completed private file to GitHub or public_html.
+ */
+return [
+    'SUPREME_DB_HOST' => 'YOUR_EXACT_HOSTINGER_MYSQL_HOST',
+    'SUPREME_DB_PORT' => '3306',
+    'SUPREME_DB_NAME' => 'u664492673_SUPREMESETUHUB',
+    'SUPREME_DB_USER' => 'u664492673_SUPREMESETUHUB',
+    'SUPREME_DB_PASSWORD' => 'SET_YOUR_DATABASE_PASSWORD_PRIVATELY',
+    'SUPREME_DB_CONNECT_TIMEOUT' => '10',
+    'SUPREME_DB_SSL_REQUIRED' => 'false',
+    'SUPREME_DB_SSL_CA' => '',
+];
