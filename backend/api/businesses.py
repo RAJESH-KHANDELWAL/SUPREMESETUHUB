@@ -8,6 +8,7 @@ from uuid import uuid4
 from fastapi import APIRouter, Depends, HTTPException
 
 from backend.businesses.controller import BusinessController
+from backend.businesses.service import BusinessService
 from backend.schemas.business import BusinessCreateRequest, BusinessStatusRequest
 from backend.security.dependencies import get_current_user
 from backend.supreme.role_governance import role_governance_catalog
