@@ -17,10 +17,10 @@ from pymysql.connections import Connection
 
 PRIMARY_IDENTITY = "SUPREMESETUHUB"
 IDENTITY_GATES = (
-    "RAJESHKHANDELWOFFICIAL",
-    "RAJESHKHANDELW",
-    "DRRAJESHKHANDELWIBCOFFICIAL",
-    "DRRAJESHKHANDELWIBC",
+    "RAJESHKHANDELWALOFFICIAL",
+    "RAJESHKHANDELWAL",
+    "DRRAJESHKHANDELWALIBCOFFICIAL",
+    "DRRAJESHKHANDELWALIBC",
 )
 IDENTITIES = (PRIMARY_IDENTITY, *IDENTITY_GATES)
 
@@ -45,7 +45,7 @@ class SupremeDatabaseConfig:
             database=os.getenv("SUPREME_DB_NAME", "u664492673_SUPREMESETUHUB").strip(),
             username=os.getenv("SUPREME_DB_USER", "u664492673_SUPREMESETUHUB").strip(),
             password=os.getenv("SUPREME_DB_PASSWORD", ""),
-            port=int(os.getenv("SUPREME_DB_PORT", "2468")),
+            port=int(os.getenv("SUPREME_DB_PORT", "3306")),
             connect_timeout=int(os.getenv("SUPREME_DB_CONNECT_TIMEOUT", "10")),
             ssl_ca=os.getenv("SUPREME_DB_SSL_CA", "").strip() or None,
             ssl_required=os.getenv("SUPREME_DB_SSL_REQUIRED", "false").lower()

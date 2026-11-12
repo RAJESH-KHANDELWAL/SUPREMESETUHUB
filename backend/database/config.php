@@ -3,17 +3,41 @@ declare(strict_types=1);
 
 /**
  * MAIN BASE FOUNDATION — shared database configuration helpers.
- * Secrets are read from the runtime environment, never from source files.
+ * Secrets are loaded from environment variables or a private PHP config file
+ * located outside the public web root. Never commit real credentials.
  */
+
+$privateConfigPath = supreme_database_private_config_path();
+if ($privateConfigPath !== null && is_file($privateConfigPath)) {
+    $privateConfig = require $privateConfigPath;
+    if (is_array($privateConfig)) {
+        $GLOBALS['SUPREME_DB_PRIVATE_VALUES'] = $privateConfig;
+    }
+}
+
+if (!function_exists('supreme_database_private_config_path')) {
+    function supreme_database_private_config_path(): ?string
+    {
+        $configured = getenv('SUPREME_DB_PRIVATE_CONFIG');
+        if ($configured !== false && trim($configured) !== '') {
+            return trim($configured);
+        }
+        return null;
+    }
+}
 
 if (!function_exists('supreme_database_env')) {
     function supreme_database_env(string $name, ?string $default = null): ?string
     {
         $value = getenv($name);
-        if ($value === false || trim($value) === '') {
-            return $default;
+        if ($value !== false && trim($value) !== '') {
+            return trim($value);
         }
-        return trim($value);
+        $private = $GLOBALS['SUPREME_DB_PRIVATE_VALUES'] ?? [];
+        if (is_array($private) && isset($private[$name]) && trim((string) $private[$name]) !== '') {
+            return trim((string) $private[$name]);
+        }
+        return $default;
     }
 }
 
@@ -85,10 +109,10 @@ if (!function_exists('supreme_main_foundation_config')) {
     {
         $identities = [
             'SUPREMESETUHUB',
-            'RAJESHKHANDELWOFFICIAL',
-            'RAJESHKHANDELW',
-            'DRRAJESHKHANDELWIBCOFFICIAL',
-            'DRRAJESHKHANDELWIBC',
+            'RAJESHKHANDELWALOFFICIAL',
+            'RAJESHKHANDELWAL',
+            'DRRAJESHKHANDELWALIBCOFFICIAL',
+            'DRRAJESHKHANDELWALIBC',
         ];
 
         return [
@@ -115,7 +139,7 @@ if (!function_exists('supreme_main_foundation_config')) {
                     'u664492673_SUPREMESETUHUB'
                 ),
                 'password' => supreme_database_env('SUPREME_DB_PASSWORD', ''),
-                'port' => (int) supreme_database_env('SUPREME_DB_PORT', '2468'),
+                'port' => (int) supreme_database_env('SUPREME_DB_PORT', '3306'),
                 'charset' => 'utf8mb4',
                 'connect_timeout' => 10,
             ],
