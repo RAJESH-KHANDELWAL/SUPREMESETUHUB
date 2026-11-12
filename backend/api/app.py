@@ -61,6 +61,7 @@ from backend.api.storage import StorageAPI
 from backend.api.theme_hub import router as theme_hub_router
 
 from backend.api.wordpress import router as wordpress_router, wordpress_service, require_wordpress_owner
+from backend.api.tenancy import router as tenancy_router
 
 from backend.api.connectors import router as connectors_router
 from backend.api.provider_connections import router as provider_connections_router
@@ -290,6 +291,11 @@ async def private_by_default(request: Request, call_next):
     if path == "/api/v1/global-freelancer-ecosystem" or path.startswith("/api/v1/global-freelancer-ecosystem/"):
         return await call_next(request)
 
+    # Multi-tenant APIs have resource-level tenant/site membership and gate checks.
+    # Permit authenticated users through to those route-level authorization rules.
+    if path == "/api/v1/tenancy" or path.startswith("/api/v1/tenancy/"):
+        return await call_next(request)
+
     # The user hub has its own token-to-identity ownership check. Allow a
     # signed-in customer through so the route can return only that customer's
     # profiles, businesses, and projects. Other data APIs remain owner-only
@@ -437,6 +443,7 @@ app.include_router(crm_router)
 app.include_router(payee_verification_router)
 app.include_router(digital_marketplace_router)
 app.include_router(people_password_manager_router)
+app.include_router(tenancy_router)
 app.include_router(wordpress_router)
 
 
