@@ -2,20 +2,14 @@
 declare(strict_types=1);
 
 require_once dirname(__DIR__, 2) . '/database.php';
-require_once __DIR__ . '/gde-database-config.php';
 
 /**
- * Physical GDE connection. This only opens a PDO connection.
- * It does not create, migrate, truncate, or write tables.
+ * Backwards-compatible GDE connection function.
+ * It resolves to SUPREMESETUHUB's one central database connection.
  */
 if (!function_exists('gde_database_connection')) {
     function gde_database_connection(): PDO
     {
-        static $connection = null;
-        if ($connection instanceof PDO) {
-            return $connection;
-        }
-        $connection = supreme_database_connect(gde_database_config());
-        return $connection;
+        return supreme_main_database_connection();
     }
 }

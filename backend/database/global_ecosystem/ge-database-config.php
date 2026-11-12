@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . '/global_database_ecosystem/gde-database-config.php';
+require_once dirname(__DIR__) . '/database.php';
 
-/** GE connection config resolves through the nested GDE database owner. */
+/** Legacy GE config name; routes to the single central database. */
 if (!function_exists('ge_database_config')) {
     function ge_database_config(): array
     {
-        return gde_database_config();
+        return supreme_main_database_connection_config();
     }
 }
