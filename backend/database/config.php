@@ -194,6 +194,9 @@ if (!function_exists('supreme_wordpress_database_config')) {
             // Dedicated Hostinger account with SELECT-only grants; never use the site's own DB user.
             'username' => supreme_database_env('WORDPRESS_READONLY_DB_USER', ''),
             'password' => supreme_database_env('WORDPRESS_READONLY_DB_PASSWORD'),
+            // Username of the site's existing application account, used only
+            // to reject accidental reuse of that account for the connector.
+            'primary_username' => supreme_database_env('WORDPRESS_PRIMARY_DB_USER', ''),
             'port' => (int) supreme_database_env('WORDPRESS_DB_PORT', '3306'),
             'charset' => 'utf8mb4',
             'table_prefix' => supreme_database_env('WORDPRESS_TABLE_PREFIX', 'wp_'),
@@ -206,12 +209,23 @@ if (!function_exists('supreme_wordpress_database_config')) {
         ];
 
         $missing = [];
-        foreach (['host', 'name', 'username', 'password'] as $key) {
+        foreach (['host', 'name', 'username', 'password', 'primary_username'] as $key) {
             if ($config[$key] === null || $config[$key] === '') {
-                $missing[] = $key === 'username'
-                    ? 'WORDPRESS_READONLY_DB_USER'
-                    : 'WORDPRESS_DB_' . strtoupper($key === 'name' ? 'NAME' : $key);
+                $missing[] = match ($key) {
+                    'username' => 'WORDPRESS_READONLY_DB_USER',
+                    'password' => 'WORDPRESS_READONLY_DB_PASSWORD',
+                    'primary_username' => 'WORDPRESS_PRIMARY_DB_USER',
+                    'name' => 'WORDPRESS_DB_NAME',
+                    default => 'WORDPRESS_DB_HOST',
+                };
             }
+        }
+        if (
+            $config['username'] !== ''
+            && $config['primary_username'] !== ''
+            && hash_equals($config['primary_username'], $config['username'])
+        ) {
+            $missing[] = 'WORDPRESS_READONLY_DB_USER_MUST_DIFFER_FROM_PRIMARY';
         }
 
         if ($config['port'] < 1 || $config['port'] > 65535) {
