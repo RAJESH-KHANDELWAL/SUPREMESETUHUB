@@ -2,9 +2,21 @@
 declare(strict_types=1);
 
 /**
- * MAIN BASE FOUNDATION — shared database configuration helpers.
- * Secrets are loaded from environment variables or a private PHP config file
- * located outside the public web root. Never commit real credentials.
+ * SUPREMESETUHUB MAIN BASE FOUNDATION.
+ *
+ * Database topology:
+ *   1. SUPREMESETUHUB — central/main database.
+ *   2. RAJESHKHANDELWALOFFICIAL — dedicated identity database.
+ *   3. RAJESHKHANDELWAL — dedicated identity database.
+ *   4. DRRAJESHKHANDELWALIBCOFFICIAL — dedicated identity database.
+ *   5. DRRAJESHKHANDELWALIBC — dedicated identity database.
+ *
+ * The four identity gates remain under the central foundation, but each gate
+ * has its own database and credentials. This file only builds configuration;
+ * it does not connect to MySQL or create databases/tables.
+ *
+ * Secrets must be supplied through environment variables or a private PHP
+ * config file outside the public web root. Never commit real credentials.
  */
 
 if (!function_exists('supreme_database_private_config_path')) {
@@ -33,17 +45,23 @@ if (!function_exists('supreme_database_env')) {
         if ($value !== false && trim($value) !== '') {
             return trim($value);
         }
+
         $private = $GLOBALS['SUPREME_DB_PRIVATE_VALUES'] ?? [];
-        if (is_array($private) && isset($private[$name]) && trim((string) $private[$name]) !== '') {
+        if (
+            is_array($private)
+            && isset($private[$name])
+            && trim((string) $private[$name]) !== ''
+        ) {
             return trim((string) $private[$name]);
         }
+
         return $default;
     }
 }
 
 if (!function_exists('supreme_database_config')) {
     /**
-     * Build a connection config from a dedicated environment prefix.
+     * Build a strict database config from a dedicated environment prefix.
      * The GDE connection never falls back to WordPress credentials.
      */
     function supreme_database_config(string $prefix = 'GDE_DB_'): array
@@ -65,11 +83,16 @@ if (!function_exists('supreme_database_config')) {
         $missing = [];
         foreach (['host', 'database', 'username', 'password'] as $key) {
             if ($config[$key] === null || $config[$key] === '') {
-                $missing[] = $prefix . strtoupper($key === 'username' ? 'USER' : ($key === 'database' ? 'NAME' : $key));
+                $missing[] = $prefix . strtoupper(
+                    $key === 'username' ? 'USER' : ($key === 'database' ? 'NAME' : $key)
+                );
             }
         }
+
         if ($missing !== []) {
-            throw new InvalidArgumentException('Missing database settings: ' . implode(', ', $missing));
+            throw new InvalidArgumentException(
+                'Missing database settings: ' . implode(', ', $missing)
+            );
         }
         if ($config['port'] < 1 || $config['port'] > 65535) {
             throw new InvalidArgumentException($prefix . 'PORT must be between 1 and 65535');
@@ -79,8 +102,11 @@ if (!function_exists('supreme_database_config')) {
         }
 
         $primaryWordPressDb = supreme_database_env('WORDPRESS_DB_NAME');
-        if ($prefix === 'GDE_DB_' && $primaryWordPressDb !== null
-            && hash_equals($primaryWordPressDb, (string) $config['database'])) {
+        if (
+            $prefix === 'GDE_DB_'
+            && $primaryWordPressDb !== null
+            && hash_equals($primaryWordPressDb, (string) $config['database'])
+        ) {
             throw new InvalidArgumentException(
                 'GDE_DB_NAME must not point to the primary WordPress database.'
             );
@@ -96,13 +122,61 @@ if (!function_exists('supreme_database_config')) {
     }
 }
 
+if (!function_exists('supreme_identity_database_config')) {
+    /**
+     * Build one identity's dedicated DB config without inventing credentials.
+     * Host and port may inherit the central Hostinger server settings; database
+     * name, username and password must be separately supplied for each identity.
+     */
+    function supreme_identity_database_config(
+        string $identity,
+        string $prefix,
+        array $defaults = []
+    ): array {
+        $config = [
+            'identity' => $identity,
+            'driver' => 'mysql',
+            'host' => supreme_database_env(
+                $prefix . 'HOST',
+                $defaults['host'] ?? null
+            ),
+            'name' => supreme_database_env($prefix . 'NAME'),
+            'username' => supreme_database_env($prefix . 'USER'),
+            'password' => supreme_database_env($prefix . 'PASSWORD'),
+            'port' => (int) supreme_database_env(
+                $prefix . 'PORT',
+                (string) ($defaults['port'] ?? 3306)
+            ),
+            'charset' => 'utf8mb4',
+            'connect_timeout' => (int) supreme_database_env(
+                $prefix . 'CONNECT_TIMEOUT',
+                '10'
+            ),
+        ];
+
+        $missing = [];
+        foreach (['host', 'name', 'username', 'password'] as $key) {
+            if ($config[$key] === null || $config[$key] === '') {
+                $missing[] = $prefix . strtoupper(
+                    $key === 'username' ? 'USER' : ($key === 'name' ? 'NAME' : $key)
+                );
+            }
+        }
+
+        $config['missing_settings'] = $missing;
+        $config['configured'] = $missing === []
+            && $config['port'] >= 1
+            && $config['port'] <= 65535
+            && $config['connect_timeout'] > 0;
+
+        return $config;
+    }
+}
+
 /**
- * SUPREMESETUHUB — one central database with one primary identity and four
- * identity gates. This returns configuration only; it does not connect to
- * MySQL or create/modify database tables.
- *
- * Set SUPREME_DB_HOST to the exact MySQL hostname shown in Hostinger hPanel.
- * Never put the database password in this source file.
+ * Return the central foundation and all four dedicated identity databases.
+ * Database names and credentials for the four gates are intentionally not
+ * hard-coded; create them in Hostinger and set their private environment values.
  */
 if (!function_exists('supreme_main_foundation_config')) {
     function supreme_main_foundation_config(): array
@@ -115,36 +189,60 @@ if (!function_exists('supreme_main_foundation_config')) {
             'DRRAJESHKHANDELWALIBC',
         ];
 
+        $centralDatabase = [
+            'identity' => 'SUPREMESETUHUB',
+            'driver' => 'mysql',
+            'host' => supreme_database_env('SUPREME_DB_HOST', ''),
+            'name' => supreme_database_env(
+                'SUPREME_DB_NAME',
+                'u664492673_SUPREMESETUHUB'
+            ),
+            'username' => supreme_database_env(
+                'SUPREME_DB_USER',
+                'u664492673_SUPREMESETUHUB'
+            ),
+            'password' => supreme_database_env('SUPREME_DB_PASSWORD', ''),
+            'port' => (int) supreme_database_env('SUPREME_DB_PORT', '3306'),
+            'charset' => 'utf8mb4',
+            'connect_timeout' => 10,
+        ];
+
+        $identityGates = [
+            'RAJESHKHANDELWALOFFICIAL' => 'RAJESHKHANDELWALOFFICIAL_DB_',
+            'RAJESHKHANDELWAL' => 'RAJESHKHANDELWAL_DB_',
+            'DRRAJESHKHANDELWALIBCOFFICIAL' => 'DRRAJESHKHANDELWALIBCOFFICIAL_DB_',
+            'DRRAJESHKHANDELWALIBC' => 'DRRAJESHKHANDELWALIBC_DB_',
+        ];
+
+        $identityDatabases = [
+            'SUPREMESETUHUB' => $centralDatabase,
+        ];
+
+        foreach ($identityGates as $identity => $prefix) {
+            $identityDatabases[$identity] = supreme_identity_database_config(
+                $identity,
+                $prefix,
+                [
+                    'host' => $centralDatabase['host'],
+                    'port' => $centralDatabase['port'],
+                ]
+            );
+        }
+
         return [
             'system' => 'SUPREMESETUHUB',
-            'architecture' => 'ONE_DATABASE_ONE_PRIMARY_FOUR_IDENTITY_GATES',
+            'architecture' => 'ONE_CENTRAL_FOUNDATION_FIVE_DEDICATED_IDENTITY_DATABASES',
             'primary_identity' => 'SUPREMESETUHUB',
-            'identity_gates' => [
-                'RAJESHKHANDELWALOFFICIAL',
-                'RAJESHKHANDELWAL',
-                'DRRAJESHKHANDELWALIBCOFFICIAL',
-                'DRRAJESHKHANDELWALIBC',
-            ],
+            'identity_gates' => array_keys($identityGates),
             'identities' => $identities,
 
-            'database' => [
-                'driver' => 'mysql',
-                'host' => supreme_database_env('SUPREME_DB_HOST', ''),
-                'name' => supreme_database_env(
-                    'SUPREME_DB_NAME',
-                    'u664492673_SUPREMESETUHUB'
-                ),
-                'username' => supreme_database_env(
-                    'SUPREME_DB_USER',
-                    'u664492673_SUPREMESETUHUB'
-                ),
-                'password' => supreme_database_env('SUPREME_DB_PASSWORD', ''),
-                'port' => (int) supreme_database_env('SUPREME_DB_PORT', '3306'),
-                'charset' => 'utf8mb4',
-                'connect_timeout' => 10,
-            ],
+            // Backward-compatible central database key.
+            'database' => $centralDatabase,
 
-            // Application entry points that may use the central identity system.
+            // All five databases, keyed by their exact identity.
+            'databases' => $identityDatabases,
+
+            // Four identity gates remain governed by the central foundation.
             'gates' => [
                 'GITHUB',
                 'WEBSITE',
