@@ -73,3 +73,61 @@ if (!function_exists('supreme_database_config')) {
         return $config;
     }
 }
+
+/**
+ * SUPREMESETUHUB — one main database foundation with multiple identities/gates.
+ *
+ * This returns configuration only; it does not open a connection or modify
+ * database tables. Set SUPREME_DB_HOST to the exact MySQL hostname shown by
+ * Hostinger. The hostname is deliberately not guessed from the project name.
+ */
+if (!function_exists('supreme_main_foundation_config')) {
+    function supreme_main_foundation_config(): array
+    {
+        return [
+            'system' => 'SUPREMESETUHUB',
+            'architecture' => 'ONE_DATABASE_MULTIPLE_GATES',
+
+            'database' => [
+                'driver' => 'mysql',
+                // Hostinger's actual server hostname must be supplied here
+                // through SUPREME_DB_HOST; do not assume it equals the DB name.
+                'host' => supreme_database_env('SUPREME_DB_HOST', ''),
+                'name' => supreme_database_env(
+                    'SUPREME_DB_NAME',
+                    'u664492673_SUPREMESETUHUB'
+                ),
+                'username' => supreme_database_env(
+                    'SUPREME_DB_USER',
+                    'u664492673_SUPREMESETUHUB'
+                ),
+                'password' => supreme_database_env('SUPREME_DB_PASSWORD', ''),
+                // Owner-provided port; verify it against Hostinger's connection details.
+                'port' => (int) supreme_database_env('SUPREME_DB_PORT', '2468'),
+                'charset' => 'utf8mb4',
+                'connect_timeout' => 10,
+            ],
+
+            'identities' => [
+                'SUPREMESETUHUB',
+                'RAJESHKHANDELWALOFFICIAL',
+                'RAJESHKHANDELWAL',
+                'DRRAJESHKHANDELWALIBCOFFICIAL',
+                'DRRAJESHKHANDELWALIBC',
+            ],
+
+            'gates' => [
+                'GITHUB',
+                'WEBSITE',
+                'WORDPRESS',
+                'AI',
+                'API',
+                'APP',
+                'BUSINESS',
+                'ADMIN',
+                'GLOBAL',
+                'SUPREME',
+            ],
+        ];
+    }
+}
