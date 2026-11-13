@@ -14,3 +14,10 @@ if (!function_exists('supreme_ecosystem_manifest')) {
         );
     }
 }
+
+ 
+// Load the four identity modules for SUPREME ECOSYSTEM.
+foreach (array('dr_rajesh_khandelwal_ibc', 'dr_rajesh_khandelwal_ibc_official', 'rajesh_khandelwal', 'rajesh_khandelwal_official') as $identity) {
+    $identity_file = __DIR__ . '/' . $identity . '/' . $identity . '.php';
+    if (is_file($identity_file)) { require_once $identity_file; }
+}
