@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "system": "SUPREMESETUHUB",
+  "module": "CUSTOMER_INFRASTRUCTURE_MANAGEMENT",
+  "multi_tenant": {
+    "enabled": true,
+    "tenant_isolation_key": "tenant_id",
+    "customer_owns_hosting_account": true,
+    "customer_owns_domains": true,
+    "customer_owns_ftp_accounts": true,
+    "customer_owns_database_accounts": true,
+    "central_platform_stores_customer_business_metadata": true,
+    "central_platform_does_not_copy_customer_database_contents": true
+  },
+  "onboarding": {
+    "steps": [
+      "CREATE_CUSTOMER_TENANT",
+      "VERIFY_CUSTOMER_IDENTITY_AND_DOMAIN_OWNERSHIP",
+      "REGISTER_HOSTING_PROVIDER",
+      "REQUEST_EXPLICIT_SCOPED_FTP_OR_SFTP_AUTHORIZATION",
+      "REQUEST_EXPLICIT_SCOPED_DATABASE_AUTHORIZATION",
+      "STORE_SECRET_REFERENCES_ONLY",
+      "RUN_READ_ONLY_CONNECTION_HEALTH_CHECK",
+      "CREATE_APPROVED_DEPLOYMENT_TARGET",
+      "ENABLE_DEPLOYMENT_AFTER_CUSTOMER_APPROVAL"
+    ],
+    "default_connection_access": "READ_ONLY",
+    "deployment_approval_required": true
+  },
+  "credential_policy": {
+    "raw_passwords_in_git": false,
+    "raw_passwords_in_database_tables": false,
+    "raw_api_tokens_in_logs": false,
+    "secret_storage": "External secret manager",
+    "secret_reference_storage_allowed": true,
+    "credentials_must_be_revocable": true,
+    "customer_must_be_able_to_disconnect": true
+  },
+  "isolation_policy": {
+    "every_customer_resource_must_have_tenant_id": true,
+    "deny_cross_tenant_resource_access_by_default": true,
+    "authorize_every_read_and_write": true,
+    "audit_connection_and_deployment_actions": true,
+    "never_share_one_customer_ftp_account_with_another_customer": true,
+    "never_merge_customer_wordpress_databases_into_platform_database": true
+  },
+  "supported_resource_types": [
+    "DOMAIN",
+    "HOSTING_ACCOUNT",
+    "FTP_CONNECTION",
+    "DATABASE_CONNECTION",
+    "DEPLOYMENT_TARGET"
+  ],
+  "lifecycle_states": [
+    "PENDING",
+    "ACTIVE",
+    "SUSPENDED",
+    "REVOKED",
+    "FAILED",
+    "CLOSED"
+  ]
+}

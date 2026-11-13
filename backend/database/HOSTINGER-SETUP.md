@@ -8,8 +8,8 @@ points; they do not create separate databases or credentials.
 
 - Database: `u664492673_SUPREMESETUHUB`
 - Database user: `u664492673_SUPREMESETUHUB`
-- Host: copy the exact MySQL hostname from Hostinger hPanel
-- Port: confirm the port shown by Hostinger; the code template defaults to 3306
+- Host: `srv1833.hstgr.io` (Hostinger Remote MySQL screen; IP alternative `193.203.184.211`)
+- Port: `3306` is the current template default; confirm the external MySQL port in Hostinger before enabling a live connection
 - Password: set privately in Hostinger; never commit it
 
 ## Private PHP credentials
