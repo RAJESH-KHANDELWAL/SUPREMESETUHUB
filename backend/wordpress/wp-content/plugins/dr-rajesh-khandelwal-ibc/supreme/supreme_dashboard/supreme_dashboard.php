@@ -16,8 +16,9 @@ if (!function_exists('supreme_dashboard_manifest')) {
 }
 
 add_action('admin_menu', function () {
-    add_submenu_page(
-        'supreme',
+    add_menu_page(
+        'SUPREME Dashboard',
+        'SUPREME Dashboard',
         'SUPREME Dashboard',
         'Dashboard',
         'manage_options',
