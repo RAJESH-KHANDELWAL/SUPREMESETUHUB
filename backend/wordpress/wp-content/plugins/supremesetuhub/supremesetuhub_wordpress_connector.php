@@ -1,6 +1,7 @@
 <?php
 /**
- * SUPREMESETUHUB WordPress connector PHP runtime.
+ * SUPREMESETUHUB WordPress connector — central hub runtime.
+ * Separate companion plugins: SUPREME and SUPREME ECOSYSTEM.
  */
 if (!defined('ABSPATH')) { exit; }
 
@@ -8,11 +9,15 @@ if (!function_exists('supremesetuhub_wordpress_connector_status')) {
     function supremesetuhub_wordpress_connector_status() {
         return rest_ensure_response(array(
             'success' => true,
-            'system' => 'SUPREMESETUHUB',
-            'connector' => 'WordPress',
+            'hub' => 'SUPREMESETUHUB',
             'brand' => '👑 DR RAJESH KHANDELWAL IBC 👑',
-            'modules' => array('SUPREME', 'SUPREME ECOSYSTEM'),
+            'connector' => 'WordPress',
             'runtime' => 'PHP',
+            'companion_brands' => array(
+                'SUPREME by SUPREMESETUHUB',
+                'SUPREME ECOSYSTEM by SUPREMESETUHUB',
+            ),
+            'note' => 'Connector endpoint is registered; companion plugin runtime integration requires matching installed plugin basenames and end-to-end testing.',
         ));
     }
 }
