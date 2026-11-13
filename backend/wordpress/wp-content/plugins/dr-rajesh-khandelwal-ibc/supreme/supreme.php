@@ -26,3 +26,8 @@ foreach (array('dr_rajesh_khandelwal_ibc', 'dr_rajesh_khandelwal_ibc_official', 
 
 // Load SUPREME ECOSYSTEM as a child module of SUPREME.
 require_once __DIR__ . '/supreme_ecosystem/supreme_ecosystem.php';
+
+
+// Load SUPREME Dashboard and SUPREME ECOSYSTEM modules.
+require_once __DIR__ . '/supreme_dashboard/supreme_dashboard.php';
+require_once __DIR__ . '/supreme_ecosystem/supreme_ecosystem.php';
