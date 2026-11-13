@@ -1,16 +1,31 @@
-"""Python companion manifest for the SUPREMESETUHUB WordPress connector.
+"""Python-side connector manifest for SUPREMESETUHUB.
 
-This module belongs to the Python backend; WordPress itself executes PHP.
+WordPress runs the PHP connector. This Python file is for the Python backend
+that may communicate with the central WordPress hub through its REST API.
 """
-def connector_manifest():
+from __future__ import annotations
+
+from typing import Any
+
+HUB_NAME = "SUPREMESETUHUB"
+HUB_BRAND = "👑 DR RAJESH KHANDELWAL IBC 👑"
+STATUS_ENDPOINT = "/wp-json/supremesetuhub/v1/connector-status"
+
+COMPANION_PLUGINS = {
+    "supreme": {
+        "brand": "SUPREME by SUPREMESETUHUB",
+        "plugin_file": "supreme/supreme.php",
+    },
+    "supreme_ecosystem": {
+        "brand": "SUPREME ECOSYSTEM by SUPREMESETUHUB",
+        "plugin_file": "supreme-ecosystem/supreme-ecosystem.php",
+    },
+}
+
+def connector_manifest() -> dict[str, Any]:
     return {
-        "system": "SUPREMESETUHUB",
-        "brand": "👑 DR RAJESH KHANDELWAL IBC 👑",
-        "modules": ["SUPREME", "SUPREME ECOSYSTEM"],
-        "identities": [
-            "dr_rajesh_khandelwal_ibc",
-            "dr_rajesh_khandelwal_ibc_official",
-            "rajesh_khandelwal",
-            "rajesh_khandelwal_official",
-        ],
+        "hub": HUB_NAME,
+        "brand": HUB_BRAND,
+        "status_endpoint": STATUS_ENDPOINT,
+        "companion_plugins": COMPANION_PLUGINS,
     }
