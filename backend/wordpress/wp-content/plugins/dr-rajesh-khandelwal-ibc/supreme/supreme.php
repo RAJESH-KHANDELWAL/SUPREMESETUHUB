@@ -16,3 +16,13 @@ if (!function_exists('supreme_module_manifest')) {
         );
     }
 }
+
+ 
+// Load the four SUPREME identity modules.
+foreach (array('dr_rajesh_khandelwal_ibc', 'dr_rajesh_khandelwal_ibc_official', 'rajesh_khandelwal', 'rajesh_khandelwal_official') as $identity) {
+    $identity_file = __DIR__ . '/' . $identity . '/' . $identity . '.php';
+    if (is_file($identity_file)) { require_once $identity_file; }
+}
+
+// Load SUPREME ECOSYSTEM as a child module of SUPREME.
+require_once __DIR__ . '/supreme_ecosystem/supreme_ecosystem.php';
