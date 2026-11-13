@@ -27,6 +27,12 @@ jobs:
           ref: main
           fetch-depth: 1
 
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
       - name: Check required deployment settings
         env:
           FTP_SERVER: ${{ secrets.HOSTINGER_FTP_SERVER }}
