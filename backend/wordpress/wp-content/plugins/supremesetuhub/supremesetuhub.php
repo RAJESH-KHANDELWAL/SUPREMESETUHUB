@@ -12,7 +12,7 @@ define('SUPREMESETUHUB_VERSION', '1.2.0');
 define('SUPREMESETUHUB_DIR', plugin_dir_path(__FILE__));
 define('SUPREMESETUHUB_URL', plugin_dir_url(__FILE__));
 
-require_once SUPREMESETUHUB_DIR . 'wordpress_connector.php';
+require_once SUPREMESETUHUB_DIR . 'supremesetuhub_wordpress_connector.php';
 
 register_activation_hook(__FILE__, function () {
     update_option('supremesetuhub_plugin_version', SUPREMESETUHUB_VERSION);
