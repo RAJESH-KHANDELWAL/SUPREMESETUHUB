@@ -5,15 +5,12 @@ declare(strict_types=1);
  * SUPREMESETUHUB MAIN BASE FOUNDATION.
  *
  * Database topology:
- *   1. SUPREMESETUHUB — central/main database.
- *   2. RAJESHKHANDELWALOFFICIAL — dedicated identity database.
- *   3. RAJESHKHANDELWAL — dedicated identity database.
- *   4. DRRAJESHKHANDELWALIBCOFFICIAL — dedicated identity database.
- *   5. DRRAJESHKHANDELWALIBC — dedicated identity database.
+ *   - One central SUPREMESETUHUB database.
+ *   - Four identity gates stored and authorized within that same database.
+ *   - Existing customer/WordPress databases remain separately owned.
  *
- * The four identity gates remain under the central foundation, but each gate
- * has its own database and credentials. This file only builds configuration;
- * it does not connect to MySQL or create databases/tables.
+ * This file builds connection configuration only. It does not create
+ * databases/tables or perform a live connection.
  *
  * Secrets must be supplied through environment variables or a private PHP
  * config file outside the public web root. Never commit real credentials.
@@ -126,58 +123,6 @@ if (!function_exists('supreme_database_config')) {
         return $config;
     }
 }
-
-if (!function_exists('supreme_identity_database_config')) {
-    /**
-     * Build one identity's dedicated DB config without inventing credentials.
-     * Host and port may inherit the central Hostinger server settings; database
-     * name, username and password must be separately supplied for each identity.
-     */
-    function supreme_identity_database_config(
-        string $identity,
-        string $prefix,
-        array $defaults = []
-    ): array {
-        $config = [
-            'identity' => $identity,
-            'driver' => 'mysql',
-            'host' => supreme_database_env(
-                $prefix . 'HOST',
-                $defaults['host'] ?? null
-            ),
-            'name' => supreme_database_env($prefix . 'NAME'),
-            'username' => supreme_database_env($prefix . 'USER'),
-            'password' => supreme_database_env($prefix . 'PASSWORD'),
-            'port' => (int) supreme_database_env(
-                $prefix . 'PORT',
-                (string) ($defaults['port'] ?? 3306)
-            ),
-            'charset' => 'utf8mb4',
-            'connect_timeout' => (int) supreme_database_env(
-                $prefix . 'CONNECT_TIMEOUT',
-                '10'
-            ),
-        ];
-
-        $missing = [];
-        foreach (['host', 'name', 'username', 'password'] as $key) {
-            if ($config[$key] === null || $config[$key] === '') {
-                $missing[] = $prefix . strtoupper(
-                    $key === 'username' ? 'USER' : ($key === 'name' ? 'NAME' : $key)
-                );
-            }
-        }
-
-        $config['missing_settings'] = $missing;
-        $config['configured'] = $missing === []
-            && $config['port'] >= 1
-            && $config['port'] <= 65535
-            && $config['connect_timeout'] > 0;
-
-        return $config;
-    }
-}
-
 
 if (!function_exists('supreme_wordpress_database_config')) {
     /**
