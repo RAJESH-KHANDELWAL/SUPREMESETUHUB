@@ -1,20 +1,16 @@
-name: Package WordPress Plugins
+name: Package SUPREMESETUHUB WordPress Plugin
 
 on:
   workflow_dispatch:
   pull_request:
-    branches:
-      - main
+    branches: [main]
     paths:
-      - "wordpress-plugin/**"
-      - "backend/wordpress/wp-content/plugins/dr-rajesh-khandelwal-ibc/**"
+      - "wordpress-plugin/supremesetuhub-connector/**"
       - ".github/workflows/package-wordpress-plugin.yml"
   push:
-    branches:
-      - main
+    branches: [main]
     paths:
-      - "wordpress-plugin/**"
-      - "backend/wordpress/wp-content/plugins/dr-rajesh-khandelwal-ibc/**"
+      - "wordpress-plugin/supremesetuhub-connector/**"
       - ".github/workflows/package-wordpress-plugin.yml"
 
 permissions:
@@ -22,42 +18,36 @@ permissions:
 
 jobs:
   package:
-    name: Validate and package WordPress plugins
+    name: Validate and package the single SUPREMESETUHUB plugin
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
 
-      - name: Validate plugin files and PHP syntax
+      - name: Validate unified plugin files and PHP syntax
+        shell: bash
         run: |
-          set -e
-          for plugin in supremesetuhub-connector supreme-ecosystem-home supreme-print-on-demand; do
-            test -f "wordpress-plugin/$plugin/readme.md"
-            php_file=$(find "wordpress-plugin/$plugin" -maxdepth 1 -name '*.php' -print -quit)
-            test -n "$php_file"
-            php -l "$php_file"
+          set -euo pipefail
+          PLUGIN_DIR="wordpress-plugin/supremesetuhub-connector"
+          test -f "$PLUGIN_DIR/supremesetuhub-connector.php"
+          test -f "$PLUGIN_DIR/readme.md"
+          find "$PLUGIN_DIR" -type f -name '*.php' -print0 | while IFS= read -r -d '' file; do
+            php -l "$file"
           done
-          php -l backend/wordpress/wp-content/plugins/dr-rajesh-khandelwal-ibc/dr-rajesh-khandelwal-ibc.php
 
-      - name: Build installable plugin ZIPs
+      - name: Build the single installable plugin ZIP
+        shell: bash
         run: |
-          set -e
+          set -euo pipefail
           mkdir -p dist
-          for plugin in supremesetuhub-connector supreme-ecosystem-home supreme-print-on-demand; do
-            (cd wordpress-plugin && zip -r "../dist/$plugin.zip" "$plugin")
-            unzip -t "dist/$plugin.zip"
-            unzip -Z1 "dist/$plugin.zip" | grep -q "^$plugin/[^/]*\.php$"
-          done
-          mkdir -p dist/package-root
-          cp -R backend/wordpress/wp-content/plugins/dr-rajesh-khandelwal-ibc dist/package-root/
-          (cd dist/package-root && zip -r ../dr-rajesh-khandelwal-ibc.zip dr-rajesh-khandelwal-ibc)
-          unzip -t dist/dr-rajesh-khandelwal-ibc.zip
-          unzip -Z1 dist/dr-rajesh-khandelwal-ibc.zip | grep -q "^dr-rajesh-khandelwal-ibc/dr-rajesh-khandelwal-ibc.php$"
+          (cd wordpress-plugin && zip -r ../dist/supremesetuhub.zip supremesetuhub-connector)
+          unzip -t dist/supremesetuhub.zip
+          unzip -Z1 dist/supremesetuhub.zip | grep -q "^supremesetuhub-connector/supremesetuhub-connector.php$"
 
-      - name: Upload WordPress plugin ZIPs
+      - name: Upload unified plugin ZIP
         uses: actions/upload-artifact@v4
         with:
-          name: supremesetuhub-wordpress-plugins
-          path: dist/*.zip
+          name: supremesetuhub-wordpress-plugin
+          path: dist/supremesetuhub.zip
           if-no-files-found: error
           retention-days: 30
