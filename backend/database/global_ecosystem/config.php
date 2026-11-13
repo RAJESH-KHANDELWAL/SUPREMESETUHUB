@@ -1,12 +1,8 @@
 <?php
 declare(strict_types=1);
-
 require_once dirname(__DIR__) . '/config.php';
 
-/**
- * Global Ecosystem exposes the complete five-database identity topology.
- * The four identity databases are separate databases governed by SUPREMESETUHUB.
- */
+/** GE identity gates all share one physical SUPREMESETUHUB database. */
 if (!function_exists('global_ecosystem_config')) {
     function global_ecosystem_config(): array
     {
@@ -15,10 +11,11 @@ if (!function_exists('global_ecosystem_config')) {
             'id' => 'GLOBAL_ECOSYSTEM',
             'layer' => 'global_ecosystem',
             'parent' => 'SUPREMESETUHUB',
+            'database_topology' => 'ONE_PHYSICAL_DATABASE_FOUR_LOGICAL_IDENTITY_GATES',
             'primary_identity' => $main['primary_identity'],
             'identities' => $main['identities'],
             'identity_gates' => $main['identity_gates'],
-            'database_topology' => 'ONE_MAIN_PLUS_FOUR_IDENTITY_DATABASES',
+            'database' => $main['database'],
             'databases' => $main['databases'],
             'wordpress_database' => $main['wordpress_database'],
         ];
