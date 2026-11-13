@@ -1,4 +1,4 @@
-name: Deploy DR RAJESH KHANDELWAL IBC + SUPREMESETUHUB Plugins to Hostinger
+name: Deploy SUPREMESETUHUB to Hostinger
 
 on:
   workflow_dispatch:
@@ -17,7 +17,7 @@ concurrency:
 
 jobs:
   validate:
-    name: Validate DR RAJESH KHANDELWAL IBC + SUPREMESETUHUB plugins (SUPREMESETUHUB package)
+    name: Validate SUPREMESETUHUB plugin
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -30,7 +30,7 @@ jobs:
           find "$SOURCE_DIR" -type f -name '*.php' -print0 | xargs -0 -r -n1 php -l
 
   deploy:
-    name: Deploy SUPREMESETUHUB plugin (IBC is deployed by its own workflow) to rajeshkhandelwalofficial.com
+    name: Deploy SUPREMESETUHUB plugin to Hostinger
     needs: validate
     runs-on: ubuntu-latest
     environment: production
