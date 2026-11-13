@@ -1,2 +1,0 @@
-dr_rajesh_khandelwal_ibc_official
-Identity directory for SUPREME by SUPREMESETUHUB.
