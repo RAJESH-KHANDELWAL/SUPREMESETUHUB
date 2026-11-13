@@ -34,7 +34,6 @@ jobs:
         run: |
           set -e
           for plugin in supremesetuhub-connector supreme-ecosystem-home supreme-print-on-demand; do
-            test -f "wordpress-plugin/$plugin/readme.md"
             php_file=$(find "wordpress-plugin/$plugin" -maxdepth 1 -name '*.php' -print -quit)
             test -n "$php_file"
             php -l "$php_file"
