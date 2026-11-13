@@ -245,19 +245,26 @@ if (!function_exists('supreme_wordpress_database_config')) {
 }
 
 /**
- * Return the central foundation and all four dedicated identity databases.
- * Database names and credentials for the four gates are intentionally not
- * hard-coded; create them in Hostinger and set their private environment values.
+ * Return one central SUPREMESETUHUB database with four identity gates.
+ *
+ * Identity gates are authorization scopes inside the central database.
+ * They are NOT separate databases and must never receive separate DB credentials.
+ * Existing WordPress databases remain separate and are exposed only through
+ * the explicitly configured read-only WordPress connector.
  */
 if (!function_exists('supreme_main_foundation_config')) {
     function supreme_main_foundation_config(): array
     {
-        $identities = [
-            'SUPREMESETUHUB',
+        $identityGates = [
             'RAJESHKHANDELWALOFFICIAL',
             'RAJESHKHANDELWAL',
             'DRRAJESHKHANDELWALIBCOFFICIAL',
             'DRRAJESHKHANDELWALIBC',
+        ];
+
+        $identities = [
+            'SUPREMESETUHUB',
+            ...$identityGates,
         ];
 
         $centralDatabase = [
@@ -275,48 +282,51 @@ if (!function_exists('supreme_main_foundation_config')) {
             'password' => supreme_database_env('SUPREME_DB_PASSWORD', ''),
             'port' => (int) supreme_database_env('SUPREME_DB_PORT', '3306'),
             'charset' => 'utf8mb4',
-            'connect_timeout' => 10,
+            'connect_timeout' => (int) supreme_database_env('SUPREME_DB_CONNECT_TIMEOUT', '10'),
+            'ssl_required' => filter_var(
+                supreme_database_env('SUPREME_DB_SSL_REQUIRED', 'false'),
+                FILTER_VALIDATE_BOOLEAN
+            ),
+            'ssl_ca' => supreme_database_env('SUPREME_DB_SSL_CA'),
         ];
 
-        $identityGates = [
-            'RAJESHKHANDELWALOFFICIAL' => 'RAJESHKHANDELWALOFFICIAL_DB_',
-            'RAJESHKHANDELWAL' => 'RAJESHKHANDELWAL_DB_',
-            'DRRAJESHKHANDELWALIBCOFFICIAL' => 'DRRAJESHKHANDELWALIBCOFFICIAL_DB_',
-            'DRRAJESHKHANDELWALIBC' => 'DRRAJESHKHANDELWALIBC_DB_',
-        ];
-
-        $identityDatabases = [
-            'SUPREMESETUHUB' => $centralDatabase,
-        ];
-
-        foreach ($identityGates as $identity => $prefix) {
-            $identityDatabases[$identity] = supreme_identity_database_config(
-                $identity,
-                $prefix,
-                [
-                    'host' => $centralDatabase['host'],
-                    'port' => $centralDatabase['port'],
-                ]
+        if ($centralDatabase['port'] < 1 || $centralDatabase['port'] > 65535) {
+            throw new InvalidArgumentException('SUPREME_DB_PORT must be between 1 and 65535');
+        }
+        if ($centralDatabase['connect_timeout'] < 1) {
+            throw new InvalidArgumentException('SUPREME_DB_CONNECT_TIMEOUT must be positive');
+        }
+        if ($centralDatabase['ssl_required'] && !$centralDatabase['ssl_ca']) {
+            throw new InvalidArgumentException(
+                'SUPREME_DB_SSL_CA is required while SUPREME_DB_SSL_REQUIRED is enabled.'
             );
         }
 
         return [
             'system' => 'SUPREMESETUHUB',
-            'architecture' => 'ONE_CENTRAL_FOUNDATION_FIVE_DEDICATED_IDENTITY_DATABASES',
+            'architecture' => 'ONE_CENTRAL_DATABASE_FOUR_IDENTITY_GATES',
             'primary_identity' => 'SUPREMESETUHUB',
-            'identity_gates' => array_keys($identityGates),
+            'identity_gates' => $identityGates,
             'identities' => $identities,
 
-            // Backward-compatible central database key.
+            // Canonical connection used by all central-platform modules.
             'database' => $centralDatabase,
 
-            // All five databases, keyed by their exact identity.
-            'databases' => $identityDatabases,
+            // Backward-compatible key: deliberately contains ONLY the one DB.
+            'databases' => [
+                'SUPREMESETUHUB' => $centralDatabase,
+            ],
 
-            // Existing WordPress database remains separate from the central database.
+            // Identity gates authorize records/actions within the same DB.
+            'identity_gate_database_owner' => array_fill_keys(
+                $identityGates,
+                'SUPREMESETUHUB'
+            ),
+
+            // Existing WordPress databases remain separately owned by each site.
             'wordpress_database' => supreme_wordpress_database_config(),
 
-            // Four identity gates remain governed by the central foundation.
+            // Product/feature permissions are separate from identity gates.
             'gates' => [
                 'GITHUB',
                 'WEBSITE',
