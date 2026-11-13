@@ -9,8 +9,8 @@ if (!function_exists('supremesetuhub_wordpress_connector_status')) {
     function supremesetuhub_wordpress_connector_status() {
         $active_plugins = (array) get_option('active_plugins', array());
 
-        $supreme_basename = apply_filters('supremesetuhub_supreme_plugin_basename', 'supreme/supreme.php');
-        $ecosystem_basename = apply_filters('supremesetuhub_ecosystem_plugin_basename', 'supreme-ecosystem/supreme-ecosystem.php');
+        $supreme_basename = apply_filters('supremesetuhub_supreme_plugin_basename', 'dr-rajesh-khandelwal-ibc/dr-rajesh-khandelwal-ibc.php');
+        $ecosystem_basename = apply_filters('supremesetuhub_ecosystem_plugin_basename', 'dr-rajesh-khandelwal-ibc/dr-rajesh-khandelwal-ibc.php');
 
         return rest_ensure_response(array(
             'success' => true,
