@@ -1,15 +1,10 @@
 <?php
 declare(strict_types=1);
-
 require_once dirname(__DIR__, 2) . '/database.php';
-
-/**
- * Backwards-compatible GDE connection function.
- * It resolves to SUPREMESETUHUB's one central database connection.
- */
+/** GDE connection entry point; select MAIN or one of the four identity DBs. */
 if (!function_exists('gde_database_connection')) {
-    function gde_database_connection(): PDO
+    function gde_database_connection(string $identity = 'SUPREMESETUHUB'): PDO
     {
-        return supreme_main_database_connection();
+        return supreme_identity_database_connection($identity);
     }
 }

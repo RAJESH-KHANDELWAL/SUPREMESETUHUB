@@ -1,41 +1,59 @@
-# SUPREMESETUHUB database deployment
+# SUPREMESETUHUB central database setup
 
-## Canonical database
+## Final database topology
 
-All PHP database entry points in this package resolve to the one central
-SUPREMESETUHUB PDO connection. GE and GDE folders are compatibility entry
-points; they do not create separate databases or credentials.
+This project uses ONE physical MySQL/MariaDB database:
 
-- Database: `u664492673_SUPREMESETUHUB`
-- Database user: `u664492673_SUPREMESETUHUB`
-- Host: copy the exact MySQL hostname from Hostinger hPanel
-- Port: confirm the port shown by Hostinger; the code template defaults to 3306
-- Password: set privately in Hostinger; never commit it
+- `SUPREMESETUHUB` — the single main database and storage location.
 
-## Private PHP credentials
+Inside that same database are four logical identity gates:
 
-1. Copy `deployment/private/supreme-database.php.example` to a location outside
-   `public_html`, for example `/home/ACCOUNT/domains/DOMAIN/private/supreme-database.php`.
-2. Rename it to `supreme-database.php` and enter the exact host, confirmed port,
-   database name, database user, and database password.
-3. Configure the PHP environment variable `SUPREME_DB_PRIVATE_CONFIG` with the
-   absolute path to that private file.
-4. If your hosting panel cannot set PHP environment variables, configure the
-   private include path using your host-supported PHP bootstrap mechanism.
-   Do not place the private file under a publicly accessible directory.
+1. `RAJESHKHANDELWALOFFICIAL`
+2. `RAJESHKHANDELWAL`
+3. `DRRAJESHKHANDELWALIBCOFFICIAL`
+4. `DRRAJESHKHANDELWALIBC`
 
-The PHP config reads values from the private array first when environment
-variables are absent. Python services use the `SUPREME_DB_*` environment
-variables directly.
+The four gates are not separate Hostinger databases and do not need separate
+database users or passwords. They are identity scopes in the central database.
+Identity-owned records must carry an `identity_code` and every read/write
+query must enforce the matching identity scope. The application must deny
+unscoped access to identity-owned records.
 
-## Deploy
+The ten feature permission gates (GITHUB, WEBSITE, WORDPRESS, AI, API, APP,
+BUSINESS, ADMIN, GLOBAL and SUPREME) are authorization capabilities, not
+additional physical databases.
 
-Upload the contents of this `backend/database` package to the matching
-`backend/database` directory in your application. Keep the folder and file
-names exactly as shown. Do not upload the private completed credential file.
+Existing WordPress website databases remain separate and untouched. This
+central-database setup does not merge or overwrite either WordPress database.
 
-## Validation
+## Hostinger configuration
 
-After setting credentials, run the application's approved database health
-check. A matching file structure is not proof of a live connection. No schema
-or data is created by loading the configuration files.
+Create or confirm only the `SUPREMESETUHUB` database and its database user in
+Hostinger hPanel. Use the exact MySQL hostname, database name, username and
+port shown by hPanel. Do not create four additional databases for the identity
+gates.
+
+## Private credentials
+
+Set the `SUPREME_DB_*` values from `SUPREME_DB.env.example` as server-side
+environment variables or in a private PHP config file outside the public web
+root. Never commit real passwords or upload the completed private file to the
+public repository.
+
+Python services must receive the central connection values as server-side
+environment variables; PHP private include values are not automatically
+available to Python.
+
+## Migration and verification
+
+Configuration does not create the database, tables, or identity records.
+Back up the central database before applying an approved migration. Verify
+the central connection and then verify each of the four identity scopes with
+tests that prove cross-identity reads and writes are denied.
+
+A shared PDO connection does not by itself enforce tenant isolation. Every
+identity-owned repository/query must apply and validate `identity_code`.
+Do not claim full isolation until those query paths and tests are implemented.
+
+No live Hostinger database creation, migration, or deployment is performed by
+this repository configuration change.

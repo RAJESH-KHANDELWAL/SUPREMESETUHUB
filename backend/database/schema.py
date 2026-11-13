@@ -433,7 +433,36 @@ class DatabaseSchema:
             created_at TEXT DEFAULT CURRENT_TIMESTAMP
         )
         """,
+
+        # One physical database with one primary identity and four logical gates.
+        "identity_gates": """
+        CREATE TABLE IF NOT EXISTS identity_gates (
+            identity_code TEXT PRIMARY KEY,
+            identity_name TEXT NOT NULL UNIQUE,
+            identity_type TEXT NOT NULL CHECK (identity_type IN ('PRIMARY', 'GATE')),
+            storage_database TEXT NOT NULL DEFAULT 'SUPREMESETUHUB',
+            status TEXT NOT NULL DEFAULT 'ACTIVE',
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+        )
+        """,
     }
+
+    # ==========================================================
+    # CENTRAL IDENTITY REGISTRY — LOGICAL GATES, ONE DATABASE
+    # ==========================================================
+
+    IDENTITY_RECORDS = (
+        ("SUPREMESETUHUB", "SUPREMESETUHUB", "PRIMARY", "SUPREMESETUHUB"),
+        ("RAJESHKHANDELWALOFFICIAL", "RAJESHKHANDELWALOFFICIAL", "GATE", "SUPREMESETUHUB"),
+        ("RAJESHKHANDELWAL", "RAJESHKHANDELWAL", "GATE", "SUPREMESETUHUB"),
+        ("DRRAJESHKHANDELWALIBCOFFICIAL", "DRRAJESHKHANDELWALIBCOFFICIAL", "GATE", "SUPREMESETUHUB"),
+        ("DRRAJESHKHANDELWALIBC", "DRRAJESHKHANDELWALIBC", "GATE", "SUPREMESETUHUB"),
+    )
+
+    @classmethod
+    def list_identity_records(cls):
+        return list(cls.IDENTITY_RECORDS)
 
     # ==========================================================
     # DOMAIN METHODS

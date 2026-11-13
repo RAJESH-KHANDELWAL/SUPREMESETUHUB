@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+import re
 import sqlite3
 from pathlib import Path
 from typing import Any, Iterable, Optional
@@ -183,6 +184,9 @@ class DatabaseService:
         table_name: str,
     ) -> set[str]:
 
+        if not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", table_name):
+            raise ValueError("Invalid SQLite table identifier")
+
         rows = self.fetchall(
             f'PRAGMA table_info("{table_name}")'
         )
@@ -202,6 +206,11 @@ class DatabaseService:
         column_name: str,
         column_definition: str,
     ) -> bool:
+
+        if not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", table_name):
+            raise ValueError("Invalid SQLite table identifier")
+        if not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", column_name):
+            raise ValueError("Invalid SQLite column identifier")
 
         if not self.table_exists(
             table_name
@@ -408,6 +417,17 @@ class DatabaseService:
                     self.execute(
                         schema_sql
                     )
+
+            # Seed the primary identity and four logical gates idempotently.
+            # All five identity records use the same SUPREMESETUHUB database.
+            self.executemany(
+                """
+                INSERT OR IGNORE INTO identity_gates
+                    (identity_code, identity_name, identity_type, storage_database)
+                VALUES (?, ?, ?, ?)
+                """,
+                DatabaseSchema.list_identity_records(),
+            )
 
         except ImportError:
             # Schema module is optional during
