@@ -5,15 +5,15 @@ declare(strict_types=1);
  * SUPREMESETUHUB MAIN BASE FOUNDATION.
  *
  * Database topology:
- *   1. SUPREMESETUHUB — central/main database.
- *   2. RAJESHKHANDELWALOFFICIAL — dedicated identity database.
- *   3. RAJESHKHANDELWAL — dedicated identity database.
- *   4. DRRAJESHKHANDELWALIBCOFFICIAL — dedicated identity database.
- *   5. DRRAJESHKHANDELWALIBC — dedicated identity database.
+ *   1. SUPREMESETUHUB — the only physical database.
+ *   2. RAJESHKHANDELWALOFFICIAL — logical identity gate.
+ *   3. RAJESHKHANDELWAL — logical identity gate.
+ *   4. DRRAJESHKHANDELWALIBCOFFICIAL — logical identity gate.
+ *   5. DRRAJESHKHANDELWALIBC — logical identity gate.
  *
- * The four identity gates remain under the central foundation, but each gate
- * has its own database and credentials. This file only builds configuration;
- * it does not connect to MySQL or create databases/tables.
+ * All four identity gates use identity_code scopes inside the one central
+ * database. This file only builds configuration; it does not connect to
+ * MySQL or create databases/tables.
  *
  * Secrets must be supplied through environment variables or a private PHP
  * config file outside the public web root. Never commit real credentials.
