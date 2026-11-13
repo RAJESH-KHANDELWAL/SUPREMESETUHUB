@@ -11,11 +11,11 @@ Separate companion plugin brands:
 Exact lowercase root filenames:
 - supremesetuhub.php
 - supremesetuhub.py
-- supremesetuhub wordpress connector.php
-- supremesetuhub wordpress connector.py
+- supremesetuhub_wordpress_connector.php
+- supremesetuhub_wordpress_connector.py
 
 The main WordPress plugin bootstrap is supremesetuhub.php. It loads
-"supremesetuhub wordpress connector.php", which registers:
+supremesetuhub_wordpress_connector.php, which registers:
   /wp-json/supremesetuhub/v1/connector-status
 
 The Python files are backend-side companion manifests. WordPress executes
