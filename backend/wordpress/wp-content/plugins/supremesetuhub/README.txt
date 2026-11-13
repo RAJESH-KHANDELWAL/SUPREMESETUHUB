@@ -4,21 +4,24 @@ Parent brand:
 SUPREMESETUHUB
 👑 DR RAJESH KHANDELWAL IBC 👑
 
-Companion plugin brands:
+Separate companion plugin brands:
 - SUPREME by SUPREMESETUHUB
 - SUPREME ECOSYSTEM by SUPREMESETUHUB
 
-Required root files:
+Exact lowercase root filenames:
 - supremesetuhub.php
 - supremesetuhub.py
-- supreme_wordpress_connector.py
-- supremesetuhub_wordpress_connector.php
+- supremesetuhub wordpress connector.php
+- supremesetuhub wordpress connector.py
 
-The Python connector file is for the SUPREME backend companion. The PHP
-connector file is loaded by the WordPress plugin bootstrap and registers:
+The main WordPress plugin bootstrap is supremesetuhub.php. It loads
+"supremesetuhub wordpress connector.php", which registers:
   /wp-json/supremesetuhub/v1/connector-status
 
-WordPress executes PHP, not Python. Python files are backend-side source.
-The endpoint confirms that the connector route is registered; it does not
-claim full authenticated integration with the separate plugins. Verify actual
-plugin basenames and run end-to-end tests before production use.
+The Python files are backend-side companion manifests. WordPress executes
+PHP, not Python.
+
+The connector's companion plugin basenames are configurable with WordPress
+filters. Confirm the real folder/main-file paths of both separately installed
+plugins before relying on their active status. The endpoint is a status
+endpoint, not a complete authenticated remote-control integration.
