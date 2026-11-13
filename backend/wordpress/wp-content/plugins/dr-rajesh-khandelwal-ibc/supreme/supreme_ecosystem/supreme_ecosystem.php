@@ -21,3 +21,7 @@ foreach (array('dr_rajesh_khandelwal_ibc', 'dr_rajesh_khandelwal_ibc_official', 
     $identity_file = __DIR__ . '/' . $identity . '/' . $identity . '.php';
     if (is_file($identity_file)) { require_once $identity_file; }
 }
+
+
+// Load the SUPREME Dashboard Ecosystem submodule.
+require_once __DIR__ . '/supreme_dashboard_ecosystem/supreme_dashboard_ecosystem.php';
