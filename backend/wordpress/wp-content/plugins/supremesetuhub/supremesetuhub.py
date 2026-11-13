@@ -1,24 +1,33 @@
-"""SUPREMESETUHUB root backend manifest.
+"""SUPREMESETUHUB central hub manifest.
 
-This file is a Python-side manifest for the wider SUPREMESETUHUB backend.
-It is not executed by WordPress.
+Separate branded WordPress plugins:
+- SUPREME by SUPREMESETUHUB
+- SUPREME ECOSYSTEM by SUPREMESETUHUB
+
+WordPress plugin execution is handled by PHP. This Python file is the backend
+manifest and can be imported by the Python service.
 """
 from __future__ import annotations
 
-SYSTEM_NAME = "SUPREMESETUHUB"
-BRAND_NAME = "👑 DR RAJESH KHANDELWAL IBC 👑"
-MODULES = ("SUPREME", "SUPREME ECOSYSTEM")
-IDENTITIES = (
-    "dr_rajesh_khandelwal_ibc",
-    "dr_rajesh_khandelwal_ibc_official",
-    "rajesh_khandelwal",
-    "rajesh_khandelwal_official",
-)
+from typing import Any
 
-def system_manifest() -> dict:
+HUB_NAME = "SUPREMESETUHUB"
+HUB_BRAND = "👑 DR RAJESH KHANDELWAL IBC 👑"
+
+PLUGINS = {
+    "supreme": {
+        "brand": "SUPREME by SUPREMESETUHUB",
+        "wordpress_plugin_file": "supreme/supreme.php",
+    },
+    "supreme_ecosystem": {
+        "brand": "SUPREME ECOSYSTEM by SUPREMESETUHUB",
+        "wordpress_plugin_file": "supreme-ecosystem/supreme-ecosystem.php",
+    },
+}
+
+def hub_manifest() -> dict[str, Any]:
     return {
-        "system": SYSTEM_NAME,
-        "brand": BRAND_NAME,
-        "modules": list(MODULES),
-        "identities": list(IDENTITIES),
+        "hub": HUB_NAME,
+        "brand": HUB_BRAND,
+        "plugins": PLUGINS,
     }
