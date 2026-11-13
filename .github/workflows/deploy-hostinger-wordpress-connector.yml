@@ -21,6 +21,12 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
       - name: Check required deployment settings
         env:
           FTP_SERVER: ${{ secrets.HOSTINGER_FTP_SERVER }}
@@ -46,8 +52,25 @@ jobs:
               ;;
           esac
 
-      - name: Check PHP syntax before upload
-        run: php -l wordpress-plugin/supremesetuhub-connector/supremesetuhub-connector.php
+      - name: Verify connector source and PHP syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "Workspace: $GITHUB_WORKSPACE"
+          echo "Commit: $GITHUB_SHA"
+          SOURCE_DIR="$GITHUB_WORKSPACE/wordpress-plugin/supremesetuhub-connector"
+          PLUGIN_FILE="$SOURCE_DIR/supremesetuhub-connector.php"
+          if [ ! -d "$SOURCE_DIR" ]; then
+            echo "::error::Connector source directory is missing from the checked-out repository."
+            find "$GITHUB_WORKSPACE" -maxdepth 4 -type d -name 'supremesetuhub-connector' -print
+            exit 1
+          fi
+          if [ ! -f "$PLUGIN_FILE" ]; then
+            echo "::error::Connector PHP file is missing from $SOURCE_DIR"
+            ls -la "$SOURCE_DIR"
+            exit 1
+          fi
+          php -l "$PLUGIN_FILE"
 
       - name: Deploy connector plugin files to Hostinger over FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
