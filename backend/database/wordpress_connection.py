@@ -43,6 +43,8 @@ class WordPressDatabaseConnection:
         port: int = 3306,
         table_prefix: str = "wp_",
         connect_timeout: int = 30,
+        ssl_required: bool = False,
+        ssl_ca: Optional[str] = None,
     ) -> None:
 
         self.host = host
@@ -52,6 +54,8 @@ class WordPressDatabaseConnection:
         self.port = port
         self.table_prefix = table_prefix
         self.connect_timeout = connect_timeout
+        self.ssl_required = ssl_required
+        self.ssl_ca = ssl_ca
 
         self._connection: Optional[Any] = None
         self._lock = RLock()
@@ -80,14 +84,24 @@ class WordPressDatabaseConnection:
                 }
 
             try:
-                self._connection = mysql.connector.connect(
-                    host=self.host,
-                    port=self.port,
-                    database=self.database,
-                    user=self.username,
-                    password=self.password,
-                    connection_timeout=self.connect_timeout,
-                )
+                if self.ssl_required and not self.ssl_ca:
+                    raise ValueError("WORDPRESS_DB_SSL_CA is required when SSL is enabled.")
+
+                connection_options = {
+                    "host": self.host,
+                    "port": self.port,
+                    "database": self.database,
+                    "user": self.username,
+                    "password": self.password,
+                    "connection_timeout": self.connect_timeout,
+                }
+                if self.ssl_ca:
+                    connection_options.update(
+                        ssl_ca=self.ssl_ca,
+                        ssl_verify_cert=True,
+                        ssl_verify_identity=True,
+                    )
+                self._connection = mysql.connector.connect(**connection_options)
 
                 return {
                     "success": True,
@@ -160,6 +174,8 @@ class WordPressDatabaseConnection:
             "host": self.host,
             "port": self.port,
             "table_prefix": self.table_prefix,
+            "ssl_required": self.ssl_required,
+            "ssl_ca_configured": bool(self.ssl_ca),
             "connected": self.is_connected(),
         }
 
