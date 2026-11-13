@@ -1,4 +1,4 @@
-name: Deploy SUPREME WordPress Connector to Hostinger
+name: Deploy SUPREME WordPress Connector to Both Hostinger Sites
 
 on:
   workflow_dispatch:
@@ -16,8 +16,27 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
-    name: Deploy connector files via FTPS
+  validate:
+    name: Validate connector source
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Verify connector source and PHP syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          PLUGIN_FILE="wordpress-plugin/supremesetuhub-connector/supremesetuhub-connector.php"
+          test -f "$PLUGIN_FILE"
+          php -l "$PLUGIN_FILE"
+
+  deploy-primary:
+    name: Deploy to rajeshkhandelwalofficial.com
+    needs: validate
     runs-on: ubuntu-latest
     environment: production
     steps:
@@ -27,13 +46,7 @@ jobs:
           ref: main
           fetch-depth: 1
 
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          ref: main
-          fetch-depth: 1
-
-      - name: Check required deployment settings
+      - name: Check primary Hostinger deployment settings
         env:
           FTP_SERVER: ${{ secrets.HOSTINGER_FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.HOSTINGER_FTP_USERNAME }}
@@ -47,38 +60,15 @@ jobs:
           [ -n "$FTP_PASSWORD" ] || missing="$missing HOSTINGER_FTP_PASSWORD"
           [ -n "$WP_PLUGIN_DIR" ] || missing="$missing HOSTINGER_WP_PLUGIN_DIR"
           if [ -n "$missing" ]; then
-            echo "::error::Configure these GitHub Actions production secrets/variables first:$missing"
+            echo "::error::Missing primary deployment settings:$missing"
             exit 1
           fi
           case "$WP_PLUGIN_DIR" in
             */wp-content/plugins/supremesetuhub-connector/) ;;
-            *)
-              echo "::error::HOSTINGER_WP_PLUGIN_DIR must end exactly with /wp-content/plugins/supremesetuhub-connector/"
-              exit 1
-              ;;
+            *) echo "::error::Primary plugin directory must end with /wp-content/plugins/supremesetuhub-connector/"; exit 1 ;;
           esac
 
-      - name: Verify connector source and PHP syntax
-        shell: bash
-        run: |
-          set -euo pipefail
-          echo "Workspace: $GITHUB_WORKSPACE"
-          echo "Commit: $GITHUB_SHA"
-          SOURCE_DIR="$GITHUB_WORKSPACE/wordpress-plugin/supremesetuhub-connector"
-          PLUGIN_FILE="$SOURCE_DIR/supremesetuhub-connector.php"
-          if [ ! -d "$SOURCE_DIR" ]; then
-            echo "::error::Connector source directory is missing from the checked-out repository."
-            find "$GITHUB_WORKSPACE" -maxdepth 4 -type d -name 'supremesetuhub-connector' -print
-            exit 1
-          fi
-          if [ ! -f "$PLUGIN_FILE" ]; then
-            echo "::error::Connector PHP file is missing from $SOURCE_DIR"
-            ls -la "$SOURCE_DIR"
-            exit 1
-          fi
-          php -l "$PLUGIN_FILE"
-
-      - name: Deploy connector plugin files to Hostinger over FTPS
+      - name: Deploy primary connector over FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.HOSTINGER_FTP_SERVER }}
@@ -88,5 +78,52 @@ jobs:
           port: 21
           local-dir: wordpress-plugin/supremesetuhub-connector/
           server-dir: ${{ vars.HOSTINGER_WP_PLUGIN_DIR }}
+          dangerous-clean-slate: false
+          log-level: standard
+
+  deploy-ibc:
+    name: Deploy to drrajeshkhandelwalibc.com
+    needs: validate
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Check second Hostinger deployment settings
+        env:
+          FTP_SERVER: ${{ secrets.HOSTINGER_FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.HOSTINGER_FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          WP_PLUGIN_DIR: ${{ vars.HOSTINGER_WP_PLUGIN_DIR_IBC }}
+        run: |
+          set -eu
+          missing=""
+          [ -n "$FTP_SERVER" ] || missing="$missing HOSTINGER_FTP_SERVER"
+          [ -n "$FTP_USERNAME" ] || missing="$missing HOSTINGER_FTP_USERNAME"
+          [ -n "$FTP_PASSWORD" ] || missing="$missing HOSTINGER_FTP_PASSWORD"
+          [ -n "$WP_PLUGIN_DIR" ] || missing="$missing HOSTINGER_WP_PLUGIN_DIR_IBC"
+          if [ -n "$missing" ]; then
+            echo "::error::Missing second-site deployment settings:$missing"
+            exit 1
+          fi
+          case "$WP_PLUGIN_DIR" in
+            */wp-content/plugins/supremesetuhub-connector/) ;;
+            *) echo "::error::Second-site plugin directory must end with /wp-content/plugins/supremesetuhub-connector/"; exit 1 ;;
+          esac
+
+      - name: Deploy second-site connector over FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.HOSTINGER_FTP_SERVER }}
+          username: ${{ secrets.HOSTINGER_FTP_USERNAME }}
+          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: wordpress-plugin/supremesetuhub-connector/
+          server-dir: ${{ vars.HOSTINGER_WP_PLUGIN_DIR_IBC }}
           dangerous-clean-slate: false
           log-level: standard

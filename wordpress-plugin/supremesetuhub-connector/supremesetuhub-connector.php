@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: SUPREMESETUHUB Connector
- * Description: Connects a WordPress storefront to the SUPREMESETUHUB public API catalog and health endpoint.
- * Version: 1.2.0
+ * Plugin Name: SUPREMESETUHUB
+ * Description: Unified WordPress integration for the SUPREMESETUHUB MAIN BASE FOUNDATION, shared ecosystem modules and central API.
+ * Version: 1.3.0
  * Requires at least: 6.2
  * Requires PHP: 7.4
  * Author: DR RAJESH KHANDELWAL IBC
@@ -27,7 +27,7 @@ final class SUPREMESETUHUB_Connector {
         add_shortcode('supremesetuhub_pod_catalog', array(__CLASS__, 'pod_catalog_shortcode'));
         add_shortcode('supremesetuhub_digital_catalog', array(__CLASS__, 'digital_catalog_shortcode'));
 
-        // Keep ecosystem features inside this existing DR RAJESH KHANDELWAL IBC plugin.
+        // Keep all WordPress-facing ecosystem modules under the single SUPREMESETUHUB brand; the central MAIN BASE FOUNDATION remains in the GitHub backend.
         add_shortcode('supreme_ecosystem_home', array(__CLASS__, 'ecosystem_home_shortcode'));
         add_shortcode('supreme_snippet_home', array(__CLASS__, 'ecosystem_home_shortcode'));
         add_shortcode('supreme_global_business_ecosystem', array(__CLASS__, 'global_business_ecosystem_shortcode'));
@@ -71,7 +71,7 @@ final class SUPREMESETUHUB_Connector {
             'timeout' => 8,
             'redirection' => 2,
             'headers' => array('Accept' => 'application/json'),
-            'user-agent' => 'SUPREMESETUHUB-WordPress-Connector/1.0',
+            'user-agent' => 'SUPREMESETUHUB-WordPress-Foundation/1.3.0',
         ));
 
         if (is_wp_error($response)) {
@@ -96,7 +96,7 @@ final class SUPREMESETUHUB_Connector {
 
     public static function admin_menu() {
         add_options_page(
-            __('SUPREMESETUHUB Connector', 'supremesetuhub-connector'),
+            __('SUPREMESETUHUB — MAIN BASE FOUNDATION', 'supremesetuhub-connector'),
             __('SUPREMESETUHUB', 'supremesetuhub-connector'),
             'manage_options',
             'supremesetuhub-connector',
