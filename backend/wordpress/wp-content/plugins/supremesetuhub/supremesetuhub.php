@@ -2,17 +2,30 @@
 /**
  * Plugin Name: SUPREMESETUHUB
  * Description: Central WordPress connector for SUPREME by SUPREMESETUHUB and SUPREME ECOSYSTEM by SUPREMESETUHUB.
- * Version: 1.2.0
+ * Version: 1.3.0
  * Author: 👑 DR RAJESH KHANDELWAL IBC 👑
  * Text Domain: supremesetuhub
  */
 if (!defined('ABSPATH')) { exit; }
 
-define('SUPREMESETUHUB_VERSION', '1.2.0');
+define('SUPREMESETUHUB_VERSION', '1.3.0');
 define('SUPREMESETUHUB_DIR', plugin_dir_path(__FILE__));
 define('SUPREMESETUHUB_URL', plugin_dir_url(__FILE__));
 
-require_once SUPREMESETUHUB_DIR . 'supremesetuhub_wordpress_connector.php';
+if (!function_exists('supremesetuhub_core_manifest')) {
+    function supremesetuhub_core_manifest() {
+        return array(
+            'hub' => 'SUPREMESETUHUB',
+            'brand' => '👑 DR RAJESH KHANDELWAL IBC 👑',
+            'plugins' => array(
+                'supreme' => 'SUPREME by SUPREMESETUHUB',
+                'supreme_ecosystem' => 'SUPREME ECOSYSTEM by SUPREMESETUHUB',
+            ),
+        );
+    }
+}
+
+require_once SUPREMESETUHUB_DIR . 'supremesetuhub wordpress connector.php';
 
 register_activation_hook(__FILE__, function () {
     update_option('supremesetuhub_plugin_version', SUPREMESETUHUB_VERSION);
