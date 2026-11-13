@@ -220,3 +220,7 @@ add_action(
 
     }
 );
+
+
+// Load the SUPREME module and its ecosystem submodule through one parent plugin.
+require_once __DIR__ . '/supreme.php';
