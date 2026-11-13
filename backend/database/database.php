@@ -144,36 +144,21 @@ if (!function_exists('supreme_main_database_connection')) {
 }
 
 
+
 /**
- * Return a normalized connection configuration for one of the five identities.
- * SUPREMESETUHUB is the main database; the other four identities have their
- * own dedicated databases under the same hosting foundation.
+ * Resolve an identity gate to the single physical SUPREMESETUHUB database.
+ * Data access layers must apply the returned identity_code in every
+ * identity-owned query; sharing a PDO connection alone is not row isolation.
  */
 if (!function_exists('supreme_identity_database_connection_config')) {
     function supreme_identity_database_connection_config(string $identity): array
     {
         $foundation = supreme_main_foundation_config();
-        if (!isset($foundation['databases'][$identity])) {
-            throw new InvalidArgumentException('Unknown SUPREMESETUHUB identity database: ' . $identity);
+        if (!in_array($identity, $foundation['identities'], true)) {
+            throw new InvalidArgumentException('Unknown SUPREMESETUHUB identity gate: ' . $identity);
         }
 
-        $db = $foundation['databases'][$identity];
-        if ($identity !== 'SUPREMESETUHUB' && empty($db['configured'])) {
-            $missing = $db['missing_settings'] ?? [];
-            throw new InvalidArgumentException(
-                'Identity database is not configured (' . $identity . '): '
-                . implode(', ', $missing)
-            );
-        }
-
-        foreach (['host', 'name', 'username', 'password', 'port'] as $key) {
-            if (!isset($db[$key]) || $db[$key] === '') {
-                throw new InvalidArgumentException(
-                    'Missing ' . $identity . ' database connection field: ' . $key
-                );
-            }
-        }
-
+        $db = $foundation['database'];
         return [
             'host' => $db['host'],
             'database' => $db['name'],
@@ -182,24 +167,30 @@ if (!function_exists('supreme_identity_database_connection_config')) {
             'port' => $db['port'],
             'connect_timeout' => $db['connect_timeout'] ?? 10,
             'charset' => $db['charset'] ?? 'utf8mb4',
-            'ssl_required' => $db['ssl_required'] ?? false,
-            'ssl_ca' => $db['ssl_ca'] ?? null,
             'identity' => $identity,
+            'identity_code' => $identity,
+            'storage_database' => 'SUPREMESETUHUB',
         ];
     }
 }
 
-/** Open/reuse a PDO connection for MAIN or a named identity database. */
+/** All identity gates share exactly one central PDO connection. */
 if (!function_exists('supreme_identity_database_connection')) {
     function supreme_identity_database_connection(string $identity = 'SUPREMESETUHUB'): PDO
     {
-        static $connections = [];
-        if (isset($connections[$identity]) && $connections[$identity] instanceof PDO) {
-            return $connections[$identity];
-        }
+        supreme_identity_database_connection_config($identity);
+        return supreme_main_database_connection();
+    }
+}
 
+/** Return the mandatory row-scope key for identity-owned data operations. */
+if (!function_exists('supreme_identity_scope')) {
+    function supreme_identity_scope(string $identity): array
+    {
         $config = supreme_identity_database_connection_config($identity);
-        $connections[$identity] = supreme_database_connect($config);
-        return $connections[$identity];
+        return [
+            'identity_code' => $config['identity_code'],
+            'database' => $config['storage_database'],
+        ];
     }
 }
