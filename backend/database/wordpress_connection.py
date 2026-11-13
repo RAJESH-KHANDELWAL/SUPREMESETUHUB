@@ -89,10 +89,10 @@ class WordPressDatabaseConnection:
 
                 connection_options = {
                     "host": self.host,
-                    port=self.port,
-                    database=self.database,
-                    user=self.username,
-                    password=self.password,
+                    "port": self.port,
+                    "database": self.database,
+                    "user": self.username,
+                    "password": self.password,
                     "connection_timeout": self.connect_timeout,
                 }
                 if self.ssl_ca:
