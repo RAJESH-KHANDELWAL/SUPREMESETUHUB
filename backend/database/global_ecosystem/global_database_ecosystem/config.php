@@ -1,9 +1,7 @@
 <?php
 declare(strict_types=1);
-
 require_once dirname(__DIR__, 2) . '/config.php';
-
-/** Global Database Ecosystem is a child gate over the central database. */
+/** GDE is governed by the main foundation and exposes all five identity DBs. */
 if (!function_exists('global_database_ecosystem_config')) {
     function global_database_ecosystem_config(): array
     {
@@ -15,9 +13,10 @@ if (!function_exists('global_database_ecosystem_config')) {
             'primary_identity' => $main['primary_identity'],
             'identities' => $main['identities'],
             'identity_gates' => $main['identity_gates'],
-            'provider' => 'HOSTINGER_MARIADB',
-            'connection_env_prefix' => 'SUPREME_DB_',
-            'connection_mode' => 'shared_central_database',
+            'database_topology' => 'ONE_MAIN_PLUS_FOUR_IDENTITY_DATABASES',
+            'provider' => 'HOSTINGER_MYSQL_MARIADB',
+            'databases' => $main['databases'],
+            'wordpress_database' => $main['wordpress_database'],
             'schema_management' => 'explicit_migrations_only',
         ];
     }
