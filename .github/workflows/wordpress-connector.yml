@@ -8,6 +8,7 @@ on:
       - "backend/api/app.py"
       - "backend/tests/test_print_on_demand_public_api.py"
       - ".github/workflows/wordpress-connector.yml"
+      - ".github/workflows/deploy-hostinger-wordpress-connector.yml"
   push:
     branches: [main]
     paths:
