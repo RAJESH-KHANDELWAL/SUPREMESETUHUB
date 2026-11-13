@@ -1,4 +1,4 @@
-name: Deploy DR RAJESH KHANDELWAL IBC Plugin to Hostinger
+name: Deploy DR RAJESH KHANDELWAL IBC + SUPREMESETUHUB Plugins to Hostinger
 
 on:
   workflow_dispatch:
@@ -17,11 +17,11 @@ concurrency:
 
 jobs:
   validate:
-    name: Validate IBC WordPress plugin
+    name: Validate DR RAJESH KHANDELWAL IBC + SUPREMESETUHUB plugins (IBC package)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check plugin entry point and PHP syntax
+      - name: Check IBC plugin entry point and PHP syntax
         shell: bash
         run: |
           set -euo pipefail
@@ -30,13 +30,13 @@ jobs:
           find "$SOURCE_DIR" -type f -name '*.php' -print0 | xargs -0 -r -n1 php -l
 
   deploy:
-    name: Deploy IBC plugin to drrajeshkhandelwalibc.com
+    name: Deploy IBC plugin (SUPREMESETUHUB is deployed by its own workflow) to drrajeshkhandelwalibc.com
     needs: validate
     runs-on: ubuntu-latest
     environment: production
     steps:
       - uses: actions/checkout@v4
-      - name: Check deployment settings
+      - name: Check IBC deployment settings
         env:
           FTP_SERVER: ${{ secrets.HOSTINGER_DRRAJESHKANDELWALIBC_FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.HOSTINGER_DRRAJESHKANDELWALIBC_FTP_USERNAME }}
@@ -57,7 +57,7 @@ jobs:
             */wp-content/plugins/dr-rajesh-khandelwal-ibc/) ;;
             *) echo "::error::Plugin directory must end with /wp-content/plugins/dr-rajesh-khandelwal-ibc/"; exit 1 ;;
           esac
-      - name: Deploy plugin via FTPS
+      - name: Deploy IBC plugin via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.HOSTINGER_DRRAJESHKANDELWALIBC_FTP_SERVER }}
