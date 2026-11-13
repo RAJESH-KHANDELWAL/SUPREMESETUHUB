@@ -67,6 +67,8 @@ def wordpress_database_connection() -> WordPressDatabaseConnection:
                 port=config.port,
                 table_prefix=config.table_prefix,
                 connect_timeout=config.connect_timeout,
+                ssl_required=config.ssl_required,
+                ssl_ca=config.ssl_ca,
             )
         return _wordpress_connection
 
