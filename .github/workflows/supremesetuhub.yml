@@ -1,4 +1,4 @@
-name: Deploy SUPREMESETUHUB Plugin to Hostinger
+name: Deploy DR RAJESH KHANDELWAL IBC + SUPREMESETUHUB Plugins to Hostinger
 
 on:
   workflow_dispatch:
@@ -17,11 +17,11 @@ concurrency:
 
 jobs:
   validate:
-    name: Validate SUPREMESETUHUB WordPress plugin
+    name: Validate DR RAJESH KHANDELWAL IBC + SUPREMESETUHUB plugins (SUPREMESETUHUB package)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check plugin entry point and PHP syntax
+      - name: Check SUPREMESETUHUB plugin entry point and PHP syntax
         shell: bash
         run: |
           set -euo pipefail
@@ -30,13 +30,13 @@ jobs:
           find "$SOURCE_DIR" -type f -name '*.php' -print0 | xargs -0 -r -n1 php -l
 
   deploy:
-    name: Deploy SUPREMESETUHUB plugin to rajeshkhandelwalofficial.com
+    name: Deploy SUPREMESETUHUB plugin (IBC is deployed by its own workflow) to rajeshkhandelwalofficial.com
     needs: validate
     runs-on: ubuntu-latest
     environment: production
     steps:
       - uses: actions/checkout@v4
-      - name: Check deployment settings
+      - name: Check SUPREMESETUHUB deployment settings
         env:
           FTP_SERVER: ${{ secrets.HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_USERNAME }}
@@ -48,7 +48,7 @@ jobs:
           [ -n "$FTP_SERVER" ] || missing="$missing HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_SERVER"
           [ -n "$FTP_USERNAME" ] || missing="$missing HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_USERNAME"
           [ -n "$FTP_PASSWORD" ] || missing="$missing HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_PASSWORD"
-          [ -n "$PLUGIN_DIR" ] || missing="$missing HOSTINGER_RAJESHKHANDELWALOFFICIAL_SUPREMESETUHUB_PLUGIN_DIR"
+          [ -n "$PLUGIN_DIR" ] || missing="$missing HOSTINGER_RAJESHKANDELWALOFFICIAL_SUPREMESETUHUB_PLUGIN_DIR"
           if [ -n "$missing" ]; then
             echo "::error::Missing production settings:$missing"
             exit 1
@@ -57,7 +57,7 @@ jobs:
             */wp-content/plugins/supremesetuhub/) ;;
             *) echo "::error::Plugin directory must end with /wp-content/plugins/supremesetuhub/"; exit 1 ;;
           esac
-      - name: Deploy plugin via FTPS
+      - name: Deploy SUPREMESETUHUB plugin via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_SERVER }}
