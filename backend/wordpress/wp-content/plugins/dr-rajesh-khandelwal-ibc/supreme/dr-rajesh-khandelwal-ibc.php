@@ -1,15 +1,9 @@
 <?php
+<?php
 /**
- * Plugin Name: 👑 DR RAJESH KHANDELWAL IBC 👑 (SUPREME module)
- * Plugin URI: https://github.com/RAJESH-KHANDELWAL/SUPREMESETUHUB
- * Description: 👑 DR RAJESH KHANDELWAL IBC 👑 — Personal Supreme + WordPress Home integration.
- * Version: 1.3.1
- * Author: 👑 DR RAJESH KHANDELWAL IBC 👑
- * Author URI: https://rajeshkhandelwalofficial.com
- * License: GPL-2.0-or-later
- * Text Domain: dr-rajesh-khandelwal-ibc
+ * Brand implementation module loaded by the parent WordPress plugin.
+ * This file intentionally has no Plugin Name header to prevent duplicate plugin registration.
  */
-
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
