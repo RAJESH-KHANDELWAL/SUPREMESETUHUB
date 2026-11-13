@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "system": "SUPREMESETUHUB",
+  "purpose": "Logical FTP deployment profiles. This file stores non-secret metadata only.",
+  "security": {
+    "passwords_in_repository": false,
+    "credentials_storage": "External secret manager or deployment secrets",
+    "plain_ftp_allowed": false,
+    "preferred_protocol": "FTPS",
+    "connection_verification_required_before_deploy": true
+  },
+  "provider_accounts_observed": [
+    {
+      "profile_id": "HOSTINGER-SUPREME-MAIN",
+      "profile_type": "MAIN",
+      "provider": "HOSTINGER",
+      "hostname": "ftp.rajeshkhandelwalofficial.com",
+      "server_ip": "147.93.17.121",
+      "port": 21,
+      "username": "u664492673.SUPREMESETUHUB",
+      "website_domain": "rajeshkhandelwalofficial.com",
+      "root_directory": "/home/u664492673/domains/rajeshkhandelwalofficial.com/public_html",
+      "protocol": "FTPS",
+      "protocol_verification": "PENDING",
+      "account_status": "OBSERVED_NOT_CONNECTION_TESTED"
+    },
+    {
+      "profile_id": "HOSTINGER-LEGACY-PERSONAL",
+      "profile_type": "LEGACY_PERSONAL",
+      "provider": "HOSTINGER",
+      "hostname": "ftp.rajeshkhandelwalofficial.com",
+      "server_ip": "147.93.17.121",
+      "port": 21,
+      "username": "u664492673.RAJESHKHANDELWAL",
+      "website_domain": "rajeshkhandelwalofficial.com",
+      "root_directory": "/home/u664492673/domains/rajeshkhandelwalofficial.com/public_html",
+      "protocol": "FTPS",
+      "protocol_verification": "PENDING",
+      "account_status": "OBSERVED_NOT_CONNECTION_TESTED",
+      "note": "This is an existing personal FTP account, not one of the four identity-gate FTP accounts."
+    }
+  ],
+  "identity_gate_profiles": [
+    {
+      "gate_code": "RAJESHKHANDELWALOFFICIAL",
+      "desired_username_suffix": "RAJESHKHANDELWALOFFICIAL",
+      "provisioning_status": "NOT_CREATED",
+      "credential_secret_ref": null,
+      "website_scope": null
+    },
+    {
+      "gate_code": "RAJESHKHANDELWAL",
+      "desired_username_suffix": "RAJESHKHANDELWAL",
+      "provisioning_status": "NOT_CREATED",
+      "credential_secret_ref": null,
+      "website_scope": null
+    },
+    {
+      "gate_code": "DRRAJESHKHANDELWALIBCOFFICIAL",
+      "desired_username_suffix": "DRRAJESHKHANDELWALIBCOFFICIAL",
+      "provisioning_status": "NOT_CREATED",
+      "credential_secret_ref": null,
+      "website_scope": null
+    },
+    {
+      "gate_code": "DRRAJESHKHANDELWALIBC",
+      "desired_username_suffix": "DRRAJESHKHANDELWALIBC",
+      "provisioning_status": "NOT_CREATED",
+      "credential_secret_ref": null,
+      "website_scope": null
+    }
+  ],
+  "deployment_targets": [
+    {
+      "domain": "rajeshkhandelwalofficial.com",
+      "ftp_profile_id": "HOSTINGER-SUPREME-MAIN",
+      "remote_path": "/home/u664492673/domains/rajeshkhandelwalofficial.com/public_html",
+      "status": "PENDING_CONNECTION_TEST"
+    },
+    {
+      "domain": "drrajeshkhandelwalibc.com",
+      "ftp_profile_id": null,
+      "remote_path": null,
+      "status": "NEEDS_SEPARATE_HOSTING_ACCESS_CONFIRMATION"
+    }
+  ],
+  "customer_connections": {
+    "enabled": false,
+    "mode": "CUSTOMER_OWNED_CREDENTIALS",
+    "require_explicit_authorization": true,
+    "require_scoped_directory_or_database_user": true,
+    "store_only_secret_references": true,
+    "allow_customer_revocation": true
+  }
+}
