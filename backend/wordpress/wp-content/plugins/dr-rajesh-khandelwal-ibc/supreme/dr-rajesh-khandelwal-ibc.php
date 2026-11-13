@@ -1,5 +1,4 @@
 <?php
-<?php
 /**
  * Brand implementation module loaded by the parent WordPress plugin.
  * This file intentionally has no Plugin Name header to prevent duplicate plugin registration.
