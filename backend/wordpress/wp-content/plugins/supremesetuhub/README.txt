@@ -1,14 +1,24 @@
-SUPREMESETUHUB WORDPRESS CONNECTOR
+SUPREMESETUHUB — CENTRAL WORDPRESS CONNECTOR
 
-Brand: SUPREMESETUHUB
-Owner brand: 👑 DR RAJESH KHANDELWAL IBC 👑
+Parent brand:
+SUPREMESETUHUB
+👑 DR RAJESH KHANDELWAL IBC 👑
 
-Modules:
-- supreme/ — SUPREME system module
-- supreme_ecosystem/ — SUPREME ECOSYSTEM module
-- wordpress_connector.php — WordPress PHP runtime connector
-- wordpress_connector.py — Python backend companion manifest
+Separate companion plugin brand names:
+1. SUPREME by SUPREMESETUHUB
+2. SUPREME ECOSYSTEM by SUPREMESETUHUB
 
-Both modules contain four identity folders. Each identity folder contains .php and .py metadata files.
+Core files:
+- supremesetuhub.php — Main WordPress plugin bootstrap.
+- supremesetuhub.py — Python-side hub manifest.
+- wordpress_connector.php — WordPress runtime connector.
+- wordpress_connector.py — Python backend connector manifest.
 
-WordPress executes PHP. Python files are backend-side companion source and do not execute inside WordPress. These files provide connector and identity scaffolding; live authenticated backend connectivity must be configured and tested separately.
+WordPress executes PHP. Python files are intended for the Python backend and do
+not run inside WordPress. The REST status route is:
+  /wp-json/supremesetuhub/v1/connector-status
+
+The connector checks active plugin entries using the expected plugin basenames.
+Confirm those basenames match the actual installed companion plugin folder/file
+names before relying on the active-state values. This is a status integration,
+not a complete authenticated remote-control bridge.
