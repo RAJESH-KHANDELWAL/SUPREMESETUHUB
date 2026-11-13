@@ -25,7 +25,7 @@ if (!function_exists('supremesetuhub_core_manifest')) {
     }
 }
 
-require_once SUPREMESETUHUB_DIR . 'supremesetuhub wordpress connector.php';
+require_once SUPREMESETUHUB_DIR . 'supremesetuhub_wordpress_connector.php';
 
 register_activation_hook(__FILE__, function () {
     update_option('supremesetuhub_plugin_version', SUPREMESETUHUB_VERSION);
