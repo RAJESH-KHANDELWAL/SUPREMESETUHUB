@@ -142,3 +142,64 @@ if (!function_exists('supreme_main_database_connection')) {
         return $connection;
     }
 }
+
+
+/**
+ * Return a normalized connection configuration for one of the five identities.
+ * SUPREMESETUHUB is the main database; the other four identities have their
+ * own dedicated databases under the same hosting foundation.
+ */
+if (!function_exists('supreme_identity_database_connection_config')) {
+    function supreme_identity_database_connection_config(string $identity): array
+    {
+        $foundation = supreme_main_foundation_config();
+        if (!isset($foundation['databases'][$identity])) {
+            throw new InvalidArgumentException('Unknown SUPREMESETUHUB identity database: ' . $identity);
+        }
+
+        $db = $foundation['databases'][$identity];
+        if ($identity !== 'SUPREMESETUHUB' && empty($db['configured'])) {
+            $missing = $db['missing_settings'] ?? [];
+            throw new InvalidArgumentException(
+                'Identity database is not configured (' . $identity . '): '
+                . implode(', ', $missing)
+            );
+        }
+
+        foreach (['host', 'name', 'username', 'password', 'port'] as $key) {
+            if (!isset($db[$key]) || $db[$key] === '') {
+                throw new InvalidArgumentException(
+                    'Missing ' . $identity . ' database connection field: ' . $key
+                );
+            }
+        }
+
+        return [
+            'host' => $db['host'],
+            'database' => $db['name'],
+            'username' => $db['username'],
+            'password' => $db['password'],
+            'port' => $db['port'],
+            'connect_timeout' => $db['connect_timeout'] ?? 10,
+            'charset' => $db['charset'] ?? 'utf8mb4',
+            'ssl_required' => $db['ssl_required'] ?? false,
+            'ssl_ca' => $db['ssl_ca'] ?? null,
+            'identity' => $identity,
+        ];
+    }
+}
+
+/** Open/reuse a PDO connection for MAIN or a named identity database. */
+if (!function_exists('supreme_identity_database_connection')) {
+    function supreme_identity_database_connection(string $identity = 'SUPREMESETUHUB'): PDO
+    {
+        static $connections = [];
+        if (isset($connections[$identity]) && $connections[$identity] instanceof PDO) {
+            return $connections[$identity];
+        }
+
+        $config = supreme_identity_database_connection_config($identity);
+        $connections[$identity] = supreme_database_connect($config);
+        return $connections[$identity];
+    }
+}
