@@ -19,8 +19,6 @@ add_action('admin_menu', function () {
     add_menu_page(
         'SUPREME Dashboard',
         'SUPREME Dashboard',
-        'SUPREME Dashboard',
-        'Dashboard',
         'manage_options',
         'supreme-dashboard',
         function () {
