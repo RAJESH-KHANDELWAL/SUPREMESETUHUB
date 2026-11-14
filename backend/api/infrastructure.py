@@ -9,7 +9,7 @@ from fastapi import APIRouter
 
 from backend.infrastructure.domains.controller import DomainController
 from backend.infrastructure.hosting.controller import HostingController
-from backend.infrastructure.servers.controller import ServerController
+from backend.infrastructure.server.controller import ServerController
 from backend.infrastructure.ipam.controller import IPAMController
 from backend.infrastructure.network.controller import NetworkController
 from backend.infrastructure.dns.controller import DNSController
