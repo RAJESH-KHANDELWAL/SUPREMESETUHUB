@@ -35,7 +35,7 @@ gates.
 
 ## Private credentials
 
-Set the `SUPREME_DB_*` values from `SUPREME_DB.env.example` as server-side
+Set the `SUPREMESETUHUB_DB_*` values from `SUPREME_DB.env.example` as server-side
 environment variables or in a private PHP config file outside the public web
 root. Never commit real passwords or upload the completed private file to the
 public repository.
