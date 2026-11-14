@@ -20,6 +20,8 @@ on:
       - "backend/database/migrations/mysql/**"
       - "backend/php/**"
       - "backend/tests/test_identity_gate.py"
+      - "backend/tests/test_ftp_profiles.py"
+      - "backend/infrastructure/ftp/profiles.py"
       - "backend/database/IDENTITY-ARCHITECTURE.md"
       - ".github/workflows/identity-gate-validation.yml"
   workflow_dispatch:
