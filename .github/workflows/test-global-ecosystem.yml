@@ -39,6 +39,58 @@ jobs:
             php -l "$file"
           done < <(git ls-files -z '*.php')
 
+  python-quality:
+    name: Python syntax checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Parse all tracked Python files
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import ast
+          import pathlib
+          import subprocess
+          import tokenize
+
+          result = subprocess.run(
+              ["git", "ls-files", "-z", "--", "*.py"],
+              check=True,
+              capture_output=True,
+          )
+          files = [
+              pathlib.Path(item.decode("utf-8"))
+              for item in result.stdout.split(b"\\0")
+              if item
+          ]
+          if not files:
+              raise SystemExit("No tracked Python files found.")
+
+          failures = []
+          for path in files:
+              try:
+                  with tokenize.open(path) as source_file:
+                      ast.parse(source_file.read(), filename=str(path))
+              except (OSError, SyntaxError, UnicodeError) as exc:
+                  failures.append((path, exc))
+
+          for path, exc in failures:
+              print(f"FAIL: {path}: {exc}")
+
+          if failures:
+              raise SystemExit(f"Python syntax check failed for {len(failures)} file(s).")
+
+          print(f"PYTHON SYNTAX: PASS ({len(files)} tracked .py files checked)")
+          PY
+
   test-global-ecosystem:
     runs-on: ubuntu-latest
 
