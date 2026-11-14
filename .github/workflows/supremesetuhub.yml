@@ -59,9 +59,9 @@ jobs:
           esac
       - name: Verify rajeshkhandelwalofficial FTPS login using backend manager
         env:
-          FTP_SERVER: ${{ secrets.HOSTINGER_RAJESHKANDELWALOFFICIAL_FTP_SERVER }}
-          FTP_USERNAME: ${{ secrets.HOSTINGER_RAJESHKANDELWALOFFICIAL_FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.HOSTINGER_RAJESHKANDELWALOFFICIAL_FTP_PASSWORD }}
+          FTP_SERVER: ${{ secrets.HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_PASSWORD }}
           FTP_PORT: "21"
         run: python -m backend.infrastructure.ftp.healthcheck --site rajeshkhandelwalofficial
       - name: Deploy SUPREMESETUHUB plugin via FTPS
