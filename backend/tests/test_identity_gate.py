@@ -24,7 +24,7 @@ def test_normalize_rejects_unknown_identity(code):
 
 def test_scope_filter_is_parameterized():
     sql, params = IdentityGateService.scope_filter(
-        "RAJESHKHANDELWALIBC", column="identity_code"
+        "DRRAJESHKHANDELWALIBC", column="identity_code"
     )
     assert sql == "identity_code = %s"
     assert params == ("DRRAJESHKHANDELWALIBC",)
