@@ -22,6 +22,8 @@ class GlobalEcosystemIdentity:
     module_count: int | None = None
     module: str | None = None
     entrypoint: str | None = None
+    module: str | None = None
+    entrypoint: str | None = None
     created_at: str = field(default_factory=utc_now)
     updated_at: str = field(default_factory=utc_now)
 
