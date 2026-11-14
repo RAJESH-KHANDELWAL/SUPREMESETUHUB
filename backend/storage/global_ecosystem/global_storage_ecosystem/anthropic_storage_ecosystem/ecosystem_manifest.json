@@ -1,49 +1,37 @@
 {
-  "schema_version": "1.0.0",
-  "ecosystem_id": "DERIVED_FROM_DIRECTORY_NAME",
-  "geographic_scope": [
-    "BHARAT",
-    "SOUTH_ASIA",
-    "CENTRAL_ASIA",
-    "ASIA_PACIFIC",
-    "MIDDLE_EAST",
-    "EUROPE",
-    "AFRICA",
-    "NORTH_AMERICA",
-    "LATIN_AMERICA",
-    "SOUTH_AMERICA",
-    "OCEANIA",
-    "GLOBAL"
-  ],
-  "coverage_levels": [
-    "NORMAL",
-    "PROFESSIONAL",
-    "ADVANCED",
-    "ENTERPRISE",
-    "SUPREME"
-  ],
-  "implementation_state": "FOUNDATION_INITIALIZED",
+  "schema_version": "2.0.0",
+  "provider_id": "anthropic",
+  "ecosystem_id": "ANTHROPIC-STORAGE-ECOSYSTEM",
+  "implementation_state": "CATALOG_AND_CONTRACTS",
   "external_connection_state": "NOT_CONFIGURED",
-  "requires_authorized_credentials": true,
-  "requires_live_health_check": true,
-  "requires_end_to_end_tests": true,
-  "governance": [
-    "PRIVACY",
-    "SECURITY",
-    "AUDIT",
-    "RETENTION",
-    "CONSENT_WHERE_REQUIRED",
-    "JURISDICTIONAL_COMPLIANCE"
+  "external_connections_verified": false,
+  "general_purpose_cloud_storage": false,
+  "children": [
+    {
+      "id": "anthropic_files_storage",
+      "folder": "anthropic_files_storage_ecosystem",
+      "scope": "WORKSPACE",
+      "api_owner": "anthropic_api_ecosystem/anthropic_files_api_ecosystem"
+    },
+    {
+      "id": "anthropic_managed_agents_session_storage",
+      "folder": "anthropic_managed_agents_session_storage_ecosystem",
+      "scope": "SESSION_OR_ENVIRONMENT",
+      "api_owner": "anthropic_api_ecosystem/anthropic_managed_agents_api_ecosystem"
+    }
   ],
-  "domain_scope": [
-    "TECHNOLOGY",
-    "BUSINESS",
-    "EDUCATION",
-    "CULTURE",
-    "HEALTH_WELLNESS",
-    "ADULT_ONLY_SEXUAL_WELLNESS",
-    "ADULT_ONLY_INTIMACY_RELATIONSHIPS",
-    "LAWFUL_ADULT_MEDIA"
-  ],
-  "taxonomy_only": true
+  "geographic_scope": ["BHARAT", "SOUTH_ASIA", "ASIA_PACIFIC", "MIDDLE_EAST", "EUROPE", "AFRICA", "NORTH_AMERICA", "LATIN_AMERICA", "SOUTH_AMERICA", "OCEANIA", "GLOBAL"],
+  "coverage_levels": ["NORMAL", "PROFESSIONAL", "ADVANCED", "ENTERPRISE", "SUPREME"],
+  "domain_scope": ["TECHNOLOGY", "BUSINESS", "EDUCATION", "CULTURE", "HEALTH_WELLNESS", "LAWFUL_ADULT_ONLY_CONTEXTS"],
+  "governance": ["TENANT_ISOLATION", "LEAST_PRIVILEGE", "ENCRYPTION", "AUDIT", "RETENTION", "CONSENT_WHERE_REQUIRED", "AGE_ASSURANCE_WHERE_REQUIRED", "JURISDICTIONAL_COMPLIANCE"],
+  "provider_constraints": {
+    "uploaded_file_content_downloadable": false,
+    "in_place_file_mutation": false,
+    "in_place_file_rename": false,
+    "optional_expiry_min_seconds": 3600,
+    "optional_expiry_max_seconds": 7776000,
+    "workspace_isolation_boundary": true
+  },
+  "taxonomy_only": false,
+  "live_integration": false
 }
