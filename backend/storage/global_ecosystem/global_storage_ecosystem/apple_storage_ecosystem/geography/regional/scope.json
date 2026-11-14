@@ -1,0 +1,5 @@
+{
+  "scope": "regional",
+  "regions": ["South Asia", "Central Asia", "Asia-Pacific", "Middle East", "Europe", "Africa", "North America", "Latin America", "South America", "Oceania"],
+  "status": "catalog_only"
+}
