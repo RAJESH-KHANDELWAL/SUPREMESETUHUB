@@ -1,96 +1,74 @@
-# SUPREMESETUHUB Database & FTP Credentials
+# SUPREMESETUHUB Database & FTP Configuration
 
-This repository uses one central database for the main system and four logical
-brand identities. FTP accounts are separate deployment credentials and may be
-configured per brand only when that Hostinger FTP account actually exists.
+This document records the requested consistent naming convention for the main
+system and all four brand identities. It is repository configuration scaffolding;
+it does not claim that these Hostinger accounts or hostnames have been provisioned.
 
-## 1. Central database
+## 1. Five identity names
 
-Use Hostinger hPanel → Databases → Management to read the exact database host,
-database name, database username, and password.
+1. `SUPREMESETUHUB` — MAIN
+2. `RAJESHKHANDELWALOFFICIAL` — BRAND 1
+3. `RAJESHKHANDELWAL` — BRAND 2
+4. `DRRAJESHKHANDELWALIBCOFFICIAL` — BRAND 3
+5. `DRRAJESHKHANDELWALIBC` — BRAND 4
 
-| Setting | Environment variable | Value |
-|---|---|---|
-| System / database label | `SUPREMESETUHUB_DB_NAME` | `u664492673_SUPREMESETUHUB` (confirm in hPanel) |
-| Database username | `SUPREMESETUHUB_DB_USER` | `u664492673_SUPREMESETUHUB` (confirm in hPanel) |
-| Database host | `SUPREMESETUHUB_DB_HOST` | Exact MySQL host shown by Hostinger |
-| Port | `SUPREMESETUHUB_DB_PORT` | `3306`, unless hPanel specifies otherwise |
-| Database password | `SUPREMESETUHUB_DB_PASSWORD` | The password of this exact MySQL user |
+## 2. Database variables
 
-The example intentionally uses the same proposed label for database name and
-username, but Hostinger's displayed values are authoritative. If hPanel shows
-different values, use those exact values; do not rename a live database or user
-just to make the strings match. All five identities share this central DB;
-they do not need separate database usernames/passwords.
+Each identity has the same five-field naming pattern:
 
-### Where to store the central DB password
+```env
+<IDENTITY>_DB_HOST=<IDENTITY>
+<IDENTITY>_DB_NAME=<IDENTITY>
+<IDENTITY>_DB_USER=<IDENTITY>
+<IDENTITY>_DB_PASSWORD=
+<IDENTITY>_DB_PORT=
+```
 
-- **Render/backend runtime:** open the backend service → Environment → add
-  `SUPREMESETUHUB_DB_PASSWORD` with the actual MySQL user's password. Add the other
-  `SUPREMESETUHUB_DB_*` values there too.
-- **GitHub Actions (only if a workflow needs DB access):** repository →
-  Settings → Secrets and variables → Actions → New repository secret →
-  `SUPREMESETUHUB_DB_PASSWORD`. Add `SUPREMESETUHUB_DB_HOST`, `SUPREMESETUHUB_DB_NAME`, and
-  `SUPREMESETUHUB_DB_USER` as secrets as well if the workflow requires them.
+All 25 concrete variables (five identities × five fields) are listed in
+`backend/database/SUPREMESETUHUB_DB.env.example`.
 
-Do not put the real password in this document, `.env.example`, PHP, Python,
-YAML, frontend code, or a chat message.
+**Important architecture rule:** these are identity-specific naming slots. The
+current database architecture remains ONE physical central SUPREMESETUHUB
+database, with four logical `identity_code` scopes. The four brand-prefixed
+variables do not create four databases or independently provision database
+users. The active Python/PHP central connection continues to use
+`SUPREMESETUHUB_DB_*`. Existing WordPress databases remain separate.
 
-## 2. Four brand identity gates
+The requested HOST/NAME/USER values in the example are naming placeholders.
+Before a real connection, replace them with the exact database host, database
+name and database username shown in Hostinger hPanel. The live values may have
+Hostinger account prefixes and need not literally equal the logical identity
+name. Never commit the actual password.
 
-These are logical identities inside the central database:
+## 3. FTP variables
 
-- `RAJESHKHANDELWALOFFICIAL`
-- `RAJESHKHANDELWAL`
-- `DRRAJESHKHANDELWALIBCOFFICIAL`
-- `DRRAJESHKHANDELWALIBC`
+FTP uses the same five-field naming pattern:
 
-They use `identity_code` for data scoping. Do not create four duplicate
-physical databases merely to represent the four brand names.
+```env
+<IDENTITY>_FTP_HOST=<IDENTITY>
+<IDENTITY>_FTP_NAME=<IDENTITY>
+<IDENTITY>_FTP_USER=<IDENTITY>
+<IDENTITY>_FTP_PASSWORD=
+<IDENTITY>_FTP_PORT=
+```
 
-## 3. FTP accounts
+All 25 concrete FTP variables are listed in the same example file.
+`FTP_NAME` is a logical profile/account label used by this repository; it is
+not a standard FTP wire-protocol credential. The runtime reads the five
+identity-prefixed fields through `backend/infrastructure/ftp/profiles.py`.
 
-FTP username and password are not database credentials. In Hostinger hPanel →
-Websites → Manage → FTP Accounts, copy the exact FTP server, account username,
-and password for each actual account. The FTP username may not equal the brand
-name; do not invent or rename it in code.
+Before connecting, replace FTP HOST, USER, PASSWORD and PORT with the exact
+details of the corresponding account in Hostinger hPanel. Typical defaults are
+FTP/FTPS port 21 and SFTP port 22, but use the port and protocol actually
+provided by the host. Do not assume the FTP username is the brand name.
 
-For each account that exists, create these GitHub repository secrets:
+## 4. Security and live status
 
-| Identity | Server secret | Username secret | Password secret |
-|---|---|---|---|
-| SUPREMESETUHUB | Reuses `HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_SERVER` | Reuses `HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_USERNAME` | Reuses `HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_PASSWORD` |
-| RAJESHKHANDELWALOFFICIAL | `HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_SERVER` | `HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_USERNAME` | `HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_PASSWORD` |
-| RAJESHKHANDELWAL | `HOSTINGER_RAJESHKHANDELWAL_FTP_SERVER` | `HOSTINGER_RAJESHKHANDELWAL_FTP_USERNAME` | `HOSTINGER_RAJESHKHANDELWAL_FTP_PASSWORD` |
-| DRRAJESHKHANDELWALIBCOFFICIAL | `HOSTINGER_DRRAJESHKHANDELWALIBCOFFICIAL_FTP_SERVER` | `HOSTINGER_DRRAJESHKHANDELWALIBCOFFICIAL_FTP_USERNAME` | `HOSTINGER_DRRAJESHKHANDELWALIBCOFFICIAL_FTP_PASSWORD` |
-| DRRAJESHKHANDELWALIBC | `HOSTINGER_DRRAJESHKHANDELWALIBC_FTP_SERVER` | `HOSTINGER_DRRAJESHKHANDELWALIBC_FTP_USERNAME` | `HOSTINGER_DRRAJESHKHANDELWALIBC_FTP_PASSWORD` |
-
-SUPREMESETUHUB currently deploys inside the existing RAJESHKHANDELWALOFFICIAL Hostinger account, so its FTP profile deliberately reuses those already-configured secrets. Do not create a duplicate SUPREMESETUHUB FTP password unless a separate FTP account is actually provisioned.
-
-Only add a profile's secrets after that FTP account is created and verified.
-An unconfigured profile is reported as incomplete; it must not silently borrow
-another brand's password.
-
-### Where to store each FTP password
-
-GitHub repository → Settings → Secrets and variables → Actions → New repository
-secret. Enter the exact secret name from the table and paste that FTP account's
-password as its value. Never put it under Actions Variables; passwords belong
-in Secrets.
-
-## 4. Existing WordPress database credentials
-
-The existing WordPress database remains separate. Keep its existing variables
-(`WORDPRESS_DB_HOST`, `WORDPRESS_DB_NAME`,
-`WORDPRESS_READONLY_DB_USER`, `WORDPRESS_READONLY_DB_PASSWORD`, and
-`WORDPRESS_PRIMARY_DB_USER`) separate from `SUPREMESETUHUB_DB_*`.
-
-Do not change the live WordPress database name/user/password as part of this
-identity-gate work.
-
-## 5. Current status
-
-Repository code and example names are configuration scaffolding only. This PR
-does not read GitHub secrets, provision Hostinger accounts, change live
-passwords, or verify FTP/database connectivity. After secrets are entered,
-run the appropriate read-only health checks before enabling deployments.
+- Password fields intentionally remain blank in the example.
+- Put real passwords in private runtime environment variables or GitHub Actions
+  Secrets, never in this repository.
+- No live database or FTP connection was attempted by this configuration update.
+- No Hostinger account, database, password, port, or WordPress installation was
+  created or changed.
+- Do not enable a deployment until actual hPanel values are entered and a
+  read-only connection test succeeds.
