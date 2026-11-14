@@ -73,3 +73,36 @@ directory-confinement layer is implemented.
 - A successful configuration test is not proof that the live Hostinger
   connection works. No live database or FTP connection is claimed by this
   repository configuration alone.
+
+
+## 5. WordPress plugin control panel
+
+The first-party plugins now expose the same owner-only backend control panel:
+
+- **SUPREMESETUHUB → Database & FTP**
+- **DR RAJESH KHANDELWAL IBC → IBC Infrastructure**
+
+Configure the backend root URL (without an API path suffix) and an owner Bearer
+token in the SUPREMESETUHUB control panel. The token is stored as a
+non-autoloaded WordPress option and is never rendered back into the page.
+Use HTTPS. The IBC plugin reuses this central configuration; it does not store
+a second copy of the token.
+
+The panel calls these authenticated backend routes:
+
+- `GET /infrastructure/database/status` — read-only `SELECT 1` against the
+  central database.
+- `GET /infrastructure/ftp/profiles` — safe readiness for the five logical
+  FTP profiles, without credentials.
+- `POST /infrastructure/ftp/profiles/{profile_id}/check` — explicit-FTPS
+  login and starting-directory check, with no remote file mutations.
+
+These routes require the SUPREME owner Bearer token. Configure the central
+database and shared FTP environment variables on the Python backend before
+expecting a healthy result. WordPress plugin configuration does not transfer
+secrets from the WordPress host to the Python backend.
+
+A green database result verifies connectivity only; it does not apply schema
+migrations. A green FTP result verifies login and starting-directory access
+only; it does not prove per-identity remote directory isolation. The panel
+does not perform file uploads, edits, deletes, or database writes.
