@@ -92,7 +92,7 @@ final class SUPREMESETUHUB_Core_Connector {
         add_submenu_page(
             'supremesetuhub',
             __('SUPREMESETUHUB API & Catalog', 'supremesetuhub'),
-            __('API & Catalog Connector', 'supremesetuhub'),
+            __('API & Catalog', 'supremesetuhub'),
             'manage_options',
             'supremesetuhub-api-catalog',
             array(__CLASS__, 'settings_page')
