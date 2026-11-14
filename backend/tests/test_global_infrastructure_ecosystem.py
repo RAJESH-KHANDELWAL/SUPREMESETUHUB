@@ -6,30 +6,41 @@ from backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem imp
 from backend.infrastructure.model.global_ecosystem.global_model_ecosystem import get_model_catalog, validate_resource_record
 from backend.infrastructure.model import InfrastructureResource, InfrastructureCategory, InfrastructureResourceType
 
+
+def _openapi_paths(app: FastAPI) -> set[str]:
+    """Use FastAPI's public OpenAPI interface, not internal app.routes objects."""
+    return set(app.openapi()["paths"])
+
+
 def test_infrastructure_model_package_exports_existing_resource_contract():
     assert InfrastructureResource
     assert InfrastructureCategory.SERVER.value == "server"
     assert InfrastructureResourceType.VPS.value == "vps"
+
 
 def test_global_infrastructure_catalog_has_all_twenty_domains():
     service = GlobalInfrastructureEcosystemService()
     assert len(service.get_modules()) == 20
     assert service.get_overview()["provider_operations_enabled"] is False
 
+
 def test_global_infrastructure_catalog_marks_provider_connections_unconfigured():
     catalog = GlobalInfrastructureEcosystemService().get_catalog()
     assert catalog["providers"]
     assert all(item["status"] in {"NOT_CONFIGURED", "CATALOG_ONLY"} for item in catalog["providers"])
+
 
 def test_global_infrastructure_models_validate_minimum_resource_contract():
     valid = {"resource_id": "srv-001", "resource_type": "vps", "category": "compute"}
     assert validate_resource_record(valid) == []
     assert validate_resource_record({"resource_id": "", "resource_type": "vps"})
 
+
 def test_core_owns_resource_contract_validation():
     result = GlobalInfrastructureCoreService().validate_resource({"resource_id": "srv-001", "resource_type": "vps", "category": "compute"})
     assert result["success"] is True
     assert result["validated_by"] == "GLOBAL_INFRASTRUCTURE_CORE"
+
 
 def test_engine_delegates_validation_to_core_only_when_running():
     engine = get_infrastructure_engine()
@@ -41,30 +52,36 @@ def test_engine_delegates_validation_to_core_only_when_running():
     finally:
         engine.stop()
 
+
 def test_global_infrastructure_api_routes_are_mounted():
     app = FastAPI()
     app.include_router(router)
-    paths = {route.path for route in app.routes}
+    paths = _openapi_paths(app)
     assert "/infrastructure/status" in paths
     assert "/infrastructure/catalog" in paths
     assert "/infrastructure/models" in paths
     assert "/infrastructure/validate-resource" in paths
 
+
 def test_model_catalog_is_exposed():
     assert "resource_identity" in get_model_catalog()
 
+
 def test_global_infrastructure_engine_is_registered_by_bootstrap():
     from backend.core.bootstrap import Bootstrap
+
     bootstrap = Bootstrap()
     bootstrap.register_engines()
     engine = bootstrap.engine_manager.get_engine("global_infrastructure")
     assert engine is get_infrastructure_engine()
     assert engine.status()["layer"] == "ENGINE"
 
+
 def test_global_infrastructure_api_is_registered_in_global_api_parent():
     from backend.api.global_api_ecosystem_routes import router as global_api_router
+
     app = FastAPI()
     app.include_router(global_api_router)
-    paths = {route.path for route in app.routes}
+    paths = _openapi_paths(app)
     assert "/api/v1/global-api-ecosystem/infrastructure/status" in paths
     assert "/api/v1/global-api-ecosystem/infrastructure/catalog" in paths
