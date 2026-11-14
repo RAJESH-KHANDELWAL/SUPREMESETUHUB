@@ -1,98 +1,27 @@
 {
-  "schema_version": "1.1.0",
+  "schema_version": "2.0.0",
   "ecosystem_id": "ADOBE-STORAGE-ECOSYSTEM",
   "provider_id": "adobe",
   "provider_name": "Adobe",
   "ecosystem_type": "PROVIDER_STORAGE_ECOSYSTEM",
   "parent_ecosystem_id": "GLOBAL-STORAGE-ECOSYSTEM",
-  "geographic_scope": [
-    "BHARAT",
-    "SOUTH_ASIA",
-    "CENTRAL_ASIA",
-    "ASIA_PACIFIC",
-    "MIDDLE_EAST",
-    "EUROPE",
-    "AFRICA",
-    "NORTH_AMERICA",
-    "LATIN_AMERICA",
-    "SOUTH_AMERICA",
-    "OCEANIA",
-    "GLOBAL"
-  ],
-  "coverage_levels": [
-    "NORMAL",
-    "PROFESSIONAL",
-    "ADVANCED",
-    "ENTERPRISE",
-    "SUPREME"
-  ],
-  "implementation_state": "FOUNDATION_INITIALIZED",
-  "external_connection_state": "NOT_CONFIGURED",
-  "taxonomy_only": true,
-  "universal_subject_taxonomy": false,
-  "responsibilities": [
-    "ADOBE_STORAGE_CATALOG",
-    "ADOBE_STORAGE_METADATA",
-    "ADOBE_STORAGE_LIFECYCLE",
-    "ADOBE_PROVIDER_STORAGE_ADAPTERS"
-  ],
   "api_layer_reference": "backend/api/global_ecosystem/global_api_ecosystem/adobe_api_ecosystem",
-  "products": [
-    "ADOBE_CLOUD_STORAGE_AND_COLLABORATION",
-    "CREATIVE_CLOUD_CLOUD_DOCUMENTS",
-    "CREATIVE_CLOUD_LIBRARIES",
-    "LIGHTROOM_CLOUD_STORAGE",
-    "ADOBE_EXPRESS_PROJECT_STORAGE",
-    "FRAME_IO_STORAGE",
-    "EXPERIENCE_MANAGER_ASSETS",
-    "WORKFRONT_ASSET_WORKFLOWS",
-    "DOCUMENT_CLOUD_STORAGE",
-    "ADOBE_CLOUD_DRIVE_CLIENT"
+  "implementation_state": "CATALOG_AND_READINESS_FOUNDATION",
+  "external_connection_state": "NOT_CONFIGURED",
+  "live_connection_verified": false,
+  "geographic_scope": ["BHARAT", "REGIONAL", "GLOBAL"],
+  "maturity_targets": ["NORMAL", "PROFESSIONAL", "ADVANCED", "ENTERPRISE", "SUPREME"],
+  "child_ecosystems": [
+    "adobe_cloud_storage_and_collaboration_storage_ecosystem",
+    "adobe_creative_cloud_storage_ecosystem",
+    "adobe_creative_cloud_assets_storage_ecosystem",
+    "adobe_lightroom_storage_ecosystem",
+    "adobe_express_storage_ecosystem",
+    "adobe_frameio_storage_ecosystem",
+    "adobe_experience_manager_assets_storage_ecosystem",
+    "adobe_workfront_storage_ecosystem",
+    "adobe_document_cloud_storage_ecosystem"
   ],
-  "storage_constructs": [
-    "PROJECTS",
-    "FOLDERS",
-    "FILES",
-    "CLOUD_DOCUMENTS",
-    "CREATIVE_CLOUD_LIBRARIES",
-    "BRANDS",
-    "DIGITAL_ASSETS",
-    "MEDIA_ASSETS",
-    "DOCUMENTS"
-  ],
-  "adobe_workflow_domains": [
-    "CREATIVE_ASSETS",
-    "DOCUMENT_WORKFLOWS",
-    "PHOTO_AND_VIDEO",
-    "ENTERPRISE_DIGITAL_ASSET_MANAGEMENT",
-    "MEDIA_REVIEW_AND_COLLABORATION",
-    "CROSS_PRODUCT_ASSET_WORKFLOWS"
-  ],
-  "excluded_universal_domains": [
-    "GENERAL_BUSINESS",
-    "GENERAL_EDUCATION",
-    "GENERAL_CULTURE",
-    "GENERAL_HEALTHCARE",
-    "GENERAL_ADULT_INDUSTRY",
-    "GENERAL_SOCIAL_MEDIA",
-    "GENERAL_GOVERNMENT"
-  ],
-  "requires_authorized_credentials": true,
-  "requires_product_entitlements": true,
-  "requires_oauth_scopes_and_org_permissions": true,
-  "requires_live_health_check": true,
-  "requires_end_to_end_tests": true,
-  "governance": [
-    "PRIVACY",
-    "SECURITY",
-    "AUDIT",
-    "RETENTION",
-    "CONSENT_WHERE_REQUIRED",
-    "JURISDICTIONAL_COMPLIANCE"
-  ],
-  "notes": [
-    "Frame.io storage and quota treatment must be tracked separately where Adobe documentation specifies separate storage accounting.",
-    "Adobe Cloud Drive is a client/mount/sync experience, not a separate storage backend.",
-    "Legacy Creative Cloud Synced Files must be marked deprecated and must not be presented as an active general-purpose storage product."
-  ]
+  "governance": ["PRIVACY", "SECURITY", "AUDIT", "RETENTION", "CONSENT_WHERE_REQUIRED", "JURISDICTIONAL_COMPLIANCE"],
+  "truth_policy": "Catalog presence does not prove API support, entitlement, authorization, or live connectivity."
 }
