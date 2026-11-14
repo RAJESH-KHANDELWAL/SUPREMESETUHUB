@@ -1,8 +1,8 @@
 """Scoped explicit-FTPS file uploader for Hostinger shared web hosting.
 
-The deployer only writes beneath a configured site subdirectory. It uses a
-temporary remote filename followed by rename, never performs a clean-slate
-delete, and refuses traversal or absolute remote paths.
+The deployer only writes beneath a configured site subdirectory. It uploads to
+a temporary filename and swaps it into place with rollback protection. It never
+performs a recursive clean-slate delete and refuses path traversal.
 """
 from __future__ import annotations
 
@@ -10,8 +10,9 @@ import ftplib
 import os
 import posixpath
 import ssl
+import uuid
 from pathlib import Path, PurePosixPath
-from typing import Iterable, Mapping
+from typing import Mapping
 
 from .profiles import get_ftp_profile
 
@@ -77,13 +78,28 @@ class FtpDeploymentManager:
                         client.cwd(part)
                 final_name = posixpath.basename(relative)
                 temporary_name = final_name + ".uploading"
+                previous_name = final_name + ".previous-" + uuid.uuid4().hex
                 with local_file.open("rb") as stream:
                     client.storbinary("STOR " + temporary_name, stream)
+
+                had_previous = False
                 try:
-                    client.delete(final_name)
+                    client.rename(final_name, previous_name)
+                    had_previous = True
                 except ftplib.error_perm:
                     pass
-                client.rename(temporary_name, final_name)
+                try:
+                    client.rename(temporary_name, final_name)
+                except Exception:
+                    if had_previous:
+                        client.rename(previous_name, final_name)
+                    raise
+                if had_previous:
+                    try:
+                        client.delete(previous_name)
+                    except ftplib.error_perm:
+                        # Keep the prior copy if the server denies cleanup.
+                        pass
                 uploaded += 1
                 for _ in remote_dir.split("/") if remote_dir else []:
                     client.cwd("..")
