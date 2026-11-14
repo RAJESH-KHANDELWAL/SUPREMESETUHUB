@@ -57,3 +57,52 @@ def test_invalid_or_blank_port_does_not_mark_profile_configured():
         profile.port_env: "",
     })
     assert values["configured"] is False
+
+
+def test_one_shared_ftp_account_resolves_for_all_five_logical_profiles():
+    shared = {
+        "FTP_SERVER": "ftps.example.invalid",
+        "FTP_NAME": "shared-account",
+        "FTP_USERNAME": "shared-ftp-user",
+        "FTP_PASSWORD": "shared-ftp-secret",
+        "FTP_PORT": "21",
+        "FTP_TIMEOUT": "23",
+    }
+    resolved = [profile.resolve(shared) for profile in FTP_PROFILES]
+    assert len(resolved) == 5
+    assert all(item["configured"] is True for item in resolved)
+    assert {item["host"] for item in resolved} == {"ftps.example.invalid"}
+    assert {item["username"] for item in resolved} == {"shared-ftp-user"}
+    assert {item["password"] for item in resolved} == {"shared-ftp-secret"}
+    assert {item["port"] for item in resolved} == {21}
+    assert {item["timeout"] for item in resolved} == {23}
+    assert len({item["identity_code"] for item in resolved}) == 5
+
+
+def test_identity_specific_ftp_settings_override_shared_account():
+    profile = get_ftp_profile("drrajeshkhandelwalibc")
+    values = profile.resolve({
+        "FTP_SERVER": "shared.example.invalid",
+        "FTP_USERNAME": "shared-user",
+        "FTP_PASSWORD": "shared-secret",
+        "DRRAJESHKHANDELWALIBC_FTP_HOST": "brand.example.invalid",
+        "DRRAJESHKHANDELWALIBC_FTP_NAME": "IBC isolated profile",
+        "DRRAJESHKHANDELWALIBC_FTP_USER": "brand-user",
+        "DRRAJESHKHANDELWALIBC_FTP_PASSWORD": "brand-secret",
+        "DRRAJESHKHANDELWALIBC_FTP_PORT": "2121",
+    })
+    assert values["host"] == "brand.example.invalid"
+    assert values["username"] == "brand-user"
+    assert values["password"] == "brand-secret"
+    assert values["port"] == 2121
+
+
+def test_invalid_shared_ftp_timeout_does_not_mark_profile_configured():
+    profile = get_ftp_profile("supremesetuhub")
+    values = profile.resolve({
+        "FTP_SERVER": "ftp.example.invalid",
+        "FTP_USERNAME": "user",
+        "FTP_PASSWORD": "secret",
+        "FTP_TIMEOUT": "999",
+    })
+    assert values["configured"] is False

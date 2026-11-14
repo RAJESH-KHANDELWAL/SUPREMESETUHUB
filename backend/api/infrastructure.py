@@ -5,7 +5,7 @@ Infrastructure Control Plane API
 Public API facade for infrastructure inventory.
 """
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Header, HTTPException
 
 from backend.infrastructure.domains.controller import DomainController
 from backend.infrastructure.hosting.controller import HostingController
@@ -17,6 +17,9 @@ from backend.infrastructure.hostinger_catalog import (
     hostinger_catalog,
     hostinger_readiness,
 )
+from backend.api.wordpress import require_wordpress_owner
+from backend.database.gde_connection import GDEDatabaseConnection
+from backend.infrastructure.ftp.service import FtpInfrastructureService
 from backend.infrastructure.hostinger_api import (
     connection_status as hostinger_connection_status,
     list_vps_instances as hostinger_list_vps_instances,
@@ -217,3 +220,50 @@ def infrastructure_summary():
         },
         "modules": modules,
     }
+
+
+# ============================================================
+# CENTRAL DATABASE + SHARED FTP CONTROL
+# Owner-only endpoints consumed by the two first-party WordPress plugins.
+# All checks are read-only; secrets are never returned.
+# ============================================================
+
+def _require_control_plane_owner(authorization: str | None) -> None:
+    require_wordpress_owner(authorization)
+
+
+@router.get("/database/status")
+def central_database_status(authorization: str | None = Header(default=None)):
+    """Verify the single central database using a read-only SELECT 1."""
+    _require_control_plane_owner(authorization)
+    database = GDEDatabaseConnection()
+    try:
+        return database.health()
+    finally:
+        database.close()
+
+
+@router.get("/ftp/profiles")
+def ftp_profile_status(authorization: str | None = Header(default=None)):
+    """List five logical FTP profile readiness states without exposing credentials."""
+    _require_control_plane_owner(authorization)
+    return {
+        "success": True,
+        "physical_account_model": "ONE_SHARED_ACCOUNT_WITH_OPTIONAL_IDENTITY_OVERRIDES",
+        "profiles": FtpInfrastructureService().list_profiles(),
+        "mutations_performed": False,
+        "credentials_returned": False,
+    }
+
+
+@router.post("/ftp/profiles/{profile_id}/check")
+def check_ftp_profile(
+    profile_id: str,
+    authorization: str | None = Header(default=None),
+):
+    """Run a read-only explicit-FTPS login and starting-directory check."""
+    _require_control_plane_owner(authorization)
+    try:
+        return FtpInfrastructureService().check_profile(profile_id)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail="FTP_PROFILE_NOT_FOUND") from exc
