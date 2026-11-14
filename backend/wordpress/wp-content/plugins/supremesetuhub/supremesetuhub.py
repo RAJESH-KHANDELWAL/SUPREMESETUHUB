@@ -11,11 +11,13 @@ WORDPRESS_MENU = {
     "label": HUB_LABEL,
     "capability": "manage_options",
     "icon": "custom-crown-svg",
+    "dashboard_slug": "supremesetuhub-dashboard",
+    "dashboard_label": "👑 Dashboard 👑",
 }
 COMPANION_PLUGIN = {
     "name": "DR RAJESH KHANDELWAL IBC",
     "entrypoint": "dr-rajesh-khandelwal-ibc.php",
-    "menu_slug": "dr-rajesh-khandelwal-ibc",
+    "menu_slug": "dr-rajesh-khandelwal-ibc-dashboard",
 }
 PLUGINS = {
     "supreme": "SUPREME by SUPREMESETUHUB",
