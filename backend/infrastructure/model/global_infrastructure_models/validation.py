@@ -1,13 +1,8 @@
 """Validation helpers for normalized infrastructure resource records."""
 from __future__ import annotations
-
 from collections.abc import Mapping
-
 REQUIRED_RESOURCE_FIELDS = ("resource_id", "resource_type", "category")
-
-
 def validate_resource_record(record: Mapping) -> list[str]:
-    """Return validation errors; an empty list means the basic contract is valid."""
     errors: list[str] = []
     for field in REQUIRED_RESOURCE_FIELDS:
         value = record.get(field)

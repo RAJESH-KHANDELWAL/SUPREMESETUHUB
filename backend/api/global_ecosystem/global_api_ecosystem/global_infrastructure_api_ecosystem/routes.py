@@ -1,43 +1,25 @@
 """Read-only API endpoints for infrastructure catalog and model contracts."""
 from __future__ import annotations
-
 from typing import Any
-
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
+from backend.core.global_ecosystem.global_core_ecosystem.global_infrastructure_core_ecosystem import GlobalInfrastructureCoreService
+from backend.engine.global_ecosystem.global_engine_ecosystem.global_infrastructure_engine_ecosystem import get_infrastructure_engine
+from backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem import GlobalInfrastructureEcosystemService
+from backend.infrastructure.model.global_infrastructure_models import get_model_catalog
 
-from backend.core.global_ecosystem.global_core_ecosystem.global_infrastructure_core_ecosystem import (
-    GlobalInfrastructureCoreService,
-)
-from backend.engine.global_ecosystem.global_engine_ecosystem.global_infrastructure_engine_ecosystem import (
-    get_infrastructure_engine,
-)
-from backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem import (
-    GlobalInfrastructureEcosystemService,
-)
-from backend.models.infrastructure.global_infrastructure_models import (
-    get_model_catalog,
-)
-
-router = APIRouter(
-    prefix="/infrastructure",
-    tags=["GLOBAL INFRASTRUCTURE API ECOSYSTEM"],
-)
-
+router = APIRouter(prefix="/infrastructure", tags=["GLOBAL INFRASTRUCTURE API ECOSYSTEM"])
 _ecosystem = GlobalInfrastructureEcosystemService()
 _core = GlobalInfrastructureCoreService()
 _engine = get_infrastructure_engine()
-
 
 class ResourceValidationRequest(BaseModel):
     resource_id: str
     resource_type: str
     category: str
     metadata: dict[str, Any] = Field(default_factory=dict)
-
     class Config:
         extra = "forbid"
-
 
 @router.get("/status")
 def infrastructure_status() -> dict[str, Any]:
@@ -57,25 +39,16 @@ def infrastructure_status() -> dict[str, Any]:
         "provider_operations_enabled": False,
     }
 
-
 @router.get("/catalog")
 def infrastructure_catalog() -> dict[str, Any]:
-    return {
-        "success": True,
-        "catalog": _ecosystem.get_catalog(),
-        "modules": _ecosystem.get_modules(),
-    }
-
+    return {"success": True, "catalog": _ecosystem.get_catalog(), "modules": _ecosystem.get_modules()}
 
 @router.get("/models")
 def infrastructure_models() -> dict[str, Any]:
     return {"success": True, "models": get_model_catalog()}
 
-
 @router.post("/validate-resource")
-def validate_infrastructure_resource(
-    payload: ResourceValidationRequest,
-) -> dict[str, Any]:
+def validate_infrastructure_resource(payload: ResourceValidationRequest) -> dict[str, Any]:
     result = _core.validate_resource(payload.dict())
     if not result.get("success"):
         raise HTTPException(status_code=422, detail=result)

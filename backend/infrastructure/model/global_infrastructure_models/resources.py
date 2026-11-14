@@ -9,6 +9,5 @@ RESOURCE_CATEGORIES = {
     "security": ("certificate", "secret_reference", "identity", "access_policy"),
     "operations": ("monitor", "alert", "deployment", "recovery_plan"),
 }
-
 def list_resource_types() -> dict[str, tuple[str, ...]]:
     return {category: tuple(types) for category, types in RESOURCE_CATEGORIES.items()}
