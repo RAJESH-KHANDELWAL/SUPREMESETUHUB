@@ -59,9 +59,9 @@ FTP_PROFILES: tuple[FtpProfile, ...] = (
         profile_id="supremesetuhub",
         label="SUPREMESETUHUB Hostinger FTP",
         identity_code="SUPREMESETUHUB",
-        server_env="HOSTINGER_SUPREMESETUHUB_FTP_SERVER",
-        username_env="HOSTINGER_SUPREMESETUHUB_FTP_USERNAME",
-        password_env="HOSTINGER_SUPREMESETUHUB_FTP_PASSWORD",
+        server_env="HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_SERVER",
+        username_env="HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_USERNAME",
+        password_env="HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_PASSWORD",
     ),
     FtpProfile(
         profile_id="rajeshkhandelwalofficial",
