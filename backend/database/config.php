@@ -23,7 +23,7 @@ if (!function_exists('supreme_database_private_config_path')) {
     function supreme_database_private_config_path(): ?string
     {
         // Optional explicit override (for hosting environments that support it).
-        $configured = getenv('SUPREME_DB_PRIVATE_CONFIG');
+        $configured = getenv('SUPREMESETUHUB_DB_PRIVATE_CONFIG');
         if ($configured !== false && trim($configured) !== '') {
             return trim($configured);
         }
@@ -39,7 +39,7 @@ $privateConfigPath = supreme_database_private_config_path();
 if ($privateConfigPath !== null && is_file($privateConfigPath)) {
     $privateConfig = require $privateConfigPath;
     if (is_array($privateConfig)) {
-        $GLOBALS['SUPREME_DB_PRIVATE_VALUES'] = $privateConfig;
+        $GLOBALS['SUPREMESETUHUB_DB_PRIVATE_VALUES'] = $privateConfig;
     }
 }
 
@@ -51,7 +51,7 @@ if (!function_exists('supreme_database_env')) {
             return trim($value);
         }
 
-        $private = $GLOBALS['SUPREME_DB_PRIVATE_VALUES'] ?? [];
+        $private = $GLOBALS['SUPREMESETUHUB_DB_PRIVATE_VALUES'] ?? [];
         if (
             is_array($private)
             && isset($private[$name])
@@ -69,7 +69,7 @@ if (!function_exists('supreme_database_config')) {
      * Build a strict database config from a dedicated environment prefix.
      * The GDE connection never falls back to WordPress credentials.
      */
-    function supreme_database_config(string $prefix = 'GDE_DB_'): array
+    function supreme_database_config(string $prefix = 'SUPREMESETUHUB_DB_'): array
     {
         $config = [
             'host' => supreme_database_env($prefix . 'HOST'),
@@ -108,12 +108,12 @@ if (!function_exists('supreme_database_config')) {
 
         $primaryWordPressDb = supreme_database_env('WORDPRESS_DB_NAME');
         if (
-            $prefix === 'GDE_DB_'
+            $prefix === 'SUPREMESETUHUB_DB_'
             && $primaryWordPressDb !== null
             && hash_equals($primaryWordPressDb, (string) $config['database'])
         ) {
             throw new InvalidArgumentException(
-                'GDE_DB_NAME must not point to the primary WordPress database.'
+                'SUPREMESETUHUB_DB_NAME must not point to the primary WordPress database.'
             );
         }
 
@@ -210,13 +210,13 @@ if (!function_exists('supreme_main_foundation_config')) {
         $centralDatabase = [
             'identity' => 'SUPREMESETUHUB',
             'driver' => 'mysql',
-            'host' => supreme_database_env('SUPREME_DB_HOST', ''),
-            'name' => supreme_database_env('SUPREME_DB_NAME', 'u664492673_SUPREMESETUHUB'),
-            'username' => supreme_database_env('SUPREME_DB_USER', 'u664492673_SUPREMESETUHUB'),
-            'password' => supreme_database_env('SUPREME_DB_PASSWORD', ''),
-            'port' => (int) supreme_database_env('SUPREME_DB_PORT', '3306'),
+            'host' => supreme_database_env('SUPREMESETUHUB_DB_HOST', ''),
+            'name' => supreme_database_env('SUPREMESETUHUB_DB_NAME', 'u664492673_SUPREMESETUHUB'),
+            'username' => supreme_database_env('SUPREMESETUHUB_DB_USER', 'u664492673_SUPREMESETUHUB'),
+            'password' => supreme_database_env('SUPREMESETUHUB_DB_PASSWORD', ''),
+            'port' => (int) supreme_database_env('SUPREMESETUHUB_DB_PORT', '3306'),
             'charset' => 'utf8mb4',
-            'connect_timeout' => (int) supreme_database_env('SUPREME_DB_CONNECT_TIMEOUT', '10'),
+            'connect_timeout' => (int) supreme_database_env('SUPREMESETUHUB_DB_CONNECT_TIMEOUT', '10'),
         ];
 
         $identityGates = [];
