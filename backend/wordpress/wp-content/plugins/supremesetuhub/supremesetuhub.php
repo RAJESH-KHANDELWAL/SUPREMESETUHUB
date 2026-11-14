@@ -2,13 +2,13 @@
 /**
  * Plugin Name: SUPREMESETUHUB
  * Description: Central WordPress integration hub for SUPREME and the DR RAJESH KHANDELWAL IBC plugin.
- * Version: 1.3.2
+ * Version: 1.3.3
  * Author: 👑 DR RAJESH KHANDELWAL IBC 👑
  * Text Domain: supremesetuhub
  */
 if (!defined('ABSPATH')) { exit; }
 
-define('SUPREMESETUHUB_VERSION', '1.3.2');
+define('SUPREMESETUHUB_VERSION', '1.3.3');
 define('SUPREMESETUHUB_DIR', plugin_dir_path(__FILE__));
 define('SUPREMESETUHUB_URL', plugin_dir_url(__FILE__));
 
@@ -32,6 +32,7 @@ if (!function_exists('supremesetuhub_core_manifest')) {
 
 require_once SUPREMESETUHUB_DIR . 'supremesetuhub_wordpress_connector.php';
 require_once SUPREMESETUHUB_DIR . 'supremesetuhub_control_plane.php';
+require_once SUPREMESETUHUB_DIR . 'supremesetuhub_api_catalog_connector.php';
 
 register_activation_hook(__FILE__, function () {
     update_option('supremesetuhub_plugin_version', SUPREMESETUHUB_VERSION);
@@ -104,7 +105,7 @@ add_action('admin_menu', function () {
             echo '<p>SUPREME and SUPREME ECOSYSTEM remain modules inside the DR RAJESH KHANDELWAL IBC plugin.</p>';
             echo '<p>REST status: <code>/wp-json/supremesetuhub/v1/connector-status</code></p></div>';
         },
-        'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cpath%20fill%3D%22%23D4AF37%22%20d%3D%22M5%2017l14%2012L31%206l13%2023%2015-12-6%2034H11L5%2017zm8%2039h38v4H13z%22%2F%3E%3C%2Fsvg%3E'
+        'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHBhdGggZmlsbD0iI0Q0QUYzNyIgZD0iTTUgMTdsMTQgMTJMMzEgNmwxMyAyMyAxNS0xMi02IDM0SDExTDUgMTd6bTggMzloMzh2NEgxM3oiLz48L3N2Zz4='
     );
 });
 
