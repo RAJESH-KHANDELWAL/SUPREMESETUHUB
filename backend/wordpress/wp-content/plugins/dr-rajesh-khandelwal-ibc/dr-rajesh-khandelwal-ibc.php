@@ -22,11 +22,32 @@ require_once __DIR__ . '/supreme/dr-rajesh-khandelwal-ibc.php';
  * Connection settings are centrally managed by the SUPREMESETUHUB plugin.
  */
 add_action('admin_menu', function () {
+    // The brand plugin is the second independent top-level menu.
+    // Its landing page opens the existing SUPREME Dashboard module.
     add_menu_page(
         '👑 DR RAJESH KHANDELWAL IBC 👑',
         '👑 DR RAJESH KHANDELWAL IBC 👑',
         'manage_options',
         'dr-rajesh-khandelwal-ibc-infrastructure',
+        function () {
+            if (!current_user_can('manage_options')) { return; }
+            if (function_exists('supreme_dashboard_render_page')) {
+                supreme_dashboard_render_page();
+                return;
+            }
+            echo '<div class="wrap"><h1>👑 DR RAJESH KHANDELWAL IBC 👑</h1><p>SUPREME Dashboard module is not loaded.</p></div>';
+        },
+        'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cpath%20fill%3D%22%23D4AF37%22%20d%3D%22M5%2017l14%2012L31%206l13%2023%2015-12-6%2034H11L5%2017zm8%2039h38v4H13z%22%2F%3E%3C/svg%3E',
+        58
+    );
+
+    // Keep infrastructure available as a child page instead of a separate dashboard.
+    add_submenu_page(
+        'dr-rajesh-khandelwal-ibc-infrastructure',
+        'Database & FTP Infrastructure',
+        'Database & FTP',
+        'manage_options',
+        'dr-rajesh-khandelwal-ibc-infrastructure-settings',
         function () {
             if (!current_user_can('manage_options')) { return; }
             if (function_exists('supremesetuhub_render_control_plane_panel')) {
@@ -35,11 +56,9 @@ add_action('admin_menu', function () {
             }
             echo '<div class="wrap"><h1>👑 DR RAJESH KHANDELWAL IBC 👑 — Infrastructure</h1>';
             echo '<p>Activate the SUPREMESETUHUB hub plugin to load the shared, owner-authenticated Database & FTP control panel.</p></div>';
-        },
-        'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cpath%20fill%3D%22%23D4AF37%22%20d%3D%22M5%2017l14%2012L31%206l13%2023%2015-12-6%2034H11L5%2017zm8%2039h38v4H13z%22%2F%3E%3C%2Fsvg%3E',
-        58
+        }
     );
-});
+}, 58);
 
 add_action('admin_menu', function () {
     add_submenu_page(
@@ -90,7 +109,7 @@ add_action('admin_menu', function () {
             echo '</tbody></table></div>';
         }
     );
-});
+}, 99);
 
 
 register_activation_hook(__FILE__, 'dr_rajesh_khandelwal_ibc_activate');
