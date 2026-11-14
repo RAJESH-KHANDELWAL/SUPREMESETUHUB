@@ -106,7 +106,7 @@ def _safe_zip(archive_path: Path, expected_main_file: str) -> None:
                 raise HTTPException(status_code=422, detail="PLUGIN_MAIN_FILE_MISSING_FROM_PACKAGE")
             for name in names:
                 candidate = Path(name)
-                if candidate.is_absolute() or ".." in candidate.parts:
+                if candidate.is_absolute() or ".." in candidate.parts or "\\\\" in name:
                     raise HTTPException(status_code=422, detail="UNSAFE_PACKAGE_PATH")
             bad_member = archive.testzip()
             if bad_member:
@@ -127,7 +127,7 @@ def update_server_health():
         "registered_plugins": list(PLUGINS),
         "storage_directory_configured": bool(os.getenv("SUPREME_UPDATE_STORAGE_DIR")),
         "persistent_storage_required": True,
-        "secrets_configured": configured,
+        "secrets_configured": secrets_configured,\n        "storage_durability_acknowledged": storage_durable,
     }
 
 
