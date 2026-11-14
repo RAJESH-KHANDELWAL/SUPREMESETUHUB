@@ -11,11 +11,11 @@ database name, database username, and password.
 
 | Setting | Environment variable | Value |
 |---|---|---|
-| System / database label | `SUPREME_DB_NAME` | `u664492673_SUPREMESETUHUB` (confirm in hPanel) |
-| Database username | `SUPREME_DB_USER` | `u664492673_SUPREMESETUHUB` (confirm in hPanel) |
-| Database host | `SUPREME_DB_HOST` | Exact MySQL host shown by Hostinger |
-| Port | `SUPREME_DB_PORT` | `3306`, unless hPanel specifies otherwise |
-| Database password | `SUPREME_DB_PASSWORD` | The password of this exact MySQL user |
+| System / database label | `SUPREMESETUHUB_DB_NAME` | `u664492673_SUPREMESETUHUB` (confirm in hPanel) |
+| Database username | `SUPREMESETUHUB_DB_USER` | `u664492673_SUPREMESETUHUB` (confirm in hPanel) |
+| Database host | `SUPREMESETUHUB_DB_HOST` | Exact MySQL host shown by Hostinger |
+| Port | `SUPREMESETUHUB_DB_PORT` | `3306`, unless hPanel specifies otherwise |
+| Database password | `SUPREMESETUHUB_DB_PASSWORD` | The password of this exact MySQL user |
 
 The example intentionally uses the same proposed label for database name and
 username, but Hostinger's displayed values are authoritative. If hPanel shows
@@ -26,12 +26,12 @@ they do not need separate database usernames/passwords.
 ### Where to store the central DB password
 
 - **Render/backend runtime:** open the backend service → Environment → add
-  `SUPREME_DB_PASSWORD` with the actual MySQL user's password. Add the other
-  `SUPREME_DB_*` values there too.
+  `SUPREMESETUHUB_DB_PASSWORD` with the actual MySQL user's password. Add the other
+  `SUPREMESETUHUB_DB_*` values there too.
 - **GitHub Actions (only if a workflow needs DB access):** repository →
   Settings → Secrets and variables → Actions → New repository secret →
-  `SUPREME_DB_PASSWORD`. Add `SUPREME_DB_HOST`, `SUPREME_DB_NAME`, and
-  `SUPREME_DB_USER` as secrets as well if the workflow requires them.
+  `SUPREMESETUHUB_DB_PASSWORD`. Add `SUPREMESETUHUB_DB_HOST`, `SUPREMESETUHUB_DB_NAME`, and
+  `SUPREMESETUHUB_DB_USER` as secrets as well if the workflow requires them.
 
 Do not put the real password in this document, `.env.example`, PHP, Python,
 YAML, frontend code, or a chat message.
@@ -83,7 +83,7 @@ in Secrets.
 The existing WordPress database remains separate. Keep its existing variables
 (`WORDPRESS_DB_HOST`, `WORDPRESS_DB_NAME`,
 `WORDPRESS_READONLY_DB_USER`, `WORDPRESS_READONLY_DB_PASSWORD`, and
-`WORDPRESS_PRIMARY_DB_USER`) separate from `SUPREME_DB_*`.
+`WORDPRESS_PRIMARY_DB_USER`) separate from `SUPREMESETUHUB_DB_*`.
 
 Do not change the live WordPress database name/user/password as part of this
 identity-gate work.
