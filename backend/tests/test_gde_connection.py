@@ -71,3 +71,13 @@ def test_central_database_can_be_separate_from_wordpress_database(monkeypatch):
     )
     config.validate()
     assert config.database != "primary_wordpress_db"
+
+
+def test_blank_database_port_uses_mysql_default_3306(monkeypatch):
+    monkeypatch.setenv("SUPREMESETUHUB_DB_HOST", "db.example.test")
+    monkeypatch.setenv("SUPREMESETUHUB_DB_NAME", "supreme_main")
+    monkeypatch.setenv("SUPREMESETUHUB_DB_USER", "supreme_user")
+    monkeypatch.setenv("SUPREMESETUHUB_DB_PASSWORD", "secret")
+    monkeypatch.setenv("SUPREMESETUHUB_DB_PORT", "")
+    config = SupremeDatabaseConfig.from_environment()
+    assert config.port == 3306
