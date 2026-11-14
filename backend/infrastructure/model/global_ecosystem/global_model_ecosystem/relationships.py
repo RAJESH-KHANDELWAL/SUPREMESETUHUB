@@ -4,5 +4,6 @@ RELATIONSHIP_TYPES = (
     "SERVES", "ROUTES_TO", "BACKS_UP", "PROTECTED_BY", "DELIVERED_BY",
     "REPLICATES_TO", "MONITORED_BY",
 )
+
 def list_relationship_types() -> tuple[str, ...]:
     return RELATIONSHIP_TYPES

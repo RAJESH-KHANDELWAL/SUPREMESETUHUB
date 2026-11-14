@@ -9,6 +9,7 @@ class GlobalResourceIdentity:
     resource_type: str
     provider_id: str | None = None
     external_id: str | None = None
+
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
 
@@ -18,5 +19,6 @@ class GlobalResourceRelationship:
     target_resource_id: str
     relationship_type: str
     metadata: dict[str, Any] = field(default_factory=dict)
+
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)

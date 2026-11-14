@@ -2,7 +2,7 @@
 from __future__ import annotations
 from collections.abc import Mapping
 from typing import Any
-from backend.infrastructure.model.global_infrastructure_models.validation import validate_resource_record
+from backend.infrastructure.model.global_ecosystem.global_model_ecosystem.validation import validate_resource_record
 
 class GlobalInfrastructureCoreService:
     """Validate platform-neutral resource identity; never calls providers."""
@@ -13,6 +13,7 @@ class GlobalInfrastructureCoreService:
             "status": "CONTRACT_VALIDATION_READY",
             "provider_operations_enabled": False,
         }
+
     def validate_resource(self, payload: Mapping[str, Any]) -> dict[str, Any]:
         errors = validate_resource_record(payload)
         if errors:

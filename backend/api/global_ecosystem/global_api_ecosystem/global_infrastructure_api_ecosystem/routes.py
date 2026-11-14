@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 from backend.core.global_ecosystem.global_core_ecosystem.global_infrastructure_core_ecosystem import GlobalInfrastructureCoreService
 from backend.engine.global_ecosystem.global_engine_ecosystem.global_infrastructure_engine_ecosystem import get_infrastructure_engine
 from backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem import GlobalInfrastructureEcosystemService
-from backend.infrastructure.model.global_infrastructure_models import get_model_catalog
+from backend.infrastructure.model.global_ecosystem.global_model_ecosystem import get_model_catalog
 
 router = APIRouter(prefix="/infrastructure", tags=["GLOBAL INFRASTRUCTURE API ECOSYSTEM"])
 _ecosystem = GlobalInfrastructureEcosystemService()
@@ -18,6 +18,7 @@ class ResourceValidationRequest(BaseModel):
     resource_type: str
     category: str
     metadata: dict[str, Any] = Field(default_factory=dict)
+
     class Config:
         extra = "forbid"
 
