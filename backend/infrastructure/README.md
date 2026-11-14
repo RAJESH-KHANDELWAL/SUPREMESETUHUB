@@ -26,6 +26,12 @@ are separate capabilities.
   variables already used by the Hostinger deployment workflows. Secrets remain in
   environment variables and are never returned by the adapter.
 
+
+- `monitoring/probes.py`: read-only HTTP(S) HEAD probes.
+- `servers/healthcheck.py`: TCP port reachability checks without login or commands.
+- `dns/healthcheck.py`: operating-system resolver checks (not authoritative-zone verification).
+- `ssl/healthcheck.py`: CA- and hostname-verified TLS certificate expiry checks.
+
 ## Boundaries
 
 1. Keep database connection/schema ownership in `backend/database/`; do not create a
