@@ -6,7 +6,7 @@ PLUGIN_LABEL = "👑 DR RAJESH KHANDELWAL IBC 👑"
 WORDPRESS_ENTRYPOINT = "dr-rajesh-khandelwal-ibc.php"
 WORDPRESS_MENU = {
     "type": "top_level",
-    "slug": "dr-rajesh-khandelwal-ibc",
+    "slug": "dr-rajesh-khandelwal-ibc-dashboard",
     "label": PLUGIN_LABEL,
     "capability": "manage_options",
     "icon": "custom-crown-svg",
