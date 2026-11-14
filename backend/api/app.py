@@ -218,7 +218,12 @@ PUBLIC_API_PATHS = {
 async def private_by_default(request: Request, call_next):
     path = request.url.path
 
-    if (\n        request.method == "OPTIONS"\n        or path in PUBLIC_API_PATHS\n        or path.startswith("/api/v1/supreme-updates/")\n        or path == "/"\n    ):
+    if (
+        request.method == "OPTIONS"
+        or path in PUBLIC_API_PATHS
+        or path.startswith("/api/v1/supreme-updates/")
+        or path == "/"
+    ):
         return await call_next(request)
 
     authorization = request.headers.get("Authorization", "")
@@ -445,7 +450,9 @@ app.include_router(payee_verification_router)
 app.include_router(digital_marketplace_router)
 app.include_router(people_password_manager_router)
 app.include_router(tenancy_router)
-app.include_router(wordpress_router)\napp.include_router(supreme_updates_router)\n
+app.include_router(wordpress_router)
+app.include_router(supreme_updates_router)
+
 
 # ============================================================
 # GALLARY WOULT
