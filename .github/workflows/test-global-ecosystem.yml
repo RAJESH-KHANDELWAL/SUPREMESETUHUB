@@ -123,9 +123,7 @@ jobs:
       - name: Run Culture Service Work Business Layer Tests
         run: python -m unittest discover -s tests -p "test_global_culture_service_work_business_ecosystem.py" -v
 
-      - name: Run API Tests
-        run: |
-          python -m unittest discover \
+      - name: Run SUPREME UPDATE SERVER tests\n        run: |\n          python -m pip install \"fastapi>=0.115,<1.0\" \"python-multipart>=0.0.9\" \"pytest>=8.0,<9.0\" httpx\n          python -m pytest backend/tests/test_supreme_updates.py -q\n\n      - name: Run API Tests\n        run: |\n          python -m unittest discover \
             -s backend/tests \
             -p "test_global_ecosystem_api.py" \
             -v
