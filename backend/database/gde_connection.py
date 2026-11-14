@@ -42,8 +42,8 @@ class SupremeDatabaseConfig:
     def from_environment(cls) -> "SupremeDatabaseConfig":
         return cls(
             host=os.getenv("SUPREMESETUHUB_DB_HOST", "").strip(),
-            database=os.getenv("SUPREMESETUHUB_DB_NAME", "u664492673_SUPREMESETUHUB").strip(),
-            username=os.getenv("SUPREMESETUHUB_DB_USER", "u664492673_SUPREMESETUHUB").strip(),
+            database=os.getenv("SUPREMESETUHUB_DB_NAME", "").strip(),
+            username=os.getenv("SUPREMESETUHUB_DB_USER", "").strip(),
             password=os.getenv("SUPREMESETUHUB_DB_PASSWORD", ""),
             port=int(os.getenv("SUPREMESETUHUB_DB_PORT", "").strip() or "3306"),
             connect_timeout=int(os.getenv("SUPREMESETUHUB_DB_CONNECT_TIMEOUT", "10")),
