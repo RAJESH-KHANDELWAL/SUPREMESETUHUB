@@ -8,7 +8,7 @@ for the existing backend database, storage, hosting, or deployment implementatio
 
 - `database/` at `backend/database/`: current application database implementations and configuration.
 - `ftp/healthcheck.py`: existing read-only explicit-FTPS connectivity check.
-- `hosting/`, `servers/`, `network/`, `domains/`, `dns/`: infrastructure inventory and lifecycle records.
+- `hosting/`, `server/`, `network/`, `domains/`, `dns/`: infrastructure inventory and lifecycle records.
 - `storage/`, `object_storage/`, `backup/`: storage and backup inventory/services.
 - `security/`, `firewall/`, `ssl/`: security-related inventory/services.
 - `monitoring/`: monitoring configuration/records.
@@ -28,7 +28,7 @@ are separate capabilities.
 
 
 - `monitoring/probes.py`: read-only HTTP(S) HEAD probes.
-- `servers/healthcheck.py`: TCP port reachability checks without login or commands.
+- `server/healthcheck.py`: TCP port reachability checks without login or commands.
 - `dns/healthcheck.py`: operating-system resolver checks (not authoritative-zone verification).
 - `ssl/healthcheck.py`: CA- and hostname-verified TLS certificate expiry checks.
 
