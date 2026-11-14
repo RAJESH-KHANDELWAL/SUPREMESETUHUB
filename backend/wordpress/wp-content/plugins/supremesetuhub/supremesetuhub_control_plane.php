@@ -138,6 +138,6 @@ add_action('admin_menu', function () {
         'Database & FTP',
         'manage_options',
         'supremesetuhub-database-ftp',
-        function () { supremesetuhub_render_control_plane_panel('SUPREMESETUHUB — Database & FTP'); }
+        function () { supremesetuhub_render_control_plane_panel('👑 SUPREMESETUHUB 👑 — Database & FTP'); }
     );
 });
