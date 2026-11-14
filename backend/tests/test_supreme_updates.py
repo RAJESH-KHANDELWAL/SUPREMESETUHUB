@@ -3,7 +3,14 @@ import os
 import time
 import zipfile
 
-from fastapi import FastAPI\nfrom fastapi.testclient import TestClient\n\nfrom backend.api.supreme_updates import router\n\napp = FastAPI()\napp.include_router(router)\n
+from fastapi import FastAPI
+from fastapi.testclient import TestClient
+
+from backend.api.supreme_updates import router
+
+app = FastAPI()
+app.include_router(router)
+
 
 def _zip_package(main_file: str) -> bytes:
     output = io.BytesIO()
@@ -24,7 +31,8 @@ def test_update_server_health_reports_missing_configuration(monkeypatch, tmp_pat
 
 def test_publish_requires_admin_token(monkeypatch, tmp_path):
     monkeypatch.setenv("SUPREME_UPDATE_STORAGE_DIR", str(tmp_path))
-    monkeypatch.setenv("SUPREME_UPDATE_ADMIN_TOKEN", "test-admin-token")\n    monkeypatch.setenv("SUPREME_UPDATE_STORAGE_DURABILITY_ACKNOWLEDGED", "true")
+    monkeypatch.setenv("SUPREME_UPDATE_ADMIN_TOKEN", "test-admin-token")
+    monkeypatch.setenv("SUPREME_UPDATE_STORAGE_DURABILITY_ACKNOWLEDGED", "true")
     with TestClient(app) as client:
         response = client.post(
             "/api/v1/supreme-updates/admin/publish/supremesetuhub",
@@ -37,7 +45,8 @@ def test_publish_requires_admin_token(monkeypatch, tmp_path):
 def test_publish_and_check_update(monkeypatch, tmp_path):
     monkeypatch.setenv("SUPREME_UPDATE_STORAGE_DIR", str(tmp_path))
     monkeypatch.setenv("SUPREME_UPDATE_ADMIN_TOKEN", "test-admin-token")
-    monkeypatch.setenv("SUPREME_UPDATE_SIGNING_SECRET", "x" * 48)\n    monkeypatch.setenv("SUPREME_UPDATE_STORAGE_DURABILITY_ACKNOWLEDGED", "true")
+    monkeypatch.setenv("SUPREME_UPDATE_SIGNING_SECRET", "x" * 48)
+    monkeypatch.setenv("SUPREME_UPDATE_STORAGE_DURABILITY_ACKNOWLEDGED", "true")
     with TestClient(app) as client:
         published = client.post(
             "/api/v1/supreme-updates/admin/publish/supremesetuhub",
