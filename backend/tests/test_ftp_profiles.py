@@ -62,6 +62,7 @@ def test_invalid_or_blank_port_does_not_mark_profile_configured():
 def test_one_shared_ftp_account_resolves_for_all_five_logical_profiles():
     shared = {
         "FTP_SERVER": "ftps.example.invalid",
+        "FTP_NAME": "shared-account",
         "FTP_USERNAME": "shared-ftp-user",
         "FTP_PASSWORD": "shared-ftp-secret",
         "FTP_PORT": "21",
