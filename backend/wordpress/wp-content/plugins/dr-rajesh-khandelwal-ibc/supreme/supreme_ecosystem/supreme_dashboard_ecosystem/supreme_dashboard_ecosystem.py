@@ -4,7 +4,7 @@ PARENT_MODULE = "SUPREME ECOSYSTEM"
 ROOT_MODULE = "SUPREME"
 PARENT_BRAND = "DR RAJESH KHANDELWAL IBC"
 WORDPRESS_ENTRYPOINT = "supreme_dashboard_ecosystem.php"
-WORDPRESS_PARENT_MENU = "dr-rajesh-khandelwal-ibc"
+WORDPRESS_PARENT_MENU = "dr-rajesh-khandelwal-ibc-dashboard"
 WORDPRESS_MENU_SLUG = "supreme-ecosystem-dashboard"
 WORDPRESS_MENU_LABEL = "👑 SUPREME ECOSYSTEM DASHBOARD 👑"
 
