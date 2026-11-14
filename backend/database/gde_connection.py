@@ -1,7 +1,7 @@
 """SUPREMESETUHUB central MariaDB/MySQL connection.
 
 The primary identity and four identity gates share one central database.
-Credentials are read only from SUPREME_DB_* environment variables. This
+Credentials are read only from SUPREMESETUHUB_DB_* environment variables. This
 module never creates databases or tables; schema changes require migrations.
 """
 from __future__ import annotations
@@ -41,39 +41,39 @@ class SupremeDatabaseConfig:
     @classmethod
     def from_environment(cls) -> "SupremeDatabaseConfig":
         return cls(
-            host=os.getenv("SUPREME_DB_HOST", "").strip(),
-            database=os.getenv("SUPREME_DB_NAME", "u664492673_SUPREMESETUHUB").strip(),
-            username=os.getenv("SUPREME_DB_USER", "u664492673_SUPREMESETUHUB").strip(),
-            password=os.getenv("SUPREME_DB_PASSWORD", ""),
-            port=int(os.getenv("SUPREME_DB_PORT", "3306")),
-            connect_timeout=int(os.getenv("SUPREME_DB_CONNECT_TIMEOUT", "10")),
-            ssl_ca=os.getenv("SUPREME_DB_SSL_CA", "").strip() or None,
-            ssl_required=os.getenv("SUPREME_DB_SSL_REQUIRED", "false").lower()
+            host=os.getenv("SUPREMESETUHUB_DB_HOST", "").strip(),
+            database=os.getenv("SUPREMESETUHUB_DB_NAME", "u664492673_SUPREMESETUHUB").strip(),
+            username=os.getenv("SUPREMESETUHUB_DB_USER", "u664492673_SUPREMESETUHUB").strip(),
+            password=os.getenv("SUPREMESETUHUB_DB_PASSWORD", ""),
+            port=int(os.getenv("SUPREMESETUHUB_DB_PORT", "3306")),
+            connect_timeout=int(os.getenv("SUPREMESETUHUB_DB_CONNECT_TIMEOUT", "10")),
+            ssl_ca=os.getenv("SUPREMESETUHUB_DB_SSL_CA", "").strip() or None,
+            ssl_required=os.getenv("SUPREMESETUHUB_DB_SSL_REQUIRED", "false").lower()
             in {"1", "true", "yes", "on"},
         )
 
     def validate(self) -> None:
         missing = [
             name for name, value in (
-                ("SUPREME_DB_HOST", self.host),
-                ("SUPREME_DB_NAME", self.database),
-                ("SUPREME_DB_USER", self.username),
-                ("SUPREME_DB_PASSWORD", self.password),
+                ("SUPREMESETUHUB_DB_HOST", self.host),
+                ("SUPREMESETUHUB_DB_NAME", self.database),
+                ("SUPREMESETUHUB_DB_USER", self.username),
+                ("SUPREMESETUHUB_DB_PASSWORD", self.password),
             ) if not value
         ]
         if missing:
             raise ValueError("Missing central database settings: " + ", ".join(missing))
         if self.port < 1 or self.port > 65535:
-            raise ValueError("SUPREME_DB_PORT must be between 1 and 65535")
+            raise ValueError("SUPREMESETUHUB_DB_PORT must be between 1 and 65535")
         if self.connect_timeout < 1:
-            raise ValueError("SUPREME_DB_CONNECT_TIMEOUT must be positive")
+            raise ValueError("SUPREMESETUHUB_DB_CONNECT_TIMEOUT must be positive")
         wordpress_database = os.getenv("WORDPRESS_DB_NAME", "").strip()
         if wordpress_database and self.database.casefold() == wordpress_database.casefold():
             raise ValueError(
-                "The central SUPREME_DB_NAME must not be the primary WordPress database."
+                "The central SUPREMESETUHUB_DB_NAME must not be the primary WordPress database."
             )
         if self.ssl_required and not self.ssl_ca:
-            raise ValueError("SUPREME_DB_SSL_REQUIRED is enabled; set SUPREME_DB_SSL_CA.")
+            raise ValueError("SUPREMESETUHUB_DB_SSL_REQUIRED is enabled; set SUPREMESETUHUB_DB_SSL_CA.")
 
 # Backwards-compatible name for existing imports; it now targets the one
 # central SUPREMESETUHUB database, not a separate GDE database.
