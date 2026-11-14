@@ -8,6 +8,8 @@ on:
       - "backend/database/migrations/mysql/**"
       - "backend/php/**"
       - "backend/tests/test_identity_gate.py"
+      - "backend/tests/test_ftp_profiles.py"
+      - "backend/infrastructure/ftp/profiles.py"
       - "backend/database/IDENTITY-ARCHITECTURE.md"
       - ".github/workflows/identity-gate-validation.yml"
   push:
@@ -36,9 +38,9 @@ jobs:
       - name: Install test dependencies
         run: python -m pip install --disable-pip-version-check PyMySQL pytest
       - name: Compile Python identity modules
-        run: python -m compileall -q backend/database/gde_connection.py backend/database/identity_gate.py backend/database/identity_context.py backend/tests/test_identity_gate.py
+        run: python -m compileall -q backend/database/gde_connection.py backend/database/identity_gate.py backend/database/identity_context.py backend/infrastructure/ftp/profiles.py backend/tests/test_identity_gate.py backend/tests/test_ftp_profiles.py
       - name: Run identity gate tests
-        run: python -m pytest -q backend/tests/test_identity_gate.py
+        run: python -m pytest -q backend/tests/test_identity_gate.py backend/tests/test_ftp_profiles.py
       - name: Validate PHP syntax when PHP CLI is available
         run: |
           if command -v php >/dev/null 2>&1; then
