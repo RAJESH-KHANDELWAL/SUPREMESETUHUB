@@ -1,0 +1,124 @@
+name: Publish WordPress Plugin Auto Updates
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "backend/wordpress/wp-content/plugins/supremesetuhub/**"
+      - "backend/wordpress/wp-content/plugins/dr-rajesh-khandelwal-ibc/**"
+      - ".github/workflows/release-wordpress-plugin-updates.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wordpress-plugin-releases
+  cancel-in-progress: false
+
+jobs:
+  package:
+    name: Validate and package both first-party plugins
+    runs-on: ubuntu-latest
+    outputs:
+      hub_version: ${{ steps.versions.outputs.hub }}
+      ibc_version: ${{ steps.versions.outputs.ibc }}
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Read plugin versions
+        id: versions
+        shell: bash
+        run: |
+          set -euo pipefail
+          HUB="backend/wordpress/wp-content/plugins/supremesetuhub/supremesetuhub.php"
+          IBC="backend/wordpress/wp-content/plugins/dr-rajesh-khandelwal-ibc/dr-rajesh-khandelwal-ibc.php"
+          HUB_VERSION="$(awk '/^[[:space:]]*\* Version:/ {print $3; exit}' "$HUB")"
+          IBC_VERSION="$(awk '/^[[:space:]]*\* Version:/ {print $3; exit}' "$IBC")"
+          [[ "$HUB_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          [[ "$IBC_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          echo "hub=$HUB_VERSION" >> "$GITHUB_OUTPUT"
+          echo "ibc=$IBC_VERSION" >> "$GITHUB_OUTPUT"
+          echo "SUPREMESETUHUB=$HUB_VERSION"
+          echo "DR RAJESH KHANDELWAL IBC=$IBC_VERSION"
+
+      - name: Validate PHP syntax
+        run: |
+          set -euo pipefail
+          find backend/wordpress/wp-content/plugins/supremesetuhub -type f -name '*.php' -print0 | xargs -0 -r -n1 php -l
+          find backend/wordpress/wp-content/plugins/dr-rajesh-khandelwal-ibc -type f -name '*.php' -print0 | xargs -0 -r -n1 php -l
+
+      - name: Build installable ZIP packages
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/plugin-packages"
+          cd backend/wordpress/wp-content/plugins
+          zip -qr "$RUNNER_TEMP/plugin-packages/supremesetuhub.zip" supremesetuhub
+          zip -qr "$RUNNER_TEMP/plugin-packages/dr-rajesh-khandelwal-ibc.zip" dr-rajesh-khandelwal-ibc
+          unzip -t "$RUNNER_TEMP/plugin-packages/supremesetuhub.zip"
+          unzip -t "$RUNNER_TEMP/plugin-packages/dr-rajesh-khandelwal-ibc.zip"
+          unzip -Z1 "$RUNNER_TEMP/plugin-packages/supremesetuhub.zip" | grep -qx 'supremesetuhub/supremesetuhub.php'
+          unzip -Z1 "$RUNNER_TEMP/plugin-packages/dr-rajesh-khandelwal-ibc.zip" | grep -qx 'dr-rajesh-khandelwal-ibc/dr-rajesh-khandelwal-ibc.php'
+
+      - name: Upload plugin packages for release jobs
+        uses: actions/upload-artifact@v4
+        with:
+          name: wordpress-plugin-packages
+          path: ${{ runner.temp }}/plugin-packages/*.zip
+          if-no-files-found: error
+          retention-days: 3
+
+  release-hub:
+    name: Publish SUPREMESETUHUB update package
+    needs: package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download packages
+        uses: actions/download-artifact@v4
+        with:
+          name: wordpress-plugin-packages
+          path: ${{ runner.temp }}/plugin-packages
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: supremesetuhub-v${{ needs.package.outputs.hub_version }}
+          target_commitish: main
+          name: SUPREMESETUHUB v${{ needs.package.outputs.hub_version }}
+          body: Automated WordPress update package for SUPREMESETUHUB. Published from the main branch after PHP syntax and ZIP integrity checks.
+          files: ${{ runner.temp }}/plugin-packages/supremesetuhub.zip
+          overwrite_files: true
+          make_latest: false
+          fail_on_unmatched_files: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  release-ibc:
+    name: Publish DR RAJESH KHANDELWAL IBC update package
+    needs: package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download packages
+        uses: actions/download-artifact@v4
+        with:
+          name: wordpress-plugin-packages
+          path: ${{ runner.temp }}/plugin-packages
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: dr-rajesh-khandelwal-ibc-v${{ needs.package.outputs.ibc_version }}
+          target_commitish: main
+          name: DR RAJESH KHANDELWAL IBC v${{ needs.package.outputs.ibc_version }}
+          body: Automated WordPress update package for DR RAJESH KHANDELWAL IBC. Published from the main branch after PHP syntax and ZIP integrity checks.
+          files: ${{ runner.temp }}/plugin-packages/dr-rajesh-khandelwal-ibc.zip
+          overwrite_files: true
+          make_latest: false
+          fail_on_unmatched_files: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
