@@ -28,7 +28,7 @@ add_action('admin_menu', function () {
         '👑 DR RAJESH KHANDELWAL IBC 👑',
         '👑 DR RAJESH KHANDELWAL IBC 👑',
         'manage_options',
-        'dr-rajesh-khandelwal-ibc',
+        'dr-rajesh-khandelwal-ibc-dashboard',
         function () {
             if (!current_user_can('manage_options')) { return; }
             if (function_exists('supreme_dashboard_render_page')) {
@@ -37,13 +37,13 @@ add_action('admin_menu', function () {
             }
             echo '<div class="wrap"><h1>👑 DR RAJESH KHANDELWAL IBC 👑</h1><p>SUPREME Dashboard module is not loaded.</p></div>';
         },
-        'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cpath%20fill%3D%22%23D4AF37%22%20d%3D%22M5%2017l14%2012L31%206l13%2023%2015-12-6%2034H11L5%2017zm8%2039h38v4H13z%22%2F%3E%3C/svg%3E',
+        'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHBhdGggZmlsbD0iI0Q0QUYzNyIgZD0iTTUgMTdsMTQgMTJMMzEgNmwxMyAyMyAxNS0xMi02IDM0SDExTDUgMTd6bTggMzloMzh2NEgxM3oiLz48L3N2Zz4=',
         58
     );
 
     // Keep infrastructure available as a child page instead of a separate dashboard.
     add_submenu_page(
-        'dr-rajesh-khandelwal-ibc',
+        'dr-rajesh-khandelwal-ibc-dashboard',
         'Database & FTP Infrastructure',
         'Database & FTP',
         'manage_options',
@@ -62,7 +62,7 @@ add_action('admin_menu', function () {
 
 add_action('admin_menu', function () {
     add_submenu_page(
-        'dr-rajesh-khandelwal-ibc',
+        'dr-rajesh-khandelwal-ibc-dashboard',
         '👑 FOUR BRAND IDENTITIES 👑',
         '👑 FOUR BRAND IDENTITIES 👑',
         'manage_options',
@@ -84,7 +84,7 @@ add_action('admin_menu', function () {
         }
     );
     add_submenu_page(
-        'dr-rajesh-khandelwal-ibc',
+        'dr-rajesh-khandelwal-ibc-dashboard',
         '🧩 First-party Plugins',
         '🧩 Plugins',
         'manage_options',
