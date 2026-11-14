@@ -43,7 +43,7 @@ if (!function_exists('supreme_dashboard_render_page')) {
 
 add_action('admin_menu', function () {
     add_submenu_page(
-        'dr-rajesh-khandelwal-ibc',
+        'dr-rajesh-khandelwal-ibc-dashboard',
         '👑 SUPREME DASHBOARD 👑',
         '👑 SUPREME DASHBOARD 👑',
         'manage_options',
