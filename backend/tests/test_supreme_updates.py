@@ -3,11 +3,7 @@ import os
 import time
 import zipfile
 
-from fastapi.testclient import TestClient
-
-from backend.api import supreme_updates
-from backend.api.app import app
-
+from fastapi import FastAPI\nfrom fastapi.testclient import TestClient\n\nfrom backend.api.supreme_updates import router\n\napp = FastAPI()\napp.include_router(router)\n
 
 def _zip_package(main_file: str) -> bytes:
     output = io.BytesIO()
