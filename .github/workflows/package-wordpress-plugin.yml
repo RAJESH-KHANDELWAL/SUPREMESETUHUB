@@ -33,12 +33,13 @@ jobs:
       - name: Validate plugin files and PHP syntax
         run: |
           set -e
-          for plugin in supremesetuhub-connector supreme-ecosystem-home supreme-print-on-demand; do
+          php -l backend/wordpress/wp-content/plugins/supremesetuhub/supremesetuhub.php
+          php -l backend/wordpress/wp-content/plugins/supremesetuhub/supremesetuhub_api_catalog_connector.php
+          for plugin in supreme-ecosystem-home supreme-print-on-demand; do
             php_file=$(find "wordpress-plugin/$plugin" -maxdepth 1 -name '*.php' -print -quit)
             test -n "$php_file"
             php -l "$php_file"
           done
-          php -l backend/wordpress/wp-content/plugins/supremesetuhub/supremesetuhub.php
           php -l backend/wordpress/wp-content/plugins/supremesetuhub/supremesetuhub_wordpress_connector.php
           php -l backend/wordpress/wp-content/plugins/dr-rajesh-khandelwal-ibc/dr-rajesh-khandelwal-ibc.php
           php -l backend/wordpress/wp-content/plugins/dr-rajesh-khandelwal-ibc/supreme/dr-rajesh-khandelwal-ibc.php
@@ -60,7 +61,7 @@ jobs:
           done
           unzip -Z1 dist/supremesetuhub.zip | grep -q "^supremesetuhub/supremesetuhub.php$"
           unzip -Z1 dist/dr-rajesh-khandelwal-ibc.zip | grep -q "^dr-rajesh-khandelwal-ibc/dr-rajesh-khandelwal-ibc.php$"
-          for plugin in supremesetuhub-connector supreme-ecosystem-home supreme-print-on-demand; do
+          for plugin in supreme-ecosystem-home supreme-print-on-demand; do
             (cd wordpress-plugin && zip -r "../dist/$plugin.zip" "$plugin")
             unzip -t "dist/$plugin.zip"
           done
