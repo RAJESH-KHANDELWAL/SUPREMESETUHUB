@@ -1,18 +1,35 @@
-"""SUPREMESETUHUB central hub manifest.
-
-Separate branded plugins:
-- SUPREME by SUPREMESETUHUB
-- SUPREME ECOSYSTEM by SUPREMESETUHUB
-"""
+"""SUPREMESETUHUB central WordPress hub manifest."""
 from __future__ import annotations
 
 HUB_NAME = "SUPREMESETUHUB"
+HUB_LABEL = "👑 SUPREMESETUHUB 👑"
 HUB_BRAND = "👑 DR RAJESH KHANDELWAL IBC 👑"
-
+WORDPRESS_ENTRYPOINT = "supremesetuhub.php"
+WORDPRESS_MENU = {
+    "type": "top_level",
+    "slug": "supremesetuhub",
+    "label": HUB_LABEL,
+    "capability": "manage_options",
+    "icon": "custom-crown-svg",
+}
+COMPANION_PLUGIN = {
+    "name": "DR RAJESH KHANDELWAL IBC",
+    "entrypoint": "dr-rajesh-khandelwal-ibc.php",
+    "menu_slug": "dr-rajesh-khandelwal-ibc",
+}
 PLUGINS = {
     "supreme": "SUPREME by SUPREMESETUHUB",
     "supreme_ecosystem": "SUPREME ECOSYSTEM by SUPREMESETUHUB",
 }
 
+
 def hub_manifest() -> dict:
-    return {"hub": HUB_NAME, "brand": HUB_BRAND, "plugins": PLUGINS}
+    return {
+        "hub": HUB_NAME,
+        "label": HUB_LABEL,
+        "brand": HUB_BRAND,
+        "wordpress_entrypoint": WORDPRESS_ENTRYPOINT,
+        "wordpress_menu": WORDPRESS_MENU,
+        "companion_plugin": COMPANION_PLUGIN,
+        "plugins": PLUGINS,
+    }
