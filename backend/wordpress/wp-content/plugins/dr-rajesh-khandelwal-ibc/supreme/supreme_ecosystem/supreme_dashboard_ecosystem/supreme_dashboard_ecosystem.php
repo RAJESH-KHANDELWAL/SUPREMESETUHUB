@@ -44,7 +44,7 @@ if (!function_exists('supreme_dashboard_ecosystem_render_page')) {
 
 add_action('admin_menu', function () {
     add_submenu_page(
-        'dr-rajesh-khandelwal-ibc-infrastructure',
+        'dr-rajesh-khandelwal-ibc',
         '👑 SUPREME ECOSYSTEM DASHBOARD 👑',
         '👑 SUPREME ECOSYSTEM DASHBOARD 👑',
         'manage_options',
