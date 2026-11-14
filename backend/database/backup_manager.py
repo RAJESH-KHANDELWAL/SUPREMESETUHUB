@@ -17,6 +17,14 @@ from pathlib import Path
 from backend.database.gde_connection import SupremeDatabaseConfig
 
 
+def _sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
 class DatabaseBackupManager:
     def __init__(
         self,
@@ -73,13 +81,12 @@ class DatabaseBackupManager:
             if not target.is_file() or target.stat().st_size == 0:
                 target.unlink(missing_ok=True)
                 raise RuntimeError("mysqldump returned success but produced an empty backup.")
-            digest = hashlib.sha256(target.read_bytes()).hexdigest()
             manifest = {
                 "database": self.config.database,
                 "created_at": datetime.now(timezone.utc).isoformat(),
                 "file": target.name,
                 "size_bytes": target.stat().st_size,
-                "sha256": digest,
+                "sha256": _sha256_file(target),
                 "tool": self.executable,
             }
             manifest_path = target.with_suffix(".manifest.json")
