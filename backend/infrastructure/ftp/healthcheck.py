@@ -110,7 +110,7 @@ def check_ftp_connection(target: FtpTarget) -> dict[str, object]:
             "host": target.host, "port": target.port,
             "mutations_performed": False, "credentials_returned": False,
         }
-    except (OSError, ftplib.all_errors) as exc:
+    except (OSError, EOFError, ssl.SSLError, ftplib.Error) as exc:
         return {
             "success": False, "status": "CONNECTION_ERROR", "site": target.site,
             "host": target.host, "port": target.port,
