@@ -74,7 +74,9 @@ def _admin_authorized(authorization: str | None) -> None:
     expected = os.getenv("SUPREME_UPDATE_ADMIN_TOKEN", "")
     if not expected:
         raise HTTPException(status_code=503, detail="UPDATE_ADMIN_NOT_CONFIGURED")
-    supplied = (authorization or "").removeprefix("Bearer ").strip()
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(status_code=401, detail="UPDATE_ADMIN_UNAUTHORIZED")
+    supplied = authorization[len("Bearer "):].strip()
     if not supplied or not hmac.compare_digest(supplied, expected):
         raise HTTPException(status_code=401, detail="UPDATE_ADMIN_UNAUTHORIZED")
 
@@ -92,7 +94,7 @@ def _download_token(slug: str, version: str, expires: int) -> str:
 
 
 def _verify_download_token(slug: str, version: str, expires: int, token: str) -> bool:
-    if expires < int(time.time()) or expires > int(time.time()) + 3600:
+    if expires < int(time.time()) or expires > int(time.time()) + 172800:
         return False
     expected = _download_token(slug, version, expires)
     return hmac.compare_digest(expected, token)
@@ -147,7 +149,7 @@ def check_for_update(slug: str, installed_version: str) -> dict[str, Any]:
         raise HTTPException(status_code=503, detail="INVALID_RELEASE_VERSION")
     # WordPress/PHP version_compare semantics are used by the plugin client;
     # the server returns metadata and lets the client compare versions.
-    expires = int(time.time()) + 900
+    expires = int(time.time()) + 172800
     token = _download_token(slug, latest, expires)
     return {
         "success": True,
