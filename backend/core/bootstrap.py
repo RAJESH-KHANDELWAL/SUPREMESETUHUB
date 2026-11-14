@@ -10,6 +10,9 @@ from backend.engine.work_business import WorkBusinessEngine
 from backend.engine.leads_business import LeadsBusinessEngine
 from backend.engine.sales_business import SalesBusinessEngine
 from backend.engine.customer_business import CustomerBusinessEngine
+from backend.engine.global_ecosystem.global_engine_ecosystem.global_infrastructure_engine_ecosystem import (
+    get_infrastructure_engine,
+)
 
 
 class Bootstrap:
@@ -27,6 +30,10 @@ class Bootstrap:
         self.engine_manager.register_engine("leads_business", LeadsBusinessEngine())
         self.engine_manager.register_engine("sales_business", SalesBusinessEngine())
         self.engine_manager.register_engine("customer_business", CustomerBusinessEngine())
+        self.engine_manager.register_engine(
+            "global_infrastructure",
+            get_infrastructure_engine(),
+        )
 
     def boot(self):
         self.register_engines()
@@ -49,6 +56,7 @@ class Bootstrap:
                 "AI",
                 "APP",
                 "Foundation",
+                "Global Infrastructure",
                 "Leads Business",
                 "Sales Business",
                 "Customer Business",
