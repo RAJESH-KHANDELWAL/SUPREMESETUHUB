@@ -106,7 +106,7 @@ def _safe_zip(archive_path: Path, expected_main_file: str) -> None:
                 raise HTTPException(status_code=422, detail="PLUGIN_MAIN_FILE_MISSING_FROM_PACKAGE")
             for name in names:
                 candidate = Path(name)
-                if candidate.is_absolute() or ".." in candidate.parts or "\\\\" in name:
+                if candidate.is_absolute() or ".." in candidate.parts or chr(92) in name:
                     raise HTTPException(status_code=422, detail="UNSAFE_PACKAGE_PATH")
             bad_member = archive.testzip()
             if bad_member:
@@ -117,19 +117,21 @@ def _safe_zip(archive_path: Path, expected_main_file: str) -> None:
 
 @router.get("/health")
 def update_server_health():
-    configured = bool(
+    secrets_configured = bool(
         os.getenv("SUPREME_UPDATE_ADMIN_TOKEN")
         and len(os.getenv("SUPREME_UPDATE_SIGNING_SECRET", "")) >= 32
     )
+    storage_durable = os.getenv("SUPREME_UPDATE_STORAGE_DURABILITY_ACKNOWLEDGED", "").lower() == "true"
+    configured = secrets_configured and storage_durable
     return {
         "service": "SUPREME UPDATE SERVER",
         "status": "ready" if configured else "configuration_required",
         "registered_plugins": list(PLUGINS),
         "storage_directory_configured": bool(os.getenv("SUPREME_UPDATE_STORAGE_DIR")),
         "persistent_storage_required": True,
-        "secrets_configured": secrets_configured,\n        "storage_durability_acknowledged": storage_durable,
+        "secrets_configured": secrets_configured,
+        "storage_durability_acknowledged": storage_durable,
     }
-
 
 @router.get("/check/{slug}")
 def check_for_update(slug: str, installed_version: str) -> dict[str, Any]:
@@ -200,6 +202,8 @@ async def publish_release(
     authorization: str | None = Header(default=None),
 ):
     _admin_authorized(authorization)
+    if os.getenv("SUPREME_UPDATE_STORAGE_DURABILITY_ACKNOWLEDGED", "").lower() != "true":
+        raise HTTPException(status_code=503, detail="PERSISTENT_UPDATE_STORAGE_NOT_CONFIRMED")
     if slug not in PLUGINS:
         raise HTTPException(status_code=404, detail="UNKNOWN_PLUGIN")
     if not VERSION_RE.fullmatch(version):
