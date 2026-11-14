@@ -8,6 +8,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+if (!class_exists('SUPREMESETUHUB_Connector', false)) {
 final class SUPREMESETUHUB_Connector {
     const OPTION = 'supremesetuhub_connector_options';
     const DEFAULT_API_BASE = 'https://api.rajeshkhandelwalofficial.com';
@@ -348,3 +349,4 @@ final class SUPREMESETUHUB_Connector {
 }
 
 SUPREMESETUHUB_Connector::init();
+}
