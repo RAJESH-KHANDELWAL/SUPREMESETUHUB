@@ -1,6 +1,4 @@
 from fastapi import FastAPI
-from fastapi.testclient import TestClient
-
 from backend.api.global_ecosystem.global_api_ecosystem.global_infrastructure_api_ecosystem import router
 from backend.core.global_ecosystem.global_core_ecosystem.global_infrastructure_core_ecosystem import (
     GlobalInfrastructureCoreService,
@@ -71,3 +69,24 @@ def test_global_infrastructure_api_routes_are_mounted():
 
 def test_model_catalog_is_exposed():
     assert "resource_identity" in get_model_catalog()
+
+
+
+def test_global_infrastructure_engine_is_registered_by_bootstrap():
+    from backend.core.bootstrap import Bootstrap
+
+    bootstrap = Bootstrap()
+    bootstrap.register_engines()
+    engine = bootstrap.engine_manager.get_engine("global_infrastructure")
+    assert engine is get_infrastructure_engine()
+    assert engine.status()["layer"] == "ENGINE"
+
+
+def test_global_infrastructure_api_is_registered_in_global_api_parent():
+    from backend.api.global_api_ecosystem_routes import router as global_api_router
+
+    app = FastAPI()
+    app.include_router(global_api_router)
+    paths = {route.path for route in app.routes}
+    assert "/api/v1/global-api-ecosystem/infrastructure/status" in paths
+    assert "/api/v1/global-api-ecosystem/infrastructure/catalog" in paths
