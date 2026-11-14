@@ -14,8 +14,8 @@ def test_five_ftp_profiles_are_named_for_the_main_system_and_four_identities():
 def test_profile_environment_names_follow_brand_identity():
     profile = get_ftp_profile("drrajeshkhandelwalibc")
     assert profile.server_env == "HOSTINGER_DRRAJESHKHANDELWALIBC_FTP_SERVER"
-    assert profile.username_env == "HOSTINGER_DRRAJESHKANDELWALIBC_FTP_USERNAME"
-    assert profile.password_env == "HOSTINGER_DRRAJESHKANDELWALIBC_FTP_PASSWORD"
+    assert profile.username_env == "HOSTINGER_DRRAJESHKHANDELWALIBC_FTP_USERNAME"
+    assert profile.password_env == "HOSTINGER_DRRAJESHKHANDELWALIBC_FTP_PASSWORD"
 
 
 def test_missing_ftp_credentials_are_reported_without_fallback():
