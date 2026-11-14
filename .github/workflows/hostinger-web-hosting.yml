@@ -1,0 +1,148 @@
+name: Deploy SUPREMESETUHUB to Hostinger Web Hosting
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "frontend/**"
+      - ".github/workflows/hostinger-web-hosting.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hostinger-shared-web-hosting-production
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build and validate shared-hosting website
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build static website package
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p site
+          cp -R frontend/. site/
+
+          # Build the SUPREME public home page from the canonical source.
+          {
+            cat <<'HTML_HEAD'
+          <!doctype html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="theme-color" content="#07152d">
+            <meta name="description" content="DR RAJESH KHANDELWAL IBC — Global Business Coach, Independent Business Consultant and Business Advisor.">
+            <title>DR RAJESH KHANDELWAL IBC | SUPREME HOME</title>
+            <link rel="stylesheet" href="supreme/supreme-ecosystem/home-css.css">
+            <style>
+              html, body { width:100%; max-width:100%; margin:0; padding:0; box-sizing:border-box; }
+              *, *::before, *::after { box-sizing:border-box; }
+              body { overflow-x:hidden; }
+              img, video, iframe, table { max-width:100%; }
+            </style>
+          </head>
+          <body>
+          HTML_HEAD
+            sed 's|href="/api/v1/frontend/supreme"|href="supreme/home.html"|g; s|href="/api/v1/frontend/supreme/about"|href="supreme/about.html"|g; s|href="/api/v1/frontend/supreme/contact"|href="supreme/contact.html"|g' frontend/supreme/supreme-ecosystem/home-html.html
+            printf '\n<script src="supreme/supreme-ecosystem/home-js.js" defer></script>\n</body>\n</html>\n'
+          } > site/index.html
+
+          # Publish a stable /supreme/ landing page and its local About/Contact pages.
+          mkdir -p site/supreme
+          cp site/index.html site/supreme/home.html
+          sed -i 's|href="supreme/supreme-ecosystem/home-css.css"|href="supreme-ecosystem/home-css.css"|g; s|src="supreme/supreme-ecosystem/home-js.js"|src="supreme-ecosystem/home-js.js"|g; s|href="supreme/home.html"|href="home.html"|g; s|href="supreme/about.html"|href="about.html"|g; s|href="supreme/contact.html"|href="contact.html"|g' site/supreme/home.html
+
+          for page in about contact; do
+            if [ -f "frontend/supreme/supreme-ecosystem/${page}-html.html" ]; then
+              {
+                printf '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SUPREME %s | DR RAJESH KHANDELWAL IBC</title><link rel="stylesheet" href="supreme-ecosystem/%s-css.css"></head><body>\n' "${page^^}" "${page}"
+                sed 's|href="/api/v1/frontend/supreme"|href="home.html"|g; s|href="/api/v1/frontend/supreme/about"|href="about.html"|g; s|href="/api/v1/frontend/supreme/contact"|href="contact.html"|g' "frontend/supreme/supreme-ecosystem/${page}-html.html"
+                printf '\n<script src="supreme-ecosystem/%s-js.js" defer></script></body></html>\n' "${page}"
+              } > "site/supreme/${page}.html"
+            fi
+          done
+
+          touch site/.nojekyll
+
+      - name: Validate static website package
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s site/index.html
+          test -s site/supreme/home.html
+          test -s site/supreme/supreme-ecosystem/home-css.css
+          test -s site/supreme/supreme-ecosystem/home-js.js
+          test -s site/supreme/about.html
+          test -s site/supreme/contact.html
+          echo "Shared-hosting package validated. Python API/backend is not included."
+
+      - name: Upload website artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hostinger-web-hosting-site
+          path: site/
+          if-no-files-found: error
+          retention-days: 7
+
+  deploy:
+    name: Deploy static website over Hostinger FTPS
+    needs: build
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Download website artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: hostinger-web-hosting-site
+          path: site/
+
+      - name: Validate Hostinger Web Hosting settings
+        shell: bash
+        env:
+          FTP_SERVER: ${{ secrets.HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_PASSWORD }}
+          FTP_SERVER_DIR: ${{ vars.HOSTINGER_RAJESHKHANDELWALOFFICIAL_SUPREMESETUHUB_WEB_DIR }}
+        run: |
+          set -euo pipefail
+          missing=0
+          for item in FTP_SERVER FTP_USERNAME FTP_PASSWORD FTP_SERVER_DIR; do
+            if [ -z "${!item:-}" ]; then
+              echo "::error::Missing Hostinger setting for ${item}"
+              missing=1
+            fi
+          done
+          if [ "$missing" -ne 0 ]; then
+            echo "::error::Configure the three HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_* repository secrets and HOSTINGER_RAJESHKHANDELWALOFFICIAL_SUPREMESETUHUB_WEB_DIR repository variable."
+            exit 1
+          fi
+          case "$FTP_SERVER_DIR" in
+            */public_html/supremesetuhub/|public_html/supremesetuhub/) ;;
+            *)
+              echo "::error::Web directory must point only to public_html/supremesetuhub/; do not use the WordPress public_html root."
+              exit 1
+              ;;
+          esac
+          test -s site/index.html
+          echo "Hostinger Web Hosting deployment settings validated."
+
+      - name: Deploy website to Hostinger Web Hosting over FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_SERVER }}
+          username: ${{ secrets.HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_USERNAME }}
+          password: ${{ secrets.HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: site/
+          server-dir: ${{ vars.HOSTINGER_RAJESHKHANDELWALOFFICIAL_SUPREMESETUHUB_WEB_DIR }}
+          dangerous-clean-slate: false
+          log-level: standard
