@@ -1,4 +1,4 @@
-name: GLOBAL ECOSYSTEM CORE Tests
+name: CORE TEST
 
 on:
   push:
@@ -13,6 +13,32 @@ permissions:
   contents: read
 
 jobs:
+  php-quality:
+    name: PHP syntax checks
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version: ['8.3', '8.5']
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: none
+          tools: none
+
+      - name: Lint tracked PHP files
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r -d '' file; do
+            php -l "$file"
+          done < <(git ls-files -z '*.php')
+
   test-global-ecosystem:
     runs-on: ubuntu-latest
 
