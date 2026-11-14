@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "backend/database/**"
+      - "backend/infrastructure/ftp/**"
       - "backend/gallary_woult/**"
       - "backend/api/gallary_woult.py"
       - "backend/api/dashboard.py"
@@ -97,6 +98,9 @@ jobs:
 
       - name: Run GLOBAL AI Ecosystem Layer Tests
         run: python -m unittest backend.tests.test_global_ai_ecosystem -v
+
+      - name: Run FTP health-check unit tests
+        run: python -m pytest -q backend/tests/test_ftp_healthcheck.py
 
       - name: Run GDE database configuration tests
         run: python -m pytest -q backend/tests/test_gde_connection.py
