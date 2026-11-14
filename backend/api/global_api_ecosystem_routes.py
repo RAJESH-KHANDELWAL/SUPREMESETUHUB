@@ -8,6 +8,7 @@ from backend.api.global_ecosystem.global_api_ecosystem.global_app_api_ecosystem 
 from backend.api.global_ecosystem.global_api_ecosystem.global_cloud_api_ecosystem import router as global_cloud_router
 from backend.api.global_ecosystem.global_api_ecosystem.global_database_api_ecosystem import router as global_database_router
 from backend.api.global_ecosystem.global_api_ecosystem.global_server_api_ecosystem import router as global_server_router
+from backend.api.global_ecosystem.global_api_ecosystem.global_infrastructure_api_ecosystem import router as global_infrastructure_router
 from backend.api.global_ecosystem.global_api_ecosystem.global_company_companies_api_ecosystem import router as global_companies_router
 from backend.api.global_ecosystem.global_api_ecosystem.global_platforms_api_ecosystem import router as global_platforms_router
 from backend.api.global_ecosystem.global_api_ecosystem.global_organizations_api_ecosystem import router as global_organizations_router
@@ -32,6 +33,7 @@ router.include_router(global_app_router)
 router.include_router(global_cloud_router)
 router.include_router(global_database_router)
 router.include_router(global_server_router)
+router.include_router(global_infrastructure_router)
 router.include_router(global_companies_router)
 router.include_router(global_platforms_router)
 router.include_router(global_organizations_router)
