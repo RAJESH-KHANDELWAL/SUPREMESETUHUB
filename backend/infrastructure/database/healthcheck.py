@@ -91,8 +91,12 @@ class DatabaseInfrastructureService:
                 "connection_attempted": False,
                 "mutations_performed": False,
             }
+        evaluated = [
+            item for item in checks.values()
+            if item.get("status") != "NOT_CHECKED"
+        ]
         return {
-            "success": all(item.get("success", False) for item in checks.values()),
+            "success": bool(evaluated) and all(item.get("success", False) for item in evaluated),
             "service": "DatabaseInfrastructureService",
             "checks": checks,
             "mutations_performed": False,
