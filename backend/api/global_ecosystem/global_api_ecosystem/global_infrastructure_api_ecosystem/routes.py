@@ -4,8 +4,11 @@ from __future__ import annotations
 from typing import Any
 
 from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, Field
 
+from backend.core.global_ecosystem.global_core_ecosystem.global_infrastructure_core_ecosystem import (
+    GlobalInfrastructureCoreService,
+)
 from backend.engine.global_ecosystem.global_engine_ecosystem.global_infrastructure_engine_ecosystem import (
     get_infrastructure_engine,
 )
@@ -22,16 +25,18 @@ router = APIRouter(
 )
 
 _ecosystem = GlobalInfrastructureEcosystemService()
+_core = GlobalInfrastructureCoreService()
 _engine = get_infrastructure_engine()
 
 
 class ResourceValidationRequest(BaseModel):
-    model_config = ConfigDict(extra="forbid")
-
     resource_id: str
     resource_type: str
     category: str
-    metadata: dict[str, Any] = {}
+    metadata: dict[str, Any] = Field(default_factory=dict)
+
+    class Config:
+        extra = "forbid"
 
 
 @router.get("/status")
@@ -43,7 +48,7 @@ def infrastructure_status() -> dict[str, Any]:
         "overview": overview,
         "layers": {
             "api": "ROUTES_REGISTERED",
-            "core": _engine.core.describe()["status"],
+            "core": _core.describe()["status"],
             "engine": _engine.status()["state"],
             "database": "EXISTING_BACKEND_DATABASE_SERVICE; NO NEW DATABASE CREATED",
             "storage": "EXISTING_BACKEND_STORAGE_SERVICE; NO NEW STORAGE CREATED",
@@ -71,9 +76,7 @@ def infrastructure_models() -> dict[str, Any]:
 def validate_infrastructure_resource(
     payload: ResourceValidationRequest,
 ) -> dict[str, Any]:
-    result = _engine.validate_resource(payload.model_dump())
-    if not result.get("success") and result.get("error") == "INFRASTRUCTURE_ENGINE_NOT_RUNNING":
-        raise HTTPException(status_code=503, detail=result)
+    result = _core.validate_resource(payload.dict())
     if not result.get("success"):
         raise HTTPException(status_code=422, detail=result)
     return result
