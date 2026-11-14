@@ -35,7 +35,7 @@ PLUGINS = {
     },
 }
 MAX_PACKAGE_BYTES = 50 * 1024 * 1024
-VERSION_RE = re.compile(r"^\\d+\\.\\d+\\.\\d+(?:[-+][0-9A-Za-z.-]+)?$")
+VERSION_RE = re.compile(r"^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$")
 def _storage_root() -> Path:
     return Path(os.getenv("SUPREME_UPDATE_STORAGE_DIR", "/var/data/supreme-updates")).resolve()
 
