@@ -1,7 +1,8 @@
-"""Five brand-named FTP profiles using the requested HOST/NAME/USER/PASSWORD/PORT pattern.
+"""Five logical FTP scopes backed by one shared account or explicit overrides.
 
-HOST, USER, PASSWORD and PORT must be populated with the exact FTP account
-details from Hostinger hPanel before connecting. NAME is a logical profile label.
+The default deployment uses one physical FTP account. Each identity remains a
+logical profile label; optional identity-specific environment variables can
+override the shared account when separately provisioned later.
 """
 from __future__ import annotations
 
@@ -23,15 +24,23 @@ class FtpProfile:
 
     def resolve(self, environ: Mapping[str, str] | None = None) -> dict[str, str | int | bool]:
         values = os.environ if environ is None else environ
-        server = values.get(self.server_env, "").strip()
-        name = values.get(self.name_env, "").strip()
-        username = values.get(self.username_env, "").strip()
-        password = values.get(self.password_env, "")
-        port_raw = values.get(self.port_env, "").strip()
+
+        # Identity-specific settings take precedence. Otherwise all five
+        # logical scopes may use the one shared deployment FTP account.
+        server = (values.get(self.server_env) or values.get("FTP_SERVER", "")).strip()
+        name = (values.get(self.name_env) or self.label).strip()
+        username = (values.get(self.username_env) or values.get("FTP_USERNAME", "")).strip()
+        password = values.get(self.password_env) or values.get("FTP_PASSWORD", "")
+        port_raw = (values.get(self.port_env) or values.get("FTP_PORT") or "21").strip()
+        timeout_raw = values.get("FTP_TIMEOUT", "15").strip()
         try:
-            port = int(port_raw) if port_raw else 0
+            port = int(port_raw)
         except ValueError:
             port = 0
+        try:
+            timeout = int(timeout_raw)
+        except ValueError:
+            timeout = 0
 
         return {
             "profile_id": self.profile_id,
@@ -41,8 +50,9 @@ class FtpProfile:
             "name_configured": bool(name),
             "username_configured": bool(username),
             "password_configured": bool(password),
-            "configured": bool(server and name and username and password and 1 <= port <= 65535),
+            "configured": bool(server and name and username and password and 1 <= port <= 65535 and 1 <= timeout <= 120),
             "port": port,
+            "timeout": timeout,
             "server": server,
             "host": server,
             "name": name,
