@@ -32,6 +32,8 @@ services:
         sync: false
       - key: SUPREME_UPDATE_STORAGE_DIR
         value: "/var/data/supreme-updates"
+      - key: SUPREME_UPDATE_STORAGE_DURABILITY_ACKNOWLEDGED
+        sync: false
 
       # Primary WordPress site: rajeshkhandelwalofficial.com
       # Public site metadata is declared here; credentials remain private.
