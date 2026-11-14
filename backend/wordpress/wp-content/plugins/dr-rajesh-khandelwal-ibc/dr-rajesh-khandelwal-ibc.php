@@ -2,7 +2,7 @@
 /**
  * Plugin Name: 👑 DR RAJESH KHANDELWAL IBC 👑
  * Description: Main brand plugin containing SUPREME, SUPREME Dashboard, and SUPREME ECOSYSTEM modules.
- * Version: 1.3.4
+ * Version: 1.3.5
  * Author: 👑 DR RAJESH KHANDELWAL IBC 👑
  * Text Domain: dr-rajesh-khandelwal-ibc
  */
@@ -23,8 +23,8 @@ require_once __DIR__ . '/supreme/dr-rajesh-khandelwal-ibc.php';
  */
 add_action('admin_menu', function () {
     add_menu_page(
-        'IBC Database & FTP',
-        'IBC Infrastructure',
+        '👑 DR RAJESH KHANDELWAL IBC 👑',
+        '👑 DR RAJESH KHANDELWAL IBC 👑',
         'manage_options',
         'dr-rajesh-khandelwal-ibc-infrastructure',
         function () {
