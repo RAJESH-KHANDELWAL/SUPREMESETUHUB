@@ -34,6 +34,10 @@ class GlobalStorageEcosystemManager:
         except (TypeError,ValueError,KeyError) as exc: return {"success":False,"error":"REGISTRATION_FAILED","message":str(exc)}
     def providers(self):
         values=get_provider_catalog(); return {"success":True,"count":len(values),"providers":values}
+    def runtime_status(self):
+        """Return physical provider health separately from catalog readiness."""
+        from .provider_runtime import StorageProviderRuntime
+        return StorageProviderRuntime().status()
     def categories(self):
         values=get_category_catalog(); return {"success":True,"count":len(values),"categories":values}
     def get_provider(self,provider_id):
