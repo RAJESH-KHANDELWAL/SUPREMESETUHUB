@@ -79,7 +79,7 @@ add_filter('pre_set_site_transient_update_plugins', function ($transient) {
             set_site_transient(
                 'supreme_update_sha256_' . md5($package_url),
                 strtolower($metadata['sha256']),
-                30 * MINUTE_IN_SECONDS
+                2 * DAY_IN_SECONDS
             );
             $transient->response[$plugin_file] = (object) array(
                 'id' => supremesetuhub_update_server_url(),
