@@ -1,12 +1,49 @@
 {
   "schema_version": "1.0.0",
   "ecosystem_id": "DERIVED_FROM_DIRECTORY_NAME",
-  "geographic_scope": ["BHARAT", "SOUTH_ASIA", "ASIA_PACIFIC", "MIDDLE_EAST", "EUROPE", "AFRICA", "NORTH_AMERICA", "SOUTH_AMERICA", "OCEANIA", "ANTARCTICA", "GLOBAL"],
-  "coverage_levels": ["LOCAL", "DISTRICT", "STATE", "NATIONAL", "REGIONAL", "INTERNATIONAL", "GLOBAL", "SUPREME"],
+  "geographic_scope": [
+    "BHARAT",
+    "SOUTH_ASIA",
+    "CENTRAL_ASIA",
+    "ASIA_PACIFIC",
+    "MIDDLE_EAST",
+    "EUROPE",
+    "AFRICA",
+    "NORTH_AMERICA",
+    "LATIN_AMERICA",
+    "SOUTH_AMERICA",
+    "OCEANIA",
+    "GLOBAL"
+  ],
+  "coverage_levels": [
+    "NORMAL",
+    "PROFESSIONAL",
+    "ADVANCED",
+    "ENTERPRISE",
+    "SUPREME"
+  ],
   "implementation_state": "FOUNDATION_INITIALIZED",
   "external_connection_state": "NOT_CONFIGURED",
   "requires_authorized_credentials": true,
   "requires_live_health_check": true,
   "requires_end_to_end_tests": true,
-  "governance": ["PRIVACY", "SECURITY", "AUDIT", "RETENTION", "CONSENT_WHERE_REQUIRED", "JURISDICTIONAL_COMPLIANCE"]
+  "governance": [
+    "PRIVACY",
+    "SECURITY",
+    "AUDIT",
+    "RETENTION",
+    "CONSENT_WHERE_REQUIRED",
+    "JURISDICTIONAL_COMPLIANCE"
+  ],
+  "domain_scope": [
+    "TECHNOLOGY",
+    "BUSINESS",
+    "EDUCATION",
+    "CULTURE",
+    "HEALTH_WELLNESS",
+    "ADULT_ONLY_SEXUAL_WELLNESS",
+    "ADULT_ONLY_INTIMACY_RELATIONSHIPS",
+    "LAWFUL_ADULT_MEDIA"
+  ],
+  "taxonomy_only": true
 }
