@@ -81,7 +81,7 @@ class IdentityGateService:
             row = cursor.fetchone()
         if not row or not bool(row["is_active"]):
             raise IdentityGateError("Identity is not registered or is inactive.")
-        if str(row["storage_database"]) != self.database.config.database:
+        if str(row["storage_database"]) != PRIMARY_IDENTITY:
             raise IdentityGateError("Identity points outside the configured central database.")
         return Identity(
             code=str(row["identity_code"]),
