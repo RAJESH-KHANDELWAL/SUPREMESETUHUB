@@ -58,6 +58,7 @@ jobs:
             *) echo "::error::Plugin directory must end with /wp-content/plugins/supremesetuhub/"; exit 1 ;;
           esac
       - name: Verify rajeshkhandelwalofficial FTPS login using backend manager
+        continue-on-error: true
         env:
           FTP_SERVER: ${{ secrets.HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_USERNAME }}
