@@ -36,11 +36,25 @@ PLUGINS = {
 }
 MAX_PACKAGE_BYTES = 50 * 1024 * 1024
 VERSION_RE = re.compile(r"^\\d+\\.\\d+\\.\\d+(?:[-+][0-9A-Za-z.-]+)?$")
-STORAGE_ROOT = Path(os.getenv("SUPREME_UPDATE_STORAGE_DIR", "/var/data/supreme-updates")).resolve()
+def _storage_root() -> Path:
+    return Path(os.getenv("SUPREME_UPDATE_STORAGE_DIR", "/var/data/supreme-updates")).resolve()
+
+
+def _version_key(version: str) -> tuple[int, int, int, int]:
+    match = re.match(r"^(\d+)\.(\d+)\.(\d+)(?:[-+](.*))?$", version)
+    if not match:
+        raise HTTPException(status_code=400, detail="INVALID_VERSION")
+    major, minor, patch = (int(match.group(i)) for i in (1, 2, 3))
+    stable = 1 if not match.group(4) else 0
+    return major, minor, patch, stable
+
+
+def _is_newer(latest: str, installed: str) -> bool:
+    return _version_key(latest) > _version_key(installed)
 
 
 def _release_path(slug: str) -> Path:
-    return STORAGE_ROOT / slug / "release.json"
+    return _storage_root() / slug / "release.json"
 
 
 def _load_release(slug: str) -> dict[str, Any] | None:
@@ -139,7 +153,7 @@ def check_for_update(slug: str, installed_version: str) -> dict[str, Any]:
         "name": PLUGINS[slug]["name"],
         "installed_version": installed_version,
         "latest_version": latest,
-        "update_available": latest != installed_version,
+        "update_available": _is_newer(latest, installed_version),
         "requires": release.get("requires", "5.8"),
         "requires_php": release.get("requires_php", "7.4"),
         "tested": release.get("tested", ""),
@@ -161,8 +175,8 @@ def download_package(slug: str, version: str, expires: int, token: str):
     release = _load_release(slug)
     if not release or release.get("version") != version:
         raise HTTPException(status_code=404, detail="PACKAGE_NOT_FOUND")
-    package_path = (STORAGE_ROOT / slug / str(release.get("package_file", ""))).resolve()
-    if STORAGE_ROOT not in package_path.parents or not package_path.is_file():
+    package_path = (_storage_root() / slug / str(release.get("package_file", ""))).resolve()
+    if _storage_root() not in package_path.parents or not package_path.is_file():
         raise HTTPException(status_code=404, detail="PACKAGE_NOT_FOUND")
     response = FileResponse(
         package_path,
@@ -197,7 +211,11 @@ async def publish_release(
     if not payload or len(payload) > MAX_PACKAGE_BYTES:
         raise HTTPException(status_code=413, detail="PACKAGE_SIZE_LIMIT_EXCEEDED")
 
-    plugin_dir = STORAGE_ROOT / slug
+    previous = _load_release(slug)
+    if previous and not _is_newer(version, str(previous.get("version", "0.0.0"))):
+        raise HTTPException(status_code=409, detail="RELEASE_VERSION_MUST_INCREASE")
+
+    plugin_dir = _storage_root() / slug
     plugin_dir.mkdir(parents=True, exist_ok=True)
     safe_version = re.sub(r"[^0-9A-Za-z.+-]", "", version)
     package_name = f"{slug}-{safe_version}.zip"
