@@ -137,4 +137,4 @@ add_action('admin_menu', function () {
         'supremesetuhub-dashboard',
         'supremesetuhub_render_dashboard'
     );
-}, 1);
+}, 99);
