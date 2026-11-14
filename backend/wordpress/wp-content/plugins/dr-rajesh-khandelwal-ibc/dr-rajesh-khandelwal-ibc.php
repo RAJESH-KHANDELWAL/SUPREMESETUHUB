@@ -2,7 +2,7 @@
 /**
  * Plugin Name: 👑 DR RAJESH KHANDELWAL IBC 👑
  * Description: Main brand plugin containing SUPREME, SUPREME Dashboard, and SUPREME ECOSYSTEM modules.
- * Version: 1.3.6
+ * Version: 1.3.7
  * Author: 👑 DR RAJESH KHANDELWAL IBC 👑
  * Text Domain: dr-rajesh-khandelwal-ibc
  */
@@ -133,4 +133,4 @@ add_action('admin_menu', function () {
             echo '<div class="wrap"><h1>👑 DR RAJESH KHANDELWAL IBC DASHBOARD 👑</h1><p>SUPREME Dashboard module is not loaded. Check the parent plugin module loader.</p></div>';
         }
     );
-}, 1);
+}, 99);
