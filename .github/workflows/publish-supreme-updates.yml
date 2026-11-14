@@ -1,0 +1,97 @@
+name: Publish First-Party Plugins to SUPREME UPDATE SERVER
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "backend/wordpress/wp-content/plugins/supremesetuhub/**"
+      - "backend/wordpress/wp-content/plugins/dr-rajesh-khandelwal-ibc/**"
+      - ".github/workflows/publish-supreme-updates.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: supreme-update-server-publish
+  cancel-in-progress: false
+
+jobs:
+  package-and-publish:
+    name: Build and publish first-party plugin packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          coverage: none
+          tools: none
+
+      - name: Validate PHP and package both plugins
+        shell: bash
+        run: |
+          set -euo pipefail
+          HUB="backend/wordpress/wp-content/plugins/supremesetuhub"
+          IBC="backend/wordpress/wp-content/plugins/dr-rajesh-khandelwal-ibc"
+          find "$HUB" "$IBC" -type f -name '*.php' -print0 | xargs -0 -r -n1 php -l
+          HUB_VERSION="$(awk '/^[[:space:]]*\* Version:/ {print $3; exit}' "$HUB/supremesetuhub.php")"
+          IBC_VERSION="$(awk '/^[[:space:]]*\* Version:/ {print $3; exit}' "$IBC/dr-rajesh-khandelwal-ibc.php")"
+          [[ "$HUB_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          [[ "$IBC_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          mkdir -p "$RUNNER_TEMP/supreme-update-packages"
+          cd backend/wordpress/wp-content/plugins
+          zip -qr "$RUNNER_TEMP/supreme-update-packages/supremesetuhub.zip" supremesetuhub
+          zip -qr "$RUNNER_TEMP/supreme-update-packages/dr-rajesh-khandelwal-ibc.zip" dr-rajesh-khandelwal-ibc
+          unzip -t "$RUNNER_TEMP/supreme-update-packages/supremesetuhub.zip"
+          unzip -t "$RUNNER_TEMP/supreme-update-packages/dr-rajesh-khandelwal-ibc.zip"
+          echo "HUB_VERSION=$HUB_VERSION" >> "$GITHUB_ENV"
+          echo "IBC_VERSION=$IBC_VERSION" >> "$GITHUB_ENV"
+
+      - name: Publish SUPREMESETUHUB package to our API
+        shell: bash
+        env:
+          UPDATE_SERVER_URL: ${{ vars.SUPREME_UPDATE_SERVER_URL }}
+          UPDATE_ADMIN_TOKEN: ${{ secrets.SUPREME_UPDATE_ADMIN_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [[ -z "$UPDATE_ADMIN_TOKEN" ]]; then
+            echo "SKIPPED: configure repository secret SUPREME_UPDATE_ADMIN_TOKEN before publishing."
+            exit 0
+          fi
+          SERVER="${UPDATE_SERVER_URL:-https://supremesetuhub-3v4e.onrender.com}"
+          curl --fail-with-body --silent --show-error \
+            -H "Authorization: Bearer $UPDATE_ADMIN_TOKEN" \
+            -F "version=$HUB_VERSION" \
+            -F "notes=Automated first-party SUPREMESETUHUB update." \
+            -F "requires=5.8" \
+            -F "requires_php=7.4" \
+            -F "package=@$RUNNER_TEMP/supreme-update-packages/supremesetuhub.zip;type=application/zip" \
+            "$SERVER/api/v1/supreme-updates/admin/publish/supremesetuhub"
+
+      - name: Publish DR RAJESH KHANDELWAL IBC package to our API
+        shell: bash
+        env:
+          UPDATE_SERVER_URL: ${{ vars.SUPREME_UPDATE_SERVER_URL }}
+          UPDATE_ADMIN_TOKEN: ${{ secrets.SUPREME_UPDATE_ADMIN_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [[ -z "$UPDATE_ADMIN_TOKEN" ]]; then
+            echo "SKIPPED: configure repository secret SUPREME_UPDATE_ADMIN_TOKEN before publishing."
+            exit 0
+          fi
+          SERVER="${UPDATE_SERVER_URL:-https://supremesetuhub-3v4e.onrender.com}"
+          curl --fail-with-body --silent --show-error \
+            -H "Authorization: Bearer $UPDATE_ADMIN_TOKEN" \
+            -F "version=$IBC_VERSION" \
+            -F "notes=Automated first-party DR RAJESH KHANDELWAL IBC update." \
+            -F "requires=5.8" \
+            -F "requires_php=7.4" \
+            -F "package=@$RUNNER_TEMP/supreme-update-packages/dr-rajesh-khandelwal-ibc.zip;type=application/zip" \
+            "$SERVER/api/v1/supreme-updates/admin/publish/dr-rajesh-khandelwal-ibc"
