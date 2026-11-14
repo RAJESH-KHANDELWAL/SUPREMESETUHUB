@@ -25,6 +25,13 @@ services:
         sync: false
       - key: GALLERY_WOULT_MAX_UPLOAD_BYTES
         value: "104857600"
+      # SUPREME UPDATE SERVER — configure secret values in Render dashboard.
+      - key: SUPREME_UPDATE_ADMIN_TOKEN
+        sync: false
+      - key: SUPREME_UPDATE_SIGNING_SECRET
+        sync: false
+      - key: SUPREME_UPDATE_STORAGE_DIR
+        value: "/var/data/supreme-updates"
 
       # Primary WordPress site: rajeshkhandelwalofficial.com
       # Public site metadata is declared here; credentials remain private.
