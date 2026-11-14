@@ -40,6 +40,7 @@ profiles. Configure the shared runtime credentials once:
 
 ```env
 FTP_SERVER=
+FTP_NAME=
 FTP_USERNAME=
 FTP_PASSWORD=
 FTP_PORT=21
