@@ -15,7 +15,8 @@ class GlobalEcosystemRegistry:
                 key: identity[key] for key in (
                     "ecosystem_id", "name", "ecosystem_type", "repository_ref",
                     "status", "enabled", "capabilities", "metadata", "message",
-                    "parent_id", "created_at", "updated_at"
+                    "parent_id", "module_count", "module", "entrypoint",
+                    "created_at", "updated_at"
                 ) if key in identity
             })
         key, name = identity.ecosystem_id.strip(), identity.name.strip()
