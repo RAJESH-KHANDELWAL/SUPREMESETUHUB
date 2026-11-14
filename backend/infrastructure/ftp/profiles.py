@@ -1,9 +1,4 @@
-"""Five logical FTP scopes backed by one shared account or explicit overrides.
-
-The default deployment uses one physical FTP account. Each identity remains a
-logical profile label; optional identity-specific environment variables can
-override the shared account when separately provisioned later.
-"""
+"""Five logical FTP scopes backed by one shared account or explicit overrides."""
 from __future__ import annotations
 
 import os
@@ -25,13 +20,18 @@ class FtpProfile:
     def resolve(self, environ: Mapping[str, str] | None = None) -> dict[str, str | int | bool]:
         values = os.environ if environ is None else environ
 
-        # Identity-specific settings take precedence. Otherwise all five
-        # logical scopes may use the one shared deployment FTP account.
-        server = (values.get(self.server_env) or values.get("FTP_SERVER", "")).strip()
-        name = (values.get(self.name_env) or self.label).strip()
-        username = (values.get(self.username_env) or values.get("FTP_USERNAME", "")).strip()
-        password = values.get(self.password_env) or values.get("FTP_PASSWORD", "")
-        port_raw = (values.get(self.port_env) or values.get("FTP_PORT") or "21").strip()
+        # A present identity-specific key wins even when blank, so an invalid
+        # override cannot silently fall back to a different shared credential.
+        def setting(specific: str, shared: str, default: str = "") -> str:
+            if specific in values:
+                return values[specific].strip()
+            return values.get(shared, default).strip()
+
+        server = setting(self.server_env, "FTP_SERVER")
+        name = setting(self.name_env, "FTP_NAME")
+        username = setting(self.username_env, "FTP_USERNAME")
+        password = values[self.password_env] if self.password_env in values else values.get("FTP_PASSWORD", "")
+        port_raw = setting(self.port_env, "FTP_PORT", "21")
         timeout_raw = values.get("FTP_TIMEOUT", "15").strip()
         try:
             port = int(port_raw)
@@ -62,16 +62,15 @@ class FtpProfile:
 
 
 def _profile(identity: str) -> FtpProfile:
-    prefix = identity
     return FtpProfile(
         profile_id=identity.casefold(),
         label=f"{identity} FTP",
         identity_code=identity,
-        server_env=f"{prefix}_FTP_HOST",
-        name_env=f"{prefix}_FTP_NAME",
-        username_env=f"{prefix}_FTP_USER",
-        password_env=f"{prefix}_FTP_PASSWORD",
-        port_env=f"{prefix}_FTP_PORT",
+        server_env=f"{identity}_FTP_HOST",
+        name_env=f"{identity}_FTP_NAME",
+        username_env=f"{identity}_FTP_USER",
+        password_env=f"{identity}_FTP_PASSWORD",
+        port_env=f"{identity}_FTP_PORT",
     )
 
 
