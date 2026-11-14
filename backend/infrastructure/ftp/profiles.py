@@ -1,7 +1,7 @@
-"""Environment-backed FTP profiles matching existing Hostinger workflows.
+"""Five brand-named FTP profiles using the requested HOST/NAME/USER/PASSWORD/PORT pattern.
 
-Only non-secret environment-variable names and profile labels are declared here.
-Actual credentials stay in GitHub Actions secrets or the private server environment.
+HOST, USER, PASSWORD and PORT must be populated with the exact FTP account
+details from Hostinger hPanel before connecting. NAME is a logical profile label.
 """
 from __future__ import annotations
 
@@ -14,68 +14,70 @@ from typing import Mapping
 class FtpProfile:
     profile_id: str
     label: str
+    identity_code: str
     server_env: str
+    name_env: str
     username_env: str
     password_env: str
-    fallback_server: str = ""
-    port_env: str = ""
-    timeout_env: str = ""
+    port_env: str
 
     def resolve(self, environ: Mapping[str, str] | None = None) -> dict[str, str | int | bool]:
         values = os.environ if environ is None else environ
-        server = values.get(self.server_env, "").strip() or self.fallback_server
+        server = values.get(self.server_env, "").strip()
+        name = values.get(self.name_env, "").strip()
         username = values.get(self.username_env, "").strip()
         password = values.get(self.password_env, "")
-        port_raw = values.get(self.port_env, "21") if self.port_env else "21"
-        timeout_raw = values.get(self.timeout_env, "15") if self.timeout_env else "15"
+        port_raw = values.get(self.port_env, "").strip()
         try:
-            port = int(port_raw)
-            timeout = int(timeout_raw)
+            port = int(port_raw) if port_raw else 0
         except ValueError:
-            port, timeout = 21, 15
-            numeric_settings_valid = False
-        else:
-            numeric_settings_valid = 1 <= port <= 65535 and 1 <= timeout <= 120
+            port = 0
 
         return {
             "profile_id": self.profile_id,
             "label": self.label,
+            "identity_code": self.identity_code,
             "server_configured": bool(server),
+            "name_configured": bool(name),
             "username_configured": bool(username),
             "password_configured": bool(password),
-            "configured": bool(server and username and password and numeric_settings_valid),
+            "configured": bool(server and name and username and password and 1 <= port <= 65535),
             "port": port,
-            "timeout": timeout,
             "server": server,
+            "host": server,
+            "name": name,
             "username": username,
             "password": password,
         }
 
 
-# These names are taken from the repository's current deployment workflow setup.
-# IBC's current workflow has a fixed server hostname; an environment override is
-# supported without requiring a workflow change.
-FTP_PROFILES: tuple[FtpProfile, ...] = (
-    FtpProfile(
-        profile_id="rajeshkhandelwalofficial",
-        label="RAJESHKHANDELWALOFFICIAL Hostinger FTP",
-        server_env="HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_SERVER",
-        username_env="HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_USERNAME",
-        password_env="HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_PASSWORD",
-    ),
-    FtpProfile(
-        profile_id="drrajeshkhandelwalibc",
-        label="DR RAJESH KHANDELWAL IBC Hostinger FTP",
-        server_env="HOSTINGER_DRRAJESHKHANDELWALIBC_FTP_SERVER",
-        username_env="HOSTINGER_DRRAJESHKHANDELWALIBC_FTP_USERNAME",
-        password_env="HOSTINGER_DRRAJESHKHANDELWALIBC_FTP_PASSWORD",
-        fallback_server="ftp.drrajeshkhandelwalibc.com",
-    ),
+def _profile(identity: str) -> FtpProfile:
+    prefix = identity
+    return FtpProfile(
+        profile_id=identity.casefold(),
+        label=f"{identity} FTP",
+        identity_code=identity,
+        server_env=f"{prefix}_FTP_HOST",
+        name_env=f"{prefix}_FTP_NAME",
+        username_env=f"{prefix}_FTP_USER",
+        password_env=f"{prefix}_FTP_PASSWORD",
+        port_env=f"{prefix}_FTP_PORT",
+    )
+
+
+FTP_PROFILES: tuple[FtpProfile, ...] = tuple(
+    _profile(identity)
+    for identity in (
+        "SUPREMESETUHUB",
+        "RAJESHKHANDELWALOFFICIAL",
+        "RAJESHKHANDELWAL",
+        "DRRAJESHKHANDELWALIBCOFFICIAL",
+        "DRRAJESHKHANDELWALIBC",
+    )
 )
 
 
 def get_ftp_profile(profile_id: str) -> FtpProfile:
-    """Return a known profile by its stable ID."""
     normalized = profile_id.strip().casefold()
     for profile in FTP_PROFILES:
         if profile.profile_id == normalized:

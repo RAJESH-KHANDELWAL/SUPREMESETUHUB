@@ -9,11 +9,11 @@ def test_legacy_gde_name_is_alias_for_central_config():
 
 
 def test_config_loads_only_central_environment(monkeypatch):
-    monkeypatch.setenv("SUPREME_DB_HOST", "db.example.test")
-    monkeypatch.setenv("SUPREME_DB_NAME", "supreme_main")
-    monkeypatch.setenv("SUPREME_DB_USER", "supreme_user")
-    monkeypatch.setenv("SUPREME_DB_PASSWORD", "not-a-real-password")
-    monkeypatch.setenv("SUPREME_DB_SSL_REQUIRED", "false")
+    monkeypatch.setenv("SUPREMESETUHUB_DB_HOST", "db.example.test")
+    monkeypatch.setenv("SUPREMESETUHUB_DB_NAME", "supreme_main")
+    monkeypatch.setenv("SUPREMESETUHUB_DB_USER", "supreme_user")
+    monkeypatch.setenv("SUPREMESETUHUB_DB_PASSWORD", "not-a-real-password")
+    monkeypatch.setenv("SUPREMESETUHUB_DB_SSL_REQUIRED", "false")
     monkeypatch.setenv("GDE_DB_HOST", "ignored.example.test")
     monkeypatch.setenv("GDE_DB_NAME", "legacy_gde_db")
     monkeypatch.setenv("GDE_DB_USER", "legacy_gde_user")
@@ -40,7 +40,7 @@ def test_config_rejects_wordpress_database(monkeypatch):
 
 
 def test_config_requires_central_credentials(monkeypatch):
-    for key in ("SUPREME_DB_HOST", "SUPREME_DB_PASSWORD"):
+    for key in ("SUPREMESETUHUB_DB_HOST", "SUPREMESETUHUB_DB_PASSWORD"):
         monkeypatch.delenv(key, raising=False)
     config = SupremeDatabaseConfig.from_environment()
     with pytest.raises(ValueError, match="Missing central database settings"):
@@ -56,7 +56,7 @@ def test_config_requires_ca_when_ssl_is_required():
         ssl_required=True,
         ssl_ca=None,
     )
-    with pytest.raises(ValueError, match="SUPREME_DB_SSL_CA"):
+    with pytest.raises(ValueError, match="SUPREMESETUHUB_DB_SSL_CA"):
         config.validate()
 
 
@@ -71,3 +71,13 @@ def test_central_database_can_be_separate_from_wordpress_database(monkeypatch):
     )
     config.validate()
     assert config.database != "primary_wordpress_db"
+
+
+def test_blank_database_port_uses_mysql_default_3306(monkeypatch):
+    monkeypatch.setenv("SUPREMESETUHUB_DB_HOST", "db.example.test")
+    monkeypatch.setenv("SUPREMESETUHUB_DB_NAME", "supreme_main")
+    monkeypatch.setenv("SUPREMESETUHUB_DB_USER", "supreme_user")
+    monkeypatch.setenv("SUPREMESETUHUB_DB_PASSWORD", "secret")
+    monkeypatch.setenv("SUPREMESETUHUB_DB_PORT", "")
+    config = SupremeDatabaseConfig.from_environment()
+    assert config.port == 3306
