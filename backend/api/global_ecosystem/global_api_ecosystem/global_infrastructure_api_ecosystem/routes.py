@@ -15,7 +15,7 @@ from backend.engine.global_ecosystem.global_engine_ecosystem.global_infrastructu
 from backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem import (
     GlobalInfrastructureEcosystemService,
 )
-from backend.infrastructure.global_models.global_infrastructure_models import (
+from backend.models.infrastructure.global_infrastructure_models import (
     get_model_catalog,
 )
 

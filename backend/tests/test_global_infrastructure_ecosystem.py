@@ -9,7 +9,7 @@ from backend.engine.global_ecosystem.global_engine_ecosystem.global_infrastructu
 from backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem import (
     GlobalInfrastructureEcosystemService,
 )
-from backend.infrastructure.global_models.global_infrastructure_models import (
+from backend.models.infrastructure.global_infrastructure_models import (
     get_model_catalog,
     validate_resource_record,
 )
@@ -33,7 +33,7 @@ def test_global_infrastructure_catalog_marks_provider_connections_unconfigured()
 def test_global_infrastructure_models_validate_minimum_resource_contract():
     valid = {"resource_id": "srv-001", "resource_type": "vps", "category": "compute"}
     assert validate_resource_record(valid) == []
-    assert validate_resource_record({"resource_id": "", "resource_type": "vps"}) 
+    assert validate_resource_record({"resource_id": "", "resource_type": "vps"})
 
 
 def test_core_owns_resource_contract_validation():
@@ -69,7 +69,6 @@ def test_global_infrastructure_api_routes_are_mounted():
 
 def test_model_catalog_is_exposed():
     assert "resource_identity" in get_model_catalog()
-
 
 
 def test_global_infrastructure_engine_is_registered_by_bootstrap():

@@ -4,7 +4,7 @@ from __future__ import annotations
 from collections.abc import Mapping
 from typing import Any
 
-from backend.infrastructure.global_models.global_infrastructure_models.validation import (
+from backend.models.infrastructure.global_infrastructure_models.validation import (
     validate_resource_record,
 )
 
