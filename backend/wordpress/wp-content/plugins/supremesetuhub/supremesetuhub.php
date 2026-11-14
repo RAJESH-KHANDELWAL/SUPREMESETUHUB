@@ -38,6 +38,35 @@ register_activation_hook(__FILE__, function () {
 });
 
 add_action('admin_menu', function () {
+    add_submenu_page(
+        'supremesetuhub',
+        '🧩 First-party Plugins',
+        '🧩 Plugins',
+        'manage_options',
+        'supremesetuhub-plugins',
+        function () {
+            if (!current_user_can('manage_options')) { return; }
+            if (!function_exists('get_plugins')) { require_once ABSPATH . 'wp-admin/includes/plugin.php'; }
+            $plugins = get_plugins();
+            $targets = array(
+                'supremesetuhub/supremesetuhub.php' => 'SUPREMESETUHUB',
+                'dr-rajesh-khandelwal-ibc/dr-rajesh-khandelwal-ibc.php' => 'DR RAJESH KHANDELWAL IBC',
+            );
+            $active = (array) get_option('active_plugins', array());
+            $network = is_multisite() ? (array) get_site_option('active_sitewide_plugins', array()) : array();
+            echo '<div class="wrap"><h1>👑 SUPREMESETUHUB 👑</h1><h2>🧩 FIRST-PARTY PLUGINS</h2>';
+            echo '<table class="widefat striped"><thead><tr><th>Plugin</th><th>Plugin file</th><th>Installation</th><th>Activation</th></tr></thead><tbody>';
+            foreach ($targets as $file => $label) {
+                $installed = isset($plugins[$file]);
+                $enabled = in_array($file, $active, true) || isset($network[$file]);
+                echo '<tr><td>👑 ' . esc_html($label) . ' 👑</td><td><code>' . esc_html($file) . '</code></td><td>' . ($installed ? 'Installed' : 'Not installed') . '</td><td>' . ($enabled ? 'Active' : 'Inactive') . '</td></tr>';
+            }
+            echo '</tbody></table></div>';
+        }
+    );
+});
+
+add_action('admin_menu', function () {
     add_menu_page(
         '👑 SUPREMESETUHUB 👑',
         '👑 SUPREMESETUHUB 👑',
