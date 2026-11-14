@@ -1,23 +1,32 @@
 # Global Model Ecosystem
 
-Provider-neutral model contracts shared across infrastructure domains.
+Provider-neutral infrastructure contracts shared across the infrastructure domains.
 
 ## Language layout
 
-Each contract is maintained in both languages:
-- `.py`: executable implementation used by the current Python backend.
-- `.php`: PHP counterpart for PHP-based services and integrations.
+- `.py`: executable model implementation used by the current Python backend.
+- `.php`: parallel PHP implementation for PHP-based services and integrations.
+- The contracts use matching snake_case serialized field names in both languages.
+- Python does not execute PHP files. PHP files require a PHP runtime and are loaded independently.
+- Keep both implementations aligned; the repository CI workflow runs the Python and PHP contract tests.
 
-The two implementations share the same field names and vocabulary. They are maintained as
-parallel source files; this does not imply cross-language runtime loading or automatic
-synchronization. Keep changes aligned and validate each language in its own runtime.
+## Model families
 
-## Scope
+| Family | Contract |
+|---|---|
+| Resource identity | Stable platform ID, resource type and optional provider reference |
+| Provider reference | Provider ID and external resource ID; never credentials |
+| Resource category | Provider-neutral resource categories and type vocabulary |
+| Relationships | Typed links between infrastructure resources |
+| Lifecycle | Planned, provisioning, active, degraded, suspended, failed and retired states |
+| Location | Region, zone, data center and location metadata |
+| Capacity | CPU, memory, storage and bandwidth metadata |
+| Validation | Required identity fields and metadata shape |
 
-- Resource identity and provider references (never credentials)
-- Resource categories and types
-- Resource relationships and topology
-- Lifecycle, location, and capacity metadata
-- Validation of the minimum resource record
+## Ownership and safety
 
-Persistence remains owned by `backend/database/`; this package defines contracts only.
+- This package defines contracts only; it does not provision or mutate infrastructure.
+- Persistence and migrations belong to `backend/database/`.
+- Provider credentials belong in secret/environment configuration, never in model records.
+- Infrastructure runtime services and repositories remain in their owning infrastructure package.
+- Provider connectivity and live operations must be implemented and authorized separately.

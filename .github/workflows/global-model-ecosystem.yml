@@ -1,0 +1,54 @@
+name: Global Model Ecosystem Contracts
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "backend/infrastructure/model/**"
+      - "backend/tests/test_global_model_ecosystem.py"
+      - "backend/tests/php/global_model_ecosystem_test.php"
+      - ".github/workflows/global-model-ecosystem.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "backend/infrastructure/model/**"
+      - "backend/tests/test_global_model_ecosystem.py"
+      - "backend/tests/php/global_model_ecosystem_test.php"
+      - ".github/workflows/global-model-ecosystem.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  python-contract-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install test runner
+        run: python -m pip install "pytest>=8,<9"
+      - name: Run Python model contract tests
+        run: python -m pytest -q backend/tests/test_global_model_ecosystem.py
+
+  php-contract-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          coverage: none
+      - name: Lint PHP model files and test
+        run: |
+          set -euo pipefail
+          find backend/infrastructure/model/global_ecosystem/global_model_ecosystem -name '*.php' -print0 | while IFS= read -r -d '' file; do php -l "$file"; done
+          php -l backend/tests/php/global_model_ecosystem_test.php
+      - name: Run PHP model contract tests
+        run: php backend/tests/php/global_model_ecosystem_test.php
