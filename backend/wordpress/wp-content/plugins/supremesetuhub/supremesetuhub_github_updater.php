@@ -92,7 +92,12 @@ add_filter('pre_set_site_transient_update_plugins', function ($transient) {
         return $transient;
     }
 
+    if (!function_exists('get_plugins')) {
+        require_once ABSPATH . 'wp-admin/includes/plugin.php';
+    }
     $installed = get_plugins();
+    if (!isset($transient->response) || !is_array($transient->response)) { $transient->response = array(); }
+    if (!isset($transient->no_update) || !is_array($transient->no_update)) { $transient->no_update = array(); }
     foreach (supremesetuhub_github_plugin_catalog() as $plugin_file => $config) {
         if (!isset($installed[$plugin_file], $transient->checked[$plugin_file])) { continue; }
 
