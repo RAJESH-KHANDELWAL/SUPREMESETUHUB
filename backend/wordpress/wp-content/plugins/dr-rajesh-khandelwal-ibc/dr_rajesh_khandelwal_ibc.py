@@ -7,6 +7,8 @@ WORDPRESS_ENTRYPOINT = "dr-rajesh-khandelwal-ibc.php"
 WORDPRESS_MENU = {
     "type": "top_level",
     "slug": "dr-rajesh-khandelwal-ibc-dashboard",
+    "dashboard_slug": "dr-rajesh-khandelwal-ibc-home-dashboard",
+    "dashboard_label": "👑 Dashboard 👑",
     "label": PLUGIN_LABEL,
     "capability": "manage_options",
     "icon": "custom-crown-svg",
