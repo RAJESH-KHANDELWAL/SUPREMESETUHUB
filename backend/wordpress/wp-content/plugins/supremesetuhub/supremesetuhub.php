@@ -107,3 +107,33 @@ add_action('admin_menu', function () {
         'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cpath%20fill%3D%22%23D4AF37%22%20d%3D%22M5%2017l14%2012L31%206l13%2023%2015-12-6%2034H11L5%2017zm8%2039h38v4H13z%22%2F%3E%3C%2Fsvg%3E'
     );
 });
+
+
+/** Explicit dashboard entry for the SUPREMESETUHUB plugin. */
+if (!function_exists('supremesetuhub_render_dashboard')) {
+    function supremesetuhub_render_dashboard() {
+        if (!current_user_can('manage_options')) { return; }
+        $status = supremesetuhub_wordpress_connector_status();
+        echo '<div class="wrap"><h1>👑 SUPREMESETUHUB DASHBOARD 👑</h1>';
+        echo '<p>Central control and integration overview for the first-party WordPress plugins.</p>';
+        echo '<h2>Plugin status</h2><table class="widefat striped"><thead><tr><th>Plugin</th><th>Plugin file</th><th>Status</th></tr></thead><tbody>';
+        foreach ($status['wordpress_plugins'] as $plugin) {
+            echo '<tr><td>' . esc_html($plugin['name']) . '</td><td><code>' . esc_html($plugin['plugin_basename']) . '</code></td><td>' . esc_html($plugin['active'] ? 'Active' : 'Inactive') . '</td></tr>';
+        }
+        echo '</tbody></table>';
+        echo '<h2>Available areas</h2><ul><li>First-party Plugins</li><li>WordPress Connector</li><li>Shared Database &amp; FTP Control Plane</li><li>SUPREME and SUPREME ECOSYSTEM modules (managed by the IBC plugin)</li></ul>';
+        echo '<p><a class="button button-primary" href="' . esc_url(admin_url('admin.php?page=supremesetuhub-plugins')) . '">Open First-party Plugins</a></p>';
+        echo '<p class="description">This dashboard reports WordPress plugin activation state. It does not claim that external databases, FTP servers, APIs, or providers are connected or healthy.</p></div>';
+    }
+}
+
+add_action('admin_menu', function () {
+    add_submenu_page(
+        'supremesetuhub',
+        '👑 SUPREMESETUHUB DASHBOARD 👑',
+        '👑 Dashboard 👑',
+        'manage_options',
+        'supremesetuhub-dashboard',
+        'supremesetuhub_render_dashboard'
+    );
+}, 1);
