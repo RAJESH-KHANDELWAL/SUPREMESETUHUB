@@ -36,6 +36,13 @@ class FtpTarget:
     ) -> "FtpTarget":
         values = os.environ if environ is None else environ
         host = values.get("FTP_SERVER", "").strip()
+        # Hostinger panels sometimes display an ftp:// URL; ftplib needs only
+        # the hostname, with the port supplied separately.
+        for scheme in ("ftps://", "ftp://"):
+            if host.lower().startswith(scheme):
+                host = host[len(scheme):]
+                break
+        host = host.split("/", 1)[0].strip()
         username = values.get("FTP_USERNAME", "").strip()
         password = values.get("FTP_PASSWORD", "")
         try:
