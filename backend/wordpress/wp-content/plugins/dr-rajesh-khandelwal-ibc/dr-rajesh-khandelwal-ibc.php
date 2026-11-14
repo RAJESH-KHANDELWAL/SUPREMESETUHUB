@@ -114,3 +114,23 @@ add_action('admin_menu', function () {
 
 register_activation_hook(__FILE__, 'dr_rajesh_khandelwal_ibc_activate');
 register_deactivation_hook(__FILE__, 'dr_rajesh_khandelwal_ibc_deactivate');
+
+
+/** Explicit Dashboard submenu for the IBC parent plugin. */
+add_action('admin_menu', function () {
+    add_submenu_page(
+        'dr-rajesh-khandelwal-ibc-dashboard',
+        '👑 DR RAJESH KHANDELWAL IBC DASHBOARD 👑',
+        '👑 Dashboard 👑',
+        'manage_options',
+        'dr-rajesh-khandelwal-ibc-home-dashboard',
+        function () {
+            if (!current_user_can('manage_options')) { return; }
+            if (function_exists('supreme_dashboard_render_page')) {
+                supreme_dashboard_render_page();
+                return;
+            }
+            echo '<div class="wrap"><h1>👑 DR RAJESH KHANDELWAL IBC DASHBOARD 👑</h1><p>SUPREME Dashboard module is not loaded. Check the parent plugin module loader.</p></div>';
+        }
+    );
+}, 1);
