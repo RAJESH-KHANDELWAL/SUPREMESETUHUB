@@ -30,14 +30,65 @@ add_action('admin_menu', function () {
         function () {
             if (!current_user_can('manage_options')) { return; }
             if (function_exists('supremesetuhub_render_control_plane_panel')) {
-                supremesetuhub_render_control_plane_panel('DR RAJESH KHANDELWAL IBC — Shared Database & FTP');
+                supremesetuhub_render_control_plane_panel('👑 DR RAJESH KHANDELWAL IBC 👑 — Shared Database & FTP');
                 return;
             }
-            echo '<div class="wrap"><h1>DR RAJESH KHANDELWAL IBC — Infrastructure</h1>';
+            echo '<div class="wrap"><h1>👑 DR RAJESH KHANDELWAL IBC 👑 — Infrastructure</h1>';
             echo '<p>Activate the SUPREMESETUHUB hub plugin to load the shared, owner-authenticated Database & FTP control panel.</p></div>';
         },
-        'dashicons-database',
+        'data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23D4AF37' d='M5 17l14 12L31 6l13 23 15-12-6 34H11L5 17zm8 39h38v4H13z'/%3E%3C/svg%3E',
         58
+    );
+});
+
+add_action('admin_menu', function () {
+    add_submenu_page(
+        'dr-rajesh-khandelwal-ibc-infrastructure',
+        '👑 FOUR BRAND IDENTITIES 👑',
+        '👑 FOUR BRAND IDENTITIES 👑',
+        'manage_options',
+        'dr-rajesh-khandelwal-ibc-identities',
+        function () {
+            if (!current_user_can('manage_options')) { return; }
+            $identities = array(
+                array('RAJESH KHANDELWAL', 'RAJESHKHANDELWAL'),
+                array('RAJESH KHANDELWAL OFFICIAL', 'RAJESHKHANDELWALOFFICIAL'),
+                array('DR RAJESH KHANDELWAL IBC', 'DRRAJESHKHANDELWALIBC'),
+                array('DR RAJESH KHANDELWAL IBC OFFICIAL', 'DRRAJESHKHANDELWALIBCOFFICIAL'),
+            );
+            echo '<div class="wrap"><h1>👑 DR RAJESH KHANDELWAL IBC 👑</h1><h2>👑 FOUR BRAND IDENTITIES 👑</h2>';
+            echo '<table class="widefat striped"><thead><tr><th>Brand Identity</th><th>Identity ID</th></tr></thead><tbody>';
+            foreach ($identities as $identity) {
+                echo '<tr><td>👑 ' . esc_html($identity[0]) . ' 👑</td><td><code>' . esc_html($identity[1]) . '</code></td></tr>';
+            }
+            echo '</tbody></table></div>';
+        }
+    );
+    add_submenu_page(
+        'dr-rajesh-khandelwal-ibc-infrastructure',
+        '🧩 First-party Plugins',
+        '🧩 Plugins',
+        'manage_options',
+        'dr-rajesh-khandelwal-ibc-plugins',
+        function () {
+            if (!current_user_can('manage_options')) { return; }
+            if (!function_exists('get_plugins')) { require_once ABSPATH . 'wp-admin/includes/plugin.php'; }
+            $plugins = get_plugins();
+            $targets = array(
+                'supremesetuhub/supremesetuhub.php' => 'SUPREMESETUHUB',
+                'dr-rajesh-khandelwal-ibc/dr-rajesh-khandelwal-ibc.php' => 'DR RAJESH KHANDELWAL IBC',
+            );
+            $active = (array) get_option('active_plugins', array());
+            $network = is_multisite() ? (array) get_site_option('active_sitewide_plugins', array()) : array();
+            echo '<div class="wrap"><h1>👑 DR RAJESH KHANDELWAL IBC 👑</h1><h2>🧩 FIRST-PARTY PLUGINS</h2>';
+            echo '<table class="widefat striped"><thead><tr><th>Plugin</th><th>Plugin file</th><th>Installation</th><th>Activation</th></tr></thead><tbody>';
+            foreach ($targets as $file => $label) {
+                $installed = isset($plugins[$file]);
+                $enabled = in_array($file, $active, true) || isset($network[$file]);
+                echo '<tr><td>' . esc_html($label) . '</td><td><code>' . esc_html($file) . '</code></td><td>' . ($installed ? 'Installed' : 'Not installed') . '</td><td>' . ($enabled ? 'Active' : 'Inactive') . '</td></tr>';
+            }
+            echo '</tbody></table></div>';
+        }
     );
 });
 
