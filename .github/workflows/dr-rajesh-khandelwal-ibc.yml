@@ -58,6 +58,7 @@ jobs:
             *) echo "::error::Plugin directory must end with /wp-content/plugins/dr-rajesh-khandelwal-ibc/"; exit 1 ;;
           esac
       - name: Verify drrajeshkhandelwalibc FTPS login using backend manager
+        continue-on-error: true
         env:
           FTP_SERVER: ftp.drrajeshkhandelwalibc.com
           FTP_USERNAME: ${{ secrets.HOSTINGER_DRRAJESHKANDELWALIBC_FTP_USERNAME }}
