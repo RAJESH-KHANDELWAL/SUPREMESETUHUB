@@ -19,9 +19,9 @@ Repository secrets (the same account-specific FTP credentials already used by th
 
 Repository variable:
 
-- `HOSTINGER_RAJESHKHANDELWALOFFICIAL_SUPREMESETUHUB_WEB_DIR`
+- `HOSTINGER_RAJESHKHANDELWALOFFICIAL_SUPREMESETUHUB_PLUGIN_DIR` (already used by the existing WordPress plugin deployment)
 
-Set the variable to the exact FTP-visible path for the isolated web directory, ending in `public_html/supremesetuhub/`. The workflow rejects the WordPress document root and other destinations.
+The workflow derives the sibling web directory `public_html/supremesetuhub/` from the existing plugin directory path `public_html/wp-content/plugins/supremesetuhub/`. It validates both paths and rejects the WordPress document root. No new repository variable is required.
 
 ## What gets deployed
 
