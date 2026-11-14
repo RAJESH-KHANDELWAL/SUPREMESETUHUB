@@ -109,25 +109,52 @@ if (!function_exists('supremesetuhub_render_control_plane_panel')) {
             delete_transient('supremesetuhub_ftp_check_' . get_current_user_id());
             echo '<h2>Latest Read-only FTP Check</h2><pre style="max-width:900px;overflow:auto;background:#fff;padding:12px;">' . esc_html(wp_json_encode($check, JSON_PRETTY_PRINT)) . '</pre>';
         }
-        echo '<h2>Central Database</h2><p><strong>Status:</strong> ' . esc_html(isset($db['status']) ? $db['status'] : (isset($db['status']) ? $db['status'] : 'NOT_VERIFIED')) . '</p>';
-        if (isset($db['database'])) { echo '<p><strong>Database:</strong> ' . esc_html($db['database']) . '</p>'; }
-        echo '<h2>Five Logical FTP Profiles</h2>';
+        $db_status = isset($db['status']) ? (string) $db['status'] : 'NOT_VERIFIED';
+        $db_name = isset($db['database']) ? (string) $db['database'] : 'Not reported';
+        echo '<h2>Central Database</h2><p><strong>Status:</strong> ' . esc_html($db_status) . '</p>';
+        echo '<p><strong>Database:</strong> ' . esc_html($db_name) . '</p>';
+        echo '<div class="notice notice-info inline"><p>One physical central database is shared by five logical identity scopes. The five rows below show each identity scope; they are not five separate physical databases.</p></div>';
+
+        $identity_codes = array(
+            'SUPREMESETUHUB',
+            'RAJESHKHANDELWALOFFICIAL',
+            'RAJESHKHANDELWAL',
+            'DRRAJESHKHANDELWALIBCOFFICIAL',
+            'DRRAJESHKHANDELWALIBC',
+        );
+        $ftp_profiles = array();
         if (!empty($ftp['profiles']) && is_array($ftp['profiles'])) {
-            echo '<table class="widefat striped"><thead><tr><th>Identity</th><th>Configured</th><th>Protocol</th><th>Read-only check</th></tr></thead><tbody>';
             foreach ($ftp['profiles'] as $profile) {
-                echo '<tr><td>' . esc_html(isset($profile['label']) ? $profile['label'] : $profile['profile_id']) . '</td>';
-                echo '<td>' . esc_html(!empty($profile['configured']) ? 'Ready' : 'Missing configuration') . '</td>';
-                echo '<td>Explicit FTPS</td><td><form method="post" action="' . esc_url(admin_url('admin-post.php')) . '">';
-                echo '<input type="hidden" name="action" value="supremesetuhub_check_ftp"><input type="hidden" name="profile_id" value="' . esc_attr($profile['profile_id']) . '">';
-                wp_nonce_field('supremesetuhub_check_ftp_' . $profile['profile_id']);
-                submit_button('Check connection', 'secondary small', 'submit', false, empty($profile['configured']) ? array('disabled' => 'disabled') : array());
-                echo '</form></td></tr>';
+                if (!empty($profile['profile_id'])) {
+                    $ftp_profiles[strtolower((string) $profile['profile_id'])] = $profile;
+                }
             }
-            echo '</tbody></table>';
-        } else {
-            echo '<p>FTP status unavailable: ' . esc_html(isset($ftp['status']) ? $ftp['status'] : 'BACKEND_REQUEST_FAILED') . '</p>';
         }
-        echo '<p class="description">FTP checks only verify FTPS login and the account starting directory. They do not prove per-identity directory isolation and do not upload, edit, or delete files.</p></div>';
+
+        echo '<h2>Five Identity Database &amp; FTP Matrix</h2>';
+        echo '<table class="widefat striped"><thead><tr><th>Identity</th><th>Database scope</th><th>Database status</th><th>FTP profile</th><th>FTP readiness</th><th>Read-only check</th></tr></thead><tbody>';
+        foreach ($identity_codes as $identity_code) {
+            $profile_key = strtolower($identity_code);
+            $profile = isset($ftp_profiles[$profile_key]) ? $ftp_profiles[$profile_key] : array();
+            $profile_id = isset($profile['profile_id']) ? (string) $profile['profile_id'] : $profile_key;
+            $ftp_configured = !empty($profile['configured']);
+            echo '<tr><td><strong>' . esc_html($identity_code) . '</strong></td>';
+            echo '<td>Shared central DB</td><td>' . esc_html($db_status) . '</td>';
+            echo '<td>' . esc_html(isset($profile['label']) ? $profile['label'] : $profile_id) . '</td>';
+            echo '<td>' . esc_html($ftp_configured ? 'Ready' : 'Missing configuration') . '</td><td>';
+            if (isset($profile['profile_id'])) {
+                echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '">';
+                echo '<input type="hidden" name="action" value="supremesetuhub_check_ftp"><input type="hidden" name="profile_id" value="' . esc_attr($profile_id) . '">';
+                wp_nonce_field('supremesetuhub_check_ftp_' . $profile_id);
+                submit_button('Check connection', 'secondary small', 'submit', false, !$ftp_configured ? array('disabled' => 'disabled') : array());
+                echo '</form>';
+            } else {
+                echo 'Profile unavailable';
+            }
+            echo '</td></tr>';
+        }
+        echo '</tbody></table>';
+        echo '<p class="description">FTP checks verify FTPS login and starting-directory access only. The current default may reuse one physical FTP account; separate accounts and directory isolation are not implied. No files are uploaded, edited, or deleted.</p></div>';
     }
 }
 
