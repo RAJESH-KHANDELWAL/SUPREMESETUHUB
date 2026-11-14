@@ -68,7 +68,7 @@ jobs:
           )
           files = [
               pathlib.Path(item.decode("utf-8"))
-              for item in result.stdout.split(b"\\0")
+              for item in result.stdout.split(bytes([0]))
               if item
           ]
           if not files:
