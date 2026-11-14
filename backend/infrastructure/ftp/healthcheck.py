@@ -67,7 +67,7 @@ def check_ftp_connection(target: FtpTarget) -> dict[str, object]:
         context = ssl.create_default_context()
         client = ftplib.FTP_TLS(context=context, timeout=target.timeout)
         client.connect(target.host, target.port, timeout=target.timeout)
-        client.auth()
+        # FTP_TLS.login() performs AUTH TLS automatically after connect.
         client.login(user=target.username, passwd=target.password)
         client.prot_p()
         remote_directory = client.pwd()
