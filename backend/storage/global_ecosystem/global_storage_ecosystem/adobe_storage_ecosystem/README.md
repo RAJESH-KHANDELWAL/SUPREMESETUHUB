@@ -1,47 +1,30 @@
 # Adobe Storage Ecosystem
 
-This package describes **Adobe-specific storage products, storage capabilities, asset types, and integration boundaries**. It is a provider ecosystem under the Global Storage Ecosystem; it is not the home for universal Bharat-to-Global domain taxonomies.
+Canonical Adobe provider storage catalog for SUPREMESETUHUB.
 
-## Scope
+## Child storage ecosystems
 
-Geographic coverage and maturity levels describe where Adobe storage capabilities may be used and the operational maturity of our own integration. They do not turn unrelated business, education, culture, healthcare, or adult-industry domains into Adobe products.
+- `adobe_cloud_storage_and_collaboration_storage_ecosystem` — Adobe cloud projects, folders, files, cloud documents, Creative Cloud Libraries and brands where supported.
+- `adobe_creative_cloud_storage_ecosystem` — Creative Cloud cloud documents, libraries and supported application storage surfaces.
+- `adobe_creative_cloud_assets_storage_ecosystem` — reusable creative assets, asset metadata and supported asset operations.
+- `adobe_lightroom_storage_ecosystem` — Lightroom cloud photo/video assets, albums and sync metadata.
+- `adobe_express_storage_ecosystem` — Express projects and brand assets.
+- `adobe_frameio_storage_ecosystem` — Frame.io media, versions, review and collaboration records.
+- `adobe_experience_manager_assets_storage_ecosystem` — enterprise digital asset management.
+- `adobe_workfront_storage_ecosystem` — Workfront asset workflows, proofs and approvals.
+- `adobe_document_cloud_storage_ecosystem` — Document Cloud documents and sharing metadata.
 
-- `geography/`: Bharat, regional, and global applicability of Adobe storage services.
-- `maturity_levels/`: Normal, Professional, Advanced, Enterprise, and Supreme implementation stages.
-- `products/`: Adobe storage products and product-backed storage surfaces.
-- `services/`: storage-related Adobe services and capabilities.
-- `platforms/`: Adobe product platforms that expose or consume storage.
-- `storage_capabilities/`: storage constructs such as projects, folders, files, cloud documents, libraries, brands, and assets.
-- `domains/`: Adobe-relevant asset and workflow domains only.
+## Architecture boundary
 
-## Adobe storage catalog
+The Adobe API Ecosystem owns Adobe API clients, OAuth, endpoints, scopes and API operations:
+`backend/api/global_ecosystem/global_api_ecosystem/adobe_api_ecosystem/`.
 
-The catalog may include:
-- Adobe Cloud Storage and Collaboration constructs: projects, folders, files, cloud documents, Creative Cloud Libraries, and brands.
-- Creative Cloud cloud documents and libraries.
-- Lightroom cloud photo and video storage.
-- Adobe Express projects and brand assets.
-- Frame.io media storage and collaboration (tracked separately from general Adobe Cloud Storage quota where applicable).
-- Experience Manager Assets as an enterprise digital asset management capability.
-- Workfront asset workflows and Adobe cloud-storage integrations.
-- Document Cloud document storage.
-- Adobe Cloud Drive as a desktop mount/sync client, not as a separate storage backend.
+This Storage Ecosystem owns storage-side models, provider-specific storage metadata, object lifecycle, storage mappings and storage health. It references API operations; it does not duplicate API clients or OAuth.
 
-Product availability, API access, entitlements, quotas, and regional behavior must be verified against the relevant Adobe product documentation and customer plan before enabling a connector.
+## Truthful readiness
 
-## Universal taxonomy boundary
+This catalog is not a live Adobe connection. Product availability, API support, account entitlements, OAuth scopes, organization permissions and region-specific behavior must be verified per product. Mark a child CONNECTED only after authorized live health checks and required read/write tests pass. Never assume every Adobe product exposes a generic storage API or a common quota.
 
-Universal categories such as business, education, healthcare, culture, relationships, adult industry, and lawful adult media belong in their corresponding **Global Category Storage Ecosystems** at the parent level:
-`backend/storage/global_ecosystem/global_storage_ecosystem/`.
+## Coverage
 
-They must not be represented as Adobe product domains merely because Adobe can store a file of that subject. The existing Global Adult/Intimacy/Health/Wellness Storage Ecosystem remains the category-level home for that subject matter.
-
-## Integration status
-
-This repository folder is a catalog and implementation scaffold. Adobe connectivity remains `NOT_CONFIGURED` until authorized credentials, product entitlements, scopes, organization permissions, live health checks, and required end-to-end read/write tests have succeeded. Never commit credentials or personal data.
-
-## Separation of responsibilities
-
-- API ecosystem owns Adobe API clients, OAuth, endpoints, scopes, and API operations.
-- Storage ecosystem owns storage metadata, object/file models, storage lifecycle, provider storage adapters, and storage health state.
-- Shared integration references may connect the two layers; their implementations must not be duplicated.
+The provider catalog is intended for Bharat, regional and global use, subject to each Adobe product's availability, contract, data residency and applicable law. Normal, Professional, Advanced, Enterprise and Supreme are target maturity levels, not claims that those capabilities are deployed.
