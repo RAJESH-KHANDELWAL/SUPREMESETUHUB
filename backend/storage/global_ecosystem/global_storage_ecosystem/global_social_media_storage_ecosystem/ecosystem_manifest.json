@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "DERIVED_FROM_DIRECTORY_NAME",
+  "geographic_scope": ["BHARAT", "SOUTH_ASIA", "ASIA_PACIFIC", "MIDDLE_EAST", "EUROPE", "AFRICA", "NORTH_AMERICA", "SOUTH_AMERICA", "OCEANIA", "ANTARCTICA", "GLOBAL"],
+  "coverage_levels": ["LOCAL", "DISTRICT", "STATE", "NATIONAL", "REGIONAL", "INTERNATIONAL", "GLOBAL", "SUPREME"],
+  "implementation_state": "FOUNDATION_INITIALIZED",
+  "external_connection_state": "NOT_CONFIGURED",
+  "requires_authorized_credentials": true,
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true,
+  "governance": ["PRIVACY", "SECURITY", "AUDIT", "RETENTION", "CONSENT_WHERE_REQUIRED", "JURISDICTIONAL_COMPLIANCE"]
+}
