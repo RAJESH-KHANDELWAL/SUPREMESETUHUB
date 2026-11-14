@@ -94,7 +94,7 @@ def storage_ecosystem_status(current_user: dict = Depends(get_current_user)):
     return {
         "success": True,
         "ecosystem": "GLOBAL STORAGE ECOSYSTEM",
-        "status": "RUNTIME_READY" if runtime["write_verified"] else "DEGRADED",
+        "status": "WRITE_READY" if runtime["write_verified"] else "DEGRADED",
         "metadata_engine": engine.health(),
         "physical_provider": runtime,
         "provider_count_implemented": len(StorageProviderRuntime.available_providers()),

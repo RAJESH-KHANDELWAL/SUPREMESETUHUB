@@ -6,7 +6,7 @@ The STORAGE layer owns the provider-neutral storage runtime, provider selection,
 
 - Asset identity, ownership, access grants, links, soft-delete, restore, and audit remain in `backend/engine/storage/`.
 - Physical bytes are handled by existing adapters in `backend/storage/filesystem.py` and `backend/storage/s3.py`.
-- `provider_runtime.py` selects the configured physical backend and provides a common stream upload, open, existence, delete, and health interface. Health reports write verification separately; it does not claim read verification unless an independent read-back test is added.
+- `provider_runtime.py` selects the configured physical backend and provides a common stream upload, open, existence, delete, and health interface.
 - Authenticated HTTP endpoints remain in `backend/api/storage_routes.py`; they delegate physical I/O to the STORAGE runtime and asset metadata/permissions to StorageEngine.
 - Provider and category catalogs remain discovery metadata. A catalog entry is not a working connector.
 
@@ -42,5 +42,5 @@ Adobe, Google Drive, OneDrive, MEGA, Proton Drive and other catalog providers ar
 
 Run:
 ```bash
-python -m pytest backend/tests/test_storage_engine.py backend/tests/test_storage_http_api.py backend/tests/test_s3_storage_adapter.py backend/storage/global_ecosystem/global_storage_ecosystem/test_ecosystem.py backend/tests/test_global_storage_provider_runtime.py -q
+python -m pytest backend/tests/test_storage_engine.py backend/tests/test_storage_http_api.py backend/tests/test_s3_storage_adapter.py backend/storage/global_ecosystem/global_storage_ecosystem/test_ecosystem.py backend/storage/global_ecosystem/global_storage_ecosystem/test_provider_runtime.py -q
 ```

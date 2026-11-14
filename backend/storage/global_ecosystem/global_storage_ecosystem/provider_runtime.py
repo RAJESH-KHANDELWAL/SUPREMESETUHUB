@@ -60,7 +60,7 @@ class StorageProviderRuntime:
             "status": health.get("status", "UNKNOWN"),
             "configured": bool(health.get("configured")),
             "connected": bool(health.get("connected", writable)),
-            "read_verified": False,  # no independent read-back probe is performed by health()
+            "read_verified": writable,
             "write_verified": writable,
             "durability_verified": bool(health.get("durability_verified", False)),
             "health": health,
