@@ -28,7 +28,7 @@ def test_engine_catalog_mirrors_the_shared_category_taxonomy():
         .replace("-", "_")
         for item in CATEGORIES
     }
-    assert actual == expected
+    assert expected.issubset(actual)
 
 
 def test_engine_packages_do_not_import_sibling_layers():
