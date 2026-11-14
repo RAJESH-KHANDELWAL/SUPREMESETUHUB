@@ -44,6 +44,7 @@ on:
     branches: [main]
     paths:
       - "backend/database/**"
+      - "backend/infrastructure/ftp/**"
       - "backend/gallary_woult/**"
       - "backend/api/gallary_woult.py"
       - "backend/api/dashboard.py"
