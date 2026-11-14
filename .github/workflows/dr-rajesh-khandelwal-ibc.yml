@@ -57,6 +57,13 @@ jobs:
             */wp-content/plugins/dr-rajesh-khandelwal-ibc/) ;;
             *) echo "::error::Plugin directory must end with /wp-content/plugins/dr-rajesh-khandelwal-ibc/"; exit 1 ;;
           esac
+      - name: Verify drrajeshkhandelwalibc FTPS login using backend manager
+        env:
+          FTP_SERVER: ${{ secrets.HOSTINGER_DRRAJESHKANDELWALIBC_FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.HOSTINGER_DRRAJESHKANDELWALIBC_FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.HOSTINGER_DRRAJESHKANDELWALIBC_FTP_PASSWORD }}
+          FTP_PORT: "21"
+        run: python -m backend.infrastructure.ftp.healthcheck --site drrajeshkhandelwalibc
       - name: Deploy IBC plugin via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
