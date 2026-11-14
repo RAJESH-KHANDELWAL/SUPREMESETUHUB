@@ -125,17 +125,17 @@ jobs:
             exit 1
           fi
           case "$PLUGIN_DIR" in
-            */public_html/wp-content/plugins/supremesetuhub/|public_html/wp-content/plugins/supremesetuhub/) ;;
+            */public_html/wp-content/plugins/supremesetuhub/|public_html/wp-content/plugins/supremesetuhub/|/wp-content/plugins/supremesetuhub/|wp-content/plugins/supremesetuhub/) ;;
             *)
-              echo "::error::The existing plugin directory must end in public_html/wp-content/plugins/supremesetuhub/."
+              echo "::error::The existing plugin directory must identify wp-content/plugins/supremesetuhub/ under the Hostinger FTP account root."
               exit 1
               ;;
           esac
           WEB_DIR="${PLUGIN_DIR%/wp-content/plugins/supremesetuhub/}/supremesetuhub/"
           case "$WEB_DIR" in
-            */public_html/supremesetuhub/|public_html/supremesetuhub/) ;;
+            */public_html/supremesetuhub/|public_html/supremesetuhub/|/supremesetuhub/|supremesetuhub/) ;;
             *)
-              echo "::error::Derived web directory is not the isolated public_html/supremesetuhub/ directory."
+              echo "::error::Derived web directory is not the isolated SUPREMESETUHUB folder beneath the Hostinger public_html FTP root."
               exit 1
               ;;
           esac
