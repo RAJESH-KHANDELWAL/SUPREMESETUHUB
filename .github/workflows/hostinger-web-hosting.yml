@@ -121,7 +121,7 @@ jobs:
             fi
           done
           if [ "$missing" -ne 0 ]; then
-            echo "::error::Configure the three HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_* repository secrets and HOSTINGER_RAJESHKHANDELWALOFFICIAL_SUPREMESETUHUB_WEB_DIR repository variable."
+            echo "::error::Configure the existing HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_* repository secrets and HOSTINGER_RAJESHKHANDELWALOFFICIAL_SUPREMESETUHUB_PLUGIN_DIR repository variable."
             exit 1
           fi
           case "$PLUGIN_DIR" in
