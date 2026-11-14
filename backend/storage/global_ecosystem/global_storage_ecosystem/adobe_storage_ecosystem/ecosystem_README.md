@@ -1,17 +1,22 @@
-# Ecosystem Foundation
+# Adobe Storage Ecosystem Foundation
 
-This directory contains the reusable folder/file foundation for its named ecosystem. Existing provider-specific files are preserved.
+This is the Adobe-specific provider package inside the Global Storage Ecosystem.
 
-## Added foundation modules
-- `ecosystem_service.py` — service identity and health contract
-- `ecosystem_models.py` — typed domain records
-- `ecosystem_registry.py` — thread-safe metadata registry
-- `ecosystem_config.py` — runtime configuration (no secrets in source)
-- `ecosystem_manifest.json` — Bharat-to-global scope and integration state
-- `tests/test_foundation.py` — offline foundation tests
+## Package modules
 
-## Status policy
-FOUNDATION_READY means the local package foundation loads. It does not mean a third-party API is connected. External integrations require authorized credentials, permissions, a live health check, and end-to-end read/write tests. Production records must use the central database, not the in-memory registry.
+- `ecosystem_config.py` — runtime configuration; secrets must come from a secret manager or environment.
+- `ecosystem_models.py` — typed metadata records.
+- `ecosystem_registry.py` — local metadata registry.
+- `ecosystem_service.py` — package identity and readiness contract.
+- `ecosystem_manifest.json` — Adobe storage scope, products, capabilities, and connection state.
+- `products/`, `services/`, `platforms/`, `storage_capabilities/` — Adobe-specific catalog namespaces.
+- `geography/` and `maturity_levels/` — coverage descriptors, not universal subject taxonomies.
+- `tests/` — offline foundation tests.
 
-## Governance
-Use least privilege, encryption, audit logs, data minimization, retention controls, consent where required, and applicable Indian and international laws. Never commit credentials or personal data.
+## Readiness policy
+
+`FOUNDATION_INITIALIZED` means the local package scaffold exists. It does not mean Adobe is connected. Use `NOT_CONFIGURED` until an authorized Adobe organization, product entitlement, credentials, OAuth scopes, permissions, and live health checks are verified.
+
+## Architecture boundary
+
+Universal subject categories belong to sibling Global Category Storage Ecosystems. This Adobe package must contain only Adobe provider products, services, platforms, storage constructs, and their integrations.
