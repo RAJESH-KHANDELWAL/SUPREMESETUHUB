@@ -13,11 +13,11 @@ def test_five_ftp_profiles_are_named_for_the_main_system_and_four_identities():
 
 def test_profile_environment_names_follow_requested_host_name_user_password_port_pattern():
     profile = get_ftp_profile("drrajeshkhandelwalibc")
-    assert profile.server_env == "DRRAJESHKANDELWALIBC_FTP_HOST"
-    assert profile.name_env == "DRRAJESHKANDELWALIBC_FTP_NAME"
-    assert profile.username_env == "DRRAJESHKANDELWALIBC_FTP_USER"
-    assert profile.password_env == "DRRAJESHKANDELWALIBC_FTP_PASSWORD"
-    assert profile.port_env == "DRRAJESHKANDELWALIBC_FTP_PORT"
+    assert profile.server_env == "DRRAJESHKHANDELWALIBC_FTP_HOST"
+    assert profile.name_env == "DRRAJESHKHANDELWALIBC_FTP_NAME"
+    assert profile.username_env == "DRRAJESHKHANDELWALIBC_FTP_USER"
+    assert profile.password_env == "DRRAJESHKHANDELWALIBC_FTP_PASSWORD"
+    assert profile.port_env == "DRRAJESHKHANDELWALIBC_FTP_PORT"
 
 
 def test_missing_ftp_credentials_are_reported_without_fallback():
