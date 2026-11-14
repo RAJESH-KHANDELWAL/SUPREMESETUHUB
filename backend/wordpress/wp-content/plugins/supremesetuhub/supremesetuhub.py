@@ -10,9 +10,14 @@ WORDPRESS_MENU = {
     "slug": "supremesetuhub",
     "label": HUB_LABEL,
     "capability": "manage_options",
-    "icon": "custom-crown-svg",
+    "icon": "custom-crown-svg-base64",
+    "version": "1.3.3",
+    "integrated_connector": "supremesetuhub_api_catalog_connector.php",
+    "legacy_standalone_connector": False,
     "dashboard_slug": "supremesetuhub-dashboard",
     "dashboard_label": "👑 Dashboard 👑",
+    "connector_menu_slug": "supremesetuhub-connector",
+    "connector_menu_label": "API & Catalog Connector",
 }
 COMPANION_PLUGIN = {
     "name": "DR RAJESH KHANDELWAL IBC",
