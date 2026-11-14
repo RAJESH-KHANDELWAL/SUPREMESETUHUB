@@ -64,7 +64,7 @@ add_action('admin_menu', function () {
             echo '</tbody></table></div>';
         }
     );
-});
+}, 99);
 
 add_action('admin_menu', function () {
     add_menu_page(
@@ -104,6 +104,6 @@ add_action('admin_menu', function () {
             echo '<p>SUPREME and SUPREME ECOSYSTEM remain modules inside the DR RAJESH KHANDELWAL IBC plugin.</p>';
             echo '<p>REST status: <code>/wp-json/supremesetuhub/v1/connector-status</code></p></div>';
         },
-        'data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23D4AF37' d='M5 17l14 12L31 6l13 23 15-12-6 34H11L5 17zm8 39h38v4H13z'/%3E%3C/svg%3E'
+        'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cpath%20fill%3D%22%23D4AF37%22%20d%3D%22M5%2017l14%2012L31%206l13%2023%2015-12-6%2034H11L5%2017zm8%2039h38v4H13z%22%2F%3E%3C%2Fsvg%3E'
     );
 });
