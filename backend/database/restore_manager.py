@@ -16,6 +16,14 @@ from pathlib import Path
 from backend.database.gde_connection import SupremeDatabaseConfig
 
 
+def _sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
 class DatabaseRestoreManager:
     CONFIRMATION = "RESTORE SUPREMESETUHUB"
 
@@ -44,17 +52,22 @@ class DatabaseRestoreManager:
             raise RuntimeError("mysql client executable is not installed on this runtime.")
         if not re.fullmatch(r"[A-Za-z0-9_.-]+\.sql", backup_file):
             raise ValueError("Invalid backup filename.")
-        source = (self.backup_dir / backup_file).resolve()
-        if source.parent != self.backup_dir or not source.is_file() or source.is_symlink():
+        unresolved_source = self.backup_dir / backup_file
+        if unresolved_source.is_symlink():
+            raise PermissionError("Symbolic-link backups are not accepted.")
+        source = unresolved_source.resolve()
+        if source.parent != self.backup_dir or not source.is_file():
             raise FileNotFoundError("Backup file is missing or outside the approved backup directory.")
-        manifest_path = source.with_suffix(".manifest.json")
-        if not manifest_path.is_file():
+        unresolved_manifest = source.with_suffix(".manifest.json")
+        if unresolved_manifest.is_symlink():
+            raise PermissionError("Symbolic-link manifests are not accepted.")
+        manifest_path = unresolved_manifest.resolve()
+        if manifest_path.parent != self.backup_dir or not manifest_path.is_file():
             raise ValueError("Backup manifest is missing; refusing an unverified restore.")
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         if manifest.get("database") != self.config.database:
             raise ValueError("Backup belongs to a different database.")
-        digest = hashlib.sha256(source.read_bytes()).hexdigest()
-        if digest != manifest.get("sha256"):
+        if _sha256_file(source) != manifest.get("sha256"):
             raise ValueError("Backup SHA-256 verification failed.")
         wordpress_database = os.getenv("WORDPRESS_DB_NAME", "").strip()
         if wordpress_database and self.config.database.casefold() == wordpress_database.casefold():
