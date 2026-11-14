@@ -110,11 +110,11 @@ jobs:
           FTP_SERVER: ${{ secrets.HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_PASSWORD }}
-          FTP_SERVER_DIR: ${{ vars.HOSTINGER_RAJESHKHANDELWALOFFICIAL_SUPREMESETUHUB_WEB_DIR }}
+          PLUGIN_DIR: ${{ vars.HOSTINGER_RAJESHKHANDELWALOFFICIAL_SUPREMESETUHUB_PLUGIN_DIR }}
         run: |
           set -euo pipefail
           missing=0
-          for item in FTP_SERVER FTP_USERNAME FTP_PASSWORD FTP_SERVER_DIR; do
+          for item in FTP_SERVER FTP_USERNAME FTP_PASSWORD PLUGIN_DIR; do
             if [ -z "${!item:-}" ]; then
               echo "::error::Missing Hostinger setting for ${item}"
               missing=1
@@ -124,13 +124,22 @@ jobs:
             echo "::error::Configure the three HOSTINGER_RAJESHKHANDELWALOFFICIAL_FTP_* repository secrets and HOSTINGER_RAJESHKHANDELWALOFFICIAL_SUPREMESETUHUB_WEB_DIR repository variable."
             exit 1
           fi
-          case "$FTP_SERVER_DIR" in
-            */public_html/supremesetuhub/|public_html/supremesetuhub/) ;;
+          case "$PLUGIN_DIR" in
+            */public_html/wp-content/plugins/supremesetuhub/|public_html/wp-content/plugins/supremesetuhub/) ;;
             *)
-              echo "::error::Web directory must point only to public_html/supremesetuhub/; do not use the WordPress public_html root."
+              echo "::error::The existing plugin directory must end in public_html/wp-content/plugins/supremesetuhub/."
               exit 1
               ;;
           esac
+          WEB_DIR="${PLUGIN_DIR%/wp-content/plugins/supremesetuhub/}/supremesetuhub/"
+          case "$WEB_DIR" in
+            */public_html/supremesetuhub/|public_html/supremesetuhub/) ;;
+            *)
+              echo "::error::Derived web directory is not the isolated public_html/supremesetuhub/ directory."
+              exit 1
+              ;;
+          esac
+          echo "HOSTINGER_WEB_DIR=$WEB_DIR" >> "$GITHUB_ENV"
           test -s site/index.html
           echo "Hostinger Web Hosting deployment settings validated."
 
@@ -143,6 +152,6 @@ jobs:
           protocol: ftps
           port: 21
           local-dir: site/
-          server-dir: ${{ vars.HOSTINGER_RAJESHKHANDELWALOFFICIAL_SUPREMESETUHUB_WEB_DIR }}
+          server-dir: ${{ env.HOSTINGER_WEB_DIR }}
           dangerous-clean-slate: false
           log-level: standard
