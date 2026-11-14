@@ -81,6 +81,7 @@ def test_publish_and_check_update(monkeypatch, tmp_path):
 def test_publish_rejects_wrong_plugin_archive(monkeypatch, tmp_path):
     monkeypatch.setenv("SUPREME_UPDATE_STORAGE_DIR", str(tmp_path))
     monkeypatch.setenv("SUPREME_UPDATE_ADMIN_TOKEN", "test-admin-token")
+    monkeypatch.setenv("SUPREME_UPDATE_STORAGE_DURABILITY_ACKNOWLEDGED", "true")
     with TestClient(app) as client:
         response = client.post(
             "/api/v1/supreme-updates/admin/publish/supremesetuhub",
