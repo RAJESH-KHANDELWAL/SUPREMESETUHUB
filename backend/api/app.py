@@ -75,6 +75,7 @@ from backend.api.crm import router as crm_router
 from backend.api.payee_verification import router as payee_verification_router
 from backend.api.digital_marketplace import router as digital_marketplace_router
 from backend.api.people_password_manager import router as people_password_manager_router
+from backend.api.supreme_updates import router as supreme_updates_router
 
 
 # ============================================================
@@ -217,7 +218,7 @@ PUBLIC_API_PATHS = {
 async def private_by_default(request: Request, call_next):
     path = request.url.path
 
-    if request.method == "OPTIONS" or path in PUBLIC_API_PATHS or path == "/":
+    if (\n        request.method == "OPTIONS"\n        or path in PUBLIC_API_PATHS\n        or path.startswith("/api/v1/supreme-updates/")\n        or path == "/"\n    ):
         return await call_next(request)
 
     authorization = request.headers.get("Authorization", "")
@@ -444,8 +445,7 @@ app.include_router(payee_verification_router)
 app.include_router(digital_marketplace_router)
 app.include_router(people_password_manager_router)
 app.include_router(tenancy_router)
-app.include_router(wordpress_router)
-
+app.include_router(wordpress_router)\napp.include_router(supreme_updates_router)\n
 
 # ============================================================
 # GALLARY WOULT
