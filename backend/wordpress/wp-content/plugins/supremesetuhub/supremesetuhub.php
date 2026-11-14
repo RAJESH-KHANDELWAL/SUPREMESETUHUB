@@ -2,13 +2,13 @@
 /**
  * Plugin Name: SUPREMESETUHUB
  * Description: Central WordPress integration hub for SUPREME and the DR RAJESH KHANDELWAL IBC plugin.
- * Version: 1.3.6
+ * Version: 1.3.7
  * Author: 👑 DR RAJESH KHANDELWAL IBC 👑
  * Text Domain: supremesetuhub
  */
 if (!defined('ABSPATH')) { exit; }
 
-define('SUPREMESETUHUB_VERSION', '1.3.6');
+define('SUPREMESETUHUB_VERSION', '1.3.7');
 define('SUPREMESETUHUB_DIR', plugin_dir_path(__FILE__));
 define('SUPREMESETUHUB_URL', plugin_dir_url(__FILE__));
 
@@ -33,7 +33,7 @@ if (!function_exists('supremesetuhub_core_manifest')) {
 require_once SUPREMESETUHUB_DIR . 'supremesetuhub_wordpress_connector.php';
 require_once SUPREMESETUHUB_DIR . 'supremesetuhub_control_plane.php';
 require_once SUPREMESETUHUB_DIR . 'supremesetuhub_api_catalog_connector.php';
-require_once SUPREMESETUHUB_DIR . 'supremesetuhub_github_updater.php';
+require_once SUPREMESETUHUB_DIR . 'supremesetuhub_update_client.php';
 
 register_activation_hook(__FILE__, function () {
     update_option('supremesetuhub_plugin_version', SUPREMESETUHUB_VERSION);
