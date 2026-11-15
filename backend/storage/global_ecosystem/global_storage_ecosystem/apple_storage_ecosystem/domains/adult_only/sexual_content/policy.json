@@ -1,0 +1,16 @@
+{
+  "domain": "adult_only.sexual_content",
+  "age_restricted": true,
+  "minimum_age": 18,
+  "consent_required": true,
+  "privacy_controls_required": true,
+  "moderation_required": true,
+  "reporting_and_takedown_required": true,
+  "prohibited": [
+    "minors",
+    "coercion",
+    "exploitation",
+    "non-consensual content"
+  ],
+  "status": "taxonomy_only"
+}

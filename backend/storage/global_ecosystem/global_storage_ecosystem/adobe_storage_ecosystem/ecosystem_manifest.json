@@ -1,0 +1,27 @@
+{
+  "schema_version": "2.0.0",
+  "ecosystem_id": "ADOBE-STORAGE-ECOSYSTEM",
+  "provider_id": "adobe",
+  "provider_name": "Adobe",
+  "ecosystem_type": "PROVIDER_STORAGE_ECOSYSTEM",
+  "parent_ecosystem_id": "GLOBAL-STORAGE-ECOSYSTEM",
+  "api_layer_reference": "backend/api/global_ecosystem/global_api_ecosystem/adobe_api_ecosystem",
+  "implementation_state": "CATALOG_AND_READINESS_FOUNDATION",
+  "external_connection_state": "NOT_CONFIGURED",
+  "live_connection_verified": false,
+  "geographic_scope": ["BHARAT", "REGIONAL", "GLOBAL"],
+  "maturity_targets": ["NORMAL", "PROFESSIONAL", "ADVANCED", "ENTERPRISE", "SUPREME"],
+  "child_ecosystems": [
+    "adobe_cloud_storage_and_collaboration_storage_ecosystem",
+    "adobe_creative_cloud_storage_ecosystem",
+    "adobe_creative_cloud_assets_storage_ecosystem",
+    "adobe_lightroom_storage_ecosystem",
+    "adobe_express_storage_ecosystem",
+    "adobe_frameio_storage_ecosystem",
+    "adobe_experience_manager_assets_storage_ecosystem",
+    "adobe_workfront_storage_ecosystem",
+    "adobe_document_cloud_storage_ecosystem"
+  ],
+  "governance": ["PRIVACY", "SECURITY", "AUDIT", "RETENTION", "CONSENT_WHERE_REQUIRED", "JURISDICTIONAL_COMPLIANCE"],
+  "truth_policy": "Catalog presence does not prove API support, entitlement, authorization, or live connectivity."
+}

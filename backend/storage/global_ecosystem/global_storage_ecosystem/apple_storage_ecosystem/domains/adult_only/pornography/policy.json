@@ -1,0 +1,18 @@
+{
+  "domain": "adult_only.pornography",
+  "age_restricted": true,
+  "minimum_age": 18,
+  "consent_required": true,
+  "rights_and_provenance_required": true,
+  "moderation_required": true,
+  "reporting_and_takedown_required": true,
+  "prohibited": [
+    "minor sexual content",
+    "coercion",
+    "exploitation",
+    "trafficking",
+    "non-consensual intimate imagery"
+  ],
+  "jurisdiction_review_required": true,
+  "status": "taxonomy_only"
+}
