@@ -1,0 +1,1 @@
+"""International Jobs taxonomy package."""
