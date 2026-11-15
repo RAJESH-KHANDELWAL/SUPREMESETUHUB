@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "parent_ecosystem_id": "GLOBAL_CLOUD_STORAGE_ECOSYSTEM",
+  "parent_category_id": "BLOCK_VOLUME_STORAGE",
+  "parent_category_name": "Block and Volume Storage",
+  "subcategory_count": 6,
+  "folder_naming": "global_cloud_<subcategory>_storage_ecosystem",
+  "subcategories": [
+    {
+      "subcategory_id": "PERSISTENT_BLOCK_STORAGE",
+      "name": "Persistent Block Storage",
+      "folder": "global_cloud_persistent_block_storage_storage_ecosystem",
+      "path": "subcategories/global_cloud_persistent_block_storage_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "subcategory_id": "BOOT_VOLUME_STORAGE",
+      "name": "Boot Volume Storage",
+      "folder": "global_cloud_boot_volume_storage_storage_ecosystem",
+      "path": "subcategories/global_cloud_boot_volume_storage_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "subcategory_id": "HIGH_PERFORMANCE_BLOCK_STORAGE",
+      "name": "High-Performance Block Storage",
+      "folder": "global_cloud_high_performance_block_storage_storage_ecosystem",
+      "path": "subcategories/global_cloud_high_performance_block_storage_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "subcategory_id": "SSD_VOLUME_STORAGE",
+      "name": "SSD Volume Storage",
+      "folder": "global_cloud_ssd_volume_storage_storage_ecosystem",
+      "path": "subcategories/global_cloud_ssd_volume_storage_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "subcategory_id": "HDD_VOLUME_STORAGE",
+      "name": "HDD Volume Storage",
+      "folder": "global_cloud_hdd_volume_storage_storage_ecosystem",
+      "path": "subcategories/global_cloud_hdd_volume_storage_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "subcategory_id": "VOLUME_SNAPSHOT_STORAGE",
+      "name": "Volume Snapshot Storage",
+      "folder": "global_cloud_volume_snapshot_storage_storage_ecosystem",
+      "path": "subcategories/global_cloud_volume_snapshot_storage_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    }
+  ]
+}
