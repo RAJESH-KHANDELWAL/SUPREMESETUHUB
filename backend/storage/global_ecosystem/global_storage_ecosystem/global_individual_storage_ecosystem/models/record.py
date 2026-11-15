@@ -1,4 +1,4 @@
-"""Compatibility import surface for individual storage metadata records."""
-from ..ecosystem_models import EcosystemRecord, utc_now
+"""Public model export for GLOBAL_INDIVIDUAL_STORAGE_ECOSYSTEM."""
+from ..ecosystem_models import CategoryRecord
 
-__all__ = ["EcosystemRecord", "utc_now"]
+__all__ = ["CategoryRecord"]
