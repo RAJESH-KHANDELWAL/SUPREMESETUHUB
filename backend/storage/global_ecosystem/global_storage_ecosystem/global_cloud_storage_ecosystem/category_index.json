@@ -6,7 +6,7 @@
       "category_id": "OBJECT_BLOB_STORAGE",
       "name": "Object and Blob Storage",
       "path": "categories/global_cloud_object_blob_storage_ecosystem",
-      "subcategory_count": 6
+      "subcategory_count": 8
     },
     {
       "category_id": "FILE_STORAGE",
@@ -39,6 +39,6 @@
       "subcategory_count": 6
     }
   ],
-  "subcategory_count": 36,
+  "subcategory_count": 38,
   "subcategory_architecture": "Six canonical storage categories, each with six independent subcategory ecosystem packages and a category-local subcategory_index.json."
 }
