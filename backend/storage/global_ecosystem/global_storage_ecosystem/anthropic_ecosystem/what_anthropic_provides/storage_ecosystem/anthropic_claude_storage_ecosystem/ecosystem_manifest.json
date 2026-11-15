@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "ANTHROPIC_CLAUDE_STORAGE_ECOSYSTEM",
+  "provider": "ANTHROPIC",
+  "category": "CLAUDE",
+  "group": "CLAUDE_PLATFORM",
+  "implementation_state": "TAXONOMY_SCAFFOLD",
+  "connection_state": "NOT_CONFIGURED",
+  "taxonomy_only": true,
+  "storage_operations_enabled": false,
+  "compatibility_path": "backend/storage/global_ecosystem/global_storage_ecosystem/anthropic_storage_ecosystem/anthropic_claude_storage_ecosystem"
+}
