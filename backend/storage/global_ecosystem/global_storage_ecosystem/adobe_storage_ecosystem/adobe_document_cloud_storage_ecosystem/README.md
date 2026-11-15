@@ -1,7 +1,23 @@
 # Adobe Document Cloud Storage
 
-Catalog Adobe Document Cloud documents and supported sharing, starring, ownership and lifecycle metadata. Do not conflate document storage with PDF Services API processing or Acrobat Sign agreement workflows.
+Provider: Adobe  
+Storage namespace: `document_cloud`  
+Related API family: PDF Services API; Acrobat Sign API
 
-## Integration boundary
+## Responsibility
+Document Cloud file metadata, ownership, sharing, starred/shared state and document lifecycle references.
 
-This folder owns storage-side catalog and lifecycle metadata only. Adobe API clients, OAuth, scopes, endpoints and API operations are owned by `backend/api/global_ecosystem/global_api_ecosystem/adobe_api_ecosystem/`. This ecosystem remains `NOT_CONFIGURED` until product entitlement, authorization, live health checks and required operations are verified.
+## API boundary
+PDF Services processing and Acrobat Sign agreements are not automatically generic Document Cloud file storage CRUD.
+
+OAuth, tokens, scopes, clients, endpoints and external requests belong to `backend/api/global_ecosystem/global_api_ecosystem/adobe_api_ecosystem/`. This package owns normalized storage metadata, object identity, version/lifecycle metadata, registry and readiness contract.
+
+## Files
+- `models.py`: validated storage object metadata
+- `registry.py`: thread-safe in-memory metadata registry (not production persistence)
+- `service.py`: metadata registration and readiness service
+- `manifest.json`: machine-readable scope and status
+- `tests/test_foundation.py`: offline tests
+
+## Status
+Foundation only; external connection `NOT_CONFIGURED`. A healthy local package does not prove entitlement, API availability, OAuth success or working file operations. Production persistence belongs in the central database. Never commit credentials or personal data.
