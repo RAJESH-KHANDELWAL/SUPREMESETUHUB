@@ -1,5 +1,7 @@
-"""adobe_cloud_storage_and_collaboration_storage_ecosystem package."""
+"""Adobe Cloud Storage and Collaboration package."""
+from .adapter_contract import AdobeStorageAdapterContract
+from .config import get_config
 from .models import StorageObjectRecord
 from .registry import StorageMetadataRegistry
 from .service import StorageEcosystemService
-__all__=["StorageObjectRecord","StorageMetadataRegistry","StorageEcosystemService"]
+__all__=["AdobeStorageAdapterContract","get_config","StorageObjectRecord","StorageMetadataRegistry","StorageEcosystemService"]
