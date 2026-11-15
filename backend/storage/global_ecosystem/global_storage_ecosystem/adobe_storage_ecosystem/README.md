@@ -43,7 +43,7 @@ The canonical child IDs, names and folder paths are maintained in `adobe_storage
 - `ecosystem_models.py` — typed storage metadata records
 - `ecosystem_registry.py` — thread-safe in-memory metadata registry
 - `ecosystem_service.py` — provider identity and truthful health contract
-- `tests/` — offline catalog and foundation tests
+- `tests/` — offline catalog and foundation tests\n\nEach of the nine child namespaces contains its own `__init__.py`, `models.py`, `registry.py`, `service.py`, `config.py`, `adapter_contract.py`, `manifest.json`, README and `tests/test_foundation.py`.
 
 ## Backend integration
 
