@@ -16,32 +16,17 @@
     "anthropic_claude_enterprise_storage_ecosystem",
     "anthropic_claude_code_storage_ecosystem"
   ],
-  "interfaces": [
-    "PYTHON",
-    "PHP_JSON_INTEROPERABILITY"
+  "canonical_provider_hierarchy": [
+    "ANTHROPIC",
+    "WHAT_ANTHROPIC_PROVIDES",
+    "STORAGE_ECOSYSTEM"
   ],
-  "geographic_scope": [
-    "BHARAT",
-    "REGIONAL",
-    "GLOBAL"
-  ],
-  "coverage_levels": [
-    "LOCAL",
-    "DISTRICT",
-    "STATE",
-    "NATIONAL",
-    "REGIONAL",
-    "INTERNATIONAL",
-    "GLOBAL",
-    "SUPREME"
-  ],
-  "maturity_levels": [
-    "NORMAL",
-    "PROFESSIONAL",
-    "ADVANCED",
-    "ENTERPRISE",
-    "SUPREME"
-  ],
+  "canonical_path": "backend/storage/global_ecosystem/global_storage_ecosystem/anthropic_ecosystem/what_anthropic_provides/storage_ecosystem",
+  "compatibility_path": "backend/storage/global_ecosystem/global_storage_ecosystem/anthropic_storage_ecosystem",
+  "interfaces": ["PYTHON", "PHP_JSON_INTEROPERABILITY"],
+  "geographic_scope": ["BHARAT", "REGIONAL", "GLOBAL"],
+  "coverage_levels": ["LOCAL", "DISTRICT", "STATE", "NATIONAL", "REGIONAL", "INTERNATIONAL", "GLOBAL", "SUPREME"],
+  "maturity_levels": ["NORMAL", "PROFESSIONAL", "ADVANCED", "ENTERPRISE", "SUPREME"],
   "implementation_state": "TAXONOMY_AND_CATALOG_FOUNDATION",
   "external_connection_state": "NOT_CONFIGURED",
   "taxonomy_only": true,
