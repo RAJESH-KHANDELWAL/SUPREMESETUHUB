@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Huawei Cloud Storage Ecosystem Manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "ecosystem_id",
+    "provider_id",
+    "connection_state",
+    "external_connections_verified",
+    "storage_operations_enabled"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "ecosystem_id": {
+      "const": "HUAWEI_CLOUD_STORAGE_ECOSYSTEM"
+    },
+    "provider_id": {
+      "const": "HUAWEI_CLOUD"
+    },
+    "connection_state": {
+      "const": "NOT_CONFIGURED"
+    },
+    "external_connections_verified": {
+      "const": false
+    },
+    "storage_operations_enabled": {
+      "const": false
+    }
+  },
+  "additionalProperties": true
+}

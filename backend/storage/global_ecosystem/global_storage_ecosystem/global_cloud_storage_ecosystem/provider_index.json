@@ -1,0 +1,157 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_CLOUD_STORAGE_ECOSYSTEM",
+  "note": "Catalog namespaces only; inclusion does not assert provider product support or account eligibility.",
+  "providers": [
+    {
+      "provider_id": "AWS",
+      "name": "Amazon Web Services",
+      "namespace": "providers/aws_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "AZURE",
+      "name": "Microsoft Azure",
+      "namespace": "providers/azure_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "GOOGLE_CLOUD",
+      "name": "Google Cloud",
+      "namespace": "providers/google_cloud_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "ORACLE_CLOUD",
+      "name": "Oracle Cloud Infrastructure",
+      "namespace": "providers/oracle_cloud_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "IBM_CLOUD",
+      "name": "IBM Cloud",
+      "namespace": "providers/ibm_cloud_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "DIGITALOCEAN",
+      "name": "DigitalOcean",
+      "namespace": "providers/digitalocean_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "CLOUDFLARE",
+      "name": "Cloudflare",
+      "namespace": "providers/cloudflare_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "WASABI",
+      "name": "Wasabi",
+      "namespace": "providers/wasabi_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "BACKBLAZE",
+      "name": "Backblaze",
+      "namespace": "providers/backblaze_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "CLOUDFLARE_R2",
+      "name": "Cloudflare R2",
+      "namespace": "providers/cloudflare_r2_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "ALIBABA_CLOUD",
+      "name": "Alibaba Cloud",
+      "namespace": "providers/alibaba_cloud_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "TENCENT_CLOUD",
+      "name": "Tencent Cloud",
+      "namespace": "providers/tencent_cloud_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "HUAWEI_CLOUD",
+      "name": "Huawei Cloud",
+      "namespace": "providers/huawei_cloud_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "OVH_CLOUD",
+      "name": "OVHcloud",
+      "namespace": "providers/ovh_cloud_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "LINODE_AKAMAI",
+      "name": "Akamai Cloud / Linode",
+      "namespace": "providers/linode_akamai_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "HETZNER",
+      "name": "Hetzner",
+      "namespace": "providers/hetzner_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "VULTR",
+      "name": "Vultr",
+      "namespace": "providers/vultr_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "IONOS",
+      "name": "IONOS",
+      "namespace": "providers/ionos_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "SCALeway",
+      "name": "Scaleway",
+      "namespace": "providers/scaleway_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "MINIO",
+      "name": "MinIO",
+      "namespace": "providers/minio_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "NUTANIX",
+      "name": "Nutanix",
+      "namespace": "providers/nutanix_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "PURE_STORAGE",
+      "name": "Pure Storage",
+      "namespace": "providers/pure_storage_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "DELL_TECHNOLOGIES",
+      "name": "Dell Technologies",
+      "namespace": "providers/dell_technologies_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "NETAPP",
+      "name": "NetApp",
+      "namespace": "providers/netapp_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "provider_id": "RED_HAT",
+      "name": "Red Hat",
+      "namespace": "providers/red_hat_storage_ecosystem",
+      "connection_state": "NOT_CONFIGURED"
+    }
+  ]
+}

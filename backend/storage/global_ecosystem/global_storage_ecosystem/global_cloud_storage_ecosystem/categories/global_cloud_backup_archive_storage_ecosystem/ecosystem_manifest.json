@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0.0",
+  "category_id": "BACKUP_ARCHIVE_STORAGE",
+  "name": "Backup and Archive Storage",
+  "ecosystem_id": "GLOBAL_CLOUD_STORAGE_ECOSYSTEM",
+  "connection_state": "NOT_CONFIGURED",
+  "storage_operations_enabled": false
+}

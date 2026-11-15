@@ -1,9 +1,19 @@
-# GLOBAL CLOUD Storage Ecosystem
+# GLOBAL CLOUD STORAGE ECOSYSTEM
 
-STORAGE-owned taxonomy namespace for GLOBAL CLOUD. Catalog and foundation only; no live provider integration is implied.
+A provider-neutral storage catalog and metadata foundation for global cloud-storage services.
 
-## Responsibility
-This package owns storage-side identity, metadata, taxonomy, object lifecycle definitions and storage health metadata. Provider API clients, authentication and external operations remain in their respective API/integration layers.
+## Scope
+- Cloud object and blob storage
+- Cloud file and shared-file storage
+- Cloud block and volume storage
+- Backup, archive and disaster-recovery storage
+- Hybrid and multi-cloud storage governance
+- Storage observability, lifecycle and cost metadata
 
-## Readiness boundary
-The foundation does not prove provider API support, account entitlement, authorized connectivity or working upload/download/delete operations. Mark a provider connected only after authorized live health checks and end-to-end read/write tests pass. Never commit credentials or personal data.
+## Architecture boundary
+This package owns taxonomy, provider identity, storage metadata contracts, lifecycle vocabulary and health metadata. Provider authentication, SDK clients, network calls, callbacks/webhooks and upload/download/delete operations belong in dedicated API/integration packages. Production persistence belongs in the central database layer.
+
+## Readiness
+All provider namespaces start as `NOT_CONFIGURED`. A catalog entry is not evidence of product availability, account entitlement, region support, connectivity or operational compatibility. Do not report a provider connected until authorized health checks and end-to-end tests have passed.
+
+Never commit credentials, access tokens, personal data or customer file contents.

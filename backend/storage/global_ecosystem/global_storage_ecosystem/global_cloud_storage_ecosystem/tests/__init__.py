@@ -1,1 +1,1 @@
-"""Offline tests for this ecosystem foundation."""
+"""Offline tests for GLOBAL CLOUD storage foundation."""

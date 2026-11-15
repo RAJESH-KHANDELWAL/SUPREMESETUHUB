@@ -1,4 +1,4 @@
-"""Typed metadata models for this storage ecosystem."""
+"""Typed storage catalog records; no provider API behaviour."""
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Any
@@ -9,16 +9,19 @@ def utc_now() -> str:
 
 
 @dataclass
-class EcosystemRecord:
+class CloudStorageRecord:
     record_id: str
-    record_type: str
+    provider_id: str
+    storage_type: str
     name: str
-    jurisdiction: str = 'GLOBAL'
-    status: str = 'REGISTERED'
+    region: str = "UNVERIFIED"
+    connection_state: str = "NOT_CONFIGURED"
     metadata: dict[str, Any] = field(default_factory=dict)
     created_at: str = field(default_factory=utc_now)
 
     def __post_init__(self) -> None:
-        for key in ('record_id', 'record_type', 'name'):
-            if not str(getattr(self, key)).strip():
-                raise ValueError(f'{key} is required')
+        for field_name in ("record_id", "provider_id", "storage_type", "name"):
+            if not str(getattr(self, field_name)).strip():
+                raise ValueError(f"{field_name} is required")
+        if self.connection_state != "NOT_CONFIGURED":
+            raise ValueError("Provider connection state requires a separately verified integration")

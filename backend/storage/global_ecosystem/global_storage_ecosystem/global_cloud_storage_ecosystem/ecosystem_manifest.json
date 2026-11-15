@@ -1,42 +1,28 @@
 {
   "schema_version": "1.0.0",
   "ecosystem_id": "GLOBAL_CLOUD_STORAGE_ECOSYSTEM",
-  "provider": "GLOBAL CLOUD",
-  "geographic_scope": [
-    "BHARAT",
-    "SOUTH_ASIA",
-    "ASIA_PACIFIC",
-    "MIDDLE_EAST",
-    "EUROPE",
-    "AFRICA",
-    "NORTH_AMERICA",
-    "SOUTH_AMERICA",
-    "OCEANIA",
-    "ANTARCTICA",
-    "GLOBAL"
+  "title": "GLOBAL CLOUD STORAGE ECOSYSTEM",
+  "scope": "GLOBAL",
+  "ownership": [
+    "TAXONOMY",
+    "PROVIDER_IDENTITY",
+    "STORAGE_METADATA",
+    "LIFECYCLE_METADATA",
+    "HEALTH_CONTRACT"
   ],
-  "coverage_levels": [
-    "LOCAL",
-    "DISTRICT",
-    "STATE",
-    "NATIONAL",
-    "REGIONAL",
-    "INTERNATIONAL",
-    "GLOBAL",
-    "SUPREME"
+  "categories": [
+    "OBJECT_BLOB_STORAGE",
+    "FILE_STORAGE",
+    "BLOCK_VOLUME_STORAGE",
+    "BACKUP_ARCHIVE_STORAGE",
+    "HYBRID_MULTI_CLOUD_STORAGE",
+    "GOVERNANCE_OBSERVABILITY"
   ],
-  "implementation_state": "FOUNDATION_INITIALIZED",
-  "external_connection_state": "NOT_CONFIGURED",
-  "taxonomy_only": true,
+  "connection_state": "NOT_CONFIGURED",
+  "external_connections_verified": false,
+  "storage_operations_enabled": false,
+  "persistence_owner": "CENTRAL_DATABASE",
   "requires_authorized_credentials": true,
   "requires_live_health_check": true,
-  "requires_end_to_end_tests": true,
-  "governance": [
-    "PRIVACY",
-    "SECURITY",
-    "AUDIT",
-    "RETENTION",
-    "CONSENT_WHERE_REQUIRED",
-    "JURISDICTIONAL_COMPLIANCE"
-  ]
+  "requires_end_to_end_tests": true
 }

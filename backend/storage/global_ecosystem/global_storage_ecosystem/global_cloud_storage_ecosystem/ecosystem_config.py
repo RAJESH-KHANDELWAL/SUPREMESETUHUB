@@ -1,14 +1,13 @@
-"""Runtime configuration; secrets must come from an approved secret manager."""
+"""Runtime configuration without embedded credentials."""
 import os
 
-PACKAGE_ID = __package__.rsplit('.', 1)[-1]
-ENV_PREFIX = PACKAGE_ID.upper().replace('-', '_')
+PACKAGE_ID = "global_cloud_storage_ecosystem"
 
 
 def get_config() -> dict:
     return {
-        'enabled': os.getenv(f'{ENV_PREFIX}_ENABLED', 'true').lower() == 'true',
-        'environment': os.getenv('APP_ENV', 'development'),
-        'credentials_configured': False,
-        'secret_source': 'runtime_environment_or_secret_manager',
+        "enabled": os.getenv("GLOBAL_CLOUD_STORAGE_ECOSYSTEM_ENABLED", "true").lower() == "true",
+        "environment": os.getenv("APP_ENV", "development"),
+        "credentials_configured": False,
+        "secret_source": "external_secret_manager",
     }

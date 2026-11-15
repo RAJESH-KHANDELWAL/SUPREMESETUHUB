@@ -1,34 +1,29 @@
-"""Provider-neutral storage ecosystem foundation service."""
-from dataclasses import asdict
-from .ecosystem_models import EcosystemRecord
+"""Provider-neutral GLOBAL CLOUD storage catalog health contract."""
+from .ecosystem_config import get_config
 
-PACKAGE_ID = __package__.rsplit('.', 1)[-1]
-ECOSYSTEM_ID = PACKAGE_ID.upper().replace('_', '-')
+ECOSYSTEM_ID = "GLOBAL_CLOUD_STORAGE_ECOSYSTEM"
 
 
 class EcosystemService:
     def __init__(self, *, config: dict | None = None):
-        self.config = dict(config or {})
-        self.enabled = self.config.get('enabled', True)
+        self.config = dict(config or get_config())
 
     def describe(self) -> dict:
         return {
-            'ecosystem_id': ECOSYSTEM_ID,
-            'package': PACKAGE_ID,
-            'enabled': bool(self.enabled),
-            'implementation_state': 'FOUNDATION_INITIALIZED',
-            'connection_state': 'NOT_CONFIGURED',
-            'external_connections_verified': False,
-            'capabilities': ['IDENTITY', 'CONFIGURATION', 'METADATA', 'HEALTH_CONTRACT'],
+            "ecosystem_id": ECOSYSTEM_ID,
+            "enabled": bool(self.config.get("enabled", True)),
+            "implementation_state": "FOUNDATION_INITIALIZED",
+            "connection_state": "NOT_CONFIGURED",
+            "external_connections_verified": False,
+            "storage_operations_enabled": False,
+            "capabilities": ["TAXONOMY", "PROVIDER_CATALOG", "METADATA_CONTRACT", "HEALTH_CONTRACT"],
         }
 
     def health(self) -> dict:
         return {
-            'success': True,
-            'ecosystem_id': ECOSYSTEM_ID,
-            'status': 'FOUNDATION_READY',
-            'external_connections_verified': False,
+            "success": True,
+            "status": "FOUNDATION_READY",
+            "connection_state": "NOT_CONFIGURED",
+            "external_connections_verified": False,
+            "storage_operations_enabled": False,
         }
-
-    def serialize_record(self, record: EcosystemRecord) -> dict:
-        return asdict(record)

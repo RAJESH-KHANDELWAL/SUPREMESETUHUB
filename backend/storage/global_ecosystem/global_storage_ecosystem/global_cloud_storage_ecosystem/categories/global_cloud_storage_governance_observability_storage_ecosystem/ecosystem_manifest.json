@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0.0",
+  "category_id": "GOVERNANCE_OBSERVABILITY",
+  "name": "Storage Governance and Observability",
+  "ecosystem_id": "GLOBAL_CLOUD_STORAGE_ECOSYSTEM",
+  "connection_state": "NOT_CONFIGURED",
+  "storage_operations_enabled": false
+}

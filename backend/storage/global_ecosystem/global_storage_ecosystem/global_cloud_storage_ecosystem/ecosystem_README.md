@@ -1,14 +1,14 @@
-# Ecosystem Foundation
+# GLOBAL CLOUD STORAGE ECOSYSTEM — FOUNDATION
 
-Reusable provider storage foundation. Existing unrelated provider-specific files are retained.
+## Package ownership
+Storage owns canonical provider/service identity, metadata schemas, storage taxonomy, lifecycle definitions and health contracts. API/integration modules own external authentication and network operations. The central database owns durable operational persistence.
 
-## Modules
-- `ecosystem_service.py` — provider identity and truthful health contract
-- `ecosystem_models.py` — typed metadata records
-- `ecosystem_registry.py` — thread-safe in-memory metadata registry
-- `ecosystem_config.py` — runtime configuration without embedded secrets
-- `ecosystem_manifest.json` — Bharat-to-global scope and readiness state
-- `tests/test_foundation.py` — offline foundation tests
+## Standard provider namespace
+Each provider package contains its own manifest, config, metadata models, service contract, API boundary placeholder, model namespace, JSON schema, PHP metadata reader and offline tests. These files do not implement provider SDK calls.
 
-## Readiness
-FOUNDATION_READY means local package code loads. It does not mean an external provider is connected. Production persistence belongs in the central database. Use least privilege, encryption, audit logs, retention controls and jurisdictional compliance. Never commit credentials or personal data.
+## Safety and readiness
+- Default connection state: `NOT_CONFIGURED`.
+- External connectivity verification: `false`.
+- Storage operations: disabled until a separate authorized integration is implemented and tested.
+- Never store secrets or user file contents in this catalog.
+- Do not infer availability or supported regions from a namespace existing in this repository.

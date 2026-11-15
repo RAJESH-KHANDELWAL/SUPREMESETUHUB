@@ -1,24 +1,29 @@
-"""Offline tests; these do not contact external provider APIs."""
-import pytest
+import unittest
 from ..ecosystem_service import EcosystemService
-from ..ecosystem_models import EcosystemRecord
-from ..ecosystem_registry import EcosystemRegistry
+from ..ecosystem_taxonomy import load_taxonomy
+from ..ecosystem_models import CloudStorageRecord
 
 
-def test_health_does_not_claim_provider_connection():
-    result = EcosystemService().health()
-    assert result['success']
-    assert not result['external_connections_verified']
+class CloudStorageFoundationTests(unittest.TestCase):
+    def test_safe_readiness(self):
+        state = EcosystemService().describe()
+        self.assertEqual(state["connection_state"], "NOT_CONFIGURED")
+        self.assertFalse(state["external_connections_verified"])
+        self.assertFalse(state["storage_operations_enabled"])
+
+    def test_taxonomy_has_unique_groups(self):
+        taxonomy = load_taxonomy()
+        ids = [item["group_id"] for item in taxonomy["groups"]]
+        self.assertEqual(len(ids), len(set(ids)))
+
+    def test_record_defaults_to_unconfigured(self):
+        record = CloudStorageRecord("r1", "AWS", "OBJECT_STORAGE", "Example")
+        self.assertEqual(record.connection_state, "NOT_CONFIGURED")
+
+    def test_connection_cannot_be_asserted_by_metadata_record(self):
+        with self.assertRaises(ValueError):
+            CloudStorageRecord("r2", "AWS", "OBJECT_STORAGE", "Example", connection_state="CONNECTED")
 
 
-def test_registry_duplicate_guard():
-    registry = EcosystemRegistry()
-    row = EcosystemRecord('sample-1', 'SAMPLE', 'Sample')
-    registry.register(row)
-    with pytest.raises(ValueError, match='DUPLICATE_RECORD_ID'):
-        registry.register(row)
-
-
-def test_record_requires_identity_fields():
-    with pytest.raises(ValueError):
-        EcosystemRecord('', 'SAMPLE', 'Sample')
+if __name__ == "__main__":
+    unittest.main()

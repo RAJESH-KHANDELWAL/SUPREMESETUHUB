@@ -1,25 +1,25 @@
-"""Thread-safe in-memory metadata registry; production uses central DB persistence."""
+"""In-memory catalog registry for local metadata only; production uses central DB."""
 from dataclasses import asdict
 from threading import RLock
-from .ecosystem_models import EcosystemRecord
+from .ecosystem_models import CloudStorageRecord
 
 
-class EcosystemRegistry:
+class CloudStorageRegistry:
     def __init__(self) -> None:
-        self._records: dict[str, EcosystemRecord] = {}
+        self._records: dict[str, CloudStorageRecord] = {}
         self._lock = RLock()
 
-    def register(self, record: EcosystemRecord) -> dict:
+    def register(self, record: CloudStorageRecord) -> dict:
         with self._lock:
             if record.record_id in self._records:
-                raise ValueError('DUPLICATE_RECORD_ID')
+                raise ValueError("DUPLICATE_RECORD_ID")
             self._records[record.record_id] = record
             return asdict(record)
 
     def get(self, record_id: str) -> dict | None:
         with self._lock:
-            item = self._records.get(record_id)
-            return asdict(item) if item else None
+            record = self._records.get(record_id)
+            return asdict(record) if record else None
 
     def list(self) -> list[dict]:
         with self._lock:
