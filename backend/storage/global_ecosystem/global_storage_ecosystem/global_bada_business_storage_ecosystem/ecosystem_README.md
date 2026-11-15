@@ -1,14 +1,21 @@
-# Ecosystem Foundation
+# GLOBAL BADA BUSINESS Ecosystem Foundation
 
-Reusable provider storage foundation. Existing unrelated provider-specific files are retained.
+## Storage responsibilities
+- Business ecosystem identity and taxonomy
+- Platform-specific metadata namespaces
+- Referral and campaign metadata definitions
+- Business record lifecycle and retention metadata
+- Health/readiness contracts
 
-## Modules
-- `ecosystem_service.py` — provider identity and truthful health contract
-- `ecosystem_models.py` — typed metadata records
-- `ecosystem_registry.py` — thread-safe in-memory metadata registry
-- `ecosystem_config.py` — runtime configuration without embedded secrets
-- `ecosystem_manifest.json` — Bharat-to-global scope and readiness state
-- `tests/test_foundation.py` — offline foundation tests
+## Separation rules
+- Keep affiliate platform records separated by platform identity.
+- Keep YOUTAG Wellness and Recharges app data separated beneath the canonical YOUTAG business namespace.
+- Keep network marketing/direct selling records distinct from affiliate marketing records.
+- Do not mix leads, customer consent, commissions, transactions or payout records across platforms.
+- Store secrets only in an approved secret manager; never in repository files.
+
+## Layer boundaries
+STORAGE owns taxonomy and metadata. API/integration layers own vendor clients, authentication, webhooks and external network calls. The central database owns production persistence. This package does not itself upload, download, pay commissions or contact external services.
 
 ## Readiness
-FOUNDATION_READY means local package code loads. It does not mean an external provider is connected. Production persistence belongs in the central database. Use least privilege, encryption, audit logs, retention controls and jurisdictional compliance. Never commit credentials or personal data.
+FOUNDATION_READY is not proof of a live provider connection, program eligibility, referral attribution, earnings or payout. Mark an integration CONNECTED only after authorized credentials, live health checks and end-to-end tests pass.

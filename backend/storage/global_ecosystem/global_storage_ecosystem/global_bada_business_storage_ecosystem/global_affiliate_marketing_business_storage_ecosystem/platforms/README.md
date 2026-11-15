@@ -1,3 +1,3 @@
-# AFFILIATE MARKETING PLATFORM STORAGE DIRECTORY
+# Affiliate Marketing Platform Storage
 
-Separate storage namespaces for iDigitalPreneur, LeadsGuru and Millionaire Track. Keep each platform's public program metadata, consent records and any permitted referral data partitioned by platform identity. Do not merge accounts, commission records or payout records. No live storage service is configured.
+Platform namespaces are independent. Do not merge platform accounts, referral identifiers, commission ledgers, leads or payout data. Use authorized APIs and verified source events only.

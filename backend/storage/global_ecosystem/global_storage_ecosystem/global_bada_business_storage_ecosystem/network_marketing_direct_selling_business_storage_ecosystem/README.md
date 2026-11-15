@@ -1,10 +1,13 @@
-# NETWORK MARKETING & DIRECT SELLING BUSINESS STORAGE
+# GLOBAL_NETWORK_MARKETING_DIRECT_SELLING_BUSINESS_STORAGE_ECOSYSTEM
 
-Storage namespace for network-marketing and direct-selling business metadata under Global Bada Business.
+Business storage namespace for network marketing and direct selling.
 
-## Child business ecosystems
+## Child namespaces
+- GLOBAL_YOUTAG_BUSINESS_STORAGE_ECOSYSTEM
+- GLOBAL_AFFILIATE_MARKETING_BUSINESS_STORAGE_ECOSYSTEM
 
-- `global_youtag_business_storage_ecosystem/` — one YOUTAG business identity, with separate Wellness and Recharges app data namespaces and a canonical owner referral-profile reference.
-- `global_affiliate_marketing_business_storage_ecosystem/` — child index for iDigitalPreneur, LeadsGuru and Millionaire Track. Canonical platform storage namespaces remain in the Bada Business affiliate STORAGE package.
+## Responsibilities
+Business identity, permitted platform metadata, referral/campaign metadata definitions, record lifecycle and governance. Keep each platform's accounts, leads, referral attribution, commissions and payouts separately partitioned.
 
-Keep public referral metadata separate from secrets. Do not merge platform accounts, commissions or payout records. This is a storage taxonomy; no live bucket or data pipeline is configured.
+## Boundaries
+This is a catalog scaffold. No live platform connection or verified earnings/referrals are implied. Use authorized APIs only; secrets belong in a secret manager, and production records belong in the central database.
