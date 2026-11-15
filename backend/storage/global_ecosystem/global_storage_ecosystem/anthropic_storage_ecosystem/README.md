@@ -1,15 +1,8 @@
 # ANTHROPIC Storage Ecosystem
 
-Compatibility package for the canonical Anthropic provider storage catalog in SUPREMESETUHUB.
+Canonical Anthropic provider storage catalog for SUPREMESETUHUB.
 
-## Canonical hierarchy
-
-`ANTHROPIC / WHAT ANTHROPIC PROVIDES / STORAGE ECOSYSTEM`
-
-Canonical location:
-`backend/storage/global_ecosystem/global_storage_ecosystem/anthropic_ecosystem/what_anthropic_provides/storage_ecosystem/`
-
-This directory remains available as the compatibility package path for existing imports, workflows and references. Do not remove it as part of the hierarchy migration.
+This package follows the same parent-catalog pattern as `google_storage_ecosystem`: one provider storage root, a canonical taxonomy, a category index, and independent category packages.
 
 ## Child storage ecosystems
 
@@ -22,9 +15,11 @@ This directory remains available as the compatibility package path for existing 
 - `anthropic_claude_enterprise_storage_ecosystem` — enterprise and workspace storage governance metadata.
 - `anthropic_claude_code_storage_ecosystem` — Claude Code project context, repository and artifact metadata.
 
-## Package baseline
+## Canonical package structure
 
-Each compatibility child package contains the Python foundation, API namespace, models, PHP metadata helper, schema, tests, README, manifest and Anthropic taxonomy directories (`domains/`, `geography/`, `maturity_levels/`). The canonical category index maps each category to its new provider hierarchy location and this compatibility package.
+- `taxonomy/anthropic_storage_taxonomy.json`: provider-specific grouped taxonomy.
+- `category_index.json`: canonical index of all 8 child category packages and paths.
+- Each child package owns its README, manifest, Python package foundation, API namespace, models, PHP metadata helper, schema, tests, and `domains/`, `geography/`, `maturity_levels/` taxonomy directories.
 
 ## Architecture boundary
 
@@ -32,7 +27,7 @@ The Anthropic API Ecosystem owns API clients, authentication, endpoints, scopes 
 
 ## Truthful readiness
 
-Catalog and category folders are scaffolding only. They do not establish that Claude conversations, Projects, Artifacts, Files, Connectors, Claude Code or enterprise features expose a generic storage API. Product availability, account entitlements, API support, permissions and regional behavior must be verified independently. Keep every child `NOT_CONFIGURED` until authorized live health checks and required read/write tests pass. Storage operations remain disabled. Never commit credentials or personal data.
+This catalog and its child folders are taxonomy and package scaffolding only. They do not establish that Claude conversations, Projects, Artifacts, Files, Connectors, Claude Code or enterprise features expose a generic storage API. Product availability, account entitlements, API support, permissions and regional behavior must be verified independently. Keep every child `NOT_CONFIGURED` until authorized live health checks and required read/write tests pass. Storage operations remain disabled. Never commit credentials or personal data.
 
 ## Adult-only governance
 
