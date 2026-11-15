@@ -1,1 +1,0 @@
-"""Offline tests for GLOBAL_APP_REGIONAL_STORAGE_ECOSYSTEM."""
