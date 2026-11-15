@@ -1,28 +1,42 @@
 {
   "schema_version": "1.0.0",
   "ecosystem_id": "GLOBAL_CLOUD_STORAGE_ECOSYSTEM",
+  "package_id": "global_cloud_storage_ecosystem",
   "title": "GLOBAL CLOUD STORAGE ECOSYSTEM",
   "scope": "GLOBAL",
-  "ownership": [
-    "TAXONOMY",
+  "description": "Provider-neutral taxonomy and metadata foundation for global cloud-storage services.",
+  "responsibility": [
     "PROVIDER_IDENTITY",
+    "STORAGE_TAXONOMY",
     "STORAGE_METADATA",
-    "LIFECYCLE_METADATA",
-    "HEALTH_CONTRACT"
+    "OBJECT_LIFECYCLE_METADATA",
+    "STORAGE_HEALTH_METADATA"
   ],
+  "architecture_boundaries": {
+    "catalog_and_metadata_owner": "GLOBAL_CLOUD_STORAGE_ECOSYSTEM",
+    "provider_api_and_authentication_owner": "API_INTEGRATION_LAYER",
+    "durable_persistence_owner": "CENTRAL_DATABASE"
+  },
   "categories": [
     "OBJECT_BLOB_STORAGE",
-    "FILE_STORAGE",
-    "BLOCK_VOLUME_STORAGE",
-    "BACKUP_ARCHIVE_STORAGE",
-    "HYBRID_MULTI_CLOUD_STORAGE",
-    "GOVERNANCE_OBSERVABILITY"
+    "FILE_AND_SHARED_FILE_STORAGE",
+    "BLOCK_AND_VOLUME_STORAGE",
+    "BACKUP_ARCHIVE_AND_DISASTER_RECOVERY",
+    "HYBRID_AND_MULTI_CLOUD_STORAGE",
+    "LIFECYCLE_OBSERVABILITY_AND_COST_METADATA"
   ],
+  "foundation_state": "FOUNDATION_READY",
   "connection_state": "NOT_CONFIGURED",
   "external_connections_verified": false,
   "storage_operations_enabled": false,
-  "persistence_owner": "CENTRAL_DATABASE",
+  "regions_verified": false,
   "requires_authorized_credentials": true,
+  "secret_source": "EXTERNAL_SECRET_MANAGER",
   "requires_live_health_check": true,
-  "requires_end_to_end_tests": true
+  "requires_end_to_end_tests": true,
+  "security": {
+    "commit_credentials": false,
+    "commit_personal_data": false,
+    "commit_customer_file_contents": false
+  }
 }
