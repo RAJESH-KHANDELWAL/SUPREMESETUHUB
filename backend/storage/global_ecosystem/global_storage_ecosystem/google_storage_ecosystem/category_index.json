@@ -530,7 +530,7 @@
       "status": "SCAFFOLD_CREATED"
     },
     {
-      "category": "GOOGLE_CLOUD",
+      "category": "CLOUD",
       "group": "DEVELOPER_AND_INFRASTRUCTURE",
       "folder": "google_cloud_storage_ecosystem",
       "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_cloud_storage_ecosystem/",
