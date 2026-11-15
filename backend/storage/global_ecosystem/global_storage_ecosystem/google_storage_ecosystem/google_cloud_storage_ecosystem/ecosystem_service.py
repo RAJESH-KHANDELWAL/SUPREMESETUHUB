@@ -4,7 +4,7 @@ from .ecosystem_config import get_config, ECOSYSTEM_ID
 
 class CategoryEcosystemService:
     ecosystem_id = ECOSYSTEM_ID
-    category = "GOOGLE_CLOUD"
+    category = "CLOUD"
     category_group = "DEVELOPER_AND_INFRASTRUCTURE"
 
     def __init__(self, config: dict | None = None) -> None:
