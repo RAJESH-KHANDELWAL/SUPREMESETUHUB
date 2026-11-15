@@ -35,12 +35,17 @@ class CloudStorageFoundationTests(unittest.TestCase):
             self.assertTrue((package / "tests" / "test_foundation.py").is_file())
             self.assertTrue((package / "php" / f'{category["folder"]}.php').is_file())
 
-    def test_provider_index_is_catalog_only_and_unconfigured(self):
+    def test_provider_index_is_metadata_only_and_unconfigured(self):
         index = json.loads((ROOT / "provider_index.json").read_text(encoding="utf-8"))
         self.assertTrue(index["providers"])
+        self.assertFalse((ROOT / "providers").exists())
         for provider in index["providers"]:
             self.assertEqual(provider["connection_state"], "NOT_CONFIGURED")
-            self.assertTrue((ROOT / provider["namespace"] / "ecosystem_manifest.json").is_file())
+            self.assertNotIn("namespace", provider)
+
+    def test_removed_legacy_group_folders(self):
+        self.assertFalse((ROOT / "categories").exists())
+        self.assertFalse((ROOT / "providers").exists())
 
     def test_record_defaults_to_unconfigured(self):
         record = CloudStorageRecord("r1", "AWS", "OBJECT_STORAGE", "Example")
