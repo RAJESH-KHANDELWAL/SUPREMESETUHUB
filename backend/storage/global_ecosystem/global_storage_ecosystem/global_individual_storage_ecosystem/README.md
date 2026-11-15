@@ -8,22 +8,23 @@
 - **State:** `CATEGORY_FOUNDATION_SCAFFOLD`
 - **Connection:** `NOT_CONFIGURED`
 
-## Standard category package structure
+## Standard package structure
 
-- `__init__.py` — package export
+- `__init__.py` — public package export
 - `ecosystem_config.py` — safe-by-default runtime configuration; no embedded secrets
-- `ecosystem_manifest.json` — canonical ecosystem identity and readiness state
-- `ecosystem_models.py` — individual-owned metadata record and opaque owner reference
-- `ecosystem_registry.py` — thread-safe in-memory registry for development/tests
+- `ecosystem_manifest.json` — canonical identity and readiness state
+- `ecosystem_models.py` — individual metadata record with opaque owner reference
+- `ecosystem_registry.py` — thread-safe in-memory metadata registry for development/tests
 - `ecosystem_service.py` — manifest, taxonomy, index, safety and health validation
-- `service.py` — category-specific adapter boundary
-- `api/routes.py` — framework-neutral status and health handlers
-- `models/record.py` — public model export
-- `schemas/manifest.schema.json` — strict manifest contract
-- `schemas/individual_storage_record.schema.json` — individual metadata record contract
+- `service.py` — category-specific service entry point
+- `api/__init__.py` and `api/routes.py` — API namespace and framework-neutral status/health handlers
+- `models/__init__.py` and `models/record.py` — public model namespace and export
+- `schemas/manifest.schema.json` — manifest contract
+- `schemas/category_record.schema.json` — standard category metadata record contract
+- `schemas/individual_storage_record.schema.json` — individual-domain metadata contract
 - `taxonomy/global_individual_storage_taxonomy.json` — grouped taxonomy source
 - `category_index.json` — flat category index and declared count
-- `tests/test_foundation.py` — offline foundation contract tests
+- `tests/__init__.py` and `tests/test_foundation.py` — offline foundation tests
 - `php/global_individual_storage_ecosystem.php` — read-only PHP metadata contract
 
 ## Scope
@@ -32,7 +33,7 @@ Organizes individual-owned storage metadata, opaque identity and ownership refer
 
 ## Validation contract
 
-The foundation health check verifies canonical manifest identity, package/provider/category/group alignment, taxonomy-to-index equality, declared category count, duplicate-category protection, foundation state and safe integration flags. The expected taxonomy and index each contain 17 categories.
+The foundation health check verifies canonical manifest identity, package/provider/category/group alignment, taxonomy-to-index equality, declared category count, duplicate-category protection, foundation state and safe integration flags. The expected taxonomy and index each contain 17 categories. The standard category schema and the individual-domain schema both preserve the mandatory opaque owner reference.
 
 ## Security and integration boundary
 
