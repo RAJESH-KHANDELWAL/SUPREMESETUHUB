@@ -1,9 +1,10 @@
 # GLOBAL AI Storage Ecosystem
 
-STORAGE-owned taxonomy namespace for GLOBAL AI. Catalog and foundation only; no live provider integration is implied.
+Parent namespace for 13 independent AI storage category packages, aligned to the Google Storage Ecosystem package hierarchy.
 
-## Responsibility
-This package owns storage-side identity, metadata, taxonomy, object lifecycle definitions and storage health metadata. Provider API clients, authentication and external operations remain in their respective API/integration layers.
+- `taxonomy/global_ai_storage_taxonomy.json`: canonical grouped taxonomy.
+- `category_index.json`: category folders, groups and paths.
+- Each category contains Python foundation modules, API routes, models, JSON schema, PHP metadata reader, offline tests, README and manifest.
+- Root PHP catalog reads the same taxonomy JSON used by Python.
 
-## Readiness boundary
-The foundation does not prove provider API support, account entitlement, authorized connectivity or working upload/download/delete operations. Mark a provider connected only after authorized live health checks and end-to-end read/write tests pass. Never commit credentials or personal data.
+These are catalog scaffolds, not official provider-product claims. All categories remain NOT_CONFIGURED. No live model API, inference, upload, download or delete operation is enabled. Provider API clients/authentication belong in integration layers; production persistence belongs in the central database layer. Never commit credentials or personal data.

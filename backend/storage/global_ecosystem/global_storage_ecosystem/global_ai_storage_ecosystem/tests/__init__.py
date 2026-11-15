@@ -1,1 +1,1 @@
-"""Offline tests for this ecosystem foundation."""
+"""Offline catalog tests."""

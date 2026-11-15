@@ -1,3 +1,3 @@
 # GLOBAL AI Storage Taxonomy
 
-Canonical machine-readable taxonomy for GLOBAL AI storage domains. Category records describe storage metadata/catalog responsibilities only; they do not enable provider connectivity or external storage operations.
+Canonical grouped taxonomy for AI storage categories. Shared by Python and PHP catalog readers. Classification only; no provider connection is implied.
