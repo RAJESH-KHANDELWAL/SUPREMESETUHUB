@@ -24,6 +24,5 @@
     "ENCRYPTION",
     "AUDIT_LOGGING",
     "RETENTION_CONTROLS"
-  ],
-  "notes": "Provider-neutral taxonomy scaffold only. No live provider integration or storage operation is implied."
+  ]
 }
