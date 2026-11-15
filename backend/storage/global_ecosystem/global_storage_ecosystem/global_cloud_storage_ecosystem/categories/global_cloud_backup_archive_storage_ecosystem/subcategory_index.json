@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0.0",
+  "parent_ecosystem_id": "GLOBAL_CLOUD_STORAGE_ECOSYSTEM",
+  "parent_category_id": "BACKUP_ARCHIVE_STORAGE",
+  "subcategory_count": 6,
+  "folder_naming": "global_cloud_<subcategory>_storage_ecosystem",
+  "subcategories": [
+    {
+      "subcategory_id": "BACKUP_STORAGE",
+      "name": "Cloud Backup Storage",
+      "folder": "global_cloud_backup_storage_storage_ecosystem",
+      "path": "subcategories/global_cloud_backup_storage_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "subcategory_id": "IMMUTABLE_BACKUP_STORAGE",
+      "name": "Immutable Backup Storage",
+      "folder": "global_cloud_immutable_backup_storage_storage_ecosystem",
+      "path": "subcategories/global_cloud_immutable_backup_storage_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "subcategory_id": "ARCHIVE_STORAGE",
+      "name": "Cloud Archive Storage",
+      "folder": "global_cloud_archive_storage_storage_ecosystem",
+      "path": "subcategories/global_cloud_archive_storage_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "subcategory_id": "COLD_ARCHIVE_STORAGE",
+      "name": "Cold Archive Storage",
+      "folder": "global_cloud_cold_archive_storage_storage_ecosystem",
+      "path": "subcategories/global_cloud_cold_archive_storage_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "subcategory_id": "DISASTER_RECOVERY_STORAGE",
+      "name": "Disaster Recovery Storage",
+      "folder": "global_cloud_disaster_recovery_storage_storage_ecosystem",
+      "path": "subcategories/global_cloud_disaster_recovery_storage_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "subcategory_id": "BACKUP_VAULT_STORAGE",
+      "name": "Backup Vault Storage",
+      "folder": "global_cloud_backup_vault_storage_storage_ecosystem",
+      "path": "subcategories/global_cloud_backup_vault_storage_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    }
+  ]
+}
