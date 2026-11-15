@@ -1,61 +1,79 @@
-# GLOBAL CLOUD STORAGE ECOSYSTEM
+# GLOBAL CLOUD — WHAT GLOBAL CLOUD PROVIDES — STORAGE ECOSYSTEM
 
-A provider-neutral, global catalog and metadata foundation for cloud-storage services.
+Provider-neutral, global storage taxonomy and metadata foundation for cloud, hybrid, multi-cloud, and infrastructure storage providers.
 
-## Package identity
-- **Ecosystem ID:** `GLOBAL_CLOUD_STORAGE_ECOSYSTEM`
-- **Namespace:** `global_cloud_storage_ecosystem`
-- **Scope:** Global cloud-storage taxonomy and metadata
-- **Default readiness:** `FOUNDATION_READY`
+## Ecosystem identity
+- **Ecosystem:** `GLOBAL_CLOUD_STORAGE_ECOSYSTEM`
+- **Package:** `global_cloud_storage_ecosystem`
+- **Hierarchy:** GLOBAL CLOUD → WHAT GLOBAL CLOUD PROVIDES → STORAGE ECOSYSTEM
+- **Scope:** Global
+- **Foundation state:** `FOUNDATION_READY`
 - **Provider connection state:** `NOT_CONFIGURED`
 
-## Responsibility
-This package owns storage-side provider and service identity, taxonomy, metadata contracts, object-lifecycle vocabulary, and storage-health metadata. It provides a consistent catalog foundation across cloud-storage categories.
+## Storage category ecosystems
 
-## Catalog scope
-- Cloud object and blob storage
-- Cloud file and shared-file storage
-- Cloud block and volume storage
-- Backup, archive, and disaster-recovery storage
-- Hybrid and multi-cloud storage governance
-- Storage lifecycle, observability, and cost metadata
+Each storage domain has its own package namespace and follows the shared category-package layout: README, Python package entry point, configuration, manifest, models, service contract, API boundary placeholder, model/schema directories, PHP metadata reader where applicable, and offline tests.
 
-## Architecture boundaries
-This package is the storage-domain catalog and contract layer.
+1. [GLOBAL CLOUD OBJECT & BLOB STORAGE ECOSYSTEM](categories/global_cloud_object_blob_storage_ecosystem/README.md) — object stores, blob stores, S3-compatible catalogs, archive-object metadata.
+2. [GLOBAL CLOUD FILE STORAGE ECOSYSTEM](categories/global_cloud_file_storage_ecosystem/README.md) — managed file shares, network file systems, shared files, file-sync metadata.
+3. [GLOBAL CLOUD BLOCK & VOLUME STORAGE ECOSYSTEM](categories/global_cloud_block_volume_storage_ecosystem/README.md) — block volumes, boot/persistent volumes, snapshots.
+4. [GLOBAL CLOUD BACKUP & ARCHIVE STORAGE ECOSYSTEM](categories/global_cloud_backup_archive_storage_ecosystem/README.md) — backup catalogs, long-term archive, restore points, disaster-recovery metadata.
+5. [GLOBAL CLOUD HYBRID & MULTI-CLOUD STORAGE ECOSYSTEM](categories/global_cloud_hybrid_multi_cloud_storage_ecosystem/README.md) — hybrid catalogs, replication, migration inventory, multi-cloud policies.
+6. [GLOBAL CLOUD STORAGE GOVERNANCE & OBSERVABILITY ECOSYSTEM](categories/global_cloud_storage_governance_observability_storage_ecosystem/README.md) — lifecycle, access, encryption, capacity, cost, audit, and retention metadata.
 
-- **This package owns:** storage taxonomy, provider identity, metadata schemas, lifecycle definitions, catalog registry contracts, and health metadata.
-- **API/integration layers own:** provider SDKs, authentication, authorization, external API clients, network requests, callbacks, and provider operations.
-- **Central database layer owns:** durable production persistence and operational records.
+The canonical category list is maintained in `category_index.json`; detailed domain vocabulary is in `taxonomy/global_cloud_storage_taxonomy.json`.
 
-Do not place provider credentials, SDK clients, or direct external upload/download/delete implementations in this package.
+## Global provider ecosystems
+
+Provider namespaces are separate from storage categories. The provider catalog currently includes these namespace families:
+
+- Amazon Web Services (AWS)
+- Microsoft Azure
+- Google Cloud
+- Oracle Cloud Infrastructure
+- IBM Cloud
+- DigitalOcean
+- Cloudflare and Cloudflare R2
+- Wasabi and Backblaze
+- Alibaba Cloud, Tencent Cloud, and Huawei Cloud
+- OVHcloud, Akamai Cloud/Linode, Hetzner, Vultr, IONOS, and Scaleway
+- MinIO, Nutanix, Pure Storage, Dell Technologies, NetApp, and Red Hat
+
+See `provider_index.json` for canonical provider IDs and package paths, and `providers/` for provider-specific namespaces. Provider inclusion is catalog coverage only; it is not a claim of product entitlement, region support, or working integration.
+
+## Root package architecture
+
+- `README.md` — ecosystem overview and navigation
+- `ecosystem_README.md` — package ownership and engineering conventions
+- `__init__.py` — Python package entry point
+- `ecosystem_config.py` — credential-free environment configuration
+- `ecosystem_manifest.json` — machine-readable identity, scope, governance, and readiness
+- `ecosystem_models.py` — typed storage catalog records
+- `ecosystem_registry.py` — local metadata registry
+- `ecosystem_service.py` / `service.py` — foundation health and service entry points
+- `ecosystem_taxonomy.py` — taxonomy loader and validation
+- `catalog_api.py` — local read-only catalog facade
+- `category_index.json` — category-to-package index
+- `provider_index.json` — provider-to-package index
+- `taxonomy/` — canonical global cloud storage taxonomy
+- `categories/` — storage-domain category packages
+- `providers/` — provider-specific catalog packages
+- `tests/` — offline foundation and taxonomy tests
+
+## Ownership and integration boundaries
+
+- **Storage ecosystem owns:** provider identity, storage taxonomy, object/file metadata, lifecycle vocabulary, catalog records, storage health metadata, and storage-side governance.
+- **API/integration layer owns:** provider SDKs, OAuth/authentication, authorization, external API clients, network calls, callbacks, and live provider operations.
+- **Central database owns:** durable production persistence and operational records.
+
+Do not embed provider credentials, SDK clients, or direct upload/download/delete operations in the taxonomy/catalog foundation.
 
 ## Readiness and verification
-The foundation can be initialized without any provider being connected. A catalog entry or provider namespace does not prove product availability, account entitlement, region support, authorized connectivity, or operational compatibility.
 
-A provider may be marked connected only after:
-1. The account owner has authorized the integration.
-2. Credentials are obtained from an approved external secret source.
-3. A live provider health check succeeds.
-4. End-to-end tests verify the permitted read/write operations.
-5. The integration's permissions, limitations, and region support are recorded.
+`FOUNDATION_READY` means local metadata/catalog code is initialized. It does not mean any provider is connected.
 
-Until then:
-- Connection state remains `NOT_CONFIGURED`.
-- External connectivity remains unverified.
-- Storage operations remain disabled.
-- Regions and capabilities remain unverified unless supported by evidence.
+Keep every provider at `NOT_CONFIGURED` until an authorized integration has approved least-privilege credentials, a successful live health check, and end-to-end tests for each enabled operation. Record verified region support, entitlements, and limitations from authoritative evidence.
 
-## Security
-Never commit credentials, access tokens, private keys, personal data, customer file contents, or production secrets. Use an approved secret manager and least-privilege authorization for future integrations.
+## Global governance and security
 
-## Package contents
-- `ecosystem_README.md` — package ownership, provider namespace convention, and safety boundary
-- `ecosystem_config.py` — environment-backed, credential-free configuration
-- `ecosystem_manifest.json` — machine-readable ecosystem identity, taxonomy, and readiness declarations
-- `ecosystem_models.py` — typed storage catalog records
-- `ecosystem_registry.py` — local metadata registry contract
-- `ecosystem_service.py` — provider-neutral description and foundation health contract
-- `tests/` — offline tests for catalog and readiness behavior
-
-## Important
-`FOUNDATION_READY` means the catalog foundation is initialized. It does **not** mean a cloud provider is connected or that live storage operations are available.
+Apply privacy, security, least privilege, encryption, auditability, retention/deletion controls, consent where required, and jurisdictional compliance. Never commit credentials, access tokens, private keys, personal data, customer file contents, or production secrets.
