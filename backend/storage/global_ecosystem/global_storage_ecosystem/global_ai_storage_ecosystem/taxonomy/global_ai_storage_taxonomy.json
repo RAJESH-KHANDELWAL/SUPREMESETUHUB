@@ -1,0 +1,203 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_AI_STORAGE_ECOSYSTEM",
+  "provider": "GLOBAL AI",
+  "description": "Provider-neutral taxonomy for AI-related storage domains. Catalog definitions only; individual model providers, API platforms and external storage services are not represented as connected.",
+  "categories": [
+    {
+      "category_id": "AI_MODEL_ARTIFACTS",
+      "folder": "ai_model_artifact_storage_ecosystem",
+      "name": "AI Model Artifact Storage Ecosystem",
+      "description": "Model weights, checkpoints, adapters and serialized model artifacts.",
+      "sort_order": 1,
+      "storage_scope": "METADATA_AND_ARTIFACT_CATALOG",
+      "connection_state": "NOT_CONFIGURED",
+      "capabilities": [
+        "CATALOG",
+        "METADATA",
+        "LIFECYCLE_DEFINITION"
+      ],
+      "external_operations_enabled": false
+    },
+    {
+      "category_id": "AI_DATASET_STORAGE",
+      "folder": "ai_dataset_storage_ecosystem",
+      "name": "AI Dataset Storage Ecosystem",
+      "description": "Training, validation, evaluation and fine-tuning datasets with provenance and version metadata.",
+      "sort_order": 2,
+      "storage_scope": "METADATA_AND_ARTIFACT_CATALOG",
+      "connection_state": "NOT_CONFIGURED",
+      "capabilities": [
+        "CATALOG",
+        "METADATA",
+        "LIFECYCLE_DEFINITION"
+      ],
+      "external_operations_enabled": false
+    },
+    {
+      "category_id": "AI_TRAINING_RUN_STORAGE",
+      "folder": "ai_training_run_storage_ecosystem",
+      "name": "AI Training Run Storage Ecosystem",
+      "description": "Training run metadata, logs, metrics, checkpoints and reproducibility bundles.",
+      "sort_order": 3,
+      "storage_scope": "METADATA_AND_ARTIFACT_CATALOG",
+      "connection_state": "NOT_CONFIGURED",
+      "capabilities": [
+        "CATALOG",
+        "METADATA",
+        "LIFECYCLE_DEFINITION"
+      ],
+      "external_operations_enabled": false
+    },
+    {
+      "category_id": "AI_INFERENCE_ASSET_STORAGE",
+      "folder": "ai_inference_asset_storage_ecosystem",
+      "name": "AI Inference Asset Storage Ecosystem",
+      "description": "Inference inputs, outputs, cached artifacts and retained result metadata.",
+      "sort_order": 4,
+      "storage_scope": "METADATA_AND_ARTIFACT_CATALOG",
+      "connection_state": "NOT_CONFIGURED",
+      "capabilities": [
+        "CATALOG",
+        "METADATA",
+        "LIFECYCLE_DEFINITION"
+      ],
+      "external_operations_enabled": false
+    },
+    {
+      "category_id": "AI_PROMPT_AND_CONTEXT_STORAGE",
+      "folder": "ai_prompt_context_storage_ecosystem",
+      "name": "AI Prompt and Context Storage Ecosystem",
+      "description": "Prompt templates, context packages, retrieval references and version history.",
+      "sort_order": 5,
+      "storage_scope": "METADATA_AND_ARTIFACT_CATALOG",
+      "connection_state": "NOT_CONFIGURED",
+      "capabilities": [
+        "CATALOG",
+        "METADATA",
+        "LIFECYCLE_DEFINITION"
+      ],
+      "external_operations_enabled": false
+    },
+    {
+      "category_id": "AI_EMBEDDING_AND_VECTOR_STORAGE",
+      "folder": "ai_embedding_vector_storage_ecosystem",
+      "name": "AI Embedding and Vector Storage Ecosystem",
+      "description": "Embeddings, vector indexes, namespaces and associated metadata.",
+      "sort_order": 6,
+      "storage_scope": "METADATA_AND_ARTIFACT_CATALOG",
+      "connection_state": "NOT_CONFIGURED",
+      "capabilities": [
+        "CATALOG",
+        "METADATA",
+        "LIFECYCLE_DEFINITION"
+      ],
+      "external_operations_enabled": false
+    },
+    {
+      "category_id": "AI_RETRIEVAL_AND_KNOWLEDGE_STORAGE",
+      "folder": "ai_retrieval_knowledge_storage_ecosystem",
+      "name": "AI Retrieval and Knowledge Storage Ecosystem",
+      "description": "Knowledge corpora, retrieval chunks, source references and indexing metadata.",
+      "sort_order": 7,
+      "storage_scope": "METADATA_AND_ARTIFACT_CATALOG",
+      "connection_state": "NOT_CONFIGURED",
+      "capabilities": [
+        "CATALOG",
+        "METADATA",
+        "LIFECYCLE_DEFINITION"
+      ],
+      "external_operations_enabled": false
+    },
+    {
+      "category_id": "AI_FINE_TUNING_STORAGE",
+      "folder": "ai_fine_tuning_storage_ecosystem",
+      "name": "AI Fine-Tuning Storage Ecosystem",
+      "description": "Fine-tuning datasets, configurations, evaluation snapshots and resulting model artifacts.",
+      "sort_order": 8,
+      "storage_scope": "METADATA_AND_ARTIFACT_CATALOG",
+      "connection_state": "NOT_CONFIGURED",
+      "capabilities": [
+        "CATALOG",
+        "METADATA",
+        "LIFECYCLE_DEFINITION"
+      ],
+      "external_operations_enabled": false
+    },
+    {
+      "category_id": "AI_EVALUATION_AND_BENCHMARK_STORAGE",
+      "folder": "ai_evaluation_benchmark_storage_ecosystem",
+      "name": "AI Evaluation and Benchmark Storage Ecosystem",
+      "description": "Evaluation datasets, benchmark results, scorecards and comparison evidence.",
+      "sort_order": 9,
+      "storage_scope": "METADATA_AND_ARTIFACT_CATALOG",
+      "connection_state": "NOT_CONFIGURED",
+      "capabilities": [
+        "CATALOG",
+        "METADATA",
+        "LIFECYCLE_DEFINITION"
+      ],
+      "external_operations_enabled": false
+    },
+    {
+      "category_id": "AI_MULTIMODAL_ASSET_STORAGE",
+      "folder": "ai_multimodal_asset_storage_ecosystem",
+      "name": "AI Multimodal Asset Storage Ecosystem",
+      "description": "Image, audio, video and cross-modal AI input/output assets.",
+      "sort_order": 10,
+      "storage_scope": "METADATA_AND_ARTIFACT_CATALOG",
+      "connection_state": "NOT_CONFIGURED",
+      "capabilities": [
+        "CATALOG",
+        "METADATA",
+        "LIFECYCLE_DEFINITION"
+      ],
+      "external_operations_enabled": false
+    },
+    {
+      "category_id": "AI_AGENT_MEMORY_STORAGE",
+      "folder": "ai_agent_memory_storage_ecosystem",
+      "name": "AI Agent Memory Storage Ecosystem",
+      "description": "Agent memory records, working context, episodic state and governed long-term memory.",
+      "sort_order": 11,
+      "storage_scope": "METADATA_AND_ARTIFACT_CATALOG",
+      "connection_state": "NOT_CONFIGURED",
+      "capabilities": [
+        "CATALOG",
+        "METADATA",
+        "LIFECYCLE_DEFINITION"
+      ],
+      "external_operations_enabled": false
+    },
+    {
+      "category_id": "AI_WORKFLOW_AND_PIPELINE_STORAGE",
+      "folder": "ai_workflow_pipeline_storage_ecosystem",
+      "name": "AI Workflow and Pipeline Storage Ecosystem",
+      "description": "Workflow definitions, pipeline state, run artifacts and orchestration metadata.",
+      "sort_order": 12,
+      "storage_scope": "METADATA_AND_ARTIFACT_CATALOG",
+      "connection_state": "NOT_CONFIGURED",
+      "capabilities": [
+        "CATALOG",
+        "METADATA",
+        "LIFECYCLE_DEFINITION"
+      ],
+      "external_operations_enabled": false
+    },
+    {
+      "category_id": "AI_GOVERNANCE_AND_AUDIT_STORAGE",
+      "folder": "ai_governance_audit_storage_ecosystem",
+      "name": "AI Governance and Audit Storage Ecosystem",
+      "description": "Lineage, access records, audit trails, policy evidence and governance metadata.",
+      "sort_order": 13,
+      "storage_scope": "METADATA_AND_ARTIFACT_CATALOG",
+      "connection_state": "NOT_CONFIGURED",
+      "capabilities": [
+        "CATALOG",
+        "METADATA",
+        "LIFECYCLE_DEFINITION"
+      ],
+      "external_operations_enabled": false
+    }
+  ]
+}
