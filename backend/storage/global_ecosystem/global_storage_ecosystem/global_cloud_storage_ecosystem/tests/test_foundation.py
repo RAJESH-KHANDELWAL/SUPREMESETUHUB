@@ -24,9 +24,16 @@ class CloudStorageFoundationTests(unittest.TestCase):
     def test_category_index_matches_manifest_count(self):
         index = json.loads((ROOT / "category_index.json").read_text(encoding="utf-8"))
         manifest = json.loads((ROOT / "ecosystem_manifest.json").read_text(encoding="utf-8"))
-        self.assertEqual(len(index["categories"]), manifest["category_count"])
-        for category in index["categories"]:
-            self.assertTrue((ROOT / category["path"] / "README.md").is_file())
+        self.assertEqual(len(index["folders"]), manifest["category_folder_count"])
+        for category in index["folders"]:
+            package = ROOT / category["folder"]
+            self.assertTrue((package / "README.md").is_file())
+            self.assertTrue((package / "ecosystem_manifest.json").is_file())
+            self.assertTrue((package / "api" / "routes.py").is_file())
+            self.assertTrue((package / "models" / "record.py").is_file())
+            self.assertTrue((package / "schemas" / "manifest.schema.json").is_file())
+            self.assertTrue((package / "tests" / "test_foundation.py").is_file())
+            self.assertTrue((package / "php" / f'{category["folder"]}.php').is_file())
 
     def test_provider_index_is_catalog_only_and_unconfigured(self):
         index = json.loads((ROOT / "provider_index.json").read_text(encoding="utf-8"))
