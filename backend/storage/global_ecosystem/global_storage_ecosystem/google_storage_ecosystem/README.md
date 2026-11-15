@@ -1,22 +1,34 @@
 # GOOGLE_STORAGE_ECOSYSTEM
 
-The provider-level catalog and taxonomy root for Google-related storage domains. This root organizes 184 category namespaces; it is **not** itself a Google Cloud Storage adapter and does not claim that every category is an official Google product.
+- **Folder:** `google_storage_ecosystem/`
+- **Ecosystem ID:** `GOOGLE_STORAGE_ECOSYSTEM`
+- **Provider:** `GOOGLE`
+- **Package type:** `STORAGE_TAXONOMY_AND_METADATA_FOUNDATION`
+- **State:** Root catalog foundation; external connection is not configured.
+- **Coverage:** 18 taxonomy groups and 184 category namespaces.
 
-## Structure
-- `taxonomy/google_storage_taxonomy.json` — canonical category groups and classification rules
-- `category_index.json` — category IDs, unique package folder names, and paths
-- `ecosystem_config.py` — root catalog configuration
-- `ecosystem_models.py` — typed category metadata
-- `ecosystem_registry.py` — local metadata registry
-- `ecosystem_service.py` and `service.py` — catalog status and taxonomy access
-- `api/routes.py` — framework-neutral catalog endpoints
-- `schemas/` — catalog manifest schema
-- `tests/` — offline root-catalog tests
+## Standard root package structure
+- `__init__.py` — public package export
+- `ecosystem_config.py` — runtime configuration; no embedded secrets
+- `ecosystem_manifest.json` — canonical root identity and readiness state
+- `ecosystem_models.py` — typed category metadata model
+- `ecosystem_registry.py` — thread-safe in-memory metadata registry for development/tests
+- `ecosystem_service.py` — taxonomy/index/schema validation, catalog description and health contract
+- `service.py` — public Google Storage catalog service
+- `api/routes.py` — framework-neutral catalog status and health handlers
+- `models/record.py` — public model export
+- `schemas/manifest.schema.json` — root manifest contract
+- `taxonomy/google_storage_taxonomy.json` — grouped taxonomy source
+- `category_index.json` — flat category-to-folder index and count
+- `tests/test_foundation.py` — offline root-catalog tests
+- `php/google_storage_ecosystem.php` — read-only PHP metadata contract
 
-Each category package has its own README, manifest, Python service boundary, API/model namespace, PHP metadata contract, schema and tests.
+## Architecture and scope
+This directory is the provider-level Google storage taxonomy/catalog root. It organizes category namespaces; it is not itself a Google Drive, Google Photos or Google Cloud Storage adapter. The taxonomy is a classification framework and does not imply that Google offers an official product/API for every listed category.
 
-## Operational boundary
-All categories are taxonomy/foundation scaffolds unless separately verified. `NOT_CONFIGURED` means no external connection is established. Do not enable upload, download, delete or synchronization until the exact official provider product/API, authorized credentials, live health checks and end-to-end tests are verified. The root catalog never performs provider I/O.
+Each category has a separate `google_<category>_storage_ecosystem/` child package. Each child package owns its category-specific manifest, configuration, models, registry/service boundary, API, schemas, tests and PHP metadata contract. Provider-specific integrations must remain inside the relevant verified child package.
 
-## Governance
-Apply least privilege, encryption, audit logging, data minimization, retention controls, consent and jurisdictional compliance. Adult-related entries are classification namespaces only; age/access controls apply, and unlawful or exploitative content is prohibited.
+## Security and integration boundary
+Keep credentials, access tokens, cryptographic keys and personal file content out of this catalog. Use least privilege, data minimization, encryption, audit logging, retention controls, consent where required, age/access controls where required and jurisdictional compliance.
+
+The root is a foundation scaffold, not a live Google storage connector. Do not mark it connected until the exact official provider product/API, authorized credentials, live health checks and end-to-end tests are verified. Upload, download, delete and synchronization operations remain disabled.
