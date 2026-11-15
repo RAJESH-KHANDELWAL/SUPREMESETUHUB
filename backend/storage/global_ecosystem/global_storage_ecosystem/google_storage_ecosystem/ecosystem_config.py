@@ -1,14 +1,15 @@
-"""Runtime configuration; secrets must come from an approved secret manager."""
+"""Configuration for the GOOGLE_STORAGE_ECOSYSTEM catalog root."""
 import os
 
-PACKAGE_ID = __package__.rsplit('.', 1)[-1]
-ENV_PREFIX = PACKAGE_ID.upper().replace('-', '_')
+ECOSYSTEM_ID = "GOOGLE_STORAGE_ECOSYSTEM"
+ENV_PREFIX = ECOSYSTEM_ID
 
 
 def get_config() -> dict:
     return {
-        'enabled': os.getenv(f'{ENV_PREFIX}_ENABLED', 'true').lower() == 'true',
-        'environment': os.getenv('APP_ENV', 'development'),
-        'credentials_configured': False,
-        'secret_source': 'runtime_environment_or_secret_manager',
+        "enabled": os.getenv(f"{ENV_PREFIX}_ENABLED", "true").lower() == "true",
+        "environment": os.getenv("APP_ENV", "development"),
+        "connection_state": "NOT_CONFIGURED",
+        "provider_credentials_configured": False,
+        "catalog_only": True,
     }
