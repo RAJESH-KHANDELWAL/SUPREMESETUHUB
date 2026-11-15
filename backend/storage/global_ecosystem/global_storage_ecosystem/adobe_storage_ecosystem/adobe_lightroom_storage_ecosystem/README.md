@@ -16,7 +16,7 @@ OAuth, tokens, scopes, clients, endpoints and external requests belong to `backe
 - `models.py`: validated storage object metadata
 - `registry.py`: thread-safe in-memory metadata registry (not production persistence)
 - `service.py`: metadata registration and readiness service
-- `manifest.json`: machine-readable scope and status
+- `config.py`: safe environment-only runtime configuration\n- `adapter_contract.py`: abstract storage operations contract; concrete clients stay in the API/integration layer\n- `manifest.json`: machine-readable scope and status
 - `tests/test_foundation.py`: offline tests
 
 ## Status
