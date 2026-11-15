@@ -1,17 +1,29 @@
-# Ecosystem Foundation
+# Anthropic Storage Ecosystem Foundation
 
-This directory contains the reusable folder/file foundation for its named ecosystem. Existing provider-specific files are preserved.
+This directory follows the provider-catalog structure used by the Adobe Storage Ecosystem.
 
-## Added foundation modules
-- `ecosystem_service.py` — service identity and health contract
-- `ecosystem_models.py` — typed domain records
-- `ecosystem_registry.py` — thread-safe metadata registry
-- `ecosystem_config.py` — runtime configuration (no secrets in source)
-- `ecosystem_manifest.json` — Bharat-to-global scope and integration state
-- `tests/test_foundation.py` — offline foundation tests
+## Provider-level files
+- `anthropic_storage_ecosystem.py` — canonical child catalog and manifest reader
+- `ecosystem_manifest.json` — child modules, Bharat-to-global coverage, maturity levels, domain scope and readiness state
+- `ecosystem_config.py` — runtime configuration; secrets must come from a secret manager or environment
+- `ecosystem_models.py` — typed metadata records
+- `ecosystem_registry.py` — thread-safe in-memory metadata registry
+- `ecosystem_service.py` — provider-neutral service foundation
+- `tests/` — offline foundation and catalog tests
 
-## Status policy
-FOUNDATION_READY means the local package foundation loads. It does not mean a third-party API is connected. External integrations require authorized credentials, permissions, a live health check, and end-to-end read/write tests. Production records must use the central database, not the in-memory registry.
+## Child storage ecosystems
 
-## Governance
-Use least privilege, encryption, audit logs, data minimization, retention controls, consent where required, and applicable Indian and international laws. Never commit credentials or personal data.
+Each child module contains `domains/`, `geography/` and `maturity_levels/`:
+- Bharat, regional and global geography
+- Normal, Professional, Advanced, Enterprise and Supreme maturity classifications
+- Broad domains, including lawful adult-only sexual wellness, adult sexual content, adult entertainment and pornography classification
+
+## Architecture boundary
+
+Anthropic API clients, authentication, endpoints, scopes and API operations belong to the API Ecosystem. This Storage Ecosystem owns storage-side taxonomy, metadata, lifecycle, mappings and health. It must not duplicate API clients or authentication.
+
+## Readiness and governance
+
+The folder structure is taxonomy/scaffolding only. It does not establish that any Anthropic product surface has a generic storage API or is connected. Verify product availability, account entitlements, permissions and supported operations before marking a child CONNECTED. Require authorized credentials, live health checks and end-to-end read/write tests.
+
+Adult-only classifications require lawful adult contexts, age assurance, informed consent, privacy/security safeguards, retention and takedown controls, and jurisdiction-specific legal review. Prohibit minors, coercion, exploitation and non-consensual intimate imagery. Never commit credentials or personal data.
