@@ -1,6 +1,6 @@
-# Ecosystem Foundation
+# COHERE Storage Ecosystem Foundation
 
-Reusable provider storage foundation. Existing unrelated provider-specific files are retained.
+Provider-neutral storage foundation with a Cohere-specific taxonomy and read-only catalog.
 
 ## Modules
 - `ecosystem_service.py` — provider identity and truthful health contract
@@ -8,7 +8,11 @@ Reusable provider storage foundation. Existing unrelated provider-specific files
 - `ecosystem_registry.py` — thread-safe in-memory metadata registry
 - `ecosystem_config.py` — runtime configuration without embedded secrets
 - `ecosystem_manifest.json` — Bharat-to-global scope and readiness state
-- `tests/test_foundation.py` — offline foundation tests
+- `taxonomy/cohere_storage_taxonomy.json` — grouped category taxonomy
+- `category_index.json` — planned category folder index
+- `ecosystem_taxonomy.py` — taxonomy loader and lookup helpers
+- `catalog_api.py` — read-only listing, lookup and health interface
+- `tests/test_foundation.py` — offline foundation and catalog tests
 
 ## Readiness
-FOUNDATION_READY means local package code loads. It does not mean an external provider is connected. Production persistence belongs in the central database. Use least privilege, encryption, audit logs, retention controls and jurisdictional compliance. Never commit credentials or personal data.
+FOUNDATION_READY means local package code loads. It does not mean an external Cohere connection, data transfer, backup, synchronization, model API access or storage operation is active. Production persistence belongs in the central database. Never commit credentials or personal data.

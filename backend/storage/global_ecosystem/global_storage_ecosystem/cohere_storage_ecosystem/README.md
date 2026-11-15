@@ -1,9 +1,12 @@
 # COHERE Storage Ecosystem
 
-STORAGE-owned taxonomy namespace for COHERE. Catalog and foundation only; no live provider integration is implied.
+Parent namespace for 94 proposed Cohere-related storage taxonomy categories.
 
-## Responsibility
-This package owns storage-side identity, metadata, taxonomy, object lifecycle definitions and storage health metadata. Provider API clients, authentication and external operations remain in their respective API/integration layers.
+- `taxonomy/cohere_storage_taxonomy.json`: canonical category taxonomy and classification groups.
+- `category_index.json`: category folder names, intended paths and scaffold status.
+- `catalog_api.py`: read-only taxonomy catalog API.
+- `ecosystem_taxonomy.py`: taxonomy loader, listing and lookup helpers.
+- `ecosystem_manifest.json`: package scope, interfaces and readiness contract.
+- `ecosystem_config.py`, `ecosystem_models.py`, `ecosystem_registry.py`, `ecosystem_service.py`: provider storage foundation.
 
-## Readiness boundary
-The foundation does not prove provider API support, account entitlement, authorized connectivity or working upload/download/delete operations. Mark a provider connected only after authorized live health checks and end-to-end read/write tests pass. Never commit credentials or personal data.
+Category entries are organizational namespaces, not claims that Cohere offers each as a distinct product or data-storage service. The index currently records proposed folders as `PLANNED_NOT_CREATED`; it does not claim their scaffolds exist. Provider API support, authorized credentials, live health checks and end-to-end tests are required before enabling integrations or storage operations.
