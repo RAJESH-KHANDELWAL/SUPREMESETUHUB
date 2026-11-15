@@ -13,8 +13,24 @@ Canonical storage-side catalog for Atlassian products in SUPREMESETUHUB.
 - `atlassian_compass_storage_ecosystem` — Compass
 - `atlassian_bamboo_storage_ecosystem` — Bamboo
 
-## Responsibility and boundaries
+## Package responsibilities
 
-This package owns storage taxonomy, metadata, lifecycle classification and readiness contracts. OAuth, credentials, API clients, webhooks and product operations belong in the Atlassian API/integration layer. Catalog entries do not imply a live connection, entitlement or generic file-storage API.
+This package owns the Atlassian product catalog, storage metadata, lifecycle classification and readiness contracts. It does not implement OAuth, credentials, API clients, webhooks or product operations; those belong in the separate Atlassian API/integration layer.
 
-Each product has `domains/`, `geography/` and `maturity_levels/` classifications. Use least privilege, encryption, audit logs, retention controls and data minimization. Never commit credentials or personal data.
+## Foundation files
+
+- `atlassian_storage_ecosystem.py` — provider catalog and manifest validation
+- `ecosystem_manifest.json` — product catalog, geographic scope, maturity vocabulary and connection state
+- `ecosystem_config.py` — runtime configuration; secrets must come from environment variables or a secret manager
+- `ecosystem_models.py` — typed storage metadata records
+- `ecosystem_registry.py` — thread-safe in-memory metadata registry
+- `ecosystem_service.py` — provider-neutral identity and health contract
+- `tests/` — offline tests for catalog and foundation behavior
+
+## Operational boundaries
+
+All eight product entries are catalog-only. No live provider connection, account entitlement, generic file-storage API, export right or provider-side storage guarantee is implied.
+
+A product may be marked connected only after authorized authentication, least-privilege permission checks, live health checks and end-to-end tests pass. Production records belong in central database/object-storage services, not the in-memory registry.
+
+Apply encryption, audit logging, retention controls, jurisdictional compliance and data minimization. Never commit credentials or private customer content.
