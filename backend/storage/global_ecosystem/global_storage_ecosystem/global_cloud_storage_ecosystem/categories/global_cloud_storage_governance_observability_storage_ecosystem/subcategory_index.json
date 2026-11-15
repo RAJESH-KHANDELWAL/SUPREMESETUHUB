@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0.0",
+  "parent_ecosystem_id": "GLOBAL_CLOUD_STORAGE_ECOSYSTEM",
+  "parent_category_id": "GOVERNANCE_OBSERVABILITY",
+  "subcategory_count": 6,
+  "folder_naming": "global_cloud_<subcategory>_storage_ecosystem",
+  "subcategories": [
+    {
+      "subcategory_id": "STORAGE_CATALOG",
+      "name": "Storage Catalog and Inventory",
+      "folder": "global_cloud_storage_catalog_storage_ecosystem",
+      "path": "subcategories/global_cloud_storage_catalog_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "subcategory_id": "STORAGE_METADATA",
+      "name": "Storage Metadata Management",
+      "folder": "global_cloud_storage_metadata_storage_ecosystem",
+      "path": "subcategories/global_cloud_storage_metadata_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "subcategory_id": "STORAGE_LIFECYCLE",
+      "name": "Storage Lifecycle Management",
+      "folder": "global_cloud_storage_lifecycle_storage_ecosystem",
+      "path": "subcategories/global_cloud_storage_lifecycle_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "subcategory_id": "STORAGE_TIERING",
+      "name": "Storage Tiering and Optimization",
+      "folder": "global_cloud_storage_tiering_storage_ecosystem",
+      "path": "subcategories/global_cloud_storage_tiering_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "subcategory_id": "STORAGE_ENCRYPTION",
+      "name": "Storage Encryption and Key Governance",
+      "folder": "global_cloud_storage_encryption_storage_ecosystem",
+      "path": "subcategories/global_cloud_storage_encryption_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "subcategory_id": "STORAGE_ACCESS_CONTROL",
+      "name": "Storage Access Control and Policy",
+      "folder": "global_cloud_storage_access_control_storage_ecosystem",
+      "path": "subcategories/global_cloud_storage_access_control_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    }
+  ]
+}
