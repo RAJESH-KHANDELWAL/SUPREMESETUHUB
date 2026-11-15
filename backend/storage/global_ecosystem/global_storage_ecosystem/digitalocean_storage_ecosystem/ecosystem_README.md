@@ -1,14 +1,20 @@
-# Ecosystem Foundation
+# DigitalOcean Storage Ecosystem Foundation
 
-Reusable provider storage foundation. Existing unrelated provider-specific files are retained.
+This root follows the Google Storage Ecosystem parent-catalog pattern: canonical taxonomy, category index, independently named category packages, read-only catalog API, metadata foundation and offline tests.
 
 ## Modules
-- `ecosystem_service.py` — provider identity and truthful health contract
-- `ecosystem_models.py` — typed metadata records
+- `ecosystem_config.py` — runtime configuration; no embedded secrets
+- `ecosystem_models.py` — typed storage metadata records
 - `ecosystem_registry.py` — thread-safe in-memory metadata registry
-- `ecosystem_config.py` — runtime configuration without embedded secrets
-- `ecosystem_manifest.json` — Bharat-to-global scope and readiness state
-- `tests/test_foundation.py` — offline foundation tests
+- `ecosystem_service.py` — foundation status and health contract
+- `ecosystem_taxonomy.py` — taxonomy loader and lookup helpers
+- `catalog_api.py` — read-only category catalog
+- `taxonomy/digitalocean_storage_taxonomy.json` — grouped taxonomy
+- `category_index.json` — category-to-folder mapping
+- `tests/` — offline tests
 
-## Readiness
-FOUNDATION_READY means local package code loads. It does not mean an external provider is connected. Production persistence belongs in the central database. Use least privilege, encryption, audit logs, retention controls and jurisdictional compliance. Never commit credentials or personal data.
+## Responsibility boundary
+The storage catalog does not implement DigitalOcean authentication, API clients, network calls or data transfer. Those remain in API/integration layers. The central database owns production persistence.
+
+## Readiness boundary
+`FOUNDATION_READY` means local catalog code is available only. It does not establish API support, account entitlement, connectivity, or successful upload/download/delete. Keep external connections `NOT_CONFIGURED` until authorized live health checks and end-to-end tests pass. Never commit credentials or personal data.
