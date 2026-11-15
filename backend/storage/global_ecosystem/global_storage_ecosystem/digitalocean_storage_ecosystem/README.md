@@ -1,6 +1,6 @@
 # DIGITALOCEAN Storage Ecosystem
 
-Parent namespace for 18 DigitalOcean-related storage category packages.
+Parent namespace for 21 DigitalOcean-related storage category packages.
 
 - `taxonomy/digitalocean_storage_taxonomy.json`: canonical grouped storage taxonomy.
 - `category_index.json`: category folder names, groups and repository paths.
