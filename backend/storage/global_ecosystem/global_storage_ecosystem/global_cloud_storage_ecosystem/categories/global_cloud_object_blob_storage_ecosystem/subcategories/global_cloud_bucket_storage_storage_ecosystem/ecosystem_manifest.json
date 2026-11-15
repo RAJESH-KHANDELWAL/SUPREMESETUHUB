@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_CLOUD_BUCKET_STORAGE_ECOSYSTEM",
+  "package_name": "global_cloud_bucket_storage_storage_ecosystem",
+  "ecosystem_type": "GLOBAL_CLOUD_STORAGE_SUBCATEGORY",
+  "provider_scope": "PROVIDER_NEUTRAL",
+  "parent_ecosystem_id": "GLOBAL_CLOUD_STORAGE_ECOSYSTEM",
+  "parent_category_id": "OBJECT_BLOB_STORAGE",
+  "subcategory_id": "BUCKET_STORAGE",
+  "name": "Bucket Storage",
+  "implementation_state": "SUBCATEGORY_FOUNDATION_SCAFFOLD",
+  "connection_state": "NOT_CONFIGURED",
+  "provider_product_verified": false,
+  "storage_operations_enabled": false,
+  "requires_authorized_integration": true,
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true,
+  "geographic_scope": [
+    "BHARAT",
+    "GLOBAL"
+  ],
+  "security_baseline": [
+    "LEAST_PRIVILEGE",
+    "ENCRYPTION",
+    "AUDIT_LOGGING",
+    "RETENTION_CONTROLS"
+  ],
+  "notes": "Provider-neutral taxonomy scaffold only. No live provider integration or storage operation is implied."
+}
