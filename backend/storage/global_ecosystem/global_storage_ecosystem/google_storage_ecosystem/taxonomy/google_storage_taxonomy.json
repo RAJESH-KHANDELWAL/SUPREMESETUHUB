@@ -1,0 +1,1428 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GOOGLE_STORAGE_ECOSYSTEM",
+  "naming_rule": "GOOGLE_<CATEGORY>_STORAGE_ECOSYSTEM",
+  "provider": "GOOGLE",
+  "classification_note": "This is a storage-side taxonomy, not a claim that Google provides each category or stores its content.",
+  "categories": [
+    {
+      "group_id": "G01",
+      "group_name": "GENERAL & SEARCH",
+      "items": [
+        {
+          "id": "G01-001",
+          "name": "GOOGLE_GENERAL_STORAGE_ECOSYSTEM",
+          "category": "GENERAL",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G01-002",
+          "name": "GOOGLE_SEARCH_STORAGE_ECOSYSTEM",
+          "category": "SEARCH",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G01-003",
+          "name": "GOOGLE_WEB_SEARCH_STORAGE_ECOSYSTEM",
+          "category": "WEB_SEARCH",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G01-004",
+          "name": "GOOGLE_IMAGE_SEARCH_STORAGE_ECOSYSTEM",
+          "category": "IMAGE_SEARCH",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G01-005",
+          "name": "GOOGLE_VIDEO_SEARCH_STORAGE_ECOSYSTEM",
+          "category": "VIDEO_SEARCH",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G01-006",
+          "name": "GOOGLE_NEWS_STORAGE_ECOSYSTEM",
+          "category": "NEWS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G01-007",
+          "name": "GOOGLE_BOOKS_STORAGE_ECOSYSTEM",
+          "category": "BOOKS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G01-008",
+          "name": "GOOGLE_SCHOLAR_STORAGE_ECOSYSTEM",
+          "category": "SCHOLAR",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G01-009",
+          "name": "GOOGLE_TRENDS_STORAGE_ECOSYSTEM",
+          "category": "TRENDS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G01-010",
+          "name": "GOOGLE_DISCOVERY_STORAGE_ECOSYSTEM",
+          "category": "DISCOVERY",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G01-011",
+          "name": "GOOGLE_KNOWLEDGE_GRAPH_STORAGE_ECOSYSTEM",
+          "category": "KNOWLEDGE_GRAPH",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G01-012",
+          "name": "GOOGLE_PUBLIC_INFORMATION_STORAGE_ECOSYSTEM",
+          "category": "PUBLIC_INFORMATION",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        }
+      ]
+    },
+    {
+      "group_id": "G02",
+      "group_name": "COMMUNICATION",
+      "items": [
+        {
+          "id": "G02-001",
+          "name": "GOOGLE_GMAIL_STORAGE_ECOSYSTEM",
+          "category": "GMAIL",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G02-002",
+          "name": "GOOGLE_EMAIL_STORAGE_ECOSYSTEM",
+          "category": "EMAIL",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G02-003",
+          "name": "GOOGLE_CONTACTS_STORAGE_ECOSYSTEM",
+          "category": "CONTACTS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G02-004",
+          "name": "GOOGLE_CHAT_STORAGE_ECOSYSTEM",
+          "category": "CHAT",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G02-005",
+          "name": "GOOGLE_MEET_STORAGE_ECOSYSTEM",
+          "category": "MEET",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G02-006",
+          "name": "GOOGLE_MESSAGING_STORAGE_ECOSYSTEM",
+          "category": "MESSAGING",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G02-007",
+          "name": "GOOGLE_VIDEO_CONFERENCING_STORAGE_ECOSYSTEM",
+          "category": "VIDEO_CONFERENCING",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G02-008",
+          "name": "GOOGLE_CALENDAR_STORAGE_ECOSYSTEM",
+          "category": "CALENDAR",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        }
+      ]
+    },
+    {
+      "group_id": "G03",
+      "group_name": "DOCUMENTS & PRODUCTIVITY",
+      "items": [
+        {
+          "id": "G03-001",
+          "name": "GOOGLE_DOCS_STORAGE_ECOSYSTEM",
+          "category": "DOCS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G03-002",
+          "name": "GOOGLE_SHEETS_STORAGE_ECOSYSTEM",
+          "category": "SHEETS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G03-003",
+          "name": "GOOGLE_SLIDES_STORAGE_ECOSYSTEM",
+          "category": "SLIDES",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G03-004",
+          "name": "GOOGLE_FORMS_STORAGE_ECOSYSTEM",
+          "category": "FORMS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G03-005",
+          "name": "GOOGLE_SITES_STORAGE_ECOSYSTEM",
+          "category": "SITES",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G03-006",
+          "name": "GOOGLE_KEEP_STORAGE_ECOSYSTEM",
+          "category": "KEEP",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G03-007",
+          "name": "GOOGLE_TASKS_STORAGE_ECOSYSTEM",
+          "category": "TASKS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G03-008",
+          "name": "GOOGLE_WORKSPACE_STORAGE_ECOSYSTEM",
+          "category": "WORKSPACE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G03-009",
+          "name": "GOOGLE_OFFICE_FILES_STORAGE_ECOSYSTEM",
+          "category": "OFFICE_FILES",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G03-010",
+          "name": "GOOGLE_PDF_STORAGE_ECOSYSTEM",
+          "category": "PDF",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        }
+      ]
+    },
+    {
+      "group_id": "G04",
+      "group_name": "PERSONAL & CLOUD STORAGE",
+      "items": [
+        {
+          "id": "G04-001",
+          "name": "GOOGLE_PERSONAL_STORAGE_ECOSYSTEM",
+          "category": "PERSONAL",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G04-002",
+          "name": "GOOGLE_DRIVE_STORAGE_ECOSYSTEM",
+          "category": "DRIVE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G04-003",
+          "name": "GOOGLE_ONE_STORAGE_ECOSYSTEM",
+          "category": "ONE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G04-004",
+          "name": "GOOGLE_CLOUD_STORAGE_ECOSYSTEM",
+          "category": "CLOUD",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G04-005",
+          "name": "GOOGLE_FILES_STORAGE_ECOSYSTEM",
+          "category": "FILES",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G04-006",
+          "name": "GOOGLE_FOLDERS_STORAGE_ECOSYSTEM",
+          "category": "FOLDERS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G04-007",
+          "name": "GOOGLE_BACKUP_STORAGE_ECOSYSTEM",
+          "category": "BACKUP",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G04-008",
+          "name": "GOOGLE_SYNC_STORAGE_ECOSYSTEM",
+          "category": "SYNC",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G04-009",
+          "name": "GOOGLE_ARCHIVE_STORAGE_ECOSYSTEM",
+          "category": "ARCHIVE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G04-010",
+          "name": "GOOGLE_DATA_STORAGE_ECOSYSTEM",
+          "category": "DATA",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        }
+      ]
+    },
+    {
+      "group_id": "G05",
+      "group_name": "PHOTO, VIDEO & MEDIA",
+      "items": [
+        {
+          "id": "G05-001",
+          "name": "GOOGLE_PHOTOS_STORAGE_ECOSYSTEM",
+          "category": "PHOTOS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G05-002",
+          "name": "GOOGLE_PHOTO_STORAGE_ECOSYSTEM",
+          "category": "PHOTO",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G05-003",
+          "name": "GOOGLE_VIDEO_STORAGE_ECOSYSTEM",
+          "category": "VIDEO",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G05-004",
+          "name": "GOOGLE_AUDIO_STORAGE_ECOSYSTEM",
+          "category": "AUDIO",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G05-005",
+          "name": "GOOGLE_MUSIC_STORAGE_ECOSYSTEM",
+          "category": "MUSIC",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G05-006",
+          "name": "GOOGLE_YOUTUBE_STORAGE_ECOSYSTEM",
+          "category": "YOUTUBE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G05-007",
+          "name": "GOOGLE_YOUTUBE_MUSIC_STORAGE_ECOSYSTEM",
+          "category": "YOUTUBE_MUSIC",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G05-008",
+          "name": "GOOGLE_MEDIA_STORAGE_ECOSYSTEM",
+          "category": "MEDIA",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G05-009",
+          "name": "GOOGLE_DIGITAL_ASSETS_STORAGE_ECOSYSTEM",
+          "category": "DIGITAL_ASSETS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G05-010",
+          "name": "GOOGLE_MULTIMEDIA_STORAGE_ECOSYSTEM",
+          "category": "MULTIMEDIA",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        }
+      ]
+    },
+    {
+      "group_id": "G06",
+      "group_name": "AI & INTELLIGENCE",
+      "items": [
+        {
+          "id": "G06-001",
+          "name": "GOOGLE_GEMINI_STORAGE_ECOSYSTEM",
+          "category": "GEMINI",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G06-002",
+          "name": "GOOGLE_AI_STORAGE_ECOSYSTEM",
+          "category": "AI",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G06-003",
+          "name": "GOOGLE_NOTEBOOKLM_STORAGE_ECOSYSTEM",
+          "category": "NOTEBOOKLM",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G06-004",
+          "name": "GOOGLE_AI_STUDIO_STORAGE_ECOSYSTEM",
+          "category": "AI_STUDIO",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G06-005",
+          "name": "GOOGLE_VERTEX_AI_STORAGE_ECOSYSTEM",
+          "category": "VERTEX_AI",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G06-006",
+          "name": "GOOGLE_DEEPMIND_STORAGE_ECOSYSTEM",
+          "category": "DEEPMIND",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G06-007",
+          "name": "GOOGLE_MACHINE_LEARNING_STORAGE_ECOSYSTEM",
+          "category": "MACHINE_LEARNING",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G06-008",
+          "name": "GOOGLE_DEEP_LEARNING_STORAGE_ECOSYSTEM",
+          "category": "DEEP_LEARNING",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G06-009",
+          "name": "GOOGLE_GENERATIVE_AI_STORAGE_ECOSYSTEM",
+          "category": "GENERATIVE_AI",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G06-010",
+          "name": "GOOGLE_AI_AGENTS_STORAGE_ECOSYSTEM",
+          "category": "AI_AGENTS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G06-011",
+          "name": "GOOGLE_MULTIMODAL_AI_STORAGE_ECOSYSTEM",
+          "category": "MULTIMODAL_AI",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G06-012",
+          "name": "GOOGLE_INTELLIGENCE_STORAGE_ECOSYSTEM",
+          "category": "INTELLIGENCE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        }
+      ]
+    },
+    {
+      "group_id": "G07",
+      "group_name": "BUSINESS & ENTERPRISE",
+      "items": [
+        {
+          "id": "G07-001",
+          "name": "GOOGLE_BUSINESS_STORAGE_ECOSYSTEM",
+          "category": "BUSINESS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G07-002",
+          "name": "GOOGLE_BUSINESS_PROFILE_STORAGE_ECOSYSTEM",
+          "category": "BUSINESS_PROFILE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G07-003",
+          "name": "GOOGLE_WORKSPACE_BUSINESS_STORAGE_ECOSYSTEM",
+          "category": "WORKSPACE_BUSINESS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G07-004",
+          "name": "GOOGLE_ENTERPRISE_STORAGE_ECOSYSTEM",
+          "category": "ENTERPRISE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G07-005",
+          "name": "GOOGLE_ADS_STORAGE_ECOSYSTEM",
+          "category": "ADS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G07-006",
+          "name": "GOOGLE_ADSENSE_STORAGE_ECOSYSTEM",
+          "category": "ADSENSE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G07-007",
+          "name": "GOOGLE_ADMOB_STORAGE_ECOSYSTEM",
+          "category": "ADMOB",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G07-008",
+          "name": "GOOGLE_ANALYTICS_STORAGE_ECOSYSTEM",
+          "category": "ANALYTICS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G07-009",
+          "name": "GOOGLE_SEARCH_CONSOLE_STORAGE_ECOSYSTEM",
+          "category": "SEARCH_CONSOLE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G07-010",
+          "name": "GOOGLE_TAG_MANAGER_STORAGE_ECOSYSTEM",
+          "category": "TAG_MANAGER",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G07-011",
+          "name": "GOOGLE_MERCHANT_CENTER_STORAGE_ECOSYSTEM",
+          "category": "MERCHANT_CENTER",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G07-012",
+          "name": "GOOGLE_MARKETING_STORAGE_ECOSYSTEM",
+          "category": "MARKETING",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        }
+      ]
+    },
+    {
+      "group_id": "G08",
+      "group_name": "DEVELOPER & INFRASTRUCTURE",
+      "items": [
+        {
+          "id": "G08-001",
+          "name": "GOOGLE_DEVELOPER_STORAGE_ECOSYSTEM",
+          "category": "DEVELOPER",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G08-002",
+          "name": "GOOGLE_GOOGLE_CLOUD_STORAGE_ECOSYSTEM",
+          "category": "GOOGLE_CLOUD",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G08-003",
+          "name": "GOOGLE_FIREBASE_STORAGE_ECOSYSTEM",
+          "category": "FIREBASE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G08-004",
+          "name": "GOOGLE_DATABASE_STORAGE_ECOSYSTEM",
+          "category": "DATABASE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G08-005",
+          "name": "GOOGLE_CLOUD_SQL_STORAGE_ECOSYSTEM",
+          "category": "CLOUD_SQL",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G08-006",
+          "name": "GOOGLE_FIRESTORE_STORAGE_ECOSYSTEM",
+          "category": "FIRESTORE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G08-007",
+          "name": "GOOGLE_BIGTABLE_STORAGE_ECOSYSTEM",
+          "category": "BIGTABLE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G08-008",
+          "name": "GOOGLE_SERVER_STORAGE_ECOSYSTEM",
+          "category": "SERVER",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G08-009",
+          "name": "GOOGLE_COMPUTE_STORAGE_ECOSYSTEM",
+          "category": "COMPUTE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G08-010",
+          "name": "GOOGLE_NETWORK_STORAGE_ECOSYSTEM",
+          "category": "NETWORK",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G08-011",
+          "name": "GOOGLE_API_STORAGE_ECOSYSTEM",
+          "category": "API",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G08-012",
+          "name": "GOOGLE_DEVOPS_STORAGE_ECOSYSTEM",
+          "category": "DEVOPS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G08-013",
+          "name": "GOOGLE_CONTAINER_STORAGE_ECOSYSTEM",
+          "category": "CONTAINER",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G08-014",
+          "name": "GOOGLE_KUBERNETES_STORAGE_ECOSYSTEM",
+          "category": "KUBERNETES",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        }
+      ]
+    },
+    {
+      "group_id": "G09",
+      "group_name": "EDUCATION & KNOWLEDGE",
+      "items": [
+        {
+          "id": "G09-001",
+          "name": "GOOGLE_EDUCATION_STORAGE_ECOSYSTEM",
+          "category": "EDUCATION",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G09-002",
+          "name": "GOOGLE_CLASSROOM_STORAGE_ECOSYSTEM",
+          "category": "CLASSROOM",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G09-003",
+          "name": "GOOGLE_LEARNING_STORAGE_ECOSYSTEM",
+          "category": "LEARNING",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G09-004",
+          "name": "GOOGLE_RESEARCH_STORAGE_ECOSYSTEM",
+          "category": "RESEARCH",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G09-005",
+          "name": "GOOGLE_LIBRARY_STORAGE_ECOSYSTEM",
+          "category": "LIBRARY",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G09-006",
+          "name": "GOOGLE_DIGITAL_BOOKS_STORAGE_ECOSYSTEM",
+          "category": "DIGITAL_BOOKS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G09-007",
+          "name": "GOOGLE_ACADEMIC_STORAGE_ECOSYSTEM",
+          "category": "ACADEMIC",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G09-008",
+          "name": "GOOGLE_KNOWLEDGE_STORAGE_ECOSYSTEM",
+          "category": "KNOWLEDGE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        }
+      ]
+    },
+    {
+      "group_id": "G10",
+      "group_name": "HEALTH & WELLNESS",
+      "items": [
+        {
+          "id": "G10-001",
+          "name": "GOOGLE_HEALTH_STORAGE_ECOSYSTEM",
+          "category": "HEALTH",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G10-002",
+          "name": "GOOGLE_HEALTHCARE_STORAGE_ECOSYSTEM",
+          "category": "HEALTHCARE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G10-003",
+          "name": "GOOGLE_MEDICAL_STORAGE_ECOSYSTEM",
+          "category": "MEDICAL",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G10-004",
+          "name": "GOOGLE_FITNESS_STORAGE_ECOSYSTEM",
+          "category": "FITNESS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G10-005",
+          "name": "GOOGLE_WELLNESS_STORAGE_ECOSYSTEM",
+          "category": "WELLNESS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G10-006",
+          "name": "GOOGLE_MENTAL_WELLNESS_STORAGE_ECOSYSTEM",
+          "category": "MENTAL_WELLNESS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G10-007",
+          "name": "GOOGLE_REPRODUCTIVE_HEALTH_STORAGE_ECOSYSTEM",
+          "category": "REPRODUCTIVE_HEALTH",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G10-008",
+          "name": "GOOGLE_SEXUAL_HEALTH_STORAGE_ECOSYSTEM",
+          "category": "SEXUAL_HEALTH",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G10-009",
+          "name": "GOOGLE_SEXUAL_EDUCATION_STORAGE_ECOSYSTEM",
+          "category": "SEXUAL_EDUCATION",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G10-010",
+          "name": "GOOGLE_HUMAN_ANATOMY_STORAGE_ECOSYSTEM",
+          "category": "HUMAN_ANATOMY",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G10-011",
+          "name": "GOOGLE_FAMILY_PLANNING_STORAGE_ECOSYSTEM",
+          "category": "FAMILY_PLANNING",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        }
+      ]
+    },
+    {
+      "group_id": "G11",
+      "group_name": "RELATIONSHIP & ADULT",
+      "items": [
+        {
+          "id": "G11-001",
+          "name": "GOOGLE_RELATIONSHIP_STORAGE_ECOSYSTEM",
+          "category": "RELATIONSHIP",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G11-002",
+          "name": "GOOGLE_DATING_STORAGE_ECOSYSTEM",
+          "category": "DATING",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G11-003",
+          "name": "GOOGLE_MATCHMAKING_STORAGE_ECOSYSTEM",
+          "category": "MATCHMAKING",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G11-004",
+          "name": "GOOGLE_MARRIAGE_STORAGE_ECOSYSTEM",
+          "category": "MARRIAGE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G11-005",
+          "name": "GOOGLE_COUPLE_STORAGE_ECOSYSTEM",
+          "category": "COUPLE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G11-006",
+          "name": "GOOGLE_ROMANCE_STORAGE_ECOSYSTEM",
+          "category": "ROMANCE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G11-007",
+          "name": "GOOGLE_INTIMACY_STORAGE_ECOSYSTEM",
+          "category": "INTIMACY",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G11-008",
+          "name": "GOOGLE_ADULT_LIFESTYLE_STORAGE_ECOSYSTEM",
+          "category": "ADULT_LIFESTYLE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G11-009",
+          "name": "GOOGLE_ADULT_EDUCATION_STORAGE_ECOSYSTEM",
+          "category": "ADULT_EDUCATION",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G11-010",
+          "name": "GOOGLE_SEXUAL_WELLNESS_STORAGE_ECOSYSTEM",
+          "category": "SEXUAL_WELLNESS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G11-011",
+          "name": "GOOGLE_SEXUAL_HYGIENE_STORAGE_ECOSYSTEM",
+          "category": "SEXUAL_HYGIENE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G11-012",
+          "name": "GOOGLE_CONSENSUAL_ADULT_ENTERTAINMENT_STORAGE_ECOSYSTEM",
+          "category": "CONSENSUAL_ADULT_ENTERTAINMENT",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G11-013",
+          "name": "GOOGLE_ADULT_PHOTOGRAPHY_STORAGE_ECOSYSTEM",
+          "category": "ADULT_PHOTOGRAPHY",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G11-014",
+          "name": "GOOGLE_EROTIC_LITERATURE_STORAGE_ECOSYSTEM",
+          "category": "EROTIC_LITERATURE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G11-015",
+          "name": "GOOGLE_ADULT_ANIMATION_STORAGE_ECOSYSTEM",
+          "category": "ADULT_ANIMATION",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G11-016",
+          "name": "GOOGLE_PORNOGRAPHIC_CONTENT_STORAGE_ECOSYSTEM",
+          "category": "PORNOGRAPHIC_CONTENT",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        }
+      ]
+    },
+    {
+      "group_id": "G12",
+      "group_name": "ENTERTAINMENT & GAMING",
+      "items": [
+        {
+          "id": "G12-001",
+          "name": "GOOGLE_ENTERTAINMENT_STORAGE_ECOSYSTEM",
+          "category": "ENTERTAINMENT",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G12-002",
+          "name": "GOOGLE_GAMING_STORAGE_ECOSYSTEM",
+          "category": "GAMING",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G12-003",
+          "name": "GOOGLE_PLAY_STORE_STORAGE_ECOSYSTEM",
+          "category": "PLAY_STORE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G12-004",
+          "name": "GOOGLE_PLAY_GAMES_STORAGE_ECOSYSTEM",
+          "category": "PLAY_GAMES",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G12-005",
+          "name": "GOOGLE_PLAY_BOOKS_STORAGE_ECOSYSTEM",
+          "category": "PLAY_BOOKS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G12-006",
+          "name": "GOOGLE_PLAY_MOVIES_STORAGE_ECOSYSTEM",
+          "category": "PLAY_MOVIES",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G12-007",
+          "name": "GOOGLE_DIGITAL_MEDIA_STORAGE_ECOSYSTEM",
+          "category": "DIGITAL_MEDIA",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G12-008",
+          "name": "GOOGLE_STREAMING_STORAGE_ECOSYSTEM",
+          "category": "STREAMING",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G12-009",
+          "name": "GOOGLE_CREATOR_CONTENT_STORAGE_ECOSYSTEM",
+          "category": "CREATOR_CONTENT",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        }
+      ]
+    },
+    {
+      "group_id": "G13",
+      "group_name": "SECURITY & PRIVACY",
+      "items": [
+        {
+          "id": "G13-001",
+          "name": "GOOGLE_SECURITY_STORAGE_ECOSYSTEM",
+          "category": "SECURITY",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G13-002",
+          "name": "GOOGLE_PRIVACY_STORAGE_ECOSYSTEM",
+          "category": "PRIVACY",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G13-003",
+          "name": "GOOGLE_IDENTITY_STORAGE_ECOSYSTEM",
+          "category": "IDENTITY",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G13-004",
+          "name": "GOOGLE_AUTHENTICATION_STORAGE_ECOSYSTEM",
+          "category": "AUTHENTICATION",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G13-005",
+          "name": "GOOGLE_ENCRYPTION_STORAGE_ECOSYSTEM",
+          "category": "ENCRYPTION",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G13-006",
+          "name": "GOOGLE_PASSWORD_STORAGE_ECOSYSTEM",
+          "category": "PASSWORD",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G13-007",
+          "name": "GOOGLE_ACCOUNT_STORAGE_ECOSYSTEM",
+          "category": "ACCOUNT",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G13-008",
+          "name": "GOOGLE_DEVICE_SECURITY_STORAGE_ECOSYSTEM",
+          "category": "DEVICE_SECURITY",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G13-009",
+          "name": "GOOGLE_CYBERSECURITY_STORAGE_ECOSYSTEM",
+          "category": "CYBERSECURITY",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G13-010",
+          "name": "GOOGLE_DATA_PROTECTION_STORAGE_ECOSYSTEM",
+          "category": "DATA_PROTECTION",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        }
+      ]
+    },
+    {
+      "group_id": "G14",
+      "group_name": "DEVICES & OPERATING SYSTEM",
+      "items": [
+        {
+          "id": "G14-001",
+          "name": "GOOGLE_ANDROID_STORAGE_ECOSYSTEM",
+          "category": "ANDROID",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G14-002",
+          "name": "GOOGLE_CHROMEOS_STORAGE_ECOSYSTEM",
+          "category": "CHROMEOS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G14-003",
+          "name": "GOOGLE_CHROME_STORAGE_ECOSYSTEM",
+          "category": "CHROME",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G14-004",
+          "name": "GOOGLE_PIXEL_STORAGE_ECOSYSTEM",
+          "category": "PIXEL",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G14-005",
+          "name": "GOOGLE_WEAR_OS_STORAGE_ECOSYSTEM",
+          "category": "WEAR_OS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G14-006",
+          "name": "GOOGLE_SMART_HOME_STORAGE_ECOSYSTEM",
+          "category": "SMART_HOME",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G14-007",
+          "name": "GOOGLE_IOT_STORAGE_ECOSYSTEM",
+          "category": "IOT",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G14-008",
+          "name": "GOOGLE_DEVICE_BACKUP_STORAGE_ECOSYSTEM",
+          "category": "DEVICE_BACKUP",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        }
+      ]
+    },
+    {
+      "group_id": "G15",
+      "group_name": "MAPS, LOCATION & TRAVEL",
+      "items": [
+        {
+          "id": "G15-001",
+          "name": "GOOGLE_MAPS_STORAGE_ECOSYSTEM",
+          "category": "MAPS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G15-002",
+          "name": "GOOGLE_EARTH_STORAGE_ECOSYSTEM",
+          "category": "EARTH",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G15-003",
+          "name": "GOOGLE_STREET_VIEW_STORAGE_ECOSYSTEM",
+          "category": "STREET_VIEW",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G15-004",
+          "name": "GOOGLE_LOCATION_STORAGE_ECOSYSTEM",
+          "category": "LOCATION",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G15-005",
+          "name": "GOOGLE_GEOSPATIAL_STORAGE_ECOSYSTEM",
+          "category": "GEOSPATIAL",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G15-006",
+          "name": "GOOGLE_TRAVEL_STORAGE_ECOSYSTEM",
+          "category": "TRAVEL",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G15-007",
+          "name": "GOOGLE_FLIGHTS_STORAGE_ECOSYSTEM",
+          "category": "FLIGHTS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G15-008",
+          "name": "GOOGLE_NAVIGATION_STORAGE_ECOSYSTEM",
+          "category": "NAVIGATION",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G15-009",
+          "name": "GOOGLE_LOCAL_BUSINESS_STORAGE_ECOSYSTEM",
+          "category": "LOCAL_BUSINESS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        }
+      ]
+    },
+    {
+      "group_id": "G16",
+      "group_name": "FINANCE & PAYMENTS",
+      "items": [
+        {
+          "id": "G16-001",
+          "name": "GOOGLE_PAYMENTS_STORAGE_ECOSYSTEM",
+          "category": "PAYMENTS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G16-002",
+          "name": "GOOGLE_PAY_STORAGE_ECOSYSTEM",
+          "category": "PAY",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G16-003",
+          "name": "GOOGLE_WALLET_STORAGE_ECOSYSTEM",
+          "category": "WALLET",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G16-004",
+          "name": "GOOGLE_TRANSACTION_STORAGE_ECOSYSTEM",
+          "category": "TRANSACTION",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G16-005",
+          "name": "GOOGLE_DIGITAL_PAYMENT_STORAGE_ECOSYSTEM",
+          "category": "DIGITAL_PAYMENT",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G16-006",
+          "name": "GOOGLE_FINANCIAL_INFORMATION_STORAGE_ECOSYSTEM",
+          "category": "FINANCIAL_INFORMATION",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        }
+      ]
+    },
+    {
+      "group_id": "G17",
+      "group_name": "ADVANCED & SUPREME TECHNOLOGY",
+      "items": [
+        {
+          "id": "G17-001",
+          "name": "GOOGLE_QUANTUM_COMPUTING_STORAGE_ECOSYSTEM",
+          "category": "QUANTUM_COMPUTING",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G17-002",
+          "name": "GOOGLE_ROBOTICS_STORAGE_ECOSYSTEM",
+          "category": "ROBOTICS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G17-003",
+          "name": "GOOGLE_AUTOMATION_STORAGE_ECOSYSTEM",
+          "category": "AUTOMATION",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G17-004",
+          "name": "GOOGLE_BIG_DATA_STORAGE_ECOSYSTEM",
+          "category": "BIG_DATA",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G17-005",
+          "name": "GOOGLE_DISTRIBUTED_COMPUTING_STORAGE_ECOSYSTEM",
+          "category": "DISTRIBUTED_COMPUTING",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G17-006",
+          "name": "GOOGLE_DATA_ANALYTICS_STORAGE_ECOSYSTEM",
+          "category": "DATA_ANALYTICS",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G17-007",
+          "name": "GOOGLE_NEURAL_NETWORK_STORAGE_ECOSYSTEM",
+          "category": "NEURAL_NETWORK",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G17-008",
+          "name": "GOOGLE_RESEARCH_DEVELOPMENT_STORAGE_ECOSYSTEM",
+          "category": "RESEARCH_DEVELOPMENT",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G17-009",
+          "name": "GOOGLE_ADVANCED_TECHNOLOGY_STORAGE_ECOSYSTEM",
+          "category": "ADVANCED_TECHNOLOGY",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G17-010",
+          "name": "GOOGLE_SUPREME_TECHNOLOGY_STORAGE_ECOSYSTEM",
+          "category": "SUPREME_TECHNOLOGY",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        }
+      ]
+    },
+    {
+      "group_id": "G18",
+      "group_name": "BHARAT & GLOBAL",
+      "items": [
+        {
+          "id": "G18-001",
+          "name": "GOOGLE_BHARAT_STORAGE_ECOSYSTEM",
+          "category": "BHARAT",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G18-002",
+          "name": "GOOGLE_INDIA_STORAGE_ECOSYSTEM",
+          "category": "INDIA",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G18-003",
+          "name": "GOOGLE_REGIONAL_STORAGE_ECOSYSTEM",
+          "category": "REGIONAL",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G18-004",
+          "name": "GOOGLE_INTERNATIONAL_STORAGE_ECOSYSTEM",
+          "category": "INTERNATIONAL",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G18-005",
+          "name": "GOOGLE_GLOBAL_STORAGE_ECOSYSTEM",
+          "category": "GLOBAL",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G18-006",
+          "name": "GOOGLE_WORLDWIDE_STORAGE_ECOSYSTEM",
+          "category": "WORLDWIDE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G18-007",
+          "name": "GOOGLE_MULTILINGUAL_STORAGE_ECOSYSTEM",
+          "category": "MULTILINGUAL",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G18-008",
+          "name": "GOOGLE_MULTICULTURAL_STORAGE_ECOSYSTEM",
+          "category": "MULTICULTURAL",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        },
+        {
+          "id": "G18-009",
+          "name": "GOOGLE_GLOBAL_DIGITAL_KNOWLEDGE_STORAGE_ECOSYSTEM",
+          "category": "GLOBAL_DIGITAL_KNOWLEDGE",
+          "provider_product_verified": false,
+          "status": "CATALOG_ONLY"
+        }
+      ]
+    }
+  ],
+  "governance": {
+    "adult_content": "Classify only lawful, consensual, age-appropriate content; enforce access restrictions and jurisdictional law.",
+    "prohibited_content": [
+      "child sexual abuse material",
+      "non-consensual intimate imagery",
+      "sexual exploitation",
+      "trafficking-related content",
+      "unlawful content"
+    ],
+    "privacy": [
+      "data minimization",
+      "purpose limitation",
+      "consent where required",
+      "retention limits",
+      "access controls"
+    ],
+    "security": [
+      "least privilege",
+      "encryption in transit and at rest",
+      "audit logging",
+      "secret manager only"
+    ]
+  }
+}
