@@ -8,7 +8,10 @@ Reusable provider storage foundation. Existing unrelated provider-specific files
 - `ecosystem_registry.py` — thread-safe in-memory metadata registry
 - `ecosystem_config.py` — runtime configuration without embedded secrets
 - `ecosystem_manifest.json` — Bharat-to-global scope and readiness state
+- `platform_links.json` — Bada Business platform destination catalog
+- `course_links.json` — Bada Business Community course destination catalog
+- `links_catalog_README.md` — link catalog documentation
 - `tests/test_foundation.py` — offline foundation tests
 
 ## Readiness
-FOUNDATION_READY means local package code loads. It does not mean an external provider is connected. Production persistence belongs in the central database. Use least privilege, encryption, audit logs, retention controls and jurisdictional compliance. Never commit credentials or personal data.
+FOUNDATION_READY means local package code loads. Stored links are reference metadata, not a live provider connection or proof of account/course access. Production persistence belongs in the central database. Use least privilege, encryption, audit logs, retention controls and jurisdictional compliance. Never commit credentials or personal data.
