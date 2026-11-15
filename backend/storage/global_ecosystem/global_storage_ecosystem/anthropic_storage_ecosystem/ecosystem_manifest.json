@@ -16,17 +16,39 @@
     "anthropic_claude_enterprise_storage_ecosystem",
     "anthropic_claude_code_storage_ecosystem"
   ],
-  "canonical_provider_hierarchy": [
-    "ANTHROPIC",
-    "WHAT_ANTHROPIC_PROVIDES",
-    "STORAGE_ECOSYSTEM"
+  "interfaces": [
+    "PYTHON",
+    "PHP_JSON_INTEROPERABILITY"
   ],
-  "canonical_path": "backend/storage/global_ecosystem/global_storage_ecosystem/anthropic_ecosystem/what_anthropic_provides/storage_ecosystem",
-  "compatibility_path": "backend/storage/global_ecosystem/global_storage_ecosystem/anthropic_storage_ecosystem",
-  "interfaces": ["PYTHON", "PHP_JSON_INTEROPERABILITY"],
-  "geographic_scope": ["BHARAT", "REGIONAL", "GLOBAL"],
-  "coverage_levels": ["LOCAL", "DISTRICT", "STATE", "NATIONAL", "REGIONAL", "INTERNATIONAL", "GLOBAL", "SUPREME"],
-  "maturity_levels": ["NORMAL", "PROFESSIONAL", "ADVANCED", "ENTERPRISE", "SUPREME"],
+  "geographic_scope": [
+    "BHARAT",
+    "SOUTH_ASIA",
+    "ASIA_PACIFIC",
+    "MIDDLE_EAST",
+    "EUROPE",
+    "AFRICA",
+    "NORTH_AMERICA",
+    "SOUTH_AMERICA",
+    "OCEANIA",
+    "GLOBAL"
+  ],
+  "coverage_levels": [
+    "LOCAL",
+    "DISTRICT",
+    "STATE",
+    "NATIONAL",
+    "REGIONAL",
+    "INTERNATIONAL",
+    "GLOBAL",
+    "SUPREME"
+  ],
+  "maturity_levels": [
+    "NORMAL",
+    "PROFESSIONAL",
+    "ADVANCED",
+    "ENTERPRISE",
+    "SUPREME"
+  ],
   "implementation_state": "TAXONOMY_AND_CATALOG_FOUNDATION",
   "external_connection_state": "NOT_CONFIGURED",
   "taxonomy_only": true,
@@ -35,14 +57,6 @@
   "requires_live_health_check": true,
   "requires_end_to_end_tests": true,
   "storage_operations_enabled": false,
-  "adult_only_governance": {
-    "lawful_adult_context_only": true,
-    "age_assurance_required": true,
-    "informed_consent_required": true,
-    "prohibit_minors": true,
-    "prohibit_coercion_exploitation_and_nonconsensual_intimate_imagery": true,
-    "jurisdictional_legal_review_required": true
-  },
   "governance": [
     "PRIVACY",
     "SECURITY",
