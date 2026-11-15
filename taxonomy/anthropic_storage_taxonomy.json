@@ -1,0 +1,33 @@
+{
+  "ecosystem_id": "ANTHROPIC_STORAGE_ECOSYSTEM",
+  "provider": "ANTHROPIC",
+  "child_ecosystems": [
+    "anthropic_claude_storage_ecosystem",
+    "anthropic_claude_projects_storage_ecosystem",
+    "anthropic_claude_artifacts_storage_ecosystem",
+    "anthropic_claude_files_storage_ecosystem",
+    "anthropic_claude_knowledge_storage_ecosystem",
+    "anthropic_claude_connectors_storage_ecosystem",
+    "anthropic_claude_enterprise_storage_ecosystem",
+    "anthropic_claude_code_storage_ecosystem"
+  ],
+  "geographic_scopes": [
+    "BHARAT",
+    "REGIONAL",
+    "GLOBAL"
+  ],
+  "maturity_levels": [
+    "NORMAL",
+    "PROFESSIONAL",
+    "ADVANCED",
+    "ENTERPRISE",
+    "SUPREME"
+  ],
+  "taxonomy_directories": [
+    "domains",
+    "geography",
+    "maturity_levels"
+  ],
+  "implementation_state": "TAXONOMY_AND_PACKAGE_FOUNDATION",
+  "external_connection_state": "NOT_CONFIGURED"
+}

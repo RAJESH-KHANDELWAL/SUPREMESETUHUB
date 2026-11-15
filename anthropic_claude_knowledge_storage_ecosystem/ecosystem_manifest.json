@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "ANTHROPIC_CLAUDE_KNOWLEDGE_STORAGE_ECOSYSTEM",
+  "package_name": "anthropic_claude_knowledge_storage_ecosystem",
+  "provider": "ANTHROPIC",
+  "category": "CLAUDE_KNOWLEDGE",
+  "category_group": "KNOWLEDGE_RETRIEVAL",
+  "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+  "connection_state": "NOT_CONFIGURED",
+  "provider_product_verified": false,
+  "storage_operations_enabled": false,
+  "requires_authorized_integration": true,
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true,
+  "geographic_scope": [
+    "BHARAT",
+    "REGIONAL",
+    "GLOBAL"
+  ],
+  "maturity_levels": [
+    "NORMAL",
+    "PROFESSIONAL",
+    "ADVANCED",
+    "ENTERPRISE",
+    "SUPREME"
+  ],
+  "taxonomy_directories": [
+    "domains",
+    "geography",
+    "maturity_levels"
+  ],
+  "security_baseline": [
+    "LEAST_PRIVILEGE",
+    "ENCRYPTION",
+    "AUDIT_LOGGING",
+    "RETENTION_CONTROLS"
+  ],
+  "notes": "Category namespace only. Product availability and API support require independent verification."
+}

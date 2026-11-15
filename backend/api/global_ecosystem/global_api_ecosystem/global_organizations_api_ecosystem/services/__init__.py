@@ -1,1 +1,0 @@
-"""Organization ecosystem service catalogue."""

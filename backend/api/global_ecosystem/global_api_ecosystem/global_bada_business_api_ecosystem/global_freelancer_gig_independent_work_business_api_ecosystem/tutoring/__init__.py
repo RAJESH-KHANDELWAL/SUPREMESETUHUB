@@ -1,5 +1,0 @@
-"""Independent Tutoring freelance specialization package."""
-SPECIALIZATION_ID = "tutoring"
-SPECIALIZATION_NAME = "Tutoring"
-DOMAIN_ID = "freelance_gig_independent_work"
-DESCRIPTION = "Subject-based instruction, academic support, exam preparation and practical skills tutoring."
