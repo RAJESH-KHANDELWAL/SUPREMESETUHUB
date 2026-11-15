@@ -1,8 +1,0 @@
-{
-  "provider_id": "adobe",
-  "name": "What Adobe Provides",
-  "kind": "PRODUCT_SERVICE_CATALOG",
-  "catalog_source": "Adobe official product portfolio",
-  "api_entitlement_claimed": false,
-  "storage_subtree": "storage_ecosystem"
-}

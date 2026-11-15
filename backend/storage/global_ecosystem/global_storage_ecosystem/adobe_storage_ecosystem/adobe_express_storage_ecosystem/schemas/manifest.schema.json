@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Adobe Express Storage manifest",
+  "type": "object",
+  "required": [
+    "ecosystem_id",
+    "provider",
+    "implementation_state",
+    "external_connection_state"
+  ],
+  "properties": {
+    "ecosystem_id": {
+      "const": "ADOBE_EXPRESS_STORAGE_ECOSYSTEM"
+    },
+    "provider": {
+      "const": "ADOBE"
+    },
+    "implementation_state": {
+      "type": "string"
+    },
+    "external_connection_state": {
+      "enum": [
+        "NOT_CONFIGURED",
+        "CONNECTED",
+        "ERROR"
+      ]
+    },
+    "storage_operations_enabled": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}

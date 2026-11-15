@@ -1,1 +1,0 @@
-"""Adobe storage ecosystem namespace."""

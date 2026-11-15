@@ -1,8 +1,0 @@
-{
-  "provider_id": "adobe",
-  "ecosystem_id": "adobe",
-  "status": "CATALOG_INITIALIZED",
-  "product_family_count": 9,
-  "storage_ecosystem_path": "what_adobe_provides/storage_ecosystem",
-  "live_provider_connection_verified": false
-}
