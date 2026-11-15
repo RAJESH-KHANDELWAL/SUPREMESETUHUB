@@ -1,18 +1,31 @@
 # GOOGLE_PERSONAL_CLOUD_STORAGE_ECOSYSTEM
 
 - **Folder:** `google_personal_cloud_storage_ecosystem/`
-- **Category:** PERSONAL_CLOUD
-- **Group:** PERSONAL_AND_CLOUD_STORAGE
-- **Provider:** Google
+- **Ecosystem ID:** `GOOGLE_PERSONAL_CLOUD_STORAGE_ECOSYSTEM`
+- **Provider:** `GOOGLE`
+- **Category:** `PERSONAL_CLOUD`
+- **Group:** `PERSONAL_AND_CLOUD_STORAGE`
 - **State:** Category foundation scaffold; external connection is not configured.
 
+## Standard package structure
+- `__init__.py` — public package export
+- `ecosystem_config.py` — runtime configuration; no embedded secrets
+- `ecosystem_manifest.json` — canonical identity and readiness state
+- `ecosystem_models.py` — category metadata record with opaque owner reference
+- `ecosystem_registry.py` — thread-safe in-memory metadata registry for development/tests
+- `ecosystem_service.py` — manifest validation, description and health contract
+- `service.py` — category-specific service entry point
+- `api/routes.py` — framework-neutral status and health handlers
+- `models/record.py` — public model export
+- `schemas/manifest.schema.json` — manifest contract
+- `schemas/category_record.schema.json` — metadata record contract
+- `tests/test_foundation.py` — offline foundation tests
+- `php/google_personal_cloud_storage_ecosystem.php` — read-only PHP metadata contract
+
 ## Scope
-Personal cloud storage classification and metadata references. This category is distinct from the Google Cloud developer/infrastructure category. It does not assert a separate Google product or enable live file operations.
+Organizes personal cloud category metadata and opaque ownership references. It stores minimized metadata only, not provider credentials, authentication secrets, cryptographic keys or personal file content. This category namespace does not imply a separate official Google product/API.
 
-## Package contents
-- `__init__.py`, `ecosystem_config.py`, `ecosystem_models.py`, `ecosystem_service.py`, `service.py`
-- `api/routes.py`, `models/record.py`, `schemas/manifest.schema.json`
-- `tests/test_foundation.py`, `php/google_personal_cloud_storage_ecosystem.php`, `ecosystem_manifest.json`
+## Security and integration boundary
+Identity proofing, authentication, consent decisions, cryptographic keys and external provider operations remain owned by their respective services. Apply least privilege, encryption, audit logging, retention controls, data minimization and jurisdictional compliance.
 
-## Safety boundary
-No live provider integration is configured. Do not enable upload, download, delete or synchronization without authorized provider APIs, credentials, live health checks and end-to-end tests. Never commit secrets or personal file content.
+This package is a foundation scaffold, not a live connected service. Do not mark it connected until the exact official provider product/API, authorized integration, live health checks and end-to-end tests are verified. Upload, download, delete and synchronization remain disabled.
