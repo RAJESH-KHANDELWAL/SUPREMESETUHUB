@@ -14,16 +14,20 @@ def test_root_identity_is_google_storage_ecosystem():
     assert result["storage_operations_enabled"] is False
 
 
-def test_taxonomy_and_index_have_unique_matching_folder_count():
-    result = EcosystemService().describe()
-    assert result["category_count"] == 184
+def test_taxonomy_index_full_integrity():
+    result = EcosystemService().validate_catalog()
+    assert result["valid"] is True
+    assert result["taxonomy_group_count"] == 18
+    assert result["taxonomy_category_count"] == 184
     assert result["indexed_folder_count"] == 184
     assert result["unique_folder_count"] == 184
+    assert all(result["checks"].values())
 
 
 def test_health_reports_catalog_consistency_not_provider_connection():
     result = EcosystemService().health()
     assert result["success"] is True
+    assert result["status"] == "CATALOG_READY"
     assert result["external_connection_verified"] is False
 
 
