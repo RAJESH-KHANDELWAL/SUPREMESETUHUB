@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GOOGLE_STORAGE_ECOSYSTEM Root Manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "ecosystem_id",
+    "provider",
+    "package_type",
+    "taxonomy_file",
+    "implementation_state",
+    "external_connection_state",
+    "storage_operations_enabled"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "ecosystem_id": {
+      "const": "GOOGLE_STORAGE_ECOSYSTEM"
+    },
+    "provider": {
+      "const": "GOOGLE"
+    },
+    "package_type": {
+      "const": "STORAGE_TAXONOMY_AND_METADATA_FOUNDATION"
+    },
+    "taxonomy_file": {
+      "const": "taxonomy/google_storage_taxonomy.json"
+    },
+    "implementation_state": {
+      "const": "TAXONOMY_AND_CATALOG_FOUNDATION"
+    },
+    "external_connection_state": {
+      "const": "NOT_CONFIGURED"
+    },
+    "taxonomy_only": {
+      "const": true
+    },
+    "provider_product_verification_required": {
+      "const": true
+    },
+    "requires_authorized_credentials": {
+      "type": "boolean"
+    },
+    "requires_live_health_check": {
+      "type": "boolean"
+    },
+    "requires_end_to_end_tests": {
+      "type": "boolean"
+    },
+    "storage_operations_enabled": {
+      "const": false
+    }
+  },
+  "additionalProperties": true
+}
