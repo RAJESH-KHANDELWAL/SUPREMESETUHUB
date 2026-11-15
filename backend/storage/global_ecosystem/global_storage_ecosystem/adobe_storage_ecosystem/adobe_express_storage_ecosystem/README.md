@@ -1,7 +1,23 @@
 # Adobe Express Storage
 
-Catalog Adobe Express projects, graphics, webpages, videos and brand assets. Preserve project and asset relationships. Do not infer generic file CRUD support from the existence of an Express project.
+Provider: Adobe  
+Storage namespace: `express`  
+Related API family: No dedicated Express storage API asserted in current Adobe API catalog
 
-## Integration boundary
+## Responsibility
+Express project metadata, graphics, brand assets, webpages, videos and published-content references where supported.
 
-This folder owns storage-side catalog and lifecycle metadata only. Adobe API clients, OAuth, scopes, endpoints and API operations are owned by `backend/api/global_ecosystem/global_api_ecosystem/adobe_api_ecosystem/`. This ecosystem remains `NOT_CONFIGURED` until product entitlement, authorization, live health checks and required operations are verified.
+## API boundary
+Verify documented API support and entitlement before implementing any file operation.
+
+OAuth, tokens, scopes, clients, endpoints and external requests belong to `backend/api/global_ecosystem/global_api_ecosystem/adobe_api_ecosystem/`. This package owns normalized storage metadata, object identity, version/lifecycle metadata, registry and readiness contract.
+
+## Files
+- `models.py`: validated storage object metadata
+- `registry.py`: thread-safe in-memory metadata registry (not production persistence)
+- `service.py`: metadata registration and readiness service
+- `manifest.json`: machine-readable scope and status
+- `tests/test_foundation.py`: offline tests
+
+## Status
+Foundation only; external connection `NOT_CONFIGURED`. A healthy local package does not prove entitlement, API availability, OAuth success or working file operations. Production persistence belongs in the central database. Never commit credentials or personal data.
