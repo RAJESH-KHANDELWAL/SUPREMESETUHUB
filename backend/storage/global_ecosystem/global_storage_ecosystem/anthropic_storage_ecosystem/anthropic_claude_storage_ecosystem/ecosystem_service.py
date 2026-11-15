@@ -4,7 +4,7 @@ from .ecosystem_config import get_config, ECOSYSTEM_ID
 class CategoryEcosystemService:
     ecosystem_id = ECOSYSTEM_ID
     category = "CLAUDE"
-    category_group = "PLATFORM"
+    category_group = "CLAUDE_PLATFORM"
     def __init__(self, config: dict | None = None) -> None:
         self.config = dict(config or get_config())
     def describe(self) -> dict[str, Any]:
