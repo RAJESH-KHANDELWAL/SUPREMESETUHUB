@@ -1,2 +1,0 @@
-# Food & Hospitality Coaches
-Profiles for culinary, restaurant operations, food entrepreneurship, hotel management and hospitality coaches. Record experience, qualifications, service scope and verification status.
