@@ -1,2 +1,0 @@
-# Food & Hospitality Advisors
-Profiles for restaurant business, franchise, finance, food compliance and hospitality growth advisors. Distinguish general business guidance from regulated legal, tax or financial advice.

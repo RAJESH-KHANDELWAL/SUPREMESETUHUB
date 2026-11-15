@@ -1,1 +1,0 @@
-"""SERVER provider registration namespace; concrete provider integrations stay isolated."""

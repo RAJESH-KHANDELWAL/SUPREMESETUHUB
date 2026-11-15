@@ -1,4 +1,0 @@
-"""👑 RAJESH KHANDELWAL OFFICIAL 👑 identity package."""
-from .identity import RAJESH_KHANDELWAL_OFFICIAL_BRAND
-
-__all__ = ["RAJESH_KHANDELWAL_OFFICIAL_BRAND"]
