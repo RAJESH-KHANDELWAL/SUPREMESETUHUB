@@ -10,7 +10,7 @@ def utc_now() -> str:
 class CategoryRecord:
     record_id: str
     name: str
-    record_type: str = "CLOUD"
+    record_type: str = "GOOGLE_CLOUD"
     jurisdiction: str = "GLOBAL"
     status: str = "REGISTERED"
     metadata: dict[str, Any] = field(default_factory=dict)

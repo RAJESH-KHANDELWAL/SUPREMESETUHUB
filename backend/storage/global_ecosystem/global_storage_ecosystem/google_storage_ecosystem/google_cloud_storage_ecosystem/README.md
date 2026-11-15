@@ -1,8 +1,8 @@
 # GOOGLE_CLOUD_STORAGE_ECOSYSTEM
 
 - **Folder:** `google_cloud_storage_ecosystem/`
-- **Category:** CLOUD
-- **Group:** PERSONAL_AND_CLOUD_STORAGE
+- **Category:** GOOGLE_CLOUD
+- **Group:** DEVELOPER_AND_INFRASTRUCTURE
 - **Provider:** Google
 - **State:** Category foundation scaffold; external connection is not configured.
 
