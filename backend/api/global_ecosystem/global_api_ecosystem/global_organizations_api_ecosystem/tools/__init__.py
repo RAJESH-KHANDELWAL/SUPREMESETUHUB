@@ -1,1 +1,0 @@
-"""Organization ecosystem tools catalogue."""

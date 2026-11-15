@@ -1,1 +1,0 @@
-"""Central backend model namespace. Domain models remain with their owning domains."""

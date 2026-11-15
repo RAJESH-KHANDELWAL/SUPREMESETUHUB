@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "ATLASSIAN_STORAGE_ECOSYSTEM",
+  "provider": "ATLASSIAN",
+  "implementation_state": "CATALOG_AND_FOUNDATION_INITIALIZED",
+  "external_connection_state": "NOT_CONFIGURED",
+  "external_connections_verified": false,
+  "requires_authorized_credentials": true,
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true,
+  "product_catalog": [
+    {
+      "id": "ATLASSIAN_JIRA",
+      "package": "atlassian_jira_storage_ecosystem",
+      "name": "Jira",
+      "status": "CATALOG_ONLY",
+      "external_connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "id": "ATLASSIAN_CONFLUENCE",
+      "package": "atlassian_confluence_storage_ecosystem",
+      "name": "Confluence",
+      "status": "CATALOG_ONLY",
+      "external_connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "id": "ATLASSIAN_BITBUCKET",
+      "package": "atlassian_bitbucket_storage_ecosystem",
+      "name": "Bitbucket",
+      "status": "CATALOG_ONLY",
+      "external_connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "id": "ATLASSIAN_TRELLO",
+      "package": "atlassian_trello_storage_ecosystem",
+      "name": "Trello",
+      "status": "CATALOG_ONLY",
+      "external_connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "id": "ATLASSIAN_JIRA_SERVICE_MANAGEMENT",
+      "package": "atlassian_jira_service_management_storage_ecosystem",
+      "name": "Jira Service Management",
+      "status": "CATALOG_ONLY",
+      "external_connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "id": "ATLASSIAN_JIRA_PRODUCT_DISCOVERY",
+      "package": "atlassian_jira_product_discovery_storage_ecosystem",
+      "name": "Jira Product Discovery",
+      "status": "CATALOG_ONLY",
+      "external_connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "id": "ATLASSIAN_COMPASS",
+      "package": "atlassian_compass_storage_ecosystem",
+      "name": "Compass",
+      "status": "CATALOG_ONLY",
+      "external_connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "id": "ATLASSIAN_BAMBOO",
+      "package": "atlassian_bamboo_storage_ecosystem",
+      "name": "Bamboo",
+      "status": "CATALOG_ONLY",
+      "external_connection_state": "NOT_CONFIGURED"
+    }
+  ],
+  "geographic_scope": [
+    "BHARAT",
+    "REGIONAL",
+    "GLOBAL"
+  ],
+  "maturity_levels": [
+    "NORMAL",
+    "PROFESSIONAL",
+    "ADVANCED",
+    "ENTERPRISE",
+    "SUPREME"
+  ],
+  "governance": [
+    "LEAST_PRIVILEGE",
+    "PRIVACY",
+    "ENCRYPTION",
+    "AUDIT",
+    "RETENTION",
+    "DATA_MINIMIZATION",
+    "JURISDICTIONAL_COMPLIANCE"
+  ]
+}

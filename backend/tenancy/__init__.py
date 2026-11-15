@@ -1,1 +1,0 @@
-"""Central tenancy package."""
