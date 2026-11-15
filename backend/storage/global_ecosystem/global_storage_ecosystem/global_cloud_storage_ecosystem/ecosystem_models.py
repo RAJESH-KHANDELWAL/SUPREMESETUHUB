@@ -1,4 +1,4 @@
-"""Typed storage catalog records; no provider API behaviour."""
+"""Typed storage catalog records; provider operations live outside this package."""
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Any
@@ -10,6 +10,8 @@ def utc_now() -> str:
 
 @dataclass
 class CloudStorageRecord:
+    """Catalog metadata for a provider/service; not a live connection record."""
+
     record_id: str
     provider_id: str
     storage_type: str
@@ -24,4 +26,7 @@ class CloudStorageRecord:
             if not str(getattr(self, field_name)).strip():
                 raise ValueError(f"{field_name} is required")
         if self.connection_state != "NOT_CONFIGURED":
-            raise ValueError("Provider connection state requires a separately verified integration")
+            raise ValueError(
+                "Provider connection state requires a separately authorized "
+                "and verified integration"
+            )
