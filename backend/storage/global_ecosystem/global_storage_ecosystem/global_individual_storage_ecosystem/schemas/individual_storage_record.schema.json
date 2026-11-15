@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Individual Storage Metadata Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_id",
+    "record_type",
+    "name",
+    "owner_ref"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Opaque internal record identifier"
+    },
+    "record_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Non-sensitive display label; avoid direct identifiers"
+    },
+    "owner_ref": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Opaque reference owned by identity service"
+    },
+    "jurisdiction": {
+      "type": "string",
+      "default": "GLOBAL"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "REGISTERED",
+        "ACTIVE",
+        "ARCHIVED",
+        "PENDING_DELETION",
+        "DELETED"
+      ]
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Minimized non-secret metadata"
+    },
+    "consent_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Reference only; consent decisions belong to consent service"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
