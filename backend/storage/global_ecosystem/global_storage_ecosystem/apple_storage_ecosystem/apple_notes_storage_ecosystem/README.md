@@ -1,4 +1,4 @@
-# Apple Notes Storage Ecosystem Storage Ecosystem
+# Apple Notes Storage Ecosystem
 
 ## Purpose
 Apple Notes note and folder metadata, attachment references, tags, organization, export and lifecycle classification. Do not claim direct Notes database or cloud access without a supported authorized integration.

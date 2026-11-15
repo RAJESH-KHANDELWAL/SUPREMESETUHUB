@@ -1,4 +1,4 @@
-# Apple Notes Storage Ecosystem Maturity Levels
+# Apple Notes Maturity Levels
 
 Organizational classification levels:
 - `normal/`

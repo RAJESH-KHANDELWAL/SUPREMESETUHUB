@@ -1,4 +1,4 @@
-# Apple Photos Storage Ecosystem Storage Ecosystem
+# Apple Photos Storage Ecosystem
 
 ## Purpose
 Apple Photos library metadata, albums, asset references, media types, metadata, sharing and lifecycle classification. Access is permission-gated and must respect privacy, consent and media rights.

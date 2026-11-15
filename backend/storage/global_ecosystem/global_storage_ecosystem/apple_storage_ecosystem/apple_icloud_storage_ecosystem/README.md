@@ -1,4 +1,4 @@
-# Apple iCloud Storage Ecosystem Storage Ecosystem
+# Apple iCloud Storage Ecosystem
 
 ## Purpose
 High-level iCloud account storage categories, quota and usage metadata, service availability declarations and product relationships. This is a provider-level catalog, not an API for arbitrary personal iCloud data.

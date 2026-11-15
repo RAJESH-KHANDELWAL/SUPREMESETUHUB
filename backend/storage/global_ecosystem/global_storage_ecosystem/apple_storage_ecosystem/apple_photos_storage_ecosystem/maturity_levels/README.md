@@ -1,4 +1,4 @@
-# Apple Photos Storage Ecosystem Maturity Levels
+# Apple Photos Maturity Levels
 
 Organizational classification levels:
 - `normal/`

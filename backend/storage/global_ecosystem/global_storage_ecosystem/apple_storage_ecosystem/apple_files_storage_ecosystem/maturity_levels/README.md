@@ -1,4 +1,4 @@
-# Apple Files Storage Ecosystem Maturity Levels
+# Apple Files Maturity Levels
 
 Organizational classification levels:
 - `normal/`

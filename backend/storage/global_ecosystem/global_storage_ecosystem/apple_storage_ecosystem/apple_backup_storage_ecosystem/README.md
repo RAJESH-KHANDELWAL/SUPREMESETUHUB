@@ -1,4 +1,4 @@
-# Apple Backup Storage Ecosystem Storage Ecosystem
+# Apple Backup Storage Ecosystem
 
 ## Purpose
 Apple device backup and restore metadata, backup inventory, retention declarations, recovery-point metadata and device ownership references. Do not imply direct iCloud backup access or restore capability without a documented, authorized interface.

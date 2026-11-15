@@ -1,4 +1,4 @@
-# Apple iCloud Drive Storage Ecosystem Storage Ecosystem
+# Apple iCloud Drive Storage Ecosystem
 
 ## Purpose
 iCloud Drive file and folder metadata, document organization, synchronization state declarations, sharing references and lifecycle classification. Do not assume a general-purpose public iCloud Drive API exists.

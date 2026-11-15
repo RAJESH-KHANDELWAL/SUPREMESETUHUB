@@ -1,4 +1,4 @@
-# Apple Enterprise Storage Ecosystem Maturity Levels
+# Apple Enterprise Maturity Levels
 
 Organizational classification levels:
 - `normal/`

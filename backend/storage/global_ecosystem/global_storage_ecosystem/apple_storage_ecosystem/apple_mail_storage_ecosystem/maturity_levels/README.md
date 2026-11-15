@@ -1,4 +1,4 @@
-# Apple Mail Storage Ecosystem Maturity Levels
+# Apple Mail Maturity Levels
 
 Organizational classification levels:
 - `normal/`

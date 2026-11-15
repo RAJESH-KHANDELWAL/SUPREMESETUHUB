@@ -1,4 +1,4 @@
-# Apple Enterprise Storage Ecosystem Storage Ecosystem
+# Apple Enterprise Storage Ecosystem
 
 ## Purpose
 Organization-managed Apple storage contexts, managed Apple IDs, device-management references, policy metadata, organizational ownership and compliance evidence. MDM and Apple Business Manager integrations remain separate authorized integration layers.

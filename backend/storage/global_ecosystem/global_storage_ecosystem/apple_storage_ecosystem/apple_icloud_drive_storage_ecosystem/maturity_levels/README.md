@@ -1,4 +1,4 @@
-# Apple iCloud Drive Storage Ecosystem Maturity Levels
+# Apple iCloud Drive Maturity Levels
 
 Organizational classification levels:
 - `normal/`

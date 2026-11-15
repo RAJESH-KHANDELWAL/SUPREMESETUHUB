@@ -1,4 +1,4 @@
-# Apple Enterprise Storage Ecosystem Geography Taxonomy
+# Apple Enterprise Geography Taxonomy
 
 - `bharat/`: India, including state, union-territory, district, city, town and village references.
 - `regional/`: South Asia and other recognized world regions.

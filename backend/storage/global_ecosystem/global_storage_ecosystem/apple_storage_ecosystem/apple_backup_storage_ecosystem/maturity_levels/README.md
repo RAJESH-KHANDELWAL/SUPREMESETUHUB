@@ -1,4 +1,4 @@
-# Apple Backup Storage Ecosystem Maturity Levels
+# Apple Backup Maturity Levels
 
 Organizational classification levels:
 - `normal/`

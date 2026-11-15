@@ -1,4 +1,4 @@
-# Apple Backup Storage Ecosystem Geography Taxonomy
+# Apple Backup Geography Taxonomy
 
 - `bharat/`: India, including state, union-territory, district, city, town and village references.
 - `regional/`: South Asia and other recognized world regions.

@@ -1,4 +1,4 @@
-# Apple Mail Storage Ecosystem Storage Ecosystem
+# Apple Mail Storage Ecosystem
 
 ## Purpose
 Apple Mail account references, mailbox/folder metadata, message and attachment classification, synchronization declarations, retention and export workflows. Mail access requires a supported account protocol or authorized provider integration.

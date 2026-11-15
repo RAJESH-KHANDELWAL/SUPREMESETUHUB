@@ -1,4 +1,4 @@
-# Apple Files Storage Ecosystem Storage Ecosystem
+# Apple Files Storage Ecosystem
 
 ## Purpose
 Files app document inventory, provider references, folder metadata, document lifecycle and file-provider workflow classification. Actual access depends on the selected provider, OS permissions and user authorization.
