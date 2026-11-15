@@ -1,36 +1,44 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "ecosystem_id": "GLOBAL_CLOUD_STORAGE_ECOSYSTEM",
   "categories": [
     {
       "category_id": "OBJECT_BLOB_STORAGE",
       "name": "Object and Blob Storage",
-      "path": "categories/global_cloud_object_blob_storage_ecosystem"
+      "path": "categories/global_cloud_object_blob_storage_ecosystem",
+      "subcategory_count": 6
     },
     {
       "category_id": "FILE_STORAGE",
       "name": "Cloud File Storage",
-      "path": "categories/global_cloud_file_storage_ecosystem"
+      "path": "categories/global_cloud_file_storage_ecosystem",
+      "subcategory_count": 6
     },
     {
       "category_id": "BLOCK_VOLUME_STORAGE",
       "name": "Block and Volume Storage",
-      "path": "categories/global_cloud_block_volume_storage_ecosystem"
+      "path": "categories/global_cloud_block_volume_storage_ecosystem",
+      "subcategory_count": 6
     },
     {
       "category_id": "BACKUP_ARCHIVE_STORAGE",
       "name": "Backup and Archive Storage",
-      "path": "categories/global_cloud_backup_archive_storage_ecosystem"
+      "path": "categories/global_cloud_backup_archive_storage_ecosystem",
+      "subcategory_count": 6
     },
     {
       "category_id": "HYBRID_MULTI_CLOUD_STORAGE",
       "name": "Hybrid and Multi-Cloud Storage",
-      "path": "categories/global_cloud_hybrid_multi_cloud_storage_ecosystem"
+      "path": "categories/global_cloud_hybrid_multi_cloud_storage_ecosystem",
+      "subcategory_count": 6
     },
     {
       "category_id": "GOVERNANCE_OBSERVABILITY",
       "name": "Storage Governance and Observability",
-      "path": "categories/global_cloud_storage_governance_observability_storage_ecosystem"
+      "path": "categories/global_cloud_storage_governance_observability_storage_ecosystem",
+      "subcategory_count": 6
     }
-  ]
+  ],
+  "subcategory_count": 36,
+  "subcategory_architecture": "Six canonical storage categories, each with six independent subcategory ecosystem packages and a category-local subcategory_index.json."
 }
