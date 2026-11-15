@@ -1,7 +1,21 @@
-# Apple Photos Storage Ecosystem
+# Apple Photos Storage Ecosystem Storage Ecosystem
 
-Apple child storage taxonomy partition for SUPREMESETUHUB.
+## Purpose
+Apple Photos library metadata, albums, asset references, media types, metadata, sharing and lifecycle classification. Access is permission-gated and must respect privacy, consent and media rights.
 
-Apple Photos library and media taxonomy. This namespace contains the shared `domains/`, `geography/` and `maturity_levels/` classifications. It is a catalog/scaffolding layer, not evidence of a dedicated Apple storage API or live account connection.
+## Package boundary
+This child package owns the product-specific storage taxonomy and metadata classification for `APPLE_PHOTOS`. It remains under the canonical `apple_storage_ecosystem/` parent. Shared backend infrastructure, central persistence, credentials and Apple API clients are not duplicated here.
 
-Integration state: `NOT_CONFIGURED`. Verify Apple product availability, account entitlements, documented interfaces, permissions, regional restrictions and authorized read/write behavior before marking any capability CONNECTED. Do not store credentials or personal data in this catalog.
+## Classification directories
+- `domains/` — applicable business and personal-use domains; classification only
+- `geography/` — Bharat, regional and global jurisdiction references
+- `maturity_levels/` — normal, professional, advanced, enterprise and supreme organizational maturity labels
+
+## Integration boundary
+Provider API support, product availability, account entitlement, authorization scopes, regional restrictions and permitted data operations must be independently verified. Do not assume this product has a public API for arbitrary personal data. Keep connection state `NOT_CONFIGURED` and storage operations disabled until supported interfaces, authorization, live health checks and end-to-end tests are confirmed.
+
+## Security
+Apply least privilege, encryption, secure secret management, audit logs, data minimization, retention/deletion controls, consent and applicable jurisdictional requirements. Never commit credentials, tokens or personal content.
+
+## Readiness
+`CATEGORY_FOUNDATION_SCAFFOLD` describes catalog documentation only; it is not a live connection or working upload/download/sync/delete/backup/restore implementation.

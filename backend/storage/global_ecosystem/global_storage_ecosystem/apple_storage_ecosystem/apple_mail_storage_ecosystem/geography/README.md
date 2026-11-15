@@ -1,7 +1,7 @@
-# Apple Geography Taxonomy
+# Apple Mail Storage Ecosystem Geography Taxonomy
 
-- `bharat/`: India and its state, union-territory, district, city, town and village hierarchy.
+- `bharat/`: India, including state, union-territory, district, city, town and village references.
 - `regional/`: South Asia and other recognized world regions.
-- `global/`: countries and worldwide scope.
+- `global/`: country and worldwide jurisdiction references.
 
-Apple product availability, iCloud data residency, regional restrictions, legal permissions and service terms must be verified for each jurisdiction.
+Product availability, account eligibility, data residency, export controls, service terms and legal permissions must be verified for each applicable jurisdiction. Geographic labels do not prove service availability.

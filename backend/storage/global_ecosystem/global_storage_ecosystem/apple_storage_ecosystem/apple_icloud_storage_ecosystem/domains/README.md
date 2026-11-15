@@ -1,7 +1,5 @@
-# Apple Domain Taxonomy
+# Apple iCloud Storage Ecosystem Domain Taxonomy
 
-Provider-neutral classification for Apple-related storage use cases, including technology, business, finance, education, science, healthcare, health and wellness, culture, government, law, media, entertainment, travel, family and personal productivity.
+This directory classifies use cases and metadata associated with Apple iCloud Storage Ecosystem. Relevant domains may include personal productivity, family, education, business, government, law, finance, science, technology, culture, media, entertainment, travel and health/wellness where applicable to the product's purpose.
 
-Adult-only classifications, where legally applicable, require robust age assurance, informed consent, privacy/security controls, reporting and takedown, retention limits and jurisdiction-specific legal review. Prohibit minors, coercion, exploitation and non-consensual intimate imagery.
-
-These labels describe catalog scope only. They do not authorize hosting, generation, storage, synchronization or distribution, and do not imply Apple supports a corresponding API or data category.
+Domain labels are organizational metadata only. They do not authorize collection, access, synchronization, storage, processing or distribution of user content. Apply privacy, consent, age-appropriate safeguards, content rights and jurisdiction-specific controls.
