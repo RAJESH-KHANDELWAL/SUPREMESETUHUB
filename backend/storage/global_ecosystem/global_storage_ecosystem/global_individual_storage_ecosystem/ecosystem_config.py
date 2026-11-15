@@ -1,14 +1,14 @@
-"""Runtime configuration; secrets must come from an approved secret manager."""
+"""Runtime configuration for GLOBAL_INDIVIDUAL_STORAGE_ECOSYSTEM; never store secrets in source."""
 import os
 
-PACKAGE_ID = __package__.rsplit('.', 1)[-1]
-ENV_PREFIX = PACKAGE_ID.upper().replace('-', '_')
+ECOSYSTEM_ID = "GLOBAL_INDIVIDUAL_STORAGE_ECOSYSTEM"
+ENV_PREFIX = ECOSYSTEM_ID
 
 
 def get_config() -> dict:
     return {
-        'enabled': os.getenv(f'{ENV_PREFIX}_ENABLED', 'true').lower() == 'true',
-        'environment': os.getenv('APP_ENV', 'development'),
-        'credentials_configured': False,
-        'secret_source': 'runtime_environment_or_secret_manager',
+        "enabled": os.getenv(f"{ENV_PREFIX}_ENABLED", "true").lower() == "true",
+        "environment": os.getenv("APP_ENV", "development"),
+        "connection_state": "NOT_CONFIGURED",
+        "credentials_configured": False,
     }
