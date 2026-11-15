@@ -1,14 +1,40 @@
-# GLOBAL CLOUD STORAGE ECOSYSTEM — FOUNDATION
+# GLOBAL CLOUD STORAGE ECOSYSTEM — PACKAGE FOUNDATION
 
-## Package ownership
-Storage owns canonical provider/service identity, metadata schemas, storage taxonomy, lifecycle definitions and health contracts. API/integration modules own external authentication and network operations. The central database owns durable operational persistence.
+## 1. Package ownership
+The GLOBAL CLOUD STORAGE ECOSYSTEM package owns:
+- Canonical cloud-storage provider and service identity
+- Storage taxonomy and category vocabulary
+- Storage metadata schemas and catalog records
+- Object and file lifecycle definitions
+- Storage health metadata and readiness contracts
 
-## Standard provider namespace
-Each provider package contains its own manifest, config, metadata models, service contract, API boundary placeholder, model namespace, JSON schema, PHP metadata reader and offline tests. These files do not implement provider SDK calls.
+Provider authentication, SDK clients, external API calls, and real storage operations belong to dedicated API/integration packages. Durable production persistence belongs to the central database layer.
 
-## Safety and readiness
-- Default connection state: `NOT_CONFIGURED`.
-- External connectivity verification: `false`.
-- Storage operations: disabled until a separate authorized integration is implemented and tested.
-- Never store secrets or user file contents in this catalog.
-- Do not infer availability or supported regions from a namespace existing in this repository.
+## 2. Standard provider namespace
+A future provider-specific package may contain:
+- Provider manifest and configuration
+- Provider metadata models and JSON schemas
+- Provider service contract
+- API/integration boundary
+- Provider model namespace
+- Offline contract and validation tests
+- Optional PHP metadata reader where required by the repository architecture
+
+A provider namespace is a catalog/contract boundary. Its presence does not imply that an SDK integration exists or that a provider account is connected.
+
+## 3. Readiness contract
+- Foundation state: `FOUNDATION_READY` after local initialization.
+- Default provider connection state: `NOT_CONFIGURED`.
+- External connectivity verified: `false`.
+- Storage operations enabled: `false`.
+- Region and account entitlement: unverified until checked.
+- Credentials: supplied only through an approved external secret manager.
+
+## 4. Verification required before activation
+A future provider integration must have explicit authorization, least-privilege credentials, a successful live health check, and end-to-end tests for each operation it exposes. Record provider limitations and supported regions from verified evidence.
+
+## 5. Security requirements
+Never commit credentials, access tokens, private keys, personal data, customer file contents, or production secrets. Keep external operations outside this catalog package.
+
+## 6. Meaning of readiness
+`FOUNDATION_READY` describes the local metadata foundation only. It must never be presented as proof of provider connectivity, service availability, or working upload/download/delete operations.
