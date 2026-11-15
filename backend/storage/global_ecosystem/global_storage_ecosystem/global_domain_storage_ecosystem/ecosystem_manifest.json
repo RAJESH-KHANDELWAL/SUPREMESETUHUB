@@ -21,6 +21,8 @@
     "GLOBAL_DOMAIN_TRANSFER_AND_MIGRATION_STORAGE_ECOSYSTEM",
     "GLOBAL_GEOGRAPHICAL_DOMAIN_STORAGE_ECOSYSTEM"
   ],
+  "taxonomy_file": "taxonomy/global_domain_storage_taxonomy.json",
+  "category_index_file": "category_index.json",
   "geographic_scope": [
     "BHARAT",
     "SOUTH_ASIA",
@@ -50,6 +52,7 @@
   "requires_authorized_credentials": true,
   "requires_live_health_check": true,
   "requires_end_to_end_tests": true,
+  "api_operations_owned_elsewhere": true,
   "governance": [
     "PRIVACY",
     "SECURITY",
