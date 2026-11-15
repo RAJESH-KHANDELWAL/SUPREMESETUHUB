@@ -24,7 +24,7 @@ def test_category_identity_and_safe_defaults():
     assert result["storage_operations_enabled"] is False
 
 
-def test_health_validates_taxonomy_and_index():
+def test_health_validates_full_foundation_contract():
     result = CategoryEcosystemService().health()
     assert result["success"] is True
     assert result["status"] == "FOUNDATION_READY"
@@ -32,6 +32,7 @@ def test_health_validates_taxonomy_and_index():
     assert result["storage_operations_enabled"] is False
     assert result["catalog_validation"]["taxonomy_category_count"] == 17
     assert result["catalog_validation"]["indexed_category_count"] == 17
+    assert result["catalog_validation"]["taxonomy_group_count"] > 0
     assert all(result["catalog_validation"]["checks"].values())
 
 
@@ -40,8 +41,12 @@ def test_manifest_and_schema_are_valid_json_and_aligned():
     schema = json.loads((PACKAGE_DIR / "schemas" / "manifest.schema.json").read_text(encoding="utf-8"))
     assert manifest["ecosystem_id"] == schema["properties"]["ecosystem_id"]["const"]
     assert manifest["package_name"] == schema["properties"]["package_name"]["const"]
+    assert manifest["provider"] == schema["properties"]["provider"]["const"]
+    assert manifest["category"] == schema["properties"]["category"]["const"]
+    assert manifest["category_group"] == schema["properties"]["category_group"]["const"]
     assert manifest["taxonomy_file"] == "taxonomy/global_individual_storage_taxonomy.json"
     assert manifest["category_index_file"] == "category_index.json"
+    assert manifest["storage_operations_enabled"] is False
 
 
 def test_record_requires_opaque_owner_reference():
