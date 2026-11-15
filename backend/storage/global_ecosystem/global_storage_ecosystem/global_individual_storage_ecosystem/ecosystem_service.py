@@ -14,6 +14,8 @@ MANIFEST_PATH = PACKAGE_DIR / "ecosystem_manifest.json"
 
 class CategoryEcosystemService:
     ecosystem_id = ECOSYSTEM_ID
+    package_name = "global_individual_storage_ecosystem"
+    provider = "GLOBAL_INDIVIDUAL"
     category = "INDIVIDUAL"
     category_group = "PERSONAL_AND_INDIVIDUAL_STORAGE"
 
@@ -29,33 +31,42 @@ class CategoryEcosystemService:
         return value
 
     def validate_catalog(self) -> dict[str, Any]:
-        """Check manifest, taxonomy and category index agree with one another."""
+        """Validate canonical identity, catalog integrity and disabled operations."""
         try:
             manifest = self._load_json(MANIFEST_PATH)
             taxonomy = self._load_json(TAXONOMY_PATH)
             index = self._load_json(INDEX_PATH)
+            taxonomy_groups = taxonomy.get("categories", [])
             taxonomy_items = [
                 item
-                for group in taxonomy.get("categories", [])
+                for group in taxonomy_groups
                 for item in group.get("items", [])
             ]
             indexed_items = index.get("categories", [])
             unique_items = set(indexed_items)
             checks = {
-                "manifest_identity": manifest.get("ecosystem_id") == ECOSYSTEM_ID,
+                "manifest_ecosystem_id": manifest.get("ecosystem_id") == self.ecosystem_id,
+                "manifest_package": manifest.get("package_name") == self.package_name,
+                "manifest_provider": manifest.get("provider") == self.provider,
                 "manifest_category": manifest.get("category") == self.category,
-                "manifest_group": manifest.get("category_group") == self.category_group,
-                "taxonomy_identity": taxonomy.get("root") == ECOSYSTEM_ID,
-                "index_identity": index.get("ecosystem_id") == ECOSYSTEM_ID,
+                "manifest_category_group": manifest.get("category_group") == self.category_group,
+                "implementation_state": manifest.get("implementation_state") == "CATEGORY_FOUNDATION_SCAFFOLD",
+                "taxonomy_identity": taxonomy.get("root") == self.ecosystem_id,
+                "index_identity": index.get("ecosystem_id") == self.ecosystem_id,
                 "taxonomy_index_match": sorted(taxonomy_items) == sorted(indexed_items),
                 "index_count_match": index.get("category_count") == len(indexed_items),
                 "no_duplicate_categories": len(unique_items) == len(indexed_items),
-                "operations_disabled": manifest.get("storage_operations_enabled") is False,
                 "connection_unconfigured": manifest.get("connection_state") == "NOT_CONFIGURED",
+                "provider_product_unverified": manifest.get("provider_product_verified") is False,
+                "operations_disabled": manifest.get("storage_operations_enabled") is False,
+                "authorized_integration_required": manifest.get("requires_authorized_integration") is True,
+                "live_health_check_required": manifest.get("requires_live_health_check") is True,
+                "end_to_end_tests_required": manifest.get("requires_end_to_end_tests") is True,
             }
             return {
                 "valid": all(checks.values()),
                 "checks": checks,
+                "taxonomy_group_count": len(taxonomy_groups),
                 "taxonomy_category_count": len(taxonomy_items),
                 "indexed_category_count": len(indexed_items),
                 "unique_category_count": len(unique_items),
@@ -65,6 +76,7 @@ class CategoryEcosystemService:
                 "valid": False,
                 "checks": {"catalog_files_readable": False},
                 "error": str(exc),
+                "taxonomy_group_count": 0,
                 "taxonomy_category_count": 0,
                 "indexed_category_count": 0,
                 "unique_category_count": 0,
@@ -74,11 +86,13 @@ class CategoryEcosystemService:
         validation = self.validate_catalog()
         return {
             "ecosystem_id": self.ecosystem_id,
-            "provider": "GLOBAL_INDIVIDUAL",
+            "package_name": self.package_name,
+            "provider": self.provider,
             "category": self.category,
             "category_group": self.category_group,
             "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
             "catalog_validation": "VALID" if validation["valid"] else "INVALID",
+            "taxonomy_group_count": validation["taxonomy_group_count"],
             "taxonomy_category_count": validation["taxonomy_category_count"],
             "connection_state": "NOT_CONFIGURED",
             "provider_product_verified": False,
@@ -96,5 +110,4 @@ class CategoryEcosystemService:
         }
 
 
-# Preserve the earlier service import while standardizing the category contract.
 EcosystemService = CategoryEcosystemService
