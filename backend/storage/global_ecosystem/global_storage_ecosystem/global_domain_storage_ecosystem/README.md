@@ -11,7 +11,7 @@ Storage-owned taxonomy and metadata foundation for the global domain-name ecosys
 
 ## Domain storage capability catalogs
 
-The broader domain storage taxonomy also contains backup and recovery, business and enterprise domains, content classification and policy, data transfer and migration, developer and platform domains, lifecycle management, security and certificates, geographical scope, and domain levels.
+Additional capability catalogs are organized as dedicated global domain storage ecosystems: GLOBAL_BUSINESS_AND_ENTERPRISE_DOMAINS_STORAGE_ECOSYSTEM, GLOBAL_CONTENT_CLASSIFICATION_AND_POLICY_STORAGE_ECOSYSTEM, GLOBAL_DEVELOPER_AND_PLATFORM_DOMAINS_STORAGE_ECOSYSTEM, GLOBAL_DNS_AND_NAMESERVER_MANAGEMENT_STORAGE_ECOSYSTEM, GLOBAL_DOMAIN_BACKUP_AND_RECOVERY_STORAGE_ECOSYSTEM, GLOBAL_DOMAIN_HOSTING_AND_INFRASTRUCTURE_STORAGE_ECOSYSTEM, GLOBAL_DOMAIN_LEVELS_STORAGE_ECOSYSTEM, GLOBAL_DOMAIN_LIFECYCLE_MANAGEMENT_STORAGE_ECOSYSTEM, GLOBAL_DOMAIN_PORTFOLIO_AND_IDENTITY_STORAGE_ECOSYSTEM, GLOBAL_DOMAIN_REGISTRATION_AND_ACQUISITION_STORAGE_ECOSYSTEM, GLOBAL_DOMAIN_SECURITY_AND_CERTIFICATES_STORAGE_ECOSYSTEM, GLOBAL_DOMAIN_TRANSFER_AND_MIGRATION_STORAGE_ECOSYSTEM, GLOBAL_GEOGRAPHICAL_DOMAIN_STORAGE_ECOSYSTEM.
 
 ## Architecture boundary
 
