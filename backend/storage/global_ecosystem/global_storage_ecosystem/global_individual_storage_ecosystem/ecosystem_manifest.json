@@ -1,7 +1,18 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "ecosystem_id": "GLOBAL_INDIVIDUAL_STORAGE_ECOSYSTEM",
-  "provider": "GLOBAL INDIVIDUAL",
+  "display_name": "GLOBAL INDIVIDUAL Storage Ecosystem",
+  "owner_domain": "INDIVIDUAL_STORAGE",
+  "responsibility": [
+    "INDIVIDUAL_STORAGE_IDENTITY_REFERENCES",
+    "PERSONAL_FILE_METADATA",
+    "PERSONAL_MEDIA_METADATA",
+    "LIFECYCLE_METADATA",
+    "RETENTION_REFERENCES",
+    "CONSENT_REFERENCES",
+    "STORAGE_HEALTH_CONTRACTS"
+  ],
+  "taxonomy_file": "taxonomy/global_individual_storage_taxonomy.json",
   "geographic_scope": [
     "BHARAT",
     "SOUTH_ASIA",
@@ -12,7 +23,6 @@
     "NORTH_AMERICA",
     "SOUTH_AMERICA",
     "OCEANIA",
-    "ANTARCTICA",
     "GLOBAL"
   ],
   "coverage_levels": [
@@ -22,15 +32,35 @@
     "NATIONAL",
     "REGIONAL",
     "INTERNATIONAL",
-    "GLOBAL",
-    "SUPREME"
+    "GLOBAL"
   ],
-  "implementation_state": "FOUNDATION_INITIALIZED",
+  "implementation_state": "FOUNDATION_READY",
   "external_connection_state": "NOT_CONFIGURED",
-  "taxonomy_only": true,
+  "external_connections_verified": false,
+  "provider_integrations_enabled": false,
+  "storage_operations_enabled": false,
   "requires_authorized_credentials": true,
   "requires_live_health_check": true,
   "requires_end_to_end_tests": true,
+  "privacy_controls": [
+    "DATA_MINIMIZATION",
+    "PURPOSE_LIMITATION",
+    "OPAQUE_IDENTIFIERS",
+    "ENCRYPTION",
+    "LEAST_PRIVILEGE",
+    "AUDIT_LOGGING",
+    "RETENTION_AND_DELETION",
+    "CONSENT_REFERENCE_VALIDATION",
+    "JURISDICTIONAL_COMPLIANCE"
+  ],
+  "data_boundary": {
+    "identity_proofing": "OWNED_BY_IDENTITY_SERVICE",
+    "authentication": "OWNED_BY_AUTH_SERVICE",
+    "consent_decisions": "OWNED_BY_CONSENT_AUTHORIZATION_SERVICE",
+    "cryptographic_keys": "OWNED_BY_KEY_MANAGEMENT_SERVICE",
+    "external_storage_operations": "OWNED_BY_PROVIDER_ADAPTERS",
+    "personal_file_content": "NOT_STORED_IN_THIS_FOUNDATION"
+  },
   "governance": [
     "PRIVACY",
     "SECURITY",
