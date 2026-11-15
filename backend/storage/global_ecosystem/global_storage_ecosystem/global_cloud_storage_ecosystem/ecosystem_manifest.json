@@ -46,7 +46,7 @@
     "provider_api_and_authentication_owner": "API_INTEGRATION_LAYER",
     "durable_persistence_owner": "CENTRAL_DATABASE"
   },
-  "category_count": 6,
+  "category_count": 38,
   "provider_catalog_only": true,
   "foundation_state": "FOUNDATION_READY",
   "connection_state": "NOT_CONFIGURED",
@@ -71,5 +71,8 @@
     "commit_credentials": false,
     "commit_personal_data": false,
     "commit_customer_file_contents": false
-  }
+  },
+  "category_folder_count": 38,
+  "category_group_count": 6,
+  "category_index_path": "category_index.json"
 }
