@@ -1,53 +1,36 @@
 {
-  "schema_version": "1.0.0",
-  "ecosystem_id": "DERIVED_FROM_DIRECTORY_NAME",
-  "geographic_scope": [
-    "Bharat",
-    "South Asia",
-    "Central Asia",
-    "Asia-Pacific",
-    "Middle East",
-    "Europe",
-    "Africa",
-    "North America",
-    "Latin America",
-    "South America",
-    "Oceania",
-    "Global"
+  "schema_version": "1.1.0",
+  "ecosystem_id": "APPLE_STORAGE_ECOSYSTEM",
+  "provider": "APPLE",
+  "child_storage_ecosystems": [
+    "apple_icloud_storage_ecosystem",
+    "apple_icloud_drive_storage_ecosystem",
+    "apple_photos_storage_ecosystem",
+    "apple_mail_storage_ecosystem",
+    "apple_notes_storage_ecosystem",
+    "apple_files_storage_ecosystem",
+    "apple_backup_storage_ecosystem",
+    "apple_enterprise_storage_ecosystem"
   ],
-  "coverage_levels": [
-    "NORMAL",
-    "PROFESSIONAL",
-    "ADVANCED",
-    "ENTERPRISE",
-    "SUPREME"
+  "geographic_scope": ["BHARAT", "REGIONAL", "GLOBAL"],
+  "maturity_levels": ["NORMAL", "PROFESSIONAL", "ADVANCED", "ENTERPRISE", "SUPREME"],
+  "domain_scope": [
+    "TECHNOLOGY", "BUSINESS", "FINANCE", "EDUCATION", "SCIENCE",
+    "HEALTHCARE", "HEALTH_WELLNESS", "CULTURE", "GOVERNMENT", "LAW",
+    "MEDIA", "ENTERTAINMENT", "TRAVEL_TOURISM", "FAMILY",
+    "PERSONAL_PRODUCTIVITY", "ADULT_ONLY_LAWFUL_CLASSIFICATIONS"
+  ],
+  "governance": [
+    "PRIVACY", "SECURITY", "AUDIT", "RETENTION",
+    "CONSENT_WHERE_REQUIRED", "AGE_ASSURANCE_WHERE_REQUIRED",
+    "JURISDICTIONAL_COMPLIANCE"
   ],
   "implementation_state": "FOUNDATION_INITIALIZED",
   "external_connection_state": "NOT_CONFIGURED",
+  "taxonomy_only": true,
   "requires_authorized_credentials": true,
   "requires_live_health_check": true,
   "requires_end_to_end_tests": true,
-  "governance": [
-    "PRIVACY",
-    "SECURITY",
-    "AUDIT",
-    "RETENTION",
-    "CONSENT_WHERE_REQUIRED",
-    "JURISDICTIONAL_COMPLIANCE"
-  ],
-  "provider": "Apple",
-  "provider_namespace": "apple_storage_ecosystem",
-  "domain_scope": [
-    "TECHNOLOGY",
-    "BUSINESS",
-    "EDUCATION",
-    "CULTURE",
-    "HEALTH_WELLNESS",
-    "ADULT_ONLY_SEXUAL_WELLNESS",
-    "ADULT_ONLY_INTIMACY_RELATIONSHIPS",
-    "LAWFUL_ADULT_MEDIA"
-  ],
-  "taxonomy_only": true,
   "integration_status": "NOT_CONFIGURED",
   "availability_verified": false
 }
