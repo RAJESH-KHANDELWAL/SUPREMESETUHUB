@@ -1,24 +1,18 @@
-"""Typed metadata models for this storage ecosystem."""
+"""Typed Cloudflare storage metadata; not a connectivity assertion."""
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
 from typing import Any
 
-
-def utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat()
-
-
 @dataclass
-class EcosystemRecord:
+class CloudflareStorageRecord:
     record_id: str
-    record_type: str
+    category_id: str
     name: str
-    jurisdiction: str = 'GLOBAL'
-    status: str = 'REGISTERED'
     metadata: dict[str, Any] = field(default_factory=dict)
-    created_at: str = field(default_factory=utc_now)
+    provider_id: str = "CLOUDFLARE"
+    connection_state: str = "NOT_CONFIGURED"
 
-    def __post_init__(self) -> None:
-        for key in ('record_id', 'record_type', 'name'):
-            if not str(getattr(self, key)).strip():
-                raise ValueError(f'{key} is required')
+    def __post_init__(self):
+        if not self.record_id.strip() or not self.category_id.strip() or not self.name.strip():
+            raise ValueError("record_id, category_id and name are required")
+        if self.connection_state != "NOT_CONFIGURED":
+            raise ValueError("metadata cannot assert provider connectivity")

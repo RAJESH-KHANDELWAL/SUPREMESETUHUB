@@ -1,9 +1,12 @@
-# GLOBAL CLOUDFLARE Storage Ecosystem
+# GLOBAL CLOUDFLARE STORAGE ECOSYSTEM
 
-STORAGE-owned taxonomy namespace for GLOBAL CLOUDFLARE. Catalog and foundation only; no live provider integration is implied.
+Cloudflare storage capability catalog using independent direct-child category packages, following the Google Storage Ecosystem folder convention.
 
-## Responsibility
-This package owns storage-side identity, metadata, taxonomy, object lifecycle definitions and storage health metadata. Provider API clients, authentication and external operations remain in their respective API/integration layers.
+- Direct category packages: 30
+- Provider identity: CLOUDFLARE
+- Connection state: NOT_CONFIGURED
+- Product and plan verification: not asserted
+- External connectivity verified: false
+- Storage operations enabled: false
 
-## Readiness boundary
-The foundation does not prove provider API support, account entitlement, authorized connectivity or working upload/download/delete operations. Mark a provider connected only after authorized live health checks and end-to-end read/write tests pass. Never commit credentials or personal data.
+No nested categories or providers directories are used. Each category package is directly under this ecosystem root. Authentication, provider SDK calls and live storage operations remain in authorized integration layers.

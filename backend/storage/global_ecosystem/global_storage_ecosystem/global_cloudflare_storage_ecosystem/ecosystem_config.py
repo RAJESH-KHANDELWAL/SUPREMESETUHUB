@@ -1,14 +1,10 @@
-"""Runtime configuration; secrets must come from an approved secret manager."""
+"""Runtime configuration; credentials are never stored in this package."""
 import os
-
-PACKAGE_ID = __package__.rsplit('.', 1)[-1]
-ENV_PREFIX = PACKAGE_ID.upper().replace('-', '_')
-
 
 def get_config() -> dict:
     return {
-        'enabled': os.getenv(f'{ENV_PREFIX}_ENABLED', 'true').lower() == 'true',
-        'environment': os.getenv('APP_ENV', 'development'),
-        'credentials_configured': False,
-        'secret_source': 'runtime_environment_or_secret_manager',
+        "enabled": os.getenv("GLOBAL_CLOUDFLARE_STORAGE_ECOSYSTEM_ENABLED", "true").lower() == "true",
+        "provider_id": "CLOUDFLARE",
+        "connection_state": "NOT_CONFIGURED",
+        "storage_operations_enabled": False,
     }

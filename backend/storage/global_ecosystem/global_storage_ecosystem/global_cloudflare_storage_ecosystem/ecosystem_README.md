@@ -1,14 +1,12 @@
-# Ecosystem Foundation
+# GLOBAL CLOUDFLARE STORAGE ECOSYSTEM — ENGINEERING FOUNDATION
 
-Reusable provider storage foundation. Existing unrelated provider-specific files are retained.
+## Hierarchy
+GLOBAL STORAGE ECOSYSTEM → GLOBAL CLOUDFLARE STORAGE ECOSYSTEM → CLOUDFLARE STORAGE CAPABILITY CATEGORIES
 
-## Modules
-- `ecosystem_service.py` — provider identity and truthful health contract
-- `ecosystem_models.py` — typed metadata records
-- `ecosystem_registry.py` — thread-safe in-memory metadata registry
-- `ecosystem_config.py` — runtime configuration without embedded secrets
-- `ecosystem_manifest.json` — Bharat-to-global scope and readiness state
-- `tests/test_foundation.py` — offline foundation tests
+## Direct-child package layout
+Each `global_cloudflare_<category>_storage_ecosystem/` is an independent direct child of this root, matching the Google-style category architecture. Every category owns README, Python configuration/models/services, API boundary, schema, tests and PHP metadata contract.
 
-## Readiness
-FOUNDATION_READY means local package code loads. It does not mean an external provider is connected. Production persistence belongs in the central database. Use least privilege, encryption, audit logs, retention controls and jurisdictional compliance. Never commit credentials or personal data.
+## Provider and readiness boundary
+Cloudflare is the provider represented by this ecosystem. There is no nested providers directory. All category foundations default to NOT_CONFIGURED, with external connectivity unverified and storage operations disabled. Product availability, account entitlement, plan limits and region support must be verified before activation.
+
+Never commit credentials, tokens, private keys, personal data or customer file contents. Use an external secret manager, least privilege, live health checks and end-to-end tests before enabling operations.

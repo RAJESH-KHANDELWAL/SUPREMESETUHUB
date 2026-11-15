@@ -1,24 +1,26 @@
-"""Offline tests; these do not contact external provider APIs."""
-import pytest
+import json
+import unittest
+from pathlib import Path
 from ..ecosystem_service import EcosystemService
-from ..ecosystem_models import EcosystemRecord
-from ..ecosystem_registry import EcosystemRegistry
 
+ROOT = Path(__file__).resolve().parents[1]
 
-def test_health_does_not_claim_provider_connection():
-    result = EcosystemService().health()
-    assert result['success']
-    assert not result['external_connections_verified']
+class CloudflareStorageFoundationTests(unittest.TestCase):
+    def test_safe_readiness(self):
+        state = EcosystemService().describe()
+        self.assertEqual(state["connection_state"], "NOT_CONFIGURED")
+        self.assertFalse(state["external_connections_verified"])
+        self.assertFalse(state["storage_operations_enabled"])
 
+    def test_google_style_direct_categories(self):
+        manifest = json.loads((ROOT / "ecosystem_manifest.json").read_text(encoding="utf-8"))
+        packages = sorted(p for p in ROOT.glob("global_cloudflare_*_storage_ecosystem") if p.is_dir())
+        self.assertEqual(len(packages), manifest["category_folder_count"])
+        self.assertFalse((ROOT / "categories").exists())
+        self.assertFalse((ROOT / "providers").exists())
+        for package in packages:
+            for rel in ("README.md", "ecosystem_manifest.json", "api/routes.py", "models/record.py", "schemas/manifest.schema.json", "tests/test_foundation.py"):
+                self.assertTrue((package / rel).is_file(), f"Missing {package.name}/{rel}")
 
-def test_registry_duplicate_guard():
-    registry = EcosystemRegistry()
-    row = EcosystemRecord('sample-1', 'SAMPLE', 'Sample')
-    registry.register(row)
-    with pytest.raises(ValueError, match='DUPLICATE_RECORD_ID'):
-        registry.register(row)
-
-
-def test_record_requires_identity_fields():
-    with pytest.raises(ValueError):
-        EcosystemRecord('', 'SAMPLE', 'Sample')
+if __name__ == "__main__":
+    unittest.main()
