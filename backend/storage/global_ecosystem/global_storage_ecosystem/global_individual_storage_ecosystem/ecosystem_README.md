@@ -1,14 +1,24 @@
-# Ecosystem Foundation
+# GLOBAL INDIVIDUAL Storage Ecosystem — Foundation
 
-Reusable provider storage foundation. Existing unrelated provider-specific files are retained.
+This package defines a provider-neutral storage metadata foundation for individual-person data. It is not a live personal cloud drive and does not create, authenticate or connect external accounts.
 
 ## Modules
-- `ecosystem_service.py` — provider identity and truthful health contract
-- `ecosystem_models.py` — typed metadata records
-- `ecosystem_registry.py` — thread-safe in-memory metadata registry
-- `ecosystem_config.py` — runtime configuration without embedded secrets
-- `ecosystem_manifest.json` — Bharat-to-global scope and readiness state
-- `tests/test_foundation.py` — offline foundation tests
+
+- `ecosystem_config.py` — runtime configuration; no embedded secrets
+- `ecosystem_models.py` — typed individual-storage metadata records
+- `ecosystem_registry.py` — thread-safe in-memory registry for local development/tests
+- `ecosystem_service.py` — capability, readiness and health contract
+- `ecosystem_manifest.json` — scope, privacy rules and readiness declaration
+- `taxonomy/` — controlled taxonomy for individual storage domains
+- `api/routes.py` — framework-neutral API route contract
+- `models/record.py` — import-compatible model surface
+- `schemas/` — JSON schema for individual storage metadata
+- `tests/` — offline foundation tests
+
+## Data ownership
+
+The identity service owns identity proofing and account authentication. Consent/authorization services own consent decisions. Key-management services own cryptographic keys. Provider adapters own external storage operations. This package stores opaque references and storage metadata only.
 
 ## Readiness
-FOUNDATION_READY means local package code loads. It does not mean an external provider is connected. Production persistence belongs in the central database. Use least privilege, encryption, audit logs, retention controls and jurisdictional compliance. Never commit credentials or personal data.
+
+`FOUNDATION_READY` means local foundation code is available. It does not mean a provider is connected or that files can be uploaded, downloaded, shared or deleted. Production persistence must use the central database with least-privilege access, encryption, audit logs, retention controls, backups and jurisdictional compliance.
