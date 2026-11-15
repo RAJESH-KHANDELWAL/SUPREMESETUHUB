@@ -5,7 +5,7 @@ declare(strict_types=1);
 final class GoogleCloudStorageEcosystem
 {
     public const ECOSYSTEM_ID = 'GOOGLE_CLOUD_STORAGE_ECOSYSTEM';
-    public const CATEGORY = 'GOOGLE_CLOUD';
+    public const CATEGORY = 'CLOUD';
     public const CATEGORY_GROUP = 'DEVELOPER_AND_INFRASTRUCTURE';
 
     /** @return array<string,mixed> */
