@@ -1,0 +1,1 @@
+This directory is intentionally present to ensure the connector package path is materialized in GitHub Actions checkout.

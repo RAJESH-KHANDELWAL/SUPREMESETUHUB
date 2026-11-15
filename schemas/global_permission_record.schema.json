@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SUPREME Global Permission Record",
+  "description": "A registry contract, not evidence of permission or government approval.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "permission_type",
+    "subject",
+    "requesting_entity",
+    "feature",
+    "purpose",
+    "jurisdiction",
+    "scope",
+    "status",
+    "evidence",
+    "review",
+    "lifecycle"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "permission_type": {
+      "type": "string",
+      "enum": [
+        "government_or_regulatory",
+        "individual_data_consent",
+        "partner_agreement",
+        "platform_api",
+        "content_or_ip_license",
+        "commerce_or_payment",
+        "safety_or_age",
+        "security_or_operations"
+      ]
+    },
+    "subject": {
+      "type": "object",
+      "required": ["kind", "display_name"],
+      "properties": {
+        "kind": { "type": "string", "enum": ["individual", "business", "government_body", "platform", "rights_holder", "other"] },
+        "display_name": { "type": "string", "minLength": 1 },
+        "subject_reference": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "requesting_entity": { "type": "string", "minLength": 1 },
+    "feature": { "type": "string", "minLength": 1 },
+    "purpose": { "type": "string", "minLength": 1 },
+    "jurisdiction": {
+      "type": "object",
+      "required": ["country_or_territory_code"],
+      "properties": {
+        "country_or_territory_code": { "type": "string", "minLength": 2 },
+        "region_code": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "scope": {
+      "type": "object",
+      "required": ["allowed_actions"],
+      "properties": {
+        "allowed_actions": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "data_categories": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "recipients": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "commercial_terms_reference": { "type": "string" },
+        "conditions": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "type": "string",
+      "enum": ["DRAFT", "REQUESTED", "UNDER_REVIEW", "APPROVED_LIMITED", "ACTIVE", "EXPIRED", "REVOKED", "REJECTED", "SUSPENDED"],
+      "default": "DRAFT"
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["evidence_reference"],
+      "properties": {
+        "evidence_reference": { "type": "string", "description": "Reference to evidence in controlled storage; do not put identity documents, contracts or secrets in Git." },
+        "evidence_type": { "type": "string" },
+        "issuer": { "type": "string" },
+        "verified_by": { "type": "string" },
+        "verified_at": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "review": {
+      "type": "object",
+      "required": ["owner", "last_reviewed_at"],
+      "properties": {
+        "owner": { "type": "string" },
+        "last_reviewed_at": { "type": "string", "format": "date-time" },
+        "next_review_at": { "type": "string", "format": "date-time" },
+        "legal_review_required": { "type": "boolean", "default": true }
+      },
+      "additionalProperties": false
+    },
+    "lifecycle": {
+      "type": "object",
+      "properties": {
+        "granted_at": { "type": "string", "format": "date-time" },
+        "expires_at": { "type": "string", "format": "date-time" },
+        "revoked_at": { "type": "string", "format": "date-time" },
+        "revocation_reason": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "audit_event_ids": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+  }
+}

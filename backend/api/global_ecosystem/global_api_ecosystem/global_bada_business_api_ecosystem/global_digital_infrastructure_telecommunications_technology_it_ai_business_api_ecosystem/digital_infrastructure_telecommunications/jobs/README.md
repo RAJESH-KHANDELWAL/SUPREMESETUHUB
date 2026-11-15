@@ -1,0 +1,2 @@
+# Jobs
+Organize digital infrastructure and telecommunications careers, job categories, skills, employers and vacancies for India and global markets. Store source, location, jurisdiction, posted date, expiry and verification status. Never present an unverified vacancy as genuine.
