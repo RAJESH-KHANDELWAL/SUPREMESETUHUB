@@ -1,7 +1,7 @@
 {
   "ecosystem_id": "GLOBAL_INDIVIDUAL_STORAGE_ECOSYSTEM",
   "taxonomy_file": "taxonomy/global_individual_storage_taxonomy.json",
-  "category_count": 16,
+  "category_count": 17,
   "categories": [
     "INDIVIDUAL_IDENTITY_METADATA",
     "STORAGE_OWNERSHIP_REFERENCES",
@@ -21,6 +21,6 @@
     "PERSONAL_STORAGE_AUDIT_AND_ACTIVITY",
     "CONSENT_AND_AUTHORIZATION_REFERENCES"
   ],
-  "implementation_state": "TAXONOMY_DEFINED",
+  "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
   "external_connection_state": "NOT_CONFIGURED"
 }
