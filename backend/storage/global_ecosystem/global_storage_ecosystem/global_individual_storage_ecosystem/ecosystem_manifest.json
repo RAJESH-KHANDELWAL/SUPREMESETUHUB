@@ -1,72 +1,32 @@
 {
-  "schema_version": "1.1.0",
+  "schema_version": "1.0.0",
   "ecosystem_id": "GLOBAL_INDIVIDUAL_STORAGE_ECOSYSTEM",
-  "display_name": "GLOBAL INDIVIDUAL Storage Ecosystem",
-  "owner_domain": "INDIVIDUAL_STORAGE",
-  "responsibility": [
-    "INDIVIDUAL_STORAGE_IDENTITY_REFERENCES",
-    "PERSONAL_FILE_METADATA",
-    "PERSONAL_MEDIA_METADATA",
-    "LIFECYCLE_METADATA",
-    "RETENTION_REFERENCES",
-    "CONSENT_REFERENCES",
-    "STORAGE_HEALTH_CONTRACTS"
-  ],
-  "taxonomy_file": "taxonomy/global_individual_storage_taxonomy.json",
-  "geographic_scope": [
-    "BHARAT",
-    "SOUTH_ASIA",
-    "ASIA_PACIFIC",
-    "MIDDLE_EAST",
-    "EUROPE",
-    "AFRICA",
-    "NORTH_AMERICA",
-    "SOUTH_AMERICA",
-    "OCEANIA",
-    "GLOBAL"
-  ],
-  "coverage_levels": [
-    "LOCAL",
-    "DISTRICT",
-    "STATE",
-    "NATIONAL",
-    "REGIONAL",
-    "INTERNATIONAL",
-    "GLOBAL"
-  ],
-  "implementation_state": "FOUNDATION_READY",
-  "external_connection_state": "NOT_CONFIGURED",
-  "external_connections_verified": false,
-  "provider_integrations_enabled": false,
+  "package_name": "global_individual_storage_ecosystem",
+  "provider": "GLOBAL_INDIVIDUAL",
+  "category": "INDIVIDUAL",
+  "category_group": "PERSONAL_AND_INDIVIDUAL_STORAGE",
+  "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+  "connection_state": "NOT_CONFIGURED",
+  "provider_product_verified": false,
   "storage_operations_enabled": false,
-  "requires_authorized_credentials": true,
+  "requires_authorized_integration": true,
   "requires_live_health_check": true,
   "requires_end_to_end_tests": true,
-  "privacy_controls": [
+  "geographic_scope": [
+    "BHARAT",
+    "GLOBAL"
+  ],
+  "security_baseline": [
     "DATA_MINIMIZATION",
-    "PURPOSE_LIMITATION",
     "OPAQUE_IDENTIFIERS",
-    "ENCRYPTION",
     "LEAST_PRIVILEGE",
+    "ENCRYPTION",
     "AUDIT_LOGGING",
-    "RETENTION_AND_DELETION",
+    "RETENTION_CONTROLS",
     "CONSENT_REFERENCE_VALIDATION",
     "JURISDICTIONAL_COMPLIANCE"
   ],
-  "data_boundary": {
-    "identity_proofing": "OWNED_BY_IDENTITY_SERVICE",
-    "authentication": "OWNED_BY_AUTH_SERVICE",
-    "consent_decisions": "OWNED_BY_CONSENT_AUTHORIZATION_SERVICE",
-    "cryptographic_keys": "OWNED_BY_KEY_MANAGEMENT_SERVICE",
-    "external_storage_operations": "OWNED_BY_PROVIDER_ADAPTERS",
-    "personal_file_content": "NOT_STORED_IN_THIS_FOUNDATION"
-  },
-  "governance": [
-    "PRIVACY",
-    "SECURITY",
-    "AUDIT",
-    "RETENTION",
-    "CONSENT_WHERE_REQUIRED",
-    "JURISDICTIONAL_COMPLIANCE"
-  ]
+  "taxonomy_file": "taxonomy/global_individual_storage_taxonomy.json",
+  "category_index_file": "category_index.json",
+  "notes": "Individual storage category foundation only. No live provider integration or personal file operations are enabled."
 }
