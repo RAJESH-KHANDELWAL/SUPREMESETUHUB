@@ -1,4 +1,4 @@
-"""Metadata model for GLOBAL_INDIVIDUAL_STORAGE_ECOSYSTEM; no personal content is stored."""
+"""Metadata contract for GLOBAL_INDIVIDUAL_STORAGE_ECOSYSTEM; no personal content or secrets."""
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Any
@@ -10,6 +10,8 @@ def utc_now() -> str:
 
 @dataclass
 class CategoryRecord:
+    """Individual-owned metadata record using an opaque identity-service reference."""
+
     record_id: str
     name: str
     record_type: str = "INDIVIDUAL"
@@ -23,9 +25,15 @@ class CategoryRecord:
     def __post_init__(self) -> None:
         if not self.record_id.strip() or not self.name.strip():
             raise ValueError("record_id and name are required")
-        if not self.owner_ref:
+        if self.record_type != "INDIVIDUAL":
+            raise ValueError("record_type must be INDIVIDUAL")
+        if not self.owner_ref or not self.owner_ref.strip():
             raise ValueError("opaque owner_ref is required")
+        if not self.jurisdiction.strip() or not self.status.strip():
+            raise ValueError("jurisdiction and status are required")
+        if not isinstance(self.metadata, dict):
+            raise ValueError("metadata must be an object")
 
 
-# Backward-compatible alias for the existing registry interface.
+# Backward-compatible alias retained for existing imports.
 EcosystemRecord = CategoryRecord
