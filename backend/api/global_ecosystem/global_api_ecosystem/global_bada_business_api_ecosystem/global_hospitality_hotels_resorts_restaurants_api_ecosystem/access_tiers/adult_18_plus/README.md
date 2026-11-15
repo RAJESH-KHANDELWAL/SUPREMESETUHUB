@@ -1,0 +1,2 @@
+# Adult 18+ Access
+Age-restricted hospitality services or content only where lawful and genuinely age-restricted. Alcohol-related listings must follow local licensing and age-verification rules. This folder does not grant licences or enforce age gates.

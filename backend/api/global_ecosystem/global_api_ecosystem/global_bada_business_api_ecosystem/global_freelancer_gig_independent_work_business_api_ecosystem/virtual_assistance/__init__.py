@@ -1,0 +1,5 @@
+"""Independent Virtual Assistance freelance specialization package."""
+SPECIALIZATION_ID = "virtual_assistance"
+SPECIALIZATION_NAME = "Virtual Assistance"
+DOMAIN_ID = "freelance_gig_independent_work"
+DESCRIPTION = "Remote administrative, research, coordination and customer-support assistance."

@@ -1,0 +1,1 @@
+"""Google storage capability metadata."""

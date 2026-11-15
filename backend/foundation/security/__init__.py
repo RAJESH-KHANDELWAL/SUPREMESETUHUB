@@ -1,0 +1,7 @@
+"""
+FOUNDATION SECURITY
+
+Central security foundation layer for MAIN BASE FOUNDATION.
+"""
+
+SECURITY_LAYER = "FOUNDATION SECURITY"

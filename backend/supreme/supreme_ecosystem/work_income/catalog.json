@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Directory of established marketplaces and official job-search entry points. These are SOURCES, not individually verified live job offers.",
+  "last_reviewed": "2026-10-11",
+  "owner_contact": {
+    "whatsapp_click_to_chat": "https://wa.me/917611967229",
+    "note": "This link opens a user-initiated WhatsApp chat. It does not send messages automatically."
+  },
+  "focus_skills": [
+    "WordPress website development",
+    "website fixes and maintenance",
+    "SEO content and blog writing",
+    "copywriting",
+    "social media content",
+    "virtual assistance and document formatting"
+  ],
+  "sources": [
+    {
+      "id": "upwork",
+      "name": "Upwork",
+      "url": "https://www.upwork.com/nx/search/jobs/",
+      "kind": "freelance_marketplace",
+      "best_for": ["WordPress", "website development", "copywriting", "SEO writing", "virtual assistance"],
+      "how_to_start": "Create a complete profile, search by skill, review client history and payment verification, and submit a tailored proposal.",
+      "payment_safety": "Keep contracts and payments inside the platform's approved workflow; do not pay a client to unlock a job.",
+      "verification": "Check the live listing, client history, scope, budget, milestones, and platform payment protection before applying."
+    },
+    {
+      "id": "fiverr",
+      "name": "Fiverr",
+      "url": "https://www.fiverr.com/",
+      "kind": "freelance_services_marketplace",
+      "best_for": ["WordPress service packages", "blog posts", "website fixes", "SEO content"],
+      "how_to_start": "Publish a clear service package with scope, delivery time, exclusions, and examples.",
+      "payment_safety": "Use Fiverr's official order and payment system; ignore requests to move payment off-platform.",
+      "verification": "Review current seller rules and publish only services you can deliver."
+    },
+    {
+      "id": "contra",
+      "name": "Contra",
+      "url": "https://contra.com/",
+      "kind": "independent_work_marketplace",
+      "best_for": ["portfolio-led freelance work", "web design", "WordPress", "content and marketing"],
+      "how_to_start": "Build a focused portfolio and service profile, then use the platform's current discovery and project features.",
+      "payment_safety": "Confirm scope, payment terms, and platform protections before starting.",
+      "verification": "Check current project details and terms; availability varies."
+    },
+    {
+      "id": "linkedin_jobs",
+      "name": "LinkedIn Jobs",
+      "url": "https://www.linkedin.com/jobs/",
+      "kind": "job_search",
+      "best_for": ["remote content roles", "WordPress roles", "marketing assistant", "contract work"],
+      "how_to_start": "Search Remote plus the target skill; check the employer's official company page and apply through a trusted route.",
+      "payment_safety": "Never pay application, training, equipment-release, or registration fees to a supposed employer.",
+      "verification": "Confirm the employer domain, role details, recruiter identity, and official application page."
+    },
+    {
+      "id": "freelancer",
+      "name": "Freelancer.com",
+      "url": "https://www.freelancer.com/jobs/",
+      "kind": "freelance_marketplace",
+      "best_for": ["WordPress tasks", "website maintenance", "writing", "admin support"],
+      "how_to_start": "Search specific deliverables, compare the client's history, and submit a scoped bid.",
+      "payment_safety": "Use official milestones and dispute tools; never pay a client to receive work.",
+      "verification": "Validate the listing, budget, client history, requirements, and milestone terms."
+    },
+    {
+      "id": "peopleperhour",
+      "name": "PeoplePerHour",
+      "url": "https://www.peopleperhour.com/",
+      "kind": "freelance_marketplace",
+      "best_for": ["WordPress", "web projects", "writing", "digital marketing"],
+      "how_to_start": "Create a profile and review currently available projects and offer rules.",
+      "payment_safety": "Use the platform's official proposal, escrow, and payment processes where available.",
+      "verification": "Availability and eligibility vary; confirm current platform terms."
+    }
+  ],
+  "anti_scam_rules": [
+    "No guaranteed income, guaranteed hiring, or guaranteed response is claimed by this directory.",
+    "Do not pay registration, security deposit, training, software activation, or withdrawal fees to get a job.",
+    "Do not share OTPs, passwords, full card details, or remote-access control with recruiters.",
+    "Do not do large unpaid test projects; agree on a small, clearly scoped paid trial instead.",
+    "Verify each listing on the platform or employer's official website before applying.",
+    "Do not scrape, spam, or automatically message employers or applicants on WhatsApp."
+  ],
+  "whatsapp_workflow": {
+    "contact_link": "https://wa.me/917611967229",
+    "message_template": "Namaste, I am looking for legitimate freelance work in WordPress website development, website maintenance, SEO/blog writing, copywriting, and social media content. Please share the official listing or employer page, scope, budget, deadline, and payment terms. I will verify the opportunity before proceeding.",
+    "automation_status": "MANUAL_CLICK_TO_CHAT_ONLY",
+    "whatsapp_business_api_connected": false,
+    "ai_replies_enabled": false
+  }
+}

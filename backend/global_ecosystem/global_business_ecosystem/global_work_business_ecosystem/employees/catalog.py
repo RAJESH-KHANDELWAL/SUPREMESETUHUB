@@ -1,0 +1,1 @@
+CATEGORY={"id":"employees","name":"Employees","role_names":["Employee","Salaried Worker","Staff Member","Wage Employee","Private-sector Employee","Public-sector Employee"],"responsibilities":["Perform work under an employment relationship","Deliver assigned duties under agreed terms"]}
