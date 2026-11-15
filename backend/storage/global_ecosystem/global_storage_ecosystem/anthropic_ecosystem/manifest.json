@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "ANTHROPIC_ECOSYSTEM",
+  "provider": "ANTHROPIC",
+  "hierarchy": [
+    "ANTHROPIC",
+    "WHAT_ANTHROPIC_PROVIDES",
+    "STORAGE_ECOSYSTEM"
+  ],
+  "children": [
+    "what_anthropic_provides"
+  ],
+  "implementation_state": "CATALOG_FOUNDATION",
+  "live_connection_verified": false,
+  "canonical_storage_path": "what_anthropic_provides/storage_ecosystem",
+  "compatibility_path": "backend/storage/global_ecosystem/global_storage_ecosystem/anthropic_storage_ecosystem",
+  "credentials_must_be_external": true
+}
