@@ -1,16 +1,29 @@
-"""Provider-neutral foundation service for Adobe Frame.io Storage; no live API operations."""
-from .ecosystem_config import get_config
-PACKAGE_ID = __package__.rsplit(".",1)[-1]
-ECOSYSTEM_ID = PACKAGE_ID.upper().replace("_","-")
-class EcosystemService:
-    def __init__(self, *, config: dict | None = None):
+"""Foundation service for ADOBE_FRAMEIO_STORAGE_ECOSYSTEM; provider integration is intentionally disabled."""
+from typing import Any
+from .ecosystem_config import get_config, ECOSYSTEM_ID
+
+class CategoryEcosystemService:
+    ecosystem_id = ECOSYSTEM_ID
+    category = "FRAMEIO"
+    category_group = "MEDIA_COLLABORATION"
+
+    def __init__(self, config: dict | None = None) -> None:
         self.config = dict(config or get_config())
-        self.enabled = bool(self.config.get("enabled",True))
-    def describe(self) -> dict:
-        return {"ecosystem_id":ECOSYSTEM_ID,"package":PACKAGE_ID,"display_name":"Adobe Frame.io Storage",
-            "enabled":self.enabled,"implementation_state":"FOUNDATION_INITIALIZED",
-            "connection_state":"NOT_CONFIGURED","external_connections_verified":False,
-            "capabilities":["IDENTITY","CONFIGURATION","METADATA","HEALTH_CONTRACT"]}
-    def health(self) -> dict:
-        return {"success":True,"ecosystem_id":ECOSYSTEM_ID,"status":"FOUNDATION_READY",
-            "external_connections_verified":False}
+
+    def describe(self) -> dict[str, Any]:
+        return {
+            "ecosystem_id": self.ecosystem_id,
+            "category": self.category,
+            "category_group": self.category_group,
+            "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+            "connection_state": "NOT_CONFIGURED",
+            "provider_product_verified": False,
+            "storage_operations_enabled": False,
+        }
+
+    def health(self) -> dict[str, Any]:
+        return {
+            "success": True,
+            "status": "FOUNDATION_READY",
+            "external_connection_verified": False,
+        }

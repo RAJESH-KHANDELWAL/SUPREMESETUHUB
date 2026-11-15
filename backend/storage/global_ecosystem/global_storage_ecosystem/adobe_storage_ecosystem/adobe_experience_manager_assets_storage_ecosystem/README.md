@@ -1,23 +1,25 @@
-# Adobe Experience Manager Assets Storage
+# ADOBE EXPERIENCE MANAGER ASSETS STORAGE
 
-Provider: Adobe  
-Storage namespace: `experience_manager_assets`  
-Related API family: Requires a separately validated Experience Manager Assets API
+- **Folder:** `adobe_experience_manager_assets_storage_ecosystem/`
+- **Provider:** Adobe
+- **Category:** EXPERIENCE_MANAGER_ASSETS
+- **Group:** ENTERPRISE_ASSETS
+- **State:** Category foundation scaffold; external connection is not configured.
 
-## Responsibility
-Enterprise DAM assets, metadata schemas, renditions, collections, permissions and delivery references.
+## Package contents
+- `__init__.py` — package exports and compatibility interfaces
+- `api/routes.py` — framework-neutral status and health handlers
+- `ecosystem_config.py` — environment-only runtime configuration
+- `ecosystem_manifest.json` — canonical machine-readable package manifest
+- `ecosystem_models.py` — typed category metadata record
+- `ecosystem_service.py` — category readiness and health contract
+- `models/record.py` — canonical model export
+- `php/adobe_experience_manager_assets_storage_ecosystem.php` — PHP metadata reader
+- `schemas/manifest.schema.json` — manifest validation schema
+- `service.py` — Adobe-specific metadata/readiness service
+- `tests/test_foundation.py` — offline package tests
 
-## API boundary
-Experience Platform APIs are not assumed to be interchangeable with Experience Manager Assets APIs. Deployment and authorization matter.
+Adobe-specific adapter contract, metadata registry and legacy compatibility modules are retained where present.
 
-OAuth, tokens, scopes, clients, endpoints and external requests belong to `backend/api/global_ecosystem/global_api_ecosystem/adobe_api_ecosystem/`. This package owns normalized storage metadata, object identity, version/lifecycle metadata, registry and readiness contract.
-
-## Files
-- `models.py`: validated storage object metadata
-- `registry.py`: thread-safe in-memory metadata registry (not production persistence)
-- `service.py`: metadata registration and readiness service
-- `config.py`: safe environment-only runtime configuration\n- `adapter_contract.py`: abstract storage operations contract; concrete clients stay in the API/integration layer\n- `manifest.json`: machine-readable scope and status
-- `tests/test_foundation.py`: offline tests
-
-## Status
-Foundation only; external connection `NOT_CONFIGURED`. A healthy local package does not prove entitlement, API availability, OAuth success or working file operations. Production persistence belongs in the central database. Never commit credentials or personal data.
+## Integration and safety boundary
+This is a category namespace and metadata scaffold, not proof of a matching Adobe product entitlement or live API access. No upload, download, delete, sync or replication operation is enabled. Implement only documented product-specific APIs with authorized credentials, provider-specific live health checks and end-to-end tests. Never commit credentials or personal data.

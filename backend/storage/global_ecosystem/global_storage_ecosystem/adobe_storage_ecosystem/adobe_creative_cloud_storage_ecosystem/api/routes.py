@@ -1,7 +1,8 @@
-"""Framework-neutral API handlers; mount in an authorized application router."""
-from ..ecosystem_service import EcosystemService
-_service = EcosystemService()
-def describe() -> dict:
-    return _service.describe()
-def health() -> dict:
-    return _service.health()
+"""Framework-neutral handlers for ADOBE_CREATIVE_CLOUD_STORAGE_ECOSYSTEM."""
+from ..ecosystem_service import CategoryEcosystemService
+
+def get_ecosystem_status() -> dict:
+    return CategoryEcosystemService().describe()
+
+def get_health() -> dict:
+    return CategoryEcosystemService().health()

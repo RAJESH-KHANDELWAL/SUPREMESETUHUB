@@ -1,18 +1,21 @@
-"""Typed metadata contract for Adobe Lightroom Storage."""
+"""Metadata model for ADOBE_LIGHTROOM_STORAGE_ECOSYSTEM; no provider data is fetched here."""
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Any
+
 def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
+
 @dataclass
-class EcosystemRecord:
+class CategoryRecord:
     record_id: str
-    record_type: str
     name: str
+    record_type: str = "LIGHTROOM"
+    jurisdiction: str = "GLOBAL"
     status: str = "REGISTERED"
     metadata: dict[str, Any] = field(default_factory=dict)
     created_at: str = field(default_factory=utc_now)
+
     def __post_init__(self) -> None:
-        for key in ("record_id","record_type","name"):
-            if not str(getattr(self,key)).strip():
-                raise ValueError(f"{key} is required")
+        if not self.record_id.strip() or not self.name.strip():
+            raise ValueError("record_id and name are required")

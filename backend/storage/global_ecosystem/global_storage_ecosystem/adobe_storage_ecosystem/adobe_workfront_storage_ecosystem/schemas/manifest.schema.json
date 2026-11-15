@@ -1,12 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Adobe Workfront Storage manifest",
+  "title": "ADOBE_WORKFRONT_STORAGE_ECOSYSTEM manifest",
   "type": "object",
   "required": [
     "ecosystem_id",
     "provider",
-    "implementation_state",
-    "external_connection_state"
+    "connection_state"
   ],
   "properties": {
     "ecosystem_id": {
@@ -15,19 +14,22 @@
     "provider": {
       "const": "ADOBE"
     },
-    "implementation_state": {
-      "type": "string"
+    "category": {
+      "const": "WORKFRONT"
     },
-    "external_connection_state": {
+    "connection_state": {
       "enum": [
         "NOT_CONFIGURED",
         "CONNECTED",
-        "ERROR"
+        "DEGRADED",
+        "DISCONNECTED"
       ]
+    },
+    "provider_product_verified": {
+      "type": "boolean"
     },
     "storage_operations_enabled": {
       "type": "boolean"
     }
-  },
-  "additionalProperties": true
+  }
 }

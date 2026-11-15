@@ -1,23 +1,25 @@
-# Adobe Document Cloud Storage
+# ADOBE DOCUMENT CLOUD STORAGE
 
-Provider: Adobe  
-Storage namespace: `document_cloud`  
-Related API family: PDF Services API; Acrobat Sign API
+- **Folder:** `adobe_document_cloud_storage_ecosystem/`
+- **Provider:** Adobe
+- **Category:** DOCUMENT_CLOUD
+- **Group:** DOCUMENTS
+- **State:** Category foundation scaffold; external connection is not configured.
 
-## Responsibility
-Document Cloud file metadata, ownership, sharing, starred/shared state and document lifecycle references.
+## Package contents
+- `__init__.py` — package exports and compatibility interfaces
+- `api/routes.py` — framework-neutral status and health handlers
+- `ecosystem_config.py` — environment-only runtime configuration
+- `ecosystem_manifest.json` — canonical machine-readable package manifest
+- `ecosystem_models.py` — typed category metadata record
+- `ecosystem_service.py` — category readiness and health contract
+- `models/record.py` — canonical model export
+- `php/adobe_document_cloud_storage_ecosystem.php` — PHP metadata reader
+- `schemas/manifest.schema.json` — manifest validation schema
+- `service.py` — Adobe-specific metadata/readiness service
+- `tests/test_foundation.py` — offline package tests
 
-## API boundary
-PDF Services processing and Acrobat Sign agreements are not automatically generic Document Cloud file storage CRUD.
+Adobe-specific adapter contract, metadata registry and legacy compatibility modules are retained where present.
 
-OAuth, tokens, scopes, clients, endpoints and external requests belong to `backend/api/global_ecosystem/global_api_ecosystem/adobe_api_ecosystem/`. This package owns normalized storage metadata, object identity, version/lifecycle metadata, registry and readiness contract.
-
-## Files
-- `models.py`: validated storage object metadata
-- `registry.py`: thread-safe in-memory metadata registry (not production persistence)
-- `service.py`: metadata registration and readiness service
-- `config.py`: safe environment-only runtime configuration\n- `adapter_contract.py`: abstract storage operations contract; concrete clients stay in the API/integration layer\n- `manifest.json`: machine-readable scope and status
-- `tests/test_foundation.py`: offline tests
-
-## Status
-Foundation only; external connection `NOT_CONFIGURED`. A healthy local package does not prove entitlement, API availability, OAuth success or working file operations. Production persistence belongs in the central database. Never commit credentials or personal data.
+## Integration and safety boundary
+This is a category namespace and metadata scaffold, not proof of a matching Adobe product entitlement or live API access. No upload, download, delete, sync or replication operation is enabled. Implement only documented product-specific APIs with authorized credentials, provider-specific live health checks and end-to-end tests. Never commit credentials or personal data.
