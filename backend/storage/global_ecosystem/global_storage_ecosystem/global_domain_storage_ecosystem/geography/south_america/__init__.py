@@ -1,0 +1,1 @@
+"""SOUTH AMERICA geographic taxonomy."""

@@ -1,0 +1,1 @@
+"""GLOBAL geographic taxonomy."""

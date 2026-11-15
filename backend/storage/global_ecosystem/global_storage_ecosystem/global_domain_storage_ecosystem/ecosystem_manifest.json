@@ -1,7 +1,9 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "ecosystem_id": "GLOBAL_DOMAIN_STORAGE_ECOSYSTEM",
-  "provider": "GLOBAL DOMAIN",
+  "ecosystem_name": "GLOBAL DOMAIN Storage Ecosystem",
+  "owner_layer": "STORAGE",
+  "architecture_pattern": "GOOGLE_STORAGE_ECOSYSTEM_ALIGNED",
   "geographic_scope": [
     "BHARAT",
     "SOUTH_ASIA",
@@ -12,28 +14,35 @@
     "NORTH_AMERICA",
     "SOUTH_AMERICA",
     "OCEANIA",
-    "ANTARCTICA",
     "GLOBAL"
   ],
-  "coverage_levels": [
-    "LOCAL",
-    "DISTRICT",
-    "STATE",
-    "NATIONAL",
-    "REGIONAL",
-    "INTERNATIONAL",
-    "GLOBAL",
-    "SUPREME"
+  "functional_domains": [
+    "DOMAIN_IDENTITY_AND_PORTFOLIO",
+    "DOMAIN_REGISTRATION_AND_ACQUISITION",
+    "DOMAIN_DNS_AND_NAMESERVERS",
+    "DOMAIN_HOSTING_AND_INFRASTRUCTURE",
+    "DOMAIN_SECURITY_AND_CERTIFICATES",
+    "DOMAIN_LIFECYCLE_RENEWAL_AND_TRANSFER",
+    "DOMAIN_COMPLIANCE_AND_GOVERNANCE",
+    "DOMAIN_ANALYTICS_AND_HEALTH"
+  ],
+  "maturity_levels": [
+    "FOUNDATION",
+    "CATALOG_READY",
+    "INTEGRATION_READY",
+    "PRODUCTION_VERIFIED"
   ],
   "implementation_state": "FOUNDATION_INITIALIZED",
   "external_connection_state": "NOT_CONFIGURED",
   "taxonomy_only": true,
+  "provider_api_clients_included": false,
   "requires_authorized_credentials": true,
   "requires_live_health_check": true,
   "requires_end_to_end_tests": true,
   "governance": [
     "PRIVACY",
     "SECURITY",
+    "LEAST_PRIVILEGE",
     "AUDIT",
     "RETENTION",
     "CONSENT_WHERE_REQUIRED",

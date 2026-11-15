@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://supremesetuhub.local/schemas/domain-record.schema.json",
+  "title": "GLOBAL DOMAIN Storage Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "domain_id",
+    "domain_name",
+    "record_type",
+    "jurisdiction",
+    "lifecycle_state"
+  ],
+  "properties": {
+    "domain_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "domain_name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "record_type": {
+      "type": "string"
+    },
+    "jurisdiction": {
+      "type": "string"
+    },
+    "lifecycle_state": {
+      "type": "string"
+    },
+    "provider_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

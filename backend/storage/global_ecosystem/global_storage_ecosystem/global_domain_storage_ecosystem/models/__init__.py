@@ -1,0 +1,1 @@
+"""Domain metadata model namespace."""

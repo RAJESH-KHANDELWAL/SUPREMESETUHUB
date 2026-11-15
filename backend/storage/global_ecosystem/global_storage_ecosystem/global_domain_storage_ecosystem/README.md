@@ -1,9 +1,19 @@
 # GLOBAL DOMAIN Storage Ecosystem
 
-STORAGE-owned taxonomy namespace for GLOBAL DOMAIN. Catalog and foundation only; no live provider integration is implied.
+Provider-neutral, taxonomy-first domain storage foundation aligned with the Google Storage Ecosystem package pattern.
 
-## Responsibility
-This package owns storage-side identity, metadata, taxonomy, object lifecycle definitions and storage health metadata. Provider API clients, authentication and external operations remain in their respective API/integration layers.
+## Scope
+Catalogs domain identity and metadata across portfolios, registration references, DNS, nameservers, hosting associations, security metadata, lifecycle events, compliance, and health. It does not register, renew, transfer, resolve, or modify domains by itself.
 
-## Readiness boundary
-The foundation does not prove provider API support, account entitlement, authorized connectivity or working upload/download/delete operations. Mark a provider connected only after authorized live health checks and end-to-end read/write tests pass. Never commit credentials or personal data.
+## Package layout
+- `domains/`: functional domain taxonomy
+- `geography/`: Bharat-to-global jurisdiction taxonomy
+- `maturity_levels/`: implementation readiness levels
+- `models/`: typed metadata model namespace
+- `schemas/`: machine-readable contracts
+- `api/`: API boundary documentation
+- `php/`: PHP interoperability boundary
+- `tests/`: offline foundation tests
+
+## Readiness
+`FOUNDATION_INITIALIZED`; external connections: `NOT_CONFIGURED`. A provider may be marked connected only after authorized credentials, live health checks, and end-to-end tests pass. Never commit secrets or personal data.

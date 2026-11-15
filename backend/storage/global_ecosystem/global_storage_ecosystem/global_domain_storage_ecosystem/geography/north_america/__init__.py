@@ -1,0 +1,1 @@
+"""NORTH AMERICA geographic taxonomy."""
