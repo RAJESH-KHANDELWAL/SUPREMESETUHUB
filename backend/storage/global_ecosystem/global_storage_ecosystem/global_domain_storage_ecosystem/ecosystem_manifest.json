@@ -1,23 +1,12 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "ecosystem_id": "GLOBAL_DOMAIN_STORAGE_ECOSYSTEM",
   "provider": "GLOBAL_DOMAIN",
-  "implementation_state": "FOUNDATION_INITIALIZED",
-  "external_connection_state": "NOT_CONFIGURED",
-  "taxonomy_only": true,
-  "api_operations_owned_elsewhere": true,
-  "requires_authorized_credentials": true,
-  "requires_live_health_check": true,
-  "requires_end_to_end_tests": true,
   "child_ecosystems": [
     "GLOBAL_DOMAIN_REGISTRATION_STORAGE_ECOSYSTEM",
     "GLOBAL_DNS_AND_NAMESERVER_STORAGE_ECOSYSTEM",
     "GLOBAL_DOMAIN_PORTFOLIO_STORAGE_ECOSYSTEM",
-    "GLOBAL_DOMAIN_HOSTING_STORAGE_ECOSYSTEM",
-    "GLOBAL_DOMAIN_SECURITY_STORAGE_ECOSYSTEM",
-    "GLOBAL_DOMAIN_LIFECYCLE_STORAGE_ECOSYSTEM",
-    "GLOBAL_DOMAIN_TRANSFER_STORAGE_ECOSYSTEM",
-    "GLOBAL_DOMAIN_BACKUP_AND_RECOVERY_STORAGE_ECOSYSTEM"
+    "GLOBAL_DOMAIN_HOSTING_STORAGE_ECOSYSTEM"
   ],
   "geographic_scope": [
     "BHARAT",
@@ -42,6 +31,12 @@
     "GLOBAL",
     "SUPREME"
   ],
+  "implementation_state": "FOUNDATION_INITIALIZED",
+  "external_connection_state": "NOT_CONFIGURED",
+  "taxonomy_only": true,
+  "requires_authorized_credentials": true,
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true,
   "governance": [
     "PRIVACY",
     "SECURITY",
