@@ -1,14 +1,7 @@
-# Ecosystem Foundation
+# GLOBAL DEVELOPER Storage Ecosystem
 
-Reusable provider storage foundation. Existing unrelated provider-specific files are retained.
+GLOBAL DEVELOPER-owned storage taxonomy for developer tooling and lifecycle artifacts. The ecosystem is catalog/foundation only; no live third-party integration is implied.
 
-## Modules
-- `ecosystem_service.py` — provider identity and truthful health contract
-- `ecosystem_models.py` — typed metadata records
-- `ecosystem_registry.py` — thread-safe in-memory metadata registry
-- `ecosystem_config.py` — runtime configuration without embedded secrets
-- `ecosystem_manifest.json` — Bharat-to-global scope and readiness state
-- `tests/test_foundation.py` — offline foundation tests
+## Readiness boundary
 
-## Readiness
-FOUNDATION_READY means local package code loads. It does not mean an external provider is connected. Production persistence belongs in the central database. Use least privilege, encryption, audit logs, retention controls and jurisdictional compliance. Never commit credentials or personal data.
+All categories start NOT_CONFIGURED, provider product verification false, external connection verification false and storage operations disabled. Enable operations only after authorized provider verification, live health checks, security review and end-to-end tests. Never commit credentials or personal data.
