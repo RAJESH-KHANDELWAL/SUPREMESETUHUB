@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0.0",
+  "parent_ecosystem_id": "GLOBAL_CLOUD_STORAGE_ECOSYSTEM",
+  "parent_category_id": "HYBRID_MULTI_CLOUD_STORAGE",
+  "subcategory_count": 6,
+  "folder_naming": "global_cloud_<subcategory>_storage_ecosystem",
+  "subcategories": [
+    {
+      "subcategory_id": "HYBRID_CLOUD_STORAGE",
+      "name": "Hybrid Cloud Storage",
+      "folder": "global_cloud_hybrid_cloud_storage_storage_ecosystem",
+      "path": "subcategories/global_cloud_hybrid_cloud_storage_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "subcategory_id": "MULTI_CLOUD_STORAGE",
+      "name": "Multi-Cloud Storage",
+      "folder": "global_cloud_multi_cloud_storage_storage_ecosystem",
+      "path": "subcategories/global_cloud_multi_cloud_storage_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "subcategory_id": "CLOUD_NAS_STORAGE",
+      "name": "Cloud NAS Storage",
+      "folder": "global_cloud_cloud_nas_storage_storage_ecosystem",
+      "path": "subcategories/global_cloud_cloud_nas_storage_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "subcategory_id": "STORAGE_GATEWAY",
+      "name": "Storage Gateway Services",
+      "folder": "global_cloud_storage_gateway_storage_ecosystem",
+      "path": "subcategories/global_cloud_storage_gateway_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "subcategory_id": "DATA_MOBILITY_STORAGE",
+      "name": "Cross-Environment Data Mobility",
+      "folder": "global_cloud_data_mobility_storage_storage_ecosystem",
+      "path": "subcategories/global_cloud_data_mobility_storage_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "subcategory_id": "CROSS_CLOUD_REPLICATION",
+      "name": "Cross-Cloud Replication",
+      "folder": "global_cloud_cross_cloud_replication_storage_ecosystem",
+      "path": "subcategories/global_cloud_cross_cloud_replication_storage_ecosystem",
+      "status": "SCAFFOLD_CREATED"
+    }
+  ]
+}
