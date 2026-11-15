@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GLOBAL INDIVIDUAL Storage Ecosystem Manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "ecosystem_id",
+    "package_name",
+    "provider",
+    "category",
+    "category_group",
+    "implementation_state",
+    "connection_state",
+    "provider_product_verified",
+    "storage_operations_enabled"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "ecosystem_id": {
+      "const": "GLOBAL_INDIVIDUAL_STORAGE_ECOSYSTEM"
+    },
+    "package_name": {
+      "const": "global_individual_storage_ecosystem"
+    },
+    "provider": {
+      "const": "GLOBAL_INDIVIDUAL"
+    },
+    "category": {
+      "const": "INDIVIDUAL"
+    },
+    "category_group": {
+      "const": "PERSONAL_AND_INDIVIDUAL_STORAGE"
+    },
+    "implementation_state": {
+      "const": "CATEGORY_FOUNDATION_SCAFFOLD"
+    },
+    "connection_state": {
+      "const": "NOT_CONFIGURED"
+    },
+    "provider_product_verified": {
+      "const": false
+    },
+    "storage_operations_enabled": {
+      "const": false
+    },
+    "requires_authorized_integration": {
+      "type": "boolean"
+    },
+    "requires_live_health_check": {
+      "type": "boolean"
+    },
+    "requires_end_to_end_tests": {
+      "type": "boolean"
+    },
+    "geographic_scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "security_baseline": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}
