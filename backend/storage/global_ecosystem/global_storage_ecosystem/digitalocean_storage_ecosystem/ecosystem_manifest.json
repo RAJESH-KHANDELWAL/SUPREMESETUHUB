@@ -5,7 +5,7 @@
   "package_type": "STORAGE_TAXONOMY_AND_METADATA_FOUNDATION",
   "taxonomy_file": "taxonomy/digitalocean_storage_taxonomy.json",
   "category_index_file": "category_index.json",
-  "category_folder_count": 18,
+  "category_folder_count": 21,
   "interfaces": [
     "PYTHON",
     "PHP_JSON_INTEROPERABILITY"
