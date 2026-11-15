@@ -1,14 +1,21 @@
 # Ecosystem Foundation
 
-Reusable provider storage foundation. Existing unrelated provider-specific files are retained.
+Reusable provider-neutral hosting storage foundation aligned with the GOOGLE STORAGE ECOSYSTEM parent-catalog pattern. Existing shared modules and provider-specific files are retained.
 
-## Modules
-- `ecosystem_service.py` — provider identity and truthful health contract
-- `ecosystem_models.py` — typed metadata records
+## Catalog architecture
+- `README.md` — parent hosting ecosystem overview and capability navigation
+- `taxonomy/global_hosting_storage_taxonomy.json` — canonical hosting taxonomy grouped by capability
+- `category_index.json` — canonical index of all 23 hosting storage capability folders
+- `ecosystem_manifest.json` — ecosystem identity, category identifiers, geographic coverage, readiness and governance
+
+## Foundation modules
+- `ecosystem_service.py` — ecosystem identity and truthful health contract
+- `ecosystem_models.py` — typed hosting metadata records
 - `ecosystem_registry.py` — thread-safe in-memory metadata registry
 - `ecosystem_config.py` — runtime configuration without embedded secrets
-- `ecosystem_manifest.json` — Bharat-to-global scope and readiness state
 - `tests/test_foundation.py` — offline foundation tests
 
-## Readiness
-FOUNDATION_READY means local package code loads. It does not mean an external provider is connected. Production persistence belongs in the central database. Use least privilege, encryption, audit logs, retention controls and jurisdictional compliance. Never commit credentials or personal data.
+## Readiness and integration boundary
+FOUNDATION_READY means local package code loads. It does not mean a hosting provider is connected or that provisioning, deployment, DNS, certificates, backups, monitoring, upload, download or deletion operations work. External provider clients and operations belong in the API/integration layer. Production persistence belongs in the central database.
+
+Never commit credentials, SSH keys, API tokens, database passwords, private logs or personal data. Use least privilege, secret management, encryption, audit logs, retention controls and jurisdictional compliance.
