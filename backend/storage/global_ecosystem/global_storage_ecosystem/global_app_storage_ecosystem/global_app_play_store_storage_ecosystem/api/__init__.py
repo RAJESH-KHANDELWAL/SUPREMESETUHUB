@@ -1,0 +1,1 @@
+"""API namespace for GLOBAL_APP_PLAY_STORE_STORAGE_ECOSYSTEM."""
