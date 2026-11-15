@@ -236,10 +236,10 @@
       "status": "SCAFFOLD_CREATED"
     },
     {
-      "category": "CLOUD",
+      "category": "PERSONAL_CLOUD",
       "group": "PERSONAL_AND_CLOUD_STORAGE",
-      "folder": "google_cloud_storage_ecosystem",
-      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_cloud_storage_ecosystem/",
+      "folder": "google_personal_cloud_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_personal_cloud_storage_ecosystem/",
       "status": "SCAFFOLD_CREATED"
     },
     {
