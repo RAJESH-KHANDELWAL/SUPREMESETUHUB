@@ -1,1 +1,1 @@
-"""Foundation tests for this ecosystem package."""
+"""Offline tests for this ecosystem foundation."""

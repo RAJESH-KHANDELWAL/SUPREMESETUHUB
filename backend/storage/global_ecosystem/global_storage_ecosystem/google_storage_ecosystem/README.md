@@ -1,17 +1,9 @@
-# Google Cloud Storage — STORAGE ECOSYSTEM
+# GOOGLE Storage Ecosystem
 
-This is the canonical ecosystem-owned location for the Google Cloud Storage provider.
+STORAGE-owned taxonomy namespace for GOOGLE. Catalog and foundation only; no live provider integration is implied.
 
-## Current state
+## Responsibility
+This package owns storage-side identity, metadata, taxonomy, object lifecycle definitions and storage health metadata. Provider API clients, authentication and external operations remain in their respective API/integration layers.
 
-- Provider service scaffold is placed in this ecosystem folder.
-- The service currently reports `not_configured`; this is not a live connection.
-- Live integration requires the provider's supported API/client, owner-authorized credentials, permissions, and end-to-end tests.
-
-## Security
-
-Store credentials only in backend runtime secrets/environment. Never commit API keys, passwords, OAuth refresh tokens, private keys, or FTP credentials.
-
-## Completion criteria
-
-Implement authenticated health checks, object listing, streaming upload/download, delete, checksum verification, and mocked offline tests before marking this provider connected.
+## Readiness boundary
+The foundation does not prove provider API support, account entitlement, authorized connectivity or working upload/download/delete operations. Mark a provider connected only after authorized live health checks and end-to-end read/write tests pass. Never commit credentials or personal data.

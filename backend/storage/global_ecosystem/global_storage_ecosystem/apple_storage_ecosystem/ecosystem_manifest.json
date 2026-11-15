@@ -1,29 +1,29 @@
 {
-  "schema_version": "1.1.0",
+  "schema_version": "1.0.0",
   "ecosystem_id": "APPLE_STORAGE_ECOSYSTEM",
   "provider": "APPLE",
-  "child_storage_ecosystems": [
-    "apple_icloud_storage_ecosystem",
-    "apple_icloud_drive_storage_ecosystem",
-    "apple_photos_storage_ecosystem",
-    "apple_mail_storage_ecosystem",
-    "apple_notes_storage_ecosystem",
-    "apple_files_storage_ecosystem",
-    "apple_backup_storage_ecosystem",
-    "apple_enterprise_storage_ecosystem"
+  "geographic_scope": [
+    "BHARAT",
+    "SOUTH_ASIA",
+    "ASIA_PACIFIC",
+    "MIDDLE_EAST",
+    "EUROPE",
+    "AFRICA",
+    "NORTH_AMERICA",
+    "SOUTH_AMERICA",
+    "OCEANIA",
+    "ANTARCTICA",
+    "GLOBAL"
   ],
-  "geographic_scope": ["BHARAT", "REGIONAL", "GLOBAL"],
-  "maturity_levels": ["NORMAL", "PROFESSIONAL", "ADVANCED", "ENTERPRISE", "SUPREME"],
-  "domain_scope": [
-    "TECHNOLOGY", "BUSINESS", "FINANCE", "EDUCATION", "SCIENCE",
-    "HEALTHCARE", "HEALTH_WELLNESS", "CULTURE", "GOVERNMENT", "LAW",
-    "MEDIA", "ENTERTAINMENT", "TRAVEL_TOURISM", "FAMILY",
-    "PERSONAL_PRODUCTIVITY", "ADULT_ONLY_LAWFUL_CLASSIFICATIONS"
-  ],
-  "governance": [
-    "PRIVACY", "SECURITY", "AUDIT", "RETENTION",
-    "CONSENT_WHERE_REQUIRED", "AGE_ASSURANCE_WHERE_REQUIRED",
-    "JURISDICTIONAL_COMPLIANCE"
+  "coverage_levels": [
+    "LOCAL",
+    "DISTRICT",
+    "STATE",
+    "NATIONAL",
+    "REGIONAL",
+    "INTERNATIONAL",
+    "GLOBAL",
+    "SUPREME"
   ],
   "implementation_state": "FOUNDATION_INITIALIZED",
   "external_connection_state": "NOT_CONFIGURED",
@@ -31,6 +31,12 @@
   "requires_authorized_credentials": true,
   "requires_live_health_check": true,
   "requires_end_to_end_tests": true,
-  "integration_status": "NOT_CONFIGURED",
-  "availability_verified": false
+  "governance": [
+    "PRIVACY",
+    "SECURITY",
+    "AUDIT",
+    "RETENTION",
+    "CONSENT_WHERE_REQUIRED",
+    "JURISDICTIONAL_COMPLIANCE"
+  ]
 }
