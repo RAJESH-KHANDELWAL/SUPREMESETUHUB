@@ -1,40 +1,46 @@
-# GLOBAL CLOUD STORAGE ECOSYSTEM — PACKAGE FOUNDATION
+# GLOBAL CLOUD STORAGE ECOSYSTEM — ENGINEERING FOUNDATION
 
-## 1. Package ownership
-The GLOBAL CLOUD STORAGE ECOSYSTEM package owns:
-- Canonical cloud-storage provider and service identity
-- Storage taxonomy and category vocabulary
-- Storage metadata schemas and catalog records
-- Object and file lifecycle definitions
-- Storage health metadata and readiness contracts
+## 1. Canonical hierarchy
+`GLOBAL CLOUD → WHAT GLOBAL CLOUD PROVIDES → STORAGE ECOSYSTEM`
 
-Provider authentication, SDK clients, external API calls, and real storage operations belong to dedicated API/integration packages. Durable production persistence belongs to the central database layer.
+The root package is provider-neutral. Storage categories describe *what kind of storage capability is being cataloged*; provider packages describe *which vendor or platform supplies a service*. Do not merge these two dimensions.
 
-## 2. Standard provider namespace
-A future provider-specific package may contain:
-- Provider manifest and configuration
-- Provider metadata models and JSON schemas
-- Provider service contract
-- API/integration boundary
-- Provider model namespace
-- Offline contract and validation tests
-- Optional PHP metadata reader where required by the repository architecture
+## 2. Package layout
+- Root catalog: ecosystem identity, configuration, models, registry, service, taxonomy loader, read-only catalog facade, category index, provider index, and tests.
+- `categories/<category_package>/`: one package per storage domain.
+- `providers/<provider_package>/`: one namespace per cloud or storage provider.
+- `taxonomy/`: canonical storage-domain vocabulary and taxonomy documentation.
+- `tests/`: offline tests for safe readiness, taxonomy integrity, and catalog consistency.
 
-A provider namespace is a catalog/contract boundary. Its presence does not imply that an SDK integration exists or that a provider account is connected.
+## 3. Category package convention
+Each category package follows the same structure:
+- `README.md`, `__init__.py`
+- `ecosystem_config.py`, `ecosystem_manifest.json`, `ecosystem_models.py`, `ecosystem_service.py`, `service.py`
+- `api/` — API boundary placeholders; routes remain disabled in this storage catalog layer
+- `models/` — category-specific metadata records
+- `schemas/` — JSON schema contracts
+- `php/` — metadata reader where required by the package convention
+- `tests/` — offline category contract tests
 
-## 3. Readiness contract
-- Foundation state: `FOUNDATION_READY` after local initialization.
-- Default provider connection state: `NOT_CONFIGURED`.
+## 4. Provider package convention
+Provider packages carry provider identity, configuration, manifest, metadata models, service contract, model/schema namespaces, PHP metadata support where applicable, and offline tests. Provider packages do not gain API connectivity merely by existing.
+
+## 5. Ownership boundaries
+- Storage package owns provider identity, taxonomy, storage metadata, lifecycle definitions, catalog records, and health/readiness metadata.
+- API/integration packages own authentication, provider SDKs, network calls, callbacks, and actual provider operations.
+- Central database owns durable production persistence.
+
+## 6. Readiness contract
+- Local foundation: `FOUNDATION_READY`.
+- Default provider connection: `NOT_CONFIGURED`.
 - External connectivity verified: `false`.
-- Storage operations enabled: `false`.
-- Region and account entitlement: unverified until checked.
-- Credentials: supplied only through an approved external secret manager.
+- Live storage operations enabled: `false`.
+- Region support and account entitlements: unverified until checked.
 
-## 4. Verification required before activation
-A future provider integration must have explicit authorization, least-privilege credentials, a successful live health check, and end-to-end tests for each operation it exposes. Record provider limitations and supported regions from verified evidence.
+Only enable a provider after explicit authorization, least-privilege credentials from an approved external secret manager, successful live health checks, and end-to-end tests for each permitted operation.
 
-## 5. Security requirements
-Never commit credentials, access tokens, private keys, personal data, customer file contents, or production secrets. Keep external operations outside this catalog package.
+## 7. Governance and security
+Apply privacy, security, encryption, least privilege, audit, retention/deletion, consent where required, and jurisdictional compliance. Never commit credentials, tokens, private keys, personal data, or customer file contents.
 
-## 6. Meaning of readiness
-`FOUNDATION_READY` describes the local metadata foundation only. It must never be presented as proof of provider connectivity, service availability, or working upload/download/delete operations.
+## 8. Meaning of foundation readiness
+`FOUNDATION_READY` describes the local catalog foundation only. It must never be represented as proof of provider availability, account entitlement, region support, connectivity, or working upload/download/delete operations.
