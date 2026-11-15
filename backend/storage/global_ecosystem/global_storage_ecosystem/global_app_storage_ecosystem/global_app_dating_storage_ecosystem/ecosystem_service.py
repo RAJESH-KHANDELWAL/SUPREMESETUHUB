@@ -1,4 +1,4 @@
-"""Foundation health contract for GLOBAL_APP_DATING_STORAGE_ECOSYSTEM; no live app integration."""
+"""Foundation service for GLOBAL_APP_DATING_STORAGE_ECOSYSTEM; integration disabled."""
 from typing import Any
 from .ecosystem_config import get_config,ECOSYSTEM_ID
 class CategoryEcosystemService:

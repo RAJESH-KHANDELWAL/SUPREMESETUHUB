@@ -10,7 +10,7 @@
 Python config/models/service/adapter, API routes, model exports, PHP metadata reader, JSON manifest schema and offline tests.
 
 ## Responsibility
-Catalog and metadata classification for the matchmaking application domain. No ownership or official vendor product is implied.
+Catalog namespace for the matchmaking application domain. This does not verify app ownership or official vendor support.
 
 ## Integration boundary
-Use only authorized provider APIs and permitted data. This scaffold does not install, distribute, upload, download or delete applications or data. Never commit credentials or personal data.
+Use authorized APIs and permitted data only. This scaffold does not install, distribute, upload, download or delete applications or data. Never commit credentials or personal data.
