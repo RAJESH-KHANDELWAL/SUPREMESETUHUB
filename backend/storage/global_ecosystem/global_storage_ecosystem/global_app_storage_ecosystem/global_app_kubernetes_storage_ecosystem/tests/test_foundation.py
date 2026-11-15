@@ -1,4 +1,4 @@
-"""Offline foundation tests for GLOBAL_APP_KUBERNETES_STORAGE_ECOSYSTEM; no external provider calls."""
+"""Offline tests for GLOBAL_APP_KUBERNETES_STORAGE_ECOSYSTEM; no external calls."""
 from ..service import GlobalAppKubernetesStorageEcosystem
 def test_identity_and_safe_defaults():
  status=GlobalAppKubernetesStorageEcosystem().describe()

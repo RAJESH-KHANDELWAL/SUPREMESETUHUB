@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-/** Read-only metadata contract for GLOBAL_APP_KUBERNETES_STORAGE_ECOSYSTEM. */
+/** Metadata contract for GLOBAL_APP_KUBERNETES_STORAGE_ECOSYSTEM. */
 final class GlobalAppKubernetesStorageEcosystem {
  public const ECOSYSTEM_ID='GLOBAL_APP_KUBERNETES_STORAGE_ECOSYSTEM';
  public const CATEGORY='KUBERNETES';

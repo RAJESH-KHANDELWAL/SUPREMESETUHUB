@@ -1,25 +1,16 @@
 # GLOBAL_APP_CLASSROOM_STORAGE_ECOSYSTEM
 
-- **Folder:** `global_app_classroom_storage_ecosystem/`
-- **Category:** CLASSROOM
-- **Group:** EDUCATION_AND_KNOWLEDGE
-- **Provider:** GLOBAL APP
-- **State:** Category foundation scaffold; external connection is not configured.
+- Folder: `global_app_classroom_storage_ecosystem/`
+- Category: CLASSROOM
+- Group: EDUCATION_AND_KNOWLEDGE
+- Provider: GLOBAL APP
+- State: CATEGORY_FOUNDATION_SCAFFOLD; connection NOT_CONFIGURED.
 
 ## Package contents
-- `__init__.py` — package export
-- `ecosystem_config.py` — runtime configuration
-- `ecosystem_models.py` — category metadata model
-- `ecosystem_service.py` — health and description contract
-- `service.py` — category adapter boundary
-- `api/routes.py` — framework-neutral API handlers
-- `models/record.py` — model export
-- `schemas/manifest.schema.json` — manifest schema
-- `tests/test_foundation.py` — offline tests
-- `php/global_app_classroom_storage_ecosystem.php` — PHP metadata reader
+Python config/models/service/adapter, API routes, model exports, PHP metadata reader, JSON manifest schema and offline tests.
 
 ## Responsibility
-Storage catalog namespace for the classroom application domain.
+Catalog and metadata classification for the classroom application domain. No ownership or official vendor product is implied.
 
 ## Integration boundary
-This category is a classification namespace, not a claim of ownership or official product support. Only integrate apps and stores using authorized APIs and permitted data. No installation, distribution, upload, download or deletion operation is enabled by this scaffold. Never commit credentials or personal data.
+Use only authorized provider APIs and permitted data. This scaffold does not install, distribute, upload, download or delete applications or data. Never commit credentials or personal data.

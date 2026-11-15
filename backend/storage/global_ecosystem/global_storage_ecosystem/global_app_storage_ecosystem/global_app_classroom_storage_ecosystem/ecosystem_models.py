@@ -1,4 +1,4 @@
-"""Metadata model for GLOBAL_APP_CLASSROOM_STORAGE_ECOSYSTEM; no external app data is fetched here."""
+"""Metadata model for GLOBAL_APP_CLASSROOM_STORAGE_ECOSYSTEM."""
 from dataclasses import dataclass,field
 from datetime import datetime,timezone
 from typing import Any

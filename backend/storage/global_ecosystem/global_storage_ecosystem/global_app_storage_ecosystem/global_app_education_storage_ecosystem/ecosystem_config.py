@@ -1,4 +1,4 @@
-"""Runtime configuration for GLOBAL_APP_EDUCATION_STORAGE_ECOSYSTEM; never store credentials in source."""
+"""Runtime configuration for GLOBAL_APP_EDUCATION_STORAGE_ECOSYSTEM; never embed credentials."""
 import os
 ECOSYSTEM_ID="GLOBAL_APP_EDUCATION_STORAGE_ECOSYSTEM"
 ENV_PREFIX="GLOBAL_APP_EDUCATION_STORAGE_ECOSYSTEM"

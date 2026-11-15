@@ -23,5 +23,5 @@
     "RETENTION_CONTROLS",
     "APP_SIGNING_AND_INTEGRITY"
   ],
-  "notes": "Category-specific catalog foundation. No live vendor, store or app integration is implied."
+  "notes": "Catalog scaffold only; no live app/provider integration is implied."
 }

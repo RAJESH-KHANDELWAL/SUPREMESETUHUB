@@ -1,4 +1,4 @@
-"""Offline foundation tests for GLOBAL_APP_EDUCATION_STORAGE_ECOSYSTEM; no external provider calls."""
+"""Offline tests for GLOBAL_APP_EDUCATION_STORAGE_ECOSYSTEM; no external calls."""
 from ..service import GlobalAppEducationStorageEcosystem
 def test_identity_and_safe_defaults():
  status=GlobalAppEducationStorageEcosystem().describe()
