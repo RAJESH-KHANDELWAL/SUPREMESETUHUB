@@ -45,6 +45,7 @@ class EcosystemService:
             taxonomy_categories = [row["category"] for row in taxonomy_rows]
             indexed_categories = [row.get("category") for row in folders]
             taxonomy_group_map = {row["category"]: row["group"] for row in taxonomy_rows}
+            taxonomy_group_ids = [group.get("group") for group in taxonomy.get("groups", [])]
             folder_names = [row.get("folder") for row in folders]
 
             checks = {
@@ -53,6 +54,8 @@ class EcosystemService:
                 "manifest_identity": manifest.get("ecosystem_id") == ECOSYSTEM_ID,
                 "schema_identity": schema.get("properties", {}).get("ecosystem_id", {}).get("const") == ECOSYSTEM_ID,
                 "taxonomy_index_category_match": sorted(taxonomy_categories) == sorted(indexed_categories),
+                "no_duplicate_taxonomy_categories": len(set(taxonomy_categories)) == len(taxonomy_categories),
+                "no_duplicate_taxonomy_groups": len(set(taxonomy_group_ids)) == len(taxonomy_group_ids),
                 "category_count_matches": index.get("category_folder_count") == len(folders) == len(taxonomy_categories),
                 "no_duplicate_categories": len(set(indexed_categories)) == len(indexed_categories),
                 "no_duplicate_folders": len(set(folder_names)) == len(folder_names),
