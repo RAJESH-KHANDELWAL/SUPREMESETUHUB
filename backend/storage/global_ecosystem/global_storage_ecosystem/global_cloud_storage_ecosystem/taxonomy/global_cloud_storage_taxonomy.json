@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_CLOUD_STORAGE_ECOSYSTEM",
+  "groups": [
+    {
+      "group_id": "OBJECT_BLOB_STORAGE",
+      "categories": [
+        "OBJECT_STORAGE",
+        "BLOB_STORAGE",
+        "S3_COMPATIBLE_OBJECT_STORAGE",
+        "ARCHIVE_OBJECT_STORAGE"
+      ]
+    },
+    {
+      "group_id": "FILE_STORAGE",
+      "categories": [
+        "CLOUD_FILE_SHARES",
+        "MANAGED_NETWORK_FILE_SYSTEMS",
+        "SHARED_FILE_STORAGE",
+        "FILE_SYNC_METADATA"
+      ]
+    },
+    {
+      "group_id": "BLOCK_VOLUME_STORAGE",
+      "categories": [
+        "BLOCK_VOLUMES",
+        "BOOT_VOLUMES",
+        "PERSISTENT_VOLUMES",
+        "SNAPSHOT_METADATA"
+      ]
+    },
+    {
+      "group_id": "BACKUP_ARCHIVE_STORAGE",
+      "categories": [
+        "BACKUP_CATALOGS",
+        "LONG_TERM_ARCHIVE",
+        "DISASTER_RECOVERY_METADATA",
+        "RESTORE_POINT_METADATA"
+      ]
+    },
+    {
+      "group_id": "HYBRID_MULTI_CLOUD_STORAGE",
+      "categories": [
+        "HYBRID_STORAGE_CATALOGS",
+        "MULTI_CLOUD_STORAGE_POLICIES",
+        "REPLICATION_METADATA",
+        "MIGRATION_INVENTORY"
+      ]
+    },
+    {
+      "group_id": "GOVERNANCE_OBSERVABILITY",
+      "categories": [
+        "LIFECYCLE_POLICIES",
+        "ACCESS_METADATA",
+        "ENCRYPTION_METADATA",
+        "CAPACITY_METRICS",
+        "COST_ALLOCATION_METADATA",
+        "AUDIT_AND_RETENTION_METADATA"
+      ]
+    }
+  ]
+}
