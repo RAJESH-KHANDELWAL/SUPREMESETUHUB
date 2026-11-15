@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GOOGLE_PERSONAL_CLOUD_STORAGE_ECOSYSTEM Manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "ecosystem_id",
+    "package_name",
+    "provider",
+    "category",
+    "category_group",
+    "implementation_state",
+    "connection_state",
+    "provider_product_verified",
+    "storage_operations_enabled"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "ecosystem_id": {
+      "const": "GOOGLE_PERSONAL_CLOUD_STORAGE_ECOSYSTEM"
+    },
+    "package_name": {
+      "const": "google_personal_cloud_storage_ecosystem"
+    },
+    "provider": {
+      "const": "GOOGLE"
+    },
+    "category": {
+      "const": "PERSONAL_CLOUD"
+    },
+    "category_group": {
+      "const": "PERSONAL_AND_CLOUD_STORAGE"
+    },
+    "implementation_state": {
+      "const": "CATEGORY_FOUNDATION_SCAFFOLD"
+    },
+    "connection_state": {
+      "const": "NOT_CONFIGURED"
+    },
+    "provider_product_verified": {
+      "const": false
+    },
+    "storage_operations_enabled": {
+      "const": false
+    }
+  },
+  "additionalProperties": true
+}
