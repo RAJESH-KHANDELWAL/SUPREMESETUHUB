@@ -15,7 +15,7 @@
       "const": "GOOGLE"
     },
     "category": {
-      "const": "GOOGLE_CLOUD"
+      "const": "CLOUD"
     },
     "connection_state": {
       "enum": [
