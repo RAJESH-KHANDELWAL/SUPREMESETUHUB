@@ -1,1 +1,0 @@
-"""BHARAT geographic taxonomy."""

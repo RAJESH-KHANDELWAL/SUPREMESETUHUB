@@ -1,1 +1,0 @@
-"""SOUTH ASIA geographic taxonomy."""

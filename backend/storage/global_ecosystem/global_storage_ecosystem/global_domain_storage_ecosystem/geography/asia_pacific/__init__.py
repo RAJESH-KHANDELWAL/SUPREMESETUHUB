@@ -1,1 +1,0 @@
-"""ASIA PACIFIC geographic taxonomy."""

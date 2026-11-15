@@ -1,1 +1,1 @@
-"""Offline tests for GLOBAL DOMAIN Storage Ecosystem."""
+"""Offline tests for the global domain storage foundation."""
