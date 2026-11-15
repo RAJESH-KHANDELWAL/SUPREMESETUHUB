@@ -1,9 +1,15 @@
 # DIGITALOCEAN Storage Ecosystem
 
-STORAGE-owned taxonomy namespace for DIGITALOCEAN. Catalog and foundation only; no live provider integration is implied.
+Parent namespace for 18 DigitalOcean-related storage category packages.
 
-## Responsibility
-This package owns storage-side identity, metadata, taxonomy, object lifecycle definitions and storage health metadata. Provider API clients, authentication and external operations remain in their respective API/integration layers.
+- `taxonomy/digitalocean_storage_taxonomy.json`: canonical grouped storage taxonomy.
+- `category_index.json`: category folder names, groups and repository paths.
+- Each category package contains its own README, manifest and Python package entry point.
 
-## Readiness boundary
-The foundation does not prove provider API support, account entitlement, authorized connectivity or working upload/download/delete operations. Mark a provider connected only after authorized live health checks and end-to-end read/write tests pass. Never commit credentials or personal data.
+These packages are catalog and metadata scaffolds. They are not a claim that every category is a separate DigitalOcean product or that any account is connected. Provider API support, product availability, account entitlements, permissions, region availability and operational behavior must be verified independently.
+
+## Architecture boundary
+This STORAGE namespace owns storage taxonomy, metadata, lifecycle definitions and health contracts. DigitalOcean API clients, authentication, endpoint operations and external network calls belong in the corresponding API/integration layers. Production persistence belongs in the central database.
+
+## Readiness
+All categories start as `NOT_CONFIGURED`. Never mark a provider connected until authorized live health checks and end-to-end tests pass. No upload, download, overwrite or delete operation is enabled by this catalog. Never commit credentials or personal data.
