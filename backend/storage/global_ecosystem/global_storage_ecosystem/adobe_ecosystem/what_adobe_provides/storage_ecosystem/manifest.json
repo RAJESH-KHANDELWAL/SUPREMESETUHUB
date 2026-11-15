@@ -1,0 +1,14 @@
+{
+  "provider_id": "adobe",
+  "ecosystem_id": "adobe-storage",
+  "name": "Adobe Storage Ecosystem",
+  "status": "FOUNDATION_CATALOG",
+  "live_connection_verified": false,
+  "api_namespace": "backend/api/global_ecosystem/global_api_ecosystem/adobe_api_ecosystem",
+  "child_packages": 9,
+  "credentials_source": "central_secret_manager",
+  "notes": [
+    "Catalog and metadata foundations only",
+    "No provider-specific live storage operation has been verified"
+  ]
+}
