@@ -1,34 +1,30 @@
 # ANTHROPIC Storage Ecosystem
 
-Canonical Anthropic provider storage catalog for SUPREMESETUHUB.
+Compatibility package for the canonical Anthropic provider storage catalog in SUPREMESETUHUB.
 
-- `taxonomy/anthropic_storage_taxonomy.json`: canonical category, domain, geography and maturity taxonomy.
-- `category_index.json`: all 8 child category folders and repository paths.
-- Each child category contains the same canonical Python package foundation pattern used by Google Storage Ecosystem, together with Anthropic-specific metadata and taxonomy directories.
+## Canonical hierarchy
+
+`ANTHROPIC / WHAT ANTHROPIC PROVIDES / STORAGE ECOSYSTEM`
+
+Canonical location:
+`backend/storage/global_ecosystem/global_storage_ecosystem/anthropic_ecosystem/what_anthropic_provides/storage_ecosystem/`
+
+This directory remains available as the compatibility package path for existing imports, workflows and references. Do not remove it as part of the hierarchy migration.
 
 ## Child storage ecosystems
 
-- `anthropic_claude_storage_ecosystem` — CLAUDE; group: `CLAUDE_PLATFORM`.
-- `anthropic_claude_projects_storage_ecosystem` — CLAUDE PROJECTS; group: `PROJECT_WORKSPACE`.
-- `anthropic_claude_artifacts_storage_ecosystem` — CLAUDE ARTIFACTS; group: `GENERATED_ARTIFACTS`.
-- `anthropic_claude_files_storage_ecosystem` — CLAUDE FILES; group: `FILE_WORKFLOWS`.
-- `anthropic_claude_knowledge_storage_ecosystem` — CLAUDE KNOWLEDGE; group: `KNOWLEDGE_RETRIEVAL`.
-- `anthropic_claude_connectors_storage_ecosystem` — CLAUDE CONNECTORS; group: `CONNECTOR_METADATA`.
-- `anthropic_claude_enterprise_storage_ecosystem` — CLAUDE ENTERPRISE; group: `ENTERPRISE_WORKSPACE`.
-- `anthropic_claude_code_storage_ecosystem` — CLAUDE CODE; group: `DEVELOPER_WORKSPACE`.
+- `anthropic_claude_storage_ecosystem` — Claude platform storage-related metadata and supported file workflows.
+- `anthropic_claude_projects_storage_ecosystem` — Claude Projects workspace metadata and project-scoped knowledge references.
+- `anthropic_claude_artifacts_storage_ecosystem` — Claude Artifacts metadata and generated-output lifecycle references.
+- `anthropic_claude_files_storage_ecosystem` — file upload, handling and document workflow metadata.
+- `anthropic_claude_knowledge_storage_ecosystem` — knowledge, retrieval and source-reference metadata.
+- `anthropic_claude_connectors_storage_ecosystem` — connector configuration metadata and external-source references.
+- `anthropic_claude_enterprise_storage_ecosystem` — enterprise and workspace storage governance metadata.
+- `anthropic_claude_code_storage_ecosystem` — Claude Code project context, repository and artifact metadata.
 
-## Canonical child package structure
+## Package baseline
 
-Each child package follows the Google category package baseline:
-- `README.md`, `__init__.py`
-- `api/__init__.py`, `api/routes.py`
-- `ecosystem_config.py`, `ecosystem_manifest.json`
-- `ecosystem_models.py`, `ecosystem_service.py`, `service.py`
-- `models/__init__.py`, `models/record.py`
-- `php/` read-only metadata helper
-- `schemas/manifest.schema.json`
-- `tests/test_foundation.py`
-- Anthropic taxonomy: `domains/`, `geography/`, `maturity_levels/`
+Each compatibility child package contains the Python foundation, API namespace, models, PHP metadata helper, schema, tests, README, manifest and Anthropic taxonomy directories (`domains/`, `geography/`, `maturity_levels/`). The canonical category index maps each category to its new provider hierarchy location and this compatibility package.
 
 ## Architecture boundary
 
@@ -36,7 +32,7 @@ The Anthropic API Ecosystem owns API clients, authentication, endpoints, scopes 
 
 ## Truthful readiness
 
-This catalog and its child folders are taxonomy/scaffolding only. They do not establish that Claude conversations, Projects, Artifacts, Files, Connectors, Claude Code or enterprise features expose a generic storage API. Product availability, account entitlements, API support, permissions and regional behavior must be verified independently. Keep every child `NOT_CONFIGURED` until authorized live health checks and required read/write tests pass. Storage operations remain disabled. Never commit credentials or personal data.
+Catalog and category folders are scaffolding only. They do not establish that Claude conversations, Projects, Artifacts, Files, Connectors, Claude Code or enterprise features expose a generic storage API. Product availability, account entitlements, API support, permissions and regional behavior must be verified independently. Keep every child `NOT_CONFIGURED` until authorized live health checks and required read/write tests pass. Storage operations remain disabled. Never commit credentials or personal data.
 
 ## Adult-only governance
 
