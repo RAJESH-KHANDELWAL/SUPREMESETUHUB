@@ -1,0 +1,15 @@
+"""Global Infrastructure Ecosystem adapter for the canonical ipam domain."""
+from importlib import import_module
+
+DOMAIN_ID = "ipam"
+CANONICAL_PACKAGE = "backend.infrastructure.ipam"
+CANONICAL_PATH = "backend/infrastructure/ipam"
+OWNERSHIP = "CANONICAL_IMPLEMENTATION_RETAINED"
+
+
+def load_domain():
+    """Load the existing canonical domain package without duplicating it."""
+    return import_module(CANONICAL_PACKAGE)
+
+
+__all__ = ["DOMAIN_ID", "CANONICAL_PACKAGE", "CANONICAL_PATH", "OWNERSHIP", "load_domain"]
