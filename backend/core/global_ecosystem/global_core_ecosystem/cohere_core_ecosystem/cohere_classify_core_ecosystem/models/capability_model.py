@@ -1,0 +1,9 @@
+"""Typed descriptor for the classify capability."""
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class CapabilityDescriptor:
+    name: str = "classify"
+    provider: str = "cohere"
+    mode: str = "contract_only"
+    live_enabled: bool = False
