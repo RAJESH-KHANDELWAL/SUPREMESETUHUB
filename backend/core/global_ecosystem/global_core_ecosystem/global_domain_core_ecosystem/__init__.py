@@ -1,11 +1,18 @@
-"""DOMAIN CORE ECOSYSTEM package.
+"""Public interface for the Global Domain Core Ecosystem."""
+from .catalog import DOMAIN_CAPABILITY_DOMAINS, GLOBAL_DOMAIN_CORE_ECOSYSTEM, get_domain_core_catalog, list_domain_capability_domains
+from .contracts import DomainCoreResult, DomainReadiness, DomainTenantContext
+from .module_service import DomainProviderCoreService
+from .orchestrator import GlobalDomainCoreOrchestrator
+from .policy import DomainCorePolicy, DomainCorePolicyError
+from .provider_catalog import DOMAIN_PROVIDER_CATALOG, domain_provider_summary, get_domain_provider, list_domain_providers
+from .service import GlobalDomainCoreEcosystemService
 
-This package is an independent layer-owned namespace. It contains no imports
-from API, CORE, or ENGINE sibling layers.
-"""
-LAYER = "CORE"
-CATEGORY = "DOMAIN"
-ECOSYSTEM_NAME = f"GLOBAL {CATEGORY.replace('_', ' ')} {LAYER} ECOSYSTEM"
-ECOSYSTEM_ID = f"GLOBAL-{CATEGORY.replace('_', '-')}-{LAYER.upper()}-ECOSYSTEM"
-
-__all__ = ["LAYER", "CATEGORY", "ECOSYSTEM_NAME", "ECOSYSTEM_ID"]
+__all__ = [
+    "DOMAIN_CAPABILITY_DOMAINS", "GLOBAL_DOMAIN_CORE_ECOSYSTEM",
+    "get_domain_core_catalog", "list_domain_capability_domains",
+    "DomainCoreResult", "DomainReadiness", "DomainTenantContext",
+    "DomainProviderCoreService", "GlobalDomainCoreOrchestrator",
+    "DomainCorePolicy", "DomainCorePolicyError", "DOMAIN_PROVIDER_CATALOG",
+    "domain_provider_summary", "get_domain_provider", "list_domain_providers",
+    "GlobalDomainCoreEcosystemService",
+]
