@@ -1,32 +1,38 @@
 # Adobe API Ecosystem
 
-Canonical Adobe provider catalog for SUPREMESETUHUB.
+Canonical Adobe API provider catalog for SUPREMESETUHUB.
 
-## API families
-- PDF Services API: supported PDF creation, conversion and document operations.
-- Acrobat Sign API: e-signature agreements and signing workflows.
-- Firefly Services API: supported generative and creative services.
-- Creative Cloud and Assets APIs: supported asset and product integrations.
-- Experience Platform APIs: only products enabled for the Adobe organization.
-- Adobe Commerce APIs: commerce integrations where deployed and authorized.
-- Video and Frame.io APIs: media collaboration where available.
-- OAuth and Developer Console: application registration, scopes and token lifecycle.
+## API families (8)
 
-## Product boundaries
-Photoshop, Illustrator, Premiere Pro and other desktop applications are not automatically exposed as general-purpose APIs. Integrate only documented Adobe developer APIs for which the account has entitlement. Each API may require distinct OAuth scopes, product profiles and organization permissions.
+| Family | Responsibility |
+|---|---|
+| PDF Services | Document conversion and PDF operations |
+| Acrobat Sign | Agreements, participants and signing workflows |
+| Firefly Services | Supported generative services |
+| Creative Cloud and Assets | Documented asset and Creative Cloud APIs |
+| Experience Platform | Product- and organization-scoped Experience Platform APIs |
+| Commerce | Adobe Commerce APIs for deployed/authorized instances |
+| Video and Frame.io | Media collaboration and Frame.io APIs |
+| OAuth and Identity | OAuth configuration boundary and Developer Console metadata |
 
-## Backend integration
-The shared adapter is backend/integrations/providers/adobe.py and is registered as ADOBE in backend/integrations/registry.py. It reports OAuth configuration readiness only; it does not prove that an Adobe API request succeeded.
+Each family has a Python adapter boundary, machine-readable API contract and offline contract test. A blank endpoint catalog is intentional until exact endpoints, API versions, OAuth scopes and entitlements are verified against applicable official Adobe documentation.
 
-## Setup
-1. Configure an integration in Adobe Developer Console: https://developer.adobe.com/console/
-2. Select the required product API and OAuth scopes.
-3. Store credentials server-side as ADOBE_CLIENT_ID and ADOBE_CLIENT_SECRET in the deployment secret manager.
-4. Add organization/account identifiers only when the selected API requires them.
-5. Never commit credentials or expose them to browser code.
-6. Implement and test each API family separately.
+## Shared transport
 
-## Status
-NEEDS_CONFIGURATION means required OAuth configuration is absent. CONFIGURED_NOT_VERIFIED means configuration exists but no live API operation has been tested. Only report CONNECTED after a successful authenticated API operation.
+`shared/` contains HTTPS transport, a token-provider protocol, normalized errors, conservative idempotent retries and a pagination helper. It does not guess API hosts or implement a universal OAuth grant. Family clients must receive an official HTTPS base URL and a secure token provider.
 
-Child folders are catalog/documentation scaffolds, not completed live connectors.
+## Security and setup
+
+- Configure the required API product and OAuth scopes in Adobe Developer Console: https://developer.adobe.com/console/
+- Store credentials and refresh/access tokens only in a managed secret store.
+- Use least-privilege scopes and tenant/organization isolation.
+- Never commit credentials, log tokens, or expose secrets to browser code.
+- Validate ownership and authorization before each operation.
+- Add product-specific webhook signature verification only from official specifications.
+- Do not retry non-idempotent POST requests automatically.
+
+## Status semantics
+
+`ADAPTER_SCAFFOLD` means structure and offline contracts exist. It does not mean an API endpoint is implemented, the account has entitlement, OAuth works, or a live connection is verified. Mark connected only after a successful authenticated product-specific smoke test.
+
+No shared live Adobe provider adapter was found at the previously referenced integration path during this repository review; this API layer does not claim one exists.

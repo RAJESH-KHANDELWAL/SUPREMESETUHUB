@@ -13,6 +13,8 @@ Last catalog review: 2026-11-16.
 - Shared provider catalog/contracts/policy/services/orchestrator: existing foundation retained.
 - Live Adobe connections verified: 0.
 - Credentials configured: 0.
+- Adobe API family adapters: 8/8 scaffolded separately in the API layer.
+- Core-to-API family references: explicit mappings added only where a family-level relationship is justified; unmapped domains are not assigned invented endpoints.
 - Product-specific API entitlements/scopes: not verified.
 - Product-specific integration tests: not executed in this change.
 
