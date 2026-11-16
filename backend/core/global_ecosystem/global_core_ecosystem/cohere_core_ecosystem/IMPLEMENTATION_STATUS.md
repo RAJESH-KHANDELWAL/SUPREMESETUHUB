@@ -5,14 +5,15 @@
 
 ## Provider-level foundation
 
-- Five capability identifiers are registered.
+- Five capability identifiers are registered in the canonical capability catalog.
 - Provider-level catalog, capability routing inventory, domain taxonomy and discovery/orchestration summary are present.
 - Shared provider areas follow the `cohere_shared_*` naming convention.
 - Shared request/result contracts, policy boundary, manager and PHP interoperability contract are present.
+- The provider facade dispatches requests to the five capability-specific CORE validators and returns normalized validation results.
 
 ## Capability package structure
 
-Each capability package now follows the Google product-Core folder convention:
+Each capability package follows the Google product-Core folder convention:
 - authentication
 - capabilities
 - docs
@@ -36,6 +37,8 @@ Each package also has a capability manifest, non-secret config, typed contracts 
 | rerank | `RerankRequest` | Non-empty query/documents and positive optional top-N |
 | tokenize | `TokenizeRequest` | Non-empty text |
 
+Provider-level routing tests cover successful dispatch, capability-specific invalid input, unknown capabilities, non-mapping inputs and invalid field types. These tests are committed but must still be executed in the repository CI/runtime before being marked verified.
+
 ## Not implemented or not enabled
 
 - Live Cohere API/SDK transport.
@@ -44,17 +47,12 @@ Each package also has a capability manifest, non-secret config, typed contracts 
 - DATABASE persistence and STORAGE artifacts.
 - Verified account entitlement, model availability or provider smoke tests.
 
-## Known integration gap
+## Remaining integration work
 
-The provider-level generic validation service has not yet been wired to dispatch each incoming request to its capability-specific service. Package-level validators and tests are present, but this routing must be implemented and verified before treating the provider facade as enforcing all capability-specific rules.
-
-## Required next steps
-
-1. Add provider-manager dispatch to the five capability service facades.
-2. Run the capability unit tests and add provider-level routing tests.
-3. Implement API and ENGINE adapters in their own layer folders.
-4. Add secure runtime credential injection and tenant authorization.
-5. Add integration tests, provider smoke tests, observability and deployment validation.
-6. Change manifest readiness only when those checks pass.
+1. Run provider and capability unit tests in CI and resolve any failures.
+2. Implement API and ENGINE adapters in their own layer folders.
+3. Add secure runtime credential injection and tenant authorization.
+4. Add integration tests, provider smoke tests, observability and deployment validation.
+5. Change manifest readiness only when those checks pass.
 
 Never commit provider secrets. Catalog registration is not proof of API access, model availability, entitlement or authorization.
