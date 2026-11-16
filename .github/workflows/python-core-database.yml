@@ -97,6 +97,27 @@ jobs:
       - name: Run GLOBAL CORE Ecosystem Hierarchy Tests
         run: python -m unittest backend.tests.test_global_core_ecosystem_hierarchy -v
 
+      - name: Run Anthropic Core catalog and nine product-family tests
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m unittest \
+            backend.core.global_ecosystem.global_core_ecosystem.anthropic_core_ecosystem.tests.test_catalog \
+            backend.core.global_ecosystem.global_core_ecosystem.anthropic_core_ecosystem.anthropic_admin_workspaces_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.anthropic_core_ecosystem.anthropic_auth_identity_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.anthropic_core_ecosystem.anthropic_batches_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.anthropic_core_ecosystem.anthropic_files_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.anthropic_core_ecosystem.anthropic_managed_agents_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.anthropic_core_ecosystem.anthropic_messages_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.anthropic_core_ecosystem.anthropic_models_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.anthropic_core_ecosystem.anthropic_token_counting_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.anthropic_core_ecosystem.anthropic_tool_use_core_ecosystem.tests.test_manifest -v
+
+      - name: Run GLOBAL ECOSYSTEM registry integration tests
+        env:
+          PYTHONPATH: .
+        run: python -m unittest backend.tests.test_global_ecosystem_core -v
+
       - name: Run GLOBAL AI Ecosystem Layer Tests
         run: python -m unittest backend.tests.test_global_ai_ecosystem -v
 
