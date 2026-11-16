@@ -1,79 +1,67 @@
 # Cohere CORE Architecture
 
-## Purpose
+## Provider-root pattern
 
-Cohere CORE is the provider-specific domain and policy boundary for Cohere capabilities. It owns capability identity, request/result contracts, metadata, validation rules and safe orchestration interfaces.
+The provider root follows the Google CORE organization model:
+1. Provider-level catalog, product/capability routing, domain taxonomy and orchestration.
+2. Dedicated capability Core packages.
+3. Provider-wide `cohere_shared_*` modules for reusable contracts and cross-capability concerns.
+4. Explicit boundaries to API, ENGINE, DATABASE, STORAGE and Application/UI.
 
-It is deliberately separate from provider transport and execution. A CORE capability being registered does not mean the provider API is connected or that the capability is authorized for a tenant.
+## Capability package standard
 
-## Component responsibilities
+Each of the five Cohere capability packages contains these ten subfolders:
 
-| Component | Owns | Does not own |
-|---|---|---|
-| Capability packages | Capability-specific request dataclasses and input validation | HTTP requests, SDK execution |
-| `capabilities/catalog.py` | Canonical capability names and package routing metadata | Provider availability checks |
-| `contracts.py` | Shared request/result data structures | Persistence |
-| `service.py` | Generic capability and input-shape validation | Capability-specific dispatch today; network I/O |
-| `manager.py` | Stable public facade over the shared service | Provider execution |
-| `policies.py`, `security/` | Operation restrictions and secret-field checks | Credential issuance or storage |
-| `models/`, `schemas/` | Capability metadata and payload-shape helpers | Provider model discovery |
-| `lifecycle/`, `events/` | State vocabulary and event payload contract | Queue processing or event delivery |
-| `authentication/` | Documents secure authentication injection boundary | Secrets or token exchange |
-| `php/` | PHP interoperability validation | Cohere API calls |
+| Subfolder | Responsibility |
+|---|---|
+| `authentication/` | Tenant/actor and opaque credential-reference contract; no secret values |
+| `capabilities/` | Capability metadata and supported mode |
+| `docs/` | Capability-specific documentation |
+| `events/` | Event payload contracts only |
+| `lifecycle/` | Capability state vocabulary |
+| `models/` | Typed capability descriptor |
+| `schemas/` | Payload-shape helpers |
+| `security/` | Secret-field and policy checks |
+| `services/` | Capability-specific CORE validation facade |
+| `tests/` | Capability contract unit tests |
 
-## Capability packages
+Each package also owns `contracts.py`, `service.py`, `ecosystem_config.py`, `ecosystem_manifest.json`, `README.md` and `__init__.py`.
 
-- **Classify:** classification input contract.
-- **Command:** command/chat generation input contract.
-- **Embed:** text embedding input contract.
-- **Rerank:** query, documents and optional top-N contract.
-- **Tokenize:** text tokenization input contract.
+## Five capability packages
 
-Each package is independently named so that future API and ENGINE adapters can route to a stable capability identifier without putting transport logic in CORE.
+- **Classify:** text classification request contract.
+- **Command:** command/chat generation request contract.
+- **Embed:** text embedding request contract.
+- **Rerank:** query/document relevance ranking contract.
+- **Tokenize:** text tokenization request contract.
 
-## End-to-end responsibility boundary
+## Provider-wide shared areas
+
+`cohere_shared_compatibility`, `cohere_shared_configuration`, `cohere_shared_contracts`, `cohere_shared_documentation`, `cohere_shared_events`, `cohere_shared_exceptions`, `cohere_shared_orchestration`, `cohere_shared_security`, `cohere_shared_testing`, `cohere_shared_utilities` and `cohere_shared_validation`.
+
+## Layer ownership
 
 ```text
 Application / UI
-  └─ authenticated user, tenant and consent context
-       ↓
+      ↓
 Cohere CORE
-  ├─ capability registry
-  ├─ request/result contracts
-  ├─ input and policy validation
-  └─ orchestration-facing result
-       ↓
-Cohere API adapter
-  └─ HTTP transport, SDK client boundary, response normalization
-       ↓
-Cohere ENGINE adapter
-  └─ execution, retries, timeouts, scheduling and provider calls
+  ├─ provider catalog and capability routing
+  ├─ capability contracts and validation
+  ├─ shared policy and lifecycle metadata
+  └─ readiness/discovery result
+      ↓
+Cohere API Ecosystem  → HTTP transport and response normalization
+      ↓
+Cohere ENGINE         → SDK execution, retries, timeouts, jobs
 
-DATABASE  ── structured state and transactions
-STORAGE   ── files, artifacts and retention
-OBSERVABILITY ── logs, metrics, traces and audit
+Cohere DATABASE       → structured state and transactions
+Cohere STORAGE        → files, artifacts and retention
 ```
 
-The diagram describes intended layer ownership. The API and ENGINE adapters shown above are integration dependencies; they are not implemented by this CORE directory.
+The API and ENGINE layers above are integration dependencies, not live adapters implemented in this CORE package.
 
-## Current validation behavior
+## Current behavior and limits
 
-The shared `CohereCoreService.validate()`:
-1. normalizes the capability name;
-2. rejects names absent from the canonical registry;
-3. checks that inputs are mapping-like;
-4. returns a shared `CoreResult`.
+The public shared service currently checks capability registration and generic input mapping shape. Capability packages expose their own typed request validators and service facades. A future integration must explicitly dispatch requests to the relevant capability service and test that routing before live traffic is enabled.
 
-The five capability packages also define their own `validate_request()` functions. At present, the shared service does not call those functions. Connecting that dispatch and adding tests is a required implementation step before treating capability-specific validation as enforced by the public manager.
-
-## Security and authorization
-
-- CORE never stores Cohere credentials.
-- Authentication must be injected by a secure runtime or approved secret manager.
-- Tenant and actor identity must come from the authenticated application layer.
-- Secret values must not be passed as ordinary capability metadata.
-- Provider writes, billing changes, model training/fine-tuning, deletion and deployment changes require an explicitly authorized workflow outside CORE.
-
-## Readiness states
-
-The manifest currently declares `interface_only` and `live_provider_calls_enabled: false`. Do not report a live connection until the API/ENGINE integration, secure authentication, approved model configuration, integration tests and provider smoke tests have all succeeded.
+No Cohere network calls, credentials, provider writes or persistence are enabled by this directory.
