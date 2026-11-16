@@ -113,6 +113,11 @@ jobs:
             backend.core.global_ecosystem.global_core_ecosystem.anthropic_core_ecosystem.anthropic_token_counting_core_ecosystem.tests.test_manifest \
             backend.core.global_ecosystem.global_core_ecosystem.anthropic_core_ecosystem.anthropic_tool_use_core_ecosystem.tests.test_manifest -v
 
+      - name: Run Apple Core catalog and eight product-family tests
+        env:
+          PYTHONPATH: .
+        run: python -m unittest backend.core.global_ecosystem.global_core_ecosystem.apple_core_ecosystem.tests.test_catalog -v
+
       - name: Run GLOBAL ECOSYSTEM registry integration tests
         env:
           PYTHONPATH: .
