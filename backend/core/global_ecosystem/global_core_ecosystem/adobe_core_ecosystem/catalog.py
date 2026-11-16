@@ -51,5 +51,20 @@ def get_adobe_core_catalog() -> dict[str, Any]:
     children=[]
     for key,name,description in _SOURCE:
         module=_MODULE_OVERRIDES.get(key, f"adobe_{key.removeprefix('adobe_')}_core_ecosystem")
-        children.append({"ecosystem_id":f"ADOBE-{key.upper().replace('_','-')}-CORE-ECOSYSTEM","name":name,"product_key":key,"description":description,"core_module":module,"api_catalog_ref":f"backend/api/global_ecosystem/global_api_ecosystem/adobe_api_ecosystem/{key}","capabilities":[],"status":"CORE_SCAFFOLDED","enabled":True,"package_scaffolded":True,"live_connection_verified":False})
+        api_family_map = {
+            "acrobat_pdf": ("adobe_pdf_services_api_ecosystem",),
+            "frame_io": ("adobe_video_frameio_api_ecosystem",),
+            "firefly": ("adobe_firefly_services_api_ecosystem",),
+            "experience_cloud": ("adobe_experience_platform_api_ecosystem",),
+            "analytics": ("adobe_experience_platform_api_ecosystem",),
+            "marketo": ("adobe_experience_platform_api_ecosystem",),
+            "aem": ("adobe_experience_platform_api_ecosystem",),
+            "commerce": ("adobe_commerce_api_ecosystem",),
+            "assets_and_dam": ("adobe_creative_cloud_assets_api_ecosystem",),
+            "creative_cloud": ("adobe_creative_cloud_assets_api_ecosystem",),
+            "identity_and_access": ("adobe_oauth_identity_ecosystem",),
+        }
+        api_families = api_family_map.get(key, ())
+        api_refs = [f"backend/api/global_ecosystem/global_api_ecosystem/adobe_api_ecosystem/{family}" for family in api_families]
+        children.append({"ecosystem_id":f"ADOBE-{key.upper().replace('_','-')}-CORE-ECOSYSTEM","name":name,"product_key":key,"description":description,"core_module":module,"api_catalog_refs":api_refs,"api_catalog_ref":api_refs[0] if api_refs else None,"api_mapping_status":"FAMILY_CATALOG_MAPPED_NOT_ENTITLEMENT_VERIFIED" if api_refs else "NO_DIRECT_API_FAMILY_MAPPED","capabilities":[],"status":"CORE_SCAFFOLDED","enabled":True,"package_scaffolded":True,"live_connection_verified":False})
     return {"ecosystem_id":"ADOBE-CORE-ECOSYSTEM","name":"ADOBE CORE ECOSYSTEM","provider":"adobe","status":"CORE_CATALOG_AVAILABLE","source_catalog":"backend/global_ecosystem/adobe_ecosystem/catalog.py","api_catalog_ref":"backend/api/global_ecosystem/global_api_ecosystem/adobe_api_ecosystem","product_domain_count":len(children),"package_scaffolded_count":len(children),"live_connections_verified":0,"children":children}
