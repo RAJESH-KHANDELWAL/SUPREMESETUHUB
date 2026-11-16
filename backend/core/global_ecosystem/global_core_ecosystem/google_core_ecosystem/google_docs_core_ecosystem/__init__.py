@@ -11,4 +11,6 @@ __all__ = [
     "API_CATALOG_REF",
     "IMPLEMENTATION_STATUS",
     "LIVE_CONNECTION_VERIFIED",
-]
+, "GoogleDocsCoreService"]
+
+from .service import GoogleDocsCoreService
