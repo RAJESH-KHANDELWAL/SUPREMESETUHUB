@@ -8,24 +8,47 @@
 - **State:** `CATEGORY_FOUNDATION_SCAFFOLD`
 - **Connection:** `NOT_CONFIGURED`
 
-## Standard package structure
+## Standard root package structure
 
 - `__init__.py` — public package export
 - `ecosystem_config.py` — safe-by-default runtime configuration; no embedded secrets
 - `ecosystem_manifest.json` — canonical identity and readiness state
-- `ecosystem_models.py` — individual metadata record with opaque owner reference
+- `ecosystem_models.py` — individual metadata record with mandatory opaque owner reference
 - `ecosystem_registry.py` — thread-safe in-memory metadata registry for development/tests
-- `ecosystem_service.py` — manifest, taxonomy, index, safety and health validation
-- `service.py` — category-specific service entry point
-- `api/__init__.py` and `api/routes.py` — API namespace and framework-neutral status/health handlers
-- `models/__init__.py` and `models/record.py` — public model namespace and export
-- `schemas/manifest.schema.json` — manifest contract
-- `schemas/category_record.schema.json` — standard category metadata record contract
-- `schemas/individual_storage_record.schema.json` — individual-domain metadata contract
-- `taxonomy/global_individual_storage_taxonomy.json` — grouped taxonomy source
-- `category_index.json` — flat category index and declared count
-- `tests/__init__.py` and `tests/test_foundation.py` — offline foundation tests
-- `php/global_individual_storage_ecosystem.php` — read-only PHP metadata contract
+- `ecosystem_service.py` — root manifest, taxonomy, index, child-package and safety validation
+- `service.py` — root category service entry point
+- `api/`, `models/`, `schemas/`, `taxonomy/`, `tests/`, `php/` — root API, models, contracts, taxonomy, tests and PHP metadata
+
+## Category child packages
+
+The root taxonomy contains **17 categories in 5 groups**. Each category has its own `global_individual_<category>_storage_ecosystem/` child package, following the Google Storage Ecosystem category-package layout. Each child package contains its own README, public export, safe configuration, manifest, metadata model, registry, validation service, service entry point, API routes, model export, category and manifest schemas, offline tests and read-only PHP metadata contract.
+
+### IDENTITY_AND_OWNERSHIP
+- `global_individual_individual_identity_metadata_storage_ecosystem/`
+- `global_individual_storage_ownership_references_storage_ecosystem/`
+- `global_individual_account_association_references_storage_ecosystem/`
+
+### PERSONAL_CONTENT
+- `global_individual_personal_document_storage_storage_ecosystem/`
+- `global_individual_personal_file_and_folder_storage_storage_ecosystem/`
+- `global_individual_personal_photo_and_video_storage_storage_ecosystem/`
+- `global_individual_personal_audio_and_media_storage_storage_ecosystem/`
+
+### DEVICE_AND_CLOUD
+- `global_individual_personal_device_synchronization_storage_ecosystem/`
+- `global_individual_personal_cloud_storage_associations_storage_ecosystem/`
+- `global_individual_personal_backup_and_archive_storage_ecosystem/`
+
+### DATA_RIGHTS_AND_LIFECYCLE
+- `global_individual_personal_data_export_and_portability_storage_ecosystem/`
+- `global_individual_personal_retention_and_deletion_storage_ecosystem/`
+- `global_individual_personal_recovery_and_restoration_storage_ecosystem/`
+
+### SECURITY_AND_SHARING
+- `global_individual_personal_sharing_and_access_control_storage_ecosystem/`
+- `global_individual_personal_encryption_and_key_references_storage_ecosystem/`
+- `global_individual_personal_storage_audit_and_activity_storage_ecosystem/`
+- `global_individual_consent_and_authorization_references_storage_ecosystem/`
 
 ## Scope
 
@@ -33,7 +56,7 @@ Organizes individual-owned storage metadata, opaque identity and ownership refer
 
 ## Validation contract
 
-The foundation health check verifies canonical manifest identity, package/provider/category/group alignment, taxonomy-to-index equality, declared category count, duplicate-category protection, foundation state and safe integration flags. The expected taxonomy and index each contain 17 categories. The standard category schema and the individual-domain schema both preserve the mandatory opaque owner reference.
+The root health check validates canonical root identity, taxonomy-to-index equality, declared category count, duplicate-category protection, **all 17 child package manifests and their category/group identities**, foundation state and safe integration flags. Each child package independently validates its manifest and requires a non-empty opaque `owner_ref`.
 
 ## Security and integration boundary
 
