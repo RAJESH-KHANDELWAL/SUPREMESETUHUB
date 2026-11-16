@@ -110,11 +110,6 @@ class CategoryEcosystemService:
                 child_missing_paths[category_id] = missing
                 child_structure_checks[category_id] = not missing
 
-            indexed_group_map = {
-                row.get("category"): row.get("group")
-                for row in index.get("category_groups", [])
-                if isinstance(row, dict)
-            }
             indexed_folder_names = [
                 f"global_individual_{str(category).lower()}_storage_ecosystem"
                 for category in indexed_items
