@@ -47,7 +47,8 @@ class CohereCoreOrchestrator:
             "status": "CORE_CATALOG_AVAILABLE",
             "capability_count": len(children),
             "enabled_capability_count": sum(bool(item.get("enabled")) for item in children),
-            "api_adapter_declared_count": sum(bool(item.get("api_catalog_ref")) for item in children),
+            "api_catalog_reference_count": sum(bool(item.get("api_catalog_ref")) for item in children),
+            "engine_reference_count": sum(bool(item.get("engine_ref")) for item in children),
             "live_connections_verified": 0,
             "live_provider_calls_enabled": False,
             "api_calls_performed": 0,
@@ -62,7 +63,7 @@ class CohereCoreOrchestrator:
                     "core_module": item["core_module"],
                     "api_catalog_ref": item["api_catalog_ref"],
                     "engine_ref": item["engine_ref"],
-                    "relationship": "CORE_METADATA_DELEGATES_TO_API_AND_ENGINE_LAYERS",
+                    "relationship": "DECLARED_LAYER_DEPENDENCY_NO_LIVE_DISPATCH",
                 }
                 for item in self.catalog()["children"]
             ],
