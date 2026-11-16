@@ -1,0 +1,15 @@
+{
+  "provider": "digitalocean",
+  "layer": "CORE",
+  "capability_count": 5,
+  "capabilities": [
+    "cloud",
+    "hosting",
+    "server",
+    "storage",
+    "vps"
+  ],
+  "status": "INTERFACE_ONLY",
+  "live_provider_calls_enabled": false,
+  "api_ecosystem_ref": "backend/api/global_ecosystem/global_api_ecosystem/digitalocean_api_ecosystem"
+}
