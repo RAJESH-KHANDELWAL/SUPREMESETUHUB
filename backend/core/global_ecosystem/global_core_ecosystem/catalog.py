@@ -159,6 +159,28 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "capabilities": ["CORE_REGISTRY", "FOUNDATION_SERVICES", "LIFECYCLE"],
     },
     {
+        "ecosystem_id": "GLOBAL-DOMAIN-CORE-ECOSYSTEM",
+        "name": "GLOBAL DOMAIN CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": [
+            "DOMAIN_PROVIDER_REGISTRY",
+            "REGISTRAR_AND_RESELLER_METADATA",
+            "DNS_AND_NAMESERVER_METADATA",
+            "REGISTRY_GOVERNANCE_AND_LOOKUP",
+            "CERTIFICATE_AND_TLS_LIFECYCLE_METADATA",
+            "DOMAIN_HOSTING_AND_INFRASTRUCTURE_METADATA",
+            "TENANT_SCOPED_DOMAIN_POLICY",
+        ],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_domain_core_ecosystem",
+            "status": "CORE_CATALOG_ONLY",
+            "provider_count": 78,
+            "live_connection_verified": False,
+            "api_calls_performed": 0,
+        },
+    },
+    {
         "ecosystem_id": "GLOBAL-DATABASE-CORE-ECOSYSTEM",
         "name": "GLOBAL DATABASE CORE ECOSYSTEM",
         "ecosystem_type": "CORE_SERVICE",
