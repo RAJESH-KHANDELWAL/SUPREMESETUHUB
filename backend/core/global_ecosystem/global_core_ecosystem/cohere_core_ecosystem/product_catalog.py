@@ -1,8 +1,19 @@
-"""Canonical Cohere capability-to-package routing inventory."""
+"""Canonical Cohere capability-to-package inventory.
+
+Derived from the provider catalog to prevent duplicate registry definitions.
+"""
+from .catalog import CAPABILITIES
+
 PRODUCT_CATALOG = {
-    "classify": {"package":"cohere_classify_core_ecosystem","status":"contract_only"},
-    "command": {"package":"cohere_command_core_ecosystem","status":"contract_only"},
-    "embed": {"package":"cohere_embed_core_ecosystem","status":"contract_only"},
-    "rerank": {"package":"cohere_rerank_core_ecosystem","status":"contract_only"},
-    "tokenize": {"package":"cohere_tokenize_core_ecosystem","status":"contract_only"},
+    capability: {
+        "package": metadata["package"],
+        "status": metadata["status"],
+        "mode": metadata["mode"],
+        "live_enabled": metadata["live_enabled"],
+    }
+    for capability, metadata in CAPABILITIES.items()
 }
+
+
+def list_cohere_products():
+    return {name: dict(metadata) for name, metadata in PRODUCT_CATALOG.items()}
