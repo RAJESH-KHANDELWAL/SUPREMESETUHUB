@@ -1,23 +1,21 @@
-# Vercel Cloud Core Package
+# Provider-specific Cloud Core scaffold
 
-**Canonical runtime provider ID:** `vercel`
+**Status:** `scaffold_only` — no live provider integration is enabled.
 
-**Implementation status:** `scaffold_only`
+This directory represents a canonical provider package. Its folder name is derived from the provider ID in the authoritative runtime catalog at `backend/global_ecosystem/global_cloud_ecosystem/catalog.py`.
 
-This package reserves the provider-specific Cloud Core boundary and follows the ten-folder Google Cloud Core reference layout. It is not a working provider integration.
+The ten responsibility folders follow the Google Cloud Core reference layout:
+`authentication/`, `capabilities/`, `docs/`, `events/`, `lifecycle/`, `models/`, `schemas/`, `security/`, `services/`, and `tests/`.
 
-## Boundaries
-- Runtime catalog metadata remains authoritative in `backend/global_ecosystem/global_cloud_ecosystem/catalog.py`.
-- Shared orchestration and safe projections remain owned by Global Cloud Core.
-- Provider authentication, SDK clients, network calls, provisioning, persistence and workload execution are **not implemented** here.
-- Do not mark this provider live-verified without reproducible, reviewed connection evidence.
+Do not infer API support, authentication success, regional availability, production readiness or live connectivity from the existence of this scaffold.
 
-## Required implementation sequence
-1. Verify official provider identity, auth model, API docs and regional/service availability.
-2. Define least-privilege authentication and secret handling.
-3. Add typed models and strict schemas.
-4. Map only evidenced capabilities.
-5. Implement lifecycle/events/services behind explicit policy gates.
-6. Add offline contract/security tests; isolate any live tests.
+## Implementation gates
 
-Each responsibility folder contains its own scope note. Replace scaffold documentation with reviewed implementation artifacts as work progresses.
+1. Verify provider identity and official API documentation.
+2. Document authentication, least-privilege scopes and secret handling.
+3. Define typed models and strict schemas.
+4. Map only capabilities supported by evidence.
+5. Implement adapters behind Core policy and safety controls.
+6. Add offline contract/security tests before any isolated live tests.
+
+No credentials, SDK clients, network calls, provisioning, workload execution or persistence are included in this scaffold.

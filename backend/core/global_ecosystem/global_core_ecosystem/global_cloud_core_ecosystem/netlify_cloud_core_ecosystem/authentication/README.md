@@ -1,12 +1,7 @@
-# Netlify — authentication
+# Responsibility folder — scaffold only
 
-**Status:** scaffold only; no provider-specific runtime implementation is enabled.
+This directory is reserved for the responsibility named by its path and follows the Google Cloud Core ten-folder reference convention.
 
-Provider authentication boundary. Implement only after reviewing the provider's official authentication model; never commit secrets.
+No provider-specific runtime implementation is enabled here. Add reviewed contracts, source provenance, validation and focused tests before introducing executable behavior.
 
-## Completion requirements
-- Record official source documentation and the date verified.
-- Define typed contracts and validation before runtime use.
-- Add focused offline tests and security review.
-- Keep secrets out of source control.
-- Do not claim live connectivity or production readiness without evidence.
+**Safety:** do not commit credentials; do not claim live connectivity; do not perform network calls, provisioning, deletion, workload execution or persistence from this scaffold.
