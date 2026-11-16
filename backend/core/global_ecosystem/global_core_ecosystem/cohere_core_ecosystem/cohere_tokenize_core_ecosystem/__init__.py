@@ -1,11 +1,5 @@
-"""Cohere tokenization capability CORE contract."""
-from dataclasses import dataclass
-@dataclass(frozen=True)
-class TokenizeRequest:
-    text: str
-    model: str | None = None
-def validate_request(request):
-    if not request.text.strip():
-        raise ValueError("text must be non-empty")
-    return True
+"""Public contract exports for Cohere Tokenize CORE."""
+from .contracts import TokenizeRequest, validate_request
+from .service import TokenizeCoreService
 
+__all__ = ["TokenizeRequest", "validate_request", "TokenizeCoreService"]
