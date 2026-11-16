@@ -14,13 +14,7 @@ Google Core is the provider-level control plane and canonical capability invento
 - language-neutral result contracts for Python and PHP consumers.
 
 ## Coverage model
-
-The Core inventory uses two complementary views:
-
-1. **23 product-family modules** — the existing dedicated Google product-family packages (Workspace, Cloud, Identity, Ads, Analytics, Maps, AI, Firebase, YouTube and related families).
-2. **129 Google runtime offerings** — the source inventory from `backend/global_ecosystem/google_ecosystem/runtime/service.py`, classified into **19 Core domains** by category rules. Unclassified categories are explicitly marked for specialty review rather than silently discarded.
-
-The runtime inventory is the repository's current source of record, not a claim that Google has only 129 products. Google changes products, API access, eligibility, pricing and lifecycle over time; additions require verification against official Google documentation and the relevant API ecosystem.
+The runtime catalog contains 129 Google offerings. Each offering has a dedicated product Core package with ten product-specific subfolders, product metadata, Python contracts and a PHP authentication-context contract. Existing family-level modules are retained for compatibility. Catalog entries do not imply public API availability or live integration; verify official documentation, scopes and eligibility before enabling operations.
 
 ## Core domains
 

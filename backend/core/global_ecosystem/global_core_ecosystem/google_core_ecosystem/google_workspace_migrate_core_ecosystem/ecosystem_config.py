@@ -1,0 +1,9 @@
+PRODUCT_ID="google_workspace_migrate"
+PRODUCT_NAME="Google Workspace Migrate"
+CATEGORY="MIGRATION"
+API_NAME=null
+INTEGRATION_MODE="PRODUCT_INFORMATION_ONLY"
+AVAILABILITY="API_AVAILABLE"
+AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
+REQUIRED_SCOPES=[]
+LIVE_CONNECTION_ENABLED=False
