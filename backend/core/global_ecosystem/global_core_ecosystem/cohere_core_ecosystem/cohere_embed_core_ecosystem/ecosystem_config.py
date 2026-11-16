@@ -1,5 +1,6 @@
 """Non-secret embed capability defaults."""
 PROVIDER_NAME = "cohere"
 CAPABILITY = "embed"
-CORE_STATUS = "interface_only"
+DOMAIN = "vector_representation"
+CORE_STATUS = "contract_only"
 LIVE_PROVIDER_CALLS_ENABLED = False
