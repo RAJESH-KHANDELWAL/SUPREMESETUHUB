@@ -1,54 +1,60 @@
 # Cohere CORE Implementation Status
 
-**Current declared state:** `interface_only`  
+**Provider status:** `interface_only`  
 **Live provider calls:** disabled
 
-This status describes files present in this CORE package. It does not claim that a Cohere account, API key, model entitlement or live provider connection has been configured.
+## Provider-level foundation
 
-## Implemented
+- Five capability identifiers are registered.
+- Provider-level catalog, capability routing inventory, domain taxonomy and discovery/orchestration summary are present.
+- Shared provider areas follow the `cohere_shared_*` naming convention.
+- Shared request/result contracts, policy boundary, manager and PHP interoperability contract are present.
 
-| Area | Present implementation | Boundary |
+## Capability package structure
+
+Each capability package now follows the Google product-Core folder convention:
+- authentication
+- capabilities
+- docs
+- events
+- lifecycle
+- models
+- schemas
+- security
+- services
+- tests
+
+Each package also has a capability manifest, non-secret config, typed contracts and a service entry point.
+
+## Implemented capability contracts
+
+| Capability | Contract | Local validation |
 |---|---|---|
-| Capability registry | classify, command, embed, rerank, tokenize | Metadata only; each catalog mode is `contract_only` |
-| Shared contracts | `CapabilityRequest`, `CoreResult` | In-memory dataclasses |
-| Capability contracts | Five capability-specific request dataclasses and validators | Local input checks; no provider call |
-| Shared service | Registry lookup and generic input mapping validation | Does not yet dispatch to capability validators |
-| Manager | Public facade for listing and validating capabilities | Delegates to shared service |
-| Policy | Blocked-operation guard | Does not replace application authorization |
-| Security | Secret-field name check | Does not store, retrieve or inject secrets |
-| Schema helper | Required-field/payload-shape check | Not a full provider schema |
-| Lifecycle/events/models | State enum, event contract and capability descriptor | Definitions only; no worker or event bus |
-| PHP | Capability and basic request-shape validator | No network I/O |
-| Tests | Three unit tests for registry and shared validation | Not integration or provider smoke tests |
+| classify | `ClassifyRequest` | Non-empty text inputs |
+| command | `CommandRequest` | Non-empty message |
+| embed | `EmbedRequest` | Non-empty text inputs |
+| rerank | `RerankRequest` | Non-empty query/documents and positive optional top-N |
+| tokenize | `TokenizeRequest` | Non-empty text |
 
 ## Not implemented or not enabled
 
-- Cohere HTTP/API transport or SDK adapter.
-- Live classify, command, embed, rerank or tokenize operations.
-- Secure credential injection, token exchange or authentication adapter.
+- Live Cohere API/SDK transport.
+- Production authentication and secure credential injection.
 - ENGINE execution, retries, timeouts, queues or scheduling.
-- DATABASE persistence, STORAGE artifacts or migrations.
-- Provider-side model discovery, billing, training, fine-tuning, deployment or deletion.
-- Verified account entitlement, production readiness or live service health.
+- DATABASE persistence and STORAGE artifacts.
+- Verified account entitlement, model availability or provider smoke tests.
 
-## Known implementation gap
+## Known integration gap
 
-Capability-specific `validate_request()` functions exist in the five product/capability packages, but the shared `CohereCoreService.validate()` currently checks only:
-- whether the capability is registered; and
-- whether `inputs` is mapping-like.
+The provider-level generic validation service has not yet been wired to dispatch each incoming request to its capability-specific service. Package-level validators and tests are present, but this routing must be implemented and verified before treating the provider facade as enforcing all capability-specific rules.
 
-It does not route the request into the corresponding capability validator. The public manager therefore does not yet enforce all capability-specific rules.
+## Required next steps
 
-## Required work before enabling live traffic
+1. Add provider-manager dispatch to the five capability service facades.
+2. Run the capability unit tests and add provider-level routing tests.
+3. Implement API and ENGINE adapters in their own layer folders.
+4. Add secure runtime credential injection and tenant authorization.
+5. Add integration tests, provider smoke tests, observability and deployment validation.
+6. Change manifest readiness only when those checks pass.
 
-1. Add explicit request-to-capability dispatch in the shared service.
-2. Align shared input payloads with each capability dataclass and reject malformed fields.
-3. Add tests for every capability validator, unknown fields, invalid types and policy denials.
-4. Implement API/ENGINE adapters in their designated layers.
-5. Add secure runtime credential injection and tenant-level authorization.
-6. Add integration tests, provider smoke tests, observability and deployment checks.
-7. Update the manifest status only after evidence supports the change.
-
-## Security constraints
-
-Never commit provider secrets. Do not infer API availability or authorization from catalog registration. Destructive, administrative, billing and provider-write actions must be handled by explicitly authorized and audited workflows outside CORE.
+Never commit provider secrets. Catalog registration is not proof of API access, model availability, entitlement or authorization.
