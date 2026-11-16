@@ -26,6 +26,8 @@ class GoogleCoreEcosystemService:
             "status": catalog["status"],
             "registry_status": registry["registered"],
             "module_count": len(children),
+            "domain_count": health["domain_count"],
+            "runtime_offering_count": health["runtime_offering_count"],
             "connected_modules": sum(1 for child in children if child.get("connected") is True),
             "live_connection_verified": False,
             "api_calls_performed": 0,
@@ -37,21 +39,19 @@ class GoogleCoreEcosystemService:
     def list_modules(self) -> dict[str, Any]:
         return self.orchestrator.list_products()
 
+    def list_domains(self) -> dict[str, Any]:
+        return self.orchestrator.domains()
+
+    def list_offerings(self) -> dict[str, Any]:
+        return self.orchestrator.offerings()
+
     def manager_status(self) -> dict[str, Any]:
-        """Read registration state from the canonical GLOBAL CORE registry."""
         try:
-            from backend.core.global_ecosystem.global_core_ecosystem.manager import (
-                GlobalEcosystemManager,
-            )
+            from backend.core.global_ecosystem.global_core_ecosystem.manager import GlobalEcosystemManager
             manager = GlobalEcosystemManager()
             record = manager.get("GOOGLE-CORE-ECOSYSTEM")
         except Exception as exc:
-            return {
-                "success": False,
-                "registered": False,
-                "ecosystem": None,
-                "error": type(exc).__name__,
-            }
+            return {"success": False, "registered": False, "ecosystem": None, "error": type(exc).__name__}
         return {
             "success": record is not None,
             "registered": record is not None,
@@ -60,22 +60,12 @@ class GoogleCoreEcosystemService:
         }
 
     def list_registered_modules(self) -> dict[str, Any]:
-        """Return child records registered in GLOBAL CORE."""
-        from backend.core.global_ecosystem.global_core_ecosystem.manager import (
-            GlobalEcosystemManager,
-        )
+        from backend.core.global_ecosystem.global_core_ecosystem.manager import GlobalEcosystemManager
         manager = GlobalEcosystemManager()
         modules = self.orchestrator.list_products()["products"]
-        registered = [
-            manager.get(module["ecosystem_id"])
-            for module in modules
-        ]
+        registered = [manager.get(module["ecosystem_id"]) for module in modules]
         registered = [item for item in registered if item is not None]
-        return {
-            "success": len(registered) == len(modules),
-            "count": len(registered),
-            "modules": registered,
-        }
+        return {"success": len(registered) == len(modules), "count": len(registered), "modules": registered}
 
     def get_module(self, ecosystem_id: str) -> dict[str, Any] | None:
         return self.orchestrator.get_product(ecosystem_id)
