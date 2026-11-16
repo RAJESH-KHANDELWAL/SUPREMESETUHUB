@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace SupremeSetuHub\\Core\\Domain\\Providers\\Desec;
+namespace SupremeSetuHub\Core\Domain\Providers\Desec;
 
 /** Shape-only auth-context contract. This does not authenticate or verify tokens. */
 final class DomainDesecAuthContextContract

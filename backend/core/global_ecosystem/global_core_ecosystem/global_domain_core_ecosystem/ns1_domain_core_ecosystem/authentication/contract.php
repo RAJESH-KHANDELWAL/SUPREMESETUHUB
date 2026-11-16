@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace SupremeSetuHub\\Core\\Domain\\Providers\\Ns1;
+namespace SupremeSetuHub\Core\Domain\Providers\Ns1;
 
 /** Shape-only auth-context contract. This does not authenticate or verify tokens. */
 final class DomainNs1AuthContextContract

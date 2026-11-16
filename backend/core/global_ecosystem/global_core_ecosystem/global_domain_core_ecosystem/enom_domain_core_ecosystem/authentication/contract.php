@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace SupremeSetuHub\\Core\\Domain\\Providers\\Enom;
+namespace SupremeSetuHub\Core\Domain\Providers\Enom;
 
 /** Shape-only auth-context contract. This does not authenticate or verify tokens. */
 final class DomainEnomAuthContextContract

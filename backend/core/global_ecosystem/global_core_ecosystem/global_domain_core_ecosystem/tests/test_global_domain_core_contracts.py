@@ -1,4 +1,6 @@
 import unittest
+from pathlib import Path
+import re
 
 from backend.core.global_ecosystem.global_core_ecosystem.global_domain_core_ecosystem.catalog import (
     CATEGORIES, PROVIDERS, get_domain_provider, list_domain_providers,
@@ -45,6 +47,19 @@ class GlobalDomainCoreContractTests(unittest.TestCase):
     def test_unknown_provider_is_rejected(self):
         with self.assertRaises(LookupError):
             GlobalDomainCoreService().readiness("unknown-provider")
+
+    def test_php_auth_context_contract_classes_are_unique_and_well_formed(self):
+        root = Path(__file__).resolve().parents[1]
+        class_names = []
+        for path in root.glob("*_domain_core_ecosystem/authentication/contract.php"):
+            source = path.read_text(encoding="utf-8")
+            namespace = source.split("namespace ", 1)[1].split(";", 1)[0]
+            self.assertNotIn("\\\\", namespace)
+            match = re.search(r"final class (\\w+)", source)
+            self.assertIsNotNone(match, path)
+            class_names.append(match.group(1))
+        self.assertEqual(len(class_names), 71)
+        self.assertEqual(len(class_names), len(set(class_names)))
 
     def test_nested_secret_material_is_rejected(self):
         with self.assertRaisesRegex(ValueError, "SECRET_MATERIAL_FORBIDDEN_IN_DOMAIN_CORE"):

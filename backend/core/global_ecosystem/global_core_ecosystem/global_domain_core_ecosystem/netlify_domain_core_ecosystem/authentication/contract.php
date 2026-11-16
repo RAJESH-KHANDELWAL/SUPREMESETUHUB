@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace SupremeSetuHub\\Core\\Domain\\Providers\\Netlify;
+namespace SupremeSetuHub\Core\Domain\Providers\Netlify;
 
 /** Shape-only auth-context contract. This does not authenticate or verify tokens. */
 final class DomainNetlifyAuthContextContract
