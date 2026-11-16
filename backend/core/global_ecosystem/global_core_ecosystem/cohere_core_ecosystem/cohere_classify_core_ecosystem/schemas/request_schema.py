@@ -1,4 +1,3 @@
-"""Dependency-free request payload shape validation."""
 def validate_payload(payload, required=()):
     if not hasattr(payload, "get"):
         return False, ("payload must be a mapping",)

@@ -1,12 +1,7 @@
 <?php
 declare(strict_types=1);
-
-/** Identity/credential reference contract. Actual secrets are injected by secure runtime. */
+/** Identity and opaque credential-reference contract; no secrets are stored. */
 final class CohereClassifyAuthenticationContext
 {
-    public function __construct(
-        public readonly string $tenantId,
-        public readonly string $actorId,
-        public readonly string $credentialReference
-    ) {}
+    public function __construct(public readonly string $tenantId, public readonly string $actorId, public readonly string $credentialReference) {}
 }

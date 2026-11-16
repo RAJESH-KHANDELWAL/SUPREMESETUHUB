@@ -1,5 +1,3 @@
-# Cohere Classify CORE
+# Cohere classify CORE
 
-Classifies text into labels using a configured Cohere classification model.
-
-This package owns its domain contract, validation, capability metadata, lifecycle and service interface. API transport, provider SDK execution, retries, persistence and UI are owned by their designated layers. No live provider calls are enabled here.
+Capability-specific request contract and validation for `classify`. API transport, ENGINE execution, persistence and UI remain outside CORE. Live provider calls are disabled.

@@ -1,3 +1,14 @@
-# cohere_command_core_ecosystem
+# Cohere Command Core Ecosystem
 
-Capability-specific CORE contracts and input validation. Live provider execution is delegated to ENGINE and is not enabled here.
+**Provider:** Cohere  
+**Layer:** CORE  
+**Capability:** `command`  
+**Status:** `interface_only`
+
+## Responsibility
+Owns capability identity, typed request contracts, validation, metadata, lifecycle vocabulary, security policy and CORE service interface. Does not own HTTP transport, SDK execution, retries, database/storage persistence or UI.
+
+## Standard product-package layout
+`authentication/`, `capabilities/`, `docs/`, `events/`, `lifecycle/`, `models/`, `schemas/`, `security/`, `services/`, `tests/`, plus `contracts.py`, `service.py`, `ecosystem_config.py` and `ecosystem_manifest.json`.
+
+Live Cohere operations remain disabled until approved API/ENGINE adapters, secure credentials, model configuration and integration tests are in place.

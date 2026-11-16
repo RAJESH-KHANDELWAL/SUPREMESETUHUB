@@ -1,3 +1,4 @@
+"""Capability event data contract; delivery is owned by runtime."""
 from dataclasses import dataclass, field
 from typing import Any, Mapping
 @dataclass(frozen=True)

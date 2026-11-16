@@ -1,6 +1,4 @@
-"""Typed descriptor for the command capability."""
 from dataclasses import dataclass
-
 @dataclass(frozen=True)
 class CapabilityDescriptor:
     name: str = "command"

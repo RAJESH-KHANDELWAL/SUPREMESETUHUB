@@ -1,0 +1,38 @@
+{
+  "provider": "cohere",
+  "layer": "CORE",
+  "status": "interface_only",
+  "capability_count": 5,
+  "capabilities": [
+    {
+      "id": "classify",
+      "package": "cohere_classify_core_ecosystem",
+      "status": "contract_only",
+      "live_enabled": false
+    },
+    {
+      "id": "command",
+      "package": "cohere_command_core_ecosystem",
+      "status": "contract_only",
+      "live_enabled": false
+    },
+    {
+      "id": "embed",
+      "package": "cohere_embed_core_ecosystem",
+      "status": "contract_only",
+      "live_enabled": false
+    },
+    {
+      "id": "rerank",
+      "package": "cohere_rerank_core_ecosystem",
+      "status": "contract_only",
+      "live_enabled": false
+    },
+    {
+      "id": "tokenize",
+      "package": "cohere_tokenize_core_ecosystem",
+      "status": "contract_only",
+      "live_enabled": false
+    }
+  ]
+}

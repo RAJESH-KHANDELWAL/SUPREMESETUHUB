@@ -1,6 +1,4 @@
-"""Secret-field policy for the classify capability."""
 SECRET_FIELDS = frozenset({"api_key", "token", "secret", "password", "authorization"})
-
 def assert_no_secret_fields(payload):
     found = SECRET_FIELDS.intersection(str(key).lower() for key in payload)
     if found:

@@ -1,3 +1,4 @@
+"""Non-secret rerank capability defaults."""
 PROVIDER_NAME = "cohere"
 CAPABILITY = "rerank"
 CORE_STATUS = "interface_only"
