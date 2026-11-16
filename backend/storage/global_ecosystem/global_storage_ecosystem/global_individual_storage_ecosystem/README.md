@@ -8,6 +8,10 @@
 - **State:** `CATEGORY_FOUNDATION_SCAFFOLD`
 - **Connection:** `NOT_CONFIGURED`
 
+## Reference boundary
+
+Google Storage Ecosystem is used **only as an architectural reference/sample** for the root-and-child package layout and validation approach. GLOBAL INDIVIDUAL is its own provider-neutral ecosystem with its own identity, taxonomy, category names, metadata contracts and security boundaries. It does not represent a Google product, inherit Google provider identity, or depend on Google APIs.
+
 ## Standard root package structure
 
 - `__init__.py` — public package export
@@ -15,13 +19,15 @@
 - `ecosystem_manifest.json` — canonical identity and readiness state
 - `ecosystem_models.py` — individual metadata record with mandatory opaque owner reference
 - `ecosystem_registry.py` — thread-safe in-memory metadata registry for development/tests
-- `ecosystem_service.py` — root manifest, taxonomy, index, child-package and safety validation
+- `ecosystem_service.py` — root manifest, taxonomy, index, child-package structure and safety validation
 - `service.py` — root category service entry point
 - `api/`, `models/`, `schemas/`, `taxonomy/`, `tests/`, `php/` — root API, models, contracts, taxonomy, tests and PHP metadata
 
 ## Category child packages
 
-The root taxonomy contains **17 categories in 5 groups**. Each category has its own `global_individual_<category>_storage_ecosystem/` child package, following the Google Storage Ecosystem category-package layout. Each child package contains its own README, public export, safe configuration, manifest, metadata model, registry, validation service, service entry point, API routes, model export, category and manifest schemas, offline tests and read-only PHP metadata contract.
+The root taxonomy contains **17 categories in 5 groups**. Each category has its own `global_individual_<category>_storage_ecosystem/` child package. Google is the layout reference only; each GLOBAL INDIVIDUAL child uses GLOBAL INDIVIDUAL names and metadata contracts.
+
+Each child package contains its own README, public export, safe configuration, manifest, metadata model, registry, validation service, service entry point, API routes, model export, category and manifest schemas, offline tests and read-only PHP metadata contract.
 
 ### IDENTITY_AND_OWNERSHIP
 - `global_individual_individual_identity_metadata_storage_ecosystem/`
@@ -56,7 +62,7 @@ Organizes individual-owned storage metadata, opaque identity and ownership refer
 
 ## Validation contract
 
-The root health check validates canonical root identity, taxonomy-to-index equality, declared category count, duplicate-category protection, **all 17 child package manifests and their category/group identities**, foundation state and safe integration flags. Each child package independently validates its manifest and requires a non-empty opaque `owner_ref`.
+The root health check validates canonical root and schema identity, the exact 5-group/17-category taxonomy, taxonomy-to-index equality, duplicate protection, category folder naming, all 17 child package manifests and the complete required child-package file structure. Each child package independently validates its manifest and requires a non-empty opaque `owner_ref`.
 
 ## Security and integration boundary
 
