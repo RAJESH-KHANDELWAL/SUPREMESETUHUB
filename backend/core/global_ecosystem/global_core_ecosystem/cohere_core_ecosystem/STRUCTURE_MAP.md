@@ -1,63 +1,86 @@
 # Cohere CORE Structure Map
 
-**Repository path:** `backend/core/global_ecosystem/global_core_ecosystem/cohere_core_ecosystem/`
-
-This map explains the current directory layout. It records the existing structure; it does not imply that every integration is implemented.
+**Root:** `backend/core/global_ecosystem/global_core_ecosystem/cohere_core_ecosystem/`
 
 ```text
 cohere_core_ecosystem/
-├── README.md                    # Entry point and operating boundary
-├── ARCHITECTURE.md              # Component and layer ownership
-├── IMPLEMENTATION_STATUS.md     # Implemented vs pending work
-├── STRUCTURE_MAP.md             # This directory guide
-├── __init__.py                  # Public package exports
-├── ecosystem_config.py          # Non-secret defaults
-├── ecosystem_manifest.json      # Machine-readable status and capability list
-├── contracts.py                 # Shared request/result dataclasses
-├── manager.py                   # Public manager facade
-├── service.py                   # Shared capability validation service
-├── policies.py                  # CORE operation restrictions
-├── capabilities/
-│   └── catalog.py               # Five canonical capability identifiers
+├── README.md
+├── ARCHITECTURE.md
+├── IMPLEMENTATION_STATUS.md
+├── STRUCTURE_MAP.md
+├── __init__.py
+├── ecosystem_config.py
+├── ecosystem_manifest.json
+├── catalog.py
+├── product_catalog.py
+├── product_ecosystem_index.json
+├── domain_catalog.py
+├── contracts.py
+├── policy.py
+├── policies.py
+├── module_service.py
+├── orchestrator.py
+├── manager.py
+├── service.py
+├── php/
 ├── cohere_classify_core_ecosystem/
-│   ├── README.md
-│   ├── __init__.py
-│   ├── contracts.py
-│   ├── php/
-│   └── .gitkeep                 # Git placeholder only, where present
 ├── cohere_command_core_ecosystem/
-│   └── [same package pattern]
 ├── cohere_embed_core_ecosystem/
-│   └── [same package pattern]
 ├── cohere_rerank_core_ecosystem/
-│   └── [same package pattern]
 ├── cohere_tokenize_core_ecosystem/
-│   └── [same package pattern]
-├── authentication/              # Secure-runtime boundary documentation
-├── models/                      # Capability descriptor
-├── schemas/                     # Request payload shape helper
-├── security/                    # Secret-field policy
-├── lifecycle/                   # Ecosystem state enum
-├── events/                      # Event payload contract
-├── services/                    # Capability registry lookup helper
-├── php/                         # Shared PHP interoperability contract
-└── tests/                       # Shared CORE unit tests
+└── cohere_shared_*/
 ```
 
-## Five capability packages
+## Capability package layout
 
-| Package | Request type | Input validation intent |
-|---|---|---|
-| `cohere_classify_core_ecosystem` | `ClassifyRequest` | Non-empty text inputs |
-| `cohere_command_core_ecosystem` | `CommandRequest` | Non-empty message |
-| `cohere_embed_core_ecosystem` | `EmbedRequest` | Non-empty text inputs |
-| `cohere_rerank_core_ecosystem` | `RerankRequest` | Query, documents and positive optional top-N |
-| `cohere_tokenize_core_ecosystem` | `TokenizeRequest` | Non-empty text |
+Every `cohere_*_core_ecosystem/` package follows this standard:
 
-## Important distinction
+```text
+cohere_<capability>_core_ecosystem/
+├── README.md
+├── __init__.py
+├── contracts.py
+├── service.py
+├── ecosystem_config.py
+├── ecosystem_manifest.json
+├── authentication/
+├── capabilities/
+├── docs/
+├── events/
+├── lifecycle/
+├── models/
+├── schemas/
+├── security/
+├── services/
+└── tests/
+```
 
-Cohere CORE is organized around **five capabilities**. It is not a 129-offering product catalog like the Google CORE inventory. Do not create artificial product families or duplicate Google-specific subfolder patterns here. Add a new Cohere capability only when its contract, ownership and provider/API/ENGINE boundary are defined.
+## Capability inventory
 
-## Current status
+| Package | Capability |
+|---|---|
+| `cohere_classify_core_ecosystem` | classify |
+| `cohere_command_core_ecosystem` | command |
+| `cohere_embed_core_ecosystem` | embed |
+| `cohere_rerank_core_ecosystem` | rerank |
+| `cohere_tokenize_core_ecosystem` | tokenize |
 
-The capability packages and shared components define contracts and validation foundations. Live provider transport, credentials, execution and persistence belong to other layers and are not enabled by this directory.
+## Provider-wide shared areas
+
+- `cohere_shared_compatibility`
+- `cohere_shared_configuration`
+- `cohere_shared_contracts`
+- `cohere_shared_documentation`
+- `cohere_shared_events`
+- `cohere_shared_exceptions`
+- `cohere_shared_orchestration`
+- `cohere_shared_security`
+- `cohere_shared_testing`
+- `cohere_shared_utilities`
+- `cohere_shared_validation`
+
+The package count intentionally remains five capabilities. Do not copy Google's 129-offering count or invent Cohere product families. Add a new package only when a separately owned Cohere capability is defined and verified.
+
+## Boundaries
+
+CORE owns contracts, validation, capability metadata, policy and readiness. API owns transport, ENGINE owns execution, DATABASE/STORAGE own persistence and artifacts, and Application/UI owns user-facing workflows. Live calls remain disabled until the integration and security checks pass.
