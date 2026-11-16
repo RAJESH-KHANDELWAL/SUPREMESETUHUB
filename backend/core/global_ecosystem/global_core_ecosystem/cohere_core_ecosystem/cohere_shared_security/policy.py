@@ -4,7 +4,7 @@ from __future__ import annotations
 from collections.abc import Mapping
 from typing import Any
 
-from ..policies import ensure_operation_allowed
+from ..policy import ensure_operation_allowed
 
 SECRET_FIELD_NAMES = frozenset({
     "api_key", "apikey", "token", "access_token", "refresh_token",
