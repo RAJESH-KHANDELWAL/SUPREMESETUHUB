@@ -1,1 +1,0 @@
-"""Offline tests for GLOBAL_APP_HUMAN_ANATOMY_STORAGE_ECOSYSTEM."""

@@ -1,2 +1,0 @@
-# Food & Hospitality Consultants
-Consultant directory for restaurant operations, menu planning, kitchen layout, food quality, supply chain, hotel operations and technology. Record qualifications, service scope, references and verification status.
