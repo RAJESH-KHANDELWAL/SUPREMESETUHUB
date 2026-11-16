@@ -5,7 +5,7 @@ Root: backend/core/global_ecosystem/global_core_ecosystem/cohere_core_ecosystem/
 cohere_core_ecosystem/
 |-- README.md
 |-- ARCHITECTURE.md
-|-- IMPLEMENTATION_STATUS.md
+|-- COHERE_CORE_IMPLEMENTATION_STATUS.md
 |-- STRUCTURE_MAP.md
 |-- __init__.py
 |-- ecosystem_config.py
