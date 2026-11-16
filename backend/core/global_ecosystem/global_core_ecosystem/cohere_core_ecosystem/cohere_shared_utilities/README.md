@@ -1,3 +1,3 @@
-# Cohere Shared Utilities
+# COHERE SHARED UTILITIES
 
-Pure helper utilities only. Network access, provider SDK calls, retries and persistence are explicitly out of scope for CORE.
+Pure deterministic helpers only, including capability identifier normalization. Network access, provider SDK calls, credential resolution, retries, persistence and side effects are out of scope.
