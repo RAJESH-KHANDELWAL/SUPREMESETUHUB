@@ -1,19 +1,11 @@
-"""Global Infrastructure Ecosystem adapter for the canonical billing domain.
+"""Billing infrastructure for MAIN BASE FOUNDATION."""
 
-Implementation remains in backend.infrastructure.billing; this package provides
-stable ecosystem discovery without copying or relocating runtime code.
-"""
-from importlib import import_module
+from .model import BillingInfo
+from .service import BillingService
+from .controller import BillingController
 
-DOMAIN_ID = "billing"
-CANONICAL_PACKAGE = "backend.infrastructure.billing"
-CANONICAL_PATH = "backend/infrastructure/billing"
-OWNERSHIP = "CANONICAL_IMPLEMENTATION_RETAINED"
-
-
-def load_domain():
-    """Load and return the existing canonical domain package."""
-    return import_module(CANONICAL_PACKAGE)
-
-
-__all__ = ["DOMAIN_ID", "CANONICAL_PACKAGE", "CANONICAL_PATH", "OWNERSHIP", "load_domain"]
+__all__ = [
+    "BillingInfo",
+    "BillingService",
+    "BillingController",
+]

@@ -1,19 +1,16 @@
-"""Global Infrastructure Ecosystem adapter for the canonical dns domain.
-
-Implementation remains in backend.infrastructure.dns; this package provides
-stable ecosystem discovery without copying or relocating runtime code.
 """
-from importlib import import_module
+MAIN BASE FOUNDATION
+Infrastructure - DNS Package
+"""
 
-DOMAIN_ID = "dns"
-CANONICAL_PACKAGE = "backend.infrastructure.dns"
-CANONICAL_PATH = "backend/infrastructure/dns"
-OWNERSHIP = "CANONICAL_IMPLEMENTATION_RETAINED"
-
-
-def load_domain():
-    """Load and return the existing canonical domain package."""
-    return import_module(CANONICAL_PACKAGE)
+from .model import DNSZoneInfo, DNSRecordInfo
+from .service import DNSService
+from .controller import DNSController
 
 
-__all__ = ["DOMAIN_ID", "CANONICAL_PACKAGE", "CANONICAL_PATH", "OWNERSHIP", "load_domain"]
+__all__ = [
+    "DNSZoneInfo",
+    "DNSRecordInfo",
+    "DNSService",
+    "DNSController",
+]

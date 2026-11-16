@@ -1,19 +1,39 @@
-"""Global Infrastructure Ecosystem adapter for the canonical email domain.
+"""Email infrastructure for MAIN BASE FOUNDATION."""
 
-Implementation remains in backend.infrastructure.email; this package provides
-stable ecosystem discovery without copying or relocating runtime code.
-"""
-from importlib import import_module
+from .model import (
+    EmailAccountInfo,
+    EmailServiceInfo,
+)
 
-DOMAIN_ID = "email"
-CANONICAL_PACKAGE = "backend.infrastructure.email"
-CANONICAL_PATH = "backend/infrastructure/email"
-OWNERSHIP = "CANONICAL_IMPLEMENTATION_RETAINED"
+from .service import EmailService
+
+from .controller import EmailController
+
+from .providers import (
+    EmailProviderInfo,
+    EmailProviderRegistry,
+    email_provider_registry,
+)
+
+from .provider_connector import (
+    EmailProviderConnector,
+)
+
+from .connector_registry import (
+    EmailProviderConnectorRegistry,
+    email_provider_connector_registry,
+)
 
 
-def load_domain():
-    """Load and return the existing canonical domain package."""
-    return import_module(CANONICAL_PACKAGE)
-
-
-__all__ = ["DOMAIN_ID", "CANONICAL_PACKAGE", "CANONICAL_PATH", "OWNERSHIP", "load_domain"]
+__all__ = [
+    "EmailAccountInfo",
+    "EmailServiceInfo",
+    "EmailService",
+    "EmailController",
+    "EmailProviderInfo",
+    "EmailProviderRegistry",
+    "email_provider_registry",
+    "EmailProviderConnector",
+    "EmailProviderConnectorRegistry",
+    "email_provider_connector_registry",
+]

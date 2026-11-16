@@ -1,19 +1,5 @@
-"""Global Infrastructure Ecosystem adapter for the canonical ftp domain.
+"""Central FTP connectivity and deployment utilities for SUPREMESETUHUB."""
 
-Implementation remains in backend.infrastructure.ftp; this package provides
-stable ecosystem discovery without copying or relocating runtime code.
-"""
-from importlib import import_module
+from .healthcheck import FtpTarget, check_ftp_connection
 
-DOMAIN_ID = "ftp"
-CANONICAL_PACKAGE = "backend.infrastructure.ftp"
-CANONICAL_PATH = "backend/infrastructure/ftp"
-OWNERSHIP = "CANONICAL_IMPLEMENTATION_RETAINED"
-
-
-def load_domain():
-    """Load and return the existing canonical domain package."""
-    return import_module(CANONICAL_PACKAGE)
-
-
-__all__ = ["DOMAIN_ID", "CANONICAL_PACKAGE", "CANONICAL_PATH", "OWNERSHIP", "load_domain"]
+__all__ = ["FtpTarget", "check_ftp_connection"]
