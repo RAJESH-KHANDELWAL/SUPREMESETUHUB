@@ -1,5 +1,7 @@
 """Offline root catalog consistency tests."""
+import json
 import unittest
+from pathlib import Path
 from . import __doc__
 from ..catalog import get_anthropic_core_catalog,list_anthropic_core_modules
 from ..product_catalog import list_anthropic_offerings, anthropic_offerings_summary
@@ -24,6 +26,28 @@ class AnthropicCoreCatalogTests(unittest.TestCase):
         self.assertEqual(domain_summary["domain_count"], 9)
         self.assertEqual(summary["live_connections_verified"], 0)
         self.assertTrue(all(item["api_available"] is None for item in offerings))
+
+    def test_all_product_packages_have_standard_structure_and_valid_python(self):
+        root = Path(__file__).resolve().parents[1]
+        packages = (
+            "anthropic_admin_workspaces", "anthropic_auth_identity", "anthropic_batches",
+            "anthropic_files", "anthropic_managed_agents", "anthropic_messages",
+            "anthropic_models", "anthropic_token_counting", "anthropic_tool_use",
+        )
+        standard = (
+            "authentication", "capabilities", "docs", "events", "lifecycle",
+            "models", "schemas", "security", "services", "tests",
+        )
+        self.assertEqual(len(packages), 9)
+        for name in packages:
+            package = root / (name + "_core_ecosystem")
+            self.assertTrue(package.is_dir(), name)
+            for folder in standard:
+                self.assertTrue((package / folder).is_dir(), f"{name}/{folder}")
+            manifest = json.loads((package / "ecosystem_manifest.json").read_text(encoding="utf-8"))
+            self.assertEqual(manifest["provider"], "anthropic", name)
+            config_path = package / "ecosystem_config.py"
+            compile(config_path.read_text(encoding="utf-8"), str(config_path), "exec")
 
     def test_catalog_is_defensive_copy(self):
         first=get_anthropic_core_catalog()
