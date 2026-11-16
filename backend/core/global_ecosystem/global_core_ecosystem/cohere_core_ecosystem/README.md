@@ -34,7 +34,7 @@ These are CORE contract packages, not five claims of live integrations, model en
 
 - catalog.py, product_catalog.py, product_ecosystem_index.json: provider and capability inventory.
 - domain_catalog.py: canonical Cohere capability taxonomy and coverage.
-- contracts.py, policy.py, policies.py: shared request/result contracts and policy boundary.
+- contracts.py and policy.py: shared request/result contracts and policy boundary.
 - module_service.py, orchestrator.py, manager.py, service.py: discovery, readiness, provider facade and capability-specific validation dispatch.
 - php/: provider-wide PHP contract.
 - cohere_shared_*/: provider-wide compatibility, configuration, contracts, documentation, events, exceptions, orchestration, security, testing, utilities and validation.
