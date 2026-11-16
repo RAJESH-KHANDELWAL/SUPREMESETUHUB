@@ -18,7 +18,7 @@ class CohereCatalogAndPolicyTests(unittest.TestCase):
     def test_catalog_returns_defensive_copy(self):
         first = get_cohere_core_catalog()
         first["children"].clear()
-        self.assertEqual(len(get_cohere_core_core_catalog_safe()), 5)
+        self.assertEqual(len(get_cohere_core_catalog()["children"]), 5)
 
     def test_tenant_context_and_secret_reference_validate(self):
         TenantContext("tenant-1", "actor-1").validate()
@@ -40,10 +40,6 @@ class CohereCatalogAndPolicyTests(unittest.TestCase):
         manager = CohereCoreManager()
         result = manager.validate(CapabilityRequest("tokenize", {"text": "hello"}))
         self.assertTrue(result.ok)
-
-
-def get_cohere_core_core_catalog_safe():
-    return get_cohere_core_catalog()["children"]
 
 
 if __name__ == "__main__":
