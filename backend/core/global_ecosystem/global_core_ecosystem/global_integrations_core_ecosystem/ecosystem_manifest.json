@@ -99,7 +99,7 @@
     },
     {
       "id": "GLOBAL_INTEGRATIONS",
-      "folder": "global_integrations_integrations_core_ecosystem"
+      "folder": "global_integrations_core_ecosystem"
     },
     {
       "id": "GOOGLE",
@@ -119,7 +119,7 @@
     },
     {
       "id": "INTEGRATION_TIERS_NORMAL_TO_SUPREME",
-      "folder": "integration_tiers_normal_to_supreme_integrations_core_ecosystem"
+      "folder": "integration_tiers_normal_to_supreme_core_ecosystem"
     },
     {
       "id": "MICROSOFT",
