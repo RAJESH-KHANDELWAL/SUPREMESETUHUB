@@ -1,6 +1,6 @@
 # GLOBAL_INDIVIDUAL_STORAGE_ECOSYSTEM — Root Catalog and Category Packages
 
-This provider-neutral root follows the Google Storage Ecosystem root-and-child architecture. It owns the individual-storage taxonomy and category index; each taxonomy category is implemented as a separate child package using the Google category-package layout. This is a metadata foundation, not a live personal cloud drive.
+This provider-neutral root uses Google Storage Ecosystem only as an architectural reference/sample for root-and-child package organization and validation patterns. GLOBAL INDIVIDUAL has its own ecosystem identity, taxonomy, category names, metadata contracts and security boundaries; it is not a Google product and does not inherit Google provider identity or API dependencies. It owns the individual-storage taxonomy and category index, with one separate child package per category. This is a metadata foundation, not a live personal cloud drive.
 
 ## Canonical identity
 
