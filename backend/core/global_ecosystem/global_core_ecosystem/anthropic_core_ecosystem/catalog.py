@@ -10,7 +10,7 @@ ANTHROPIC_CORE_ECOSYSTEM: dict[str, Any] = {
     "ecosystem_type": "PROVIDER_CORE",
     "parent_id": "GLOBAL-CORE-ECOSYSTEM",
     "status": "REGISTERED",
-    "enabled": true,
+    "enabled": True,
     "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/anthropic_api_ecosystem",
     "existing_anthropic_core_ref": "backend/global_ecosystem/anthropic_ecosystem",
     "capabilities": [
