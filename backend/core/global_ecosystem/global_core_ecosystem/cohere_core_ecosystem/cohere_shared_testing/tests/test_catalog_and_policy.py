@@ -4,7 +4,7 @@ import unittest
 from ...catalog import get_cohere_core_catalog, list_capabilities
 from ...contracts import CapabilityRequest, SecretReference, TenantContext
 from ...manager import CohereCoreManager
-from ...policies import ensure_operation_allowed
+from ...policy import ensure_operation_allowed
 from ...cohere_shared_security.policy import assert_no_secret_fields
 
 
