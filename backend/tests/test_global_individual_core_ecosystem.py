@@ -12,5 +12,5 @@ class GlobalIndividualCoreTests(unittest.TestCase):
   self.assertIsNone(ECOSYSTEM["api_available"]);self.assertFalse(ECOSYSTEM["live_connection_verified"]);self.assertEqual(ECOSYSTEM["api_calls_performed"],0)
  def test_orchestrator_health(self):
   o=GlobalIndividualCoreOrchestrator();self.assertEqual(o.health()["capability_count"],29);self.assertGreater(o.taxonomy()["domain_count"],0)
- def test_secret_metadata_filter(self):self.assertEqual(GlobalIndividualCorePolicy.safe_metadata({"nested":{"api_key":"x","label":"ok"}}),{"nested":{"label":"ok"}})
+ def test_secret_and_pii_metadata_filter(self):self.assertEqual(GlobalIndividualCorePolicy.safe_metadata({"nested":{"api_key":"x","email":"private@example.com","phone":"123","label":"ok"}}),{"nested":{"label":"ok"}})
 if __name__=="__main__":unittest.main()
