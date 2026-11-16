@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GLOBAL_INTEGRATIONS_STORAGE_ECOSYSTEM manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "ecosystem_id",
+    "package_name",
+    "provider",
+    "owner_layer",
+    "responsibility",
+    "implementation_state",
+    "external_connection_state",
+    "taxonomy_only",
+    "credentials_configured",
+    "storage_operations_enabled",
+    "requires_authorized_credentials",
+    "requires_live_health_check",
+    "requires_end_to_end_tests"
+  ],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "ecosystem_id": {"const": "GLOBAL_INTEGRATIONS_STORAGE_ECOSYSTEM"},
+    "package_name": {"const": "global_integrations_storage_ecosystem"},
+    "provider": {"const": "GLOBAL INTEGRATIONS"},
+    "owner_layer": {"const": "STORAGE"},
+    "responsibility": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "implementation_state": {"const": "FOUNDATION_INITIALIZED"},
+    "external_connection_state": {"const": "NOT_CONFIGURED"},
+    "taxonomy_only": {"const": true},
+    "credentials_configured": {"const": false},
+    "storage_operations_enabled": {"const": false},
+    "requires_authorized_credentials": {"const": true},
+    "requires_live_health_check": {"const": true},
+    "requires_end_to_end_tests": {"const": true},
+    "geographic_scope": {"type": "array", "items": {"type": "string"}},
+    "coverage_levels": {"type": "array", "items": {"type": "string"}},
+    "governance": {"type": "array", "items": {"type": "string"}},
+    "security_boundary": {"type": "object"},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": false
+}
