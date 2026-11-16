@@ -18,5 +18,8 @@ class CohereCoreManager:
     def status(self):
         return self.service.status()
 
+    def authorize_capability(self, capability: str, context):
+        return self.service.authorize_capability(capability, context)
+
     def authorize_operation(self, operation: str, *, explicitly_authorized: bool = False) -> None:
         self.service.authorize_operation(operation, explicitly_authorized=explicitly_authorized)
