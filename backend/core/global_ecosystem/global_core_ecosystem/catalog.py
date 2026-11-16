@@ -175,7 +175,9 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "metadata": {
             "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_domain_core_ecosystem",
             "status": "CORE_CATALOG_ONLY",
-            "provider_count": 78,
+            "provider_count": 70,
+            "capability_package_count": 8,
+            "domain_related_child_folder_count": 78,
             "live_connection_verified": False,
             "api_calls_performed": 0,
         },
