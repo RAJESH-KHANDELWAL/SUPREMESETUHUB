@@ -11,7 +11,7 @@ INFRASTRUCTURE_ROOT_MODULES = (
 )
 
 ECOSYSTEM_DOMAIN_PATHS = {
-    name: f"backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem.domains.{name}"
+    name: f"backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem.{name}"
     for name in INFRASTRUCTURE_MODULES
 }
 
@@ -36,7 +36,7 @@ def get_module_paths() -> dict[str, str]:
 
 
 def get_ecosystem_domain_paths() -> dict[str, str]:
-    """Return in-ecosystem adapter package paths for all domains."""
+    """Return direct root-level ecosystem package paths for all domains."""
     return dict(ECOSYSTEM_DOMAIN_PATHS)
 
 
@@ -49,7 +49,7 @@ def get_canonical_ownership() -> dict[str, str]:
         "infrastructure_control_plane": "backend.infrastructure",
         "infrastructure_global_hub": "backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem",
         "infrastructure_domain_sources": "backend.infrastructure/<domain>",
-        "infrastructure_domain_adapters": "backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem.domains",
+        "infrastructure_domain_adapters": "backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem/<domain>",
         "infrastructure_root_module_adapters": ROOT_MODULE_ADAPTER_PATH,
         "core_foundation": "backend.core",
         "core_global_ecosystem_facade": "backend.core.global_ecosystem",

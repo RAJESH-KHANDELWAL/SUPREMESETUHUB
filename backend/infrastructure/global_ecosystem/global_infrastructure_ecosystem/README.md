@@ -2,23 +2,28 @@
 
 Central integration and discovery layer for every domain currently maintained by `backend/infrastructure/`.
 
-## Actual in-ecosystem structure
+## Direct root-level domain structure
 
-- `domains/<domain>/` contains a lazy adapter package for each of the 21 canonical infrastructure domains.
-- `modules/` exposes lazy loaders for the six infrastructure root modules: controller, Hostinger API, Hostinger catalog, NSFWinfra, repository and service.
+The 21 infrastructure domain folders are placed directly inside this ecosystem root, matching the layout of `backend/infrastructure/`. There is deliberately no intermediate `domains/` directory.
+
+- `backup/`, `billing/`, `cdn/`, `containers/`, `database/`, `dns/`, `domains/`
+- `email/`, `firewall/`, `ftp/`, `hosting/`, `ipam/`, `load_balancer/`, `model/`
+- `monitoring/`, `network/`, `object_storage/`, `security/`, `server/`, `ssl/`, `storage/`
+
+Each folder is a lazy adapter that points to its canonical implementation in `backend/infrastructure/<domain>/`; implementation is not duplicated.
+
+## Supporting ecosystem structure
+
+- `modules/` exposes lazy loaders for six existing infrastructure root modules: controller, Hostinger API, Hostinger catalog, NSFWinfra, repository and service.
 - `integrations/core/` loads the existing `backend.core` foundation.
 - `integrations/global_core_ecosystem/` loads the existing GLOBAL CORE ECOSYSTEM and its dedicated GLOBAL INFRASTRUCTURE CORE ECOSYSTEM validation package.
-- `structure.py` records both canonical source paths and the in-ecosystem adapter paths.
-
-## Domain coverage
-
-Backup, Billing, CDN, Containers, Database, DNS, Domains, Email, Firewall, FTP, Hosting, IPAM, Load Balancer, Model, Monitoring, Network, Object Storage, Security, Server, SSL and Storage.
+- `structure.py` records canonical source paths and direct ecosystem package paths.
 
 ## Ownership and preservation
 
-The original `backend/infrastructure/<domain>/` implementations remain in place and are canonical. The ecosystem adapters load those packages lazily; they do not fork or duplicate the implementation. Root-level infrastructure modules likewise remain canonical under `backend/infrastructure/`.
+The original `backend/infrastructure/<domain>/` implementations remain in place and canonical. Ecosystem folders provide stable discovery/integration entry points without forking or duplicating runtime code. Root-level infrastructure modules likewise remain canonical under `backend/infrastructure/`.
 
-CORE remains canonical in `backend/core/`. GLOBAL CORE ECOSYSTEM remains canonical in `backend/core/global_ecosystem/global_core_ecosystem/`. Its dedicated infrastructure contract is `global_infrastructure_core_ecosystem/`. The adapters provide stable integration entry points without moving CORE ownership into Infrastructure.
+CORE remains canonical in `backend/core/`. GLOBAL CORE ECOSYSTEM remains canonical in `backend/core/global_ecosystem/global_core_ecosystem/`. Its dedicated infrastructure contract is `global_infrastructure_core_ecosystem/`.
 
 Database persistence remains in `backend/database/`; storage runtime remains in `backend/storage/`; server ecosystem remains in `backend/server/`; executable operations remain in ENGINE; HTTP orchestration remains in API.
 
@@ -26,4 +31,4 @@ Database persistence remains in `backend/database/`; storage runtime remains in 
 
 A registered adapter is not proof of a live provider connection. Provider actions require configured credentials, scoped authorization, audit logging, tests and verified connectivity. No credentials or destructive provider operations are enabled by this catalog.
 
-Status: domain adapter structure and cross-layer integration entry points registered. Runtime/provider connectivity is not asserted.
+Status: direct root-level domain adapters and cross-layer integration entry points registered. Runtime/provider connectivity is not asserted.

@@ -1,4 +1,8 @@
-"""Global Infrastructure Ecosystem adapter for the canonical hosting domain."""
+"""Global Infrastructure Ecosystem adapter for the canonical hosting domain.
+
+Implementation remains in backend.infrastructure.hosting; this package provides
+stable ecosystem discovery without copying or relocating runtime code.
+"""
 from importlib import import_module
 
 DOMAIN_ID = "hosting"
@@ -8,7 +12,7 @@ OWNERSHIP = "CANONICAL_IMPLEMENTATION_RETAINED"
 
 
 def load_domain():
-    """Load the existing canonical domain package without duplicating it."""
+    """Load and return the existing canonical domain package."""
     return import_module(CANONICAL_PACKAGE)
 
 
