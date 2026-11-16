@@ -6,6 +6,12 @@ Provider: Cohere
 Layer: CORE  
 Status: interface_only
 
+## Standards and status
+
+- PRODUCT_ECOSYSTEM_STANDARD.md defines the five capability packages and ten-folder standard.
+- COHERE_CORE_IMPLEMENTATION_STATUS.md records implementation boundaries and verification state.
+- ARCHITECTURE.md and STRUCTURE_MAP.md define ownership and the canonical repository layout.
+
 ## Mission
 
 Cohere CORE is the provider-level control plane for capability identity, canonical registration, domain classification, request contracts, validation, policy metadata, lifecycle, discovery and readiness. Its provider-root and capability-package layout follows the Google CORE product-package standard while retaining Cohere's own capability inventory.
