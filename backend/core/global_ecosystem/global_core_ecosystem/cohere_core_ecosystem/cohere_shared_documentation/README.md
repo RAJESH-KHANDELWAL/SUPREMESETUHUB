@@ -1,3 +1,3 @@
-# Cohere Shared Documentation
+# COHERE SHARED DOCUMENTATION
 
-Provider-wide documentation index. Capability-specific documentation remains under each capability package's `docs/` directory.
+Canonical provider-level architecture, capability inventory, security boundaries, implementation status and structure map are maintained at the Cohere CORE root. Capability-specific request and lifecycle documentation belongs in each capability package's `docs/` directory.
