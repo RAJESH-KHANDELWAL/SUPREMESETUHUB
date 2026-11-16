@@ -1,17 +1,29 @@
-# ADOBE CREATIVE CLOUD CORE ECOSYSTEM
+# Adobe Creative Cloud — Core Ecosystem
 
-**Ecosystem ID:** `CREATIVE-CLOUD-CORE-ECOSYSTEM`  
-**Parent:** ADOBE CORE ECOSYSTEM  
-**Folder:** `backend/core/global_ecosystem/global_core_ecosystem/adobe_core_ecosystem/adobe_creative_cloud_core_ecosystem/`
+Creative apps, shared libraries, collaboration and cloud services.
 
-## Integration boundary
+## Core ownership
 
-This package owns product-family Core identity, capability metadata, lifecycle and readiness. OAuth/token exchange, SDK clients, HTTP transport and response normalization belong to the Adobe API layer.
+This package owns product identity, capability metadata, lifecycle state, policy metadata, readiness and stable contracts. Provider HTTP/OAuth clients belong to the API layer; persistence belongs to Storage/Database; jobs belong to Runtime/Engine; user-facing journeys belong to Application/UI.
 
-## Source of record
+## Package state
 
-Runtime product key: `creative_cloud`  
-Runtime catalog: `backend/global_ecosystem/adobe_ecosystem/catalog.py`  
-Live connection: **false**
+- Package scaffold: present
+- Product-specific capability definitions: pending verification and implementation
+- Live Adobe connection: not configured or verified
+- Credentials and entitlements: never stored in this package
 
-This catalog entry does not prove a public API, entitlement, adapter availability or live connectivity. Verify current Adobe documentation before implementation.
+## Standard directories
+
+- `authentication/`
+- `capabilities/`
+- `docs/`
+- `events/`
+- `lifecycle/`
+- `models/`
+- `schemas/`
+- `security/`
+- `services/`
+- `tests/`
+
+See `ecosystem_manifest.json` for machine-readable metadata.

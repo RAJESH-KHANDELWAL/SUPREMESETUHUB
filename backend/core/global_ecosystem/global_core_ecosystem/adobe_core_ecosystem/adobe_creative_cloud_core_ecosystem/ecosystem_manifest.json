@@ -1,23 +1,39 @@
 {
-  "schema_version": "1.0.0",
+  "ecosystem_id": "ADOBE-CREATIVE-CLOUD-CORE-ECOSYSTEM",
   "provider": "adobe",
-  "product_id": "creative_cloud",
-  "product_name": "Adobe Creative Cloud",
-  "category": "ADOBE_PRODUCT_DOMAIN",
-  "api": null,
-  "integration_mode": "CATALOG_ONLY",
-  "availability": "NOT_VERIFIED",
-  "authentication": {
-    "method": "Verify product-specific Adobe authentication before enablement",
-    "scopes": []
+  "product_key": "creative_cloud",
+  "name": "Adobe Creative Cloud",
+  "description": "Creative apps, shared libraries, collaboration and cloud services.",
+  "layer": "core",
+  "package_status": "SCAFFOLDED",
+  "directories": [
+    "authentication",
+    "capabilities",
+    "docs",
+    "events",
+    "lifecycle",
+    "models",
+    "schemas",
+    "security",
+    "services",
+    "tests"
+  ],
+  "owns": [
+    "identity",
+    "capability_metadata",
+    "lifecycle_metadata",
+    "policy_metadata",
+    "readiness",
+    "contracts"
+  ],
+  "delegates_to": {
+    "api": "OAuth, SDK clients, HTTP transport and provider endpoints",
+    "storage": "file and object persistence",
+    "database": "durable relational/document records",
+    "runtime": "jobs, queues, schedulers and execution",
+    "application": "user workflows and UI"
   },
-  "live_connection": false,
-  "layer_boundaries": {
-    "core": "identity, capabilities, lifecycle, policy and readiness",
-    "api": "OAuth, SDK and HTTP transport",
-    "storage": "durable files and records",
-    "database": "persistence and migrations",
-    "runtime": "jobs and queues",
-    "application": "sessions, consent and UI"
-  }
+  "live_connection_verified": false,
+  "credentials_configured": false,
+  "source_of_truth": "Adobe official product catalog; per-product verification required"
 }
