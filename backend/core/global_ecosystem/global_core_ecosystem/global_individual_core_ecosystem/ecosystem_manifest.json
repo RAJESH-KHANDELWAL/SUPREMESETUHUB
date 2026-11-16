@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL-INDIVIDUAL-CORE-ECOSYSTEM",
+  "name": "GLOBAL INDIVIDUAL CORE ECOSYSTEM",
+  "layer": "CORE",
+  "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+  "capability_count": 29,
+  "capability_registry": "catalog.py",
+  "privacy_by_design": true,
+  "age_restricted_capabilities_require_age_assurance": true,
+  "consent_required_for_sensitive_workflows": true,
+  "personal_data_storage_enabled": false,
+  "provider_api_transport_enabled": false,
+  "api_available": null,
+  "live_connection_verified": false,
+  "api_calls_performed": 0
+}
