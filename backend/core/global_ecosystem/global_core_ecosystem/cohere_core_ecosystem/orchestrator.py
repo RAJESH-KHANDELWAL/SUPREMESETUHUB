@@ -4,7 +4,7 @@ from __future__ import annotations
 from typing import Any
 
 from .catalog import get_cohere_core_catalog, list_capabilities
-from .domain_catalog import domain_summary, list_domain_inventory, list_domains
+from .domain_catalog import domain_summary, list_domain_inventory
 
 
 class CohereCoreOrchestrator:
