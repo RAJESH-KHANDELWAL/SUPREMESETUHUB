@@ -455,6 +455,25 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         },
     },
     {
+        "ecosystem_id": "GLOBAL-CLOUDFLARE-CORE-ECOSYSTEM",
+        "name": "GLOBAL CLOUDFLARE CORE ECOSYSTEM",
+        "ecosystem_type": "PROVIDER_CORE",
+        "capabilities": [
+            "CLOUDFLARE_PROVIDER_CORE_REGISTRY",
+            "CLOUDFLARE_PRODUCT_SERVICE_DISCOVERY",
+            "TENANT_SCOPED_CONNECTION_METADATA",
+            "CREDENTIAL_BOUNDARY_AND_SECRET_REFERENCE",
+            "QUOTA_AND_HEALTH_METADATA",
+        ],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_catalog": "backend/core/global_ecosystem/global_core_ecosystem/global_cloudflare_core_ecosystem",
+            "runtime_catalog": "backend/global_ecosystem/global_cloudflare_ecosystem/catalog.py",
+            "status": "CORE_CATALOG_ONLY",
+            "live_connection_verified": False,
+        },
+    },
+    {
         "ecosystem_id": "GOOGLE-GMAIL-CORE-ECOSYSTEM",
         "name": "GOOGLE GMAIL CORE ECOSYSTEM",
         "ecosystem_type": "PROVIDER_CORE_SERVICE",
