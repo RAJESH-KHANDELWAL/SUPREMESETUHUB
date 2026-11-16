@@ -1,9 +1,0 @@
-PRODUCT_ID="google_identity"
-PRODUCT_NAME="Google Identity Services"
-CATEGORY="IDENTITY_AND_SIGN_IN"
-API_NAME="Google Identity Services"
-INTEGRATION_MODE="OAUTH_OR_IDENTITY_SDK"
-AVAILABILITY="API_AVAILABLE"
-AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
-REQUIRED_SCOPES=[]
-LIVE_CONNECTION_ENABLED=False

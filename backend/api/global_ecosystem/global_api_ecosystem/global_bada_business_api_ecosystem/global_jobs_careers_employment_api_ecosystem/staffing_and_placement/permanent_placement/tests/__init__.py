@@ -1,1 +1,0 @@
-"""Tests for this independent Jobs & Careers subcategory package."""

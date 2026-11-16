@@ -1,1 +1,0 @@
-"""Anthropic files Core tests."""
