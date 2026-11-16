@@ -73,6 +73,14 @@ class TestGlobalEcosystemCore(unittest.TestCase):
         for family in ("ADMIN-IDENTITY", "BITBUCKET", "CONFLUENCE", "JIRA", "JIRA-SERVICE-MANAGEMENT"):
             self.assertTrue(self.manager.exists(f"GLOBAL-ATLASSIAN-{family}-CORE-ECOSYSTEM"))
 
+
+    def test_aws_core_ecosystems_are_registered(self):
+        self.assertTrue(self.manager.exists("GLOBAL-AWS-CORE-ECOSYSTEM"))
+        self.assertTrue(self.manager.exists("GLOBAL-AWS-API-CORE-ECOSYSTEM"))
+        self.assertTrue(self.manager.exists("GLOBAL-AWS-PRODUCT-CORE-ECOSYSTEM"))
+        for family in ("API-GATEWAY", "BEDROCK-SAGEMAKER", "BILLING-COST", "CLOUDFORMATION", "CLOUDTRAIL", "CLOUDWATCH", "CONTAINERS", "DATABASE", "EC2-COMPUTE", "IAM-STS", "KMS-SECRETS", "LAMBDA", "LIGHTSAIL", "ROUTE53-DNS", "S3-STORAGE", "VPC-NETWORKING"):
+            self.assertTrue(self.manager.exists(f"GLOBAL-AWS-{family}-CORE-ECOSYSTEM"))
+
     def test_people_category_exists(self):
         self.assertTrue(
             self.manager.exists("GLOBAL-PEOPLE-ECOSYSTEM")

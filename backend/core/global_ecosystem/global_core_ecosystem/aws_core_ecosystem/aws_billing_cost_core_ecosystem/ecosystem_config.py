@@ -1,0 +1,11 @@
+"""Static AWS Billing and Cost Management family configuration; no credentials or API calls."""
+PROVIDER = "aws"
+CORE_LAYER = "AWS_CORE"
+ECOSYSTEM_ID = "AWS-BILLING-COST-CORE-ECOSYSTEM"
+DISPLAY_NAME = "AWS Billing and Cost Management"
+API_CATALOG_REF = "backend/api/global_ecosystem/global_api_ecosystem/aws_api_ecosystem/aws_billing_cost_api_ecosystem"
+CAPABILITIES = ["BILLING_ACCOUNT_METADATA","COST_EXPLORER_QUERY_METADATA","BUDGET_POLICY_METADATA","COST_ALLOCATION_TAG_METADATA","USAGE_REPORTING_BOUNDARY"]
+DOMAINS = ["BILLING_COST_AND_GOVERNANCE","OBSERVABILITY_AND_AUDIT"]
+READINESS = "CORE_CATALOG_ONLY"
+API_AVAILABLE = None
+LIVE_CONNECTION_VERIFIED = False

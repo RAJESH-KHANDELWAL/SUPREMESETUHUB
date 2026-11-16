@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from .catalog import ROOT_ID, get_catalog, GOOGLE_CORE_ECOSYSTEMS, ANTHROPIC_CORE_ECOSYSTEMS, APPLE_CORE_ECOSYSTEMS, ATLASSIAN_CORE_ECOSYSTEMS
+from .catalog import ROOT_ID, get_catalog, GOOGLE_CORE_ECOSYSTEMS, ANTHROPIC_CORE_ECOSYSTEMS, APPLE_CORE_ECOSYSTEMS, ATLASSIAN_CORE_ECOSYSTEMS, AWS_CORE_ECOSYSTEMS
 from .models import GlobalEcosystemIdentity
 from .registry import GlobalEcosystemRegistry
 
@@ -38,7 +38,7 @@ class GlobalEcosystemManager:
 
     def _initialize(self) -> None:
         """Register catalog entries in parent-first order."""
-        records = [*get_catalog(), *GOOGLE_CORE_ECOSYSTEMS, *ANTHROPIC_CORE_ECOSYSTEMS, *APPLE_CORE_ECOSYSTEMS, *ATLASSIAN_CORE_ECOSYSTEMS]
+        records = [*get_catalog(), *GOOGLE_CORE_ECOSYSTEMS, *ANTHROPIC_CORE_ECOSYSTEMS, *APPLE_CORE_ECOSYSTEMS, *ATLASSIAN_CORE_ECOSYSTEMS, *AWS_CORE_ECOSYSTEMS]
 
         if not records:
             raise RuntimeError("GLOBAL ECOSYSTEM catalog is empty")
