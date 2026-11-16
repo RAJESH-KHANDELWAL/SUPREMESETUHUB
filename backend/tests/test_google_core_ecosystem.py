@@ -52,3 +52,21 @@ def test_google_core_service_does_not_claim_live_connection():
     status = GoogleCoreEcosystemService().status()
     assert status["module_count"] == 23
     assert status["live_connection_verified"] is False
+
+
+def test_google_core_inventory_includes_all_existing_google_runtime_offerings():
+    summary = GoogleCoreOrchestrator().offerings()
+    assert summary["offering_count"] == 129
+    assert summary["mapped_count"] + summary["specialized_review_count"] == 129
+    assert all("availability" in item for item in summary["offerings"])
+    assert all("core_family_id" in item for item in summary["offerings"])
+
+
+def test_product_information_only_entries_are_not_claimed_as_api_connections():
+    offerings = GoogleCoreOrchestrator().offerings()["offerings"]
+    informational = [
+        item for item in offerings
+        if item["integration_mode"] == "PRODUCT_INFORMATION_ONLY"
+    ]
+    assert informational
+    assert all(item["api_available"] is False for item in informational)
