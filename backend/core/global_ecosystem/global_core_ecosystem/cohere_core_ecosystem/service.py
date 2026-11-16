@@ -104,7 +104,7 @@ class CohereCoreService:
         return CoreResult(
             True,
             capability,
-            data={"model": request.model, "input_keys": tuple(sorted(values.keys()))},
+            data={"model": request.model, "input_keys": tuple(sorted(str(key) for key in values.keys()))},
             status="validated",
         )
 
