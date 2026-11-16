@@ -9,6 +9,10 @@ Review date: 2026-11-16.
 - Product service entry points: 9/9.
 - Product offline manifest tests added: 9/9 (not executed in this repository operation).
 - Root provider catalog, contracts, policy, module service, orchestrator and ecosystem service: added.
+- Unified product catalog and product-to-domain taxonomy: added.
+- PHP 8+ language-neutral Core result contract: added.
+- Python catalog boolean syntax defect found during audit and corrected.
+- New files and tests still require CI execution and runtime verification.
 - Core-to-API family references: 9/9 mapped to the existing Anthropic API family catalog.
 - Live Anthropic connections verified: 0.
 - API credentials configured or validated: 0.
