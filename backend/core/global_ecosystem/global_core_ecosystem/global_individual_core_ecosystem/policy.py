@@ -1,7 +1,7 @@
 """Metadata-only privacy and capability policy guardrails."""
 from collections.abc import Mapping
 SENSITIVE_MARKERS=("IDENTITY","KYC","AGE","HEALTH","FINANCE","WALLET","ADULT","INTIMACY","CONSENT","PAYMENT","PRIVATE")
-_SECRET_KEYS={"token","access_token","refresh_token","client_secret","api_key","secret","authorization","password","credential_value","private_key","ssn","government_id","id_number","medical_record"}
+_SECRET_KEYS={"token","access_token","refresh_token","client_secret","api_key","secret","authorization","password","credential_value","private_key","ssn","government_id","id_number","medical_record","email","phone","mobile","date_of_birth","birth_date","dob","address","aadhaar","aadhaar_number","pan_number","passport_number","bank_account","card_number"}
 class GlobalIndividualCorePolicyError(PermissionError):pass
 class GlobalIndividualCorePolicy:
  @staticmethod
