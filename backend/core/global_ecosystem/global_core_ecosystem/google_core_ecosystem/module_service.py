@@ -78,7 +78,7 @@ class GoogleProductCoreService:
                 status="POLICY_DENIED",
                 errors=[str(exc)],
                 request_id=getattr(context, "request_id", None),
-            )
+            ).to_dict()
         return CoreResult(
             success=True,
             ecosystem_id=self.ECOSYSTEM_ID,
