@@ -1,4 +1,4 @@
-"""Offline tests for GLOBAL_INDIVIDUAL_STORAGE_ECOSYSTEM."""
+"""Offline tests for GLOBAL_INDIVIDUAL_STORAGE_ECOSYSTEM root and child packages."""
 import json
 from pathlib import Path
 
@@ -24,16 +24,20 @@ def test_category_identity_and_safe_defaults():
     assert result["storage_operations_enabled"] is False
 
 
-def test_health_validates_full_foundation_contract():
+def test_health_validates_root_and_all_category_child_packages():
     result = CategoryEcosystemService().health()
     assert result["success"] is True
     assert result["status"] == "FOUNDATION_READY"
     assert result["external_connection_verified"] is False
     assert result["storage_operations_enabled"] is False
-    assert result["catalog_validation"]["taxonomy_category_count"] == 17
-    assert result["catalog_validation"]["indexed_category_count"] == 17
-    assert result["catalog_validation"]["taxonomy_group_count"] > 0
-    assert all(result["catalog_validation"]["checks"].values())
+    validation = result["catalog_validation"]
+    assert validation["taxonomy_category_count"] == 17
+    assert validation["indexed_category_count"] == 17
+    assert validation["taxonomy_group_count"] == 5
+    assert validation["child_package_count"] == 17
+    assert validation["valid_child_package_count"] == 17
+    assert all(validation["checks"].values())
+    assert all(validation["child_package_checks"].values())
 
 
 def test_manifest_and_schemas_are_valid_json_and_aligned():
