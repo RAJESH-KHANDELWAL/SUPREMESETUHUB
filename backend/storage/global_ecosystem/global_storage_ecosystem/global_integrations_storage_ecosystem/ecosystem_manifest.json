@@ -1,7 +1,16 @@
 {
   "schema_version": "1.0.0",
   "ecosystem_id": "GLOBAL_INTEGRATIONS_STORAGE_ECOSYSTEM",
+  "package_name": "global_integrations_storage_ecosystem",
   "provider": "GLOBAL INTEGRATIONS",
+  "owner_layer": "STORAGE",
+  "responsibility": [
+    "STORAGE_SIDE_IDENTITY",
+    "METADATA",
+    "TAXONOMY",
+    "OBJECT_LIFECYCLE_DEFINITIONS",
+    "STORAGE_HEALTH_METADATA"
+  ],
   "geographic_scope": [
     "BHARAT",
     "SOUTH_ASIA",
@@ -28,6 +37,8 @@
   "implementation_state": "FOUNDATION_INITIALIZED",
   "external_connection_state": "NOT_CONFIGURED",
   "taxonomy_only": true,
+  "credentials_configured": false,
+  "storage_operations_enabled": false,
   "requires_authorized_credentials": true,
   "requires_live_health_check": true,
   "requires_end_to_end_tests": true,
@@ -38,5 +49,13 @@
     "RETENTION",
     "CONSENT_WHERE_REQUIRED",
     "JURISDICTIONAL_COMPLIANCE"
-  ]
+  ],
+  "security_boundary": {
+    "provider_api_clients_owned_by": "API_AND_INTEGRATION_LAYERS",
+    "authentication_owned_by": "IDENTITY_AND_AUTHENTICATION_SERVICES",
+    "external_operations_enabled": false,
+    "store_credentials": false,
+    "store_personal_data": false
+  },
+  "notes": "Storage-owned integration taxonomy and metadata foundation only. This manifest does not assert provider API support, entitlement, connectivity or working object operations."
 }
