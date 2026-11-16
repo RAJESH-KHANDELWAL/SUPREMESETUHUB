@@ -54,6 +54,19 @@ class CloudflareCoreTests(unittest.TestCase):
         self.assertFalse(status["health"]["execution_performed"])
         self.assertFalse(status["health"]["persistence_performed"])
 
+
+    def test_provider_is_registered_in_parent_global_core_catalog(self):
+        from backend.core.global_ecosystem.global_core_ecosystem.catalog import get_catalog
+
+        matches = [
+            item for item in get_catalog()
+            if item["ecosystem_id"] == "GLOBAL-CLOUDFLARE-CORE-ECOSYSTEM"
+        ]
+        self.assertEqual(len(matches), 1)
+        self.assertEqual(matches[0]["parent_id"], "GLOBAL-CORE-ECOSYSTEM")
+        self.assertEqual(matches[0]["metadata"]["status"], "CORE_CATALOG_ONLY")
+        self.assertFalse(matches[0]["metadata"]["live_connection_verified"])
+
     def test_tenant_context_validation(self):
         CloudflareCorePolicy.require_tenant_context(
             CloudflareTenantContext(tenant_id="tenant-1", actor_id="actor-1")
