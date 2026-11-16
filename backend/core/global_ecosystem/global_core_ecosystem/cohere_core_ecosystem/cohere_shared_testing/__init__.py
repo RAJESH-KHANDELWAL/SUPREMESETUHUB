@@ -1,1 +1,1 @@
-"""Cohere Shared Testing shared Cohere CORE module."""
+"""Shared Cohere CORE testing conventions and provider tests."""
