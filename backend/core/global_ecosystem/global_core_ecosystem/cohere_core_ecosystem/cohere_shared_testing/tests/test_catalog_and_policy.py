@@ -2,7 +2,7 @@
 import unittest
 
 from ...catalog import get_cohere_core_catalog, list_capabilities
-from ...contracts import SecretReference, TenantContext
+from ...contracts import CapabilityRequest, SecretReference, TenantContext
 from ...manager import CohereCoreManager
 from ...policies import ensure_operation_allowed
 from ...cohere_shared_security.policy import assert_no_secret_fields
@@ -38,10 +38,7 @@ class CohereCatalogAndPolicyTests(unittest.TestCase):
 
     def test_manager_public_facade(self):
         manager = CohereCoreManager()
-        result = manager.validate(__import__(
-            "backend.core.global_ecosystem.global_core_ecosystem.cohere_core_ecosystem.contracts",
-            fromlist=["CapabilityRequest"]
-        ).CapabilityRequest("tokenize", {"text": "hello"}))
+        result = manager.validate(CapabilityRequest("tokenize", {"text": "hello"}))
         self.assertTrue(result.ok)
 
 
