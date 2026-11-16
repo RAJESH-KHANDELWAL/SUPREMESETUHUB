@@ -1,0 +1,34 @@
+"""Contract tests for the metadata-only Global Database Core."""
+import unittest
+from pathlib import Path
+from backend.core.global_ecosystem.global_core_ecosystem.global_database_core_ecosystem.catalog import list_providers, get_provider, validate_catalog
+from backend.core.global_ecosystem.global_core_ecosystem.global_database_core_ecosystem.orchestrator import resolve_provider
+
+class DatabaseCoreContractTests(unittest.TestCase):
+    def test_catalog_has_seven_unique_api_mirrored_providers(self):
+        providers = list_providers()
+        self.assertEqual(len(providers), 7)
+        self.assertEqual(len({p["provider_id"] for p in providers}), 7)
+        self.assertTrue(all(p["implementation_status"] == "CATALOG_ONLY" for p in providers))
+        self.assertTrue(all(p["live_connection_verified"] is False for p in providers))
+
+    def test_canonical_provider_packages_have_manifests(self):
+        result = validate_catalog()
+        self.assertTrue(result["valid"])
+        self.assertEqual(result["missing_manifests"], [])
+
+    def test_unknown_provider_is_not_resolved(self):
+        self.assertIsNone(get_provider("not-a-provider"))
+        self.assertFalse(resolve_provider("not-a-provider")["ready"])
+
+    def test_known_provider_is_catalog_only_not_runtime_ready(self):
+        result = resolve_provider("postgresql")
+        self.assertFalse(result["ready"])
+        self.assertEqual(result["reason"], "provider_not_registered")
+        result = resolve_provider("aws")
+        self.assertFalse(result["ready"])
+        self.assertEqual(result["reason"], "catalog_only_no_runtime_adapter")
+        self.assertFalse(result["live_connection_verified"])
+
+if __name__ == "__main__":
+    unittest.main()

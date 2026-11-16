@@ -1,0 +1,22 @@
+{
+  "ecosystem_id": "APPLE-DATABASE-CORE-ECOSYSTEM",
+  "provider_id": "apple",
+  "provider_name": "Apple",
+  "layer": "CORE",
+  "domain": "DATABASE",
+  "implementation_status": "CATALOG_ONLY",
+  "live_connection_verified": false,
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_database_api_ecosystem/service.py",
+  "responsibility_folders": [
+    "authentication",
+    "capabilities",
+    "docs",
+    "events",
+    "lifecycle",
+    "models",
+    "schemas",
+    "security",
+    "services",
+    "tests"
+  ]
+}
