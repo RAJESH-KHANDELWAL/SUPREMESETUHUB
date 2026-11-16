@@ -14,6 +14,6 @@ def validate_request(p):
     if not isinstance(p,dict): raise ValueError("payload must be a mapping")
     _walk(p)
     a={"urls","max_pages","extract"}; _unknown(p,a)
-        v=p.get("urls")
-        if not isinstance(v,list) or not v or any(not isinstance(x,str) or not x.startswith(("https://","http://")) for x in v): raise ValueError("urls must be HTTP(S) URL list")
+    v=p.get("urls")
+    if not isinstance(v,list) or not v or any(not isinstance(x,str) or not x.startswith(("https://","http://")) for x in v): raise ValueError("urls must be HTTP(S) URL list")
     return {"capability":"fetch","accepted":True,"live_call":False}
