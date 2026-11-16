@@ -16,3 +16,11 @@ def test_core_health_does_not_claim_provider_execution():
  assert h["status"]=="HEALTHY" and h["provider_operations_enabled"] is False
 def test_provider_catalog_is_metadata_only():
  assert all(p["status"]=="CATALOG_ONLY" for p in get_provider_catalog())
+
+def test_validation_output_redacts_secret_metadata():
+ s=GlobalInfrastructureCoreService()
+ result=s.validate_resource({"resource_id":"srv-003","resource_type":"vm","category":"compute","metadata":{"region":"ap-south-1","api_key":"must-not-leak","nested":{"password":"hidden","tier":"standard"}}})
+ assert result["success"] is True
+ assert result["resource"]["metadata"]=={"region":"ap-south-1","nested":{"tier":"standard"}}
+def test_non_mapping_resource_is_rejected_safely():
+ assert GlobalInfrastructureCoreService().validate_resource(None)["success"] is False
