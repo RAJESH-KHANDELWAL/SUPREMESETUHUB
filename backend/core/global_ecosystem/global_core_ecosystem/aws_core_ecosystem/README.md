@@ -51,3 +51,8 @@ All 16 families are registered as `CORE_CATALOG_ONLY`. API availability is unver
 
 ## Google Core alignment
 The package follows the shared Google Core architecture: provider catalog, contracts, policy, module service, product and domain catalogs, orchestrator, facade service, PHP contract, tests, product-family packages and shared support directories. AWS capabilities remain AWS-specific; Google product counts or product semantics are not copied.
+
+
+## AWS account context contract
+
+Every service-family operation must be evaluated against the 12-digit AWS account ID, AWS region, tenant ID, actor ID, effective IAM principal and resource-level policy. The Core context validator only checks required metadata shape; the API layer must independently validate the real caller identity and AWS authorization before invoking an SDK operation.
