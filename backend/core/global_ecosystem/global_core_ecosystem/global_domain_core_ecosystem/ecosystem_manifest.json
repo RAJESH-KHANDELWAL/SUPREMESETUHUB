@@ -1,0 +1,23 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-CORE-ECOSYSTEM",
+  "name": "GLOBAL DOMAIN CORE ECOSYSTEM",
+  "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+  "layer": "CORE",
+  "category": "DOMAIN",
+  "provider_count": 70,
+  "capability_package_count": 8,
+  "domain_related_child_folder_count": 78,
+  "provider_count_source": "repository folder listing supplied 2026-11-16",
+  "provider_catalog": "provider_catalog.py",
+  "readiness": "CORE_CATALOG_ONLY",
+  "live_connections_verified": 0,
+  "api_calls_performed": 0,
+  "api_available": null,
+  "governance": {
+    "no_credentials_in_core": true,
+    "tenant_context_required": true,
+    "provider_authorization_in_api_layer": true,
+    "remote_operations_in_api_or_engine_layer": true,
+    "durable_persistence_in_database_or_storage": true
+  }
+}
