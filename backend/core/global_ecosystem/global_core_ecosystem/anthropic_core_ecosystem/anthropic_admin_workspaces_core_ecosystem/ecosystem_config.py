@@ -1,9 +1,0 @@
-PRODUCT_ID="anthropic_admin_workspaces"
-PRODUCT_NAME="Anthropic Admin Workspaces"
-CATEGORY="RESTRICTED_OR_ADMIN"
-API_NAME="/v1/organizations/workspaces"
-INTEGRATION_MODE="SERVER_SIDE_ANTHROPIC_API"
-AVAILABILITY="EXPLICIT_PERMISSION_AND_ORGANIZATION_ELIGIBILITY_REQUIRED"
-AUTHENTICATION_METHOD="Anthropic API authentication is owned by the API layer; verify current supported method before enabling"
-REQUIRED_SCOPES=[]
-LIVE_CONNECTION_ENABLED=False

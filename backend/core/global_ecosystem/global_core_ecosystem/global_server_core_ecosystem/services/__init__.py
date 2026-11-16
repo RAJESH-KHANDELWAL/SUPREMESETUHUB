@@ -1,5 +1,0 @@
-"""SERVICES CORE namespace."""
-LAYER = "CORE"
-CATEGORY = "SERVER"
-DOMAIN = "SERVICES"
-__all__ = ["LAYER", "CATEGORY", "DOMAIN"]

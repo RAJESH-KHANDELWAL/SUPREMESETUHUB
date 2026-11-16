@@ -1,5 +1,0 @@
-"""Independent Creative Commissions freelance specialization package."""
-SPECIALIZATION_ID = "creative_commissions"
-SPECIALIZATION_NAME = "Creative Commissions"
-DOMAIN_ID = "freelance_gig_independent_work"
-DESCRIPTION = "Custom creative work commissioned to a defined brief, scope, rights and delivery terms."
