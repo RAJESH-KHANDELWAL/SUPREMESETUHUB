@@ -1179,9 +1179,18 @@ def _normalize_record(record: dict[str, Any]) -> dict[str, Any]:
 
 def get_catalog() -> list[dict[str, Any]]:
     """Return the root, all categories, and all registrations."""
+    infrastructure_core = {
+        "ecosystem_id": "GLOBAL-INFRASTRUCTURE-CORE-ECOSYSTEM",
+        "name": "GLOBAL INFRASTRUCTURE CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["RESOURCE_IDENTITY", "RESOURCE_CONTRACT_VALIDATION", "INFRASTRUCTURE_DOMAIN_DISCOVERY", "PROVIDER_NEUTRAL_METADATA", "LIFECYCLE_POLICY_METADATA", "SECURITY_AND_COMPLIANCE_BOUNDARIES", "HEALTH_AND_STATUS_METADATA"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_infrastructure_core_ecosystem", "status": "CORE_CATALOG_ONLY", "api_available": None, "live_connection_verified": False},
+    }
     records = [
         ROOT,
         *CATEGORIES,
+        infrastructure_core,
         *PERSONAL_REGISTRATIONS,
         *COMPANY_REGISTRATIONS,
     ]
