@@ -1,0 +1,10 @@
+{
+  "provider": "cohere",
+  "capability": "rerank",
+  "layer": "CORE",
+  "status": "interface_only",
+  "live_provider_calls_enabled": false,
+  "api_transport_in_core": false,
+  "engine_execution_in_core": false,
+  "persistence_in_core": false
+}
