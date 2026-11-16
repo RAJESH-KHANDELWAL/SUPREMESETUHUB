@@ -26,6 +26,21 @@ Each product package has ten standard subfolders, a manifest, configuration meta
 
 Core does not store API keys, exchange tokens, call Anthropic endpoints, persist provider files, execute tools or run jobs.
 
+## Python implementation
+
+- `contracts.py`: tenant context, opaque secret references, readiness and result contracts.
+- `policy.py`: tenant-context and capability metadata checks; not a substitute for API or application authorization.
+- `module_service.py`: reusable read-only product Core service.
+- `catalog.py`: canonical nine-family Anthropic Core inventory.
+- `product_catalog.py`: unified registered product-family inventory with Core routing metadata.
+- `domain_catalog.py`: nine-domain taxonomy, product assignment and coverage summary.
+- `orchestrator.py`: product discovery, health and Core-to-API dependency map.
+- `service.py`: public ecosystem status and registry integration.
+
+## PHP interoperability
+
+`php/AnthropicCoreContract.php` is a PHP 8+ JSON contract validator/normalizer for PHP applications consuming Core result payloads. It performs no network I/O and does not duplicate Anthropic authentication or API calls.
+
 ## Security and readiness
 
 1. Tenant and actor identity must come from the authenticated application layer.
