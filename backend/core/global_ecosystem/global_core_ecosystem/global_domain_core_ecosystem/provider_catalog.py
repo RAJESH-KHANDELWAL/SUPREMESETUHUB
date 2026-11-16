@@ -103,9 +103,8 @@ def list_domain_providers() -> list[dict[str, Any]]:
             "live_connection_verified": False,
             "api_available": None,
             "api_calls_performed": 0,
-            "core_module": "backend.core.global_ecosystem.global_core_core_ecosystem.global_domain_core_ecosystem",
         })
-        item["core_module"] = "backend.core.global_ecosystem.global_core_ecosystem.global_domain_core_ecosystem"
+        item["core_module"] = "backend/core/global_ecosystem/global_core_ecosystem/global_domain_core_ecosystem/" + item["package_name"]
         result.append(item)
     return result
 
