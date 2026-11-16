@@ -32,6 +32,7 @@ DOMAIN_CAPABILITY_DOMAINS: tuple[dict[str, Any], ...] = (
     {"domain_id":"DNS_AND_NAMESERVER","name":"DNS and Nameserver","purpose":"DNS zones, records, delegation, nameserver and DNSSEC metadata."},
     {"domain_id":"REGISTRY_GOVERNANCE_AND_LOOKUP","name":"Registry Governance and Lookup","purpose":"Registry policy references, RDAP/WHOIS and domain discovery metadata."},
     {"domain_id":"CERTIFICATE_AND_TLS","name":"Certificate and TLS","purpose":"Certificate inventory, TLS lifecycle and expiry metadata."},
+    {"domain_id":"PROTOCOL_AND_TOOLING","name":"Protocols and Tooling","purpose":"ACME, RDAP, WHOIS and certificate automation protocol/tool metadata."},
     {"domain_id":"HOSTING_AND_INFRASTRUCTURE","name":"Hosting and Infrastructure","purpose":"Domain-to-hosting, origin, deployment and infrastructure associations."},
     {"domain_id":"CROSS_PROVIDER_DOMAIN_OPERATIONS","name":"Cross-provider Domain Operations","purpose":"Portfolio, lifecycle, migration and cross-provider coordination metadata."},
 )
