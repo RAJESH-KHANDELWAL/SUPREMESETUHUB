@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "provider": "adobe",
+  "product_id": "creative_cloud",
+  "product_name": "Adobe Creative Cloud",
+  "category": "ADOBE_PRODUCT_DOMAIN",
+  "api": null,
+  "integration_mode": "CATALOG_ONLY",
+  "availability": "NOT_VERIFIED",
+  "authentication": {
+    "method": "Verify product-specific Adobe authentication before enablement",
+    "scopes": []
+  },
+  "live_connection": false,
+  "layer_boundaries": {
+    "core": "identity, capabilities, lifecycle, policy and readiness",
+    "api": "OAuth, SDK and HTTP transport",
+    "storage": "durable files and records",
+    "database": "persistence and migrations",
+    "runtime": "jobs and queues",
+    "application": "sessions, consent and UI"
+  }
+}
