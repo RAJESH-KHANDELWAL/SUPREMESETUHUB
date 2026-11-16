@@ -5,6 +5,7 @@ from typing import Any
 
 from .catalog import get_google_core_catalog
 from .policy import GoogleCorePolicy
+from .product_catalog import google_offerings_summary, list_google_offerings
 
 
 class GoogleCoreOrchestrator:
@@ -43,6 +44,19 @@ class GoogleCoreOrchestrator:
             "api_calls_performed": 0,
             "warning": "Catalog readiness is not evidence of deployed adapters or live Google connectivity.",
         }
+
+    def offerings(self) -> dict[str, Any]:
+        """Return the full Google product inventory with Core-family mapping."""
+        return google_offerings_summary()
+
+    def get_offering(self, product_id: str) -> dict[str, Any] | None:
+        needle = product_id.strip().casefold()
+        if not needle:
+            return None
+        return next(
+            (item for item in list_google_offerings() if item["id"].casefold() == needle),
+            None,
+        )
 
     def dependency_map(self) -> dict[str, Any]:
         products = self.catalog()["children"]
