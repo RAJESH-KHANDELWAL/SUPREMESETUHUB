@@ -49,6 +49,9 @@ class GlobalDomainCoreEcosystemService:
     def list_inventory(self) -> dict[str, Any]:
         return self.orchestrator.inventory()
 
+    def list_capability_packages(self) -> dict[str, Any]:
+        return self.orchestrator.capability_packages()
+
     def health(self) -> dict[str, Any]:
         return self.orchestrator.health()
 
