@@ -1,0 +1,34 @@
+"""Independent ENGINE catalog for GLOBAL PLATFORMS."""
+from .models import EngineDescriptor
+PROVIDER = "GLOBAL PLATFORMS"
+CHILD_ECOSYSTEMS = [
+    "APPLE PLATFORMS",
+    "AWS PLATFORMS",
+    "BANGBROS PLATFORMS",
+    "BRAZZERS PLATFORMS",
+    "CLIPS4SALE PLATFORMS",
+    "DATA",
+    "EVILANGEL PLATFORMS",
+    "FANSLY PLATFORMS",
+    "FAPHOUSE PLATFORMS",
+    "GLOBAL PLATFORMS ECOSYSTEM",
+    "GOOGLE PLATFORMS",
+    "INTEGRATIONS",
+    "LOYALFANS PLATFORMS",
+    "MANYVIDS PLATFORMS",
+    "MICROSOFT PLATFORMS",
+    "NAUGHTYAMERICA PLATFORMS",
+    "ONLYFANS PLATFORMS",
+    "PLATFORM DOMAIN API ECOSYSTEMS",
+    "PLATFORM TYPE API ECOSYSTEMS",
+    "PORNHUB PLATFORMS",
+    "REALITYKINGS PLATFORMS",
+    "SERVICES",
+    "TESTS",
+    "TOOLS",
+    "XHAMSTER PLATFORMS",
+    "XVIDEOS PLATFORMS"
+]
+CATALOG = (EngineDescriptor("ENGINE-GLOBAL_PLATFORMS", PROVIDER, PROVIDER, ("LIFECYCLE","EXECUTION_BOUNDARY")),)
+def list_engines():
+    return [dict(engine_id=x.engine_id,name=x.name,provider=x.provider,capabilities=list(x.capabilities),metadata=dict(x.metadata)) for x in CATALOG]

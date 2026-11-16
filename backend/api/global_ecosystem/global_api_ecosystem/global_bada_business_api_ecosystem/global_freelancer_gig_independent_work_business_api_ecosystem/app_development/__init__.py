@@ -1,0 +1,5 @@
+"""Independent App Development freelance specialization package."""
+SPECIALIZATION_ID = "app_development"
+SPECIALIZATION_NAME = "App Development"
+DOMAIN_ID = "freelance_gig_independent_work"
+DESCRIPTION = "Mobile application planning, implementation, testing, release support and maintenance."

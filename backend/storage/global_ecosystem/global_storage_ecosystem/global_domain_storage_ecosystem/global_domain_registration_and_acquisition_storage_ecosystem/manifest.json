@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_DOMAIN_DOMAIN_REGISTRATION_AND_ACQUISITION",
+  "provider": "GLOBAL_DOMAIN",
+  "implementation_state": "FOUNDATION_INITIALIZED",
+  "external_connection_state": "NOT_CONFIGURED",
+  "taxonomy_only": true,
+  "api_operations_owned_elsewhere": true,
+  "requires_authorized_credentials": true,
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true,
+  "catalog_scope": [
+    "REGISTRAR_RECORDS",
+    "ACQUISITION_RECORDS",
+    "REGISTRATION_TERMS",
+    "RENEWAL_REFERENCES"
+  ]
+}

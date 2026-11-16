@@ -1,0 +1,2 @@
+# Supreme Access
+A separately managed premium access tier for enhanced features or services. Define entitlements explicitly; do not imply that a tier guarantees job placement, business success or network availability.

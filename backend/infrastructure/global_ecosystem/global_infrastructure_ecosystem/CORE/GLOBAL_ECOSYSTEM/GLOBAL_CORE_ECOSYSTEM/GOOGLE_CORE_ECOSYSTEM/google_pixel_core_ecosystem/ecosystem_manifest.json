@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "provider": "google",
+  "product_id": "google_pixel",
+  "product_name": "Google Pixel",
+  "category": "HARDWARE",
+  "api": null,
+  "integration_mode": "PRODUCT_INFORMATION_ONLY",
+  "availability": "API_AVAILABLE",
+  "live_connection": false
+}

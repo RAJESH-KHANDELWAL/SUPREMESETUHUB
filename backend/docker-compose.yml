@@ -1,0 +1,41 @@
+services:
+  supreme-foundation:
+    build:
+      context: ..
+      dockerfile: backend/Dockerfile
+
+    container_name: supreme-foundation
+    restart: unless-stopped
+
+    # Optional private file on the VPS: backend/.env (never commit it).
+    env_file:
+      - path: .env
+        required: false
+
+    environment:
+      PORT: "8000"
+      PYTHONUNBUFFERED: "1"
+      SUPREME_DB_PATH: /app/data/supreme.db
+      SUPREME_FILE_STORAGE_DIR: /app/storage
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - supreme_database:/app/data
+      - supreme_storage:/app/storage
+
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=5)"
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  supreme_database:
+  supreme_storage:
