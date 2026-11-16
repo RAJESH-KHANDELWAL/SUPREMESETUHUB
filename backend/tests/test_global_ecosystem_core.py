@@ -65,6 +65,14 @@ class TestGlobalEcosystemCore(unittest.TestCase):
         for family in ("APP-STORE-CONNECT", "APP-STORE-SERVER", "DEVICE-MANAGEMENT", "ICLOUD-CLOUDKIT", "APPLE-PAY", "PUSH-NOTIFICATION", "SIGN-IN-WITH-APPLE", "STOREKIT"):
             self.assertTrue(self.manager.exists(f"GLOBAL-APPLE-{family}-CORE-ECOSYSTEM"))
 
+
+    def test_atlassian_core_ecosystems_are_registered(self):
+        self.assertTrue(self.manager.exists("GLOBAL-ATLASSIAN-CORE-ECOSYSTEM"))
+        self.assertTrue(self.manager.exists("GLOBAL-ATLASSIAN-API-CORE-ECOSYSTEM"))
+        self.assertTrue(self.manager.exists("GLOBAL-ATLASSIAN-PRODUCT-CORE-ECOSYSTEM"))
+        for family in ("ADMIN-IDENTITY", "BITBUCKET", "CONFLUENCE", "JIRA", "JIRA-SERVICE-MANAGEMENT"):
+            self.assertTrue(self.manager.exists(f"GLOBAL-ATLASSIAN-{family}-CORE-ECOSYSTEM"))
+
     def test_people_category_exists(self):
         self.assertTrue(
             self.manager.exists("GLOBAL-PEOPLE-ECOSYSTEM")
