@@ -28,7 +28,10 @@ Review date: 2026-11-16.
 1. Verify exact current API capabilities, account eligibility and permission requirements against Anthropic documentation.
 2. Implement API transport and authentication only in the Anthropic API ecosystem.
 3. Global provider, API and product Core records are now included in the GLOBAL CORE registry catalog; verify registry initialization in CI.
-4. Execute the new and existing Python tests in CI; verify PHP contract syntax/runtime in CI.
+4. Anthropic root, nine product-family and global registry tests are wired into `.github/workflows/python-core-database.yml`; CI execution is pending.
+5. Verify PHP contract syntax/runtime in CI.
+6. Run authenticated sandbox smoke tests using approved server-side credentials.
+7. Update readiness only from observed provider responses.
 5. Run authenticated sandbox smoke tests using approved server-side credentials.
 6. Update readiness only from observed provider responses.
 
