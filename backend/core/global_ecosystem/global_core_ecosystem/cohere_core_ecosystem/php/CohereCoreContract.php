@@ -28,8 +28,11 @@ final class CohereCoreContract
         if ($this->containsSecretField($request)) {
             return $this->rejected('Secret material is not accepted in CORE request metadata');
         }
-        if (array_diff(array_keys($request), ['capability', 'inputs', 'model'])) {
+        if (array_diff(array_keys($request), ['capability', 'inputs', 'model', 'options'])) {
             return $this->rejected('Unsupported request fields');
+        }
+        if (array_key_exists('options', $request) && (!is_array($request['options']) || count($request['options']) > 0)) {
+            return $this->rejected('options are not defined by the current CORE contracts; execution options belong to API/ENGINE');
         }
         if (!isset($request['inputs']) || !is_array($request['inputs'])) {
             return $this->rejected('inputs must be an array');
