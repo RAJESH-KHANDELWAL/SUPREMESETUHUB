@@ -173,7 +173,7 @@ def list_google_offerings() -> list[dict[str, Any]]:
         item["core_mapping_status"] = (
             "MAPPED_TO_CORE_FAMILY" if family else "SPECIALIZED_FAMILY_REVIEW_REQUIRED"
         )
-        item["api_available"] = product.get("integration_mode") != "PRODUCT_INFORMATION_ONLY" and product.get("availability") != "DISCONTINUED"
+        item["api_available"] = product.get("integration_mode") not in {"PRODUCT_INFORMATION_ONLY", "SDK_INTEGRATION"} and product.get("availability") != "DISCONTINUED"
         results.append(item)
     return results
 
