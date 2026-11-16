@@ -1,0 +1,9 @@
+PRODUCT_ID="analytics"
+PRODUCT_NAME="Google Analytics"
+CATEGORY="ANALYTICS"
+API_NAME="Google Analytics Data API"
+INTEGRATION_MODE="USER_OAUTH_OR_CLOUD_IDENTITY"
+AVAILABILITY="API_AVAILABLE"
+AUTHENTICATION_METHOD="OAuth 2.0 or service account where supported"
+REQUIRED_SCOPES=["https://www.googleapis.com/auth/analytics.readonly"]
+LIVE_CONNECTION_ENABLED=False

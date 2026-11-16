@@ -1,0 +1,4 @@
+"""Family security boundary metadata."""
+CORE_MUST_NOT_STORE_CREDENTIALS = True
+API_AUTHORIZATION_REQUIRED = True
+LIVE_CONNECTION_VERIFIED = False

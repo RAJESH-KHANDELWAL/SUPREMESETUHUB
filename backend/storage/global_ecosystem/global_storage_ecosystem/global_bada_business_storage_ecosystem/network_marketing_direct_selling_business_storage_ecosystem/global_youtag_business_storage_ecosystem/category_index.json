@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_YOUTAG_BUSINESS_STORAGE_ECOSYSTEM",
+  "business_identity": "ONE_YOUTAG_BUSINESS",
+  "app_count": 2,
+  "apps": [
+    {
+      "app_id": "YOUTAG-RECHARGES-APP",
+      "folder": "youtag_recharges_app",
+      "status": "EXISTING_APP_NAMESPACE"
+    },
+    {
+      "app_id": "YOUTAG-WELLNESS-APP",
+      "folder": "youtag_wellness_app",
+      "status": "EXISTING_APP_NAMESPACE"
+    }
+  ],
+  "referral_profile_policy": "Preserve the existing canonical owner-provided referral profile and exact referral URL; do not duplicate secrets."
+}

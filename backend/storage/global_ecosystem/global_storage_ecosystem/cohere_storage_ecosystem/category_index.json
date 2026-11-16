@@ -1,0 +1,667 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "COHERE_STORAGE_ECOSYSTEM",
+  "category_folder_count": 94,
+  "folder_naming": "cohere_<category>_storage_ecosystem",
+  "folder_semantics": "One category package per taxonomy entry, matching the Google category scaffold layout.",
+  "folders": [
+    {
+      "category": "COMMAND",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "cohere_command_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_command_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CHAT",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "cohere_chat_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_chat_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CONVERSATION",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "cohere_conversation_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_conversation_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "TEXT_GENERATION",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "cohere_text_generation_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_text_generation_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "TEXT_CLASSIFICATION",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "cohere_text_classification_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_text_classification_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SUMMARIZATION",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "cohere_summarization_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_summarization_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "TRANSLATION",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "cohere_translation_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_translation_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PARAPHRASING",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "cohere_paraphrasing_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_paraphrasing_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CONTENT_GENERATION",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "cohere_content_generation_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_content_generation_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DOCUMENT_PROCESSING",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "cohere_document_processing_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_document_processing_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SEMANTIC_SEARCH",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "cohere_semantic_search_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_semantic_search_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "EMBEDDINGS",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "cohere_embeddings_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_embeddings_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "RERANKING",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "cohere_reranking_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_reranking_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "TOKENIZATION",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "cohere_tokenization_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_tokenization_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "LANGUAGE_DETECTION",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "cohere_language_detection_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_language_detection_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "RETRIEVAL_AUGMENTED_GENERATION",
+      "group": "RETRIEVAL_AND_KNOWLEDGE",
+      "folder": "cohere_retrieval_augmented_generation_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_retrieval_augmented_generation_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "RAG",
+      "group": "RETRIEVAL_AND_KNOWLEDGE",
+      "folder": "cohere_rag_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_rag_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "KNOWLEDGE_BASE",
+      "group": "RETRIEVAL_AND_KNOWLEDGE",
+      "folder": "cohere_knowledge_base_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_knowledge_base_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DOCUMENT_RETRIEVAL",
+      "group": "RETRIEVAL_AND_KNOWLEDGE",
+      "folder": "cohere_document_retrieval_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_document_retrieval_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "VECTOR_SEARCH",
+      "group": "RETRIEVAL_AND_KNOWLEDGE",
+      "folder": "cohere_vector_search_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_vector_search_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "INFORMATION_RETRIEVAL",
+      "group": "RETRIEVAL_AND_KNOWLEDGE",
+      "folder": "cohere_information_retrieval_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_information_retrieval_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "KNOWLEDGE_DISCOVERY",
+      "group": "RETRIEVAL_AND_KNOWLEDGE",
+      "folder": "cohere_knowledge_discovery_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_knowledge_discovery_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CITATION_GROUNDING",
+      "group": "RETRIEVAL_AND_KNOWLEDGE",
+      "folder": "cohere_citation_grounding_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_citation_grounding_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "FOUNDATION_MODELS",
+      "group": "AI_MODELS_AND_INFERENCE",
+      "folder": "cohere_foundation_models_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_foundation_models_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "LARGE_LANGUAGE_MODELS",
+      "group": "AI_MODELS_AND_INFERENCE",
+      "folder": "cohere_large_language_models_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_large_language_models_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "GENERATIVE_AI",
+      "group": "AI_MODELS_AND_INFERENCE",
+      "folder": "cohere_generative_ai_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_generative_ai_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MODEL_INFERENCE",
+      "group": "AI_MODELS_AND_INFERENCE",
+      "folder": "cohere_model_inference_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_model_inference_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MODEL_ENDPOINTS",
+      "group": "AI_MODELS_AND_INFERENCE",
+      "folder": "cohere_model_endpoints_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_model_endpoints_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MODEL_DEPLOYMENT",
+      "group": "AI_MODELS_AND_INFERENCE",
+      "folder": "cohere_model_deployment_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_model_deployment_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MODEL_CONFIGURATION",
+      "group": "AI_MODELS_AND_INFERENCE",
+      "folder": "cohere_model_configuration_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_model_configuration_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MODEL_VERSIONING",
+      "group": "AI_MODELS_AND_INFERENCE",
+      "folder": "cohere_model_versioning_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_model_versioning_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MODEL_EVALUATION",
+      "group": "AI_MODELS_AND_INFERENCE",
+      "folder": "cohere_model_evaluation_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_model_evaluation_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MODEL_ROUTING",
+      "group": "AI_MODELS_AND_INFERENCE",
+      "folder": "cohere_model_routing_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_model_routing_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "COHERE_PLATFORM",
+      "group": "DEVELOPER_AND_PLATFORM",
+      "folder": "cohere_cohere_platform_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_cohere_platform_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "API",
+      "group": "DEVELOPER_AND_PLATFORM",
+      "folder": "cohere_api_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_api_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SDK",
+      "group": "DEVELOPER_AND_PLATFORM",
+      "folder": "cohere_sdk_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_sdk_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DEVELOPER_TOOLS",
+      "group": "DEVELOPER_AND_PLATFORM",
+      "folder": "cohere_developer_tools_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_developer_tools_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DASHBOARD",
+      "group": "DEVELOPER_AND_PLATFORM",
+      "folder": "cohere_dashboard_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_dashboard_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ORGANIZATION",
+      "group": "DEVELOPER_AND_PLATFORM",
+      "folder": "cohere_organization_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_organization_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "WORKSPACE",
+      "group": "DEVELOPER_AND_PLATFORM",
+      "folder": "cohere_workspace_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_workspace_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PROJECTS",
+      "group": "DEVELOPER_AND_PLATFORM",
+      "folder": "cohere_projects_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_projects_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ENVIRONMENTS",
+      "group": "DEVELOPER_AND_PLATFORM",
+      "folder": "cohere_environments_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_environments_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "WEBHOOKS",
+      "group": "DEVELOPER_AND_PLATFORM",
+      "folder": "cohere_webhooks_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_webhooks_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DATASETS",
+      "group": "DATA_AND_STORAGE",
+      "folder": "cohere_datasets_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_datasets_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "TRAINING_DATA",
+      "group": "DATA_AND_STORAGE",
+      "folder": "cohere_training_data_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_training_data_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DOCUMENTS",
+      "group": "DATA_AND_STORAGE",
+      "folder": "cohere_documents_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_documents_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "FILES",
+      "group": "DATA_AND_STORAGE",
+      "folder": "cohere_files_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_files_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "OBJECT_STORAGE",
+      "group": "DATA_AND_STORAGE",
+      "folder": "cohere_object_storage_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_object_storage_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "VECTOR_DATABASE",
+      "group": "DATA_AND_STORAGE",
+      "folder": "cohere_vector_database_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_vector_database_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "EMBEDDING_STORAGE",
+      "group": "DATA_AND_STORAGE",
+      "folder": "cohere_embedding_storage_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_embedding_storage_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "INDEX_STORAGE",
+      "group": "DATA_AND_STORAGE",
+      "folder": "cohere_index_storage_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_index_storage_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "METADATA",
+      "group": "DATA_AND_STORAGE",
+      "folder": "cohere_metadata_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_metadata_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CACHE",
+      "group": "DATA_AND_STORAGE",
+      "folder": "cohere_cache_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_cache_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BACKUP",
+      "group": "DATA_AND_STORAGE",
+      "folder": "cohere_backup_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_backup_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ARCHIVE",
+      "group": "DATA_AND_STORAGE",
+      "folder": "cohere_archive_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_archive_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "AUTHENTICATION",
+      "group": "SECURITY_AND_GOVERNANCE",
+      "folder": "cohere_authentication_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_authentication_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "API_KEYS",
+      "group": "SECURITY_AND_GOVERNANCE",
+      "folder": "cohere_api_keys_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_api_keys_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ACCESS_CONTROL",
+      "group": "SECURITY_AND_GOVERNANCE",
+      "folder": "cohere_access_control_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_access_control_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "IDENTITY",
+      "group": "SECURITY_AND_GOVERNANCE",
+      "folder": "cohere_identity_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_identity_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ENCRYPTION",
+      "group": "SECURITY_AND_GOVERNANCE",
+      "folder": "cohere_encryption_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_encryption_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PRIVACY",
+      "group": "SECURITY_AND_GOVERNANCE",
+      "folder": "cohere_privacy_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_privacy_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "AUDIT_LOGS",
+      "group": "SECURITY_AND_GOVERNANCE",
+      "folder": "cohere_audit_logs_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_audit_logs_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DATA_RETENTION",
+      "group": "SECURITY_AND_GOVERNANCE",
+      "folder": "cohere_data_retention_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_data_retention_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "COMPLIANCE",
+      "group": "SECURITY_AND_GOVERNANCE",
+      "folder": "cohere_compliance_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_compliance_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "REGION_AND_RESIDENCY",
+      "group": "SECURITY_AND_GOVERNANCE",
+      "folder": "cohere_region_and_residency_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_region_and_residency_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ENTERPRISE",
+      "group": "ENTERPRISE_AND_BILLING",
+      "folder": "cohere_enterprise_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_enterprise_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BUSINESS",
+      "group": "ENTERPRISE_AND_BILLING",
+      "folder": "cohere_business_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_business_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BILLING",
+      "group": "ENTERPRISE_AND_BILLING",
+      "folder": "cohere_billing_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_billing_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "USAGE",
+      "group": "ENTERPRISE_AND_BILLING",
+      "folder": "cohere_usage_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_usage_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "RATE_LIMITS",
+      "group": "ENTERPRISE_AND_BILLING",
+      "folder": "cohere_rate_limits_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_rate_limits_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "QUOTAS",
+      "group": "ENTERPRISE_AND_BILLING",
+      "folder": "cohere_quotas_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_quotas_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "COST_MANAGEMENT",
+      "group": "ENTERPRISE_AND_BILLING",
+      "folder": "cohere_cost_management_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_cost_management_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "TEAMS",
+      "group": "ENTERPRISE_AND_BILLING",
+      "folder": "cohere_teams_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_teams_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ADMINISTRATION",
+      "group": "ENTERPRISE_AND_BILLING",
+      "folder": "cohere_administration_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_administration_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SUPPORT",
+      "group": "ENTERPRISE_AND_BILLING",
+      "folder": "cohere_support_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_support_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MULTILINGUAL",
+      "group": "MULTILINGUAL_AND_GLOBAL",
+      "folder": "cohere_multilingual_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_multilingual_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "LANGUAGE_SUPPORT",
+      "group": "MULTILINGUAL_AND_GLOBAL",
+      "folder": "cohere_language_support_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_language_support_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BHARAT",
+      "group": "MULTILINGUAL_AND_GLOBAL",
+      "folder": "cohere_bharat_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_bharat_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "INDIA",
+      "group": "MULTILINGUAL_AND_GLOBAL",
+      "folder": "cohere_india_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_india_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SOUTH_ASIA",
+      "group": "MULTILINGUAL_AND_GLOBAL",
+      "folder": "cohere_south_asia_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_south_asia_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "REGIONAL",
+      "group": "MULTILINGUAL_AND_GLOBAL",
+      "folder": "cohere_regional_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_regional_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "INTERNATIONAL",
+      "group": "MULTILINGUAL_AND_GLOBAL",
+      "folder": "cohere_international_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_international_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "GLOBAL",
+      "group": "MULTILINGUAL_AND_GLOBAL",
+      "folder": "cohere_global_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_global_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "WORLDWIDE",
+      "group": "MULTILINGUAL_AND_GLOBAL",
+      "folder": "cohere_worldwide_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_worldwide_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "RESEARCH",
+      "group": "RESEARCH_AND_ADVANCED_AI",
+      "folder": "cohere_research_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_research_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MACHINE_LEARNING",
+      "group": "RESEARCH_AND_ADVANCED_AI",
+      "folder": "cohere_machine_learning_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_machine_learning_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DEEP_LEARNING",
+      "group": "RESEARCH_AND_ADVANCED_AI",
+      "folder": "cohere_deep_learning_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_deep_learning_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "NEURAL_NETWORKS",
+      "group": "RESEARCH_AND_ADVANCED_AI",
+      "folder": "cohere_neural_networks_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_neural_networks_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MULTIMODAL_AI",
+      "group": "RESEARCH_AND_ADVANCED_AI",
+      "folder": "cohere_multimodal_ai_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_multimodal_ai_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "AI_AGENTS",
+      "group": "RESEARCH_AND_ADVANCED_AI",
+      "folder": "cohere_ai_agents_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_ai_agents_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "AUTOMATION",
+      "group": "RESEARCH_AND_ADVANCED_AI",
+      "folder": "cohere_automation_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_automation_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "EVALUATION_AND_BENCHMARKS",
+      "group": "RESEARCH_AND_ADVANCED_AI",
+      "folder": "cohere_evaluation_and_benchmarks_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_evaluation_and_benchmarks_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "EXPERIMENTATION",
+      "group": "RESEARCH_AND_ADVANCED_AI",
+      "folder": "cohere_experimentation_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_experimentation_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ADVANCED_TECHNOLOGY",
+      "group": "RESEARCH_AND_ADVANCED_AI",
+      "folder": "cohere_advanced_technology_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/cohere_storage_ecosystem/cohere_advanced_technology_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    }
+  ]
+}

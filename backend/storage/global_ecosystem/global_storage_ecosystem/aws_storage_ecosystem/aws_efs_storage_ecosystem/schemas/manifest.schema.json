@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AWS_EFS_STORAGE_ECOSYSTEM manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "ecosystem_id",
+    "provider",
+    "category",
+    "connection_state",
+    "storage_operations_enabled"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "ecosystem_id": {
+      "const": "AWS_EFS_STORAGE_ECOSYSTEM"
+    },
+    "provider": {
+      "const": "AWS"
+    },
+    "category": {
+      "const": "EFS"
+    },
+    "connection_state": {
+      "const": "NOT_CONFIGURED"
+    },
+    "storage_operations_enabled": {
+      "const": false
+    }
+  },
+  "additionalProperties": true
+}

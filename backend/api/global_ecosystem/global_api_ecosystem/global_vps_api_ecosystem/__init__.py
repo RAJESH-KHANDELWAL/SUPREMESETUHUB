@@ -1,0 +1,4 @@
+"""Global VPS API ecosystem package."""
+
+ECOSYSTEM_ID = "VPS"
+ECOSYSTEM_NAME = "GLOBAL VPS API ECOSYSTEM"

@@ -1,0 +1,43 @@
+name: Package Qikink WooCommerce Bridge
+
+on:
+  push:
+    branches:
+      - feat/qikink-woocommerce-live-orders
+  pull_request:
+    paths:
+      - "wordpress-plugin/supreme-qikink-woocommerce-bridge/**"
+      - ".github/workflows/package-qikink-bridge.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-and-package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          tools: none
+
+      - name: PHP syntax check
+        run: php -l wordpress-plugin/supreme-qikink-woocommerce-bridge/supreme-qikink-woocommerce-bridge.php
+
+      - name: Prepare installable plugin ZIP
+        run: |
+          mkdir -p dist
+          zip -r dist/supreme-qikink-woocommerce-bridge.zip wordpress-plugin/supreme-qikink-woocommerce-bridge
+
+      - name: Upload plugin ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: supreme-qikink-woocommerce-bridge
+          path: dist/supreme-qikink-woocommerce-bridge.zip
+          if-no-files-found: error
+          retention-days: 14

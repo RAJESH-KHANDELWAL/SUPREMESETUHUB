@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "provider": "anthropic",
+  "product_id": "anthropic_tool_use",
+  "product_name": "Anthropic Tool Use",
+  "category": "AI_PLATFORM",
+  "api": "Messages API tool definitions",
+  "integration_mode": "SERVER_SIDE_ANTHROPIC_API",
+  "availability": "ACCOUNT_AND_MODEL_ELIGIBILITY_REQUIRED",
+  "authentication": {
+    "method": "Anthropic API authentication is owned by the API layer; verify current supported method before enabling",
+    "scopes": []
+  },
+  "capabilities": [
+    "ANTHROPIC_TOOL_DEFINITION",
+    "ANTHROPIC_TOOL_CHOICE",
+    "ANTHROPIC_TOOL_HANDOFF"
+  ],
+  "requires_explicit_permission": false,
+  "live_connection": false,
+  "layer_boundaries": {
+    "core": "identity, capability metadata, lifecycle, policy and readiness",
+    "api": "Anthropic authentication, SDK/HTTP transport and endpoint adapters",
+    "storage": "durable records and files",
+    "database": "persistence and migrations",
+    "runtime": "jobs and tool execution",
+    "application": "sessions, consent and UI"
+  },
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/anthropic_api_ecosystem/anthropic_tool_use_api_ecosystem"
+}

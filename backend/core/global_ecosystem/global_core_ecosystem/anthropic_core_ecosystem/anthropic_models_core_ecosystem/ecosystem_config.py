@@ -1,0 +1,9 @@
+PRODUCT_ID="anthropic_models"
+PRODUCT_NAME="Anthropic Models"
+CATEGORY="AI_PLATFORM"
+API_NAME="GET /v1/models"
+INTEGRATION_MODE="SERVER_SIDE_ANTHROPIC_API"
+AVAILABILITY="ACCOUNT_AND_MODEL_ELIGIBILITY_REQUIRED"
+AUTHENTICATION_METHOD="Anthropic API authentication is owned by the API layer; verify current supported method before enabling"
+REQUIRED_SCOPES=[]
+LIVE_CONNECTION_ENABLED=False

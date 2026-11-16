@@ -1,0 +1,667 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "DEEPSEEK_STORAGE_ECOSYSTEM",
+  "category_folder_count": 94,
+  "folder_naming": "deepseek_<category>_storage_ecosystem",
+  "folder_semantics": "One category package per taxonomy entry, matching the Google category scaffold layout.",
+  "folders": [
+    {
+      "category": "COMMAND",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "deepseek_command_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_command_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CHAT",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "deepseek_chat_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_chat_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CONVERSATION",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "deepseek_conversation_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_conversation_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "TEXT_GENERATION",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "deepseek_text_generation_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_text_generation_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "TEXT_CLASSIFICATION",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "deepseek_text_classification_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_text_classification_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SUMMARIZATION",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "deepseek_summarization_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_summarization_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "TRANSLATION",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "deepseek_translation_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_translation_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PARAPHRASING",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "deepseek_paraphrasing_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_paraphrasing_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CONTENT_GENERATION",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "deepseek_content_generation_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_content_generation_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DOCUMENT_PROCESSING",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "deepseek_document_processing_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_document_processing_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SEMANTIC_SEARCH",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "deepseek_semantic_search_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_semantic_search_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "EMBEDDINGS",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "deepseek_embeddings_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_embeddings_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "RERANKING",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "deepseek_reranking_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_reranking_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "TOKENIZATION",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "deepseek_tokenization_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_tokenization_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "LANGUAGE_DETECTION",
+      "group": "LANGUAGE_AND_TEXT",
+      "folder": "deepseek_language_detection_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_language_detection_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "RETRIEVAL_AUGMENTED_GENERATION",
+      "group": "RETRIEVAL_AND_KNOWLEDGE",
+      "folder": "deepseek_retrieval_augmented_generation_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_retrieval_augmented_generation_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "RAG",
+      "group": "RETRIEVAL_AND_KNOWLEDGE",
+      "folder": "deepseek_rag_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_rag_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "KNOWLEDGE_BASE",
+      "group": "RETRIEVAL_AND_KNOWLEDGE",
+      "folder": "deepseek_knowledge_base_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_knowledge_base_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DOCUMENT_RETRIEVAL",
+      "group": "RETRIEVAL_AND_KNOWLEDGE",
+      "folder": "deepseek_document_retrieval_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_document_retrieval_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "VECTOR_SEARCH",
+      "group": "RETRIEVAL_AND_KNOWLEDGE",
+      "folder": "deepseek_vector_search_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_vector_search_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "INFORMATION_RETRIEVAL",
+      "group": "RETRIEVAL_AND_KNOWLEDGE",
+      "folder": "deepseek_information_retrieval_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_information_retrieval_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "KNOWLEDGE_DISCOVERY",
+      "group": "RETRIEVAL_AND_KNOWLEDGE",
+      "folder": "deepseek_knowledge_discovery_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_knowledge_discovery_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CITATION_GROUNDING",
+      "group": "RETRIEVAL_AND_KNOWLEDGE",
+      "folder": "deepseek_citation_grounding_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_citation_grounding_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "FOUNDATION_MODELS",
+      "group": "AI_MODELS_AND_INFERENCE",
+      "folder": "deepseek_foundation_models_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_foundation_models_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "LARGE_LANGUAGE_MODELS",
+      "group": "AI_MODELS_AND_INFERENCE",
+      "folder": "deepseek_large_language_models_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_large_language_models_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "GENERATIVE_AI",
+      "group": "AI_MODELS_AND_INFERENCE",
+      "folder": "deepseek_generative_ai_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_generative_ai_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MODEL_INFERENCE",
+      "group": "AI_MODELS_AND_INFERENCE",
+      "folder": "deepseek_model_inference_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_model_inference_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MODEL_ENDPOINTS",
+      "group": "AI_MODELS_AND_INFERENCE",
+      "folder": "deepseek_model_endpoints_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_model_endpoints_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MODEL_DEPLOYMENT",
+      "group": "AI_MODELS_AND_INFERENCE",
+      "folder": "deepseek_model_deployment_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_model_deployment_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MODEL_CONFIGURATION",
+      "group": "AI_MODELS_AND_INFERENCE",
+      "folder": "deepseek_model_configuration_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_model_configuration_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MODEL_VERSIONING",
+      "group": "AI_MODELS_AND_INFERENCE",
+      "folder": "deepseek_model_versioning_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_model_versioning_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MODEL_EVALUATION",
+      "group": "AI_MODELS_AND_INFERENCE",
+      "folder": "deepseek_model_evaluation_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_model_evaluation_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MODEL_ROUTING",
+      "group": "AI_MODELS_AND_INFERENCE",
+      "folder": "deepseek_model_routing_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_model_routing_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "COHERE_PLATFORM",
+      "group": "DEVELOPER_AND_PLATFORM",
+      "folder": "deepseek_cohere_platform_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_cohere_platform_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "API",
+      "group": "DEVELOPER_AND_PLATFORM",
+      "folder": "deepseek_api_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_api_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SDK",
+      "group": "DEVELOPER_AND_PLATFORM",
+      "folder": "deepseek_sdk_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_sdk_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DEVELOPER_TOOLS",
+      "group": "DEVELOPER_AND_PLATFORM",
+      "folder": "deepseek_developer_tools_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_developer_tools_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DASHBOARD",
+      "group": "DEVELOPER_AND_PLATFORM",
+      "folder": "deepseek_dashboard_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_dashboard_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ORGANIZATION",
+      "group": "DEVELOPER_AND_PLATFORM",
+      "folder": "deepseek_organization_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_organization_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "WORKSPACE",
+      "group": "DEVELOPER_AND_PLATFORM",
+      "folder": "deepseek_workspace_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_workspace_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PROJECTS",
+      "group": "DEVELOPER_AND_PLATFORM",
+      "folder": "deepseek_projects_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_projects_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ENVIRONMENTS",
+      "group": "DEVELOPER_AND_PLATFORM",
+      "folder": "deepseek_environments_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_environments_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "WEBHOOKS",
+      "group": "DEVELOPER_AND_PLATFORM",
+      "folder": "deepseek_webhooks_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_webhooks_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DATASETS",
+      "group": "DATA_AND_STORAGE",
+      "folder": "deepseek_datasets_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_datasets_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "TRAINING_DATA",
+      "group": "DATA_AND_STORAGE",
+      "folder": "deepseek_training_data_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_training_data_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DOCUMENTS",
+      "group": "DATA_AND_STORAGE",
+      "folder": "deepseek_documents_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_documents_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "FILES",
+      "group": "DATA_AND_STORAGE",
+      "folder": "deepseek_files_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_files_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "OBJECT_STORAGE",
+      "group": "DATA_AND_STORAGE",
+      "folder": "deepseek_object_storage_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_object_storage_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "VECTOR_DATABASE",
+      "group": "DATA_AND_STORAGE",
+      "folder": "deepseek_vector_database_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_vector_database_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "EMBEDDING_STORAGE",
+      "group": "DATA_AND_STORAGE",
+      "folder": "deepseek_embedding_storage_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_embedding_storage_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "INDEX_STORAGE",
+      "group": "DATA_AND_STORAGE",
+      "folder": "deepseek_index_storage_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_index_storage_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "METADATA",
+      "group": "DATA_AND_STORAGE",
+      "folder": "deepseek_metadata_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_metadata_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CACHE",
+      "group": "DATA_AND_STORAGE",
+      "folder": "deepseek_cache_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_cache_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BACKUP",
+      "group": "DATA_AND_STORAGE",
+      "folder": "deepseek_backup_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_backup_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ARCHIVE",
+      "group": "DATA_AND_STORAGE",
+      "folder": "deepseek_archive_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_archive_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "AUTHENTICATION",
+      "group": "SECURITY_AND_GOVERNANCE",
+      "folder": "deepseek_authentication_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_authentication_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "API_KEYS",
+      "group": "SECURITY_AND_GOVERNANCE",
+      "folder": "deepseek_api_keys_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_api_keys_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ACCESS_CONTROL",
+      "group": "SECURITY_AND_GOVERNANCE",
+      "folder": "deepseek_access_control_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_access_control_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "IDENTITY",
+      "group": "SECURITY_AND_GOVERNANCE",
+      "folder": "deepseek_identity_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_identity_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ENCRYPTION",
+      "group": "SECURITY_AND_GOVERNANCE",
+      "folder": "deepseek_encryption_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_encryption_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PRIVACY",
+      "group": "SECURITY_AND_GOVERNANCE",
+      "folder": "deepseek_privacy_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_privacy_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "AUDIT_LOGS",
+      "group": "SECURITY_AND_GOVERNANCE",
+      "folder": "deepseek_audit_logs_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_audit_logs_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DATA_RETENTION",
+      "group": "SECURITY_AND_GOVERNANCE",
+      "folder": "deepseek_data_retention_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_data_retention_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "COMPLIANCE",
+      "group": "SECURITY_AND_GOVERNANCE",
+      "folder": "deepseek_compliance_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_compliance_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "REGION_AND_RESIDENCY",
+      "group": "SECURITY_AND_GOVERNANCE",
+      "folder": "deepseek_region_and_residency_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_region_and_residency_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ENTERPRISE",
+      "group": "ENTERPRISE_AND_BILLING",
+      "folder": "deepseek_enterprise_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_enterprise_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BUSINESS",
+      "group": "ENTERPRISE_AND_BILLING",
+      "folder": "deepseek_business_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_business_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BILLING",
+      "group": "ENTERPRISE_AND_BILLING",
+      "folder": "deepseek_billing_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_billing_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "USAGE",
+      "group": "ENTERPRISE_AND_BILLING",
+      "folder": "deepseek_usage_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_usage_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "RATE_LIMITS",
+      "group": "ENTERPRISE_AND_BILLING",
+      "folder": "deepseek_rate_limits_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_rate_limits_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "QUOTAS",
+      "group": "ENTERPRISE_AND_BILLING",
+      "folder": "deepseek_quotas_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_quotas_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "COST_MANAGEMENT",
+      "group": "ENTERPRISE_AND_BILLING",
+      "folder": "deepseek_cost_management_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_cost_management_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "TEAMS",
+      "group": "ENTERPRISE_AND_BILLING",
+      "folder": "deepseek_teams_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_teams_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ADMINISTRATION",
+      "group": "ENTERPRISE_AND_BILLING",
+      "folder": "deepseek_administration_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_administration_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SUPPORT",
+      "group": "ENTERPRISE_AND_BILLING",
+      "folder": "deepseek_support_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_support_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MULTILINGUAL",
+      "group": "MULTILINGUAL_AND_GLOBAL",
+      "folder": "deepseek_multilingual_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_multilingual_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "LANGUAGE_SUPPORT",
+      "group": "MULTILINGUAL_AND_GLOBAL",
+      "folder": "deepseek_language_support_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_language_support_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BHARAT",
+      "group": "MULTILINGUAL_AND_GLOBAL",
+      "folder": "deepseek_bharat_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_bharat_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "INDIA",
+      "group": "MULTILINGUAL_AND_GLOBAL",
+      "folder": "deepseek_india_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_india_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SOUTH_ASIA",
+      "group": "MULTILINGUAL_AND_GLOBAL",
+      "folder": "deepseek_south_asia_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_south_asia_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "REGIONAL",
+      "group": "MULTILINGUAL_AND_GLOBAL",
+      "folder": "deepseek_regional_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_regional_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "INTERNATIONAL",
+      "group": "MULTILINGUAL_AND_GLOBAL",
+      "folder": "deepseek_international_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_international_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "GLOBAL",
+      "group": "MULTILINGUAL_AND_GLOBAL",
+      "folder": "deepseek_global_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_global_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "WORLDWIDE",
+      "group": "MULTILINGUAL_AND_GLOBAL",
+      "folder": "deepseek_worldwide_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_worldwide_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "RESEARCH",
+      "group": "RESEARCH_AND_ADVANCED_AI",
+      "folder": "deepseek_research_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_research_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MACHINE_LEARNING",
+      "group": "RESEARCH_AND_ADVANCED_AI",
+      "folder": "deepseek_machine_learning_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_machine_learning_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DEEP_LEARNING",
+      "group": "RESEARCH_AND_ADVANCED_AI",
+      "folder": "deepseek_deep_learning_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_deep_learning_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "NEURAL_NETWORKS",
+      "group": "RESEARCH_AND_ADVANCED_AI",
+      "folder": "deepseek_neural_networks_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_neural_networks_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MULTIMODAL_AI",
+      "group": "RESEARCH_AND_ADVANCED_AI",
+      "folder": "deepseek_multimodal_ai_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_multimodal_ai_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "AI_AGENTS",
+      "group": "RESEARCH_AND_ADVANCED_AI",
+      "folder": "deepseek_ai_agents_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_ai_agents_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "AUTOMATION",
+      "group": "RESEARCH_AND_ADVANCED_AI",
+      "folder": "deepseek_automation_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_automation_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "EVALUATION_AND_BENCHMARKS",
+      "group": "RESEARCH_AND_ADVANCED_AI",
+      "folder": "deepseek_evaluation_and_benchmarks_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_evaluation_and_benchmarks_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "EXPERIMENTATION",
+      "group": "RESEARCH_AND_ADVANCED_AI",
+      "folder": "deepseek_experimentation_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_experimentation_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ADVANCED_TECHNOLOGY",
+      "group": "RESEARCH_AND_ADVANCED_AI",
+      "folder": "deepseek_advanced_technology_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/deepseek_storage_ecosystem/deepseek_advanced_technology_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    }
+  ]
+}
