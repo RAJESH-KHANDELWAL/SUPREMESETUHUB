@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "provider": "apple",
+  "product_id": "sign_in_with_apple",
+  "product_name": "Sign in with Apple",
+  "category": "IDENTITY",
+  "api": "Sign in with Apple",
+  "integration_mode": "OAUTH_CLIENT_CONFIGURATION",
+  "availability": "VERIFY_APPLE_ACCOUNT_ENTITLEMENT_AND_API_ACCESS",
+  "authentication": {
+    "method": "OAUTH_CLIENT_CONFIGURATION",
+    "secret_storage": "EXTERNAL_SECRET_MANAGER_ONLY"
+  },
+  "capabilities": [
+    "APPLE_IDENTITY_CLIENT_METADATA",
+    "AUTHORIZATION_POLICY",
+    "IDENTITY_TOKEN_VALIDATION_BOUNDARY"
+  ],
+  "live_connection": false,
+  "layer_boundaries": {
+    "core": "identity, capability metadata, lifecycle, policy and readiness",
+    "api": "Apple authentication/signing, SDK and HTTP transport",
+    "storage": "durable files and records",
+    "database": "persistence and migrations",
+    "runtime": "jobs and queues",
+    "application": "sessions, consent and product UI"
+  }
+}
