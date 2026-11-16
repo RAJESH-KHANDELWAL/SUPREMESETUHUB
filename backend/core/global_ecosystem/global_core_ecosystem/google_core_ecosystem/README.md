@@ -5,51 +5,85 @@
 
 ## Mission
 
-Google Core is the provider-level control plane for Google product families. It owns:
-- product-family identity and canonical registration;
-- capability catalog and lifecycle/readiness metadata;
-- tenant-context and capability policy checks;
-- product discovery, dependency mapping and health reporting;
-- boundaries between Core, API, storage, runtime and application layers.
+Google Core is the provider-level control plane and canonical capability inventory for Google product families. It coordinates:
+- provider and product identity, registration and lifecycle;
+- product-family and cross-product domain classification;
+- capability metadata, tenant context and policy boundaries;
+- product discovery, dependency mapping, readiness and health;
+- boundaries to Google API, Storage, Database, Runtime/Engine and Application layers;
+- language-neutral result contracts for Python and PHP consumers.
 
-It does **not** duplicate Google SDK clients, OAuth exchanges, API transport, database persistence or secret storage.
+## Coverage model
 
-## Product coverage
+The Core inventory uses two complementary views:
 
-The Core catalog contains 23 product families: Admin SDK, Ads, Analytics, Business Profile, Calendar, Chat, Cloud, Contacts, Docs, Drive, Firebase, Forms, Gemini, Gmail, Identity & OAuth, Maps Platform, Meet, People, Search Console, Sheets, Slides, Vertex AI and YouTube. The product inventory mirrors 129 offerings from the existing Google runtime catalog and routes them to these Core families where the product category supports a defensible mapping. Consumer hardware (Pixel, Nest and Google Store) remains flagged for a dedicated family decision rather than being forced into an unrelated API family.
+1. **23 product-family modules** — the existing dedicated Google product-family packages (Workspace, Cloud, Identity, Ads, Analytics, Maps, AI, Firebase, YouTube and related families).
+2. **129 Google runtime offerings** — the source inventory from `backend/global_ecosystem/google_ecosystem/runtime/service.py`, classified into **19 Core domains** by category rules. Unclassified categories are explicitly marked for specialty review rather than silently discarded.
+
+The runtime inventory is the repository's current source of record, not a claim that Google has only 129 products. Google changes products, API access, eligibility, pricing and lifecycle over time; additions require verification against official Google documentation and the relevant API ecosystem.
+
+## Core domains
+
+- Provider Governance
+- Identity, Access and Administration
+- Workspace and Collaboration
+- Cloud Infrastructure and Networking
+- Storage, Databases and Data Platforms
+- AI, Machine Learning and Intelligence
+- Analytics and Observability
+- Maps, Geospatial and Travel
+- Developer and Application Platform
+- Android and Mobile
+- Security, Privacy and Compliance
+- Advertising, Commerce and Monetization
+- Search, Publishing and Discovery
+- Media, Video and Audio
+- Business, Education and Local Services
+- Payments, Wallet and Subscriptions
+- Consumer Devices and Smart Home
+- Language, Accessibility and Productivity
+- Specialty and Cross-product Services
 
 ## Layer ownership
 
 | Layer | Owns |
 |---|---|
-| Google Core | Identity, capability policy, lifecycle, orchestration, readiness |
-| Google API Ecosystem | OAuth/API clients, provider requests, response normalization |
+| Google Core | Product identity, domain classification, capability policy, lifecycle, orchestration, readiness |
+| Google API Ecosystem | OAuth flows, Google SDK clients, API transport, response normalization |
 | Google Storage Ecosystem | Durable records, tenant isolation, retention and backups |
+| Google Database Ecosystem | Database engines, schemas, queries, migrations and transactions |
 | Google Runtime/Engine | Jobs, retries, queues, scheduling and execution |
-| Application/UI | User sessions, consent screens, product workflows |
+| Application/UI | User sessions, consent screens, user workflows and product UI |
 
-## Security rules
+Core must not duplicate API clients, token exchange, persistence, queue execution or product UI.
 
-1. Tenant and actor identity must come from the authenticated application layer.
-2. Capability registration is not user authorization and is not proof of Google OAuth consent.
-3. Secrets and OAuth tokens must never be committed to Git or returned in status payloads.
-4. Use least-privilege OAuth scopes and explicit consent for each account.
-5. Destructive, administrative, publishing, billing and write capabilities require explicit authorization and audit.
-6. Do not claim a live connection until the API adapter completes a real deployment-level smoke test.
-7. A product without an implemented API adapter remains catalog-only even when its Core service is available.
-
-## Shared Core modules
+## Python implementation
 
 - `contracts.py`: tenant context, opaque secret references, readiness and result contracts.
-- `policy.py`: capability checks and safe metadata filtering.
+- `policy.py`: tenant-context and capability metadata checks; not a substitute for OAuth or application authorization.
 - `module_service.py`: reusable read-only product Core service.
-- `orchestrator.py`: product discovery, health and dependency map.
 - `catalog.py`: canonical 23-family Core inventory.
-- `product_catalog.py`: 129-offering inventory sourced from the existing Google runtime catalog, including API-availability and Core-family mapping flags.
+- `product_catalog.py`: all 129 currently registered runtime offerings with Core-family routing metadata.
+- `domain_catalog.py`: 19-domain taxonomy, category assignment, inventory and coverage summary.
+- `orchestrator.py`: product/domain discovery, health, offering inventory and dependency map.
 - `service.py`: public ecosystem status and registry integration.
 
-Each product package exposes its own `service.py` class using the shared contract. API implementation remains in the corresponding API ecosystem folder.
+Each of the 23 product-family packages retains its dedicated `service.py` entry point.
 
-## PHP policy
+## PHP interoperability
 
-The current backend is Python/FastAPI. PHP is not added to this Core tree unless a concrete PHP application/runtime integration is introduced; duplicate language files without a runtime owner create unmaintainable dead code.
+`php/GoogleCoreContract.php` is a PHP 8+ JSON contract validator/normalizer for PHP applications consuming Core result payloads. It performs no network I/O and does not duplicate Google APIs or OAuth.
+
+## Security and lifecycle rules
+
+1. Tenant and actor identity must come from the authenticated application layer.
+2. Registered capabilities do not prove user authorization, Google OAuth consent, product entitlement or API availability.
+3. Secrets, access tokens, refresh tokens and private keys must never be committed or exposed in status payloads.
+4. Use least-privilege scopes and explicit consent; use Cloud IAM/workload identity for Cloud workloads where appropriate.
+5. Destructive, administrative, publishing, billing and write capabilities require explicit authorization and audit.
+6. Products without a verified API adapter remain catalog-only or eligibility-gated.
+7. A live connection is reported only after deployment-level authentication and provider smoke tests succeed.
+
+## Current implementation boundary
+
+This package provides a catalog, taxonomy, policy metadata and orchestration foundation. It does **not** claim all Google products are integrated, every listed product has a public API, or any Google account/project is connected. API credentials and external verification are not present in this repository's Core catalog.
