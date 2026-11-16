@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for DATABASE STORAGE Core. No credential material is accepted. */
+/** Authenticated application context contract for database_storage Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperDatabaseStorageAuthContextContract
 {
     public const PROVIDER_ID = 'database_storage';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-DATABASE-STORAGE-CORE-ECOSYSTEM';

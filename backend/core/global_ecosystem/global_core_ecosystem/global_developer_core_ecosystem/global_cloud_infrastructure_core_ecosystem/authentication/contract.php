@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for GLOBAL CLOUD INFRASTRUCTURE Core. No credential material is accepted. */
+/** Authenticated application context contract for global_cloud_infrastructure Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperGlobalCloudInfrastructureAuthContextContract
 {
     public const PROVIDER_ID = 'global_cloud_infrastructure';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-GLOBAL-CLOUD-INFRASTRUCTURE-CORE-ECOSYSTEM';

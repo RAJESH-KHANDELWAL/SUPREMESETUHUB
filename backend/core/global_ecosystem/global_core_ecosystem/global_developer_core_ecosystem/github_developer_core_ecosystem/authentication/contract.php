@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for GITHUB DEVELOPER Core. No credential material is accepted. */
+/** Authenticated application context contract for github_developer Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperGithubDeveloperAuthContextContract
 {
     public const PROVIDER_ID = 'github_developer';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-GITHUB-DEVELOPER-CORE-ECOSYSTEM';

@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for TESTING OBSERVABILITY Core. No credential material is accepted. */
+/** Authenticated application context contract for testing_observability Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperTestingObservabilityAuthContextContract
 {
     public const PROVIDER_ID = 'testing_observability';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-TESTING-OBSERVABILITY-CORE-ECOSYSTEM';

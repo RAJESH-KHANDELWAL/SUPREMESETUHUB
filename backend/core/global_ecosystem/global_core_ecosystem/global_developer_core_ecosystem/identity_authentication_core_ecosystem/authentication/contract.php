@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for IDENTITY AUTHENTICATION Core. No credential material is accepted. */
+/** Authenticated application context contract for identity_authentication Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperIdentityAuthenticationAuthContextContract
 {
     public const PROVIDER_ID = 'identity_authentication';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-IDENTITY-AUTHENTICATION-CORE-ECOSYSTEM';

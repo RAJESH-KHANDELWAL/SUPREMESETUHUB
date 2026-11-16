@@ -69,6 +69,9 @@ class TestGlobalDeveloperCore(unittest.TestCase):
         self.assertFalse(adult_provider_enabled("adult_creator_business", explicit_review=True, age_assurance_verified=True, consent_controls_verified=True))
         self.assertTrue(adult_provider_enabled("adult_creator_business", explicit_review=True, age_assurance_verified=True, consent_controls_verified=True, jurisdiction_reviewed=True))
         self.assertTrue(adult_provider_enabled("github_developer"))
+        # Education and age-assurance tooling must not be classified as adult content.
+        self.assertTrue(adult_provider_enabled("sexual_wellness_education"))
+        self.assertTrue(adult_provider_enabled("age_verification_consent"))
 
     def test_service_reports_catalog_only_without_external_calls(self):
         status = GlobalDeveloperCoreService().status()

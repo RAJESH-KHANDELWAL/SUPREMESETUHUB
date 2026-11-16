@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for SEXUAL WELLNESS EDUCATION Core. No credential material is accepted. */
+/** Authenticated application context contract for sexual_wellness_education Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperSexualWellnessEducationAuthContextContract
 {
     public const PROVIDER_ID = 'sexual_wellness_education';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-SEXUAL-WELLNESS-EDUCATION-CORE-ECOSYSTEM';

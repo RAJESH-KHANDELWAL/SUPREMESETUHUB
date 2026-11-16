@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for NVIDIA DEVELOPER Core. No credential material is accepted. */
+/** Authenticated application context contract for nvidia_developer Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperNvidiaDeveloperAuthContextContract
 {
     public const PROVIDER_ID = 'nvidia_developer';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-NVIDIA-DEVELOPER-CORE-ECOSYSTEM';

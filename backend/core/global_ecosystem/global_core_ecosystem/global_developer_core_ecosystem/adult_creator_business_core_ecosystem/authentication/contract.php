@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for ADULT CREATOR BUSINESS Core. No credential material is accepted. */
+/** Authenticated application context contract for adult_creator_business Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperAdultCreatorBusinessAuthContextContract
 {
     public const PROVIDER_ID = 'adult_creator_business';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-ADULT-CREATOR-BUSINESS-CORE-ECOSYSTEM';

@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for DATING RELATIONSHIPS Core. No credential material is accepted. */
+/** Authenticated application context contract for dating_relationships Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperDatingRelationshipsAuthContextContract
 {
     public const PROVIDER_ID = 'dating_relationships';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-DATING-RELATIONSHIPS-CORE-ECOSYSTEM';

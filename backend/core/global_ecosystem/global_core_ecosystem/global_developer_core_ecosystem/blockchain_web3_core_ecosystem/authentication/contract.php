@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for BLOCKCHAIN WEB3 Core. No credential material is accepted. */
+/** Authenticated application context contract for blockchain_web3 Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperBlockchainWeb3AuthContextContract
 {
     public const PROVIDER_ID = 'blockchain_web3';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-BLOCKCHAIN-WEB3-CORE-ECOSYSTEM';

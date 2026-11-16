@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for PAYMENTS BILLING Core. No credential material is accepted. */
+/** Authenticated application context contract for payments_billing Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperPaymentsBillingAuthContextContract
 {
     public const PROVIDER_ID = 'payments_billing';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-PAYMENTS-BILLING-CORE-ECOSYSTEM';

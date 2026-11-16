@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for MISTRAL DEVELOPER Core. No credential material is accepted. */
+/** Authenticated application context contract for mistral_developer Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperMistralDeveloperAuthContextContract
 {
     public const PROVIDER_ID = 'mistral_developer';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-MISTRAL-DEVELOPER-CORE-ECOSYSTEM';

@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for AI ML DATA Core. No credential material is accepted. */
+/** Authenticated application context contract for ai_ml_data Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperAiMlDataAuthContextContract
 {
     public const PROVIDER_ID = 'ai_ml_data';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-AI-ML-DATA-CORE-ECOSYSTEM';

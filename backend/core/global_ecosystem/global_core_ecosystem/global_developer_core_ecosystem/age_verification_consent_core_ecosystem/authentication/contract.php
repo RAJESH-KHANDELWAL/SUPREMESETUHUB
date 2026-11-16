@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for AGE VERIFICATION CONSENT Core. No credential material is accepted. */
+/** Authenticated application context contract for age_verification_consent Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperAgeVerificationConsentAuthContextContract
 {
     public const PROVIDER_ID = 'age_verification_consent';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-AGE-VERIFICATION-CONSENT-CORE-ECOSYSTEM';

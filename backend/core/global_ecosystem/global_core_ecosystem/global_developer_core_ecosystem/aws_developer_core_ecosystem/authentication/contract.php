@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for AWS DEVELOPER Core. No credential material is accepted. */
+/** Authenticated application context contract for aws_developer Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperAwsDeveloperAuthContextContract
 {
     public const PROVIDER_ID = 'aws_developer';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-AWS-DEVELOPER-CORE-ECOSYSTEM';

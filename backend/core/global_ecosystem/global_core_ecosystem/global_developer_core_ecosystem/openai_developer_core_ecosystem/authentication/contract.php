@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for OPENAI DEVELOPER Core. No credential material is accepted. */
+/** Authenticated application context contract for openai_developer Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperOpenaiDeveloperAuthContextContract
 {
     public const PROVIDER_ID = 'openai_developer';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-OPENAI-DEVELOPER-CORE-ECOSYSTEM';

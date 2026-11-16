@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for DEEPSEEK DEVELOPER Core. No credential material is accepted. */
+/** Authenticated application context contract for deepseek_developer Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperDeepseekDeveloperAuthContextContract
 {
     public const PROVIDER_ID = 'deepseek_developer';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-DEEPSEEK-DEVELOPER-CORE-ECOSYSTEM';

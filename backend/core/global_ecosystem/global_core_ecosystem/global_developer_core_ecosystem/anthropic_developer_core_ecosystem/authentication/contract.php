@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for ANTHROPIC DEVELOPER Core. No credential material is accepted. */
+/** Authenticated application context contract for anthropic_developer Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperAnthropicDeveloperAuthContextContract
 {
     public const PROVIDER_ID = 'anthropic_developer';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-ANTHROPIC-DEVELOPER-CORE-ECOSYSTEM';

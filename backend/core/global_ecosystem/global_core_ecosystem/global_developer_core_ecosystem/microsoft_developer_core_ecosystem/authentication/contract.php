@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for MICROSOFT DEVELOPER Core. No credential material is accepted. */
+/** Authenticated application context contract for microsoft_developer Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperMicrosoftDeveloperAuthContextContract
 {
     public const PROVIDER_ID = 'microsoft_developer';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-MICROSOFT-DEVELOPER-CORE-ECOSYSTEM';

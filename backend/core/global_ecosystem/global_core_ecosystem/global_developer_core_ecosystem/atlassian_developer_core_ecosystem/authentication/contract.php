@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for ATLASSIAN DEVELOPER Core. No credential material is accepted. */
+/** Authenticated application context contract for atlassian_developer Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperAtlassianDeveloperAuthContextContract
 {
     public const PROVIDER_ID = 'atlassian_developer';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-ATLASSIAN-DEVELOPER-CORE-ECOSYSTEM';

@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for INDIA DEVELOPER PLATFORM Core. No credential material is accepted. */
+/** Authenticated application context contract for india_developer_platform Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperIndiaDeveloperPlatformAuthContextContract
 {
     public const PROVIDER_ID = 'india_developer_platform';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-INDIA-DEVELOPER-PLATFORM-CORE-ECOSYSTEM';

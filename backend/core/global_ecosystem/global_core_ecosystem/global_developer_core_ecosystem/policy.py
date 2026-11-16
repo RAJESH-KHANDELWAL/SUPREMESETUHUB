@@ -2,9 +2,11 @@
 from __future__ import annotations
 
 SECRET_KEY_PARTS = ("password", "secret", "token", "api_key", "private_key", "credential", "authorization")
+# Only explicitly adult-content/business provider categories are age-gated.
+# Education and age-assurance tooling are not adult-content providers by default.
 ADULT_ONLY_PROVIDER_IDS = frozenset({
-    "adult_creator_business", "adult_platform_discovery",
-    "age_verification_consent", "sexual_wellness_education",
+    "adult_creator_business",
+    "adult_platform_discovery",
 })
 PROHIBITED_USE_CASES = frozenset({
     "sexual_content_involving_minors", "non_consensual_intimate_imagery",

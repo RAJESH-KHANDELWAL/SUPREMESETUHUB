@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for DEVELOPER SECURITY COMPLIANCE Core. No credential material is accepted. */
+/** Authenticated application context contract for developer_security_compliance Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperDeveloperSecurityComplianceAuthContextContract
 {
     public const PROVIDER_ID = 'developer_security_compliance';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-DEVELOPER-SECURITY-COMPLIANCE-CORE-ECOSYSTEM';

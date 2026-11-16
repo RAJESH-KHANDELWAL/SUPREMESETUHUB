@@ -1,9 +1,9 @@
 <?php
-/** Authenticated application context contract for HUGGINGFACE DEVELOPER Core. No credential material is accepted. */
+/** Authenticated application context contract for huggingface_developer Core. No credential material is accepted. */
 
 declare(strict_types=1);
 
-final class DeveloperProviderAuthContextContract
+final class DeveloperHuggingfaceDeveloperAuthContextContract
 {
     public const PROVIDER_ID = 'huggingface_developer';
     public const ECOSYSTEM_ID = 'GLOBAL-DEVELOPER-HUGGINGFACE-DEVELOPER-CORE-ECOSYSTEM';
