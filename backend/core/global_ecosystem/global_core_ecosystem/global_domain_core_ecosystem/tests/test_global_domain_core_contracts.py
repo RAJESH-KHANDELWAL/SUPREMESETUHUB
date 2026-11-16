@@ -55,7 +55,7 @@ class GlobalDomainCoreContractTests(unittest.TestCase):
             source = path.read_text(encoding="utf-8")
             namespace = source.split("namespace ", 1)[1].split(";", 1)[0]
             self.assertNotIn("\\\\", namespace)
-            match = re.search(r"final class (\\w+)", source)
+            match = re.search(r"final class (\w+)", source)
             self.assertIsNotNone(match, path)
             class_names.append(match.group(1))
         self.assertEqual(len(class_names), 71)

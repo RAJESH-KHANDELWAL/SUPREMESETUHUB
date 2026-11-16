@@ -161,6 +161,13 @@ jobs:
       - name: Run GLOBAL AI Ecosystem Layer Tests
         run: python -m unittest backend.tests.test_global_ai_ecosystem -v
 
+      - name: Run Global Domain Core Contract and Provider Tests
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m unittest backend.core.global_ecosystem.global_core_ecosystem.global_domain_core_ecosystem.tests.test_global_domain_core_contracts -v
+          python -m unittest discover -s backend/core/global_ecosystem/global_core_ecosystem/global_domain_core_ecosystem -t . -p "test_*.py" -v
+
       - name: Run FTP health-check unit tests
         run: python -m pytest -q backend/tests/test_ftp_healthcheck.py
 
