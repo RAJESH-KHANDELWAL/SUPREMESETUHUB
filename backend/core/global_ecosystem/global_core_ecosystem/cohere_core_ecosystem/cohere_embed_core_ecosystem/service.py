@@ -1,7 +1,6 @@
-"""Capability-specific CORE validation entry point."""
-from .contracts import EmbedRequest, validate_request
+"""Public embed capability CORE service entry point."""
+from .services.core_service import CapabilityCoreService
 
-class EmbedCoreService:
-    capability = "embed"
-    def validate(self, request: EmbedRequest) -> bool:
-        return validate_request(request)
+EmbedCoreService = CapabilityCoreService
+
+__all__ = ["EmbedCoreService"]
