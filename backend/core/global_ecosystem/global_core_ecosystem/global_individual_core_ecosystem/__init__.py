@@ -1,11 +1,8 @@
-"""INDIVIDUAL CORE ECOSYSTEM package.
-
-This package is an independent layer-owned namespace. It contains no imports
-from API, CORE, or ENGINE sibling layers.
-"""
-LAYER = "CORE"
-CATEGORY = "INDIVIDUAL"
-ECOSYSTEM_NAME = f"GLOBAL {CATEGORY.replace('_', ' ')} {LAYER} ECOSYSTEM"
-ECOSYSTEM_ID = f"GLOBAL-{CATEGORY.replace('_', '-')}-{LAYER.upper()}-ECOSYSTEM"
-
-__all__ = ["LAYER", "CATEGORY", "ECOSYSTEM_NAME", "ECOSYSTEM_ID"]
+"""GLOBAL INDIVIDUAL CORE ECOSYSTEM."""
+LAYER="CORE"
+CATEGORY="INDIVIDUAL"
+ECOSYSTEM_NAME="GLOBAL INDIVIDUAL CORE ECOSYSTEM"
+ECOSYSTEM_ID="GLOBAL-INDIVIDUAL-CORE-ECOSYSTEM"
+from .orchestrator import GlobalIndividualCoreOrchestrator
+from .service import GlobalIndividualCoreService
+__all__=["LAYER","CATEGORY","ECOSYSTEM_NAME","ECOSYSTEM_ID","GlobalIndividualCoreOrchestrator","GlobalIndividualCoreService"]
