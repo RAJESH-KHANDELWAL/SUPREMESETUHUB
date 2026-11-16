@@ -24,20 +24,36 @@ def test_category_identity_and_safe_defaults():
     assert result["storage_operations_enabled"] is False
 
 
-def test_health_validates_root_and_all_category_child_packages():
+def test_health_validates_root_taxonomy_index_and_all_17_child_packages():
     result = CategoryEcosystemService().health()
     assert result["success"] is True
     assert result["status"] == "FOUNDATION_READY"
     assert result["external_connection_verified"] is False
     assert result["storage_operations_enabled"] is False
+
     validation = result["catalog_validation"]
+    assert validation["taxonomy_group_count"] == 5
     assert validation["taxonomy_category_count"] == 17
     assert validation["indexed_category_count"] == 17
-    assert validation["taxonomy_group_count"] == 5
+    assert validation["unique_category_count"] == 17
     assert validation["child_package_count"] == 17
     assert validation["valid_child_package_count"] == 17
+    assert validation["complete_child_package_count"] == 17
     assert all(validation["checks"].values())
     assert all(validation["child_package_checks"].values())
+    assert all(validation["child_structure_checks"].values())
+    assert all(not missing for missing in validation["child_missing_paths"].values())
+
+
+def test_taxonomy_has_the_five_declared_groups_and_seventeen_categories():
+    taxonomy = json.loads(
+        (PACKAGE_DIR / "taxonomy" / "global_individual_storage_taxonomy.json").read_text(encoding="utf-8")
+    )
+    groups = taxonomy["categories"]
+    categories = [item for group in groups for item in group["items"]]
+    assert len(groups) == 5
+    assert len(categories) == 17
+    assert len(set(categories)) == 17
 
 
 def test_manifest_and_schemas_are_valid_json_and_aligned():
