@@ -14,6 +14,7 @@ def validate_request(p):
     if not isinstance(p,dict): raise ValueError("payload must be a mapping")
     _walk(p)
     a={"model","messages","stream","temperature","max_tokens"}; _unknown(p,a)
-        v=p.get("messages")
-        if not isinstance(v,list) or not v or any(not isinstance(m,dict) or not isinstance(m.get("role"),str) or not isinstance(m.get("content"),(str,list)) for m in v): raise ValueError("invalid messages")
+    v=p.get("messages")
+    if not isinstance(v,list) or not v or any(not isinstance(m,dict) or not isinstance(m.get("role"),str) or not isinstance(m.get("content"),(str,list)) for m in v): raise ValueError("invalid messages")
+    if "stream" in p and not isinstance(p["stream"],bool): raise ValueError("stream must be boolean")
     return {"capability":"chat_completions","accepted":True,"live_call":False}
