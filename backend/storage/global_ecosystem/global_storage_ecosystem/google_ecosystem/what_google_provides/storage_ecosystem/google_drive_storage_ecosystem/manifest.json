@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GOOGLE_DRIVE_STORAGE_ECOSYSTEM",
+  "provider": "GOOGLE",
+  "product": "GOOGLE_DRIVE",
+  "storage_domain": "CLOUD_FILE_AND_FOLDER_STORAGE",
+  "catalog_scope": ["MY_DRIVE", "SHARED_DRIVES", "FILES_AND_FOLDERS", "FILE_METADATA", "REVISIONS", "TRASH", "SHORTCUTS", "SYNC_AND_OFFLINE_METADATA"],
+  "api_operations_owned_elsewhere": true,
+  "implementation_state": "FOUNDATION_INITIALIZED",
+  "external_connection_state": "NOT_CONFIGURED",
+  "taxonomy_only": true,
+  "requires_user_authorization": true,
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true,
+  "security": ["LEAST_PRIVILEGE_OAUTH_SCOPES", "PERMISSION_INHERITANCE_AWARENESS", "ENCRYPTION", "SECRET_REDACTION"],
+  "governance": ["USER_CONSENT", "RETENTION", "DELETION", "SHARED_DRIVE_POLICY", "AUDIT", "PRIVACY"]
+}

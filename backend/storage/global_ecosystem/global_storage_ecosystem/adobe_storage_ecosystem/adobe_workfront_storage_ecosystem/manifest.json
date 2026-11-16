@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "provider_id": "adobe",
+  "ecosystem_id": "workfront",
+  "name": "Adobe Workfront Storage",
+  "related_api_family": "Requires separate Workfront API validation; current Adobe API catalog does not list a dedicated Workfront API child",
+  "storage_scope": "Workfront project asset references, documents, proofs, approvals, attachments and connected-storage relationships.",
+  "api_boundary": "Distinguish Workfront workflow records from the service that stores binary assets. Verify Workfront API and connected storage permissions separately.",
+  "implementation_state": "FOUNDATION_INITIALIZED",
+  "external_connection_state": "NOT_CONFIGURED",
+  "live_connection_verified": false,
+  "production_persistence": "CENTRAL_DATABASE",
+  "capabilities": [
+    "IDENTITY",
+    "METADATA_MODEL",
+    "IN_MEMORY_METADATA_REGISTRY"
+  ]
+}

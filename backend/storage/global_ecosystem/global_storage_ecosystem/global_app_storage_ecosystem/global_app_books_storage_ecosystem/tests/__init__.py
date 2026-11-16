@@ -1,0 +1,1 @@
+"""Offline tests for GLOBAL_APP_BOOKS_STORAGE_ECOSYSTEM."""

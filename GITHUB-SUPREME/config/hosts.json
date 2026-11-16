@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "note": "Fill hostname and username after confirming each Hostinger record. Never add passwords, API keys, or private keys to this file.",
+  "hosts": [
+    { "id": "HOST-01", "label": "Host record 1", "hostname": "", "username": "" },
+    { "id": "HOST-02", "label": "Host record 2", "hostname": "", "username": "" },
+    { "id": "HOST-03", "label": "Host record 3", "hostname": "", "username": "" },
+    { "id": "HOST-04", "label": "Host record 4", "hostname": "", "username": "" },
+    { "id": "HOST-05", "label": "Host record 5", "hostname": "", "username": "" }
+  ]
+}

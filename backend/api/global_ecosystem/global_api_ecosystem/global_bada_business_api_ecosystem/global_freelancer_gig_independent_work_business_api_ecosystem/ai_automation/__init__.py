@@ -1,0 +1,5 @@
+"""Independent Ai Automation freelance specialization package."""
+SPECIALIZATION_ID = "ai_automation"
+SPECIALIZATION_NAME = "Ai Automation"
+DOMAIN_ID = "freelance_gig_independent_work"
+DESCRIPTION = "Practical AI integrations and workflow automation for business and operational processes."

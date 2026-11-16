@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_APP_PRIVACY_STORAGE_ECOSYSTEM",
+  "package_name": "global_app_privacy_storage_ecosystem",
+  "provider": "GLOBAL_APP",
+  "category": "PRIVACY",
+  "category_group": "SECURITY_AND_PRIVACY",
+  "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+  "connection_state": "NOT_CONFIGURED",
+  "provider_product_verified": false,
+  "storage_operations_enabled": false,
+  "requires_authorized_integration": true,
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true,
+  "geographic_scope": [
+    "BHARAT",
+    "GLOBAL"
+  ],
+  "security_baseline": [
+    "LEAST_PRIVILEGE",
+    "ENCRYPTION",
+    "AUDIT_LOGGING",
+    "RETENTION_CONTROLS",
+    "APP_SIGNING_AND_INTEGRITY"
+  ],
+  "notes": "Catalog scaffold only; no live app/provider integration is implied."
+}

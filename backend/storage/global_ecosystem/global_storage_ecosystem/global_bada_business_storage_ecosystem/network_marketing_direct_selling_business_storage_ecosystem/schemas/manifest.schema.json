@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GLOBAL_NETWORK_MARKETING_DIRECT_SELLING_BUSINESS_STORAGE_ECOSYSTEM manifest",
+  "type": "object",
+  "required": [
+    "ecosystem_id",
+    "connection_state",
+    "storage_operations_enabled"
+  ],
+  "properties": {
+    "ecosystem_id": {
+      "const": "GLOBAL_NETWORK_MARKETING_DIRECT_SELLING_BUSINESS_STORAGE_ECOSYSTEM"
+    },
+    "connection_state": {
+      "enum": [
+        "NOT_CONFIGURED",
+        "CONNECTED",
+        "DEGRADED",
+        "DISCONNECTED"
+      ]
+    },
+    "storage_operations_enabled": {
+      "type": "boolean"
+    },
+    "external_connections_verified": {
+      "type": "boolean"
+    }
+  }
+}
