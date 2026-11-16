@@ -1,7 +1,6 @@
-"""Capability-specific CORE validation entry point."""
-from .contracts import CommandRequest, validate_request
+"""Public command capability CORE service entry point."""
+from .services.core_service import CapabilityCoreService
 
-class CommandCoreService:
-    capability = "command"
-    def validate(self, request: CommandRequest) -> bool:
-        return validate_request(request)
+CommandCoreService = CapabilityCoreService
+
+__all__ = ["CommandCoreService"]
