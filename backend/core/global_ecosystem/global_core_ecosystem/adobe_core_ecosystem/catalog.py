@@ -65,6 +65,7 @@ def get_adobe_core_catalog() -> dict[str, Any]:
         "provider": "adobe",
         "status": "CORE_CATALOG_AVAILABLE",
         "source_catalog": "backend/global_ecosystem/adobe_ecosystem/catalog.py",
+        "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/adobe_api_ecosystem",
         "product_domain_count": len(children),
         "package_scaffolded_count": sum(item["package_scaffolded"] for item in children),
         "live_connections_verified": 0,
