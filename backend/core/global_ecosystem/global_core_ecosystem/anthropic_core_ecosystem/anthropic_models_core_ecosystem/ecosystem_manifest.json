@@ -24,5 +24,6 @@
     "database": "persistence and migrations",
     "runtime": "jobs and tool execution",
     "application": "sessions, consent and UI"
-  }
+  },
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/anthropic_api_ecosystem/anthropic_models_api_ecosystem"
 }

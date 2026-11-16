@@ -18,7 +18,7 @@ Review date: 2026-11-16.
 
 1. Verify exact current API capabilities, account eligibility and permission requirements against Anthropic documentation.
 2. Implement API transport and authentication only in the Anthropic API ecosystem.
-3. Connect Core service discovery to the global registry where required by the repository's registration conventions.
+3. Global provider, API and product Core records are now included in the GLOBAL CORE registry catalog; verify registry initialization in CI.
 4. Add CI execution for Python and PHP contract tests.
 5. Run authenticated sandbox smoke tests using approved server-side credentials.
 6. Update readiness only from observed provider responses.
