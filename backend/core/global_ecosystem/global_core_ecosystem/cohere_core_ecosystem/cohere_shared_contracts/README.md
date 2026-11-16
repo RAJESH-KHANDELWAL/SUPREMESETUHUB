@@ -1,5 +1,11 @@
 # COHERE SHARED CONTRACTS
 
-Provider-wide shared request and result contracts.
+Canonical provider-wide Cohere CORE contracts:
 
-Provider-level shared CORE area. Capability-specific behavior stays in its Cohere capability package. No API transport, ENGINE execution, credentials or persistence belong here.
+- `CapabilityRequest` and `CoreResult` for the Python provider facade
+- `TenantContext` for authenticated application-supplied identity
+- `SecretReference` for opaque secret-manager pointers
+- `Readiness` and `EcosystemState` for lifecycle/readiness vocabulary
+- `CapabilityDescriptor` for normalized capability metadata
+
+Capability-specific request payloads remain in each capability package. Contracts do not perform API calls or resolve secrets.
