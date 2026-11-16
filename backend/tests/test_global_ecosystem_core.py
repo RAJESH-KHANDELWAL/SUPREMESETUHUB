@@ -51,6 +51,13 @@ class TestGlobalEcosystemCore(unittest.TestCase):
         self.assertFalse(result["live_connection_verified"])
         self.assertEqual(result["token_storage_status"], "NOT_IMPLEMENTED")
 
+    def test_anthropic_core_ecosystems_are_registered(self):
+        self.assertTrue(self.manager.exists("GLOBAL-ANTHROPIC-CORE-ECOSYSTEM"))
+        self.assertTrue(self.manager.exists("GLOBAL-ANTHROPIC-API-CORE-ECOSYSTEM"))
+        self.assertTrue(self.manager.exists("GLOBAL-ANTHROPIC-PRODUCT-CORE-ECOSYSTEM"))
+        for family in ("MESSAGES", "BATCHES", "MODELS", "TOKEN-COUNTING", "FILES", "ADMIN-WORKSPACES", "MANAGED-AGENTS", "TOOL-USE", "AUTH-IDENTITY"):
+            self.assertTrue(self.manager.exists(f"GLOBAL-ANTHROPIC-{family}-CORE-ECOSYSTEM"))
+
     def test_people_category_exists(self):
         self.assertTrue(
             self.manager.exists("GLOBAL-PEOPLE-ECOSYSTEM")
