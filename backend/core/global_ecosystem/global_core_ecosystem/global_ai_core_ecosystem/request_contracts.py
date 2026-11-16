@@ -9,7 +9,7 @@ _ALLOWED_FIELDS = {
     "provider_id", "capability", "model_id", "task", "context",
     "request_id", "options", "metadata",
 }
-_REQUIRED_FIELDS = {"provider_id", "capability", "task"}
+_REQUIRED_FIELDS = {"provider_id", "task"}
 
 
 def _normalized_key(value):
@@ -34,7 +34,9 @@ def validate_ai_request(payload):
 
     missing = _REQUIRED_FIELDS.difference(payload)
     if missing:
-        raise ValueError("AI_REQUEST_REQUIRED_FIELDS_MISSING: " + ", ".join(sorted(missing)))
+        raise ValueError(
+            "AI_REQUEST_REQUIRED_FIELDS_MISSING: " + ", ".join(sorted(missing))
+        )
 
     unknown = set(payload).difference(_ALLOWED_FIELDS)
     if unknown:
