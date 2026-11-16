@@ -24,7 +24,7 @@ The root owns provider inventory and discovery:
 - `catalog.py`, `product_catalog.py`, `product_ecosystem_index.json`: canonical capability inventory and routing.
 - `domain_catalog.py`: Cohere capability domain taxonomy.
 - `contracts.py`, `policy.py`, `policies.py`: shared contracts and policy boundary.
-- `module_service.py`, `orchestrator.py`, `service.py`, `manager.py`: provider-level discovery, validation and public facade.
+- `module_service.py`, `orchestrator.py`, `service.py`, `manager.py`: provider-level discovery, capability-specific validation dispatch and public facade.
 - `php/`: PHP interoperability contract.
 - `cohere_shared_*/`: provider-wide shared compatibility, configuration, contracts, documentation, events, exceptions, orchestration, security, testing, utilities and validation.
 
@@ -54,4 +54,4 @@ CORE must not duplicate API transport, token exchange, SDK execution, persistenc
 **Status:** `interface_only`  
 **Live Cohere calls:** disabled.
 
-The repository contains capability contracts, validation foundations, manifests, package services and provider-level discovery metadata. The provider network adapter, live execution, persistence and production authentication are separate integration work.
+The repository contains capability contracts, validation foundations, manifests, package services, provider-level discovery metadata and a provider facade that dispatches to capability-specific validators. The provider network adapter, live execution, persistence and production authentication are separate integration work.
