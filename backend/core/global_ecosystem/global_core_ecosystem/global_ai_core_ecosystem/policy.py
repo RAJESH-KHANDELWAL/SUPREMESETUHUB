@@ -1,5 +1,5 @@
-"""Global AI CORE policy metadata; not provider authorization."""
-SENSITIVE=("WRITE","DELETE","PUBLISH","BILLING","TRAIN","FINE_TUNE","UPLOAD","ADMIN","TOOL","EXECUTE")
+"""Global AI Core metadata policy; API authorization remains external."""
+SENSITIVE=("ADMIN","DELETE","WRITE","PUBLISH","BILLING","TRAIN","FINE_TUNE","UPLOAD","TOOL","EXECUTE","SEND")
 class GlobalAICorePolicyError(PermissionError): pass
 class GlobalAICorePolicy:
  @staticmethod
@@ -7,8 +7,14 @@ class GlobalAICorePolicy:
   if context is None or not callable(getattr(context,"validate",None)): raise GlobalAICorePolicyError("AUTHENTICATED_TENANT_CONTEXT_REQUIRED")
   context.validate()
  @staticmethod
- def classify_capability(capability):
-  key=str(capability).upper()
-  return "SENSITIVE_REQUIRES_EXPLICIT_AUTHORIZATION_AND_AUDIT" if any(x in key for x in SENSITIVE) else "STANDARD_REQUIRES_TENANT_AND_PROVIDER_AUTHORIZATION"
+ def validate_capability(provider,capability):
+  if provider.get("disabled") is True: raise GlobalAICorePolicyError("PROVIDER_DISABLED")
+  allowed=set(provider.get("capabilities",[]))
+  if allowed and capability not in allowed: raise GlobalAICorePolicyError("CAPABILITY_NOT_REGISTERED")
  @staticmethod
- def execution_status(): return {"runtime_execution_enabled":False,"live_provider_connections_verified":False,"credentials_in_core_allowed":False}
+ def classify_capability(capability):
+  return "SENSITIVE_REQUIRES_EXPLICIT_AUTHORIZATION_AND_AUDIT" if any(x in capability.upper() for x in SENSITIVE) else "STANDARD_REQUIRES_TENANT_AND_PROVIDER_AUTHORIZATION"
+ @staticmethod
+ def safe_provider_summary(provider):
+  blocked={"token","access_token","refresh_token","client_secret","api_key","secret","authorization","password","credential_value"}
+  return {k:v for k,v in provider.items() if k.casefold() not in blocked}

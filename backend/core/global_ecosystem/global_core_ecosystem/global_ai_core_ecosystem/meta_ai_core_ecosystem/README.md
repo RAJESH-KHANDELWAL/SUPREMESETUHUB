@@ -1,8 +1,8 @@
-# META AI AI CORE FACADE
+# META AI CORE ECOSYSTEM
 
-Provider ID: `meta`  
-Provider type: `model_platform`
+Provider ID: `meta_ai`  
+Parent: GLOBAL AI CORE ECOSYSTEM  
+Runtime source: `backend/global_ecosystem/global_ai_ecosystem/meta_ai_ecosystem/`
+API catalogue: `backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem/meta_ai_api_ecosystem/`
 
-Thin Global AI registry facade. Canonical provider CORE: `backend/core/global_ecosystem/global_core_ecosystem/meta_core_ecosystem`. API catalogue: `backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem/meta_ai_api_ecosystem`.
-
-Owns provider identity and readiness metadata only. Do not duplicate provider product trees, SDKs, OAuth, token stores, persistence or ENGINE execution. Status is registered but not live-verified; provider capability coverage is not implied.
+Owns identity, capability metadata, lifecycle, readiness and policy-aware discovery. API owns provider authentication and transport; ENGINE owns inference and tools. Live connection verified: No.

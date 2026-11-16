@@ -1,4 +1,3 @@
-"""Meta AI Global AI Core facade."""
-from .catalog import PROVIDER
-from .service import MetaAIProviderCoreService
-__all__=["PROVIDER","MetaAIProviderCoreService"]
+"""Meta AI product Core."""
+from .service import MetaAiProductCoreService
+__all__=["MetaAiProductCoreService"]

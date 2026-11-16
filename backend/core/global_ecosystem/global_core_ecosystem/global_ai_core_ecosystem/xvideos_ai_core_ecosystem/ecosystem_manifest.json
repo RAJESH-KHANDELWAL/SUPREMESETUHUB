@@ -7,8 +7,7 @@
   "is_ai_model_provider": false,
   "canonical_domain_core_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_video_core_ecosystem",
   "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem/xvideos_ai_api_ecosystem",
-  "status": "ADJACENT_INTEGRATION_CATALOG_ONLY",
   "age_restricted_or_adult_industry": true,
-  "api_documentation_verified": false,
+  "status": "COMPATIBILITY_ONLY",
   "live_connection_verified": false
 }

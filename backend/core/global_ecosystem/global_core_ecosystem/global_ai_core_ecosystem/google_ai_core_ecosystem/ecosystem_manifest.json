@@ -1,13 +1,10 @@
 {
   "schema_version": "1.0.0",
-  "provider_id": "google",
-  "provider_name": "Google AI",
-  "provider_type": "model_platform",
-  "layer": "GLOBAL_AI_CORE_FACADE",
-  "canonical_provider_core_ref": "backend/core/global_ecosystem/global_core_ecosystem/google_core_ecosystem",
-  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/google_api_ecosystem",
-  "status": "REGISTERED_NOT_LIVE_VERIFIED",
-  "live_connection_verified": false,
-  "capability_coverage_verified": false,
-  "runtime_execution_enabled": false
+  "legacy_alias": "google",
+  "canonical_provider_id": "google_gemini",
+  "layer": "GLOBAL_AI_API_COMPATIBILITY_ALIAS",
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem/google_ai_api_ecosystem",
+  "canonical_core_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem/google_gemini_core_ecosystem",
+  "status": "COMPATIBILITY_ONLY",
+  "live_connection_verified": false
 }

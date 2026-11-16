@@ -1,4 +1,4 @@
-"""Meta AI read-only provider Core facade."""
-from ..provider_service import AIProviderCoreFacade
-class MetaAIProviderCoreService(AIProviderCoreFacade):
- PROVIDER_ID="meta"
+"""Meta AI read-only product Core service."""
+from ..module_service import AIProductCoreService
+class MetaAiProductCoreService(AIProductCoreService):
+ PROVIDER_ID="meta_ai"

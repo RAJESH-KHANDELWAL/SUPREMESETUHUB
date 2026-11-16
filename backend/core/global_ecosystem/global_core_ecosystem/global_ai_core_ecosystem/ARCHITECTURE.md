@@ -1,11 +1,5 @@
 # GLOBAL AI CORE Architecture
 
-1. Application authenticates the caller and supplies tenant/actor context.
-2. CORE validates request shape, provider registration and capability metadata.
-3. Provider facade resolves the canonical provider-specific CORE package.
-4. API owns provider authentication, transport and endpoint normalization.
-5. ENGINE owns inference, routing, retries, queues and agent runtime.
-6. DATABASE/STORAGE own persistence and artifacts.
-7. Application presents results.
+Application authentication -> Global AI Core provider resolution and policy metadata -> provider-specific API adapter -> injected ENGINE execution -> DATABASE/STORAGE persistence -> application response.
 
-Provider facades are thin references; they do not duplicate provider product trees, SDKs, OAuth, tokens or transport. Adjacent non-AI partner folders remain compatibility aliases routed to canonical domain CORE packages. The existing executor-injected GlobalAICoreService remains the execution boundary; the new registry services are read-only.
+Each runtime provider registry entry has a dedicated product Core package. Product packages are thin read-only facades; they do not duplicate SDKs, credentials, transport or inference execution. Runtime provider metadata is the source of truth. Legacy API and adjacent partner aliases remain compatibility-only. Core health reports catalog state, zero verified live connections and zero API calls.
