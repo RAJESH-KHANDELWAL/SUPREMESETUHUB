@@ -1,9 +1,7 @@
-PRODUCT_ID = "creative_cloud"
+"""Configuration metadata for Adobe Creative Cloud; no credentials or network clients."""
+
+PROVIDER = "adobe"
+PRODUCT_KEY = "creative_cloud"
 PRODUCT_NAME = "Adobe Creative Cloud"
-CATEGORY = "ADOBE_PRODUCT_DOMAIN"
-API_NAME = None  # Populate only from a verified Adobe API catalog.
-INTEGRATION_MODE = "CATALOG_ONLY"
-AVAILABILITY = "NOT_VERIFIED"
-AUTHENTICATION_METHOD = "Verify product-specific Adobe authentication before enablement"
-REQUIRED_SCOPES = []
-LIVE_CONNECTION_ENABLED = False
+PACKAGE_STATUS = "SCAFFOLDED"
+LIVE_CONNECTION_VERIFIED = False

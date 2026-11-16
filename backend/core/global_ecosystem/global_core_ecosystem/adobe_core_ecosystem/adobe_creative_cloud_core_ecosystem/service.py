@@ -1,5 +1,15 @@
-"""CREATIVE-CLOUD-CORE-ECOSYSTEM product-family Core service."""
-from ..module_service import AdobeProductCoreService
-class CreativeCloudCoreService(AdobeProductCoreService):
-    ECOSYSTEM_ID = "CREATIVE-CLOUD-CORE-ECOSYSTEM"
-__all__ = ["CreativeCloudCoreService"]
+"""Read-only Core status surface for Adobe Creative Cloud; no provider API calls."""
+
+from __future__ import annotations
+
+
+def creative_cloud_core_status() -> dict[str, object]:
+    return {
+        "provider": "adobe",
+        "product_key": "creative_cloud",
+        "product_name": "Adobe Creative Cloud",
+        "package_status": "SCAFFOLDED",
+        "live_connection_verified": False,
+        "credentials_configured": False,
+        "implementation_note": "Metadata scaffold only; product capabilities and API entitlements require verification.",
+    }

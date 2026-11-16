@@ -1,17 +1,21 @@
 # ADOBE CORE ECOSYSTEM
 
-Provider-level Core inventory and policy foundation for Adobe product families.
+Provider-level Core inventory, product-family package scaffolds, contracts and policy metadata for Adobe.
 
-## Current scope
+## Coverage snapshot (2026-11-16)
 
-- 32 Adobe product/service domains represented in `catalog.py`.
-- Shared contracts, policy metadata, read-only module service and orchestrator.
-- One product-family package scaffold: `adobe_creative_cloud_core_ecosystem`.
-- Remaining product families are catalog entries pending their own package scaffolds.
-- No live Adobe API connections or credentials are configured.
+- 32 canonical Core domains represented in the shared catalog.
+- 32/32 canonical Core domain package scaffolds present.
+- Every package contains the ten-directory standard and machine-readable manifest.
+- Named product inventory is maintained in `adobe_product_inventory.json`, sourced from Adobe's global and business product catalogs.
+- Catalog source pages report 100 global catalog results and 43 Adobe for Business results; these counts include overlapping bundles, products, editions and services and must not be summed as unique products.
+
+## Important status distinction
+
+This update completes the **Core inventory and package scaffold baseline**, not production integrations for every Adobe product. Product-specific capability implementations, official API mapping, account entitlements, credentials, provider connections and integration tests remain unverified. No live Adobe connection is claimed.
 
 ## Layer boundaries
 
-Core owns product identity, capability metadata, lifecycle, policy and readiness. OAuth, SDK clients and HTTP transport belong to the Adobe API layer; persistence belongs to Storage/Database; jobs belong to Runtime/Engine; user workflows belong to Application/UI.
+OAuth/SDK/HTTP transport belongs to Adobe API; persistence belongs to Storage/Database; jobs belong to Runtime/Engine; user workflows belong to Application/UI.
 
-See `PRODUCT_ECOSYSTEM_STANDARD.md` and `ADOBE_CORE_IMPLEMENTATION_STATUS.md` for the implementation standard and verified scope.
+See `ADOBE_CATALOG_AUDIT.md`, `ADOBE_CORE_IMPLEMENTATION_STATUS.md` and `PRODUCT_ECOSYSTEM_STANDARD.md`.

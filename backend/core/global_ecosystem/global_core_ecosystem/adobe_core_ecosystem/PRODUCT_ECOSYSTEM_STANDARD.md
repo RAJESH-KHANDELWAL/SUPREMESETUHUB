@@ -1,25 +1,13 @@
 # Adobe Product Core Ecosystem Standard
 
-The existing Adobe runtime catalog declares 32 product and service domains. The Adobe Core catalog mirrors these domains as provider-neutral inventory entries.
+Every canonical Core domain is represented by a product-family package scaffold. Each package contains ten responsibility directories: `authentication`, `capabilities`, `docs`, `events`, `lifecycle`, `models`, `schemas`, `security`, `services`, `tests`.
 
-## Product-family package standard
+Each package also contains `README.md`, `__init__.py`, `ecosystem_config.py`, `ecosystem_manifest.json` and `service.py`.
 
-When a product-family package is implemented, it should contain these ten directories:
-- `authentication`
-- `capabilities`
-- `docs`
-- `events`
-- `lifecycle`
-- `models`
-- `schemas`
-- `security`
-- `services`
-- `tests`
+## Layer boundaries
 
-A completed package should also contain `README.md`, `__init__.py`, `ecosystem_config.py`, `ecosystem_manifest.json` and `service.py`.
+Core owns provider/product identity, capability metadata, lifecycle metadata, policy metadata, readiness and stable contracts. API owns OAuth, SDK clients, HTTP transport, endpoints and webhooks. Storage owns file/object persistence. Database owns durable structured records. Runtime/Engine owns jobs, queues, schedulers and execution. Application/UI owns user workflows and presentation.
 
-## Current implementation scope
+## Completion criteria
 
-The current scaffold includes the shared provider Core foundation and one product-family package: Adobe Creative Cloud. The remaining 31 domains are catalog entries, not completed package implementations. Do not infer package completeness from catalog presence.
-
-Core owns identity, capability metadata, policy, lifecycle and readiness. API transport/OAuth, storage, database, runtime and UI remain in their respective layers. Catalog entries and generated scaffolds do not imply API entitlement or live integration.
+A scaffold is complete only as a directory/template baseline. A production-ready product integration additionally requires verified product-specific capabilities, official API references, entitlement/scope checks, secure configuration, contract tests, error handling, observability and successful integration tests. No package may claim live connectivity without evidence.
