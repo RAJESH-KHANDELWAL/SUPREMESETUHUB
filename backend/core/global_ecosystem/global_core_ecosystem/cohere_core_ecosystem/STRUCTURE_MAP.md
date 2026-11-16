@@ -17,7 +17,6 @@ cohere_core_ecosystem/
 |-- domain_catalog.py
 |-- contracts.py
 |-- policy.py
-|-- policies.py
 |-- module_service.py
 |-- orchestrator.py
 |-- manager.py
