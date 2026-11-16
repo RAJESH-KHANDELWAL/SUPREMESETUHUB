@@ -16,7 +16,7 @@ It does **not** duplicate Google SDK clients, OAuth exchanges, API transport, da
 
 ## Product coverage
 
-The current catalog contains 23 product families: Admin SDK, Ads, Analytics, Business Profile, Calendar, Chat, Cloud, Contacts, Docs, Drive, Firebase, Forms, Gemini, Gmail, Identity & OAuth, Maps Platform, Meet, People, Search Console, Sheets, Slides, Vertex AI and YouTube.
+The Core catalog contains 23 product families: Admin SDK, Ads, Analytics, Business Profile, Calendar, Chat, Cloud, Contacts, Docs, Drive, Firebase, Forms, Gemini, Gmail, Identity & OAuth, Maps Platform, Meet, People, Search Console, Sheets, Slides, Vertex AI and YouTube. The product inventory mirrors 129 offerings from the existing Google runtime catalog and routes them to these Core families where the product category supports a defensible mapping. Consumer hardware (Pixel, Nest and Google Store) remains flagged for a dedicated family decision rather than being forced into an unrelated API family.
 
 ## Layer ownership
 
@@ -44,7 +44,8 @@ The current catalog contains 23 product families: Admin SDK, Ads, Analytics, Bus
 - `policy.py`: capability checks and safe metadata filtering.
 - `module_service.py`: reusable read-only product Core service.
 - `orchestrator.py`: product discovery, health and dependency map.
-- `catalog.py`: canonical 23-product inventory.
+- `catalog.py`: canonical 23-family Core inventory.
+- `product_catalog.py`: 129-offering inventory sourced from the existing Google runtime catalog, including API-availability and Core-family mapping flags.
 - `service.py`: public ecosystem status and registry integration.
 
 Each product package exposes its own `service.py` class using the shared contract. API implementation remains in the corresponding API ecosystem folder.
