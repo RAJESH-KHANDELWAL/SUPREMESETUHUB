@@ -4,7 +4,7 @@ from __future__ import annotations
 from typing import Any
 
 from .catalog import get_cohere_core_catalog, list_capabilities
-from .domain_catalog import list_domains
+from .domain_catalog import domain_summary, list_domain_inventory, list_domains
 
 
 class CohereCoreOrchestrator:
@@ -33,13 +33,10 @@ class CohereCoreOrchestrator:
         return None
 
     def domains(self) -> dict[str, Any]:
-        domains = list_domains()
-        return {
-            "success": True,
-            "domain_count": len(domains),
-            "capability_count": sum(len(items) for items in domains.values()),
-            "domains": domains,
-        }
+        return {"success": True, **domain_summary()}
+
+    def domain_inventory(self) -> list[dict[str, Any]]:
+        return list_domain_inventory()
 
     def health(self) -> dict[str, Any]:
         catalog = self.catalog()
