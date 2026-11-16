@@ -14,8 +14,8 @@ _CATALOG={"ecosystem_id":"GITHUB-CORE-ECOSYSTEM","name":"GITHUB CORE ECOSYSTEM",
       "ACTIONS_LIFECYCLE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "family_api_routes_implemented": false,
-    "live_connection_verified": false
+    "family_api_routes_implemented": False,
+    "live_connection_verified": False
   },
   {
     "ecosystem_id": "GITHUB-APPS-CORE-ECOSYSTEM",
@@ -30,8 +30,8 @@ _CATALOG={"ecosystem_id":"GITHUB-CORE-ECOSYSTEM","name":"GITHUB CORE ECOSYSTEM",
       "APPS_LIFECYCLE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "family_api_routes_implemented": false,
-    "live_connection_verified": false
+    "family_api_routes_implemented": False,
+    "live_connection_verified": False
   },
   {
     "ecosystem_id": "GITHUB-AUTHENTICATION-CORE-ECOSYSTEM",
@@ -46,8 +46,8 @@ _CATALOG={"ecosystem_id":"GITHUB-CORE-ECOSYSTEM","name":"GITHUB CORE ECOSYSTEM",
       "AUTHENTICATION_LIFECYCLE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "family_api_routes_implemented": true,
-    "live_connection_verified": false
+    "family_api_routes_implemented": True,
+    "live_connection_verified": False
   },
   {
     "ecosystem_id": "GITHUB-CHECKS-CORE-ECOSYSTEM",
@@ -62,8 +62,8 @@ _CATALOG={"ecosystem_id":"GITHUB-CORE-ECOSYSTEM","name":"GITHUB CORE ECOSYSTEM",
       "CHECKS_LIFECYCLE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "family_api_routes_implemented": false,
-    "live_connection_verified": false
+    "family_api_routes_implemented": False,
+    "live_connection_verified": False
   },
   {
     "ecosystem_id": "GITHUB-GRAPHQL-CORE-ECOSYSTEM",
@@ -78,8 +78,8 @@ _CATALOG={"ecosystem_id":"GITHUB-CORE-ECOSYSTEM","name":"GITHUB CORE ECOSYSTEM",
       "GRAPHQL_LIFECYCLE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "family_api_routes_implemented": false,
-    "live_connection_verified": false
+    "family_api_routes_implemented": False,
+    "live_connection_verified": False
   },
   {
     "ecosystem_id": "GITHUB-ISSUES-CORE-ECOSYSTEM",
@@ -94,8 +94,8 @@ _CATALOG={"ecosystem_id":"GITHUB-CORE-ECOSYSTEM","name":"GITHUB CORE ECOSYSTEM",
       "ISSUES_LIFECYCLE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "family_api_routes_implemented": false,
-    "live_connection_verified": false
+    "family_api_routes_implemented": False,
+    "live_connection_verified": False
   },
   {
     "ecosystem_id": "GITHUB-ORGANIZATIONS-CORE-ECOSYSTEM",
@@ -110,8 +110,8 @@ _CATALOG={"ecosystem_id":"GITHUB-CORE-ECOSYSTEM","name":"GITHUB CORE ECOSYSTEM",
       "ORGANIZATIONS_LIFECYCLE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "family_api_routes_implemented": false,
-    "live_connection_verified": false
+    "family_api_routes_implemented": False,
+    "live_connection_verified": False
   },
   {
     "ecosystem_id": "GITHUB-PULL_REQUESTS-CORE-ECOSYSTEM",
@@ -126,8 +126,8 @@ _CATALOG={"ecosystem_id":"GITHUB-CORE-ECOSYSTEM","name":"GITHUB CORE ECOSYSTEM",
       "PULL_REQUESTS_LIFECYCLE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "family_api_routes_implemented": false,
-    "live_connection_verified": false
+    "family_api_routes_implemented": False,
+    "live_connection_verified": False
   },
   {
     "ecosystem_id": "GITHUB-REPOSITORIES-CORE-ECOSYSTEM",
@@ -142,8 +142,8 @@ _CATALOG={"ecosystem_id":"GITHUB-CORE-ECOSYSTEM","name":"GITHUB CORE ECOSYSTEM",
       "REPOSITORIES_LIFECYCLE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "family_api_routes_implemented": true,
-    "live_connection_verified": false
+    "family_api_routes_implemented": True,
+    "live_connection_verified": False
   },
   {
     "ecosystem_id": "GITHUB-REST-CORE-ECOSYSTEM",
@@ -158,8 +158,8 @@ _CATALOG={"ecosystem_id":"GITHUB-CORE-ECOSYSTEM","name":"GITHUB CORE ECOSYSTEM",
       "REST_LIFECYCLE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "family_api_routes_implemented": false,
-    "live_connection_verified": false
+    "family_api_routes_implemented": False,
+    "live_connection_verified": False
   },
   {
     "ecosystem_id": "GITHUB-SECURITY-CORE-ECOSYSTEM",
@@ -174,8 +174,8 @@ _CATALOG={"ecosystem_id":"GITHUB-CORE-ECOSYSTEM","name":"GITHUB CORE ECOSYSTEM",
       "SECURITY_LIFECYCLE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "family_api_routes_implemented": false,
-    "live_connection_verified": false
+    "family_api_routes_implemented": False,
+    "live_connection_verified": False
   },
   {
     "ecosystem_id": "GITHUB-WEBHOOKS-CORE-ECOSYSTEM",
@@ -190,8 +190,8 @@ _CATALOG={"ecosystem_id":"GITHUB-CORE-ECOSYSTEM","name":"GITHUB CORE ECOSYSTEM",
       "WEBHOOKS_LIFECYCLE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "family_api_routes_implemented": false,
-    "live_connection_verified": false
+    "family_api_routes_implemented": False,
+    "live_connection_verified": False
   }
 ]}
 def get_github_core_catalog(): return deepcopy(_CATALOG)
