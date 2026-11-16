@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Any
 from .catalog import get_domain_core_catalog, list_domain_capability_domains
 from .policy import DomainCorePolicy
-from .provider_catalog import domain_provider_summary, get_domain_provider, list_domain_providers
+from .provider_catalog import domain_provider_summary, get_domain_provider, list_domain_providers, list_domain_capability_packages
 
 class GlobalDomainCoreOrchestrator:
     def catalog(self) -> dict[str, Any]:
@@ -24,19 +24,25 @@ class GlobalDomainCoreOrchestrator:
         domains = list_domain_capability_domains()
         return {"success": True, "domain_count": len(domains), "domains": domains}
 
+    def capability_packages(self) -> dict[str, Any]:
+        packages = list_domain_capability_packages()
+        return {"success": True, "count": len(packages), "packages": packages}
+
     def inventory(self) -> dict[str, Any]:
         return domain_provider_summary()
 
     def health(self) -> dict[str, Any]:
         catalog = self.catalog()
-        providers = list_domain_providers()
+        summary = domain_provider_summary()
         return {
             "success": True,
             "ecosystem_id": catalog["ecosystem_id"],
             "status": "CORE_CATALOG_AVAILABLE",
-            "provider_count": len(providers),
+            "provider_count": summary["provider_count"],
+            "capability_package_count": summary["capability_package_count"],
+            "domain_related_child_folder_count": summary["domain_related_child_folder_count"],
             "domain_count": len(list_domain_capability_domains()),
-            "catalog_only_count": sum(p["status"] == "CORE_CATALOG_ONLY" for p in providers),
+            "catalog_only_count": summary["catalog_only_count"],
             "live_connections_verified": 0,
             "api_calls_performed": 0,
             "warning": "Core catalog readiness is not evidence of registrar authorization, provider API availability or live connectivity.",
