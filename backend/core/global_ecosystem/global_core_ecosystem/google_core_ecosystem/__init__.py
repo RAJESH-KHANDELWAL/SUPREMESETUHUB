@@ -3,6 +3,7 @@ from .catalog import GOOGLE_CORE_ECOSYSTEM, get_google_core_catalog, list_google
 from .contracts import CoreResult, Readiness, SecretReference, TenantContext
 from .orchestrator import GoogleCoreOrchestrator
 from .policy import GoogleCorePolicy, GoogleCorePolicyError
+from .product_catalog import google_offerings_summary, list_google_offerings
 from .service import GoogleCoreEcosystemService
 
 __all__ = [
@@ -16,5 +17,7 @@ __all__ = [
     "GoogleCoreOrchestrator",
     "GoogleCorePolicy",
     "GoogleCorePolicyError",
+    "google_offerings_summary",
+    "list_google_offerings",
     "GoogleCoreEcosystemService",
 ]
