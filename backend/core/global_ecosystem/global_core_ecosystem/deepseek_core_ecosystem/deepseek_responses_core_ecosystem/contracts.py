@@ -14,6 +14,7 @@ def validate_request(p):
     if not isinstance(p,dict): raise ValueError("payload must be a mapping")
     _walk(p)
     a={"model","input","stream","instructions","max_output_tokens"}; _unknown(p,a)
-        v=p.get("input")
-        if not ((isinstance(v,str) and v.strip()) or (isinstance(v,list) and v)): raise ValueError("input must be non-empty")
+    v=p.get("input")
+    if not ((isinstance(v,str) and v.strip()) or (isinstance(v,list) and v)): raise ValueError("input must be non-empty")
+    if "stream" in p and not isinstance(p["stream"],bool): raise ValueError("stream must be boolean")
     return {"capability":"responses","accepted":True,"live_call":False}
