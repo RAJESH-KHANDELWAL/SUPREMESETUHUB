@@ -1,7 +1,6 @@
-"""Capability-specific CORE validation entry point."""
-from .contracts import TokenizeRequest, validate_request
+"""Public tokenize capability CORE service entry point."""
+from .services.core_service import CapabilityCoreService
 
-class TokenizeCoreService:
-    capability = "tokenize"
-    def validate(self, request: TokenizeRequest) -> bool:
-        return validate_request(request)
+TokenizeCoreService = CapabilityCoreService
+
+__all__ = ["TokenizeCoreService"]
