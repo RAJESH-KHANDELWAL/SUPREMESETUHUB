@@ -5,4 +5,6 @@ API_CATALOG_REF = "backend/api/global_ecosystem/global_api_ecosystem/google_api_
 IMPLEMENTATION_STATUS = "CORE_CATALOG_ONLY"
 LIVE_CONNECTION_VERIFIED = False
 
-__all__ = ["ECOSYSTEM_ID", "ECOSYSTEM_NAME", "API_CATALOG_REF", "IMPLEMENTATION_STATUS", "LIVE_CONNECTION_VERIFIED"]
+__all__ = ["ECOSYSTEM_ID", "ECOSYSTEM_NAME", "API_CATALOG_REF", "IMPLEMENTATION_STATUS", "LIVE_CONNECTION_VERIFIED", "GoogleAdsCoreService"]
+
+from .service import GoogleAdsCoreService
