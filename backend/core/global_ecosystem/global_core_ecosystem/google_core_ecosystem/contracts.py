@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
-from enum import StrEnum
+from enum import Enum
 from typing import Any
 
 
@@ -16,7 +16,7 @@ def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
-class Readiness(StrEnum):
+class Readiness(str, Enum):
     CATALOG_ONLY = "CORE_CATALOG_ONLY"
     ADAPTER_SCAFFOLD = "ADAPTER_SCAFFOLD_NOT_LIVE_VERIFIED"
     CONFIGURATION_REQUIRED = "READY_FOR_CONFIGURATION"
