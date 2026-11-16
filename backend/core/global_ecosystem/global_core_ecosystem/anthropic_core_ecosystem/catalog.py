@@ -36,10 +36,10 @@ ANTHROPIC_CORE_ECOSYSTEM: dict[str, Any] = {
                 "ANTHROPIC_MESSAGES_TOOL_USE"
             ],
             "status": "CORE_CATALOG_ONLY",
-            "enabled": true,
-            "connected": false,
-            "live_connection_verified": false,
-            "requires_explicit_permission": false
+            "enabled": True,
+            "connected": False,
+            "live_connection_verified": False,
+            "requires_explicit_permission": False
         },
         {
             "ecosystem_id": "ANTHROPIC-BATCHES-CORE-ECOSYSTEM",
@@ -55,10 +55,10 @@ ANTHROPIC_CORE_ECOSYSTEM: dict[str, Any] = {
                 "ANTHROPIC_BATCH_RESULTS"
             ],
             "status": "CORE_CATALOG_ONLY",
-            "enabled": true,
-            "connected": false,
-            "live_connection_verified": false,
-            "requires_explicit_permission": false
+            "enabled": True,
+            "connected": False,
+            "live_connection_verified": False,
+            "requires_explicit_permission": False
         },
         {
             "ecosystem_id": "ANTHROPIC-MODELS-CORE-ECOSYSTEM",
@@ -73,10 +73,10 @@ ANTHROPIC_CORE_ECOSYSTEM: dict[str, Any] = {
                 "ANTHROPIC_MODEL_METADATA"
             ],
             "status": "CORE_CATALOG_ONLY",
-            "enabled": true,
-            "connected": false,
-            "live_connection_verified": false,
-            "requires_explicit_permission": false
+            "enabled": True,
+            "connected": False,
+            "live_connection_verified": False,
+            "requires_explicit_permission": False
         },
         {
             "ecosystem_id": "ANTHROPIC-TOKEN-COUNTING-CORE-ECOSYSTEM",
@@ -90,10 +90,10 @@ ANTHROPIC_CORE_ECOSYSTEM: dict[str, Any] = {
                 "ANTHROPIC_TOKEN_COUNT_ESTIMATE"
             ],
             "status": "CORE_CATALOG_ONLY",
-            "enabled": true,
-            "connected": false,
-            "live_connection_verified": false,
-            "requires_explicit_permission": false
+            "enabled": True,
+            "connected": False,
+            "live_connection_verified": False,
+            "requires_explicit_permission": False
         },
         {
             "ecosystem_id": "ANTHROPIC-FILES-CORE-ECOSYSTEM",
@@ -110,10 +110,10 @@ ANTHROPIC_CORE_ECOSYSTEM: dict[str, Any] = {
                 "ANTHROPIC_FILES_DELETE"
             ],
             "status": "CORE_CATALOG_ONLY",
-            "enabled": true,
-            "connected": false,
-            "live_connection_verified": false,
-            "requires_explicit_permission": true
+            "enabled": True,
+            "connected": False,
+            "live_connection_verified": False,
+            "requires_explicit_permission": True
         },
         {
             "ecosystem_id": "ANTHROPIC-ADMIN-WORKSPACES-CORE-ECOSYSTEM",
@@ -128,10 +128,10 @@ ANTHROPIC_CORE_ECOSYSTEM: dict[str, Any] = {
                 "ANTHROPIC_WORKSPACE_ADMIN"
             ],
             "status": "CORE_CATALOG_ONLY",
-            "enabled": true,
-            "connected": false,
-            "live_connection_verified": false,
-            "requires_explicit_permission": true
+            "enabled": True,
+            "connected": False,
+            "live_connection_verified": False,
+            "requires_explicit_permission": True
         },
         {
             "ecosystem_id": "ANTHROPIC-MANAGED-AGENTS-CORE-ECOSYSTEM",
@@ -146,10 +146,10 @@ ANTHROPIC_CORE_ECOSYSTEM: dict[str, Any] = {
                 "ANTHROPIC_MANAGED_AGENT_ENVIRONMENTS"
             ],
             "status": "CORE_CATALOG_ONLY",
-            "enabled": true,
-            "connected": false,
-            "live_connection_verified": false,
-            "requires_explicit_permission": true
+            "enabled": True,
+            "connected": False,
+            "live_connection_verified": False,
+            "requires_explicit_permission": True
         },
         {
             "ecosystem_id": "ANTHROPIC-TOOL-USE-CORE-ECOSYSTEM",
@@ -165,10 +165,10 @@ ANTHROPIC_CORE_ECOSYSTEM: dict[str, Any] = {
                 "ANTHROPIC_TOOL_HANDOFF"
             ],
             "status": "CORE_CATALOG_ONLY",
-            "enabled": true,
-            "connected": false,
-            "live_connection_verified": false,
-            "requires_explicit_permission": false
+            "enabled": True,
+            "connected": False,
+            "live_connection_verified": False,
+            "requires_explicit_permission": False
         },
         {
             "ecosystem_id": "ANTHROPIC-AUTH-IDENTITY-CORE-ECOSYSTEM",
@@ -184,10 +184,10 @@ ANTHROPIC_CORE_ECOSYSTEM: dict[str, Any] = {
                 "ANTHROPIC_CREDENTIAL_ROTATION_BOUNDARY"
             ],
             "status": "CORE_CATALOG_ONLY",
-            "enabled": true,
-            "connected": false,
-            "live_connection_verified": false,
-            "requires_explicit_permission": true
+            "enabled": True,
+            "connected": False,
+            "live_connection_verified": False,
+            "requires_explicit_permission": True
         }
     ]
 }
