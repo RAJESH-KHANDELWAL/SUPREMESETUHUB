@@ -1187,10 +1187,19 @@ def get_catalog() -> list[dict[str, Any]]:
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
         "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_infrastructure_core_ecosystem", "status": "CORE_CATALOG_ONLY", "api_available": None, "live_connection_verified": False},
     }
+    integrations_core = {
+        "ecosystem_id": "GLOBAL-INTEGRATIONS-CORE-ECOSYSTEM",
+        "name": "GLOBAL INTEGRATIONS CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["PROVIDER_REGISTRY", "INTEGRATION_DOMAIN_DISCOVERY", "CAPABILITY_CONTRACTS", "PROVIDER_POLICY_METADATA", "TENANT_AND_SCOPE_BOUNDARIES", "SECRET_REFERENCE_BOUNDARY", "INTEGRATION_LIFECYCLE_METADATA", "AUDIT_AND_COMPLIANCE_METADATA"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_integrations_core_ecosystem", "status": "CORE_CATALOG_ONLY", "integration_domain_count": 31, "api_available": None, "live_connection_verified": False, "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"},
+    }
     records = [
         ROOT,
         *CATEGORIES,
         infrastructure_core,
+        integrations_core,
         *PERSONAL_REGISTRATIONS,
         *COMPANY_REGISTRATIONS,
     ]
