@@ -1,9 +1,11 @@
-"""GOOGLE SHEETS CORE ECOSYSTEM package metadata."""
+"""GOOGLE SHEETS CORE ECOSYSTEM package exports."""
 ECOSYSTEM_ID = "GOOGLE-SHEETS-CORE-ECOSYSTEM"
 ECOSYSTEM_NAME = "GOOGLE SHEETS CORE ECOSYSTEM"
 API_CATALOG_REF = "backend/api/global_ecosystem/global_api_ecosystem/google_api_ecosystem/google_sheets_api_ecosystem"
 IMPLEMENTATION_STATUS = "CORE_CATALOG_ONLY"
 LIVE_CONNECTION_VERIFIED = False
+
+from .service import GoogleSheetsCoreService
 
 __all__ = [
     "ECOSYSTEM_ID",
@@ -11,6 +13,5 @@ __all__ = [
     "API_CATALOG_REF",
     "IMPLEMENTATION_STATUS",
     "LIVE_CONNECTION_VERIFIED",
-, "GoogleSheetsCoreService"]
-
-from .service import GoogleSheetsCoreService
+    "GoogleSheetsCoreService",
+]
