@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace SupremeSetuHub\\AtlassianCore;
+namespace SupremeSetuHub\AtlassianCore;
 
 final class AtlassianCoreContract
 {
@@ -10,11 +10,11 @@ final class AtlassianCoreContract
         $required = ['success', 'ecosystem_id', 'status'];
         foreach ($required as $key) {
             if (!array_key_exists($key, $payload)) {
-                throw new \\InvalidArgumentException('ATLASSIAN_CORE_FIELD_REQUIRED: ' . $key);
+                throw new \InvalidArgumentException('ATLASSIAN_CORE_FIELD_REQUIRED: ' . $key);
             }
         }
         if (!is_bool($payload['success']) || !is_string($payload['ecosystem_id']) || !is_string($payload['status'])) {
-            throw new \\InvalidArgumentException('ATLASSIAN_CORE_CONTRACT_TYPE_INVALID');
+            throw new \InvalidArgumentException('ATLASSIAN_CORE_CONTRACT_TYPE_INVALID');
         }
         return [
             'success' => $payload['success'],
