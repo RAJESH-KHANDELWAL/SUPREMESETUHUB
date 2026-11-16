@@ -1,1 +1,3 @@
-"""Cohere Shared Events shared Cohere CORE module."""
+"""Shared Cohere CORE event contracts."""
+from .contracts import CoreEvent
+__all__ = ["CoreEvent"]
