@@ -4,7 +4,11 @@ from .contracts import DomainCoreResult, DomainReadiness, DomainTenantContext
 from .module_service import DomainProviderCoreService
 from .orchestrator import GlobalDomainCoreOrchestrator
 from .policy import DomainCorePolicy, DomainCorePolicyError
-from .provider_catalog import DOMAIN_PROVIDER_CATALOG, domain_provider_summary, get_domain_provider, list_domain_providers
+from .provider_catalog import (
+    DOMAIN_CAPABILITY_PACKAGE_CATALOG, DOMAIN_PROVIDER_CATALOG,
+    domain_provider_summary, get_domain_provider, list_domain_capability_packages,
+    list_domain_providers,
+)
 from .service import GlobalDomainCoreEcosystemService
 
 __all__ = [
@@ -13,6 +17,7 @@ __all__ = [
     "DomainCoreResult", "DomainReadiness", "DomainTenantContext",
     "DomainProviderCoreService", "GlobalDomainCoreOrchestrator",
     "DomainCorePolicy", "DomainCorePolicyError", "DOMAIN_PROVIDER_CATALOG",
-    "domain_provider_summary", "get_domain_provider", "list_domain_providers",
+    "DOMAIN_CAPABILITY_PACKAGE_CATALOG", "domain_provider_summary",
+    "get_domain_provider", "list_domain_providers", "list_domain_capability_packages",
     "GlobalDomainCoreEcosystemService",
 ]
