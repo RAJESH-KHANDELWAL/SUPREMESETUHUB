@@ -1,0 +1,7 @@
+"""dr_rajesh_khandelwal_ibc identity manifest for SUPREME ECOSYSTEM."""
+IDENTITY_NAME = "dr_rajesh_khandelwal_ibc"
+PARENT_MODULE = "SUPREME ECOSYSTEM"
+PARENT_BRAND = "DR RAJESH KHANDELWAL IBC"
+
+def identity_manifest() -> dict:
+    return {"identity": IDENTITY_NAME, "parent_module": PARENT_MODULE, "parent_brand": PARENT_BRAND}

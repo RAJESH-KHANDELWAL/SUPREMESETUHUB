@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_DOMAIN_domain_security_and_certificates_dnssec_metadata",
+  "provider": "GLOBAL_DOMAIN",
+  "implementation_state": "FOUNDATION_INITIALIZED",
+  "external_connection_state": "NOT_CONFIGURED",
+  "taxonomy_only": true,
+  "api_operations_owned_elsewhere": true,
+  "catalog_scope": [
+    "DNSSEC_METADATA"
+  ],
+  "requires_authorized_credentials": true,
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true,
+  "governance": [
+    "PRIVACY",
+    "SECURITY",
+    "AUDIT",
+    "RETENTION",
+    "CONSENT_WHERE_REQUIRED",
+    "JURISDICTIONAL_COMPLIANCE"
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_DOMAIN_STORAGE_ECOSYSTEM",
+  "provider": "GLOBAL_DOMAIN",
+  "naming_rule": "GLOBAL_DOMAIN_<CATEGORY>_STORAGE_ECOSYSTEM",
+  "classification_note": "Domain storage taxonomy and metadata only. Entries do not imply registrar/provider coverage, domain availability, or live external operations.",
+  "groups": [
+    {
+      "group": "CORE_DOMAIN_SERVICES",
+      "categories": [
+        "DOMAIN_REGISTRATION",
+        "DNS_AND_NAMESERVERS",
+        "DOMAIN_PORTFOLIO",
+        "DOMAIN_HOSTING"
+      ]
+    },
+    {
+      "group": "BUSINESS_AND_ENTERPRISE",
+      "categories": [
+        "BUSINESS_AND_ENTERPRISE_DOMAINS"
+      ]
+    },
+    {
+      "group": "CONTENT_CLASSIFICATION_AND_POLICY",
+      "categories": [
+        "CONTENT_CLASSIFICATION_AND_POLICY"
+      ]
+    },
+    {
+      "group": "DEVELOPER_AND_PLATFORM",
+      "categories": [
+        "DEVELOPER_AND_PLATFORM_DOMAINS"
+      ]
+    },
+    {
+      "group": "DNS_MANAGEMENT",
+      "categories": [
+        "DNS_AND_NAMESERVER_MANAGEMENT"
+      ]
+    },
+    {
+      "group": "BACKUP_AND_RECOVERY",
+      "categories": [
+        "DOMAIN_BACKUP_AND_RECOVERY"
+      ]
+    },
+    {
+      "group": "HOSTING_AND_INFRASTRUCTURE",
+      "categories": [
+        "DOMAIN_HOSTING_AND_INFRASTRUCTURE"
+      ]
+    },
+    {
+      "group": "DOMAIN_LEVELS",
+      "categories": [
+        "DOMAIN_LEVELS"
+      ]
+    },
+    {
+      "group": "LIFECYCLE_MANAGEMENT",
+      "categories": [
+        "DOMAIN_LIFECYCLE_MANAGEMENT"
+      ]
+    },
+    {
+      "group": "PORTFOLIO_AND_IDENTITY",
+      "categories": [
+        "DOMAIN_PORTFOLIO_AND_IDENTITY"
+      ]
+    },
+    {
+      "group": "REGISTRATION_AND_ACQUISITION",
+      "categories": [
+        "DOMAIN_REGISTRATION_AND_ACQUISITION"
+      ]
+    },
+    {
+      "group": "SECURITY_AND_CERTIFICATES",
+      "categories": [
+        "DOMAIN_SECURITY_AND_CERTIFICATES"
+      ]
+    },
+    {
+      "group": "TRANSFER_AND_MIGRATION",
+      "categories": [
+        "DOMAIN_TRANSFER_AND_MIGRATION"
+      ]
+    },
+    {
+      "group": "GEOGRAPHICAL_SCOPE",
+      "categories": [
+        "GEOGRAPHICAL_DOMAIN"
+      ]
+    }
+  ],
+  "entry_status": "CATALOG_ONLY",
+  "provider_product_verified": false,
+  "governance": {
+    "security": [
+      "least_privilege",
+      "encryption_in_transit_and_at_rest",
+      "secret_manager_only",
+      "audit_logging"
+    ],
+    "privacy": [
+      "consent_where_required",
+      "data_minimization",
+      "retention_and_deletion",
+      "jurisdictional_controls"
+    ]
+  }
+}

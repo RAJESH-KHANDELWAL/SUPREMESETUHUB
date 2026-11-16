@@ -1,0 +1,21 @@
+{
+  "provider": "atlassian",
+  "core_layer": "ATLASSIAN_CORE",
+  "ecosystem_id": "ATLASSIAN-BITBUCKET-CORE-ECOSYSTEM",
+  "display_name": "Bitbucket",
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/atlassian_api_ecosystem/atlassian_bitbucket_api_ecosystem",
+  "capabilities": [
+    "REPOSITORY_METADATA",
+    "PULL_REQUEST_LIFECYCLE_BOUNDARY",
+    "PIPELINE_CONFIGURATION_METADATA",
+    "WORKSPACE_ACCESS_POLICY"
+  ],
+  "domains": [
+    "DEVELOPER_AND_SOURCE_CONTROL",
+    "GOVERNANCE_AND_SECURITY"
+  ],
+  "readiness": "CORE_CATALOG_ONLY",
+  "api_available": null,
+  "live_connection_verified": false,
+  "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
+}

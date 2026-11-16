@@ -1,0 +1,1 @@
+"""Offline tests for GLOBAL_APP_IMAGE_SEARCH_STORAGE_ECOSYSTEM."""

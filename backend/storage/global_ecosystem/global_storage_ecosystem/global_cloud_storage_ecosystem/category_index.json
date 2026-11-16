@@ -1,0 +1,274 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_CLOUD_STORAGE_ECOSYSTEM",
+  "category_folder_count": 38,
+  "folder_naming": "global_cloud_<category>_storage_ecosystem",
+  "folders": [
+    {
+      "category": "OBJECT_STORAGE",
+      "group": "OBJECT_BLOB_STORAGE",
+      "folder": "global_cloud_object_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_object_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BLOB_STORAGE",
+      "group": "OBJECT_BLOB_STORAGE",
+      "folder": "global_cloud_blob_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_blob_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BUCKET_STORAGE",
+      "group": "OBJECT_BLOB_STORAGE",
+      "folder": "global_cloud_bucket_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_bucket_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MULTIPART_OBJECT_STORAGE",
+      "group": "OBJECT_BLOB_STORAGE",
+      "folder": "global_cloud_multipart_object_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_multipart_object_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ARCHIVAL_OBJECT_STORAGE",
+      "group": "OBJECT_BLOB_STORAGE",
+      "folder": "global_cloud_archival_object_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_archival_object_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "EDGE_OBJECT_STORAGE",
+      "group": "OBJECT_BLOB_STORAGE",
+      "folder": "global_cloud_edge_object_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_edge_object_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "STATIC_WEBSITE_STORAGE",
+      "group": "OBJECT_BLOB_STORAGE",
+      "folder": "global_cloud_static_website_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_static_website_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DATA_LAKE_OBJECT_STORAGE",
+      "group": "OBJECT_BLOB_STORAGE",
+      "folder": "global_cloud_data_lake_object_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_data_lake_object_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MANAGED_NFS_STORAGE",
+      "group": "FILE_STORAGE",
+      "folder": "global_cloud_managed_nfs_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_managed_nfs_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SMB_FILE_STORAGE",
+      "group": "FILE_STORAGE",
+      "folder": "global_cloud_smb_file_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_smb_file_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "POSIX_FILE_STORAGE",
+      "group": "FILE_STORAGE",
+      "folder": "global_cloud_posix_file_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_posix_file_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PARALLEL_FILE_STORAGE",
+      "group": "FILE_STORAGE",
+      "folder": "global_cloud_parallel_file_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_parallel_file_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SHARED_FILE_STORAGE",
+      "group": "FILE_STORAGE",
+      "folder": "global_cloud_shared_file_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_shared_file_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "FILE_GATEWAY_STORAGE",
+      "group": "FILE_STORAGE",
+      "folder": "global_cloud_file_gateway_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_file_gateway_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PERSISTENT_BLOCK_STORAGE",
+      "group": "BLOCK_VOLUME_STORAGE",
+      "folder": "global_cloud_persistent_block_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_persistent_block_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BOOT_VOLUME_STORAGE",
+      "group": "BLOCK_VOLUME_STORAGE",
+      "folder": "global_cloud_boot_volume_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_boot_volume_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "HIGH_PERFORMANCE_BLOCK_STORAGE",
+      "group": "BLOCK_VOLUME_STORAGE",
+      "folder": "global_cloud_high_performance_block_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_high_performance_block_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SSD_VOLUME_STORAGE",
+      "group": "BLOCK_VOLUME_STORAGE",
+      "folder": "global_cloud_ssd_volume_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_ssd_volume_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "HDD_VOLUME_STORAGE",
+      "group": "BLOCK_VOLUME_STORAGE",
+      "folder": "global_cloud_hdd_volume_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_hdd_volume_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "VOLUME_SNAPSHOT_STORAGE",
+      "group": "BLOCK_VOLUME_STORAGE",
+      "folder": "global_cloud_volume_snapshot_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_volume_snapshot_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BACKUP_STORAGE",
+      "group": "BACKUP_ARCHIVE_STORAGE",
+      "folder": "global_cloud_backup_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_backup_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "IMMUTABLE_BACKUP_STORAGE",
+      "group": "BACKUP_ARCHIVE_STORAGE",
+      "folder": "global_cloud_immutable_backup_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_immutable_backup_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ARCHIVE_STORAGE",
+      "group": "BACKUP_ARCHIVE_STORAGE",
+      "folder": "global_cloud_archive_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_archive_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "COLD_ARCHIVE_STORAGE",
+      "group": "BACKUP_ARCHIVE_STORAGE",
+      "folder": "global_cloud_cold_archive_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_cold_archive_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DISASTER_RECOVERY_STORAGE",
+      "group": "BACKUP_ARCHIVE_STORAGE",
+      "folder": "global_cloud_disaster_recovery_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_disaster_recovery_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BACKUP_VAULT_STORAGE",
+      "group": "BACKUP_ARCHIVE_STORAGE",
+      "folder": "global_cloud_backup_vault_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_backup_vault_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "HYBRID_CLOUD_STORAGE",
+      "group": "HYBRID_MULTI_CLOUD_STORAGE",
+      "folder": "global_cloud_hybrid_cloud_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_hybrid_cloud_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MULTI_CLOUD_STORAGE",
+      "group": "HYBRID_MULTI_CLOUD_STORAGE",
+      "folder": "global_cloud_multi_cloud_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_multi_cloud_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CLOUD_NAS_STORAGE",
+      "group": "HYBRID_MULTI_CLOUD_STORAGE",
+      "folder": "global_cloud_cloud_nas_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_cloud_nas_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "STORAGE_GATEWAY",
+      "group": "HYBRID_MULTI_CLOUD_STORAGE",
+      "folder": "global_cloud_storage_gateway_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_storage_gateway_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DATA_MOBILITY_STORAGE",
+      "group": "HYBRID_MULTI_CLOUD_STORAGE",
+      "folder": "global_cloud_data_mobility_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_data_mobility_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CROSS_CLOUD_REPLICATION",
+      "group": "HYBRID_MULTI_CLOUD_STORAGE",
+      "folder": "global_cloud_cross_cloud_replication_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_cross_cloud_replication_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "STORAGE_CATALOG",
+      "group": "GOVERNANCE_OBSERVABILITY",
+      "folder": "global_cloud_storage_catalog_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_storage_catalog_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "STORAGE_METADATA",
+      "group": "GOVERNANCE_OBSERVABILITY",
+      "folder": "global_cloud_storage_metadata_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_storage_metadata_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "STORAGE_LIFECYCLE",
+      "group": "GOVERNANCE_OBSERVABILITY",
+      "folder": "global_cloud_storage_lifecycle_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_storage_lifecycle_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "STORAGE_TIERING",
+      "group": "GOVERNANCE_OBSERVABILITY",
+      "folder": "global_cloud_storage_tiering_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_storage_tiering_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "STORAGE_ENCRYPTION",
+      "group": "GOVERNANCE_OBSERVABILITY",
+      "folder": "global_cloud_storage_encryption_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_storage_encryption_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "STORAGE_ACCESS_CONTROL",
+      "group": "GOVERNANCE_OBSERVABILITY",
+      "folder": "global_cloud_storage_access_control_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_cloud_storage_ecosystem/global_cloud_storage_access_control_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    }
+  ]
+}

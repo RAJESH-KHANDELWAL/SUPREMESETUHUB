@@ -1,0 +1,1 @@
+"""API namespace for GLOBAL_INDIVIDUAL_STORAGE_ECOSYSTEM."""

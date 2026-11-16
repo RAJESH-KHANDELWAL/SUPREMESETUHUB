@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "provider": "google",
+  "product_id": "maps",
+  "product_name": "Google Maps Platform",
+  "category": "MAPS_AND_LOCATION",
+  "api": "Maps Platform APIs",
+  "integration_mode": "API_KEY_OR_OAUTH",
+  "availability": "API_AVAILABLE",
+  "authentication": {
+    "method": "Restricted API key or supported OAuth flow",
+    "scopes": []
+  },
+  "live_connection": false,
+  "layer_boundaries": {
+    "core": "identity, capability metadata, lifecycle, policy and readiness",
+    "api": "OAuth, SDK and HTTP transport",
+    "storage": "durable files and records",
+    "database": "persistence and migrations",
+    "runtime": "jobs and queues",
+    "application": "sessions, consent and UI"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "provider": "atlassian",
+  "core_layer": "ATLASSIAN_CORE",
+  "ecosystem_id": "ATLASSIAN-ADMIN-IDENTITY-CORE-ECOSYSTEM",
+  "display_name": "Atlassian Administration and Identity",
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/atlassian_api_ecosystem/atlassian_admin_identity_api_ecosystem",
+  "capabilities": [
+    "ORGANIZATION_DIRECTORY_METADATA",
+    "USER_AND_GROUP_ADMINISTRATION_BOUNDARY",
+    "SCIM_PROVISIONING_METADATA",
+    "ACCESS_POLICY_METADATA"
+  ],
+  "domains": [
+    "IDENTITY_AND_ORGANIZATION",
+    "GOVERNANCE_AND_SECURITY"
+  ],
+  "readiness": "CORE_CATALOG_ONLY",
+  "api_available": null,
+  "live_connection_verified": false,
+  "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
+}

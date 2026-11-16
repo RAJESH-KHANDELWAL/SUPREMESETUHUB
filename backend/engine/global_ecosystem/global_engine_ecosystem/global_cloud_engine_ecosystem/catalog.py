@@ -1,0 +1,49 @@
+"""Independent ENGINE catalog for GLOBAL CLOUD."""
+from .models import EngineDescriptor
+PROVIDER = "GLOBAL CLOUD"
+CHILD_ECOSYSTEMS = [
+    "ABELOHOST CLOUD",
+    "ALEXHOST CLOUD",
+    "ALIBABA CLOUD",
+    "ALIBABA CLOUD CLOUD",
+    "AWS CLOUD",
+    "BACKBLAZE CLOUD",
+    "BAIDU CLOUD",
+    "BAIDU CLOUD CLOUD",
+    "BLUEANGELHOST CLOUD",
+    "CHINA TELECOM CLOUD",
+    "CHINA TELECOM CLOUD CLOUD",
+    "CLOUDFLARE CLOUD",
+    "DIGITALOCEAN CLOUD",
+    "FLOKINET CLOUD",
+    "GOOGLE CLOUD",
+    "HETZNER CLOUD",
+    "HETZNER CLOUD CLOUD",
+    "HOSTKEY CLOUD",
+    "HOSTSAILOR CLOUD",
+    "HUAWEI CLOUD",
+    "HUAWEI CLOUD CLOUD",
+    "IBM CLOUD",
+    "INTEGRATIONS",
+    "JD CLOUD",
+    "JD CLOUD CLOUD",
+    "KINGSOFT CLOUD",
+    "KINGSOFT CLOUD CLOUD",
+    "MICROSOFT CLOUD",
+    "NVIDIA CLOUD",
+    "ORACLE CLOUD",
+    "OVHCLOUD CLOUD",
+    "RACKSPACE CLOUD",
+    "SCALEWAY CLOUD",
+    "SERVICES",
+    "SHINJIRU CLOUD",
+    "TENCENT CLOUD",
+    "TENCENT CLOUD CLOUD",
+    "TOOLS",
+    "VICETEMPLE CLOUD",
+    "VULTR CLOUD",
+    "WASABI CLOUD"
+]
+CATALOG = (EngineDescriptor("ENGINE-GLOBAL_CLOUD", PROVIDER, PROVIDER, ("LIFECYCLE","EXECUTION_BOUNDARY")),)
+def list_engines():
+    return [dict(engine_id=x.engine_id,name=x.name,provider=x.provider,capabilities=list(x.capabilities),metadata=dict(x.metadata)) for x in CATALOG]

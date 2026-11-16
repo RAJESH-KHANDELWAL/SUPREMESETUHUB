@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_AFFILIATE_MARKETING_BUSINESS_STORAGE_ECOSYSTEM",
+  "platforms": [
+    "I_DIGITALPRENEUR",
+    "LEADSGURU",
+    "MILLIONAIRE_TRACK"
+  ],
+  "connection_state": "NOT_CONFIGURED",
+  "external_connections_verified": false,
+  "storage_operations_enabled": false,
+  "account_partitioning": "ONE_NAMESPACE_PER_PLATFORM"
+}

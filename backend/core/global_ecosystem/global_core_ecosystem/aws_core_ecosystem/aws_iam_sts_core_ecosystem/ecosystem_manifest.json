@@ -1,0 +1,23 @@
+{
+  "provider": "aws",
+  "core_layer": "AWS_CORE",
+  "ecosystem_id": "AWS-IAM-STS-CORE-ECOSYSTEM",
+  "display_name": "AWS IAM and STS",
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/aws_api_ecosystem/aws_iam_sts_api_ecosystem",
+  "capabilities": [
+    "IAM_IDENTITY_METADATA",
+    "ROLE_AND_POLICY_METADATA",
+    "TRUST_RELATIONSHIP_METADATA",
+    "TEMPORARY_CREDENTIALS_BOUNDARY",
+    "IDENTITY_GOVERNANCE_METADATA"
+  ],
+  "domains": [
+    "SECURITY_AND_IDENTITY",
+    "ORGANIZATION_AND_GOVERNANCE"
+  ],
+  "readiness": "CORE_CATALOG_ONLY",
+  "api_available": null,
+  "live_connection_verified": false,
+  "credential_handling": "IAM_ROLE_OR_WEB_IDENTITY_OR_EXTERNAL_SECRET_REFERENCE_ONLY",
+  "api_transport_in_core": false
+}

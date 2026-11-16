@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_CLOUD_HOSTING_HOSTING_STORAGE_ECOSYSTEM",
+  "package_name": "global_cloud_hosting_storage_ecosystem",
+  "provider": "GLOBAL_HOSTING",
+  "category": "CLOUD_HOSTING",
+  "category_group": "COMPUTE_AND_SERVER_HOSTING",
+  "description": "Cloud hosting projects, resources, regions, quotas and service associations.",
+  "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+  "connection_state": "NOT_CONFIGURED",
+  "provider_product_verified": false,
+  "storage_operations_enabled": false,
+  "requires_authorized_integration": true,
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true,
+  "geographic_scope": [
+    "BHARAT",
+    "GLOBAL"
+  ],
+  "security_baseline": [
+    "LEAST_PRIVILEGE",
+    "SECRET_MANAGER",
+    "ENCRYPTION",
+    "AUDIT_LOGGING",
+    "RETENTION_CONTROLS"
+  ]
+}
