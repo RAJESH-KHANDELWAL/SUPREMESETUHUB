@@ -1,58 +1,29 @@
-# Global Infrastructure Ecosystem
+# GLOBAL INFRASTRUCTURE ECOSYSTEM
 
-The central, provider-neutral control-plane catalog and governance hub for every infrastructure domain in SUPREMESETUHUB.
+Central integration and discovery layer for every domain currently maintained by `backend/infrastructure/`.
 
-## Integrated scope
+## Actual in-ecosystem structure
 
-This hub inventories and connects ownership metadata for all existing infrastructure domains:
-- Backup, Billing, CDN, Containers
-- Database adapters, Object Storage, Storage
-- DNS, Domains, IPAM, Network, Load Balancer
-- Email, FTP, Hosting, Hostinger provider adapters
-- Firewall, Security, SSL, Monitoring
-- Server, Infrastructure Models, NSFWinfra
+- `domains/<domain>/` contains a lazy adapter package for each of the 21 canonical infrastructure domains.
+- `modules/` exposes lazy loaders for the six infrastructure root modules: controller, Hostinger API, Hostinger catalog, NSFWinfra, repository and service.
+- `integrations/core/` loads the existing `backend.core` foundation.
+- `integrations/global_core_ecosystem/` loads the existing GLOBAL CORE ECOSYSTEM and its dedicated GLOBAL INFRASTRUCTURE CORE ECOSYSTEM validation package.
+- `structure.py` records both canonical source paths and the in-ecosystem adapter paths.
 
-It also exposes the infrastructure root modules: controller, repository, service, Hostinger API/catalog and NSFWinfra.
+## Domain coverage
 
-## Foundation and ecosystem integration
+Backup, Billing, CDN, Containers, Database, DNS, Domains, Email, Firewall, FTP, Hosting, IPAM, Load Balancer, Model, Monitoring, Network, Object Storage, Security, Server, SSL and Storage.
 
-| Layer | Canonical location | Responsibility |
-|---|---|---|
-| Infrastructure | `backend.infrastructure` | Infrastructure domain implementations and control-plane adapters |
-| GLOBAL INFRASTRUCTURE ECOSYSTEM | `backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem` | Central catalog, ownership map, governance and read-only discovery |
-| CORE | `backend.core` | Platform identity, policy and shared foundation |
-| GLOBAL CORE ECOSYSTEM | `backend.core.global_ecosystem.global_core_ecosystem` | Canonical CORE ecosystem hierarchy and module registry |
-| CORE ecosystem facade | `backend.core.global_ecosystem` | Public compatibility entry points |
-| GLOBAL ECOSYSTEM | `backend.global_ecosystem` | Master cross-domain and vendor ecosystem directory |
-| Server ecosystem | `backend.server.global_ecosystem.global_server_ecosystem` | Canonical server ecosystem |
-| Database persistence | `backend.database` | Database schemas, persistence and connections |
-| Storage implementation | `backend.storage` | Storage runtime implementation |
-| ENGINE | `backend.engine` | Executable operations and orchestration |
-| API | `backend.api` | HTTP interface and request orchestration |
+## Ownership and preservation
 
-CORE, GLOBAL CORE ECOSYSTEM and GLOBAL ECOSYSTEM are integrated by explicit ownership and discovery contracts. Their canonical source packages remain in place; this hub does not copy or fork their implementations.
+The original `backend/infrastructure/<domain>/` implementations remain in place and are canonical. The ecosystem adapters load those packages lazily; they do not fork or duplicate the implementation. Root-level infrastructure modules likewise remain canonical under `backend/infrastructure/`.
 
-## Package map
+CORE remains canonical in `backend/core/`. GLOBAL CORE ECOSYSTEM remains canonical in `backend/core/global_ecosystem/global_core_ecosystem/`. Its dedicated infrastructure contract is `global_infrastructure_core_ecosystem/`. The adapters provide stable integration entry points without moving CORE ownership into Infrastructure.
 
-- `catalog.py`: combined provider, capability, service and integration catalog
-- `providers.py`: provider directory and connection states
-- `capabilities.py`: provider-neutral infrastructure capabilities
-- `models.py` and `schemas.py`: catalog contracts
-- `integrations.py`: integration declarations and verification states
-- `services.py`: canonical infrastructure domain ownership map
-- `structure.py`: domain/root module paths and cross-layer ownership
-- `registry.py`: in-memory metadata registry
-- `service.py`: read-only ecosystem facade and integration overview
-- `governance.py`: safety and lifecycle policy metadata
+Database persistence remains in `backend/database/`; storage runtime remains in `backend/storage/`; server ecosystem remains in `backend/server/`; executable operations remain in ENGINE; HTTP orchestration remains in API.
 
-## Architecture rules
+## Safety
 
-1. Existing domain implementations remain canonical in `backend/infrastructure/<domain>/`.
-2. CORE and GLOBAL CORE ECOSYSTEM remain canonical under `backend/core/`.
-3. GLOBAL ECOSYSTEM remains canonical under `backend/global_ecosystem/`.
-4. Database persistence remains in `backend/database/`; storage runtime remains in `backend/storage/`.
-5. Do not duplicate code, credentials, database engines or provider SDK clients in this catalog package.
-6. A catalog entry is not proof of a live connection. Provider actions require configured credentials, scoped authorization, audit logging, tests and verified connectivity.
-7. This package performs read-only discovery; no provisioning, billing, DNS mutation, deployment, backup or destructive provider action is enabled by catalog registration.
+A registered adapter is not proof of a live provider connection. Provider actions require configured credentials, scoped authorization, audit logging, tests and verified connectivity. No credentials or destructive provider operations are enabled by this catalog.
 
-Status: central catalog and cross-layer ownership integration. Runtime provider connectivity is not asserted.
+Status: domain adapter structure and cross-layer integration entry points registered. Runtime/provider connectivity is not asserted.
