@@ -1,0 +1,50 @@
+name: Global AI CORE Ecosystem Tests
+on:
+  push:
+    branches: [main]
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem/**"
+      - ".github/workflows/global-ai-core-ecosystem-tests.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem/**"
+      - ".github/workflows/global-ai-core-ecosystem-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: global-ai-core-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  contract-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile Global AI CORE
+        run: python -m compileall -q backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem
+      - name: Validate provider and partner layout
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path("backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem")
+          expected={"authentication","capabilities","docs","events","lifecycle","models","schemas","security","services","tests"}
+          ai=sorted(p for p in root.glob("*_ai_core_ecosystem") if p.is_dir() and (p/"ecosystem_manifest.json").exists() and json.loads((p/"ecosystem_manifest.json").read_text()).get("layer")=="GLOBAL_AI_CORE_FACADE")
+          partners=sorted(p for p in root.glob("*_ai_core_ecosystem") if p.is_dir() and (p/"ecosystem_manifest.json").exists() and json.loads((p/"ecosystem_manifest.json").read_text()).get("layer")=="GLOBAL_AI_ADJACENT_INTEGRATION_ALIAS")
+          assert len(ai)==17,len(ai)
+          assert len(partners)==24,len(partners)
+          for p in ai:
+              actual={x.name for x in p.iterdir() if x.is_dir() and x.name!="__pycache__"}
+              assert actual==expected,(p,actual)
+              assert json.loads((p/"ecosystem_manifest.json").read_text())["runtime_execution_enabled"] is False
+              assert (p/"authentication/contract.php").is_file()
+          assert all(json.loads((p/"ecosystem_manifest.json").read_text())["is_ai_model_provider"] is False for p in partners)
+          m=json.loads((root/"ecosystem_manifest.json").read_text())
+          assert m["ai_provider_count"]==17 and m["adjacent_integration_count"]==24
+          PY
+      - name: Run Global AI CORE tests
+        run: python -m unittest discover -s backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem -t backend/core/global_ecosystem/global_core_ecosystem -p "test*.py" -v

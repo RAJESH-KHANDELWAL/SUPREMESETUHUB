@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "provider_id": "meta",
+  "provider_name": "Meta AI",
+  "provider_type": "model_platform",
+  "layer": "GLOBAL_AI_CORE_FACADE",
+  "canonical_provider_core_ref": "backend/core/global_ecosystem/global_core_ecosystem/meta_core_ecosystem",
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem/meta_ai_api_ecosystem",
+  "status": "REGISTERED_NOT_LIVE_VERIFIED",
+  "live_connection_verified": false,
+  "capability_coverage_verified": false,
+  "runtime_execution_enabled": false
+}

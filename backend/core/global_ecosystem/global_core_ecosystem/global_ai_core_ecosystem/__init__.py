@@ -1,11 +1,8 @@
-"""AI CORE ECOSYSTEM package.
-
-This package is an independent layer-owned namespace. It contains no imports
-from API, CORE, or ENGINE sibling layers.
-"""
-LAYER = "CORE"
-CATEGORY = "AI"
-ECOSYSTEM_NAME = f"GLOBAL {CATEGORY.replace('_', ' ')} {LAYER} ECOSYSTEM"
-ECOSYSTEM_ID = f"GLOBAL-{CATEGORY.replace('_', '-')}-{LAYER.upper()}-ECOSYSTEM"
-
-__all__ = ["LAYER", "CATEGORY", "ECOSYSTEM_NAME", "ECOSYSTEM_ID"]
+"""GLOBAL AI CORE ECOSYSTEM."""
+LAYER="CORE"
+CATEGORY="AI"
+ECOSYSTEM_NAME="GLOBAL AI CORE ECOSYSTEM"
+ECOSYSTEM_ID="GLOBAL-AI-CORE-ECOSYSTEM"
+from .ecosystem_service import GlobalAICoreEcosystemService
+from .service import GlobalAICoreService
+__all__=["LAYER","CATEGORY","ECOSYSTEM_NAME","ECOSYSTEM_ID","GlobalAICoreEcosystemService","GlobalAICoreService"]

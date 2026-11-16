@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "provider_id": "huggingface",
+  "provider_name": "Hugging Face",
+  "provider_type": "model_hub_and_inference",
+  "layer": "GLOBAL_AI_CORE_FACADE",
+  "canonical_provider_core_ref": "backend/core/global_ecosystem/global_core_ecosystem/huggingface_core_ecosystem",
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem/huggingface_ai_api_ecosystem",
+  "status": "REGISTERED_NOT_LIVE_VERIFIED",
+  "live_connection_verified": false,
+  "capability_coverage_verified": false,
+  "runtime_execution_enabled": false
+}

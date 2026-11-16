@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL-AI-CORE-ECOSYSTEM",
+  "name": "GLOBAL AI CORE ECOSYSTEM",
+  "layer": "CORE",
+  "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+  "ai_provider_count": 17,
+  "adjacent_integration_count": 24,
+  "capability_count": 15,
+  "service_count": 10,
+  "tool_count": 9,
+  "integration_contract_count": 6,
+  "provider_specific_core_refs_declared": 17,
+  "runtime_execution_enabled": false,
+  "live_provider_connections_verified": false
+}
