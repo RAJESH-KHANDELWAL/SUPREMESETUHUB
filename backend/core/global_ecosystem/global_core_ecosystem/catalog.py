@@ -159,6 +159,19 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "capabilities": ["CORE_REGISTRY", "FOUNDATION_SERVICES", "LIFECYCLE"],
     },
     {
+        "ecosystem_id": "GLOBAL-COMMUNICATION-CORE-ECOSYSTEM",
+        "name": "GLOBAL COMMUNICATION CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["PROVIDER_REGISTRY", "COMMUNICATION_POLICY", "LIFECYCLE_CONTRACTS", "HEALTH_METADATA"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_catalog": "backend/core/global_ecosystem/global_core_ecosystem/global_communication_core_ecosystem",
+            "api_catalog": "backend/api/global_ecosystem/global_api_ecosystem/global_communication_api_ecosystem",
+            "status": "CORE_CATALOG_ONLY",
+            "live_connection_verified": False,
+        },
+    },
+    {
         "ecosystem_id": "GLOBAL-DATABASE-CORE-ECOSYSTEM",
         "name": "GLOBAL DATABASE CORE ECOSYSTEM",
         "ecosystem_type": "CORE_SERVICE",

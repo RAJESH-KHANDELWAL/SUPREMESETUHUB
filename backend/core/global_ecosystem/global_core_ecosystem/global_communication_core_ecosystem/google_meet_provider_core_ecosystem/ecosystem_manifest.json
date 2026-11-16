@@ -1,0 +1,15 @@
+{
+  "ecosystem_id": "GLOBAL-COMMUNICATION-GOOGLE-MEET-CORE-ECOSYSTEM",
+  "provider_id": "google_meet",
+  "display_name": "Google Meet API",
+  "category": "video_meetings",
+  "layer": "CORE",
+  "status": "CORE_CATALOG_ONLY",
+  "live_connection": false,
+  "live_connection_verified": false,
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_communication_api_ecosystem/service.py",
+  "capabilities": [],
+  "safety_policy_ref": "../policy.py",
+  "transport_owner": "API",
+  "notes": "Catalog scaffold only; official API access, scopes, regional availability, terms and tests must be verified before integration."
+}
