@@ -20,7 +20,7 @@ AI_DOMAIN_DEFINITIONS={
 "FINANCE_AND_RISK_AI":"Policy-gated finance, risk and fraud workflows.",
 "EDUCATION_AND_LEARNING_AI":"Tutoring, learning and education workflows.",
 "SPECIALTY_CROSS_PRODUCT_AI":"Specialty or not-yet-classified provider categories."}
-_CATEGORY={"ai_provider":"GLOBAL_FOUNDATION_MODELS","agent_framework":"AGENT_FRAMEWORKS_AND_ORCHESTRATION","model_family":"OPEN_MODEL_FAMILIES","bharat_ai_research_ecosystem":"BHARAT_INDIC_AND_REGIONAL_AI","enterprise_ai_platform":"ENTERPRISE_AND_BUSINESS_AI","ai_infrastructure":"INFERENCE_AND_AI_INFRASTRUCTURE","creative_ai":"GENERATIVE_MEDIA_AND_CREATIVE_AI","speech_ai":"SPEECH_AUDIO_AND_LANGUAGE_AI","video_ai":"VIDEO_AND_MEDIA_GENERATION","research_ecosystem":"AI_RESEARCH_AND_EVALUATION"}
+_CATEGORY={"ai_provider":"GLOBAL_FOUNDATION_MODELS","agent_framework":"AGENT_FRAMEWORKS_AND_ORCHESTRATION","model_family":"OPEN_MODEL_FAMILIES","open_model_family":"OPEN_MODEL_FAMILIES","bharat_ai_research_ecosystem":"BHARAT_INDIC_AND_REGIONAL_AI","enterprise_ai_platform":"ENTERPRISE_AND_BUSINESS_AI","ai_infrastructure":"INFERENCE_AND_AI_INFRASTRUCTURE","creative_ai":"GENERATIVE_MEDIA_AND_CREATIVE_AI","speech_ai":"SPEECH_AUDIO_AND_LANGUAGE_AI","video_ai":"VIDEO_AND_MEDIA_GENERATION","research_ecosystem":"AI_RESEARCH_AND_EVALUATION"}
 def domain_for_provider(x):
  c=x.get("category",""); pid=x.get("id","")
  if c in _CATEGORY:return _CATEGORY[c]
