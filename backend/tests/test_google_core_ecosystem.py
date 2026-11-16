@@ -70,3 +70,37 @@ def test_product_information_only_entries_are_not_claimed_as_api_connections():
     ]
     assert informational
     assert all(item["api_available"] is False for item in informational)
+
+
+def test_all_23_google_product_core_services_are_importable_and_catalog_backed():
+    from importlib import import_module
+
+    products = [
+        "google_admin_sdk", "google_ads", "google_analytics",
+        "google_business_profile", "google_calendar", "google_chat",
+        "google_cloud", "google_contacts", "google_docs", "google_drive",
+        "google_firebase", "google_forms", "google_gemini", "google_gmail",
+        "google_identity_oauth", "google_maps_platform", "google_meet",
+        "google_people", "google_search_console", "google_sheets",
+        "google_slides", "google_vertex_ai", "google_youtube",
+    ]
+    root = "backend.core.global_ecosystem.global_core_ecosystem.google_core_ecosystem"
+    assert len(products) == 23
+    for product in products:
+        module = import_module(f"{root}.{product}_core_ecosystem.service")
+        service_types = [
+            value for value in vars(module).values()
+            if isinstance(value, type)
+            and value.__module__ == module.__name__
+        ]
+        assert service_types, product
+        status = service_types[0]().status()
+        assert status["core_layer"] == "GOOGLE_CORE"
+        assert status["live_connection_verified"] is False
+
+
+def test_legacy_gmail_core_import_points_to_shared_product_core_service():
+    from backend.core.global_ecosystem.global_core_ecosystem.google_core_ecosystem.gmail_core import (
+        GoogleGmailCoreService,
+    )
+    assert GoogleGmailCoreService().status()["ecosystem_id"] == "GOOGLE-GMAIL-CORE-ECOSYSTEM"
