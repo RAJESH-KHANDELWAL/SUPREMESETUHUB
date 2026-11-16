@@ -22,6 +22,20 @@ from .cohere_tokenize_core_ecosystem.contracts import TokenizeRequest
 from .cohere_tokenize_core_ecosystem.service import TokenizeCoreService
 
 
+def _required_string(value: Any, field: str) -> str:
+    if not isinstance(value, str):
+        raise ValueError(f"{field} must be a string")
+    return value
+
+
+def _record_tuple(value: Any, field: str) -> tuple[dict, ...]:
+    if isinstance(value, (str, bytes)) or not isinstance(value, (list, tuple)):
+        raise ValueError(f"{field} must be a list or tuple")
+    if any(not isinstance(item, Mapping) for item in value):
+        raise ValueError(f"{field} must contain mapping items")
+    return tuple(dict(item) for item in value)
+
+
 def _string_tuple(value: Any, field: str) -> tuple[str, ...]:
     if isinstance(value, (str, bytes)) or not isinstance(value, (list, tuple)):
         raise ValueError(f"{field} must be a list or tuple of strings")
@@ -40,6 +54,8 @@ class CohereCoreService:
         if not isinstance(request, CapabilityRequest):
             return CoreResult(False, "", errors=("request must be a CapabilityRequest",), status="rejected")
 
+        if not isinstance(request.capability, str):
+            return CoreResult(False, "", errors=("capability must be a string",), status="rejected")
         capability = request.capability.strip().lower()
         if capability not in CAPABILITIES:
             return CoreResult(False, capability, errors=("Unsupported Cohere capability",), status="rejected")
@@ -52,14 +68,14 @@ class CohereCoreService:
                 typed_request = ClassifyRequest(
                     inputs=_string_tuple(values.get("inputs"), "inputs"),
                     model=request.model,
-                    examples=tuple(values.get("examples", ())),
+                    examples=_record_tuple(values.get("examples", ()), "examples"),
                 )
                 ClassifyCoreService().validate(typed_request)
             elif capability == "command":
                 typed_request = CommandRequest(
-                    message=values.get("message", ""),
+                    message=_required_string(values.get("message", ""), "message"),
                     model=request.model,
-                    chat_history=tuple(values.get("chat_history", ())),
+                    chat_history=_record_tuple(values.get("chat_history", ()), "chat_history"),
                 )
                 CommandCoreService().validate(typed_request)
             elif capability == "embed":
@@ -71,14 +87,14 @@ class CohereCoreService:
                 EmbedCoreService().validate(typed_request)
             elif capability == "rerank":
                 typed_request = RerankRequest(
-                    query=values.get("query", ""),
+                    query=_required_string(values.get("query", ""), "query"),
                     documents=_string_tuple(values.get("documents"), "documents"),
                     top_n=values.get("top_n"),
                 )
                 RerankCoreService().validate(typed_request)
             else:
                 typed_request = TokenizeRequest(
-                    text=values.get("text", ""),
+                    text=_required_string(values.get("text", ""), "text"),
                     model=request.model,
                 )
                 TokenizeCoreService().validate(typed_request)
