@@ -1,9 +1,8 @@
+"""Product metadata for Looker Studio; no network or credential access."""
 PRODUCT_ID="look_studio"
 PRODUCT_NAME="Looker Studio"
 CATEGORY="BUSINESS_INTELLIGENCE"
-API_NAME=null
-INTEGRATION_MODE="PRODUCT_INFORMATION_ONLY"
+API_NAME=None
+INTEGRATION_MODE=undefined
 AVAILABILITY="API_AVAILABLE"
-AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
-REQUIRED_SCOPES=[]
 LIVE_CONNECTION_ENABLED=False

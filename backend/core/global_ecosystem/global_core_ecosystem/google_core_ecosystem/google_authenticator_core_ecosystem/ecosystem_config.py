@@ -1,9 +1,8 @@
+"""Product metadata for Google Authenticator; no network or credential access."""
 PRODUCT_ID="google_authenticator"
 PRODUCT_NAME="Google Authenticator"
 CATEGORY="MULTI_FACTOR_AUTHENTICATION"
-API_NAME=null
-INTEGRATION_MODE="PRODUCT_INFORMATION_ONLY"
+API_NAME=None
+INTEGRATION_MODE=undefined
 AVAILABILITY="API_AVAILABLE"
-AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
-REQUIRED_SCOPES=[]
 LIVE_CONNECTION_ENABLED=False

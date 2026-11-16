@@ -1,9 +1,8 @@
+"""Product metadata for Google Earth; no network or credential access."""
 PRODUCT_ID="google_earth"
 PRODUCT_NAME="Google Earth"
 CATEGORY="MAPS_AND_GEOSPATIAL"
-API_NAME=null
-INTEGRATION_MODE="PRODUCT_INFORMATION_ONLY"
+API_NAME=None
+INTEGRATION_MODE=undefined
 AVAILABILITY="API_AVAILABLE"
-AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
-REQUIRED_SCOPES=[]
 LIVE_CONNECTION_ENABLED=False
