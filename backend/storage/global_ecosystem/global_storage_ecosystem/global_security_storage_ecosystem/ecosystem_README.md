@@ -1,14 +1,18 @@
-# Ecosystem Foundation
+# GLOBAL SECURITY Storage Ecosystem Foundation
 
-Reusable provider storage foundation. Existing unrelated provider-specific files are retained.
+Storage foundation aligned to `GLOBAL_SECURITY_API_ECOSYSTEM`.
 
-## Modules
-- `ecosystem_service.py` — provider identity and truthful health contract
-- `ecosystem_models.py` — typed metadata records
-- `ecosystem_registry.py` — thread-safe in-memory metadata registry
+## Root modules retained
 - `ecosystem_config.py` — runtime configuration without embedded secrets
-- `ecosystem_manifest.json` — Bharat-to-global scope and readiness state
-- `tests/test_foundation.py` — offline foundation tests
+- `ecosystem_models.py` — typed metadata record
+- `ecosystem_registry.py` — thread-safe in-memory metadata registry
+- `ecosystem_service.py` — provider-neutral foundation health contract
+- `ecosystem_manifest.json` — security governance and readiness state
+- `api_namespace_index.json` — exact API-to-storage namespace mapping
+- `tests/` — existing offline foundation tests retained
+
+## Namespace coverage
+9 namespaces are mapped: 6 provider ecosystems and 3 support modules (`integrations`, `services`, `tools`).
 
 ## Readiness
-FOUNDATION_READY means local package code loads. It does not mean an external provider is connected. Production persistence belongs in the central database. Use least privilege, encryption, audit logs, retention controls and jurisdictional compliance. Never commit credentials or personal data.
+State: `FOUNDATION_SCAFFOLD_CREATED`. This is not a production security platform. No live provider connections, threat detection, scanning, remediation, SIEM/SOC operations, persistent audit storage or security automation are claimed. Implement only with authorized credentials, least privilege, secret management, encryption, tests, independent security review and incident-response controls. Never commit credentials or sensitive production data.
