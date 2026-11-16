@@ -87,6 +87,19 @@ class CohereCoreService:
         values = dict(request.inputs)
         try:
             assert_no_secret_fields(values)
+            assert_no_secret_fields(dict(request.options))
+            if request.options:
+                raise ValueError("options are not defined by the current CORE contracts; execution options belong to API/ENGINE")
+            allowed_fields = {
+                "classify": {"inputs", "examples"},
+                "command": {"message", "chat_history"},
+                "embed": {"texts", "input_type"},
+                "rerank": {"query", "documents", "top_n"},
+                "tokenize": {"text"},
+            }[capability]
+            unexpected = set(values) - allowed_fields
+            if unexpected:
+                raise ValueError("unsupported input fields: " + ", ".join(sorted(str(key) for key in unexpected)))
             if capability == "classify":
                 typed = ClassifyRequest(
                     inputs=_string_tuple(values.get("inputs"), "inputs"),
