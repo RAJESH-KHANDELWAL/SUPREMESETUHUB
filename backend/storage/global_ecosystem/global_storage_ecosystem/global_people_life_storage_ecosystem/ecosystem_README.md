@@ -1,14 +1,18 @@
-# Ecosystem Foundation
+# GLOBAL PEOPLE LIFE Storage Ecosystem Foundation
 
-Reusable provider storage foundation. Existing unrelated provider-specific files are retained.
+Storage foundation aligned to `GLOBAL_PEOPLE_LIFE_API_ECOSYSTEM`.
 
-## Modules
-- `ecosystem_service.py` — provider identity and truthful health contract
-- `ecosystem_models.py` — typed metadata records
-- `ecosystem_registry.py` — thread-safe in-memory metadata registry
+## Existing root modules retained
 - `ecosystem_config.py` — runtime configuration without embedded secrets
-- `ecosystem_manifest.json` — Bharat-to-global scope and readiness state
-- `tests/test_foundation.py` — offline foundation tests
+- `ecosystem_models.py` — typed metadata record
+- `ecosystem_registry.py` — thread-safe in-memory metadata registry
+- `ecosystem_service.py` — provider-neutral foundation health contract
+- `ecosystem_manifest.json` — governance and readiness state
+- `api_namespace_index.json` — exact API-to-storage namespace mapping
+- `tests/` — existing offline foundation tests retained
+
+## Mapping
+28 source API namespaces are mapped: 22 domain namespaces and 6 service tiers (Normal, Standard, Advanced, Premium, Enterprise and Supreme).
 
 ## Readiness
-FOUNDATION_READY means local package code loads. It does not mean an external provider is connected. Production persistence belongs in the central database. Use least privilege, encryption, audit logs, retention controls and jurisdictional compliance. Never commit credentials or personal data.
+State: `FOUNDATION_SCAFFOLD_CREATED`. This is not a production people-data platform. No sensitive-data workflows, identity/age-verification, consent service, adult-content service, integrations or external storage operations are claimed as implemented. Production persistence belongs in the central database. Enforce least privilege, encryption, audit logs, strict retention/deletion, consent and safety controls. Do not store real personal data in source control.
