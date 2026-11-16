@@ -1,25 +1,10 @@
 <?php
 declare(strict_types=1);
-
-/** DeepSeek responses caller context contract. Credential values stay outside CORE. */
-final class DeepSeekResponsesAuthenticationContext
-{
-    public const PROVIDER = 'deepseek';
-    public const CAPABILITY = 'responses';
-    public const LIVE_CONNECTION_ENABLED = false;
-
-    public function __construct(
-        public readonly string $tenantId,
-        public readonly string $actorId,
-        public readonly string $credentialReference
-    ) {}
-
-    public static function validContext(array $context): bool
-    {
-        return isset($context['tenant_id'], $context['actor_id'])
-            && is_string($context['tenant_id'])
-            && is_string($context['actor_id'])
-            && trim($context['tenant_id']) !== ''
-            && trim($context['actor_id']) !== '';
-    }
+/** Authenticated caller context only; credentials are resolved outside CORE. */
+final class DeepSeekCallerContext {
+ public const PROVIDER='deepseek';
+ public const LIVE_CONNECTION_ENABLED=false;
+ public static function validContext(array $c): bool {
+  return isset($c['tenant_id'],$c['actor_id']) && is_string($c['tenant_id']) && is_string($c['actor_id']) && trim($c['tenant_id'])!=='' && trim($c['actor_id'])!=='';
+ }
 }
