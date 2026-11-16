@@ -136,21 +136,21 @@ jobs:
         run: |
           python -m unittest \
             backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.tests.test_catalog \
-            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_api_gateway_core_ecosystem.tests.test_manifest \\
-            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_bedrock_sagemaker_core_ecosystem.tests.test_manifest \\
-            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_billing_cost_core_ecosystem.tests.test_manifest \\
-            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_cloudformation_core_ecosystem.tests.test_manifest \\
-            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_cloudtrail_core_ecosystem.tests.test_manifest \\
-            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_cloudwatch_core_ecosystem.tests.test_manifest \\
-            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_containers_core_ecosystem.tests.test_manifest \\
-            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_database_core_ecosystem.tests.test_manifest \\
-            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_ec2_compute_core_ecosystem.tests.test_manifest \\
-            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_iam_sts_core_ecosystem.tests.test_manifest \\
-            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_kms_secrets_core_ecosystem.tests.test_manifest \\
-            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_lambda_core_ecosystem.tests.test_manifest \\
-            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_lightsail_core_ecosystem.tests.test_manifest \\
-            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_route53_dns_core_ecosystem.tests.test_manifest \\
-            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_s3_storage_core_ecosystem.tests.test_manifest \\
+            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_api_gateway_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_bedrock_sagemaker_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_billing_cost_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_cloudformation_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_cloudtrail_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_cloudwatch_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_containers_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_database_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_ec2_compute_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_iam_sts_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_kms_secrets_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_lambda_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_lightsail_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_route53_dns_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_s3_storage_core_ecosystem.tests.test_manifest \
             backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_vpc_networking_core_ecosystem.tests.test_manifest -v
 
       - name: Run GLOBAL ECOSYSTEM registry integration tests
