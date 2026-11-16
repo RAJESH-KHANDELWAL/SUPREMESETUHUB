@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-DNSMADEEASY-CORE-ECOSYSTEM",
+  "provider_id": "dnsmadeeasy",
+  "display_name": "DNS Made Easy",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Managed DNS API",
+  "official_docs_url": "https://docs.dnsmadeeasy.com/",
+  "api_module": "dnsmadeeasy_domain_api_ecosystem/dnsmadeeasy_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

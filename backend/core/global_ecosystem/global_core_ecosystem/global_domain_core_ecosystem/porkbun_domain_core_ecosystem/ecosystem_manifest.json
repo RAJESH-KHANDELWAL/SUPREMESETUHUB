@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-PORKBUN-CORE-ECOSYSTEM",
+  "provider_id": "porkbun",
+  "display_name": "Porkbun",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Domain registration and DNS",
+  "official_docs_url": "https://porkbun.com/api/json/v3/documentation",
+  "api_module": "porkbun_domain_api_ecosystem/porkbun_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

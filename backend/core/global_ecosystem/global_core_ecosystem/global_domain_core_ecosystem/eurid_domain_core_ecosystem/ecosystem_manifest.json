@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-EURID-CORE-ECOSYSTEM",
+  "provider_id": "eurid",
+  "display_name": "EURid",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": ".eu domain registry",
+  "official_docs_url": "https://eurid.eu/",
+  "api_module": "eurid_domain_api_ecosystem/eurid_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

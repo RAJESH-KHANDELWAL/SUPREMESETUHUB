@@ -1060,6 +1060,14 @@ AWS_CORE_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
     {"ecosystem_id":"GLOBAL-AWS-ROUTE53-DNS-CORE-ECOSYSTEM","name":"GLOBAL AWS ROUTE 53 DNS CORE ECOSYSTEM","ecosystem_type":"PROVIDER_CORE_SERVICE","capabilities":["HOSTED_ZONE_METADATA","DNS_RECORD_METADATA","HEALTH_CHECK_METADATA","DNS_ROUTING_POLICY_METADATA","DOMAIN_REGISTRATION_BOUNDARY"],"parent_id":"GLOBAL-AWS-CORE-ECOSYSTEM","metadata":{"core_module":"backend/core/global_ecosystem/global_core_ecosystem/aws_core_ecosystem/aws_route53_dns_core_ecosystem","api_module":"backend/api/global_ecosystem/global_api_ecosystem/aws_api_ecosystem/aws_route53_dns_api_ecosystem","status":"CORE_CATALOG_ONLY","live_connection_verified":False,"api_available":None}},
     {"ecosystem_id":"GLOBAL-AWS-S3-STORAGE-CORE-ECOSYSTEM","name":"GLOBAL AWS S3 STORAGE CORE ECOSYSTEM","ecosystem_type":"PROVIDER_CORE_SERVICE","capabilities":["BUCKET_METADATA","OBJECT_METADATA","LIFECYCLE_CONFIGURATION_METADATA","ENCRYPTION_POLICY_METADATA","BUCKET_ACCESS_POLICY_METADATA"],"parent_id":"GLOBAL-AWS-CORE-ECOSYSTEM","metadata":{"core_module":"backend/core/global_ecosystem/global_core_ecosystem/aws_core_ecosystem/aws_s3_storage_core_ecosystem","api_module":"backend/api/global_ecosystem/global_api_ecosystem/aws_api_ecosystem/aws_s3_storage_api_ecosystem","status":"CORE_CATALOG_ONLY","live_connection_verified":False,"api_available":None}},
     {"ecosystem_id":"GLOBAL-AWS-VPC-NETWORKING-CORE-ECOSYSTEM","name":"GLOBAL AWS VPC NETWORKING CORE ECOSYSTEM","ecosystem_type":"PROVIDER_CORE_SERVICE","capabilities":["VPC_METADATA","SUBNET_AND_ROUTE_TABLE_METADATA","GATEWAY_METADATA","SECURITY_GROUP_POLICY_METADATA","NETWORK_INTERFACE_METADATA"],"parent_id":"GLOBAL-AWS-CORE-ECOSYSTEM","metadata":{"core_module":"backend/core/global_ecosystem/global_core_ecosystem/aws_core_ecosystem/aws_vpc_networking_core_ecosystem","api_module":"backend/api/global_ecosystem/global_api_ecosystem/aws_api_ecosystem/aws_vpc_networking_api_ecosystem","status":"CORE_CATALOG_ONLY","live_connection_verified":False,"api_available":None}},
+    {
+        "ecosystem_id": "GLOBAL-DOMAIN-CORE-ECOSYSTEM",
+        "name": "GLOBAL DOMAIN CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["DOMAIN_PROVIDER_CATALOG", "REGISTRAR_DISCOVERY", "DNS_METADATA", "REGISTRY_GOVERNANCE", "RDAP_WHOIS_LOOKUP", "TLS_LIFECYCLE_METADATA", "DEPLOYMENT_DOMAIN_METADATA"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_domain_core_ecosystem", "api_module": "backend/api/global_ecosystem/global_api_ecosystem/global_domain_api_ecosystem", "status": "CORE_CATALOG_ONLY", "live_connection_verified": false, "api_available": null}
+    },
 )
 
 

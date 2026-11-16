@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-ICANN-CORE-ECOSYSTEM",
+  "provider_id": "icann",
+  "display_name": "ICANN",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Global domain name coordination and registrar accreditation",
+  "official_docs_url": "https://www.icann.org/",
+  "api_module": "icann_domain_api_ecosystem/icann_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

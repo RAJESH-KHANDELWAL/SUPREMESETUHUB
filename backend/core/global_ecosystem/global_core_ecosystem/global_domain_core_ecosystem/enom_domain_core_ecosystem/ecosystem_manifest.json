@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-ENOM-CORE-ECOSYSTEM",
+  "provider_id": "enom",
+  "display_name": "eNom",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Domain reseller API",
+  "official_docs_url": "https://www.enom.com/api/",
+  "api_module": "enom_domain_api_ecosystem/enom_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

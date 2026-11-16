@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-NS1-CORE-ECOSYSTEM",
+  "provider_id": "ns1",
+  "display_name": "IBM NS1 Connect",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "DNS traffic steering API",
+  "official_docs_url": "https://ns1.com/api",
+  "api_module": "ns1_domain_api_ecosystem/ns1_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

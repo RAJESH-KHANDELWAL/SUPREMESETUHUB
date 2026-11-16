@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-WHOIS-CORE-ECOSYSTEM",
+  "provider_id": "whois",
+  "display_name": "WHOIS",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Domain registration lookup protocol/reference",
+  "official_docs_url": "https://www.icann.org/resources/pages/whois-2013-05-03-en",
+  "api_module": "whois_domain_api_ecosystem/whois_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

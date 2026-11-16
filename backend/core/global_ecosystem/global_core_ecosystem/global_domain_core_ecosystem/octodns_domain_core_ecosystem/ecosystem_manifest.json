@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-OCTODNS-CORE-ECOSYSTEM",
+  "provider_id": "octodns",
+  "display_name": "octoDNS",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "DNS management automation tool",
+  "official_docs_url": "https://github.com/octodns/octodns",
+  "api_module": "octodns_domain_api_ecosystem/octodns_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

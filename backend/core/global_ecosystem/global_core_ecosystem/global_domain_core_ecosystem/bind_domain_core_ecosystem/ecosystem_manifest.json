@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-BIND-CORE-ECOSYSTEM",
+  "provider_id": "bind",
+  "display_name": "ISC BIND",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "DNS server software and management",
+  "official_docs_url": "https://bind9.readthedocs.io/",
+  "api_module": "bind_domain_api_ecosystem/bind_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

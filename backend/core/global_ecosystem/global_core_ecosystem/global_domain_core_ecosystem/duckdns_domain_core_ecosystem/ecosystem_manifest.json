@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-DUCKDNS-CORE-ECOSYSTEM",
+  "provider_id": "duckdns",
+  "display_name": "DuckDNS",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Dynamic DNS service",
+  "official_docs_url": "https://www.duckdns.org/",
+  "api_module": "duckdns_domain_api_ecosystem/duckdns_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

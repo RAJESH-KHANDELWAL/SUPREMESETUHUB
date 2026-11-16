@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-RRPPROXY-CORE-ECOSYSTEM",
+  "provider_id": "rrpproxy",
+  "display_name": "RRPproxy",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Registrar reseller API",
+  "official_docs_url": "https://www.rrpproxy.net/",
+  "api_module": "rrpproxy_domain_api_ecosystem/rrpproxy_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

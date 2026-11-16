@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-OPENSRS-CORE-ECOSYSTEM",
+  "provider_id": "opensrs",
+  "display_name": "OpenSRS",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Domain reseller and registrar API",
+  "official_docs_url": "https://domains.opensrs.guide/",
+  "api_module": "opensrs_domain_api_ecosystem/opensrs_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

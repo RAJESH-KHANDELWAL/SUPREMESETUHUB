@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-FLOKINET-CORE-ECOSYSTEM",
+  "provider_id": "flokinet",
+  "display_name": "FlokiNET",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Hosting provider reference; registrar and API capabilities require verification",
+  "official_docs_url": "https://flokinet.is/",
+  "api_module": "flokinet_domain_api_ecosystem/flokinet_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

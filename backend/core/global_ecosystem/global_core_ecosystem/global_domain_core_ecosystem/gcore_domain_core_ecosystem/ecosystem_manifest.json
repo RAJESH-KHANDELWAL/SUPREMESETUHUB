@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-GCORE-CORE-ECOSYSTEM",
+  "provider_id": "gcore",
+  "display_name": "Gcore",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "DNS and edge network services",
+  "official_docs_url": "https://api.gcore.com/docs/",
+  "api_module": "gcore_domain_api_ecosystem/gcore_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

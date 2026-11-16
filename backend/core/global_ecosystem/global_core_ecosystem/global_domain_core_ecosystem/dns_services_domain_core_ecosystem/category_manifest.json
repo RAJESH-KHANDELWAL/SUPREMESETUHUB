@@ -1,0 +1,12 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-CATEGORY-DNS-SERVICES",
+  "category_id": "dns_services",
+  "name": "DNS and Authoritative Services",
+  "layer": "CORE",
+  "status": "CORE_CATEGORY_CATALOG_ONLY",
+  "scope": "Authoritative DNS, managed DNS and DNS automation references",
+  "api_module": "dns_services_domain_ecosystem/dns_services_domain_api_ecosystem.py",
+  "provider_ids": [],
+  "execution_enabled": false,
+  "live_connection_verified": false
+}

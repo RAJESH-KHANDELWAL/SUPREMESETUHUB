@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-DYNADOT-CORE-ECOSYSTEM",
+  "provider_id": "dynadot",
+  "display_name": "Dynadot",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Domain registration and DNS API",
+  "official_docs_url": "https://www.dynadot.com/domain/api",
+  "api_module": "dynadot_domain_api_ecosystem/dynadot_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

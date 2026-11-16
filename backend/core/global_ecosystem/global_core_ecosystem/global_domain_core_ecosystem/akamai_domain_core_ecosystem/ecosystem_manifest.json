@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-AKAMAI-CORE-ECOSYSTEM",
+  "provider_id": "akamai",
+  "display_name": "Akamai",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Edge DNS and domain services",
+  "official_docs_url": "https://techdocs.akamai.com/",
+  "api_module": "akamai_domain_api_ecosystem/akamai_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}
