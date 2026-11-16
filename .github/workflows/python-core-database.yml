@@ -124,10 +124,10 @@ jobs:
         run: |
           python -m unittest \
             backend.core.global_ecosystem.global_core_ecosystem.atlassian_core_ecosystem.tests.test_catalog \
-            backend.core.global_ecosystem.global_core_ecosystem.atlassian_core_ecosystem.atlassian_admin_identity_core_ecosystem.tests.test_manifest \\
-            backend.core.global_ecosystem.global_core_ecosystem.atlassian_core_ecosystem.atlassian_bitbucket_core_ecosystem.tests.test_manifest \\
-            backend.core.global_ecosystem.global_core_ecosystem.atlassian_core_ecosystem.atlassian_confluence_core_ecosystem.tests.test_manifest \\
-            backend.core.global_ecosystem.global_core_ecosystem.atlassian_core_ecosystem.atlassian_jira_core_ecosystem.tests.test_manifest \\
+            backend.core.global_ecosystem.global_core_ecosystem.atlassian_core_ecosystem.atlassian_admin_identity_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.atlassian_core_ecosystem.atlassian_bitbucket_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.atlassian_core_ecosystem.atlassian_confluence_core_ecosystem.tests.test_manifest \
+            backend.core.global_ecosystem.global_core_ecosystem.atlassian_core_ecosystem.atlassian_jira_core_ecosystem.tests.test_manifest \
             backend.core.global_ecosystem.global_core_ecosystem.atlassian_core_ecosystem.atlassian_jira_service_management_core_ecosystem.tests.test_manifest -v
 
       - name: Run GLOBAL ECOSYSTEM registry integration tests
