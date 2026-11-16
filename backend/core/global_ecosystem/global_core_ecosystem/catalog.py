@@ -151,6 +151,13 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "capabilities": ["APIS", "SDKS", "REPOSITORIES", "CI_CD"],
     },
 
+    # CORE hierarchy — mirrors the GLOBAL API ECOSYSTEM hierarchy.
+    {
+        "ecosystem_id": "GLOBAL-CORE-ECOSYSTEM",
+        "name": "GLOBAL CORE ECOSYSTEM",
+        "ecosystem_type": "PLATFORM",
+        "capabilities": ["CORE_REGISTRY", "FOUNDATION_SERVICES", "LIFECYCLE"],
+    },
     {
         "ecosystem_id": "GLOBAL-COMMUNICATION-CORE-ECOSYSTEM",
         "name": "GLOBAL COMMUNICATION CORE ECOSYSTEM",
@@ -163,13 +170,6 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
             "status": "CORE_CATALOG_ONLY",
             "live_connection_verified": False,
         },
-    },
-    # CORE hierarchy — mirrors the GLOBAL API ECOSYSTEM hierarchy.
-    {
-        "ecosystem_id": "GLOBAL-CORE-ECOSYSTEM",
-        "name": "GLOBAL CORE ECOSYSTEM",
-        "ecosystem_type": "PLATFORM",
-        "capabilities": ["CORE_REGISTRY", "FOUNDATION_SERVICES", "LIFECYCLE"],
     },
     {
         "ecosystem_id": "GLOBAL-DATABASE-CORE-ECOSYSTEM",
