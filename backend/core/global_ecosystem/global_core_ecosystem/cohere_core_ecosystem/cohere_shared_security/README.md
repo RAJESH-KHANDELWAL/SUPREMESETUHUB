@@ -1,5 +1,11 @@
 # COHERE SHARED SECURITY
 
-Shared security rules and secret-handling boundaries.
+Provider-wide security boundaries for Cohere CORE.
 
-Provider-level shared CORE area. Capability-specific behavior stays in its Cohere capability package. No API transport, ENGINE execution, credentials or persistence belong here.
+- Tenant and actor identity must come from the authenticated application layer.
+- Provider credentials are represented only by opaque secret-manager references.
+- Secret-like fields are rejected recursively in request metadata.
+- Destructive, administrative, deployment and billing operations require explicit authorization and an approved API/ENGINE workflow.
+- CORE does not exchange tokens, store secrets, authorize Cohere accounts or perform provider writes.
+
+The PHP authentication-context contracts live in each capability package's `authentication/contract.php`.
