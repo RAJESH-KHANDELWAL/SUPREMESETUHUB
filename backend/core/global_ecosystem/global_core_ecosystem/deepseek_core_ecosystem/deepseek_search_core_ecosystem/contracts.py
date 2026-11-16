@@ -14,5 +14,6 @@ def validate_request(p):
     if not isinstance(p,dict): raise ValueError("payload must be a mapping")
     _walk(p)
     a={"query","max_results","filters"}; _unknown(p,a)
-        if not isinstance(p.get("query"),str) or not p["query"].strip(): raise ValueError("query must be non-empty")
+    if not isinstance(p.get("query"),str) or not p["query"].strip(): raise ValueError("query must be non-empty")
+    if "max_results" in p and (isinstance(p["max_results"],bool) or not isinstance(p["max_results"],int) or p["max_results"]<1): raise ValueError("max_results must be positive")
     return {"capability":"search","accepted":True,"live_call":False}
