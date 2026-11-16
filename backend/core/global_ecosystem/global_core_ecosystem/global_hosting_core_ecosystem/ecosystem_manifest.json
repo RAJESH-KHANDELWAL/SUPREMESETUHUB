@@ -1,0 +1,44 @@
+{
+  "ecosystem_id": "GLOBAL-HOSTING-CORE-ECOSYSTEM",
+  "name": "GLOBAL HOSTING CORE ECOSYSTEM",
+  "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+  "layer": "CORE",
+  "status": "CORE_CATALOG_ONLY",
+  "inventory": {
+    "provider_count": 111,
+    "capability_package_count": 7,
+    "hosting_related_child_folder_count": 118,
+    "shared_support_folders_excluded": [
+      "integrations",
+      "services",
+      "tools"
+    ]
+  },
+  "categories": {
+    "WEB_AND_MANAGED_HOSTING": 64,
+    "EDGE_CDN_AND_OBJECT_STORAGE": 7,
+    "CLOUD_INFRASTRUCTURE": 21,
+    "PLATFORM_AS_A_SERVICE": 16,
+    "HOSTING_CONTROL_AND_MANAGEMENT": 3
+  },
+  "live_connection_verified": false,
+  "api_calls_performed": 0,
+  "api_available": null,
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_hosting_api_ecosystem",
+  "core_owns": [
+    "provider_identity",
+    "capability_taxonomy",
+    "tenant_metadata_policy",
+    "readiness_contracts",
+    "provider_discovery",
+    "dependency_mapping"
+  ],
+  "core_does_not_own": [
+    "provider_authentication",
+    "server_provisioning",
+    "deployment_execution",
+    "dns_mutations",
+    "remote_api_calls",
+    "durable_operational_persistence"
+  ]
+}
