@@ -1,7 +1,6 @@
-"""Capability-specific CORE validation entry point."""
-from .contracts import RerankRequest, validate_request
+"""Public rerank capability CORE service entry point."""
+from .services.core_service import CapabilityCoreService
 
-class RerankCoreService:
-    capability = "rerank"
-    def validate(self, request: RerankRequest) -> bool:
-        return validate_request(request)
+RerankCoreService = CapabilityCoreService
+
+__all__ = ["RerankCoreService"]
