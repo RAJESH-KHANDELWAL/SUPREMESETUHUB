@@ -10,8 +10,7 @@ from typing import Any
 
 from .catalog import CAPABILITIES, get_cohere_core_catalog
 from .contracts import CapabilityRequest, CoreResult, TenantContext
-from .policy import CohereCorePolicy
-from .policies import ensure_operation_allowed
+from .policy import CohereCorePolicy, ensure_operation_allowed
 from .cohere_shared_security.policy import assert_no_secret_fields
 from .cohere_classify_core_ecosystem.contracts import ClassifyRequest
 from .cohere_classify_core_ecosystem.service import ClassifyCoreService
