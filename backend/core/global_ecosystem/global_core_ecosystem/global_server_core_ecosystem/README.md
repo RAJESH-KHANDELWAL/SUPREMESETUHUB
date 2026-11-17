@@ -1,18 +1,23 @@
 # GLOBAL SERVER CORE ECOSYSTEM
 
-CORE-owned provider-neutral server domain contracts.
+Provider-neutral CORE contracts and metadata registry for server resources across seven provider namespaces.
 
 ## Owns
-- Server identity and resource metadata models.
+- Stable server identity and resource metadata models.
 - Provider-neutral lifecycle and deployment policy contracts.
 - Typed provider, inventory and lifecycle protocols.
-- Local validation and identity metadata registry.
-- CORE capability taxonomy for the seven provider namespaces.
+- Local validation and process-local identity registry.
+- Seven-provider metadata catalog, readiness discovery and dependency mapping.
+- CORE capability taxonomy and Normal → Basic → Standard → Premium → Professional → Enterprise → Supreme service-tier metadata.
 
 ## Does not own
-- HTTP routes or request/response handling (API).
-- Cloud SDK execution, provisioning or adapter orchestration (ENGINE).
-- Durable SQL/NoSQL persistence (DATABASE).
+- HTTP routes, authentication transport or request/response handling (API).
+- Cloud SDK execution, provisioning, deployment or adapter orchestration (ENGINE).
+- Durable SQL/NoSQL persistence, schemas or migrations (DATABASE).
 - Object, file, backup or artifact storage (STORAGE).
 
-The registry is process-local metadata only. It does not prove that a provider account exists, that a server is reachable, or that a cloud operation succeeded.
+## Providers
+Abelohost, AWS, Cloudflare, DigitalOcean, Google Cloud, Microsoft Azure and ViceTemple are represented as provider metadata packages. Catalog presence does not imply an account, credentials, subscription, API entitlement, reachability or a live connection.
+
+## Operational boundary
+The registry is process-local metadata only. It does not prove that a server is reachable, that a provider operation succeeded, or that a remote lifecycle state is current. Remote operations remain disabled in CORE. Credentials must be held by an external secret manager and used only by separately authorized API/ENGINE components.
