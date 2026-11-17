@@ -8,5 +8,5 @@
   "live_connection_verified": false,
   "api_calls_performed": 0,
   "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
-  "capabilities_scope": "Provider capability metadata only; no live integration or enforcement"
+  "capability_scope": "Provider security capability metadata only; no live integration or enforcement"
 }
