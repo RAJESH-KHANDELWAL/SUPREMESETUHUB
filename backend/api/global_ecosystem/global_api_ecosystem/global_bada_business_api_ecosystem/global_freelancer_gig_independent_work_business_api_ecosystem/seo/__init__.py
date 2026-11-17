@@ -1,5 +1,0 @@
-"""Independent Seo freelance specialization package."""
-SPECIALIZATION_ID = "seo"
-SPECIALIZATION_NAME = "Seo"
-DOMAIN_ID = "freelance_gig_independent_work"
-DESCRIPTION = "Search engine optimization across technical, on-page, local and content workstreams."

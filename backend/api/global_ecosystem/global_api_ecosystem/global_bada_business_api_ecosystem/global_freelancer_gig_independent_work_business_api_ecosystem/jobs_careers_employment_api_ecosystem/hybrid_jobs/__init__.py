@@ -1,1 +1,0 @@
-"""Hybrid Jobs taxonomy package."""

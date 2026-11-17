@@ -1,1 +1,0 @@
-"""Offline tests for GLOBAL_APP_SEARCH_CONSOLE_STORAGE_ECOSYSTEM."""

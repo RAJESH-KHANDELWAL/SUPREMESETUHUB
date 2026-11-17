@@ -1,9 +1,0 @@
-PRODUCT_ID="google_workspace_marketplace"
-PRODUCT_NAME="Google Workspace Marketplace"
-CATEGORY="WORKSPACE_EXTENSIONS"
-API_NAME="Google Workspace Marketplace APIs"
-INTEGRATION_MODE="USER_OAUTH"
-AVAILABILITY="PUBLISHER_AND_APP_ELIGIBILITY_REQUIRED"
-AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
-REQUIRED_SCOPES=[]
-LIVE_CONNECTION_ENABLED=False

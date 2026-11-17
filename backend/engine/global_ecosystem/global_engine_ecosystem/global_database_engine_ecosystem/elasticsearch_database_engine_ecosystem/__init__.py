@@ -1,2 +1,0 @@
-"""ENGINE-owned namespace: elasticsearch_database_api_ecosystem."""
-LAYER = "ENGINE"

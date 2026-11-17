@@ -1,5 +1,0 @@
-"""Independent Video Audio Production freelance specialization package."""
-SPECIALIZATION_ID = "video_audio_production"
-SPECIALIZATION_NAME = "Video Audio Production"
-DOMAIN_ID = "freelance_gig_independent_work"
-DESCRIPTION = "Video, motion, podcast and audio editing and production services."

@@ -1,9 +1,0 @@
-PRODUCT_ID="youtube_analytics"
-PRODUCT_NAME="YouTube Analytics"
-CATEGORY="VIDEO_ANALYTICS"
-API_NAME="YouTube Analytics API"
-INTEGRATION_MODE="USER_OAUTH"
-AVAILABILITY="API_AVAILABLE"
-AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
-REQUIRED_SCOPES=["https://www.googleapis.com/auth/yt-analytics.readonly"]
-LIVE_CONNECTION_ENABLED=False

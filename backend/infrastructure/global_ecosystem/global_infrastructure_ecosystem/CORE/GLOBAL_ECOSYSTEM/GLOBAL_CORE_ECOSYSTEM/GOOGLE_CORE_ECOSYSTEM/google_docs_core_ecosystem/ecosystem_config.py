@@ -1,9 +1,0 @@
-PRODUCT_ID="docs"
-PRODUCT_NAME="Google Docs"
-CATEGORY="PRODUCTIVITY"
-API_NAME="Google Docs API"
-INTEGRATION_MODE="USER_OAUTH"
-AVAILABILITY="API_AVAILABLE"
-AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
-REQUIRED_SCOPES=["https://www.googleapis.com/auth/documents"]
-LIVE_CONNECTION_ENABLED=False

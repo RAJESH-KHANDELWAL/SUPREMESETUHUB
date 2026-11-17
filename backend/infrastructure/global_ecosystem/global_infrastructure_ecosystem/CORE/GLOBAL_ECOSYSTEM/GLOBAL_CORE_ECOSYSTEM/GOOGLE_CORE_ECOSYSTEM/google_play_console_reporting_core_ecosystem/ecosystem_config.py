@@ -1,9 +1,0 @@
-PRODUCT_ID="google_play_console_reporting"
-PRODUCT_NAME="Google Play Console Reporting"
-CATEGORY="APP_DISTRIBUTION_AND_REPORTING"
-API_NAME="Google Play Developer Reporting API"
-INTEGRATION_MODE="USER_OAUTH"
-AVAILABILITY="DEVELOPER_ACCOUNT_AND_API_ACCESS_REQUIRED"
-AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
-REQUIRED_SCOPES=[]
-LIVE_CONNECTION_ENABLED=False
