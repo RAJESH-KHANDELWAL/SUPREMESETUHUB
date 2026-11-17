@@ -28,9 +28,20 @@ def test_domain_catalog_matches_manifest_and_has_unique_ids():
     domains = catalog["domains"]
     ids = [item["id"] for item in domains]
     assert catalog["ecosystem_id"] == manifest["ecosystem_id"]
-    assert len(domains) == manifest["domain_count"] == 18
+    assert len(domains) == manifest["domain_count"] == 32
     assert len(ids) == len(set(ids))
     assert catalog["domain_coverage_exhaustive"] is False
+    assert len({item["folder"] for item in domains}) == len(domains)
+    for item in domains:
+        package = ROOT / "domains" / item["folder"]
+        assert package.is_dir()
+        assert (package / "__init__.py").is_file()
+        assert (package / "domain_manifest.json").is_file()
+        assert (package / "README.md").is_file()
+        package_manifest = json.loads((package / "domain_manifest.json").read_text(encoding="utf-8"))
+        assert package_manifest["domain_id"] == item["id"]
+        assert package_manifest["parent_id"] == manifest["ecosystem_id"]
+        assert package_manifest["status"] == "CORE_CATALOG_ONLY"
 
 
 def test_provider_catalog_matches_provider_packages():
