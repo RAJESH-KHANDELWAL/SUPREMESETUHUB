@@ -25,7 +25,7 @@ final class AdultMediaClassificationContract
 
     public static function validate(array $record): array
     {
-        foreach (['media', 'media_bytes', 'binary_content', 'raw_media_url', 'viewer_profile'] as $forbidden) {
+        foreach (['media', 'media_bytes', 'binary_content', 'raw_media_url', 'viewer_profile', 'viewer_orientation_profile'] as $forbidden) {
             if (array_key_exists($forbidden, $record)) {
                 throw new \InvalidArgumentException('MEDIA_OR_VIEWER_PROFILE_NOT_ACCEPTED');
             }
@@ -34,6 +34,10 @@ final class AdultMediaClassificationContract
         $label = strtoupper(trim((string)($record['orientation_label'] ?? 'UNSPECIFIED')));
         if (!in_array($label, self::ORIENTATION_LABELS, true)) {
             throw new \InvalidArgumentException('UNKNOWN_ORIENTATION_LABEL');
+        }
+
+        if (($record['orientation_inferred'] ?? false) === true) {
+            throw new \\InvalidArgumentException('ORIENTATION_INFERENCE_PROHIBITED');
         }
 
         $subject = strtoupper(trim((string)($record['classification_subject_type'] ?? '')));
