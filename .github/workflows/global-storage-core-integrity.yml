@@ -6,7 +6,7 @@ on:
       - "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/**"
       - ".github/workflows/global-storage-core-integrity.yml"
   push:
-    branches: [main]
+    branches: ["**"]
     paths:
       - "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/**"
       - ".github/workflows/global-storage-core-integrity.yml"
