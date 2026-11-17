@@ -10,7 +10,7 @@ from backend.core.global_ecosystem.global_core_ecosystem.global_human_language_c
 )
 
 
-ROOT = Path(__file__).resolve().parents[1] / "core" / "global_ecosystem" / "global_core_ecosystem" / "global_human_language_core_ecosystem"
+ROOT = Path(__file__).resolve().parents[1]
 PROVIDER_PARTS = (
     "authentication", "capabilities", "docs", "events", "lifecycle",
     "models", "schemas", "security", "services", "tests",
