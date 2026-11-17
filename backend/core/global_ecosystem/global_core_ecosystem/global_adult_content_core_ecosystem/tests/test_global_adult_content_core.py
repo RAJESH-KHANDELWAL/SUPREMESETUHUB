@@ -11,9 +11,22 @@ from backend.core.global_ecosystem.global_core_ecosystem.global_adult_content_co
 from backend.core.global_ecosystem.global_core_ecosystem.global_adult_content_core_ecosystem.policy import (
     evaluate_content_metadata,
 )
+from backend.core.global_ecosystem.global_core_ecosystem.catalog import get_catalog as get_global_catalog
 
 
 class GlobalAdultContentCoreTests(unittest.TestCase):
+    def test_parent_global_catalog_registers_core_as_direct_child(self):
+        records = get_global_catalog()
+        record = next(
+            item for item in records
+            if item["ecosystem_id"] == "GLOBAL-ADULT-CONTENT-CORE-ECOSYSTEM"
+        )
+        self.assertEqual(record["parent_id"], "GLOBAL-CORE-ECOSYSTEM")
+        self.assertEqual(
+            record["metadata"]["core_module"],
+            "backend/core/global_ecosystem/global_core_ecosystem/global_adult_content_core_ecosystem",
+        )
+
     def test_catalog_has_expected_orientation_labels(self):
         catalog = get_catalog()
         labels = {item["id"] for item in catalog["orientation_labels"]}
@@ -28,7 +41,7 @@ class GlobalAdultContentCoreTests(unittest.TestCase):
 
     def test_unknown_orientation_is_not_inferred(self):
         self.assertIsNone(get_orientation("unknown"))
-        self.assertEqual(get_orientation("")[ "id" ] if get_orientation("") else None, None)
+        self.assertIsNone(get_orientation(""))
 
     def test_policy_fails_closed_when_evidence_missing(self):
         result = evaluate_content_metadata(PolicyEvidence())
