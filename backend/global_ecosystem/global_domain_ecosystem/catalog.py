@@ -37,7 +37,7 @@ DOMAIN_GROUPS = {
         "reproductive_health",
     ),
     "adult_only_media_and_services": (
-        "adult_content_platforms", "adult_entertainment", "adult_creator_economy",
+        "adult_content_platforms", "adult_entertainment", "adult_creator_economy", "adult_content_classification",
         "adult_subscriptions", "adult_content_distribution", "adult_content_moderation",
         "age_assurance", "consent_and_release_management", "adult_privacy",
         "adult_payments_and_payouts", "copyright_and_takedowns",
