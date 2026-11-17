@@ -37,6 +37,7 @@ def test_domain_catalog_matches_manifest_and_has_unique_ids():
         assert package.is_dir()
         assert (package / "__init__.py").is_file()
         assert (package / "domain_manifest.json").is_file()
+        assert (package / "README.md").is_file()
         package_manifest = json.loads((package / "domain_manifest.json").read_text(encoding="utf-8"))
         assert package_manifest["domain_id"] == item["id"]
         assert package_manifest["parent_id"] == manifest["ecosystem_id"]
