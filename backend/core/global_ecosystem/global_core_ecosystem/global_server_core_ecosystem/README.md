@@ -14,8 +14,14 @@ The current catalog registers seven provider metadata namespaces: Abelohost, Ama
 ## Bharat-to-global coverage
 The geographic scope catalog defines India as a first-class deployment jurisdiction and supports a global region/country model. Country, state, region, data-residency and jurisdiction records must be verified against authoritative provider and legal sources before operational use. The catalog does not claim an exhaustive list of countries or provider regions.
 
-## Workload domain coverage
-The workload taxonomy is a classification aid for server and hosting requirements. It includes government and public services; education and research; healthcare and life sciences; agriculture, food and supply chains; business, commerce and enterprise; banking, finance and insurance; technology, software, AI and data; cloud, hosting and networking; cybersecurity and privacy; real estate and construction; transport, mobility and logistics; energy, utilities and environment; retail, manufacturing and industrial systems; media and publishing; gaming and interactive entertainment; travel, tourism and hospitality; legal and professional services; relationships, dating and community platforms; sexual wellness and health education; and lawful adult-only entertainment platforms.
+## Workload domain folders and files
+Twenty workload profile folders are present directly under this canonical root. Each folder contains:
+- `workload_manifest.json`: domain identity, risk profile, service-tier references, geographic scope reference, required control areas and layer boundaries.
+- `__init__.py`: read-only Python loader functions for the profile manifest and required control areas.
+
+Folder naming convention: `<domain>_server_workload_profile/`. These are CORE-level server requirement profiles, not complete industry applications, API implementations, provider engines, databases or storage services.
+
+The 20 domains are government/public services; education/research; healthcare/life sciences; agriculture/food/supply chain; business/commerce/enterprise; banking/finance/insurance; technology/software/AI/data; cloud/hosting/networking; cybersecurity/privacy; real estate/construction; transport/mobility/logistics; energy/utilities/environment; retail/manufacturing/industry; media/publishing; gaming/interactive entertainment; travel/tourism/hospitality; legal/professional services; relationships/dating/community; sexual wellness/health education; and lawful adult-only entertainment.
 
 Adult-category entries are workload classifications only. Any deployment must enforce applicable law, robust age assurance, consent, privacy, security, moderation, reporting and geographic restrictions. The platform must prohibit child sexual abuse material, non-consensual intimate imagery, trafficking, exploitation and any other unlawful content. This CORE package does not host, generate, distribute, review or authorize explicit content.
 
