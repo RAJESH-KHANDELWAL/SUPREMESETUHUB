@@ -46,5 +46,8 @@ def adult_content_policy() -> dict[str,Any]:
     return {"age_restricted":True,"verified_adults_only":True,"informed_consent_required":True,
       "rights_and_licensing_required":True,"jurisdictional_legal_review_required":True,
       "privacy_by_design_required":True,"moderation_and_takedown_required":True,
+      "orientation_classification_taxonomy_ref":"backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/adult_media_pornography_18_plus/classification_taxonomy.json",
+      "orientation_labels_are_content_metadata_only":True,"orientation_inference_prohibited":True,
+      "viewer_orientation_profiling_prohibited":True,
       "prohibited":["sexual content involving minors","non-consensual intimate imagery","coercion","trafficking","exploitation","illegal sexual content"],
       "warning":"CORE metadata checks do not establish legal age, identity, consent or entitlement; the application must verify these through lawful, independent controls."}
