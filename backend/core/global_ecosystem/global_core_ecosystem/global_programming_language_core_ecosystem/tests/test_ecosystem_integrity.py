@@ -5,7 +5,6 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-REPO_ROOT = Path(__file__).resolve().parents[6]
 EXPECTED_PATH = (
     "backend/core/global_ecosystem/global_core_ecosystem/"
     "global_programming_language_core_ecosystem"
