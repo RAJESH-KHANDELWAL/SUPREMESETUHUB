@@ -6,14 +6,27 @@ from .orchestrator import PeopleLifeCoreOrchestrator
 
 class PeopleLifeCoreEcosystemService:
     NAME="GLOBAL PEOPLE LIFE CORE ECOSYSTEM"
-    def __init__(self) -> None: self.orchestrator=PeopleLifeCoreOrchestrator()
+    def __init__(self) -> None:
+        self.orchestrator=PeopleLifeCoreOrchestrator()
     def status(self) -> dict[str,Any]:
-        catalog=get_people_life_core_catalog(); health=self.orchestrator.health()
+        catalog=get_people_life_core_catalog(); health=self.orchestrator.health(); registry=self.manager_status()
         return {"success":True,"ecosystem_id":catalog["ecosystem_id"],"name":self.NAME,"status":catalog["status"],
-          "module_count":len(catalog["children"]),"domain_count":health["domain_count"],
-          "age_restricted_domain_count":health["age_restricted_domain_count"],
-          "live_service_connections_verified":False,"application_workflows_executed":0,"health":health}
+          "registry_status":registry["registered"],"module_count":len(catalog["children"]),
+          "domain_count":health["domain_count"],"age_restricted_domain_count":health["age_restricted_domain_count"],
+          "live_service_connections_verified":False,"application_workflows_executed":0,
+          "health":health,"manager_registration":registry}
     def list_modules(self) -> dict[str,Any]: return self.orchestrator.list_domains()
     def list_domains(self) -> dict[str,Any]: return self.orchestrator.domains()
     def get_module(self,domain_id: str) -> dict[str,Any]|None: return self.orchestrator.get_domain(domain_id)
     def health(self) -> dict[str,Any]: return self.orchestrator.health()
+    def dependency_map(self) -> dict[str,Any]:
+        modules=self.orchestrator.list_domains()["domains"]
+        return {"success":True,"edges":[{"core_module":item["core_module"],"relationship":"REGISTERED_DOMAIN_METADATA"} for item in modules]}
+    def manager_status(self) -> dict[str,Any]:
+        try:
+            from backend.core.global_ecosystem.global_core_ecosystem.manager import GlobalEcosystemManager
+            manager=GlobalEcosystemManager()
+            record=manager.get("GLOBAL-PEOPLE-LIFE-CORE-ECOSYSTEM")
+        except Exception as exc:
+            return {"success":False,"registered":False,"ecosystem":None,"error":type(exc).__name__}
+        return {"success":record is not None,"registered":record is not None,"ecosystem":record,"live_service_connections_verified":False}
