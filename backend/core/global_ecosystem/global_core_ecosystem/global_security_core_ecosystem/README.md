@@ -6,7 +6,7 @@ A provider-neutral, read-only CORE control plane for security-domain taxonomy, p
 
 - `ecosystem_manifest.json`: canonical identity, counts, boundaries, jurisdictional coverage and declared support areas
 - `catalog.json` + `domain_catalog.py`: 33 non-exhaustive security-domain records, each mapped to an independent domain package
-- `domains/<domain_package>/`: independent domain folder with `__init__.py` and `domain_manifest.json`
+- `domains/<domain_package>/`: independent domain folder with `__init__.py`, `domain_manifest.json` and a domain-specific README
 - `provider_catalog.json` + `provider_catalog.py`: 6 non-exhaustive provider metadata records
 - `catalog.py`: canonical ecosystem registry and compatibility facade
 - `jurisdiction_catalog.py`: validated India and cross-border jurisdiction profile registry
