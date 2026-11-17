@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL-SERVER-CORE-ECOSYSTEM",
+  "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+  "layer": "CORE",
+  "category": "SERVER",
+  "canonical_path": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem",
+  "status": "CORE_CATALOG_ONLY",
+  "provider_count": 7,
+  "provider_coverage_exhaustive": false,
+  "providers": "catalog.json",
+  "provider_catalog_module": "provider_catalog.py",
+  "registry": "registry.py",
+  "service": "service.py",
+  "orchestrator": "orchestrator.py",
+  "models": "models.py",
+  "contracts": "contracts.py",
+  "policy": "policy.py",
+  "live_provider_connections_verified": false,
+  "remote_operations_enabled": false,
+  "api_calls_performed": 0,
+  "registry_persistence": "PROCESS_LOCAL_ONLY",
+  "service_tiers": [
+    "NORMAL",
+    "BASIC",
+    "STANDARD",
+    "PREMIUM",
+    "PROFESSIONAL",
+    "ENTERPRISE",
+    "SUPREME"
+  ],
+  "layer_boundaries": {
+    "core": "provider-neutral server identity, resource contracts, lifecycle policy and metadata registry",
+    "api": "HTTP routes, authentication, request and response handling",
+    "engine": "cloud SDKs, provider adapters, provisioning and remote execution",
+    "database": "durable SQL/NoSQL persistence and migrations",
+    "storage": "object, file, backup and artifact storage"
+  }
+}
