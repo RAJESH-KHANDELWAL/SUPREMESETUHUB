@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "status": "CATALOG_ONLY",
+  "providers": [
+    {"id": "adobe", "package": "adobe_software_core_ecosystem", "domains": ["creative", "documents", "digital_experience"]},
+    {"id": "apple", "package": "apple_software_core_ecosystem", "domains": ["operating_systems", "development", "productivity"]},
+    {"id": "aws", "package": "aws_software_core_ecosystem", "domains": ["cloud", "developer_tools", "data", "security"]},
+    {"id": "github", "package": "github_software_core_ecosystem", "domains": ["source_control", "ci_cd", "developer_collaboration"]},
+    {"id": "atlassian", "package": "global_atlassian_core_ecosystem", "domains": ["work_management", "service_management", "collaboration"]},
+    {"id": "microsoft", "package": "microsoft_software_core_ecosystem", "domains": ["productivity", "cloud", "operating_systems", "developer_tools"]}
+  ]
+}
