@@ -1,36 +1,21 @@
-"""Canonical read-only human-language domain and provider catalogs."""
+"""Canonical Human Language CORE registry and compatibility facade.
+
+The registry, domain taxonomy and provider inventory are separate sources of
+truth. This module composes them without performing provider API calls.
+"""
+from __future__ import annotations
 
 from copy import deepcopy
-import json
-from pathlib import Path
+from typing import Any
 
-from .constants import ECOSYSTEM_ID, ECOSYSTEM_NAME, STATUS
-
-_CATALOG_PATH = Path(__file__).with_name("catalog.json")
-_CATALOG_DATA = json.loads(_CATALOG_PATH.read_text(encoding="utf-8"))
-
-HUMAN_LANGUAGE_DOMAINS = tuple(
-    {
-        **item,
-        "division": "HUMAN",
-        "status": STATUS,
-        "consent_required": bool(item.get("age_restricted", False)),
-    }
-    for item in _CATALOG_DATA["domains"]
+from .constants import ECOSYSTEM_ID, ECOSYSTEM_NAME, PARENT_ECOSYSTEM_ID, STATUS
+from .domain_catalog import (
+    DOMAIN_DEFINITIONS, HUMAN_LANGUAGE_DOMAINS, get_domain, get_domains,
+    human_language_domain_summary,
 )
-
-HUMAN_LANGUAGE_PROVIDERS = (
-    {"provider_id": "ALIBABA_LANGUAGE", "name": "ALIBABA LANGUAGE", "folder": "alibaba_language_core_ecosystem"},
-    {"provider_id": "AWS_LANGUAGE", "name": "AWS LANGUAGE", "folder": "aws_language_core_ecosystem"},
-    {"provider_id": "BAIDU_LANGUAGE", "name": "BAIDU LANGUAGE", "folder": "baidu_language_core_ecosystem"},
-    {"provider_id": "DEEPL_LANGUAGE", "name": "DEEPL LANGUAGE", "folder": "deepl_language_core_ecosystem"},
-    {"provider_id": "GOOGLE_LANGUAGE", "name": "GOOGLE LANGUAGE", "folder": "google_language_core_ecosystem"},
-    {"provider_id": "IBM_LANGUAGE", "name": "IBM LANGUAGE", "folder": "ibm_language_core_ecosystem"},
-    {"provider_id": "MICROSOFT_LANGUAGE", "name": "MICROSOFT LANGUAGE", "folder": "microsoft_language_core_ecosystem"},
-    {"provider_id": "NAVER_LANGUAGE", "name": "NAVER LANGUAGE", "folder": "naver_language_core_ecosystem"},
-    {"provider_id": "OPENAI_LANGUAGE", "name": "OPENAI LANGUAGE", "folder": "openai_language_core_ecosystem"},
-    {"provider_id": "TENCENT_LANGUAGE", "name": "TENCENT LANGUAGE", "folder": "tencent_language_core_ecosystem"},
-    {"provider_id": "YANDEX_LANGUAGE", "name": "YANDEX LANGUAGE", "folder": "yandex_language_core_ecosystem"},
+from .provider_catalog import (
+    HUMAN_LANGUAGE_PROVIDERS, get_provider, get_provider_catalog,
+    provider_catalog_summary,
 )
 
 SERVICE_TIERS = (
@@ -43,43 +28,80 @@ SERVICE_TIERS = (
     {"tier_id": "SUPREME", "name": "Supreme", "rank": 7, "description": "Highest defined service tier, subject to law, rights, safety and actual implementation."},
 )
 
+HUMAN_LANGUAGE_CORE_ECOSYSTEM: dict[str, Any] = {
+    "ecosystem_id": ECOSYSTEM_ID,
+    "name": ECOSYSTEM_NAME,
+    "provider": "human_language",
+    "ecosystem_type": "GLOBAL_CORE_SERVICE",
+    "parent_id": PARENT_ECOSYSTEM_ID,
+    "status": STATUS,
+    "enabled": True,
+    "capabilities": [
+        "HUMAN_LANGUAGE_DOMAIN_REGISTRY",
+        "BHARAT_AND_GLOBAL_LANGUAGE_TAXONOMY",
+        "SCRIPT_AND_LOCALE_METADATA",
+        "LANGUAGE_PROVIDER_DISCOVERY",
+        "LANGUAGE_SERVICE_CAPABILITY_METADATA",
+        "AGE_CONSENT_AND_CONTENT_RIGHTS_POLICY",
+    ],
+    "children": [
+        {
+            "ecosystem_id": item["ecosystem_id"],
+            "provider_id": item["provider_id"],
+            "name": item["name"],
+            "provider": item["provider_key"],
+            "core_module": f"backend/core/global_ecosystem/global_core_ecosystem/global_human_language_core_ecosystem/{item['folder']}",
+            "status": item["status"],
+            "enabled": item["enabled"],
+            "capabilities": list(item["capabilities"]),
+            "live_connection_verified": False,
+        }
+        for item in HUMAN_LANGUAGE_PROVIDERS
+    ],
+}
 
-def get_divisions():
-    return [{"division_id": "HUMAN-LANGUAGES", "name": "HUMAN LANGUAGES", "folder": "global_human_language_core_ecosystem"}]
+
+def get_divisions() -> list[dict[str, str]]:
+    return [{
+        "division_id": "HUMAN-LANGUAGES",
+        "name": "HUMAN LANGUAGES",
+        "folder": "global_human_language_core_ecosystem",
+    }]
 
 
-def get_domains(division=None):
-    if division is not None and division.upper() not in {"HUMAN", "HUMAN-LANGUAGES"}:
-        return []
-    return deepcopy(list(HUMAN_LANGUAGE_DOMAINS))
-
-
-def get_domain(domain_id):
-    for item in HUMAN_LANGUAGE_DOMAINS:
-        if item["id"] == domain_id.upper():
-            return deepcopy(item)
-    return None
-
-
-def get_provider_catalog():
-    return deepcopy(list(HUMAN_LANGUAGE_PROVIDERS))
-
-
-def get_service_tiers():
+def get_service_tiers() -> list[dict[str, Any]]:
     return deepcopy(list(SERVICE_TIERS))
 
 
-def get_catalog():
+def get_human_language_core_catalog() -> dict[str, Any]:
+    return deepcopy(HUMAN_LANGUAGE_CORE_ECOSYSTEM)
+
+
+def list_human_language_core_modules(include_disabled: bool = False) -> list[dict[str, Any]]:
+    modules = deepcopy(HUMAN_LANGUAGE_CORE_ECOSYSTEM["children"])
+    if include_disabled:
+        return modules
+    return [item for item in modules if item.get("enabled", True)]
+
+
+def get_catalog() -> dict[str, Any]:
+    """Return the original combined response shape plus provider registry metadata."""
+    domain_summary = human_language_domain_summary()
+    provider_summary = provider_catalog_summary()
     return {
         "ecosystem_id": ECOSYSTEM_ID,
         "name": ECOSYSTEM_NAME,
+        "parent_id": PARENT_ECOSYSTEM_ID,
         "status": STATUS,
-        "division_count": 1,
+        "division_count": len(get_divisions()),
         "divisions": get_divisions(),
-        "domain_count": len(HUMAN_LANGUAGE_DOMAINS),
+        "domain_count": domain_summary["domain_count"],
         "domains": get_domains(),
+        "provider_count": provider_summary["provider_count"],
         "providers": get_provider_catalog(),
         "service_tiers": get_service_tiers(),
         "human_language_coverage_exhaustive": False,
+        "provider_coverage_exhaustive": False,
         "live_provider_connections_verified": False,
+        "api_calls_performed": 0,
     }

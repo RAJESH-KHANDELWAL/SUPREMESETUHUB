@@ -1,41 +1,76 @@
 # GLOBAL HUMAN LANGUAGE CORE ECOSYSTEM
 
-A first-class, independently registered **CORE ecosystem**, structured on the same package pattern as `google_core_ecosystem/`.
+**Parent:** GLOBAL CORE ECOSYSTEM  
+**Canonical root:** `backend/core/global_ecosystem/global_core_ecosystem/global_human_language_core_ecosystem/`
 
-## Canonical package layout
+## Mission
 
-- `README.md` — ecosystem scope, standards and governance
-- `__init__.py` — public Python interface
-- `catalog.py` and `catalog.json` — read-only domain/provider catalog
-- `constants.py` — canonical ecosystem identity and layer metadata
-- `contracts.py` — typed domain and service-tier contracts
-- `ecosystem_manifest.json` — machine-readable identity and policy manifest
-- `orchestrator.py` — read-only discovery and orchestration
-- `policy.py` — privacy, age-assurance, consent and moderation metadata
-- `service.py` — read-only service facade
-- domain directories — human-language taxonomy and provider domains
+A read-only CORE control plane for human-language taxonomy, language-provider identity, capability metadata, lifecycle state, policy boundaries and readiness. It is organized using the same architectural separation used by `google_core_ecosystem/`, adapted to a language-domain registry rather than copying Google's product inventory.
 
-## Coverage
+## Canonical package architecture
 
-- **Bharat / Indic:** scheduled, regional, classical, tribal, indigenous and community languages
-- **Global:** natural spoken, written and signed languages, families, macrolanguages and variants
-- **Writing systems:** scripts, orthographies, Unicode, directionality, romanization and transliteration
-- **Language services:** dictionaries, lexicons, detection, OCR, speech, translation, interpretation, localization and learning
-- **Preservation:** endangered and indigenous language documentation and revitalization
-- **Provider metadata:** Alibaba, AWS, Baidu, DeepL, Google, IBM, Microsoft, Naver, OpenAI, Tencent and Yandex
+| Component | Responsibility |
+|---|---|
+| `catalog.py` | Parent ecosystem identity and provider-module registry |
+| `catalog.json` | Canonical human-language domain taxonomy |
+| `domain_catalog.py` | Domain definitions, lookup and coverage summary |
+| `provider_catalog.json` | Provider identities, module paths, metadata and readiness |
+| `provider_catalog.py` | Provider inventory and lookup |
+| `contracts.py` | Tenant context, secret references, result, domain and tier contracts |
+| `module_service.py` | Reusable read-only provider Core service |
+| `orchestrator.py` | Provider/domain discovery, health and dependency metadata |
+| `policy.py` | Capability classification, tenant-context checks and metadata redaction |
+| `service.py` | Public ecosystem status and registry facade |
+| `ecosystem_manifest.json` | Machine-readable identity, counts, boundaries and package standard |
+| `shared_support/` | Shared contracts, security, lifecycle, validation and support concerns |
 
-## Separation boundary
+## Provider module standard
 
-Programming-language taxonomy and developer tooling belong only in the sibling `global_programming_language_core_ecosystem/`. This ecosystem contains human-language domains only. Shared infrastructure is implemented within this package; there is no duplicate `global_language_core_ecosystem/` package.
+Each provider module follows the same ten-part layout:
 
-## Standards and completeness
+```text
+<provider>_language_core_ecosystem/
+├── README.md
+├── __init__.py
+├── ecosystem_config.py
+├── ecosystem_manifest.json
+├── service.py
+├── authentication/contract.py
+├── capabilities/catalog.py
+├── docs/README.md
+├── events/contracts.py
+├── lifecycle/state.py
+├── models/provider_model.py
+├── schemas/provider_schema.py
+├── security/policy.py
+├── services/core_service.py
+└── tests/test_manifest.py
+```
 
-Use stable identifiers such as ISO 639, BCP 47 and ISO 15924 where applicable. The catalog is extensible and is **not** a claim that every language, dialect or sign language has already been exhaustively enumerated. Respect community names and preferred endonyms.
+Provider modules are catalog-only metadata adapters. They do not contain credentials, exchange tokens, call provider APIs or claim live connections.
+
+## Domains
+
+The domain catalog covers Bharat/Indic and global natural human languages, signed languages, dialects, writing systems, transliteration, speech, OCR, translation, dictionaries, learning, preservation, localization and the defined adult-safety metadata domains. The 22 current domain entries are not an exhaustive language census.
+
+## Providers
+
+The current provider registry contains Alibaba, AWS, Baidu, DeepL, Google, IBM, Microsoft, Naver, OpenAI, Tencent and Yandex. Registration means that a provider metadata module exists; it does not prove that a product API is public, available to a tenant, configured or connected.
+
+## Layer ownership and security
+
+- CORE owns identity, taxonomy, provider metadata, capability classification, lifecycle and readiness.
+- API owns OAuth/authentication flows, SDK clients and HTTP transport.
+- Storage and Database own durable records, persistence and migrations.
+- Runtime/Engine owns jobs, retries, queues and execution.
+- Application owns user sessions, consent screens and user workflows.
+- Secrets remain in an external secret manager and are represented only by opaque references.
+- A CORE capability check is not provider authorization, legal approval, API entitlement or proof of consent.
 
 ## Adult-content boundary
 
-Only lawful content involving consenting adults is in scope. Exclude minors and any sexualization of minors, non-consensual intimate imagery, coercion, trafficking, exploitation and illegal content. Adult classification is not itself consent or proof of legality. Apply jurisdictional age checks, consent/rights verification, moderation and takedown procedures before any runtime service.
+Only lawful material involving consenting adults may be considered by age-restricted metadata domains. Exclude minors, non-consensual intimate imagery, coercion, trafficking, exploitation and illegal content. Age assurance, consent/rights verification, moderation and takedown procedures remain mandatory.
 
-## Tier model
+## Completeness and runtime claims
 
-Normal → Basic → Standard → Premium → Professional → Enterprise → Supreme. Tiers describe service capabilities and quality targets, not permission to bypass law, consent or safety.
+Coverage is extensible and not claimed exhaustive. Provider connections are unverified, API calls performed by CORE are zero, and all provider modules remain `CORE_CATALOG_ONLY` until separately verified and implemented.

@@ -1,9 +1,12 @@
 # NAVER LANGUAGE CORE ECOSYSTEM
 
-Naver language and AI language-service provider metadata; no live API connection is implied.
+Dedicated provider metadata module under GLOBAL HUMAN LANGUAGE CORE ECOSYSTEM.
 
-**Canonical division:** Cross-cutting provider metadata.
+- Provider ID: `NAVER_LANGUAGE`
+- Canonical package: `naver_language_core_ecosystem/`
+- Status: `CORE_CATALOG_ONLY`
+- Integration mode: `METADATA_ONLY`
+- API availability: `NOT_VERIFIED`
+- Live connection: `false`
 
-This existing top-level directory is preserved as a compatibility entry. The organized domain documentation is maintained in `../integrations/README.md`. No existing path is deleted by this foundation.
-
-Status: `CORE_CATALOG_ONLY`; no live provider connection or full language implementation is implied.
+This module provides provider identity, capability metadata, lifecycle and readiness contracts only. It does not claim an available API, configured credentials, tenant entitlement or a live connection. Provider authentication and network transport belong in the API layer.
