@@ -1,0 +1,38 @@
+{
+  "ecosystem_id": "GLOBAL-ADULT-CONTENT-CORE-ECOSYSTEM",
+  "name": "GLOBAL ADULT CONTENT CORE ECOSYSTEM",
+  "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+  "related_functional_ecosystem": "GLOBAL-ADULT-ENTERTAINMENT-ECOSYSTEM",
+  "canonical_path": "backend/core/global_ecosystem/global_core_ecosystem/global_adult_content_core_ecosystem",
+  "status": "CORE_CATALOG_ONLY",
+  "domain_count": 8,
+  "orientation_labels": [
+    "STRAIGHT",
+    "GAY",
+    "BISEXUAL",
+    "OTHER",
+    "UNSPECIFIED"
+  ],
+  "participant_configuration_is_separate": true,
+  "orientation_inference_enabled": false,
+  "age_assurance_required": true,
+  "informed_consent_required": true,
+  "distribution_rights_required": true,
+  "moderation_approval_required": true,
+  "jurisdiction_review_required": true,
+  "prohibited_content": [
+    "CSAM",
+    "MINORS",
+    "NON_CONSENSUAL_INTIMATE_IMAGERY",
+    "COERCION",
+    "TRAFFICKING",
+    "EXPLOITATION",
+    "NON_CONSENSUAL_SYNTHETIC_INTIMATE_CONTENT",
+    "UNAUTHORISED_COPYRIGHTED_CONTENT"
+  ],
+  "media_storage_enabled": false,
+  "media_streaming_enabled": false,
+  "provider_api_calls_enabled": false,
+  "live_verification": false,
+  "coverage_exhaustive": false
+}
