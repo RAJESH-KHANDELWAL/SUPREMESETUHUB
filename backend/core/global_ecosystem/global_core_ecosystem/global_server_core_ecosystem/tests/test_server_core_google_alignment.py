@@ -81,3 +81,16 @@ def test_dependency_map_is_metadata_only():
     assert len(result["edges"]) == 7
     assert all(edge["live_connection_verified"] is False for edge in result["edges"])
     assert all(edge["api_calls_performed"] == 0 for edge in result["edges"])
+
+
+def test_tenant_and_secret_contracts_reject_invalid_types():
+    import pytest
+
+    with pytest.raises(ValueError, match="TENANT_ID_REQUIRED"):
+        TenantContext(tenant_id=None, actor_id="actor").validate()
+    with pytest.raises(ValueError, match="ACTOR_ID_REQUIRED"):
+        TenantContext(tenant_id="tenant", actor_id=" ").validate()
+    with pytest.raises(ValueError, match="SECRET_PROVIDER_REQUIRED"):
+        SecretReference(provider=None, reference="secret/path")
+    with pytest.raises(ValueError, match="SECRET_REFERENCE_REQUIRED"):
+        SecretReference(provider="vault", reference=" ")
