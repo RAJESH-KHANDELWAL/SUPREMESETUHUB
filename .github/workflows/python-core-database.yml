@@ -153,6 +153,11 @@ jobs:
             backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_s3_storage_core_ecosystem.tests.test_manifest \
             backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.aws_vpc_networking_core_ecosystem.tests.test_manifest -v
 
+      - name: Run Global Programming Language CORE integrity and contract tests
+        env:
+          PYTHONPATH: .
+        run: python -m pytest -q backend/core/global_ecosystem/global_core_ecosystem/global_programming_language_core_ecosystem/tests
+
       - name: Run GLOBAL ECOSYSTEM registry integration tests
         env:
           PYTHONPATH: .
