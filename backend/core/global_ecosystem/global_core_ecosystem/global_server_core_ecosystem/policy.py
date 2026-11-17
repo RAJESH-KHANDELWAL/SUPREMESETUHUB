@@ -2,6 +2,16 @@
 from __future__ import annotations
 from typing import Any
 
+SUPPORTED_ENVIRONMENTS = ("development", "test", "staging", "production")
+SUPPORTED_SERVER_TYPES = (
+    "vps", "cloud", "web", "cloud_web", "dedicated", "edge",
+    "application", "vpn", "database",
+)
+SUPPORTED_LIFECYCLE_STATES = (
+    "REGISTERED", "PENDING", "AUTHORIZED", "PROVISIONING",
+    "ACTIVE", "DEGRADED", "DISABLED", "FAILED", "DECOMMISSIONED",
+)
+
 SENSITIVE_CAPABILITY_MARKERS = ("ADMIN","DELETE","WRITE","PROVISION","DEPLOY","DESTROY","BACKUP","RESTORE","NETWORK_CHANGE","FIREWALL","IAM","PERMISSION","SECRET","KEY","BILLING","PRODUCTION")
 BLOCKED_KEYS = {"token","access_token","refresh_token","client_secret","api_key","secret","password","private_key","credential"}
 
@@ -44,3 +54,23 @@ class ServerCorePolicy:
     @staticmethod
     def safe_summary(item: dict[str, Any]) -> dict[str, Any]:
         return ServerCorePolicy.redact(item)
+
+# Backward-compatible policy facade retained for existing Server Core consumers.
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class ServerPolicy:
+    require_explicit_authorization: bool = True
+    allow_automatic_provisioning: bool = False
+    require_region: bool = True
+    require_environment: bool = True
+    production_requires_approval: bool = True
+
+    def validate(self, *, environment: str, authorized: bool = False) -> None:
+        env = str(environment).strip().lower()
+        if self.require_environment and env not in SUPPORTED_ENVIRONMENTS:
+            raise ValueError(f"Unsupported environment: {environment}")
+        if self.require_explicit_authorization and not authorized:
+            raise PermissionError("Server is not explicitly authorized")
+        if env == "production" and self.production_requires_approval and not authorized:
+            raise PermissionError("Production server requires explicit approval")
