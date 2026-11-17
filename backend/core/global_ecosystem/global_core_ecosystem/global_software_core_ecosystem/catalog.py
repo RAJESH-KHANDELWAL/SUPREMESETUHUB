@@ -37,6 +37,8 @@ def list_providers(*, include_disabled: bool = False) -> list[dict]:
 
 
 def get_provider(provider_id: str) -> dict | None:
-    """Return one provider record, or None when it is not registered."""
+    """Return one provider record, or None when input is invalid/unregistered."""
+    if not isinstance(provider_id, str) or not provider_id.strip():
+        return None
     item = _INDEX.get(provider_id.strip().lower())
     return item.to_dict() if item else None
