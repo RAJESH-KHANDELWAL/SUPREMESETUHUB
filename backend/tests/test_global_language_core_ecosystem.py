@@ -113,7 +113,7 @@ def test_human_and_programming_catalogs_are_disjoint_and_canonical():
     assert len(human_ids) == len(set(human_ids))
     assert len(programming_ids) == len(set(programming_ids))
     assert human_folders.isdisjoint(programming_folders)
-    assert all(Path(folder).name == folder and "/" not in folder and "\\\\" not in folder for folder in human_folders | programming_folders)
+    assert all(Path(folder).name == folder and "/" not in folder and "\\" not in folder for folder in human_folders | programming_folders)
     assert human_manifest["domain_count"] == len(human_catalog["domains"])
     assert human_manifest["division"]["folder"] == human_root.name
 
