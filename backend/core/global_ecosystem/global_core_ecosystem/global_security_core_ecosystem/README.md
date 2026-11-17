@@ -11,10 +11,11 @@ A provider-neutral, read-only CORE control plane for security-domain taxonomy, p
 - `catalog.py`: canonical ecosystem registry and compatibility facade
 - `contracts.py`: tenant-context, external secret-reference and result contracts
 - `policy.py`: metadata redaction and capability classification; not an authorization engine
+- `content_safety_policy.py`: protective adult-platform, age-assurance, consent and prohibited-content metadata guardrails only
 - `module_service.py`: provider-neutral, policy-aware metadata service
 - `orchestrator.py`: provider/domain discovery, health and dependency summaries
 - `service.py`: read-only public control-plane facade
-- `jurisdictions/india/` and `jurisdictions/global/`: jurisdictional control mappings and profiles
+- `jurisdictions/india/` and `jurisdictions/global/`: jurisdictional control mappings and profiles; legal registers require authoritative, dated source review
 - `shared_support/`: the 11 declared shared-support areas
 - `integrations/`, `services/`, `tools/`: separately owned capability namespaces
 - `<provider>_security_core_ecosystem/`: provider-specific manifests and metadata-only packages
