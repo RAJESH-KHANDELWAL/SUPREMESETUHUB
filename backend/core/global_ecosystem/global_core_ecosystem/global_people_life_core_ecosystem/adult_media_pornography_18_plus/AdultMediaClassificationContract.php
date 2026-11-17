@@ -25,19 +25,29 @@ final class AdultMediaClassificationContract
 
     public static function validate(array $record): array
     {
-        foreach (['media', 'media_bytes', 'binary_content', 'raw_media_url', 'viewer_profile', 'viewer_orientation_profile'] as $forbidden) {
+        foreach ([
+            'media',
+            'media_bytes',
+            'binary_content',
+            'raw_media_url',
+            'viewer_profile',
+            'viewer_orientation_profile',
+        ] as $forbidden) {
             if (array_key_exists($forbidden, $record)) {
                 throw new \InvalidArgumentException('MEDIA_OR_VIEWER_PROFILE_NOT_ACCEPTED');
             }
         }
 
+        if (($record['viewer_orientation_profile_created'] ?? false) !== false) {
+            throw new \InvalidArgumentException('VIEWER_ORIENTATION_PROFILING_PROHIBITED');
+        }
+        if (($record['orientation_inferred'] ?? false) !== false) {
+            throw new \InvalidArgumentException('ORIENTATION_INFERENCE_PROHIBITED');
+        }
+
         $label = strtoupper(trim((string)($record['orientation_label'] ?? 'UNSPECIFIED')));
         if (!in_array($label, self::ORIENTATION_LABELS, true)) {
             throw new \InvalidArgumentException('UNKNOWN_ORIENTATION_LABEL');
-        }
-
-        if (($record['orientation_inferred'] ?? false) === true) {
-            throw new \\InvalidArgumentException('ORIENTATION_INFERENCE_PROHIBITED');
         }
 
         $subject = strtoupper(trim((string)($record['classification_subject_type'] ?? '')));
@@ -49,8 +59,10 @@ final class AdultMediaClassificationContract
             if (!in_array($source, ['SELF_DECLARED', 'AUTHORIZED_RIGHTS_HOLDER'], true)) {
                 throw new \InvalidArgumentException('SELF_DECLARATION_OR_AUTHORIZED_SOURCE_REQUIRED');
             }
-            if (($record['orientation_inferred'] ?? false) === true) {
-                throw new \InvalidArgumentException('ORIENTATION_INFERENCE_PROHIBITED');
+            foreach (['consent_record_reference', 'rights_record_reference'] as $reference) {
+                if (!isset($record[$reference]) || !is_string($record[$reference]) || trim($record[$reference]) === '') {
+                    throw new \InvalidArgumentException(strtoupper($reference) . '_REQUIRED');
+                }
             }
         }
 
