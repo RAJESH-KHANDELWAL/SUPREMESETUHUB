@@ -1,5 +1,5 @@
-"""Instagram platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""instagram platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "instagram"

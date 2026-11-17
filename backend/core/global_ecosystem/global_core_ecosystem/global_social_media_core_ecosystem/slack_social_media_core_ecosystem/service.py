@@ -1,5 +1,5 @@
-"""Slack platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""slack platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "slack"

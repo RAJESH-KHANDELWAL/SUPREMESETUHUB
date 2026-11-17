@@ -1,5 +1,5 @@
-"""ManyVids platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""manyvids platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "manyvids"

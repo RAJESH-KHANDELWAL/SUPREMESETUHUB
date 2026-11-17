@@ -1,5 +1,5 @@
-"""DeviantArt platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""deviantart platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "deviantart"

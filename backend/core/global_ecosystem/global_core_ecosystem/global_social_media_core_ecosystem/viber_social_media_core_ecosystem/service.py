@@ -1,5 +1,5 @@
-"""Rakuten Viber platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""viber platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "viber"

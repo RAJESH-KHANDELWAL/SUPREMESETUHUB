@@ -1,5 +1,5 @@
-"""GETTR platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""gettr platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "gettr"

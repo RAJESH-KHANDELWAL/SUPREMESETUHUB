@@ -1,5 +1,5 @@
-"""Element / Matrix platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""element_matrix platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "element_matrix"

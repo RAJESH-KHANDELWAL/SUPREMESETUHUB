@@ -1,5 +1,5 @@
-"""Bandcamp platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""bandcamp platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "bandcamp"

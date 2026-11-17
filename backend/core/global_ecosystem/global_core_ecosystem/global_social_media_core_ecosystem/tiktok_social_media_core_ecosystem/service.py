@@ -1,5 +1,5 @@
-"""TikTok platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""tiktok platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "tiktok"

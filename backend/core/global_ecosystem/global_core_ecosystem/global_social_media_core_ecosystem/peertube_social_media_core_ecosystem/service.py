@@ -1,5 +1,5 @@
-"""PeerTube platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""peertube platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "peertube"

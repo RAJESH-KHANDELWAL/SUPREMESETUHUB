@@ -1,5 +1,5 @@
-"""Odysee platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""odysee platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "odysee"

@@ -1,5 +1,5 @@
-"""Hacker News platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""hacker_news platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "hacker_news"

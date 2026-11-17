@@ -1,5 +1,5 @@
-"""Meta Platforms platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""meta platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "meta"

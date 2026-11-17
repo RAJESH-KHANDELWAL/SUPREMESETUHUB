@@ -1,5 +1,5 @@
-"""Truth Social platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""truth_social platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "truth_social"

@@ -1,6 +1,6 @@
 """Policy metadata checks for Social Media Core; no provider authorization."""
 from __future__ import annotations
-from typing import Any
+from typing import Any, Iterable
 from .contracts import TenantContext
 from .platform_catalog import get_platform
 
@@ -20,6 +20,11 @@ class SocialMediaCorePolicy:
     @staticmethod
     def validate_platform(platform_id: str) -> dict[str, Any]:
         return get_platform(platform_id)
+
+    @staticmethod
+    def validate_capability(capability: str, allowed: Iterable[str]) -> None:
+        if not isinstance(capability, str) or capability not in set(allowed):
+            raise SocialMediaCorePolicyError("CAPABILITY_NOT_REGISTERED")
 
     @staticmethod
     def classify_capability(capability: str) -> str:

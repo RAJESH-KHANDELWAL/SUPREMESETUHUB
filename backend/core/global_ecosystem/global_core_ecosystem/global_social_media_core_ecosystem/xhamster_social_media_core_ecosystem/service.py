@@ -1,5 +1,5 @@
-"""xHamster platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""xhamster platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "xhamster"

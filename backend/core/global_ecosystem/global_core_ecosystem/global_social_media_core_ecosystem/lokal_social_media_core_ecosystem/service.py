@@ -1,5 +1,5 @@
-"""Lokal platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""lokal platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "lokal"

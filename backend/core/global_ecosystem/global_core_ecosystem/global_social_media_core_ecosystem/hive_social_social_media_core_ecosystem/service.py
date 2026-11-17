@@ -1,5 +1,5 @@
-"""Hive Social platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""hive_social platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "hive_social"

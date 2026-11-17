@@ -1,5 +1,5 @@
-"""KakaoTalk / KakaoStory platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""kakao platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "kakao"

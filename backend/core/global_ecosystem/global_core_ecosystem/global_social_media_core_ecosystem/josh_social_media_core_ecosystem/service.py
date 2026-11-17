@@ -1,5 +1,5 @@
-"""Josh platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""josh platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "josh"

@@ -1,5 +1,5 @@
-"""Fansly platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""fansly platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "fansly"

@@ -1,5 +1,5 @@
-"""FanCode community platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""fancode_community platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "fancode_community"

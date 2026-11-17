@@ -1,5 +1,5 @@
-"""Pixelfed platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""pixelfed platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "pixelfed"

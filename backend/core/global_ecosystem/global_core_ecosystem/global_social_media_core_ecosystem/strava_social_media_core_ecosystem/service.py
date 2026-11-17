@@ -1,5 +1,5 @@
-"""Strava platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""strava platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "strava"

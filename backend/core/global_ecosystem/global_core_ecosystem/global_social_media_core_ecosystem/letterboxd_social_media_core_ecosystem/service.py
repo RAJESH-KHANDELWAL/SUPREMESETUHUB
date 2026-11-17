@@ -1,5 +1,5 @@
-"""Letterboxd platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""letterboxd platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "letterboxd"

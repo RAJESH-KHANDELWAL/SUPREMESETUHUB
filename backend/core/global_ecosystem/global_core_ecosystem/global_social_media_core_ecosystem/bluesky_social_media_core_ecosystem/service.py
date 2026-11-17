@@ -1,5 +1,5 @@
-"""Bluesky platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""bluesky platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "bluesky"

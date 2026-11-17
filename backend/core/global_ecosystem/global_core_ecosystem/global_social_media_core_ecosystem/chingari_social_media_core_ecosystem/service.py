@@ -1,5 +1,5 @@
-"""Chingari platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""chingari platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "chingari"

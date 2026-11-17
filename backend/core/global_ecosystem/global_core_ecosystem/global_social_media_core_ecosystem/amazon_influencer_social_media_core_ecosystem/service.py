@@ -1,5 +1,5 @@
-"""Amazon Influencer / Inspire platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""amazon_influencer platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "amazon_influencer"

@@ -1,5 +1,4 @@
 from pathlib import Path
-import pytest
 from backend.core.global_ecosystem.global_core_ecosystem.global_social_media_core_ecosystem import (
     GlobalSocialMediaCoreService, TenantContext, get_platform, list_platforms,
 )
@@ -31,9 +30,11 @@ def test_platform_lookup_is_stable_and_disconnected():
     assert status["connected"] is False
     assert status["api_call_performed"] is False
 
-def test_tenant_context_is_required_for_policy_pass():
+def test_tenant_context_is_required_and_capability_is_allowlisted():
     service = GlobalSocialMediaCoreService().platform_service("facebook")
     denied = service.authorize_capability("PROFILE_METADATA_BOUNDARY", None)
     assert denied["success"] is False
+    unknown = service.authorize_capability("UNRECOGNIZED_ACTION", TenantContext("tenant-1", "actor-1"))
+    assert unknown["success"] is False
     passed = service.authorize_capability("PROFILE_METADATA_BOUNDARY", TenantContext("tenant-1", "actor-1"))
     assert passed["success"] is True

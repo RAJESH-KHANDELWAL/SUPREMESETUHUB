@@ -1,5 +1,5 @@
-"""Kuaishou platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""kuaishou platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "kuaishou"

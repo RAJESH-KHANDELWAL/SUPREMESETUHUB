@@ -1,5 +1,5 @@
-"""Bilibili platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""bilibili platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "bilibili"

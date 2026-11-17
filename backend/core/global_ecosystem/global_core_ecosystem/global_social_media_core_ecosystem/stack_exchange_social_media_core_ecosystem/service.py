@@ -1,5 +1,5 @@
-"""Stack Exchange Network platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""stack_exchange platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "stack_exchange"

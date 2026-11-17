@@ -1,5 +1,5 @@
-"""Reddit platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""reddit platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "reddit"

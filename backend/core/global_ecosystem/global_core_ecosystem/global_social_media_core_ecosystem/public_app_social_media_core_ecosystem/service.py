@@ -1,5 +1,5 @@
-"""Public App platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""public_app platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "public_app"

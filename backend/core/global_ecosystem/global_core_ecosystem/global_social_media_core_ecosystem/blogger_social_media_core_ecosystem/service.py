@@ -1,5 +1,5 @@
-"""Blogger platform-family Core service facade."""
-from ...module_service import SocialMediaPlatformCoreService
+"""blogger platform-family Core service facade."""
+from ..module_service import SocialMediaPlatformCoreService
 
 class PlatformCoreService(SocialMediaPlatformCoreService):
     PLATFORM_ID = "blogger"
