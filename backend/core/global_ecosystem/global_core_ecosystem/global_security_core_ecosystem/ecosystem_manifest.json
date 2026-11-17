@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1.0",
+  "schema_version": "1.2.0",
   "ecosystem_id": "GLOBAL-SECURITY-CORE-ECOSYSTEM",
   "parent_id": "GLOBAL-CORE-ECOSYSTEM",
   "layer": "CORE",
@@ -67,7 +67,7 @@
     "utilities",
     "validation"
   ],
-  "domain_packages": "domains/",
+  "domain_packages": ".",
   "jurisdictional_coverage": {
     "national_and_regional_profiles": "jurisdictions/",
     "india_profile": "jurisdictions/india/",
@@ -93,5 +93,7 @@
     "scope": "Protective security controls and metadata only; educational or adult-content content libraries belong in separately governed product ecosystems."
   },
   "jurisdiction_profile_count": 2,
-  "legal_compliance_verified": false
+  "legal_compliance_verified": false,
+  "domain_folder_suffix": "_core_ecosystem",
+  "domain_package_location": "ECOSYSTEM_ROOT"
 }

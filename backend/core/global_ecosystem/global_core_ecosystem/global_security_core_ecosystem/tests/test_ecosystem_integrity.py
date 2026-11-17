@@ -33,8 +33,10 @@ def test_domain_catalog_matches_manifest_and_has_unique_ids():
     assert catalog["domain_coverage_exhaustive"] is False
     assert len({item["folder"] for item in domains}) == len(domains)
     for item in domains:
-        package = ROOT / "domains" / item["folder"]
+        package = ROOT / item["folder"]
         assert package.is_dir()
+        assert package.parent == ROOT
+        assert package.name.endswith("_core_ecosystem")
         assert (package / "__init__.py").is_file()
         assert (package / "domain_manifest.json").is_file()
         assert (package / "README.md").is_file()
@@ -166,7 +168,7 @@ def test_domain_catalog_rejects_unregistered_or_unknown_domain():
         get_domains,
     )
     assert len(get_domains()) == 33
-    assert get_domain("AGE_ASSURANCE")["folder"] == "age_assurance"
+    assert get_domain("AGE_ASSURANCE")["folder"] == "age_assurance_core_ecosystem"
     assert get_domain("NOT_A_REAL_DOMAIN") is None
 
 

@@ -1,271 +1,273 @@
 {
-  "schema_version": "1.1.0",
+  "schema_version": "1.2.0",
   "ecosystem_id": "GLOBAL-SECURITY-CORE-ECOSYSTEM",
   "domains": [
     {
       "id": "IDENTITY_ACCESS",
       "name": "Identity and access management",
       "scope": "Authentication, authorization, identity lifecycle and access governance",
-      "folder": "identity_access_security",
-      "package_path": "domains/identity_access_security",
+      "folder": "identity_access_security_core_ecosystem",
+      "package_path": "identity_access_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "ZERO_TRUST",
       "name": "Zero trust architecture",
       "scope": "Continuous verification, contextual access and trust boundaries",
-      "folder": "zero_trust_security",
-      "package_path": "domains/zero_trust_security",
+      "folder": "zero_trust_security_core_ecosystem",
+      "package_path": "zero_trust_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "ENDPOINT_DEVICE",
       "name": "Endpoint and device security",
       "scope": "Device posture, endpoint protection and fleet security metadata",
-      "folder": "endpoint_device_security",
-      "package_path": "domains/endpoint_device_security",
+      "folder": "endpoint_device_security_core_ecosystem",
+      "package_path": "endpoint_device_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "NETWORK_SECURITY",
       "name": "Network security",
       "scope": "Network segmentation, secure connectivity, firewall and traffic policy metadata",
-      "folder": "network_security",
-      "package_path": "domains/network_security",
+      "folder": "network_security_core_ecosystem",
+      "package_path": "network_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "CLOUD_INFRASTRUCTURE",
       "name": "Cloud and infrastructure security",
       "scope": "Cloud posture, infrastructure hardening and workload protection",
-      "folder": "cloud_infrastructure_security",
-      "package_path": "domains/cloud_infrastructure_security",
+      "folder": "cloud_infrastructure_security_core_ecosystem",
+      "package_path": "cloud_infrastructure_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "APPLICATION_PRODUCT",
       "name": "Application and product security",
       "scope": "Secure development lifecycle, application testing and product security",
-      "folder": "application_product_security",
-      "package_path": "domains/application_product_security",
+      "folder": "application_product_security_core_ecosystem",
+      "package_path": "application_product_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "DATA_PRIVACY",
       "name": "Data security and privacy",
       "scope": "Data classification, encryption, privacy controls and retention metadata",
-      "folder": "data_privacy_security",
-      "package_path": "domains/data_privacy_security",
+      "folder": "data_privacy_security_core_ecosystem",
+      "package_path": "data_privacy_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "CRYPTOGRAPHY_KEY_MANAGEMENT",
       "name": "Cryptography and key management",
       "scope": "Cryptographic standards, key lifecycle and certificate metadata",
-      "folder": "cryptography_key_management",
-      "package_path": "domains/cryptography_key_management",
+      "folder": "cryptography_key_management_core_ecosystem",
+      "package_path": "cryptography_key_management_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "THREAT_INTELLIGENCE",
       "name": "Threat intelligence",
       "scope": "Threat actor, indicator and intelligence-source metadata",
-      "folder": "threat_intelligence",
-      "package_path": "domains/threat_intelligence",
+      "folder": "threat_intelligence_core_ecosystem",
+      "package_path": "threat_intelligence_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "DETECTION_RESPONSE",
       "name": "Detection and incident response",
       "scope": "Security monitoring, alert triage and incident lifecycle metadata",
-      "folder": "detection_response",
-      "package_path": "domains/detection_response",
+      "folder": "detection_response_core_ecosystem",
+      "package_path": "detection_response_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "VULNERABILITY_EXPOSURE",
       "name": "Vulnerability and exposure management",
       "scope": "Asset exposure, vulnerability prioritization and remediation metadata",
-      "folder": "vulnerability_exposure",
-      "package_path": "domains/vulnerability_exposure",
+      "folder": "vulnerability_exposure_core_ecosystem",
+      "package_path": "vulnerability_exposure_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "GOVERNANCE_RISK_COMPLIANCE",
       "name": "Governance, risk and compliance",
       "scope": "Control frameworks, risk registers, audit evidence and compliance mapping",
-      "folder": "governance_risk_compliance",
-      "package_path": "domains/governance_risk_compliance",
+      "folder": "governance_risk_compliance_core_ecosystem",
+      "package_path": "governance_risk_compliance_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "BACKUP_RECOVERY_RESILIENCE",
       "name": "Backup, recovery and resilience",
       "scope": "Recovery objectives, backup integrity and cyber resilience metadata",
-      "folder": "backup_recovery_resilience",
-      "package_path": "domains/backup_recovery_resilience",
+      "folder": "backup_recovery_resilience_core_ecosystem",
+      "package_path": "backup_recovery_resilience_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "SUPPLY_CHAIN_SECURITY",
       "name": "Software and supply-chain security",
       "scope": "Dependency provenance, artifact integrity and supplier risk metadata",
-      "folder": "supply_chain_security",
-      "package_path": "domains/supply_chain_security",
+      "folder": "supply_chain_security_core_ecosystem",
+      "package_path": "supply_chain_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "EMAIL_COLLABORATION_SECURITY",
       "name": "Email and collaboration security",
       "scope": "Messaging, collaboration and identity-aware content protection metadata",
-      "folder": "email_collaboration_security",
-      "package_path": "domains/email_collaboration_security",
+      "folder": "email_collaboration_security_core_ecosystem",
+      "package_path": "email_collaboration_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "SECURITY_AWARENESS",
       "name": "Security awareness and education",
       "scope": "Training, awareness and human-risk education metadata",
-      "folder": "security_awareness",
-      "package_path": "domains/security_awareness",
+      "folder": "security_awareness_core_ecosystem",
+      "package_path": "security_awareness_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "FRAUD_ABUSE_PROTECTION",
       "name": "Fraud and abuse protection",
       "scope": "Abuse prevention, fraud signals and trust-and-safety metadata",
-      "folder": "fraud_abuse_protection",
-      "package_path": "domains/fraud_abuse_protection",
+      "folder": "fraud_abuse_protection_core_ecosystem",
+      "package_path": "fraud_abuse_protection_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "PHYSICAL_IOT_OT_SECURITY",
       "name": "Physical, IoT and OT security",
       "scope": "Physical access, connected devices and operational technology security metadata",
-      "folder": "physical_iot_ot_security",
-      "package_path": "domains/physical_iot_ot_security",
+      "folder": "physical_iot_ot_security_core_ecosystem",
+      "package_path": "physical_iot_ot_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "AGE_ASSURANCE",
       "name": "Age assurance and age-appropriate access",
       "scope": "Privacy-preserving age assurance, age-gating controls, age-appropriate access and review metadata",
-      "folder": "age_assurance",
-      "package_path": "domains/age_assurance",
+      "folder": "age_assurance_core_ecosystem",
+      "package_path": "age_assurance_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "CHILD_SAFETY_CSEA_PREVENTION",
       "name": "Child safety and exploitation prevention",
       "scope": "Prevention, detection escalation and lawful reporting workflows for child exploitation and abuse; never host or reproduce abusive material",
-      "folder": "child_safety_csea_prevention",
-      "package_path": "domains/child_safety_csea_prevention",
+      "folder": "child_safety_csea_prevention_core_ecosystem",
+      "package_path": "child_safety_csea_prevention_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "ADULT_CONTENT_PLATFORM_SAFETY",
       "name": "Adult-content platform safety",
       "scope": "Lawful adult-only platform safeguards, content classification, access restriction and platform risk controls",
-      "folder": "adult_content_platform_safety",
-      "package_path": "domains/adult_content_platform_safety",
+      "folder": "adult_content_platform_safety_core_ecosystem",
+      "package_path": "adult_content_platform_safety_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "CONSENT_INTIMATE_IMAGE_PROTECTION",
       "name": "Consent and intimate-image protection",
       "scope": "Consent records, non-consensual intimate-image prevention, reporting, takedown and victim-support workflows",
-      "folder": "consent_intimate_image_protection",
-      "package_path": "domains/consent_intimate_image_protection",
+      "folder": "consent_intimate_image_protection_core_ecosystem",
+      "package_path": "consent_intimate_image_protection_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "SEXUAL_EXPLOITATION_TRAFFICKING_PREVENTION",
       "name": "Sexual exploitation and trafficking prevention",
       "scope": "Signals, safeguards, escalation and victim-centred response against coercion, exploitation and trafficking",
-      "folder": "sexual_exploitation_trafficking_prevention",
-      "package_path": "domains/sexual_exploitation_trafficking_prevention",
+      "folder": "sexual_exploitation_trafficking_prevention_core_ecosystem",
+      "package_path": "sexual_exploitation_trafficking_prevention_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "SENSITIVE_INTIMATE_DATA_PRIVACY",
       "name": "Sensitive intimate-data privacy",
       "scope": "Protection of sexual-health, relationship, identity and other highly sensitive personal data",
-      "folder": "sensitive_intimate_data_privacy",
-      "package_path": "domains/sensitive_intimate_data_privacy",
+      "folder": "sensitive_intimate_data_privacy_core_ecosystem",
+      "package_path": "sensitive_intimate_data_privacy_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "SEXUAL_HEALTH_INFORMATION_INTEGRITY",
       "name": "Sexual-health information integrity",
       "scope": "Source provenance, misinformation controls and privacy safeguards for sexual and reproductive health information; not medical diagnosis",
-      "folder": "sexual_health_information_integrity",
-      "package_path": "domains/sexual_health_information_integrity",
+      "folder": "sexual_health_information_integrity_core_ecosystem",
+      "package_path": "sexual_health_information_integrity_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "CONTENT_MODERATION_CLASSIFICATION",
       "name": "Content moderation and classification",
       "scope": "Content labelling, age classification, policy enforcement metadata, appeals and human review",
-      "folder": "content_moderation_classification",
-      "package_path": "domains/content_moderation_classification",
+      "folder": "content_moderation_classification_core_ecosystem",
+      "package_path": "content_moderation_classification_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "AI_SYNTHETIC_MEDIA_ABUSE",
       "name": "AI and synthetic-media abuse prevention",
       "scope": "Deepfake, impersonation, synthetic intimate imagery and AI-enabled abuse risk controls",
-      "folder": "ai_synthetic_media_abuse",
-      "package_path": "domains/ai_synthetic_media_abuse",
+      "folder": "ai_synthetic_media_abuse_core_ecosystem",
+      "package_path": "ai_synthetic_media_abuse_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "JURISDICTIONAL_LEGAL_COMPLIANCE",
       "name": "Jurisdictional legal compliance",
       "scope": "Country-specific legal obligations, regulatory mapping, retention and lawful-request governance",
-      "folder": "jurisdictional_legal_compliance",
-      "package_path": "domains/jurisdictional_legal_compliance",
+      "folder": "jurisdictional_legal_compliance_core_ecosystem",
+      "package_path": "jurisdictional_legal_compliance_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "DIGITAL_WELLBEING_HARM_REDUCTION",
       "name": "Digital wellbeing and harm reduction",
       "scope": "User safety controls, exposure management, reporting, blocking and wellbeing safeguards",
-      "folder": "digital_wellbeing_harm_reduction",
-      "package_path": "domains/digital_wellbeing_harm_reduction",
+      "folder": "digital_wellbeing_harm_reduction_core_ecosystem",
+      "package_path": "digital_wellbeing_harm_reduction_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "IDENTITY_IMPERSONATION_PROTECTION",
       "name": "Identity and impersonation protection",
       "scope": "Account takeover, impersonation, identity fraud and recovery safeguards",
-      "folder": "identity_impersonation_protection",
-      "package_path": "domains/identity_impersonation_protection",
+      "folder": "identity_impersonation_protection_core_ecosystem",
+      "package_path": "identity_impersonation_protection_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "PAYMENT_TRANSACTION_SECURITY",
       "name": "Payment and transaction security",
       "scope": "Payment fraud, billing integrity, chargeback abuse and transaction-risk controls",
-      "folder": "payment_transaction_security",
-      "package_path": "domains/payment_transaction_security",
+      "folder": "payment_transaction_security_core_ecosystem",
+      "package_path": "payment_transaction_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "PLATFORM_TRUST_SAFETY",
       "name": "Platform trust and safety operations",
       "scope": "Abuse reporting, moderation operations, escalation, appeals and platform integrity",
-      "folder": "platform_trust_safety",
-      "package_path": "domains/platform_trust_safety",
+      "folder": "platform_trust_safety_core_ecosystem",
+      "package_path": "platform_trust_safety_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     },
     {
       "id": "RESEARCH_EVIDENCE_ASSURANCE",
       "name": "Research and evidence assurance",
       "scope": "Evidence provenance, source quality, audit trails and reproducibility for security decisions",
-      "folder": "research_evidence_assurance",
-      "package_path": "domains/research_evidence_assurance",
+      "folder": "research_evidence_assurance_core_ecosystem",
+      "package_path": "research_evidence_assurance_core_ecosystem",
       "status": "CORE_CATALOG_ONLY"
     }
   ],
-  "domain_coverage_exhaustive": false
+  "domain_coverage_exhaustive": false,
+  "domain_package_location": "ECOSYSTEM_ROOT",
+  "domain_folder_suffix": "_core_ecosystem"
 }
