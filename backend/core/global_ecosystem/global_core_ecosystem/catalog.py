@@ -1195,11 +1195,20 @@ def get_catalog() -> list[dict[str, Any]]:
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
         "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_integrations_core_ecosystem", "status": "CORE_CATALOG_ONLY", "integration_domain_count": 31, "api_available": None, "live_connection_verified": False, "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"},
     }
+    language_core = {
+        "ecosystem_id": "GLOBAL-LANGUAGE-CORE-ECOSYSTEM",
+        "name": "GLOBAL LANGUAGE CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["HUMAN_LANGUAGE_TAXONOMY", "PROGRAMMING_LANGUAGE_TAXONOMY", "BHARAT_AND_GLOBAL_LANGUAGE_DISCOVERY", "LANGUAGE_STANDARDS_METADATA", "TRANSLATION_AND_LOCALIZATION_METADATA", "SPEECH_OCR_AND_DETECTION_METADATA", "LANGUAGE_LEARNING_METADATA", "ADULT_CONTENT_AGE_CONSENT_POLICY", "NORMAL_TO_SUPREME_SERVICE_TIERS"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_language_core_ecosystem", "status": "CORE_CATALOG_ONLY", "divisions": ["HUMAN-LANGUAGES", "PROGRAMMING-LANGUAGES"], "human_language_coverage_exhaustive": False, "programming_language_coverage_exhaustive": False, "live_provider_connections_verified": False},
+    }
     records = [
         ROOT,
         *CATEGORIES,
         infrastructure_core,
         integrations_core,
+        language_core,
         *PERSONAL_REGISTRATIONS,
         *COMPANY_REGISTRATIONS,
     ]

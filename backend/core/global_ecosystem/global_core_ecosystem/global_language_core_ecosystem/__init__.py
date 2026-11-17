@@ -1,11 +1,15 @@
-"""LANGUAGE CORE ECOSYSTEM package.
+"""GLOBAL LANGUAGE CORE ECOSYSTEM public interface."""
+from .constants import CATEGORY, ECOSYSTEM_ID, ECOSYSTEM_NAME, LAYER, STATUS
+from .catalog import (
+    DIVISIONS, LANGUAGE_DOMAINS, LANGUAGE_PROVIDERS, SERVICE_TIERS,
+    get_catalog, get_domain, get_domains, get_provider_catalog, get_service_tiers,
+)
+from .service import GlobalLanguageCoreService
+from .orchestrator import GlobalLanguageCoreOrchestrator
 
-This package is an independent layer-owned namespace. It contains no imports
-from API, CORE, or ENGINE sibling layers.
-"""
-LAYER = "CORE"
-CATEGORY = "LANGUAGE"
-ECOSYSTEM_NAME = f"GLOBAL {CATEGORY.replace('_', ' ')} {LAYER} ECOSYSTEM"
-ECOSYSTEM_ID = f"GLOBAL-{CATEGORY.replace('_', '-')}-{LAYER.upper()}-ECOSYSTEM"
-
-__all__ = ["LAYER", "CATEGORY", "ECOSYSTEM_NAME", "ECOSYSTEM_ID"]
+__all__ = [
+    "CATEGORY", "ECOSYSTEM_ID", "ECOSYSTEM_NAME", "LAYER", "STATUS",
+    "DIVISIONS", "LANGUAGE_DOMAINS", "LANGUAGE_PROVIDERS", "SERVICE_TIERS",
+    "get_catalog", "get_domain", "get_domains", "get_provider_catalog",
+    "get_service_tiers", "GlobalLanguageCoreService", "GlobalLanguageCoreOrchestrator",
+]
