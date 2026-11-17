@@ -45,6 +45,8 @@ jobs:
           assert all(p["status"] == "CATALOG_ONLY" and not p["live_connection_verified"] for p in catalog["providers"])
           print("Storage CORE JSON contracts are valid.")
           PY
+      - name: Install test runner
+        run: python -m pip install pytest
       - name: Run Global Storage CORE tests
         env:
           PYTHONPATH: .
