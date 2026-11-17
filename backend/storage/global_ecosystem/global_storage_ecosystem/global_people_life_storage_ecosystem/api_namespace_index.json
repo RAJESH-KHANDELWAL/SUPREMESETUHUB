@@ -71,7 +71,12 @@
       "source_path": "backend/api/global_ecosystem/global_api_ecosystem/global_people_life_api_ecosystem/adult_media_pornography_18_plus",
       "storage_path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_people_life_storage_ecosystem/adult_media_pornography_18_plus_storage_ecosystem",
       "implementation_state": "FOUNDATION_SCAFFOLD",
-      "external_connection_state": "NOT_CONFIGURED"
+      "external_connection_state": "NOT_CONFIGURED",
+      "classification_schema_path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_people_life_storage_ecosystem/adult_media_pornography_18_plus_storage_ecosystem/classification_metadata.schema.json",
+      "classification_taxonomy_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/adult_media_pornography_18_plus/classification_taxonomy.json",
+      "orientation_inference_enabled": false,
+      "viewer_orientation_profiling_enabled": false,
+      "data_scope": "CONTENT_METADATA_ONLY"
     },
     {
       "source_namespace": "adult_performer_rights_consent_18_plus",
