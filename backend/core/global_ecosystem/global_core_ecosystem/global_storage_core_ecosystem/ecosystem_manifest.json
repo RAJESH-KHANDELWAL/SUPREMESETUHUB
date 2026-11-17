@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL-STORAGE-CORE-ECOSYSTEM",
+  "name": "GLOBAL STORAGE CORE ECOSYSTEM",
+  "layer": "CORE",
+  "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+  "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem",
+  "status": "CORE_CATALOG_ONLY",
+  "provider_coverage_exhaustive": false,
+  "live_provider_connections_verified": false,
+  "data_transfer_enabled": false,
+  "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+  "providers": [
+    "apple",
+    "aws",
+    "digitalocean",
+    "google",
+    "microsoft"
+  ],
+  "shared_extension_points": [
+    "integrations",
+    "services",
+    "tools"
+  ]
+}

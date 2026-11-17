@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "providers": [
+    {
+      "provider_id": "apple",
+      "name": "Apple",
+      "domains": [
+        "DEVICE_BACKUP",
+        "FILE_SYNC",
+        "APP_DATA_STORAGE"
+      ],
+      "capabilities": [
+        "ICLOUD_DRIVE_METADATA",
+        "DEVICE_BACKUP_METADATA",
+        "APP_DATA_STORAGE_METADATA"
+      ],
+      "status": "CATALOG_ONLY",
+      "live_connection_verified": false
+    },
+    {
+      "provider_id": "aws",
+      "name": "Amazon Web Services",
+      "domains": [
+        "OBJECT_STORAGE",
+        "ARCHIVE",
+        "FILE_STORAGE",
+        "BLOCK_STORAGE"
+      ],
+      "capabilities": [
+        "S3_OBJECT_STORAGE",
+        "GLACIER_ARCHIVE",
+        "EFS_FILE_STORAGE",
+        "EBS_BLOCK_STORAGE"
+      ],
+      "status": "CATALOG_ONLY",
+      "live_connection_verified": false
+    },
+    {
+      "provider_id": "digitalocean",
+      "name": "DigitalOcean",
+      "domains": [
+        "OBJECT_STORAGE",
+        "BLOCK_STORAGE",
+        "BACKUP"
+      ],
+      "capabilities": [
+        "SPACES_OBJECT_STORAGE",
+        "VOLUMES_BLOCK_STORAGE",
+        "SNAPSHOT_METADATA"
+      ],
+      "status": "CATALOG_ONLY",
+      "live_connection_verified": false
+    },
+    {
+      "provider_id": "google",
+      "name": "Google",
+      "domains": [
+        "OBJECT_STORAGE",
+        "FILE_STORAGE",
+        "USER_FILE_STORAGE",
+        "BACKUP"
+      ],
+      "capabilities": [
+        "CLOUD_STORAGE_OBJECTS",
+        "DRIVE_FILE_METADATA",
+        "BACKUP_METADATA",
+        "BUCKET_POLICY_METADATA"
+      ],
+      "status": "CATALOG_ONLY",
+      "live_connection_verified": false
+    },
+    {
+      "provider_id": "microsoft",
+      "name": "Microsoft",
+      "domains": [
+        "OBJECT_STORAGE",
+        "USER_FILE_STORAGE",
+        "FILE_SHARES",
+        "BACKUP"
+      ],
+      "capabilities": [
+        "AZURE_BLOB_STORAGE",
+        "AZURE_FILES_METADATA",
+        "ONEDRIVE_FILE_METADATA",
+        "BACKUP_METADATA"
+      ],
+      "status": "CATALOG_ONLY",
+      "live_connection_verified": false
+    }
+  ]
+}

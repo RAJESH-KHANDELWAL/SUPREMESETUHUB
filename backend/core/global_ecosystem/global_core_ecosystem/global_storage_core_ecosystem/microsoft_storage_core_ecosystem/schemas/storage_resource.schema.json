@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Microsoft Storage Resource Metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "tenant_id",
+    "resource_id",
+    "provider_id",
+    "resource_type"
+  ],
+  "properties": {
+    "tenant_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "resource_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provider_id": {
+      "const": "microsoft"
+    },
+    "resource_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "region": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "encryption_at_rest": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "retention_class": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "metadata": {
+      "type": "object"
+    }
+  }
+}
