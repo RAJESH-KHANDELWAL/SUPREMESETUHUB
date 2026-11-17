@@ -2,6 +2,8 @@ import unittest
 
 from backend.core.global_ecosystem.global_core_ecosystem.global_adult_content_core_ecosystem.catalog import (
     get_catalog,
+)
+from backend.core.global_ecosystem.global_core_ecosystem.global_adult_content_core_ecosystem.taxonomy import (
     get_orientation,
 )
 from backend.core.global_ecosystem.global_core_ecosystem.global_adult_content_core_ecosystem.contracts import (
