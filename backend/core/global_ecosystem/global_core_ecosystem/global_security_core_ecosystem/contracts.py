@@ -39,10 +39,16 @@ class TenantContext:
 
     def validate(self) -> None:
         """Validate required context fields without authenticating the actor."""
-        if not self.tenant_id.strip():
+        if not isinstance(self.tenant_id, str) or not self.tenant_id.strip():
             raise ValueError("TENANT_ID_REQUIRED")
-        if not self.actor_id.strip():
+        if not isinstance(self.actor_id, str) or not self.actor_id.strip():
             raise ValueError("ACTOR_ID_REQUIRED")
+        if not isinstance(self.actor_type, str) or not self.actor_type.strip():
+            raise ValueError("ACTOR_TYPE_REQUIRED")
+        if not isinstance(self.roles, tuple) or any(
+            not isinstance(role, str) or not role.strip() for role in self.roles
+        ):
+            raise ValueError("INVALID_TENANT_ROLES")
 
 
 @dataclass(frozen=True)
@@ -54,8 +60,14 @@ class SecretReference:
     version: str | None = None
 
     def __post_init__(self) -> None:
-        if not self.provider.strip() or not self.reference.strip():
+        if not isinstance(self.provider, str) or not self.provider.strip():
+            raise ValueError("SECRET_PROVIDER_REQUIRED")
+        if not isinstance(self.reference, str) or not self.reference.strip():
             raise ValueError("SECRET_REFERENCE_REQUIRED")
+        if self.version is not None and (
+            not isinstance(self.version, str) or not self.version.strip()
+        ):
+            raise ValueError("INVALID_SECRET_REFERENCE_VERSION")
 
 
 @dataclass
