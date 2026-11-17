@@ -1,5 +1,6 @@
 """Canonical, read-only database provider catalog; mirrors the API catalog contract."""
 from __future__ import annotations
+
 from copy import deepcopy
 from pathlib import Path
 
@@ -19,22 +20,43 @@ PROVIDERS = (
     {"provider_id": "salesforce", "provider_name": "Salesforce", "package": "salesforce_database_core_ecosystem", "implementation_status": "CATALOG_ONLY", "live_connection_verified": False},
 )
 
+
 def list_providers():
     return deepcopy(list(PROVIDERS))
 
+
 def get_provider(provider_id: str):
-    return next((deepcopy(p) for p in PROVIDERS if p["provider_id"] == provider_id.strip().casefold()), None)
+    if not isinstance(provider_id, str) or not provider_id.strip():
+        return None
+    needle = provider_id.strip().casefold()
+    return next(
+        (deepcopy(provider) for provider in PROVIDERS if provider["provider_id"] == needle),
+        None,
+    )
+
 
 def list_categories():
     return list(CATEGORY_IDS)
 
+
 def validate_catalog():
-    ids = [p["provider_id"] for p in PROVIDERS]
-    packages = [p["package"] for p in PROVIDERS]
+    ids = [provider["provider_id"] for provider in PROVIDERS]
+    packages = [provider["package"] for provider in PROVIDERS]
     base = Path(__file__).parent
+    missing_manifests = [
+        provider["package"]
+        for provider in PROVIDERS
+        if not (base / provider["package"] / "ecosystem_manifest.json").is_file()
+    ]
+    valid = (
+        len(ids) == 7
+        and len(set(ids)) == 7
+        and len(set(packages)) == 7
+        and not missing_manifests
+    )
     return {
-        "valid": len(ids) == 7 and len(set(ids)) == 7 and len(set(packages)) == 7,
+        "valid": valid,
         "provider_count": len(ids),
         "category_count": len(CATEGORY_IDS),
-        "missing_manifests": [p["package"] for p in PROVIDERS if not (base / p["package"] / "ecosystem_manifest.json").is_file()],
+        "missing_manifests": missing_manifests,
     }
