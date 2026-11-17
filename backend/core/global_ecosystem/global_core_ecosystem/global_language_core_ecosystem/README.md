@@ -1,22 +1,20 @@
-# GLOBAL LANGUAGE CORE ECOSYSTEM
+# GLOBAL LANGUAGE CORE — SHARED FOUNDATION
 
-Global language taxonomy and metadata foundation across **Bharat and the global world**, from Normal through Supreme service tiers.
+This package contains shared read-only CORE implementation: identifiers, contracts, catalogs, policy, service and orchestration.
 
-## Two separate divisions
-1. [HUMAN LANGUAGES CORE ECOSYSTEM](./human_languages_core_ecosystem/README.md) — natural spoken, written and signed languages; Indic/Bharat languages; global languages; dialects; scripts; translation; transliteration; localization; speech; OCR; dictionary; learning; preservation; and lawful adult-only sexual terminology, erotic and pornographic-content language classification, translation and moderation.
-2. [PROGRAMMING LANGUAGES CORE ECOSYSTEM](./programming_languages_core_ecosystem/README.md) — computer languages, programming paradigms, web/mobile/AI/data/embedded/game/blockchain development, compilers, runtimes, standards, IDEs, testing and security.
+## Independent top-level divisions
 
-Provider catalogs (Google, Microsoft, AWS, DeepL, Alibaba, Baidu, IBM, Naver, OpenAI, Tencent, Yandex) are cross-cutting metadata and do not imply live API connections.
+The following two directories are **direct siblings under `global_core_ecosystem/`**. Neither is nested inside this shared package.
 
-## Layer boundaries
+1. [GLOBAL HUMAN LANGUAGE CORE ECOSYSTEM](../GLOBAL_HUMAN_LANGUAGE_CORE_ECOSYSTEM/README.md) — Bharat and global natural languages, dialects, signed languages, scripts, translation, transliteration, localization, speech, OCR, dictionaries, learning, preservation and lawful adult-only language classification/moderation.
+2. [GLOBAL PROGRAMMING LANGUAGES CORE ECOSYSTEM](../GLOBAL_PROGRAMMING_LANGUAGES_CORE_ECOSYSTEM/README.md) — programming languages, paradigms, web/mobile/AI/data/embedded/game/blockchain development, compilers, runtimes, standards, IDEs, testing and security.
+
+## Shared layer boundaries
+
 - CORE: identifiers, taxonomies, contracts, standards references, policies and read-only discovery.
-- API: routes, authentication, request/response contracts.
+- API: routes, authentication and request/response contracts.
 - ENGINE: execution, translation jobs, detection, learning workflows and orchestration.
-- INTEGRATIONS: provider-specific SDKs, network calls, webhooks and adapters.
-- DATABASE/STORAGE: persistence and language assets, corpora and user content.
+- INTEGRATIONS: provider SDKs, network calls, webhooks and adapters.
+- DATABASE/STORAGE: persistence, language assets, corpora and user content.
 
-## Privacy, safety and rights
-Protect personal and community data, respect language-community consent and licensing, preserve attribution and provenance, and apply data minimization. Adult-only language services require verified adult access, informed consent, rights to content, moderation, takedown and local legal compliance. Minors and exploitative/non-consensual sexual content are excluded.
-
-## Completeness
-This is a canonical expandable structure. It does not claim that every human language, dialect, sign language, programming language, compiler, provider or standard is already populated or connected.
+Provider metadata does not imply live API connections. Adult-only language services require verified adult access, informed consent, content rights, moderation/takedown and regional legal compliance. This package is not an adult-content generation or distribution engine.

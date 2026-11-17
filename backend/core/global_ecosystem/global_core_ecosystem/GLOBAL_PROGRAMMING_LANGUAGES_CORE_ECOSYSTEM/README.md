@@ -1,4 +1,4 @@
-# PROGRAMMING LANGUAGES CORE ECOSYSTEM
+# GLOBAL PROGRAMMING LANGUAGES CORE ECOSYSTEM
 
 A separate, dedicated division for **computer/programming languages and developer language technologies**. It is a sibling of HUMAN LANGUAGES CORE ECOSYSTEM under GLOBAL LANGUAGE CORE ECOSYSTEM.
 

@@ -1,4 +1,4 @@
-# HUMAN LANGUAGES CORE ECOSYSTEM
+# GLOBAL HUMAN LANGUAGE CORE ECOSYSTEM
 
 Canonical division for **human languages**, from Bharat to the global world.
 
