@@ -146,3 +146,36 @@ def test_adult_and_sensitive_content_safety_metadata_boundaries():
         validate_content_safety_metadata({"content_class": "AGE_RESTRICTED_ADULT"})
     with pytest.raises(ValueError, match="MEDIA_PAYLOADS_NOT_ACCEPTED"):
         validate_content_safety_metadata({"content_class": "GENERAL", "media_bytes": b"not accepted"})
+
+
+def test_runtime_catalog_exposes_all_domains_providers_and_jurisdictions():
+    from backend.core.global_ecosystem.global_core_ecosystem.global_security_core_ecosystem.catalog import get_catalog
+    catalog = get_catalog()
+    assert catalog["domain_count"] == 33
+    assert catalog["provider_count"] == 6
+    assert catalog["jurisdiction_profile_count"] == 2
+    assert {item["jurisdiction_id"] for item in catalog["jurisdictions"]} == {"IN", "GLOBAL"}
+    assert catalog["security_enforcement_verified"] is False
+    assert catalog["legal_compliance_verified"] is False
+
+
+def test_domain_catalog_rejects_unregistered_or_unknown_domain():
+    from backend.core.global_ecosystem.global_core_ecosystem.global_security_core_ecosystem.domain_catalog import (
+        get_domain,
+        get_domains,
+    )
+    assert len(get_domains()) == 33
+    assert get_domain("AGE_ASSURANCE")["folder"] == "age_assurance"
+    assert get_domain("NOT_A_REAL_DOMAIN") is None
+
+
+def test_service_exposes_jurisdiction_and_content_safety_metadata():
+    from backend.core.global_ecosystem.global_core_ecosystem.global_security_core_ecosystem.service import (
+        SecurityCoreEcosystemService,
+    )
+    service = SecurityCoreEcosystemService()
+    assert service.get_jurisdiction("IN")["jurisdiction_id"] == "IN"
+    assert {x["jurisdiction_id"] for x in service.list_jurisdictions()} == {"IN", "GLOBAL"}
+    baseline = service.content_safety()
+    assert baseline["media_storage_or_generation_in_core"] is False
+    assert baseline["production_enforcement_verified"] is False
