@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "ecosystem_id": "GLOBAL-SERVER-CORE-ECOSYSTEM",
   "parent_id": "GLOBAL-CORE-ECOSYSTEM",
   "layer": "CORE",
@@ -49,5 +49,15 @@
     "utilities",
     "validation"
   ],
-  "provider_package_layout": "README.md + provider_manifest.json + existing __init__.py"
+  "provider_package_layout": "README.md + provider_manifest.json + existing __init__.py",
+  "scope_profile": "BHARAT_TO_GLOBAL",
+  "geographic_scope_catalog": "geographic_scope_catalog.json",
+  "workload_domain_catalog": "workload_domain_catalog.json",
+  "service_tier_catalog": "service_tier_catalog.json",
+  "scope_catalog_module": "scope_catalog.py",
+  "php_scope_contract": "php/GlobalServerCoreScopeContract.php",
+  "workload_domain_count": 20,
+  "service_tier_count": 7,
+  "adult_workload_policy": "LAWFUL_ADULT_ONLY_WITH_AGE_ASSURANCE_CONSENT_PRIVACY_MODERATION_AND_JURISDICTION_GATES",
+  "catalog_only": true
 }
