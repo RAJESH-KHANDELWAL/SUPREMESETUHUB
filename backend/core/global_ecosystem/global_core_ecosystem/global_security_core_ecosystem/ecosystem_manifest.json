@@ -16,7 +16,9 @@
     "domain_catalog_module": "domain_catalog.py",
     "providers": "provider_catalog.json",
     "provider_catalog_module": "provider_catalog.py",
-    "shared_provider_service": "module_service.py"
+    "shared_provider_service": "module_service.py",
+    "jurisdictions": "jurisdiction_catalog.py",
+    "content_safety_policy": "content_safety_policy.py"
   },
   "domain_count": 33,
   "domain_coverage_exhaustive": false,
@@ -89,5 +91,7 @@
     "child_sexual_abuse_material": "PROHIBITED_AND_NEVER_STORED_OR_REPRODUCED",
     "non_consensual_intimate_imagery": "PROHIBITED_AND_REPORTING_AND_TAKEDOWN_SAFEGUARDS",
     "scope": "Protective security controls and metadata only; educational or adult-content content libraries belong in separately governed product ecosystems."
-  }
+  },
+  "jurisdiction_profile_count": 2,
+  "legal_compliance_verified": false
 }
