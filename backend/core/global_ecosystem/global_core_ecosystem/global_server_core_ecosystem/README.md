@@ -62,3 +62,34 @@ CORE must not duplicate API transport, OAuth/token exchange, cloud SDK execution
 
 ## Validation
 Run the repository's configured test suite and JSON validation in CI. Verify catalog consistency, imports, Python/PHP contract compatibility and security policy behavior before enabling any operational integration.
+
+## Canonical 16-domain SERVER CORE architecture
+All 16 domain directories are direct children of this canonical root and are indexed by `domain_registry.json`; `domain_registry.py` validates and reads the registry.
+
+- `server_availability_core_ecosystem/`
+- `server_backup_recovery_core_ecosystem/`
+- `server_compliance_core_ecosystem/`
+- `server_compute_core_ecosystem/`
+- `server_identity_core_ecosystem/`
+- `server_lifecycle_core_ecosystem/`
+- `server_network_core_ecosystem/`
+- `server_observability_core_ecosystem/`
+- `server_security_core_ecosystem/`
+- `server_resource_core_ecosystem/`
+- `server_discovery_registry_core_ecosystem/`
+- `server_provider_abstraction_core_ecosystem/`
+- `server_geography_core_ecosystem/`
+- `server_workload_governance_core_ecosystem/`
+- `server_service_tier_core_ecosystem/`
+- `server_interoperability_core_ecosystem/`
+
+The added domains cover resource inventory, discovery/registry, provider abstraction, geography, workload governance, service tiers and interoperability. Existing nine domain folders and all provider/workload-profile folders remain in their current locations; no folder has been nested under another domain.
+
+## Bharat-to-global and NORMAL-to-SUPREME
+India remains a first-class jurisdiction in the shared geographic catalog, with an extensible global country/region model. The service-tier order remains NORMAL → BASIC → STANDARD → PREMIUM → PROFESSIONAL → ENTERPRISE → SUPREME. Tier names do not imply quotas, pricing, SLAs or provider entitlements.
+
+## Relationships, Kamasutra, sexual wellness and lawful adult-only workloads
+The existing relationship, sexual-wellness/health-education and lawful adult-only entertainment workload profiles remain separate. Workload governance maps to those existing profiles; Kamasutra/cultural knowledge is educational/cultural classification, sexual-health education is distinct from adult entertainment, and adult-only entertainment requires independently enforced age assurance, consent/content rights, privacy/security, moderation, reporting/takedown and jurisdiction eligibility. CSAM, non-consensual intimate imagery, trafficking, exploitation and unlawful content are prohibited. CORE records governance metadata only; it does not host, generate, distribute or authorize explicit content.
+
+## Implementation boundary
+This commit adds metadata manifests, domain contracts and registry definitions only. It does not claim live provider connections, remote provisioning, production readiness, durable database/storage execution or production age-assurance enforcement. Those responsibilities remain in API, ENGINE, DATABASE, STORAGE and APPLICATION layers.
