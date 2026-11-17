@@ -17,8 +17,10 @@ class DatabaseCoreContractTests(unittest.TestCase):
         self.assertTrue(result["valid"])
         self.assertEqual(result["missing_manifests"], [])
 
-    def test_unknown_provider_is_not_resolved(self):
+    def test_unknown_and_invalid_provider_ids_are_not_resolved(self):
         self.assertIsNone(get_provider("not-a-provider"))
+        self.assertIsNone(get_provider(None))
+        self.assertIsNone(get_provider(" "))
         self.assertFalse(resolve_provider("not-a-provider")["ready"])
 
     def test_known_provider_is_catalog_only_not_runtime_ready(self):
