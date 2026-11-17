@@ -99,6 +99,8 @@ class AdultMediaTaxonomyTests(unittest.TestCase):
             "orientation_label": "BISEXUAL",
             "orientation_source": "AUTHORIZED_RIGHTS_HOLDER",
             "classification_subject_type": "PERFORMER",
+            "consent_record_reference": "consent:opaque-008",
+            "rights_record_reference": "rights:opaque-008",
         })
         self.assertEqual(record["orientation_label"], "BISEXUAL")
 
