@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL-SECURITY-CORE-ECOSYSTEM",
+  "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+  "layer": "CORE",
+  "category": "SECURITY",
+  "division": {
+    "id": "SECURITY",
+    "folder": "global_security_core_ecosystem"
+  },
+  "status": "CORE_CATALOG_ONLY",
+  "canonical_path": "backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem",
+  "registry": {
+    "module": "catalog.py",
+    "domains": "catalog.json",
+    "domain_catalog_module": "domain_catalog.py",
+    "providers": "provider_catalog.json",
+    "provider_catalog_module": "provider_catalog.py",
+    "shared_provider_service": "module_service.py"
+  },
+  "domain_count": 18,
+  "domain_coverage_exhaustive": false,
+  "provider_count": 6,
+  "provider_coverage_exhaustive": false,
+  "live_provider_connections_verified": false,
+  "security_enforcement_verified": false,
+  "api_calls_performed": 0,
+  "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+  "service_tiers": [
+    "NORMAL",
+    "BASIC",
+    "STANDARD",
+    "PREMIUM",
+    "PROFESSIONAL",
+    "ENTERPRISE",
+    "SUPREME"
+  ],
+  "security_baseline": {
+    "least_privilege": true,
+    "tenant_isolation_required": true,
+    "mfa_recommended": true,
+    "zero_trust_principle": true,
+    "secrets_in_core": false,
+    "auditability_required": true,
+    "independent_runtime_enforcement_required": true
+  },
+  "layer_boundaries": {
+    "core": "taxonomy, provider metadata, capability policy and readiness",
+    "api": "provider authentication, transport and webhooks",
+    "storage": "security evidence and durable artifacts",
+    "database": "policy persistence, schemas and migrations",
+    "runtime": "scanning, detection, response and enforcement execution",
+    "application": "admin, analyst and end-user workflows"
+  },
+  "shared_support_areas": [
+    "compatibility",
+    "configuration",
+    "contracts",
+    "documentation",
+    "events",
+    "exceptions",
+    "orchestration",
+    "security",
+    "testing",
+    "utilities",
+    "validation"
+  ]
+}
