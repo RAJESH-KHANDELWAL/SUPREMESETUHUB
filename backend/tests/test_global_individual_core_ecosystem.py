@@ -14,3 +14,20 @@ class GlobalIndividualCoreTests(unittest.TestCase):
   o=GlobalIndividualCoreOrchestrator();self.assertEqual(o.health()["capability_count"],29);self.assertGreater(o.taxonomy()["domain_count"],0)
  def test_secret_and_pii_metadata_filter(self):self.assertEqual(GlobalIndividualCorePolicy.safe_metadata({"nested":{"api_key":"x","email":"private@example.com","phone":"123","label":"ok"}}),{"nested":{"label":"ok"}})
 if __name__=="__main__":unittest.main()
+
+
+ def test_secret_filter_handles_compound_and_camel_case_keys(self):
+  safe=GlobalIndividualCorePolicy.safe_metadata({
+   "contact_email":"private@example.com",
+   "accessToken":"secret",
+   "bank-account":"1234",
+   "display_name":"safe",
+   "nested":[{"privateKey":"secret","label":"ok"}],
+  })
+  self.assertEqual(safe,{"display_name":"safe","nested":[{"label":"ok"}]})
+
+ def test_invalid_tenant_context_is_wrapped_as_policy_error(self):
+  from backend.core.global_ecosystem.global_core_ecosystem.global_individual_core_ecosystem.contracts import TenantContext
+  from backend.core.global_ecosystem.global_core_ecosystem.global_individual_core_ecosystem.policy import GlobalIndividualCorePolicyError
+  with self.assertRaises(GlobalIndividualCorePolicyError):
+   GlobalIndividualCorePolicy.require_tenant_context(TenantContext(tenant_id=None,actor_id="actor"))
