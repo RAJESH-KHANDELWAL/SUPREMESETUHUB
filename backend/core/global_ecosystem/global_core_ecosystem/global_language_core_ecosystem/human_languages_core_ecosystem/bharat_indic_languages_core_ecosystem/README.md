@@ -1,13 +1,11 @@
-# BHARAT INDIC LANGUAGES
+# BHARAT INDIC LANGUAGES CORE ECOSYSTEM
 
-Bharat's scheduled, regional, classical, tribal, indigenous and community languages, with language-family and region metadata. Coverage must be registry-driven rather than assumed exhaustive.
+Bharat's scheduled, regional, classical, tribal, indigenous and community languages, with language-family, locale, script and region metadata.
 
-## Responsibilities
-- Maintain stable language, locale, script and terminology metadata appropriate to this domain.
-- Respect community endonyms, provenance, licensing, privacy and accessibility.
-- Expose read-only catalog metadata to API and ENGINE consumers.
+## Eighth Schedule language examples
+Assamese, Bengali, Bodo, Dogri, Gujarati, Hindi, Kannada, Kashmiri, Konkani, Maithili, Malayalam, Manipuri (Meitei), Marathi, Nepali, Odia, Punjabi, Sanskrit, Santali, Sindhi, Tamil, Telugu and Urdu.
 
-## Boundaries
-- No provider credentials or private user content in CORE.
-- Provider calls and processing jobs belong to API/ENGINE/INTEGRATIONS.
-- Status: `CORE_CATALOG_ONLY`; coverage is expandable and not claimed exhaustive.
+## Beyond the scheduled list
+Include regional, tribal, indigenous, endangered and community languages and their varieties. The scheduled-language list is not a complete inventory of languages spoken in India. Record community-preferred names, endonyms, scripts, dialects, locale and provenance; support community consent and licensing for language resources.
+
+Status: `CORE_CATALOG_ONLY`; not an exhaustive language census.

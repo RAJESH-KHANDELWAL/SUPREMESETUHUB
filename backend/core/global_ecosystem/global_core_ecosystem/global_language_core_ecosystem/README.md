@@ -3,7 +3,7 @@
 Global language taxonomy and metadata foundation across **Bharat and the global world**, from Normal through Supreme service tiers.
 
 ## Two separate divisions
-1. [HUMAN LANGUAGES CORE ECOSYSTEM](./human_languages_core_ecosystem/README.md) — natural spoken, written and signed languages; Indic/Bharat languages; global languages; dialects; scripts; translation; transliteration; localization; speech; OCR; dictionary; learning; preservation; and lawful adult-only language classification/moderation.
+1. [HUMAN LANGUAGES CORE ECOSYSTEM](./human_languages_core_ecosystem/README.md) — natural spoken, written and signed languages; Indic/Bharat languages; global languages; dialects; scripts; translation; transliteration; localization; speech; OCR; dictionary; learning; preservation; and lawful adult-only sexual terminology, erotic and pornographic-content language classification, translation and moderation.
 2. [PROGRAMMING LANGUAGES CORE ECOSYSTEM](./programming_languages_core_ecosystem/README.md) — computer languages, programming paradigms, web/mobile/AI/data/embedded/game/blockchain development, compilers, runtimes, standards, IDEs, testing and security.
 
 Provider catalogs (Google, Microsoft, AWS, DeepL, Alibaba, Baidu, IBM, Naver, OpenAI, Tencent, Yandex) are cross-cutting metadata and do not imply live API connections.
