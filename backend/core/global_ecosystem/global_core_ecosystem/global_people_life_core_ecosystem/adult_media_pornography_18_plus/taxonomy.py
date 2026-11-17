@@ -48,6 +48,8 @@ def validate_classification_metadata(record: Mapping[str, Any]) -> dict[str, Any
     forbidden = {"media", "media_bytes", "binary_content", "raw_media_url", "viewer_profile", "viewer_orientation_profile"}
     if forbidden.intersection(record):
         raise AdultContentClassificationError("MEDIA_OR_VIEWER_PROFILE_NOT_ACCEPTED")
+    if record.get("viewer_orientation_profile_created", False) is not False:
+        raise AdultContentClassificationError("VIEWER_ORIENTATION_PROFILING_PROHIBITED")
 
     label = str(record.get("orientation_label", "UNSPECIFIED")).strip().upper()
     labels = {item["id"] for item in ORIENTATION_LABELS}
