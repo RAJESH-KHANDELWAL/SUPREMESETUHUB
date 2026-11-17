@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "ecosystem_id": "GLOBAL-SECURITY-CORE-ECOSYSTEM",
   "parent_id": "GLOBAL-CORE-ECOSYSTEM",
   "layer": "CORE",
@@ -18,7 +18,7 @@
     "provider_catalog_module": "provider_catalog.py",
     "shared_provider_service": "module_service.py"
   },
-  "domain_count": 18,
+  "domain_count": 33,
   "domain_coverage_exhaustive": false,
   "provider_count": 6,
   "provider_coverage_exhaustive": false,
@@ -64,5 +64,30 @@
     "testing",
     "utilities",
     "validation"
-  ]
+  ],
+  "domain_packages": "domains/",
+  "jurisdictional_coverage": {
+    "national_and_regional_profiles": "jurisdictions/",
+    "india_profile": "jurisdictions/india/",
+    "global_profile": "jurisdictions/global/",
+    "country_coverage_exhaustive": false
+  },
+  "protected_subject_areas": [
+    "AGE_ASSURANCE",
+    "CHILD_SAFETY_CSEA_PREVENTION",
+    "ADULT_CONTENT_PLATFORM_SAFETY",
+    "CONSENT_INTIMATE_IMAGE_PROTECTION",
+    "SEXUAL_EXPLOITATION_TRAFFICKING_PREVENTION",
+    "SENSITIVE_INTIMATE_DATA_PRIVACY",
+    "SEXUAL_HEALTH_INFORMATION_INTEGRITY",
+    "CONTENT_MODERATION_CLASSIFICATION",
+    "AI_SYNTHETIC_MEDIA_ABUSE"
+  ],
+  "content_safety_boundary": {
+    "adult_material_storage": false,
+    "explicit_sexual_media_generation_or_distribution": false,
+    "child_sexual_abuse_material": "PROHIBITED_AND_NEVER_STORED_OR_REPRODUCED",
+    "non_consensual_intimate_imagery": "PROHIBITED_AND_REPORTING_AND_TAKEDOWN_SAFEGUARDS",
+    "scope": "Protective security controls and metadata only; educational or adult-content content libraries belong in separately governed product ecosystems."
+  }
 }
