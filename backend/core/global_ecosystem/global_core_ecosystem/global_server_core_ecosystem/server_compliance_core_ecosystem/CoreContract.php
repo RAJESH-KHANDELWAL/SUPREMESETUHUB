@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace SupremeSetuHub\\ServerCore\\server_compliance_core;
+namespace SupremeSetuHub\ServerCore\server_compliance_core;
 /** Declarative contract only; no infrastructure operation is executed. */
 final class CoreContract {
  public const DOMAIN_ID='server_compliance_core';
