@@ -35,5 +35,19 @@
     "engine": "cloud SDKs, provider adapters, provisioning and remote execution",
     "database": "durable SQL/NoSQL persistence and migrations",
     "storage": "object, file, backup and artifact storage"
-  }
+  },
+  "shared_support_areas": [
+    "compatibility",
+    "configuration",
+    "contracts",
+    "documentation",
+    "events",
+    "exceptions",
+    "orchestration",
+    "security",
+    "testing",
+    "utilities",
+    "validation"
+  ],
+  "provider_package_layout": "README.md + provider_manifest.json + existing __init__.py"
 }
