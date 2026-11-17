@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "SERVER-WORKLOAD-GOVERNMENT_PUBLIC_SERVICES",
+  "domain_id": "GOVERNMENT_PUBLIC_SERVICES",
+  "label": "Government and Public Services",
+  "risk_profile": "HIGH_COMPLIANCE",
+  "scope": "SERVER_REQUIREMENTS_METADATA_ONLY",
+  "geography_catalog": "../geographic_scope_catalog.json",
+  "service_tier_catalog": "../service_tier_catalog.json",
+  "service_tiers": [
+    "NORMAL",
+    "BASIC",
+    "STANDARD",
+    "PREMIUM",
+    "PROFESSIONAL",
+    "ENTERPRISE",
+    "SUPREME"
+  ],
+  "required_control_areas": [
+    "public_service_availability",
+    "records_integrity",
+    "jurisdiction_controls",
+    "audit_logging"
+  ],
+  "layer_boundary": {
+    "core": "classification and provider-neutral requirements metadata only",
+    "api": "authentication, authorization, transport and request handling",
+    "engine": "provider adapters and execution",
+    "database": "durable persistence and migrations",
+    "storage": "files, objects, backups and artifacts"
+  },
+  "operational_status": "NON_EXECUTING_PROFILE",
+  "note": "No provisioning, legal approval or production operation is performed by this profile."
+}
