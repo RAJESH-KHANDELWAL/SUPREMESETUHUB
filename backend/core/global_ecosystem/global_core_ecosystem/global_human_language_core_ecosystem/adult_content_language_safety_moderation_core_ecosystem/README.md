@@ -16,3 +16,9 @@ Status: `CORE_CATALOG_ONLY`; coverage is expandable and not claimed exhaustive.
 
 ## Adult-only safeguards
 Verified adults only; informed consent and content rights required; regional legal review, moderation and takedown controls mandatory. Exclude minors, non-consensual intimate imagery, coercion, trafficking and exploitation.
+
+## Orientation terminology and moderation
+
+Use the canonical content-label vocabulary from People Life CORE:
+`STRAIGHT`, `GAY`, `BISEXUAL`, `OTHER`, `UNSPECIFIED`.
+Keep participant configuration separate from orientation. Translation and moderation must preserve the supplied label and provenance; they must not infer a person's orientation from a scene, image, language, partner or browsing activity. These labels describe optional content metadata, not viewer/user profiles.
