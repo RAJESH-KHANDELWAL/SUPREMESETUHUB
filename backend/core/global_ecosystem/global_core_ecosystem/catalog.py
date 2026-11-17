@@ -254,7 +254,7 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
             "provider_count": 112,
             "platform_package_count": 113,
             "status": "CORE_CATALOG_ONLY",
-            "live_connection_verified": false,
+            "live_connection_verified": False,
         },
     },
 
