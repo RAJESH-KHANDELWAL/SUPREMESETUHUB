@@ -93,3 +93,30 @@ def test_human_manifest_and_parent_registry_use_canonical_path():
     assert "global_human_language_core_ecosystem" in parent_catalog
     assert "global_programming_language_core_ecosystem" in parent_catalog
     assert "global_language_core_ecosystem" not in parent_catalog
+
+
+
+def test_human_and_programming_catalogs_are_disjoint_and_canonical():
+    core_root = Path(__file__).resolve().parents[1] / "core" / "global_ecosystem" / "global_core_ecosystem"
+    human_root = core_root / "global_human_language_core_ecosystem"
+    programming_root = core_root / "global_programming_language_core_ecosystem"
+
+    human_catalog = json.loads((human_root / "catalog.json").read_text(encoding="utf-8"))
+    programming_catalog = json.loads((programming_root / "catalog.json").read_text(encoding="utf-8"))
+    human_manifest = json.loads((human_root / "ecosystem_manifest.json").read_text(encoding="utf-8"))
+
+    human_ids = [item["id"] for item in human_catalog["domains"]]
+    programming_ids = [item["id"] for item in programming_catalog["domains"]]
+    human_folders = {item["folder"] for item in human_catalog["domains"]}
+    programming_folders = {item["folder"] for item in programming_catalog["domains"]}
+
+    assert len(human_ids) == len(set(human_ids))
+    assert len(programming_ids) == len(set(programming_ids))
+    assert human_folders.isdisjoint(programming_folders)
+    assert all(Path(folder).name == folder and "/" not in folder and "\\\\" not in folder for folder in human_folders | programming_folders)
+    assert human_manifest["domain_count"] == len(human_catalog["domains"])
+    assert human_manifest["division"]["folder"] == human_root.name
+
+    parent_catalog = (core_root / "catalog.py").read_text(encoding="utf-8")
+    assert '"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_human_language_core_ecosystem"' in parent_catalog
+    assert '"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_programming_language_core_ecosystem"' in parent_catalog
