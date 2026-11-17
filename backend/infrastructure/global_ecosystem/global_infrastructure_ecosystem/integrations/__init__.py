@@ -5,7 +5,7 @@ not imply that external services are configured or actively connected.
 """
 from __future__ import annotations
 
-from .schemas import CatalogRecord
+from ..schemas import CatalogRecord
 
 INTEGRATIONS: tuple[CatalogRecord, ...] = (
     CatalogRecord(
