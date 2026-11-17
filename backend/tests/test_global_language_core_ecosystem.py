@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 from backend.core.global_ecosystem.global_core_ecosystem.global_language_core_ecosystem import (
     GlobalLanguageCoreOrchestrator, GlobalLanguageCoreService,
@@ -52,3 +53,22 @@ def test_global_division_folders_are_direct_siblings_of_shared_package():
     assert (core_root / "global_programming_language_core_ecosystem").is_dir()
     assert not (core_root / "global_language_core_ecosystem" / "human_languages_core_ecosystem").exists()
     assert not (core_root / "global_language_core_ecosystem" / "programming_languages_core_ecosystem").exists()
+
+def test_division_catalogs_and_paths_are_consistent():
+    core_root = Path(__file__).resolve().parents[1] / "core" / "global_ecosystem" / "global_core_ecosystem"
+    human_root = core_root / "global_human_language_core_ecosystem"
+    programming_root = core_root / "global_programming_language_core_ecosystem"
+    human_catalog = json.loads((human_root / "catalog.json").read_text(encoding="utf-8"))
+    programming_catalog = json.loads((programming_root / "catalog.json").read_text(encoding="utf-8"))
+
+    assert all((human_root / item["folder"]).is_dir() for item in human_catalog["domains"])
+    assert all((programming_root / item["folder"]).is_dir() for item in programming_catalog["domains"])
+    assert not (programming_root / "transliteration_core_ecosystem").exists()
+    assert not (programming_root / "global_programming_languages_core_ecosystem").exists()
+    assert (human_root / "transliteration_language_core_ecosystem").is_dir()
+
+    shared_root = core_root / "global_language_core_ecosystem"
+    assert all(item.is_file() for item in shared_root.iterdir())
+    parent_catalog = (core_root / "catalog.py").read_text(encoding="utf-8")
+    assert f'"human_division_path": "{human_root.as_posix()}"' in parent_catalog
+    assert f'"programming_division_path": "{programming_root.as_posix()}"' in parent_catalog
