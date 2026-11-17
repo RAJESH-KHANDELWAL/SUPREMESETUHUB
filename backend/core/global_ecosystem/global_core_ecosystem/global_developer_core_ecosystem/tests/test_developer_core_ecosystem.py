@@ -62,6 +62,8 @@ class TestGlobalDeveloperCore(unittest.TestCase):
     def test_secret_material_is_rejected_recursively(self):
         self.assertTrue(validate_metadata({"tenant_id": "t1", "filters": {"api_key": "do-not-store"}})["errors"])
         self.assertTrue(validate_metadata({"metadata": [{"refresh_token": "x"}]})["errors"])
+        self.assertTrue(validate_metadata({"metadata": {"accessToken": "x"}})["errors"])
+        self.assertTrue(validate_metadata({"metadata": {"api-key": "x"}})["errors"])
         self.assertTrue(validate_metadata({"tenant_id": "t1"})["allowed"])
 
     def test_adult_only_provider_requires_all_review_gates(self):
