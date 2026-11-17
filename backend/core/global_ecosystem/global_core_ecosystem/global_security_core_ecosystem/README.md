@@ -9,9 +9,11 @@ A provider-neutral, read-only CORE control plane for security-domain taxonomy, p
 - `domains/<domain_package>/`: independent domain folder with `__init__.py` and `domain_manifest.json`
 - `provider_catalog.json` + `provider_catalog.py`: 6 non-exhaustive provider metadata records
 - `catalog.py`: canonical ecosystem registry and compatibility facade
+- `jurisdiction_catalog.py`: validated India and cross-border jurisdiction profile registry
 - `contracts.py`: tenant-context, external secret-reference and result contracts
 - `policy.py`: metadata redaction and capability classification; not an authorization engine
 - `content_safety_policy.py`: protective adult-platform, age-assurance, consent and prohibited-content metadata guardrails only
+- `domain_catalog.py`: validates every registered domain package and its manifest at catalog load
 - `module_service.py`: provider-neutral, policy-aware metadata service
 - `orchestrator.py`: provider/domain discovery, health and dependency summaries
 - `service.py`: read-only public control-plane facade
