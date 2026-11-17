@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL-SECURITY-CORE-ECOSYSTEM",
+  "domains": [
+    {
+      "id": "IDENTITY_ACCESS",
+      "name": "Identity and access management",
+      "scope": "Authentication, authorization, identity lifecycle and access governance"
+    },
+    {
+      "id": "ZERO_TRUST",
+      "name": "Zero trust architecture",
+      "scope": "Continuous verification, contextual access and trust boundaries"
+    },
+    {
+      "id": "ENDPOINT_DEVICE",
+      "name": "Endpoint and device security",
+      "scope": "Device posture, endpoint protection and fleet security metadata"
+    },
+    {
+      "id": "NETWORK_SECURITY",
+      "name": "Network security",
+      "scope": "Network segmentation, secure connectivity, firewall and traffic policy metadata"
+    },
+    {
+      "id": "CLOUD_INFRASTRUCTURE",
+      "name": "Cloud and infrastructure security",
+      "scope": "Cloud posture, infrastructure hardening and workload protection"
+    },
+    {
+      "id": "APPLICATION_PRODUCT",
+      "name": "Application and product security",
+      "scope": "Secure development lifecycle, application testing and product security"
+    },
+    {
+      "id": "DATA_PRIVACY",
+      "name": "Data security and privacy",
+      "scope": "Data classification, encryption, privacy controls and retention metadata"
+    },
+    {
+      "id": "CRYPTOGRAPHY_KEY_MANAGEMENT",
+      "name": "Cryptography and key management",
+      "scope": "Cryptographic standards, key lifecycle and certificate metadata"
+    },
+    {
+      "id": "THREAT_INTELLIGENCE",
+      "name": "Threat intelligence",
+      "scope": "Threat actor, indicator and intelligence-source metadata"
+    },
+    {
+      "id": "DETECTION_RESPONSE",
+      "name": "Detection and incident response",
+      "scope": "Security monitoring, alert triage and incident lifecycle metadata"
+    },
+    {
+      "id": "VULNERABILITY_EXPOSURE",
+      "name": "Vulnerability and exposure management",
+      "scope": "Asset exposure, vulnerability prioritization and remediation metadata"
+    },
+    {
+      "id": "GOVERNANCE_RISK_COMPLIANCE",
+      "name": "Governance, risk and compliance",
+      "scope": "Control frameworks, risk registers, audit evidence and compliance mapping"
+    },
+    {
+      "id": "BACKUP_RECOVERY_RESILIENCE",
+      "name": "Backup, recovery and resilience",
+      "scope": "Recovery objectives, backup integrity and cyber resilience metadata"
+    },
+    {
+      "id": "SUPPLY_CHAIN_SECURITY",
+      "name": "Software and supply-chain security",
+      "scope": "Dependency provenance, artifact integrity and supplier risk metadata"
+    },
+    {
+      "id": "EMAIL_COLLABORATION_SECURITY",
+      "name": "Email and collaboration security",
+      "scope": "Messaging, collaboration and identity-aware content protection metadata"
+    },
+    {
+      "id": "SECURITY_AWARENESS",
+      "name": "Security awareness and education",
+      "scope": "Training, awareness and human-risk education metadata"
+    },
+    {
+      "id": "FRAUD_ABUSE_PROTECTION",
+      "name": "Fraud and abuse protection",
+      "scope": "Abuse prevention, fraud signals and trust-and-safety metadata"
+    },
+    {
+      "id": "PHYSICAL_IOT_OT_SECURITY",
+      "name": "Physical, IoT and OT security",
+      "scope": "Physical access, connected devices and operational technology security metadata"
+    }
+  ],
+  "domain_coverage_exhaustive": false
+}
