@@ -19,7 +19,7 @@ def test_manifest_identity_and_canonical_path():
     assert manifest["parent_id"] == "GLOBAL-CORE-ECOSYSTEM"
     assert manifest["layer"] == "CORE"
     assert manifest["status"] == "CORE_CATALOG_ONLY"
-    assert manifest["canonical_path"] == str(ROOT.relative_to(ROOT.parents[3])).replace("\\", "/")
+    assert manifest["canonical_path"] == str(ROOT.relative_to(ROOT.parents[4])).replace("\\", "/")
 
 
 def test_domain_catalog_matches_manifest_and_has_unique_ids():
