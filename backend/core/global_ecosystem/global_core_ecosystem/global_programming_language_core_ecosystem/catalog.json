@@ -68,10 +68,10 @@
       "scope": "General-purpose programming language registry and classification."
     },
     {
-      "id": "GLOBAL_PROGRAMMING_LANGUAGES",
-      "name": "GLOBAL PROGRAMMING LANGUAGES",
-      "folder": "global_programming_languages_core_ecosystem",
-      "scope": "Global programming language taxonomy, standards references and language-family index."
+      "id": "PROGRAMMING_LANGUAGE_CATALOG",
+      "name": "PROGRAMMING LANGUAGE CATALOG",
+      "folder": "programming_language_catalog_core_ecosystem",
+      "scope": "Canonical index for the global programming-language taxonomy, language families, aliases, standards references and catalog provenance."
     },
     {
       "id": "INDIA_PROGRAMMING_LANGUAGES",
@@ -144,12 +144,6 @@
       "name": "SYSTEMS PROGRAMMING LANGUAGES",
       "folder": "systems_programming_languages_core_ecosystem",
       "scope": "Systems, operating-system, kernel, compiler and low-level programming language taxonomy."
-    },
-    {
-      "id": "TRANSLITERATION",
-      "name": "TRANSLITERATION",
-      "folder": "transliteration_core_ecosystem",
-      "scope": "Programming language and developer ecosystem metadata."
     },
     {
       "id": "WEB_BACKEND_PROGRAMMING_LANGUAGES",
