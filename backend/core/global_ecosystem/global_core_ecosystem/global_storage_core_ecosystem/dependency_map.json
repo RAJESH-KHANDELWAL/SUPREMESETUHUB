@@ -1,0 +1,18 @@
+{
+  "ecosystem_id": "GLOBAL-STORAGE-CORE-ECOSYSTEM",
+  "layer": "CORE",
+  "dependencies": [],
+  "ownership": {
+    "CORE": "Provider identity, capability taxonomy, metadata policy, readiness semantics and discovery",
+    "API": "Provider authentication, SDK clients, signed requests and remote storage operations",
+    "ENGINE": "Upload, download, replication, lifecycle and restore execution orchestration",
+    "DATABASE": "Operational metadata, ownership, indexing, billing and audit records",
+    "STORAGE": "Actual object, file, block and backup data persistence"
+  },
+  "prohibited_cross_layer_responsibilities": [
+    "CORE must not store file bytes or media payloads",
+    "CORE must not execute provider API calls",
+    "CORE must not contain raw credentials or secret material",
+    "CORE readiness must not be represented as live provider health"
+  ]
+}
