@@ -61,5 +61,10 @@
     "database": "persistence, schemas and migrations",
     "runtime": "jobs, retries, queues and execution",
     "application": "sessions, consent screens and user workflows"
-  }
+  },
+  "division": {
+    "id": "HUMAN-LANGUAGES",
+    "folder": "global_human_language_core_ecosystem"
+  },
+  "provider_metadata_count": 11
 }
