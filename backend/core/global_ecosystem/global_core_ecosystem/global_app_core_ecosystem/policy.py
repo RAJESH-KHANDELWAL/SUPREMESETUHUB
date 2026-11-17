@@ -1,12 +1,13 @@
 """Safe metadata projection for Global App Core; no runtime authorization."""
 from __future__ import annotations
 
+import re
 from collections.abc import Mapping
 from typing import Any
 
 _SECRET_KEY_PARTS = (
-    "password", "secret", "token", "api_key", "apikey", "private_key",
-    "authorization", "credential", "client_secret",
+    "password", "secret", "token", "apikey", "privatekey",
+    "authorization", "credential", "clientsecret",
 )
 _PROVIDER_FIELDS = (
     "id", "name", "category", "origin", "ecosystem_kind",
@@ -15,7 +16,7 @@ _PROVIDER_FIELDS = (
 
 
 def is_secret_key(key: object) -> bool:
-    normalized = str(key).strip().lower().replace("-", "_")
+    normalized = re.sub(r"[^a-z0-9]", "", str(key).casefold())
     return any(part in normalized for part in _SECRET_KEY_PARTS)
 
 
