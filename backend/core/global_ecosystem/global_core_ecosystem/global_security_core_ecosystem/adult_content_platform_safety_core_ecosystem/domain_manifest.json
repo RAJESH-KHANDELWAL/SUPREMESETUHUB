@@ -7,5 +7,9 @@
   "layer": "CORE",
   "status": "CORE_CATALOG_ONLY",
   "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/adult_content_platform_safety_core_ecosystem",
-  "implementation_boundary": "Metadata, contracts and discovery only; enforcement belongs in separately tested API, application, identity, runtime and infrastructure layers."
+  "implementation_boundary": "Metadata, contracts and discovery only; enforcement belongs in separately tested API, application, identity, runtime and infrastructure layers.",
+  "classification_taxonomy_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/adult_media_pornography_18_plus/classification_taxonomy.json",
+  "orientation_inference_enabled": false,
+  "viewer_orientation_profiling_enabled": false,
+  "participant_configuration_separate": true
 }
