@@ -53,6 +53,23 @@ class AppDomainService:
             if payload.get("exploitation_detected") is True:
                 raise DomainValidationError("exploitation or trafficking indicators block this workflow")
             checks.append("exploitation_screen_passed")
+            classification = payload.get("content_classification")
+            if classification is not None:
+                if not isinstance(classification, Mapping):
+                    raise DomainValidationError("content_classification must be a mapping")
+                label = str(classification.get("orientation_label", "UNSPECIFIED")).strip().upper()
+                if label not in {"STRAIGHT", "GAY", "BISEXUAL", "OTHER", "UNSPECIFIED"}:
+                    raise DomainValidationError("unknown orientation content label")
+                if label != "UNSPECIFIED":
+                    if str(classification.get("classification_subject_type", "")).strip().upper() not in {"CREATOR", "PERFORMER"}:
+                        raise DomainValidationError("creator/performer classification subject required")
+                    if str(classification.get("orientation_source", "")).strip().upper() not in {"SELF_DECLARED", "AUTHORIZED_RIGHTS_HOLDER"}:
+                        raise DomainValidationError("self-declared or authorised provenance required")
+                    if classification.get("orientation_inferred") is True:
+                        raise DomainValidationError("orientation inference is prohibited")
+                if classification.get("viewer_orientation_profile") is not None:
+                    raise DomainValidationError("viewer orientation profiling is prohibited")
+                checks.append("content_classification_metadata_validated")
         if self.domain_id == "sexual_wellness_education_apps" and payload.get("privacy_controls_enabled") is not True:
             raise DomainValidationError("privacy_controls_enabled=true is required")
         if self.domain_id == "healthcare_wellness_fitness_apps" and payload.get("clinical_scope_acknowledged") is not True:
