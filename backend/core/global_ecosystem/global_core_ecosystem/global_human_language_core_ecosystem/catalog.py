@@ -23,7 +23,7 @@ HUMAN_LANGUAGE_PROVIDERS = (
     {"provider_id": "ALIBABA_LANGUAGE", "name": "ALIBABA LANGUAGE", "folder": "alibaba_language_core_ecosystem"},
     {"provider_id": "AWS_LANGUAGE", "name": "AWS LANGUAGE", "folder": "aws_language_core_ecosystem"},
     {"provider_id": "BAIDU_LANGUAGE", "name": "BAIDU LANGUAGE", "folder": "baidu_language_core_ecosystem"},
-    {"provider_id": "DEEPL_LANGUAGE", "name": "DEEPL LANGUAGE", "folder": "deepl_language_core_ecystem"},
+    {"provider_id": "DEEPL_LANGUAGE", "name": "DEEPL LANGUAGE", "folder": "deepl_language_core_ecosystem"},
     {"provider_id": "GOOGLE_LANGUAGE", "name": "GOOGLE LANGUAGE", "folder": "google_language_core_ecosystem"},
     {"provider_id": "IBM_LANGUAGE", "name": "IBM LANGUAGE", "folder": "ibm_language_core_ecosystem"},
     {"provider_id": "MICROSOFT_LANGUAGE", "name": "MICROSOFT LANGUAGE", "folder": "microsoft_language_core_ecosystem"},
