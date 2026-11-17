@@ -1,11 +1,11 @@
 {
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
   "ecosystem_id": "GLOBAL-SERVER-CORE-ECOSYSTEM",
   "parent_id": "GLOBAL-CORE-ECOSYSTEM",
   "layer": "CORE",
   "category": "SERVER",
   "canonical_path": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem",
-  "status": "CORE_CATALOG_AND_WORKLOAD_PROFILES",
+  "status": "CORE_CATALOG_AVAILABLE",
   "provider_count": 7,
   "provider_coverage_exhaustive": false,
   "providers": "catalog.json",
@@ -16,6 +16,14 @@
   "models": "models.py",
   "contracts": "contracts.py",
   "policy": "policy.py",
+  "module_service": "module_service.py",
+  "domain_catalog": "domain_catalog.py",
+  "catalog": "catalog.py",
+  "readiness_contract": "contracts.Readiness",
+  "tenant_context_contract": "contracts.TenantContext",
+  "secret_reference_contract": "contracts.SecretReference",
+  "php_core_contract": "php/GlobalServerCoreContract.php",
+  "php_scope_contract": "php/GlobalServerCoreScopeContract.php",
   "live_provider_connections_verified": false,
   "remote_operations_enabled": false,
   "api_calls_performed": 0,
@@ -30,11 +38,12 @@
     "SUPREME"
   ],
   "layer_boundaries": {
-    "core": "provider-neutral server identity, resource contracts, lifecycle policy and metadata registry",
-    "api": "HTTP routes, authentication, request and response handling",
+    "core": "provider-neutral server identity, resource contracts, lifecycle policy, provider/domain catalogs and readiness metadata",
+    "api": "HTTP routes, authentication, consent and provider API transport",
     "engine": "cloud SDKs, provider adapters, provisioning and remote execution",
     "database": "durable SQL/NoSQL persistence and migrations",
-    "storage": "object, file, backup and artifact storage"
+    "storage": "object, file, backup and artifact storage",
+    "application": "user workflows and product interfaces"
   },
   "shared_support_areas": [
     "compatibility",
@@ -55,7 +64,6 @@
   "workload_domain_catalog": "workload_domain_catalog.json",
   "service_tier_catalog": "service_tier_catalog.json",
   "scope_catalog_module": "scope_catalog.py",
-  "php_scope_contract": "php/GlobalServerCoreScopeContract.php",
   "workload_domain_count": 20,
   "workload_profile_directory_suffix": "_server_workload_profile",
   "workload_profile_file_layout": [
