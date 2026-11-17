@@ -45,7 +45,7 @@ def validate_classification_metadata(record: Mapping[str, Any]) -> dict[str, Any
     """Validate a metadata-only content record; never accepts media or viewer profiles."""
     if not isinstance(record, Mapping):
         raise TypeError("CLASSIFICATION_RECORD_MUST_BE_A_MAPPING")
-    forbidden = {"media", "media_bytes", "binary_content", "raw_media_url", "viewer_profile"}
+    forbidden = {"media", "media_bytes", "binary_content", "raw_media_url", "viewer_profile", "viewer_orientation_profile"}
     if forbidden.intersection(record):
         raise AdultContentClassificationError("MEDIA_OR_VIEWER_PROFILE_NOT_ACCEPTED")
 
@@ -56,13 +56,17 @@ def validate_classification_metadata(record: Mapping[str, Any]) -> dict[str, Any
 
     subject = str(record.get("classification_subject_type", "")).strip().upper()
     source = str(record.get("orientation_source", "")).strip().upper()
+    if record.get("orientation_inferred") is True:
+        raise AdultContentClassificationError("ORIENTATION_INFERENCE_PROHIBITED")
     if label != "UNSPECIFIED":
         if subject not in ALLOWED_SUBJECT_TYPES:
             raise AdultContentClassificationError("CREATOR_OR_PERFORMER_SUBJECT_REQUIRED")
         if source not in ALLOWED_SOURCES:
             raise AdultContentClassificationError("SELF_DECLARATION_OR_AUTHORIZED_SOURCE_REQUIRED")
-        if record.get("orientation_inferred") is True:
-            raise AdultContentClassificationError("ORIENTATION_INFERENCE_PROHIBITED")
+        if not str(record.get("consent_record_reference", "")).strip():
+            raise AdultContentClassificationError("CONSENT_RECORD_REFERENCE_REQUIRED")
+        if not str(record.get("rights_record_reference", "")).strip():
+            raise AdultContentClassificationError("RIGHTS_RECORD_REFERENCE_REQUIRED")
 
     configuration = str(
         record.get("participant_configuration", "UNSPECIFIED")
