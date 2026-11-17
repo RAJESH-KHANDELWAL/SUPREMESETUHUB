@@ -2,8 +2,9 @@
 
 from __future__ import annotations
 
-from .catalog import get_catalog, get_orientation
+from .catalog import get_catalog
 from .policy import evaluate_content_metadata
+from .taxonomy import get_orientation
 
 
 class GlobalAdultContentCoreService:
