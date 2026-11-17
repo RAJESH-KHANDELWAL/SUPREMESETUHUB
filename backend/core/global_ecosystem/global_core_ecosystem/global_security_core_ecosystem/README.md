@@ -5,8 +5,8 @@ A provider-neutral, read-only CORE control plane for security-domain taxonomy, p
 ## Canonical architecture
 
 - `ecosystem_manifest.json`: canonical identity, counts, boundaries, jurisdictional coverage and declared support areas
-- `catalog.json` + `domain_catalog.py`: 32 non-exhaustive security-domain records, each mapped to an independent domain package
-- `domains/<domain_package>/`: independent domain folder with `__init__.py`, `domain_manifest.json` and `README.md`
+- `catalog.json` + `domain_catalog.py`: 33 non-exhaustive security-domain records, each mapped to an independent domain package
+- `domains/<domain_package>/`: independent domain folder with `__init__.py` and `domain_manifest.json`
 - `provider_catalog.json` + `provider_catalog.py`: 6 non-exhaustive provider metadata records
 - `catalog.py`: canonical ecosystem registry and compatibility facade
 - `contracts.py`: tenant-context, external secret-reference and result contracts
@@ -21,7 +21,7 @@ A provider-neutral, read-only CORE control plane for security-domain taxonomy, p
 
 ## Domain coverage
 
-The 32 domain records cover identity, zero trust, endpoints, networks, cloud, applications, data privacy, cryptography, threat intelligence, incident response, vulnerabilities, GRC, resilience, supply chain, collaboration, awareness, fraud, physical/IoT/OT, age assurance, child safety, lawful adult-platform safeguards, consent and intimate-image protection, exploitation and trafficking prevention, sensitive intimate-data privacy, sexual-health information integrity, content moderation, synthetic-media abuse, jurisdictional compliance, digital wellbeing, identity impersonation, payment security, platform trust and safety, and research/evidence assurance.
+The 33 domain records cover identity, zero trust, endpoints, networks, cloud, applications, data privacy, cryptography, threat intelligence, incident response, vulnerabilities, GRC, resilience, supply chain, collaboration, awareness, fraud, physical/IoT/OT, age assurance, child safety, lawful adult-platform safeguards, consent and intimate-image protection, exploitation and trafficking prevention, sensitive intimate-data privacy, sexual-health information integrity, content moderation, synthetic-media abuse, jurisdictional compliance, digital wellbeing, identity impersonation, payment security, platform trust and safety, and research/evidence assurance.
 
 Coverage is intentionally non-exhaustive. New domains must receive a unique ID, package folder, manifest and documented owner before registration.
 
