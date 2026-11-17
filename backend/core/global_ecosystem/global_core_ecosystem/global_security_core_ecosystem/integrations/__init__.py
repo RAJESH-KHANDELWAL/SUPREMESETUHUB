@@ -1,2 +1,2 @@
-"""Security CORE integrations namespace; metadata/documentation only."""
+"""Security CORE integrations namespace; documentation and metadata only."""
 STATUS = "DOCUMENTED_NAMESPACE_ONLY"
