@@ -8,6 +8,12 @@ from .service import ServerCoreService
 from .catalog import get_catalog, get_server_core_catalog
 from .provider_catalog import get_provider_catalog, get_provider
 from .orchestrator import ServerCoreOrchestrator
+from .scope_catalog import (
+    get_geographic_scope_catalog,
+    get_workload_domain_catalog,
+    get_service_tier_catalog,
+    get_scope_catalog,
+)
 
 __all__ = [
     "LAYER", "CATEGORY", "ECOSYSTEM_NAME", "ECOSYSTEM_ID", "CAPABILITIES", "PROVIDER_DOMAINS",
@@ -16,4 +22,6 @@ __all__ = [
     "ServerLifecycleContract", "SUPPORTED_SERVER_TYPES", "SUPPORTED_ENVIRONMENTS",
     "SUPPORTED_LIFECYCLE_STATES", "get_catalog", "get_server_core_catalog",
     "get_provider_catalog", "get_provider", "ServerCoreOrchestrator",
+    "get_geographic_scope_catalog", "get_workload_domain_catalog",
+    "get_service_tier_catalog", "get_scope_catalog",
 ]
