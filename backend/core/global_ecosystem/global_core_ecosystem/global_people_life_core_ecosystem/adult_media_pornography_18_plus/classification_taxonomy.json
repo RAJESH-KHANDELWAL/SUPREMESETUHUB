@@ -1,0 +1,27 @@
+{
+  "taxonomy_version": "1.0.0",
+  "orientation_labels": [
+    "STRAIGHT",
+    "GAY",
+    "BISEXUAL",
+    "OTHER",
+    "UNSPECIFIED"
+  ],
+  "participant_configurations": [
+    "DIFFERENT_GENDER",
+    "SAME_GENDER",
+    "MULTIPLE_GENDERS",
+    "UNSPECIFIED"
+  ],
+  "allowed_sources": [
+    "SELF_DECLARED",
+    "AUTHORIZED_RIGHTS_HOLDER"
+  ],
+  "allowed_subject_types": [
+    "CREATOR",
+    "PERFORMER"
+  ],
+  "orientation_inference_enabled": false,
+  "viewer_orientation_profiling_enabled": false,
+  "orientation_is_content_metadata_only": true
+}
