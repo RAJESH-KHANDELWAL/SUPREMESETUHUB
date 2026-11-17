@@ -67,7 +67,11 @@ class AppDomainService:
                         raise DomainValidationError("self-declared or authorised provenance required")
                     if classification.get("orientation_inferred") is True:
                         raise DomainValidationError("orientation inference is prohibited")
-                if classification.get("viewer_orientation_profile") is not None:
+                    if not str(classification.get("consent_record_reference", "")).strip():
+                        raise DomainValidationError("consent record reference required")
+                    if not str(classification.get("rights_record_reference", "")).strip():
+                        raise DomainValidationError("rights record reference required")
+                if "viewer_orientation_profile" in classification or classification.get("viewer_orientation_profile") is not None:
                     raise DomainValidationError("viewer orientation profiling is prohibited")
                 checks.append("content_classification_metadata_validated")
         if self.domain_id == "sexual_wellness_education_apps" and payload.get("privacy_controls_enabled") is not True:
