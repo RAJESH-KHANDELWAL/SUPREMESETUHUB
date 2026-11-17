@@ -17,10 +17,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -36,10 +36,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -55,10 +55,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "ORIGIN_CONFIGURATION_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -74,10 +74,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -93,10 +93,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "INFRASTRUCTURE_ACCOUNT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -112,10 +112,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "DEPLOYMENT_STATUS_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -131,10 +131,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -150,10 +150,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "INFRASTRUCTURE_ACCOUNT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -169,10 +169,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "ORIGIN_CONFIGURATION_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -188,10 +188,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -207,10 +207,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -226,10 +226,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -245,10 +245,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "ORIGIN_CONFIGURATION_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -264,10 +264,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -283,10 +283,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -302,10 +302,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "ORIGIN_CONFIGURATION_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -321,10 +321,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -340,10 +340,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -359,10 +359,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -377,10 +377,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "SERVER_AND_SITE_MANAGEMENT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -396,10 +396,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -415,10 +415,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -434,10 +434,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "INFRASTRUCTURE_ACCOUNT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -453,10 +453,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -472,10 +472,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -491,10 +491,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "INFRASTRUCTURE_ACCOUNT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -510,10 +510,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -529,10 +529,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "ORIGIN_CONFIGURATION_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -548,10 +548,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "DEPLOYMENT_STATUS_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -567,10 +567,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -586,10 +586,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "DEPLOYMENT_STATUS_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -605,10 +605,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -624,10 +624,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "ORIGIN_CONFIGURATION_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -643,10 +643,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "DEPLOYMENT_STATUS_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -662,10 +662,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "DEPLOYMENT_STATUS_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -681,10 +681,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -700,10 +700,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "INFRASTRUCTURE_ACCOUNT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -719,10 +719,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -738,10 +738,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -757,10 +757,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "DEPLOYMENT_STATUS_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -776,10 +776,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "INFRASTRUCTURE_ACCOUNT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -795,10 +795,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -814,10 +814,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -833,10 +833,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -852,10 +852,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -871,10 +871,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -890,10 +890,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -909,10 +909,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -928,10 +928,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -947,10 +947,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -966,10 +966,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -985,10 +985,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1004,10 +1004,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1023,10 +1023,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "INFRASTRUCTURE_ACCOUNT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1042,10 +1042,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "INFRASTRUCTURE_ACCOUNT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1061,10 +1061,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1080,10 +1080,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1099,10 +1099,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1118,10 +1118,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1137,10 +1137,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1156,10 +1156,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1175,10 +1175,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1194,10 +1194,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "DEPLOYMENT_STATUS_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1213,10 +1213,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "INFRASTRUCTURE_ACCOUNT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1232,10 +1232,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "INFRASTRUCTURE_ACCOUNT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1251,10 +1251,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1270,10 +1270,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "INFRASTRUCTURE_ACCOUNT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1289,10 +1289,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "INFRASTRUCTURE_ACCOUNT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1308,10 +1308,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1327,10 +1327,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1346,10 +1346,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "DEPLOYMENT_STATUS_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1365,10 +1365,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "DEPLOYMENT_STATUS_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1384,10 +1384,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "INFRASTRUCTURE_ACCOUNT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1403,10 +1403,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "DEPLOYMENT_STATUS_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1422,10 +1422,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1441,10 +1441,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "INFRASTRUCTURE_ACCOUNT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1460,10 +1460,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "INFRASTRUCTURE_ACCOUNT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1479,10 +1479,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1498,10 +1498,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1517,10 +1517,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "INFRASTRUCTURE_ACCOUNT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1536,10 +1536,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1554,10 +1554,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "SERVER_AND_SITE_MANAGEMENT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1573,10 +1573,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1592,10 +1592,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "INFRASTRUCTURE_ACCOUNT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1611,10 +1611,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "DEPLOYMENT_STATUS_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1630,10 +1630,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1649,10 +1649,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "DEPLOYMENT_STATUS_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1668,10 +1668,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "DEPLOYMENT_STATUS_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1687,10 +1687,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1705,10 +1705,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "SERVER_AND_SITE_MANAGEMENT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1724,10 +1724,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "INFRASTRUCTURE_ACCOUNT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1743,10 +1743,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1762,10 +1762,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1781,10 +1781,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1800,10 +1800,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1819,10 +1819,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "DEPLOYMENT_STATUS_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1838,10 +1838,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "DEPLOYMENT_STATUS_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1857,10 +1857,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "INFRASTRUCTURE_ACCOUNT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1876,10 +1876,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1895,10 +1895,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "INFRASTRUCTURE_ACCOUNT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1914,10 +1914,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1933,10 +1933,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "DEPLOYMENT_STATUS_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1952,10 +1952,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1971,10 +1971,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -1990,10 +1990,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "INFRASTRUCTURE_ACCOUNT_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -2009,10 +2009,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "ORIGIN_CONFIGURATION_BOUNDARY"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -2028,10 +2028,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -2047,10 +2047,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -2066,10 +2066,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -2085,10 +2085,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   },
   {
@@ -2104,10 +2104,10 @@ HOSTING_PROVIDER_CATALOG: tuple[dict[str, Any], ...] = tuple([
       "BACKUP_AND_RESTORE_POLICY_REFERENCE"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "enabled": true,
-    "api_available": null,
-    "connected": false,
-    "live_connection_verified": false,
+    "enabled": True,
+    "api_available": None,
+    "connected": False,
+    "live_connection_verified": False,
     "api_calls_performed": 0
   }
 ])
