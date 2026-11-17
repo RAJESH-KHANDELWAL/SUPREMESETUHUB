@@ -48,6 +48,8 @@ def validate_content_safety_metadata(record: Mapping) -> dict:
             raise ValueError("AGE_GATE_CONFIGURATION_REQUIRED")
         if record.get("age_assurance_policy_ref") in (None, ""):
             raise ValueError("AGE_ASSURANCE_POLICY_REFERENCE_REQUIRED")
+    if record.get("orientation_inferred") is True:
+        raise ValueError("ORIENTATION_INFERENCE_PROHIBITED")
     if "orientation_label" in record:
         label = str(record.get("orientation_label", "")).strip().upper()
         if label not in ADULT_ORIENTATION_LABELS:
@@ -57,12 +59,14 @@ def validate_content_safety_metadata(record: Mapping) -> dict:
                 raise ValueError("CREATOR_OR_PERFORMER_SUBJECT_REQUIRED")
             if str(record.get("orientation_source", "")).strip().upper() not in ADULT_ORIENTATION_SOURCES:
                 raise ValueError("SELF_DECLARATION_OR_AUTHORIZED_SOURCE_REQUIRED")
-            if record.get("orientation_inferred") is True:
-                raise ValueError("ORIENTATION_INFERENCE_PROHIBITED")
+            if not str(record.get("consent_record_reference", "")).strip():
+                raise ValueError("CONSENT_RECORD_REFERENCE_REQUIRED")
+            if not str(record.get("rights_record_reference", "")).strip():
+                raise ValueError("RIGHTS_RECORD_REFERENCE_REQUIRED")
     if "participant_configuration" in record:
         if str(record.get("participant_configuration")).strip().upper() not in ADULT_PARTICIPANT_CONFIGURATIONS:
             raise ValueError("UNKNOWN_PARTICIPANT_CONFIGURATION")
-    if record.get("viewer_orientation_profile") is not None:
+    if "viewer_orientation_profile" in record or record.get("viewer_orientation_profile") is not None:
         raise ValueError("VIEWER_ORIENTATION_PROFILING_PROHIBITED")
     if record.get("intimate_content") is True and record.get("consent_review_required") is not True:
         raise ValueError("CONSENT_REVIEW_REQUIRED")
