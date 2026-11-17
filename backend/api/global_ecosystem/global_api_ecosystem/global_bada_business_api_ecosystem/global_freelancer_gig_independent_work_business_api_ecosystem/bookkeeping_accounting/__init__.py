@@ -1,0 +1,5 @@
+"""Independent Bookkeeping Accounting freelance specialization package."""
+SPECIALIZATION_ID = "bookkeeping_accounting"
+SPECIALIZATION_NAME = "Bookkeeping Accounting"
+DOMAIN_ID = "freelance_gig_independent_work"
+DESCRIPTION = "Bookkeeping and accounting operations support; regulated attestations remain with qualified professionals."

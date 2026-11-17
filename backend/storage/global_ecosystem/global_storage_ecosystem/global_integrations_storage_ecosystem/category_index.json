@@ -1,0 +1,249 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_INTEGRATIONS_STORAGE_ECOSYSTEM",
+  "source_api_ecosystem": "GLOBAL_INTEGRATIONS_API_ECOSYSTEM",
+  "category_folder_count": 30,
+  "folder_naming": "<existing_integrations_namespace>_storage_ecosystem",
+  "folders": [
+    {
+      "category": "ADULT_AGE_VERIFICATION_CONSENT_INTEGRATIONS",
+      "source_api_folder": "adult_age_verification_consent_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/adult_age_verification_consent_integrations_api_ecosystem/",
+      "folder": "adult_age_verification_consent_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/adult_age_verification_consent_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ADULT_CONTENT_DISTRIBUTION_LICENSING_INTEGRATIONS",
+      "source_api_folder": "adult_content_distribution_licensing_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/adult_content_distribution_licensing_integrations_api_ecosystem/",
+      "folder": "adult_content_distribution_licensing_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/adult_content_distribution_licensing_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ADULT_CONTENT_PRODUCTION_STUDIO_INTEGRATIONS",
+      "source_api_folder": "adult_content_production_studio_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/adult_content_production_studio_integrations_api_ecosystem/",
+      "folder": "adult_content_production_studio_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/adult_content_production_studio_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ADULT_CREATOR_BUSINESS_INTEGRATIONS",
+      "source_api_folder": "adult_creator_business_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/adult_creator_business_integrations_api_ecosystem/",
+      "folder": "adult_creator_business_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/adult_creator_business_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ADULT_ENTERTAINMENT_PLATFORM_INTEGRATIONS",
+      "source_api_folder": "adult_entertainment_platform_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/adult_entertainment_platform_integrations_api_ecosystem/",
+      "folder": "adult_entertainment_platform_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/adult_entertainment_platform_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ADULT_LEGAL_REGIONAL_COMPLIANCE_INTEGRATIONS",
+      "source_api_folder": "adult_legal_regional_compliance_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/adult_legal_regional_compliance_integrations_api_ecosystem/",
+      "folder": "adult_legal_regional_compliance_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/adult_legal_regional_compliance_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ADULT_LIVE_STREAMING_INTEGRATIONS",
+      "source_api_folder": "adult_live_streaming_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/adult_live_streaming_integrations_api_ecosystem/",
+      "folder": "adult_live_streaming_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/adult_live_streaming_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ADULT_MODERATION_SAFETY_TAKEDOWN_INTEGRATIONS",
+      "source_api_folder": "adult_moderation_safety_takedown_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/adult_moderation_safety_takedown_integrations_api_ecosystem/",
+      "folder": "adult_moderation_safety_takedown_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/adult_moderation_safety_takedown_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ADULT_PAYMENTS_PAYOUTS_INTEGRATIONS",
+      "source_api_folder": "adult_payments_payouts_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/adult_payments_payouts_integrations_api_ecosystem/",
+      "folder": "adult_payments_payouts_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/adult_payments_payouts_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ADULT_PRIVACY_SECURITY_INTEGRATIONS",
+      "source_api_folder": "adult_privacy_security_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/adult_privacy_security_integrations_api_ecosystem/",
+      "folder": "adult_privacy_security_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/adult_privacy_security_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "AI_ML_DATA_INTEGRATIONS",
+      "source_api_folder": "ai_ml_data_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/ai_ml_data_integrations_api_ecosystem/",
+      "folder": "ai_ml_data_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/ai_ml_data_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "APPLE_INTEGRATIONS",
+      "source_api_folder": "apple_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/apple_integrations_api_ecosystem/",
+      "folder": "apple_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/apple_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "AUTOMATION_WORKFLOW_INTEGRATIONS",
+      "source_api_folder": "automation_workflow_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/automation_workflow_integrations_api_ecosystem/",
+      "folder": "automation_workflow_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/automation_workflow_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "AWS_INTEGRATIONS",
+      "source_api_folder": "aws_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/aws_integrations_api_ecosystem/",
+      "folder": "aws_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/aws_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BUSINESS_ENTERPRISE_INTEGRATIONS",
+      "source_api_folder": "business_enterprise_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/business_enterprise_integrations_api_ecosystem/",
+      "folder": "business_enterprise_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/business_enterprise_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "COMMERCE_MARKETPLACE_INTEGRATIONS",
+      "source_api_folder": "commerce_marketplace_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/commerce_marketplace_integrations_api_ecosystem/",
+      "folder": "commerce_marketplace_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/commerce_marketplace_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "COMMUNICATION_SOCIAL_MEDIA_INTEGRATIONS",
+      "source_api_folder": "communication_social_media_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/communication_social_media_integrations_api_ecosystem/",
+      "folder": "communication_social_media_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/communication_social_media_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DATABASE_STORAGE_INTEGRATIONS",
+      "source_api_folder": "database_storage_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/database_storage_integrations_api_ecosystem/",
+      "folder": "database_storage_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/database_storage_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DATING_RELATIONSHIPS_INTEGRATIONS",
+      "source_api_folder": "dating_relationships_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/dating_relationships_integrations_api_ecosystem/",
+      "folder": "dating_relationships_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/dating_relationships_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DEVELOPER_API_INTEGRATIONS",
+      "source_api_folder": "developer_api_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/developer_api_integrations_api_ecosystem/",
+      "folder": "developer_api_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/developer_api_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "GLOBAL_CLOUD_INTEGRATIONS",
+      "source_api_folder": "global_cloud_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/global_cloud_integrations_api_ecosystem/",
+      "folder": "global_cloud_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/global_cloud_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "GOOGLE_INTEGRATIONS",
+      "source_api_folder": "google_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/google_integrations_api_ecosystem/",
+      "folder": "google_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/google_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "IDENTITY_AUTHENTICATION_INTEGRATIONS",
+      "source_api_folder": "identity_authentication_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/identity_authentication_integrations_api_ecosystem/",
+      "folder": "identity_authentication_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/identity_authentication_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "INDIA_INTEGRATIONS",
+      "source_api_folder": "india_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/india_integrations_api_ecosystem/",
+      "folder": "india_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/india_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "INDIVIDUAL_PERSONAL_INTEGRATIONS",
+      "source_api_folder": "individual_personal_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/individual_personal_integrations_api_ecosystem/",
+      "folder": "individual_personal_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/individual_personal_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "INTEGRATION_TIERS_NORMAL_TO_SUPREME",
+      "source_api_folder": "integration_tiers_normal_to_supreme_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/integration_tiers_normal_to_supreme_api_ecosystem/",
+      "folder": "integration_tiers_normal_to_supreme_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/integration_tiers_normal_to_supreme_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MICROSOFT_INTEGRATIONS",
+      "source_api_folder": "microsoft_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/microsoft_integrations_api_ecosystem/",
+      "folder": "microsoft_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/microsoft_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PAYMENTS_BANKING_FINANCE_INTEGRATIONS",
+      "source_api_folder": "payments_banking_finance_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/payments_banking_finance_integrations_api_ecosystem/",
+      "folder": "payments_banking_finance_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/payments_banking_finance_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SECURITY_PRIVACY_COMPLIANCE_INTEGRATIONS",
+      "source_api_folder": "security_privacy_compliance_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/security_privacy_compliance_integrations_api_ecosystem/",
+      "folder": "security_privacy_compliance_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/security_privacy_compliance_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SEXUAL_WELLNESS_EDUCATION_INTEGRATIONS",
+      "source_api_folder": "sexual_wellness_education_integrations_api_ecosystem",
+      "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/sexual_wellness_education_integrations_api_ecosystem/",
+      "folder": "sexual_wellness_education_integrations_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_integrations_storage_ecosystem/sexual_wellness_education_integrations_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "provider": "github",
+  "layer": "CORE",
+  "family": "checks",
+  "family_name": "Checks",
+  "scope": "Check runs, check suites and commit status reporting",
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/github_api_ecosystem/github_checks_api_ecosystem",
+  "shared_api_transport_ref": "backend/integration/provider/github.py",
+  "status": "CORE_CATALOG_ONLY",
+  "live_provider_calls_enabled": false
+}

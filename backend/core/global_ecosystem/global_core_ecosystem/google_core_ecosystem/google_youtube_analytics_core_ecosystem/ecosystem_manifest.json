@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "provider": "google",
+  "product_id": "youtube_analytics",
+  "product_name": "YouTube Analytics",
+  "category": "VIDEO_ANALYTICS",
+  "api": "YouTube Analytics API",
+  "integration_mode": "USER_OAUTH",
+  "availability": "API_AVAILABLE",
+  "authentication": {
+    "method": "Product-specific authentication; verify before enabling",
+    "scopes": [
+      "https://www.googleapis.com/auth/yt-analytics.readonly"
+    ]
+  },
+  "live_connection": false,
+  "layer_boundaries": {
+    "core": "identity, capability metadata, lifecycle, policy and readiness",
+    "api": "OAuth, SDK and HTTP transport",
+    "storage": "durable files and records",
+    "database": "persistence and migrations",
+    "runtime": "jobs and queues",
+    "application": "sessions, consent and UI"
+  }
+}

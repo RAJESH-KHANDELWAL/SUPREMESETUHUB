@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "AWS_SNOW_FAMILY_STORAGE_ECOSYSTEM",
+  "package_name": "aws_snow_family_storage_ecosystem",
+  "provider": "AWS",
+  "category": "SNOW_FAMILY",
+  "category_group": "HYBRID_AND_EDGE_STORAGE",
+  "display_name": "AWS Snow Family",
+  "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+  "connection_state": "NOT_CONFIGURED",
+  "provider_product_verified": false,
+  "storage_operations_enabled": false,
+  "requires_authorized_integration": true,
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true,
+  "geographic_scope": [
+    "BHARAT",
+    "GLOBAL"
+  ],
+  "security_baseline": [
+    "LEAST_PRIVILEGE",
+    "ENCRYPTION",
+    "AUDIT_LOGGING",
+    "RETENTION_CONTROLS"
+  ],
+  "purpose": "Offline and edge data transfer device/job metadata, shipment lifecycle and import/export classification.",
+  "notes": "Category-specific foundation scaffold. No live AWS integration is implied."
+}

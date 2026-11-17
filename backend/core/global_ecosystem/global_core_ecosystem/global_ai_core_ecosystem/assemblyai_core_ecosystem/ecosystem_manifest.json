@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "AI-ASSEMBLYAI-CORE-ECOSYSTEM",
+  "provider_id": "assemblyai",
+  "provider_name": "AssemblyAI",
+  "parent_id": "GLOBAL-AI-CORE-ECOSYSTEM",
+  "layer": "GLOBAL_AI_PRODUCT_CORE",
+  "runtime_catalog_ref": "backend/global_ecosystem/global_ai_ecosystem/providers.py",
+  "runtime_package_ref": "backend/global_ecosystem/global_ai_ecosystem/assemblyai_ecosystem",
+  "api_catalog_ref": null,
+  "folders": [
+    "authentication",
+    "capabilities",
+    "docs",
+    "events",
+    "lifecycle",
+    "models",
+    "schemas",
+    "security",
+    "services",
+    "tests"
+  ],
+  "status": "DYNAMICALLY_REGISTERED_NOT_LIVE_VERIFIED",
+  "live_connection_verified": false,
+  "api_calls_performed": 0
+}

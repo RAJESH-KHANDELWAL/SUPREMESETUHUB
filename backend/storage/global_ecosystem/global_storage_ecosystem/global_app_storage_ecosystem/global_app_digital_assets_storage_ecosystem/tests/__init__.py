@@ -1,0 +1,1 @@
+"""Offline tests for GLOBAL_APP_DIGITAL_ASSETS_STORAGE_ECOSYSTEM."""

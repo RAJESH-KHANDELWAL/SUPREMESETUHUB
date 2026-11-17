@@ -1,0 +1,23 @@
+{
+  "ecosystem_id": "ADOBE-ADOBE-STOCK-CORE-ECOSYSTEM",
+  "provider": "adobe",
+  "product_key": "adobe_stock",
+  "name": "Adobe Stock",
+  "description": "Stock asset discovery, licensing, attribution and asset management.",
+  "layer": "core",
+  "package_status": "SCAFFOLDED",
+  "directories": [
+    "authentication",
+    "capabilities",
+    "docs",
+    "events",
+    "lifecycle",
+    "models",
+    "schemas",
+    "security",
+    "services",
+    "tests"
+  ],
+  "live_connection_verified": false,
+  "credentials_configured": false
+}

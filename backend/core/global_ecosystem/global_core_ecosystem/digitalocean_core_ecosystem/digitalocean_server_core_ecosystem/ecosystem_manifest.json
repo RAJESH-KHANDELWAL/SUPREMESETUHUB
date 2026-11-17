@@ -1,0 +1,9 @@
+{
+  "provider": "digitalocean",
+  "layer": "CORE",
+  "capability": "server",
+  "scope": "Droplet and server lifecycle, monitoring and administration",
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/digitalocean_api_ecosystem/digitalocean_server_api_ecosystem",
+  "status": "CONTRACT_ONLY",
+  "live_provider_calls_enabled": false
+}

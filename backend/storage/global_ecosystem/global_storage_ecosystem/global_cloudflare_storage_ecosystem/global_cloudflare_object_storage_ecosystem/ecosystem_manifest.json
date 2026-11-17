@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_CLOUDFLARE_OBJECT_STORAGE_ECOSYSTEM",
+  "package_id": "global_cloudflare_object_storage_ecosystem",
+  "title": "OBJECT — GLOBAL CLOUDFLARE STORAGE ECOSYSTEM",
+  "provider_id": "CLOUDFLARE",
+  "category_id": "OBJECT",
+  "implementation_state": "FOUNDATION_READY",
+  "connection_state": "NOT_CONFIGURED",
+  "provider_product_verified": false,
+  "external_connections_verified": false,
+  "storage_operations_enabled": false,
+  "requires_authorized_credentials": true,
+  "secret_source": "EXTERNAL_SECRET_MANAGER",
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true
+}

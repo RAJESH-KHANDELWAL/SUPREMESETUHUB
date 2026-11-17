@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "SERVER-WORKLOAD-BANKING_FINANCE_INSURANCE",
+  "domain_id": "BANKING_FINANCE_INSURANCE",
+  "label": "Banking, Finance and Insurance",
+  "risk_profile": "HIGH_COMPLIANCE",
+  "scope": "SERVER_REQUIREMENTS_METADATA_ONLY",
+  "geography_catalog": "../geographic_scope_catalog.json",
+  "service_tier_catalog": "../service_tier_catalog.json",
+  "service_tiers": [
+    "NORMAL",
+    "BASIC",
+    "STANDARD",
+    "PREMIUM",
+    "PROFESSIONAL",
+    "ENTERPRISE",
+    "SUPREME"
+  ],
+  "required_control_areas": [
+    "financial_data_confidentiality",
+    "transaction_integrity",
+    "strong_access_control",
+    "regulatory_auditability"
+  ],
+  "layer_boundary": {
+    "core": "classification and provider-neutral requirements metadata only",
+    "api": "authentication, authorization, transport and request handling",
+    "engine": "provider adapters and execution",
+    "database": "durable persistence and migrations",
+    "storage": "files, objects, backups and artifacts"
+  },
+  "operational_status": "NON_EXECUTING_PROFILE",
+  "note": "No provisioning, legal approval or production operation is performed by this profile."
+}

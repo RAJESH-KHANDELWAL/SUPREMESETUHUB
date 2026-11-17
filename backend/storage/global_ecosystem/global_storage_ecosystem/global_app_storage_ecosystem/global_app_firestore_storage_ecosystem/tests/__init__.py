@@ -1,0 +1,1 @@
+"""Offline tests for GLOBAL_APP_FIRESTORE_STORAGE_ECOSYSTEM."""
