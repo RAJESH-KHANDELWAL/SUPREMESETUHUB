@@ -73,7 +73,10 @@ DOMAIN_CATALOG = {
         "adult media distribution",
         "adult creator economy",
         "age assurance",
-        "content licensing and moderation"
+        "content licensing and moderation",
+        "optional content labels: Straight, Gay and Bisexual",
+        "content-label provenance and privacy controls",
+        "separate participant-configuration metadata"
     ],
     "adult_media_creators": [
         "adult creator platforms",
