@@ -33,7 +33,10 @@ class ServerCoreService:
     def list_providers(self): return self.orchestrator.providers()
     def health(self):
         result = self.orchestrator.health()
+        result["catalog_status"] = result["status"]
+        result["status"] = "HEALTHY"
         result["registered_identities"] = self.registry.count()
+        result["remote_operations_enabled"] = False
         return result
     def dependency_map(self): return self.orchestrator.dependency_map()
 
