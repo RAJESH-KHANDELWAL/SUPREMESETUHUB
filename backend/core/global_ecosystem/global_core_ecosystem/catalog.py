@@ -1211,6 +1211,32 @@ def get_catalog() -> list[dict[str, Any]]:
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
         "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_programming_language_core_ecosystem", "division_layout": "INDEPENDENT_SIBLING_ECOSYSTEM", "status": "CORE_CATALOG_ONLY", "division": "PROGRAMMING-LANGUAGES", "programming_language_coverage_exhaustive": False, "live_provider_connections_verified": False},
     }
+    people_life_core = {
+        "ecosystem_id": "GLOBAL-PEOPLE-LIFE-CORE-ECOSYSTEM",
+        "name": "GLOBAL PEOPLE LIFE CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": [
+            "PEOPLE_LIFE_DOMAIN_REGISTRY",
+            "LIFE_STAGE_AND_SERVICE_DISCOVERY",
+            "PRIVACY_AND_SAFETY_POLICY_METADATA",
+            "AGE_AND_CONSENT_POLICY_BOUNDARY",
+            "WORK_FAMILY_AND_WELLBEING_TAXONOMY",
+            "NORMAL_TO_SUPREME_SERVICE_TIERS",
+        ],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem",
+            "division_layout": "INDEPENDENT_SIBLING_ECOSYSTEM",
+            "status": "CORE_CATALOG_ONLY",
+            "division": "PEOPLE-LIFE",
+            "people_life_domain_count": 28,
+            "age_restricted_domain_count": 11,
+            "domain_coverage_exhaustive": False,
+            "live_service_connections_verified": False,
+            "adult_content_age_verification_required": True,
+            "adult_content_consent_and_rights_required": True,
+        },
+    }
     records = [
         ROOT,
         *CATEGORIES,
@@ -1218,6 +1244,7 @@ def get_catalog() -> list[dict[str, Any]]:
         integrations_core,
         human_language_core,
         programming_language_core,
+        people_life_core,
         *PERSONAL_REGISTRATIONS,
         *COMPANY_REGISTRATIONS,
     ]
