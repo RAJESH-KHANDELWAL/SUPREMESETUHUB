@@ -34,6 +34,8 @@ class AdultMediaTaxonomyTests(unittest.TestCase):
             "orientation_source": "SELF_DECLARED",
             "classification_subject_type": "PERFORMER",
             "participant_configuration": "MULTIPLE_GENDERS",
+            "consent_record_reference": "consent:opaque-001",
+            "rights_record_reference": "rights:opaque-001",
         })
         self.assertEqual(record["orientation_label"], "BISEXUAL")
         self.assertFalse(record["orientation_inferred"])
@@ -44,6 +46,8 @@ class AdultMediaTaxonomyTests(unittest.TestCase):
             "orientation_source": "SELF_DECLARED",
             "classification_subject_type": "CREATOR",
             "participant_configuration": "SAME_GENDER",
+            "consent_record_reference": "consent:opaque-002",
+            "rights_record_reference": "rights:opaque-002",
         })
         self.assertEqual(record["participant_configuration"], "SAME_GENDER")
 
@@ -53,6 +57,8 @@ class AdultMediaTaxonomyTests(unittest.TestCase):
                 "orientation_label": "GAY",
                 "orientation_source": "SELF_DECLARED",
                 "classification_subject_type": "PERFORMER",
+                "consent_record_reference": "consent:opaque-004",
+                "rights_record_reference": "rights:opaque-004",
                 "orientation_inferred": True,
             })
 
@@ -69,6 +75,8 @@ class AdultMediaTaxonomyTests(unittest.TestCase):
             "orientation_label": "STRAIGHT",
             "orientation_source": "SELF_DECLARED",
             "classification_subject_type": "CREATOR",
+            "consent_record_reference": "consent:opaque-003",
+            "rights_record_reference": "rights:opaque-003",
         })
         self.assertEqual(record["orientation_label"], "STRAIGHT")
 
@@ -81,6 +89,8 @@ class AdultMediaTaxonomyTests(unittest.TestCase):
                 "orientation_label": "GAY",
                 "orientation_source": "SELF_DECLARED",
                 "classification_subject_type": "PERFORMER",
+                "consent_record_reference": "consent:opaque-006",
+                "rights_record_reference": "rights:opaque-006",
                 "orientation_inferred": True,
             })
 
@@ -104,6 +114,8 @@ class AdultMediaTaxonomyTests(unittest.TestCase):
                 "orientation_label": "GAY",
                 "orientation_source": "SELF_DECLARED",
                 "classification_subject_type": "PERFORMER",
+                "consent_record_reference": "consent:opaque-007",
+                "rights_record_reference": "rights:opaque-007",
                 "orientation_inferred": True,
             },
         }
