@@ -242,6 +242,21 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "capabilities": ["SERVER_LIFECYCLE", "HEALTH_CHECKS", "DEPLOYMENT_COORDINATION"],
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
     },
+    {
+        "ecosystem_id": "GLOBAL-SOCIAL-MEDIA-CORE-ECOSYSTEM",
+        "name": "GLOBAL SOCIAL MEDIA CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["SOCIAL_PLATFORM_REGISTRY", "PLATFORM_DISCOVERY", "TENANT_POLICY_METADATA", "LIFECYCLE_AND_READINESS"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_catalog": "backend/core/global_ecosystem/global_core_ecosystem/global_social_media_core_ecosystem",
+            "api_catalog": "backend/api/global_ecosystem/global_api_ecosystem/global_social_media_api_ecosystem",
+            "provider_count": 112,
+            "platform_package_count": 113,
+            "status": "CORE_CATALOG_ONLY",
+            "live_connection_verified": false,
+        },
+    },
 
     {
         "ecosystem_id": "STRIPE-CORE-ECOSYSTEM",
