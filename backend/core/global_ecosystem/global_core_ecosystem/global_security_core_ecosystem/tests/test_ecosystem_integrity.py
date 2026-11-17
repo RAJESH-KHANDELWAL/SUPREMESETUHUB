@@ -108,3 +108,41 @@ def test_policy_redacts_common_secret_and_personal_data_key_variants():
         "display_name": "visible",
         "nested": {"region": "visible"},
     }
+
+
+def test_jurisdiction_profiles_are_separate_and_review_gated():
+    india = json.loads((ROOT / "jurisdictions/india/jurisdiction_manifest.json").read_text(encoding="utf-8"))
+    global_profile = json.loads((ROOT / "jurisdictions/global/jurisdiction_manifest.json").read_text(encoding="utf-8"))
+    assert india["jurisdiction_id"] == "IN"
+    assert india["status"] == "PROFILE_METADATA_ONLY"
+    assert india["source_review_required"] is True
+    assert global_profile["jurisdiction_id"] == "GLOBAL"
+    assert global_profile["country_profiles_required"] is True
+    assert global_profile["legal_register_status"] == "NO_UNIVERSAL_GLOBAL_LAW_ASSUMED"
+
+
+def test_adult_and_sensitive_content_safety_metadata_boundaries():
+    from backend.core.global_ecosystem.global_core_ecosystem.global_security_core_ecosystem.content_safety_policy import (
+        content_safety_baseline,
+        validate_content_safety_metadata,
+    )
+    baseline = content_safety_baseline()
+    assert baseline["adult_restricted_access_requires_age_assurance"] is True
+    assert baseline["non_consensual_intimate_imagery_prohibited"] is True
+    assert baseline["media_storage_or_generation_in_core"] is False
+
+    assert validate_content_safety_metadata({
+        "content_class": "AGE_RESTRICTED_ADULT",
+        "age_gate_configured": True,
+        "age_assurance_policy_ref": "AGE-ASSURANCE-POLICY",
+    })["accepted"] is True
+
+    import pytest
+    with pytest.raises(ValueError, match="PROHIBITED_CONTENT_CLASS"):
+        validate_content_safety_metadata({"content_class": "CHILD_SEXUAL_ABUSE_MATERIAL"})
+    with pytest.raises(ValueError, match="PROHIBITED_CONTENT_CLASS"):
+        validate_content_safety_metadata({"content_class": "NON_CONSENSUAL_INTIMATE_IMAGERY"})
+    with pytest.raises(ValueError, match="AGE_GATE_CONFIGURATION_REQUIRED"):
+        validate_content_safety_metadata({"content_class": "AGE_RESTRICTED_ADULT"})
+    with pytest.raises(ValueError, match="MEDIA_PAYLOADS_NOT_ACCEPTED"):
+        validate_content_safety_metadata({"content_class": "GENERAL", "media_bytes": b"not accepted"})
