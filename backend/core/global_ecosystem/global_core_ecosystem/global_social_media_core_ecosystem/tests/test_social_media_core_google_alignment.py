@@ -25,7 +25,12 @@ def test_catalog_service_is_metadata_only():
     assert result["api_transport_in_core"] is False
 
 def test_platform_lookup_is_stable_and_disconnected():
-    assert get_platform("instagram")["name"] == "Instagram"
+    assert get_platform(" instagram ")["name"] == "Instagram"
+    import pytest
+    with pytest.raises(LookupError, match="PLATFORM_ID_REQUIRED"):
+        get_platform(" ")
+    with pytest.raises(LookupError, match="PLATFORM_ID_REQUIRED"):
+        get_platform(None)
     status = GlobalSocialMediaCoreService().platform_service("instagram").status()
     assert status["connected"] is False
     assert status["api_call_performed"] is False
