@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "ecosystem_id": "GLOBAL-HUMAN-LANGUAGE-CORE-ECOSYSTEM",
+  "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+  "layer": "CORE",
+  "category": "HUMAN_LANGUAGE",
+  "status": "CORE_CATALOG_ONLY",
+  "division": {
+    "id": "HUMAN-LANGUAGES",
+    "folder": "global_human_language_core_ecosystem"
+  },
+  "domain_count": 22,
+  "provider_metadata_count": 11,
+  "service_tiers": ["NORMAL", "BASIC", "STANDARD", "PREMIUM", "PROFESSIONAL", "ENTERPRISE", "SUPREME"],
+  "human_language_coverage_exhaustive": false,
+  "live_provider_connections_verified": false,
+  "adult_content_scope": "LAWFUL_CONSENTING_ADULTS_ONLY",
+  "adult_content_age_verification_required": true,
+  "adult_content_consent_and_rights_required": true,
+  "adult_content_moderation_required": true,
+  "prohibited_adult_content": [
+    "sexual content involving minors",
+    "non-consensual intimate imagery",
+    "coercion",
+    "trafficking",
+    "exploitation",
+    "illegal sexual content"
+  ]
+}
