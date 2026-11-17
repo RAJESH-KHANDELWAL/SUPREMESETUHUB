@@ -38,6 +38,7 @@ class GlobalAppCoreContractTests(unittest.TestCase):
         value = {"name": "Google", "nested": {"api_key": "do-not-return", "ok": True}}
         safe = redact_secrets(value)
         self.assertEqual(safe, {"name": "Google", "nested": {"ok": True}})
+        self.assertEqual(redact_secrets({"accessToken": "hidden", "api-key": "hidden", "label": "safe"}), {"label": "safe"})
 
     def test_provider_snapshot_is_allow_listed(self):
         safe = safe_provider_snapshot({
