@@ -48,7 +48,7 @@ def test_catalog_is_read_only_and_redacts_secrets():
 
 def test_global_division_folders_are_direct_siblings_of_shared_package():
     core_root = Path(__file__).resolve().parents[1] / "core" / "global_ecosystem" / "global_core_ecosystem"
-    assert (core_root / "GLOBAL_HUMAN_LANGUAGE_CORE_ECOSYSTEM").is_dir()
-    assert (core_root / "GLOBAL_PROGRAMMING_LANGUAGES_CORE_ECOSYSTEM").is_dir()
+    assert (core_root / "global_human_language_core_ecosystem").is_dir()
+    assert (core_root / "global_programming_language_core_ecosystem").is_dir()
     assert not (core_root / "global_language_core_ecosystem" / "human_languages_core_ecosystem").exists()
     assert not (core_root / "global_language_core_ecosystem" / "programming_languages_core_ecosystem").exists()
