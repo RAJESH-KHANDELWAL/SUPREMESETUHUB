@@ -44,13 +44,6 @@
       "scope": "Locale, regional formatting, localization and internationalization metadata for human languages."
     },
     {
-      "id": "META_LANGUAGE",
-      "name": "META LANGUAGE",
-      "folder": "meta_language_core_ecosystem",
-      "age_restricted": false,
-      "scope": "Language description, grammar, syntax notation, metamodel and language-about-language concepts across both divisions."
-    },
-    {
       "id": "OCR_DOCUMENT_LANGUAGE",
       "name": "OCR DOCUMENT LANGUAGE",
       "folder": "ocr_document_language_core_ecosystem",

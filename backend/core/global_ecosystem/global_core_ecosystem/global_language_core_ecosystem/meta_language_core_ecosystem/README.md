@@ -1,9 +1,7 @@
 # META LANGUAGE CORE ECOSYSTEM
 
-Language description, grammar, syntax notation, metamodel and language-about-language concepts across both divisions.
+Cross-cutting language-description, grammar, syntax notation and metamodel concepts shared by human-language and programming-language domains.
 
-**Canonical division:** HUMAN LANGUAGES CORE ECOSYSTEM.
+Canonical overview: [GLOBAL LANGUAGE CORE ECOSYSTEM](../README.md). This directory remains in place for compatibility.
 
-This existing top-level directory is preserved as a compatibility entry. The organized domain documentation is maintained in `./human_languages_core_ecosystem/meta_language_core_ecosystem/README.md`. No existing path is deleted by this foundation.
-
-Status: `CORE_CATALOG_ONLY`; no live provider connection or full language implementation is implied.
+Status: `CORE_CATALOG_ONLY`.

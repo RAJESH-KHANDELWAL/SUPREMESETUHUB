@@ -10,6 +10,10 @@ def test_two_separate_language_divisions_exist():
     assert len(get_domains("HUMAN"))>0
     assert len(get_domains("PROGRAMMING"))>0
 
+def test_catalog_domain_ids_are_unique():
+    ids=[x["id"] for x in get_catalog()["domains"]]
+    assert len(ids)==len(set(ids))
+
 def test_programming_language_group_is_separate():
     assert get_domain("GLOBAL_PROGRAMMING_LANGUAGES") is not None
     assert get_domain("PYTHON") is None  # individual language records are a later catalog population task
