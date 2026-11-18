@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "provider_id": "cohere_developer",
+  "ecosystem_id": "GLOBAL-DEVELOPER-COHERE-DEVELOPER-CORE-ECOSYSTEM",
+  "name": "COHERE DEVELOPER CORE ECOSYSTEM",
+  "layer": "CORE",
+  "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_developer_api_ecosystem/cohere_developer_api_ecosystem",
+  "status": "CORE_CATALOG_ONLY",
+  "connected": false,
+  "live_connection_verified": false,
+  "api_available": null,
+  "capabilities": [
+    "PROVIDER_DISCOVERY",
+    "CAPABILITY_METADATA",
+    "LIFECYCLE_METADATA"
+  ],
+  "folders": [
+    "authentication",
+    "capabilities",
+    "docs",
+    "events",
+    "lifecycle",
+    "models",
+    "schemas",
+    "security",
+    "services",
+    "tests"
+  ],
+  "security": {
+    "credentials_stored": false,
+    "external_calls_enabled": false,
+    "adult_only_features_default_enabled": false
+  }
+}

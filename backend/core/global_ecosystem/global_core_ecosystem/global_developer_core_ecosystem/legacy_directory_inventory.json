@@ -1,0 +1,43 @@
+{
+  "audited_on": "2026-11-16",
+  "source_branch": "main",
+  "existing_root_directory_count": 32,
+  "provider_directories": [
+    "adult_creator_business_core_ecosystem",
+    "adult_platform_discovery_core_ecosystem",
+    "age_verification_consent_core_ecosystem",
+    "ai_ml_data_core_ecosystem",
+    "anthropic_developer_core_ecosystem",
+    "apple_developer_core_ecosystem",
+    "atlassian_developer_core_ecosystem",
+    "aws_developer_core_ecosystem",
+    "blockchain_web3_core_ecosystem",
+    "cohere_developer_core_ecosystem",
+    "content_moderation_safety_core_ecosystem",
+    "database_storage_core_ecosystem",
+    "dating_relationships_core_ecosystem",
+    "deepseek_developer_core_ecosystem",
+    "developer_security_compliance_core_ecosystem",
+    "github_developer_core_ecosystem",
+    "global_cloud_infrastructure_core_ecosystem",
+    "google_developer_core_ecosystem",
+    "huggingface_developer_core_ecosystem",
+    "identity_authentication_core_ecosystem",
+    "india_developer_platform_core_ecosystem",
+    "microsoft_developer_core_ecosystem",
+    "mistral_developer_core_ecosystem",
+    "no_code_automation_core_ecosystem",
+    "nvidia_developer_core_ecosystem",
+    "openai_developer_core_ecosystem",
+    "payments_billing_core_ecosystem",
+    "sexual_wellness_education_core_ecosystem",
+    "testing_observability_core_ecosystem"
+  ],
+  "preserved_support_directories": [
+    "integrations",
+    "services",
+    "tools"
+  ],
+  "deleted_paths": [],
+  "renamed_paths": []
+}

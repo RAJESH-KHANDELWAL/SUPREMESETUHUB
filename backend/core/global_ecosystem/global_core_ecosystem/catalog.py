@@ -194,6 +194,19 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
     },
     {
+        "ecosystem_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
+        "name": "GLOBAL DEVELOPER CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["DEVELOPER_PROVIDER_REGISTRY", "CAPABILITY_METADATA", "LIFECYCLE_AND_READINESS", "DOMAIN_DISCOVERY"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_catalog": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem",
+            "api_catalog": "backend/api/global_ecosystem/global_api_ecosystem/global_developer_api_ecosystem",
+            "status": "CORE_CATALOG_ONLY",
+            "live_connection_verified": False,
+        },
+    },
+    {
         "ecosystem_id": "GLOBAL-SEARCH-CORE-ECOSYSTEM",
         "name": "GLOBAL SEARCH CORE ECOSYSTEM",
         "ecosystem_type": "CORE_SERVICE",
