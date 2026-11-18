@@ -1,0 +1,13 @@
+{
+  "ecosystem_id": "GLOBAL-SOFTWARE-CORE-ECOSYSTEM",
+  "name": "GLOBAL SOFTWARE CORE ECOSYSTEM",
+  "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+  "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem",
+  "status": "CORE_CATALOG_ONLY",
+  "provider_coverage_exhaustive": false,
+  "live_provider_connections_verified": false,
+  "execution_enabled": false,
+  "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+  "initial_provider_ids": ["adobe", "apple", "aws", "github", "atlassian", "microsoft"],
+  "shared_extension_points": ["integrations", "services", "tools"]
+}
