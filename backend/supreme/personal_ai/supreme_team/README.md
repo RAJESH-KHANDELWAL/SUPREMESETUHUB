@@ -18,3 +18,12 @@ Each designation has its own package. The four owner profiles remain separate id
 ## Governance
 
 This directory defines identity and role structure only. It does not grant operational permissions, financial authority, or access to secrets. Those must be enforced by the existing authorization and permissions layers.
+
+## Operating governance
+
+- [Governance charter](GOVERNANCE_CHARTER.md)
+- [Owner approval and change control](OWNER_APPROVAL_AND_CHANGE_CONTROL.md)
+- [Daily Owner reporting standard](DAILY_OWNER_REPORTING_STANDARD.md)
+- [Role accountability matrix](ROLE_ACCOUNTABILITY_MATRIX.md)
+
+CMD is the highest delegated operational authority and reports to the Owner. Owner approval is mandatory for protected rename, move, delete, overwrite, merge, deployment, structural, access-control, and other reserved changes. Daily reports must include exact before/after locations and evidence for every verified movement or change.
