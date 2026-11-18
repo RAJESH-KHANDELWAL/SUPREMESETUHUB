@@ -3,13 +3,14 @@ from __future__ import annotations
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel, Field
 from backend.core.global_ecosystem.global_core_ecosystem.cultural_knowledge_core_ecosystem.service import CulturalKnowledgeCoreService
+from backend.global_ecosystem.global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem import CULTURAL_DOMAINS
 from backend.engine.global_ecosystem.global_engine_ecosystem.cultural_knowledge_engine_ecosystem.manager import CulturalKnowledgeEngineManager
 from backend.ai.cultural_knowledge_assistant import CulturalKnowledgeAssistant
 from backend.database.cultural_knowledge_repository import CulturalKnowledgeRepository
 
 router = APIRouter(prefix="/api/v1/global-cultural-knowledge", tags=["GLOBAL CULTURAL KNOWLEDGE"])
 core = CulturalKnowledgeCoreService()
-engine = CulturalKnowledgeEngineManager(core=core)
+engine = CulturalKnowledgeEngineManager(core=core, domains=CULTURAL_DOMAINS)
 assistant = CulturalKnowledgeAssistant(engine=engine)
 repository = CulturalKnowledgeRepository()
 
