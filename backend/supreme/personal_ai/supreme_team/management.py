@@ -354,6 +354,63 @@ class SupremeTeamManagement:
             reports.append(item)
         return reports
 
+    def consolidated_daily_report(
+        self, actor: Actor, *, report_date: str,
+    ) -> dict[str, Any]:
+        """Consolidate department submissions without inventing missing data."""
+        self._actor(actor)
+        if actor.role not in {OWNER, "CMD"}:
+            raise PermissionError("CMD_OR_OWNER_REPORT_ACCESS_REQUIRED")
+        if not report_date or not report_date.strip():
+            raise ValueError("REPORT_DATE_REQUIRED")
+        rows = self.database.fetchall(
+            """SELECT * FROM supreme_team_daily_reports
+            WHERE report_date = ? ORDER BY department, created_at""",
+            (report_date,),
+        )
+        submissions = []
+        for row in rows:
+            item = dict(row)
+            item["report"] = json.loads(item["report"])
+            submissions.append(item)
+        changes = []
+        blockers = []
+        risks = []
+        decisions = []
+        completed = []
+        in_progress = []
+        for item in submissions:
+            report = item["report"]
+            for key, target in (
+                ("verified_changes", changes),
+                ("blocked", blockers),
+                ("risks", risks),
+                ("decisions_required", decisions),
+                ("completed", completed),
+                ("in_progress", in_progress),
+            ):
+                values = report.get(key, [])
+                if isinstance(values, list):
+                    target.extend({
+                        "department": item["department"],
+                        "submitted_by": item["submitted_by"],
+                        "item": value,
+                    } for value in values)
+        return {
+            "report_date": report_date,
+            "status": "CONSOLIDATED" if submissions else "NO_SUBMISSIONS",
+            "submission_count": len(submissions),
+            "departments_submitted": sorted({item["department"] for item in submissions}),
+            "submissions": submissions,
+            "completed": completed,
+            "in_progress": in_progress,
+            "blockers": blockers,
+            "risks": risks,
+            "owner_decisions_required": decisions,
+            "verified_changes": changes,
+            "missing_data_policy": "No department submission or evidence is fabricated; missing sections remain visible in source submissions.",
+        }
+
     def audit_log(
         self, actor: Actor, *, resource_id: str | None = None,
     ) -> list[dict[str, Any]]:
