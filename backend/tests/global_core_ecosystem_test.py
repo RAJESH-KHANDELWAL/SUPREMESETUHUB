@@ -120,7 +120,7 @@ class GlobalCoreEcosystemTests(unittest.TestCase):
         )
         self.assertEqual(
             self.manager.register(duplicate)["error"],
-            "ROOT_ALREADY_INITIALIZED",
+            "ECOSYSTEM_ALREADY_EXISTS",
         )
 
         orphan = GlobalEcosystemIdentity(
