@@ -36,3 +36,32 @@ CMD is the highest delegated operational authority and reports to the Owner. Own
 - The service uses the existing `DatabaseService` and its configured `SUPREME_DB_PATH` (default `data/supreme.db`).
 
 The API must obtain Actor identity from a trusted authentication dependency. Never accept `actor_id`, `role`, or `authenticated` from a public request body.
+
+## Authenticated management API
+
+The existing Personal AI router now includes the Team Management router. The API uses the existing bearer-session validator and a server-side role map.
+
+Before enabling access, configure `SUPREME_TEAM_ROLE_MAP` in the server environment as JSON keyed by authenticated usernames, for example:
+
+```json
+{"owner-login":"OWNER","cmd-login":"CMD","md-login":"MD"}
+```
+
+Replace these example usernames with actual, verified account usernames. Do not put this mapping in a public repository, request payload, or frontend bundle. Assign exactly one trusted Owner account first. Do not assign CMD/MD until those people have been formally appointed and their accounts secured. If the variable is absent or a user has no role assignment, access is denied.
+
+### Endpoints
+
+- `GET /api/v1/supreme/team-management/status`
+- `GET|POST /api/v1/supreme/team-management/tasks`
+- `GET /api/v1/supreme/team-management/tasks/{task_id}`
+- `PATCH /api/v1/supreme/team-management/tasks/{task_id}/status`
+- `POST /api/v1/supreme/team-management/change-proposals`
+- `GET /api/v1/supreme/team-management/change-proposals/{proposal_id}`
+- `POST /api/v1/supreme/team-management/change-proposals/{proposal_id}/owner-decision`
+- `POST /api/v1/supreme/team-management/change-proposals/{proposal_id}/execution-record`
+- `GET|POST /api/v1/supreme/team-management/daily-reports`
+- `GET /api/v1/supreme/team-management/audit`
+
+All endpoints require a valid existing Bearer session. CMD can coordinate tasks and submit/read consolidated reports. Only the Owner role can approve/reject protected changes and read the audit log. Completion requires evidence. Execution recording requires an approved proposal and an exact match with the approved after-state.
+
+**Deployment gate:** confirm that the host application mounts `backend.supreme.personal_ai.api.router`, configure the private role map, run the test suite, and enable GitHub branch protection / required reviews. Until those deployment steps are verified, do not describe the API as production-live. The service records approvals and evidence; it does not itself rename, move, delete, merge, or deploy repository resources.
