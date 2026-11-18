@@ -3,7 +3,7 @@ from __future__ import annotations
 from copy import deepcopy
 from typing import Any
 from .constants import ECOSYSTEM_ID, ECOSYSTEM_NAME, PARENT_ECOSYSTEM_ID, STATUS
-from .domain_catalog import get_domains, domain_summary
+from .manager import get_domains, domain_summary
 from .jurisdiction_catalog import get_jurisdictions, jurisdiction_summary
 from .provider_catalog import get_provider_catalog, provider_summary
 
