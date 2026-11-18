@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-LETSENCRYPT-CORE-ECOSYSTEM",
+  "provider_id": "letsencrypt",
+  "display_name": "Let's Encrypt",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Automated TLS certificate issuance for domains",
+  "official_docs_url": "https://letsencrypt.org/docs/",
+  "api_module": "letsencrypt_domain_api_ecosystem/letsencrypt_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

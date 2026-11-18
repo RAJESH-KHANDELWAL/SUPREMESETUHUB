@@ -1,0 +1,12 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-CATEGORY-REGISTRARS-RESELLERS",
+  "category_id": "registrars_resellers",
+  "name": "Registrars and Resellers",
+  "layer": "CORE",
+  "status": "CORE_CATEGORY_CATALOG_ONLY",
+  "scope": "Registrar and reseller domain lifecycle references",
+  "api_module": "registrars_resellers_domain_ecosystem/registrars_resellers_domain_api_ecosystem.py",
+  "provider_ids": [],
+  "execution_enabled": false,
+  "live_connection_verified": false
+}

@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-AWS-CORE-ECOSYSTEM",
+  "provider_id": "aws",
+  "display_name": "Amazon Route 53",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "DNS hosting and domain registration transfer support",
+  "official_docs_url": "https://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.html",
+  "api_module": "aws_domain_api_ecosystem/aws_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

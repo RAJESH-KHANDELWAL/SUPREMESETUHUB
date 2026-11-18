@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-IANA-CORE-ECOSYSTEM",
+  "provider_id": "iana",
+  "display_name": "IANA Root Zone Database",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Root zone and TLD registry information",
+  "official_docs_url": "https://www.iana.org/domains/root/db",
+  "api_module": "iana_domain_api_ecosystem/iana_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

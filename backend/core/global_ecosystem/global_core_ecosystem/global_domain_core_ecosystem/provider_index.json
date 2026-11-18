@@ -1,0 +1,773 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-CORE-ECOSYSTEM",
+  "source_api_catalog": "backend/api/global_ecosystem/global_api_ecosystem/global_domain_api_ecosystem/global_domain_api_ecosystem.py",
+  "providers": [
+    {
+      "id": "aws",
+      "name": "Amazon Route 53",
+      "scope": "DNS hosting and domain registration transfer support",
+      "official_docs_url": "https://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.html",
+      "api_module": "aws_domain_api_ecosystem/aws_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "scope": "DNS zones, registrar domains, DNS records",
+      "official_docs_url": "https://developers.cloudflare.com/api/",
+      "api_module": "cloudflare_domain_api_ecosystem/cloudflare_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "gandi",
+      "name": "Gandi",
+      "scope": "Registrar domain management",
+      "official_docs_url": "https://api.gandi.net/docs/",
+      "api_module": "gandi_domain_api_ecosystem/gandi_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "namecheap",
+      "name": "Namecheap",
+      "scope": "Domain registration, DNS, SSL",
+      "official_docs_url": "https://www.namecheap.com/support/api/",
+      "api_module": "namecheap_domain_api_ecosystem/namecheap_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "godaddy",
+      "name": "GoDaddy",
+      "scope": "Domain registration and DNS",
+      "official_docs_url": "https://developer.godaddy.com/",
+      "api_module": "godaddy_domain_api_ecosystem/godaddy_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "porkbun",
+      "name": "Porkbun",
+      "scope": "Domain registration and DNS",
+      "official_docs_url": "https://porkbun.com/api/json/v3/documentation",
+      "api_module": "porkbun_domain_api_ecosystem/porkbun_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "namecom",
+      "name": "Name.com",
+      "scope": "Domain registration and DNS",
+      "official_docs_url": "https://www.name.com/api-docs/",
+      "api_module": "namecom_domain_api_ecosystem/namecom_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "enom",
+      "name": "eNom",
+      "scope": "Domain reseller API",
+      "official_docs_url": "https://www.enom.com/api/",
+      "api_module": "enom_domain_api_ecosystem/enom_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "opensrs",
+      "name": "OpenSRS",
+      "scope": "Domain reseller and registrar API",
+      "official_docs_url": "https://domains.opensrs.guide/",
+      "api_module": "opensrs_domain_api_ecosystem/opensrs_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "tucows",
+      "name": "Tucows",
+      "scope": "Domain registrar and reseller ecosystem",
+      "official_docs_url": "https://www.tucows.com/",
+      "api_module": "tucows_domain_api_ecosystem/tucows_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "keysystems",
+      "name": "KEY-SYSTEMS",
+      "scope": "Registrar reseller API",
+      "official_docs_url": "https://www.key-systems.net/",
+      "api_module": "keysystems_domain_api_ecosystem/keysystems_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "hexonet",
+      "name": "HEXONET",
+      "scope": "Domain reseller API",
+      "official_docs_url": "https://www.hexonet.net/",
+      "api_module": "hexonet_domain_api_ecosystem/hexonet_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "internetbs",
+      "name": "Internet.bs",
+      "scope": "Domain registration API",
+      "official_docs_url": "https://internetbs.net/",
+      "api_module": "internetbs_domain_api_ecosystem/internetbs_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "dynadot",
+      "name": "Dynadot",
+      "scope": "Domain registration and DNS API",
+      "official_docs_url": "https://www.dynadot.com/domain/api",
+      "api_module": "dynadot_domain_api_ecosystem/dynadot_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "namesilo",
+      "name": "NameSilo",
+      "scope": "Domain registrar API",
+      "official_docs_url": "https://www.namesilo.com/api_reference.php",
+      "api_module": "namesilo_domain_api_ecosystem/namesilo_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "iwantmyname",
+      "name": "iwantmyname",
+      "scope": "Domain registration and DNS",
+      "official_docs_url": "https://iwantmyname.com/",
+      "api_module": "iwantmyname_domain_api_ecosystem/iwantmyname_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "realtimeregister",
+      "name": "Realtime Register",
+      "scope": "Domain reseller API",
+      "official_docs_url": "https://realtimeregister.com/",
+      "api_module": "realtimeregister_domain_api_ecosystem/realtimeregister_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "joker",
+      "name": "Joker.com",
+      "scope": "Registrar and domain management",
+      "official_docs_url": "https://joker.com/",
+      "api_module": "joker_domain_api_ecosystem/joker_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "rrpproxy",
+      "name": "RRPproxy",
+      "scope": "Registrar reseller API",
+      "official_docs_url": "https://www.rrpproxy.net/",
+      "api_module": "rrpproxy_domain_api_ecosystem/rrpproxy_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "pdr",
+      "name": "Public Domain Registry",
+      "scope": "Registrar and reseller ecosystem",
+      "official_docs_url": "https://publicdomainregistry.com/",
+      "api_module": "pdr_domain_api_ecosystem/pdr_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "resellerclub",
+      "name": "ResellerClub",
+      "scope": "Domain reseller API",
+      "official_docs_url": "https://www.resellerclub.com/",
+      "api_module": "resellerclub_domain_api_ecosystem/resellerclub_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "centralnic",
+      "name": "CentralNic Reseller",
+      "scope": "Domain reseller API",
+      "official_docs_url": "https://www.centralnicreseller.com/",
+      "api_module": "centralnic_domain_api_ecosystem/centralnic_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "ovhcloud",
+      "name": "OVHcloud",
+      "scope": "Domain and DNS management APIs",
+      "official_docs_url": "https://eu.api.ovh.com/",
+      "api_module": "ovhcloud_domain_api_ecosystem/ovhcloud_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "ionos",
+      "name": "IONOS",
+      "scope": "Domain and DNS management",
+      "official_docs_url": "https://developer.hosting.ionos.com/",
+      "api_module": "ionos_domain_api_ecosystem/ionos_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "hostinger",
+      "name": "Hostinger",
+      "scope": "Domain management and DNS",
+      "official_docs_url": "https://www.hostinger.com/",
+      "api_module": "hostinger_domain_api_ecosystem/hostinger_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "hetzner",
+      "name": "Hetzner",
+      "scope": "DNS and infrastructure services",
+      "official_docs_url": "https://dns.hetzner.com/",
+      "api_module": "hetzner_domain_api_ecosystem/hetzner_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "digitalocean",
+      "name": "DigitalOcean",
+      "scope": "DNS records and domain zones",
+      "official_docs_url": "https://docs.digitalocean.com/reference/api/",
+      "api_module": "digitalocean_domain_api_ecosystem/digitalocean_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "vercel",
+      "name": "Vercel",
+      "scope": "Project domain configuration",
+      "official_docs_url": "https://vercel.com/docs/rest-api",
+      "api_module": "vercel_domain_api_ecosystem/vercel_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "netlify",
+      "name": "Netlify",
+      "scope": "Custom domain management",
+      "official_docs_url": "https://docs.netlify.com/api/get-started/",
+      "api_module": "netlify_domain_api_ecosystem/netlify_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "render",
+      "name": "Render",
+      "scope": "Custom domains for services",
+      "official_docs_url": "https://docs.render.com/api",
+      "api_module": "render_domain_api_ecosystem/render_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "flyio",
+      "name": "Fly.io",
+      "scope": "Application domain and certificate management",
+      "official_docs_url": "https://fly.io/docs/machines/api/",
+      "api_module": "flyio_domain_api_ecosystem/flyio_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "google_cloud",
+      "name": "Google Cloud DNS",
+      "scope": "Managed DNS zones and records",
+      "official_docs_url": "https://cloud.google.com/dns/docs/reference/v1",
+      "api_module": "google_cloud_domain_api_ecosystem/google_cloud_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "azure",
+      "name": "Microsoft Azure DNS",
+      "scope": "DNS zones and records",
+      "official_docs_url": "https://learn.microsoft.com/en-us/rest/api/dns/",
+      "api_module": "azure_domain_api_ecosystem/azure_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "akamai",
+      "name": "Akamai",
+      "scope": "Edge DNS and domain services",
+      "official_docs_url": "https://techdocs.akamai.com/",
+      "api_module": "akamai_domain_api_ecosystem/akamai_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "gcore",
+      "name": "Gcore",
+      "scope": "DNS and edge network services",
+      "official_docs_url": "https://api.gcore.com/docs/",
+      "api_module": "gcore_domain_api_ecosystem/gcore_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "dnsmadeeasy",
+      "name": "DNS Made Easy",
+      "scope": "Managed DNS API",
+      "official_docs_url": "https://docs.dnsmadeeasy.com/",
+      "api_module": "dnsmadeeasy_domain_api_ecosystem/dnsmadeeasy_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "constellix",
+      "name": "Constellix",
+      "scope": "Managed DNS API",
+      "official_docs_url": "https://constellix.com/api-documentation",
+      "api_module": "constellix_domain_api_ecosystem/constellix_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "ns1",
+      "name": "IBM NS1 Connect",
+      "scope": "DNS traffic steering API",
+      "official_docs_url": "https://ns1.com/api",
+      "api_module": "ns1_domain_api_ecosystem/ns1_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "he",
+      "name": "Hurricane Electric DNS",
+      "scope": "Authoritative DNS service",
+      "official_docs_url": "https://dns.he.net/",
+      "api_module": "he_domain_api_ecosystem/he_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "desec",
+      "name": "deSEC DNS",
+      "scope": "DNS hosting service",
+      "official_docs_url": "https://desec.readthedocs.io/",
+      "api_module": "desec_domain_api_ecosystem/desec_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "octodns",
+      "name": "octoDNS",
+      "scope": "DNS management automation tool",
+      "official_docs_url": "https://github.com/octodns/octodns",
+      "api_module": "octodns_domain_api_ecosystem/octodns_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "powerdns",
+      "name": "PowerDNS",
+      "scope": "Authoritative DNS API/software",
+      "official_docs_url": "https://doc.powerdns.com/authoritative/http-api/",
+      "api_module": "powerdns_domain_api_ecosystem/powerdns_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "bind",
+      "name": "ISC BIND",
+      "scope": "DNS server software and management",
+      "official_docs_url": "https://bind9.readthedocs.io/",
+      "api_module": "bind_domain_api_ecosystem/bind_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "technitium",
+      "name": "Technitium DNS Server",
+      "scope": "DNS server API",
+      "official_docs_url": "https://technitium.com/dns/",
+      "api_module": "technitium_domain_api_ecosystem/technitium_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "afraid",
+      "name": "FreeDNS afraid.org",
+      "scope": "Dynamic DNS and DNS hosting",
+      "official_docs_url": "https://freedns.afraid.org/",
+      "api_module": "afraid_domain_api_ecosystem/afraid_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "duckdns",
+      "name": "DuckDNS",
+      "scope": "Dynamic DNS service",
+      "official_docs_url": "https://www.duckdns.org/",
+      "api_module": "duckdns_domain_api_ecosystem/duckdns_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "noip",
+      "name": "No-IP",
+      "scope": "Dynamic DNS and hostname management",
+      "official_docs_url": "https://www.noip.com/",
+      "api_module": "noip_domain_api_ecosystem/noip_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "dynu",
+      "name": "Dynu",
+      "scope": "Dynamic DNS and domain services",
+      "official_docs_url": "https://www.dynu.com/",
+      "api_module": "dynu_domain_api_ecosystem/dynu_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "easydns",
+      "name": "easyDNS",
+      "scope": "Domain and DNS API",
+      "official_docs_url": "https://www.easydns.com/",
+      "api_module": "easydns_domain_api_ecosystem/easydns_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "dnsexit",
+      "name": "DNSExit",
+      "scope": "DNS and dynamic DNS",
+      "official_docs_url": "https://dnsexit.com/",
+      "api_module": "dnsexit_domain_api_ecosystem/dnsexit_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "nic_io",
+      "name": "NIC.IO",
+      "scope": "Registry for .io domains",
+      "official_docs_url": "https://nic.io/",
+      "api_module": "nic_io_domain_api_ecosystem/nic_io_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "nominet",
+      "name": "Nominet",
+      "scope": "UK .uk domain registry",
+      "official_docs_url": "https://nominet.uk/",
+      "api_module": "nominet_domain_api_ecosystem/nominet_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "eurid",
+      "name": "EURid",
+      "scope": ".eu domain registry",
+      "official_docs_url": "https://eurid.eu/",
+      "api_module": "eurid_domain_api_ecosystem/eurid_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "verisign",
+      "name": "Verisign",
+      "scope": "Registry infrastructure for .com/.net",
+      "official_docs_url": "https://www.verisign.com/",
+      "api_module": "verisign_domain_api_ecosystem/verisign_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "pir",
+      "name": "Public Interest Registry",
+      "scope": ".org domain registry",
+      "official_docs_url": "https://pir.org/",
+      "api_module": "pir_domain_api_ecosystem/pir_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "afilias",
+      "name": "Identity Digital",
+      "scope": "Domain registry operator",
+      "official_docs_url": "https://identity.digital/",
+      "api_module": "afilias_domain_api_ecosystem/afilias_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "icann",
+      "name": "ICANN",
+      "scope": "Global domain name coordination and registrar accreditation",
+      "official_docs_url": "https://www.icann.org/",
+      "api_module": "icann_domain_api_ecosystem/icann_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "iana",
+      "name": "IANA Root Zone Database",
+      "scope": "Root zone and TLD registry information",
+      "official_docs_url": "https://www.iana.org/domains/root/db",
+      "api_module": "iana_domain_api_ecosystem/iana_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "rdap",
+      "name": "RDAP",
+      "scope": "Standard domain registration data protocol",
+      "official_docs_url": "https://www.icann.org/rdap",
+      "api_module": "rdap_domain_api_ecosystem/rdap_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "whois",
+      "name": "WHOIS",
+      "scope": "Domain registration lookup protocol/reference",
+      "official_docs_url": "https://www.icann.org/resources/pages/whois-2013-05-03-en",
+      "api_module": "whois_domain_api_ecosystem/whois_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "dnssec",
+      "name": "DNSSEC",
+      "scope": "DNS security extension ecosystem",
+      "official_docs_url": "https://www.cloudflare.com/dns/dnssec/",
+      "api_module": "dnssec_domain_api_ecosystem/dnssec_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "letsencrypt",
+      "name": "Let's Encrypt",
+      "scope": "Automated TLS certificate issuance for domains",
+      "official_docs_url": "https://letsencrypt.org/docs/",
+      "api_module": "letsencrypt_domain_api_ecosystem/letsencrypt_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "certbot",
+      "name": "Certbot",
+      "scope": "ACME TLS certificate automation tool",
+      "official_docs_url": "https://certbot.eff.org/",
+      "api_module": "certbot_domain_api_ecosystem/certbot_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "acme",
+      "name": "ACME protocol",
+      "scope": "Automated certificate management protocol",
+      "official_docs_url": "https://datatracker.ietf.org/doc/html/rfc8555",
+      "api_module": "acme_domain_api_ecosystem/acme_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "abelohost",
+      "name": "AbeloHost",
+      "scope": "Privacy-focused hosting reference; domain registrar/API support requires verification",
+      "official_docs_url": "https://abelohost.com/",
+      "api_module": "abelohost_domain_api_ecosystem/abelohost_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "alexhost",
+      "name": "AlexHost",
+      "scope": "Hosting and domain-related services reference; API/registrar support requires verification",
+      "official_docs_url": "https://alexhost.com/",
+      "api_module": "alexhost_domain_api_ecosystem/alexhost_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "flokinet",
+      "name": "FlokiNET",
+      "scope": "Hosting provider reference; registrar and API capabilities require verification",
+      "official_docs_url": "https://flokinet.is/",
+      "api_module": "flokinet_domain_api_ecosystem/flokinet_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "shinjiru",
+      "name": "Shinjiru",
+      "scope": "Hosting provider reference; domain services/API capabilities require verification",
+      "official_docs_url": "https://www.shinjiru.com/",
+      "api_module": "shinjiru_domain_api_ecosystem/shinjiru_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "blueangelhost",
+      "name": "BlueAngelHost",
+      "scope": "Hosting provider reference; domain services/API capabilities require verification",
+      "official_docs_url": "https://blueangelhost.com/",
+      "api_module": "blueangelhost_domain_api_ecosystem/blueangelhost_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "hostkey",
+      "name": "HostKey",
+      "scope": "Hosting provider reference; domain services/API capabilities require verification",
+      "official_docs_url": "https://hostkey.com/",
+      "api_module": "hostkey_domain_api_ecosystem/hostkey_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    },
+    {
+      "id": "hostsailor",
+      "name": "HostSailor",
+      "scope": "Hosting provider reference; domain services/API capabilities require verification",
+      "official_docs_url": "https://hostsailor.com/",
+      "api_module": "hostsailor_domain_api_ecosystem/hostsailor_domain_api_ecosystem.py",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection_verified": false,
+      "api_available": null
+    }
+  ],
+  "categories": [
+    {
+      "id": "registrars_resellers",
+      "name": "Registrars and Resellers",
+      "scope": "Registrar and reseller domain lifecycle references",
+      "api_module": "registrars_resellers_domain_ecosystem/registrars_resellers_domain_api_ecosystem.py",
+      "status": "CORE_CATEGORY_CATALOG_ONLY"
+    },
+    {
+      "id": "dns_services",
+      "name": "DNS and Authoritative Services",
+      "scope": "Authoritative DNS, managed DNS and DNS automation references",
+      "api_module": "dns_services_domain_ecosystem/dns_services_domain_api_ecosystem.py",
+      "status": "CORE_CATEGORY_CATALOG_ONLY"
+    },
+    {
+      "id": "registries_governance",
+      "name": "Registries and Governance",
+      "scope": "Registry, governance and policy references",
+      "api_module": "registries_governance_domain_ecosystem/registries_governance_domain_api_ecosystem.py",
+      "status": "CORE_CATEGORY_CATALOG_ONLY"
+    },
+    {
+      "id": "domain_lookup",
+      "name": "Domain Lookup and Registration Data",
+      "scope": "Domain lookup, RDAP and WHOIS reference services",
+      "api_module": "domain_lookup_domain_ecosystem/domain_lookup_domain_api_ecosystem.py",
+      "status": "CORE_CATEGORY_CATALOG_ONLY"
+    },
+    {
+      "id": "tls_certificate",
+      "name": "TLS and Certificate Automation",
+      "scope": "TLS, ACME and certificate lifecycle references",
+      "api_module": "tls_certificate_domain_ecosystem/tls_certificate_domain_api_ecosystem.py",
+      "status": "CORE_CATEGORY_CATALOG_ONLY"
+    },
+    {
+      "id": "deployment_domains",
+      "name": "Deployment and Custom Domains",
+      "scope": "Deployment platform and custom-domain references",
+      "api_module": "deployment_domains_domain_ecosystem/deployment_domains_domain_api_ecosystem.py",
+      "status": "CORE_CATEGORY_CATALOG_ONLY"
+    },
+    {
+      "id": "hosting",
+      "name": "Hosting References",
+      "scope": "Hosting-related domain and DNS references",
+      "api_module": "hosting_domain_ecosystem/hosting_domain_api_ecosystem.py",
+      "status": "CORE_CATEGORY_CATALOG_ONLY"
+    }
+  ],
+  "source_catalog_quality": {
+    "duplicate_provider_keys": [
+      "desec"
+    ],
+    "handling": "Deduplicated by canonical provider ID; one Core record per provider."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-AZURE-CORE-ECOSYSTEM",
+  "provider_id": "azure",
+  "display_name": "Microsoft Azure DNS",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "DNS zones and records",
+  "official_docs_url": "https://learn.microsoft.com/en-us/rest/api/dns/",
+  "api_module": "azure_domain_api_ecosystem/azure_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

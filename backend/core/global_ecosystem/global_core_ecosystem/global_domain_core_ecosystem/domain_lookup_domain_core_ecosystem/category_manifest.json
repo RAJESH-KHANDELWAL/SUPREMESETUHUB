@@ -1,0 +1,12 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-CATEGORY-DOMAIN-LOOKUP",
+  "category_id": "domain_lookup",
+  "name": "Domain Lookup and Registration Data",
+  "layer": "CORE",
+  "status": "CORE_CATEGORY_CATALOG_ONLY",
+  "scope": "Domain lookup, RDAP and WHOIS reference services",
+  "api_module": "domain_lookup_domain_ecosystem/domain_lookup_domain_api_ecosystem.py",
+  "provider_ids": [],
+  "execution_enabled": false,
+  "live_connection_verified": false
+}

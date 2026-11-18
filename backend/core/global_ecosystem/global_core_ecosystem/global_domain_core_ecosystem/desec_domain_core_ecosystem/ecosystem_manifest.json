@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-DESEC-CORE-ECOSYSTEM",
+  "provider_id": "desec",
+  "display_name": "deSEC DNS",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "DNS hosting service",
+  "official_docs_url": "https://desec.readthedocs.io/",
+  "api_module": "desec_domain_api_ecosystem/desec_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

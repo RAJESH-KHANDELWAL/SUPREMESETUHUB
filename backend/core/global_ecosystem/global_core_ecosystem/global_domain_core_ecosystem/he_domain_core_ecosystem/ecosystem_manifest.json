@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-HE-CORE-ECOSYSTEM",
+  "provider_id": "he",
+  "display_name": "Hurricane Electric DNS",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Authoritative DNS service",
+  "official_docs_url": "https://dns.he.net/",
+  "api_module": "he_domain_api_ecosystem/he_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-NOMINET-CORE-ECOSYSTEM",
+  "provider_id": "nominet",
+  "display_name": "Nominet",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "UK .uk domain registry",
+  "official_docs_url": "https://nominet.uk/",
+  "api_module": "nominet_domain_api_ecosystem/nominet_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

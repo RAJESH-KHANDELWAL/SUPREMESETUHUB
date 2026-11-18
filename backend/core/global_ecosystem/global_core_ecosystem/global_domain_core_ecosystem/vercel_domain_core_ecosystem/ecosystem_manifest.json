@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-VERCEL-CORE-ECOSYSTEM",
+  "provider_id": "vercel",
+  "display_name": "Vercel",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Project domain configuration",
+  "official_docs_url": "https://vercel.com/docs/rest-api",
+  "api_module": "vercel_domain_api_ecosystem/vercel_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

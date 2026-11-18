@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-CERTBOT-CORE-ECOSYSTEM",
+  "provider_id": "certbot",
+  "display_name": "Certbot",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "ACME TLS certificate automation tool",
+  "official_docs_url": "https://certbot.eff.org/",
+  "api_module": "certbot_domain_api_ecosystem/certbot_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

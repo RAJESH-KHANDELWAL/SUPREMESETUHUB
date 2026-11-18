@@ -1,0 +1,12 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-CATEGORY-REGISTRIES-GOVERNANCE",
+  "category_id": "registries_governance",
+  "name": "Registries and Governance",
+  "layer": "CORE",
+  "status": "CORE_CATEGORY_CATALOG_ONLY",
+  "scope": "Registry, governance and policy references",
+  "api_module": "registries_governance_domain_ecosystem/registries_governance_domain_api_ecosystem.py",
+  "provider_ids": [],
+  "execution_enabled": false,
+  "live_connection_verified": false
+}

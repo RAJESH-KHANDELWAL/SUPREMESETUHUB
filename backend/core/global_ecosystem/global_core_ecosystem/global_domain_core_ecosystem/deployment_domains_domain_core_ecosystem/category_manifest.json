@@ -1,0 +1,12 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-CATEGORY-DEPLOYMENT-DOMAINS",
+  "category_id": "deployment_domains",
+  "name": "Deployment and Custom Domains",
+  "layer": "CORE",
+  "status": "CORE_CATEGORY_CATALOG_ONLY",
+  "scope": "Deployment platform and custom-domain references",
+  "api_module": "deployment_domains_domain_ecosystem/deployment_domains_domain_api_ecosystem.py",
+  "provider_ids": [],
+  "execution_enabled": false,
+  "live_connection_verified": false
+}

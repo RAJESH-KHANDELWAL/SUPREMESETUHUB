@@ -1,0 +1,12 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-CATEGORY-HOSTING",
+  "category_id": "hosting",
+  "name": "Hosting References",
+  "layer": "CORE",
+  "status": "CORE_CATEGORY_CATALOG_ONLY",
+  "scope": "Hosting-related domain and DNS references",
+  "api_module": "hosting_domain_ecosystem/hosting_domain_api_ecosystem.py",
+  "provider_ids": [],
+  "execution_enabled": false,
+  "live_connection_verified": false
+}

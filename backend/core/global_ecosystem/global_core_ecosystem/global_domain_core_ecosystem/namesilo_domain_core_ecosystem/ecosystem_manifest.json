@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-NAMESILO-CORE-ECOSYSTEM",
+  "provider_id": "namesilo",
+  "display_name": "NameSilo",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Domain registrar API",
+  "official_docs_url": "https://www.namesilo.com/api_reference.php",
+  "api_module": "namesilo_domain_api_ecosystem/namesilo_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-DNSEXIT-CORE-ECOSYSTEM",
+  "provider_id": "dnsexit",
+  "display_name": "DNSExit",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "DNS and dynamic DNS",
+  "official_docs_url": "https://dnsexit.com/",
+  "api_module": "dnsexit_domain_api_ecosystem/dnsexit_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

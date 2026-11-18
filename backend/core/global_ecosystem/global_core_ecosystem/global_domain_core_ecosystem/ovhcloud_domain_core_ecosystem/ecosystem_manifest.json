@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-OVHCLOUD-CORE-ECOSYSTEM",
+  "provider_id": "ovhcloud",
+  "display_name": "OVHcloud",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Domain and DNS management APIs",
+  "official_docs_url": "https://eu.api.ovh.com/",
+  "api_module": "ovhcloud_domain_api_ecosystem/ovhcloud_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-ALEXHOST-CORE-ECOSYSTEM",
+  "provider_id": "alexhost",
+  "display_name": "AlexHost",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Hosting and domain-related services reference; API/registrar support requires verification",
+  "official_docs_url": "https://alexhost.com/",
+  "api_module": "alexhost_domain_api_ecosystem/alexhost_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

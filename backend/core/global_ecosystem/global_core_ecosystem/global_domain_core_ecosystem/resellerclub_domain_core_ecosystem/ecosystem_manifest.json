@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-RESELLERCLUB-CORE-ECOSYSTEM",
+  "provider_id": "resellerclub",
+  "display_name": "ResellerClub",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Domain reseller API",
+  "official_docs_url": "https://www.resellerclub.com/",
+  "api_module": "resellerclub_domain_api_ecosystem/resellerclub_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

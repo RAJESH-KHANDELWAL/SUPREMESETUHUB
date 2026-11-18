@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-POWERDNS-CORE-ECOSYSTEM",
+  "provider_id": "powerdns",
+  "display_name": "PowerDNS",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Authoritative DNS API/software",
+  "official_docs_url": "https://doc.powerdns.com/authoritative/http-api/",
+  "api_module": "powerdns_domain_api_ecosystem/powerdns_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

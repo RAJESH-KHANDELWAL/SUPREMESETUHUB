@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-HEXONET-CORE-ECOSYSTEM",
+  "provider_id": "hexonet",
+  "display_name": "HEXONET",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Domain reseller API",
+  "official_docs_url": "https://www.hexonet.net/",
+  "api_module": "hexonet_domain_api_ecosystem/hexonet_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

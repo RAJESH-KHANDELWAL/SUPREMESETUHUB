@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-NIC-IO-CORE-ECOSYSTEM",
+  "provider_id": "nic_io",
+  "display_name": "NIC.IO",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Registry for .io domains",
+  "official_docs_url": "https://nic.io/",
+  "api_module": "nic_io_domain_api_ecosystem/nic_io_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

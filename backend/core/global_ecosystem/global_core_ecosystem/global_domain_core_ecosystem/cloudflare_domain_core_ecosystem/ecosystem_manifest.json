@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-CLOUDFLARE-CORE-ECOSYSTEM",
+  "provider_id": "cloudflare",
+  "display_name": "Cloudflare",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "DNS zones, registrar domains, DNS records",
+  "official_docs_url": "https://developers.cloudflare.com/api/",
+  "api_module": "cloudflare_domain_api_ecosystem/cloudflare_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

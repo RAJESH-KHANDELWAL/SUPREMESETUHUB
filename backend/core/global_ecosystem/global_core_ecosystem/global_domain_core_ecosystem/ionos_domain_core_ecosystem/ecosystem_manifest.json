@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-IONOS-CORE-ECOSYSTEM",
+  "provider_id": "ionos",
+  "display_name": "IONOS",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Domain and DNS management",
+  "official_docs_url": "https://developer.hosting.ionos.com/",
+  "api_module": "ionos_domain_api_ecosystem/ionos_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

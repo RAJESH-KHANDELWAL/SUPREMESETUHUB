@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-TUCOWS-CORE-ECOSYSTEM",
+  "provider_id": "tucows",
+  "display_name": "Tucows",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Domain registrar and reseller ecosystem",
+  "official_docs_url": "https://www.tucows.com/",
+  "api_module": "tucows_domain_api_ecosystem/tucows_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

@@ -1,0 +1,12 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-CATEGORY-TLS-CERTIFICATE",
+  "category_id": "tls_certificate",
+  "name": "TLS and Certificate Automation",
+  "layer": "CORE",
+  "status": "CORE_CATEGORY_CATALOG_ONLY",
+  "scope": "TLS, ACME and certificate lifecycle references",
+  "api_module": "tls_certificate_domain_ecosystem/tls_certificate_domain_api_ecosystem.py",
+  "provider_ids": [],
+  "execution_enabled": false,
+  "live_connection_verified": false
+}
