@@ -83,7 +83,7 @@ class WordPressRestClient:
             raise RuntimeError("WordPress REST API did not return JSON") from exc
 
     def health(self) -> dict[str, Any]:
-        data = self._get("users/me", {"context": "edit"})
+        data = self._get("users/me", {"context": "view"})
         return {
             "success": True,
             "status": "CONNECTED",
@@ -94,10 +94,10 @@ class WordPressRestClient:
         }
 
     def list_posts(self, per_page: int = 10) -> list[dict[str, Any]]:
-        return self._get("posts", {"per_page": max(1, min(per_page, 100)), "context": "edit"})
+        return self._get("posts", {"per_page": max(1, min(per_page, 100)), "context": "view"})
 
     def list_pages(self, per_page: int = 10) -> list[dict[str, Any]]:
-        return self._get("pages", {"per_page": max(1, min(per_page, 100)), "context": "edit"})
+        return self._get("pages", {"per_page": max(1, min(per_page, 100)), "context": "view"})
 
     def list_plugins(self) -> list[dict[str, Any]]:
         # Requires an authenticated WordPress user with plugin-management capability.
