@@ -1321,7 +1321,8 @@ class GlobalEcosystemManager:
 
     def _initialize(self) -> None:
         """Register catalog entries in parent-first order."""
-        records = [*get_catalog(), *GOOGLE_CORE_ECOSYSTEMS, *ANTHROPIC_CORE_ECOSYSTEMS, *APPLE_CORE_ECOSYSTEMS, *ATLASSIAN_CORE_ECOSYSTEMS, *AWS_CORE_ECOSYSTEMS]
+        # get_catalog() is the single canonical source; provider entries are already included there.
+        records = get_catalog()
 
         if not records:
             raise RuntimeError("GLOBAL ECOSYSTEM catalog is empty")
@@ -1540,3 +1541,14 @@ class GlobalEcosystemManager:
 
 
 EcosystemManager = GlobalEcosystemManager
+
+
+_manager_instance: GlobalEcosystemManager | None = None
+
+
+def get_manager() -> GlobalEcosystemManager:
+    """Return the shared GLOBAL ECOSYSTEM manager instance."""
+    global _manager_instance
+    if _manager_instance is None:
+        _manager_instance = GlobalEcosystemManager()
+    return _manager_instance
