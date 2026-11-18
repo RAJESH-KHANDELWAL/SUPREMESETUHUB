@@ -2,16 +2,16 @@
 from __future__ import annotations
 from threading import RLock
 from typing import Any
-from .models import GlobalEcosystemIdentity, utc_now
+from .models import EcosystemIdentity, utc_now
 
 class GlobalEcosystemRegistry:
     def __init__(self) -> None:
-        self._records: dict[str, GlobalEcosystemIdentity] = {}
+        self._records: dict[str, EcosystemIdentity] = {}
         self._lock = RLock()
 
-    def register(self, identity: GlobalEcosystemIdentity | dict[str, Any]) -> dict[str, Any]:
+    def register(self, identity: EcosystemIdentity | dict[str, Any]) -> dict[str, Any]:
         if isinstance(identity, dict):
-            identity = GlobalEcosystemIdentity(**{
+            identity = EcosystemIdentity(**{
                 key: identity[key] for key in (
                     "ecosystem_id", "name", "ecosystem_type", "repository_ref",
                     "status", "enabled", "capabilities", "metadata", "message",
