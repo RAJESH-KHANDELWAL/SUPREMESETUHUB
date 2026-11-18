@@ -18,7 +18,9 @@ def test_core_and_engine_are_connected():
 
 
 def test_ai_builds_grounded_context_without_claiming_provider_call():
-    context = CulturalKnowledgeAssistant().build_context("Vasudhaiva Kutumbakam")
+    core = CulturalKnowledgeCoreService()
+    engine = CulturalKnowledgeEngineManager(core=core, domains=CULTURAL_DOMAINS)
+    context = CulturalKnowledgeAssistant(engine=engine).build_context("Vasudhaiva Kutumbakam")
     assert context["provider_invocation"] == "NOT_PERFORMED"
     assert context["answering_rules"]
 
