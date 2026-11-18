@@ -124,6 +124,10 @@ jobs:
             backend.tests.test_global_core_ecosystem_hierarchy \
             -v
 
+      - name: Install backend test dependencies
+        run: |
+          python -m pip install -r backend/requirements.txt "starlette<1.0"
+
       - name: Run ALL backend/tests Python Tests
         env:
           PYTHONPATH: .
