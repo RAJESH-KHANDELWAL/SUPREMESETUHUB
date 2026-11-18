@@ -20,6 +20,8 @@ STATUS = "CORE_CATALOG_ONLY"
 _DOMAIN_DATA = json.loads((ROOT / "catalog.json").read_text(encoding="utf-8"))
 if _DOMAIN_DATA.get("ecosystem_id") != ECOSYSTEM_ID:
     raise ValueError("SECURITY_CATALOG_ECOSYSTEM_ID_MISMATCH")
+if _DOMAIN_DATA.get("domain_package_location") != "ECOSYSTEM_ROOT":
+    raise ValueError("SECURITY_DOMAIN_PACKAGE_LOCATION_INVALID")
 def _load_domains() -> tuple[dict[str, Any], ...]:
     loaded: list[dict[str, Any]] = []
     seen_ids: set[str] = set()
