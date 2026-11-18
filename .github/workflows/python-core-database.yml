@@ -156,7 +156,7 @@ jobs:
       - name: Run GLOBAL ECOSYSTEM registry integration tests
         env:
           PYTHONPATH: .
-        run: python -m unittest backend.test.test_global_ecosystem_core -v
+        run: python -m unittest backend.test.global_core_ecosystem_test -v
 
       - name: Run GLOBAL AI Ecosystem Layer Tests
         run: python -m unittest backend.test.test_global_ai_ecosystem -v
