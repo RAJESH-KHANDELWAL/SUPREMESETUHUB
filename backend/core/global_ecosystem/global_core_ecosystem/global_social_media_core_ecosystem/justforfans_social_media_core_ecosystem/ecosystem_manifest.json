@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "provider_id": "justforfans",
+  "provider_name": "JustFor.Fans",
+  "category": "adult_creator_membership",
+  "region": "global",
+  "api_access_hint": "no_general_public_api_confirmed",
+  "core_layer": "GLOBAL_SOCIAL_MEDIA_CORE",
+  "integration_mode": "METADATA_ONLY",
+  "readiness": "CORE_CATALOG_ONLY",
+  "age_restricted": true,
+  "live_connection": false,
+  "layer_boundaries": {
+    "core": "identity, capability metadata, tenant policy and readiness",
+    "api": "provider authentication and transport",
+    "engine": "scheduling and execution",
+    "database": "persistence",
+    "storage": "media assets and files",
+    "application": "sessions, consent and user workflows"
+  }
+}

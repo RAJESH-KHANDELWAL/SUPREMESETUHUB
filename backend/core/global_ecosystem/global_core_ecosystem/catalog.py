@@ -178,6 +178,14 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "ecosystem_type": "CORE_SERVICE",
         "capabilities": ["SECURITY_SERVICE", "POLICY_ENFORCEMENT", "AUDIT"],
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem",
+            "security_domain_count": 33,
+            "security_provider_count": 6,
+            "domain_coverage_exhaustive": False,
+            "provider_coverage_exhaustive": False,
+            "live_provider_connections_verified": False,
+        },
     },
     {
         "ecosystem_id": "GLOBAL-API-CORE-ECOSYSTEM",
@@ -241,6 +249,32 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "ecosystem_type": "CORE_SERVICE",
         "capabilities": ["SERVER_LIFECYCLE", "HEALTH_CHECKS", "DEPLOYMENT_COORDINATION"],
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem",
+            "division_layout": "INDEPENDENT_SIBLING_ECOSYSTEM",
+            "status": "CORE_CATALOG_ONLY",
+            "division": "SERVER",
+            "server_provider_count": 7,
+            "provider_coverage_exhaustive": False,
+            "live_provider_connections_verified": False,
+            "remote_operations_enabled": False,
+            "registry_persistence": "PROCESS_LOCAL_ONLY",
+        },
+    },
+    {
+        "ecosystem_id": "GLOBAL-SOCIAL-MEDIA-CORE-ECOSYSTEM",
+        "name": "GLOBAL SOCIAL MEDIA CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["SOCIAL_PLATFORM_REGISTRY", "PLATFORM_DISCOVERY", "TENANT_POLICY_METADATA", "LIFECYCLE_AND_READINESS"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_catalog": "backend/core/global_ecosystem/global_core_ecosystem/global_social_media_core_ecosystem",
+            "api_catalog": "backend/api/global_ecosystem/global_api_ecosystem/global_social_media_api_ecosystem",
+            "provider_count": 112,
+            "platform_package_count": 113,
+            "status": "CORE_CATALOG_ONLY",
+            "live_connection_verified": False,
+        },
     },
 
     {
@@ -1211,41 +1245,6 @@ def get_catalog() -> list[dict[str, Any]]:
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
         "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_programming_language_core_ecosystem", "division_layout": "INDEPENDENT_SIBLING_ECOSYSTEM", "status": "CORE_CATALOG_ONLY", "division": "PROGRAMMING-LANGUAGES", "programming_language_coverage_exhaustive": False, "live_provider_connections_verified": False},
     }
-    server_core = {
-        "ecosystem_id": "GLOBAL-SERVER-CORE-ECOSYSTEM",
-        "name": "GLOBAL SERVER CORE ECOSYSTEM",
-        "ecosystem_type": "CORE_SERVICE",
-        "capabilities": ["SERVER_RESOURCE_IDENTITY", "SERVER_LIFECYCLE_CONTRACTS", "PROVIDER_NEUTRAL_CONFIGURATION", "DEPLOYMENT_POLICY_METADATA", "HEALTH_STATE_CONTRACTS", "REGION_AND_ENVIRONMENT_TAXONOMY", "ACCESS_POLICY_METADATA", "INVENTORY_VALIDATION_RULES", "SERVER_PROVIDER_DISCOVERY"],
-        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
-        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem", "division_layout": "INDEPENDENT_SIBLING_ECOSYSTEM", "status": "CORE_CATALOG_ONLY", "division": "SERVER", "server_provider_count": 7, "provider_coverage_exhaustive": False, "live_provider_connections_verified": False, "remote_operations_enabled": False, "registry_persistence": "PROCESS_LOCAL_ONLY"},
-    }
-    security_core = {
-        "ecosystem_id": "GLOBAL-SECURITY-CORE-ECOSYSTEM",
-        "name": "GLOBAL SECURITY CORE ECOSYSTEM",
-        "ecosystem_type": "CORE_SERVICE",
-        "capabilities": [
-            "SECURITY_DOMAIN_REGISTRY",
-            "PROVIDER_SECURITY_METADATA",
-            "IDENTITY_AND_ACCESS_POLICY_METADATA",
-            "THREAT_AND_VULNERABILITY_METADATA",
-            "GOVERNANCE_AND_AUDIT_METADATA",
-            "NORMAL_TO_SUPREME_SERVICE_TIERS",
-        ],
-        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
-        "metadata": {
-            "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem",
-            "division_layout": "INDEPENDENT_SIBLING_ECOSYSTEM",
-            "status": "CORE_CATALOG_ONLY",
-            "division": "SECURITY",
-            "security_domain_count": 18,
-            "security_provider_count": 6,
-            "domain_coverage_exhaustive": False,
-            "provider_coverage_exhaustive": False,
-            "live_provider_connections_verified": False,
-            "security_enforcement_verified": False,
-            "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
-        },
-    }
     people_life_core = {
         "ecosystem_id": "GLOBAL-PEOPLE-LIFE-CORE-ECOSYSTEM",
         "name": "GLOBAL PEOPLE LIFE CORE ECOSYSTEM",
@@ -1279,8 +1278,6 @@ def get_catalog() -> list[dict[str, Any]]:
         integrations_core,
         human_language_core,
         programming_language_core,
-        server_core,
-        security_core,
         people_life_core,
         *PERSONAL_REGISTRATIONS,
         *COMPANY_REGISTRATIONS,

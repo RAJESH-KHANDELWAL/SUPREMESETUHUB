@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL-SOCIAL-MEDIA-CORE-ECOSYSTEM",
+  "ecosystem_name": "GLOBAL SOCIAL MEDIA CORE ECOSYSTEM",
+  "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+  "layer": "CORE",
+  "geographic_scope": "BHARAT_FIRST_GLOBAL_EXTENSIBLE",
+  "provider_catalog_source": "backend/api/global_ecosystem/global_api_ecosystem/global_social_media_api_ecosystem/social_media_api_ecosystem.py",
+  "provider_count": 112,
+  "platform_family_package_count": 113,
+  "age_restricted_metadata_supported": true,
+  "live_connection": false,
+  "api_transport_in_core": false,
+  "persistence_in_core": false,
+  "required_platform_package_files": [
+    "README.md",
+    "__init__.py",
+    "contracts.py",
+    "ecosystem_config.py",
+    "ecosystem_manifest.json",
+    "service.py"
+  ],
+  "required_platform_package_directories": [
+    "authentication",
+    "capabilities",
+    "docs",
+    "events",
+    "lifecycle",
+    "models",
+    "schemas",
+    "security",
+    "services",
+    "tests"
+  ],
+  "shared_root_directories": [
+    "integrations",
+    "services",
+    "tools"
+  ]
+}

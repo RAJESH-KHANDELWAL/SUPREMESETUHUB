@@ -1,11 +1,19 @@
-"""SOCIAL MEDIA CORE ECOSYSTEM package.
+"""Public interface for the Global Social Media Core control plane."""
+from .catalog import SOCIAL_MEDIA_CORE_ECOSYSTEM, get_social_media_core_catalog
+from .contracts import CoreResult, Readiness, SecretReference, TenantContext
+from .domain_catalog import domain_summary, list_domain_inventory
+from .module_service import SocialMediaPlatformCoreService
+from .orchestrator import GlobalSocialMediaCoreOrchestrator
+from .platform_catalog import get_platform, list_platforms, platform_summary
+from .policy import SocialMediaCorePolicy, SocialMediaCorePolicyError
+from .service import GlobalSocialMediaCoreService
 
-This package is an independent layer-owned namespace. It contains no imports
-from API, CORE, or ENGINE sibling layers.
-"""
-LAYER = "CORE"
-CATEGORY = "SOCIAL_MEDIA"
-ECOSYSTEM_NAME = f"GLOBAL {CATEGORY.replace('_', ' ')} {LAYER} ECOSYSTEM"
-ECOSYSTEM_ID = f"GLOBAL-{CATEGORY.replace('_', '-')}-{LAYER.upper()}-ECOSYSTEM"
-
-__all__ = ["LAYER", "CATEGORY", "ECOSYSTEM_NAME", "ECOSYSTEM_ID"]
+__all__ = [
+    "SOCIAL_MEDIA_CORE_ECOSYSTEM", "get_social_media_core_catalog",
+    "CoreResult", "Readiness", "SecretReference", "TenantContext",
+    "domain_summary", "list_domain_inventory",
+    "SocialMediaPlatformCoreService", "GlobalSocialMediaCoreOrchestrator",
+    "get_platform", "list_platforms", "platform_summary",
+    "SocialMediaCorePolicy", "SocialMediaCorePolicyError",
+    "GlobalSocialMediaCoreService",
+]
