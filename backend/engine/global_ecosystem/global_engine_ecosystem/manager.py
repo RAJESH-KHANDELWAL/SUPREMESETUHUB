@@ -99,18 +99,31 @@ class GlobalEcosystemManager:
         self.registry = GlobalEcosystemRegistry()
         # Module counts belong to the ENGINE manager, not the shared identity model.
         self.module_counts: dict[str, int] = {}
+        self.module_references: dict[str, str] = {}
+        self.module_entrypoints: dict[str, str] = {}
         for record in get_catalog():
             item = dict(record)
             module_count = item.pop("module_count", None)
+            module_reference = item.pop("module", None)
+            module_entrypoint = item.pop("entrypoint", None)
+            ecosystem_id = item["ecosystem_id"]
             if module_count is not None:
-                self.module_counts[item["ecosystem_id"]] = int(module_count)
+                self.module_counts[ecosystem_id] = int(module_count)
+            if module_reference is not None:
+                self.module_references[ecosystem_id] = str(module_reference)
+            if module_entrypoint is not None:
+                self.module_entrypoints[ecosystem_id] = str(module_entrypoint)
             self.registry.register(GlobalEcosystemIdentity(**item))
 
     def register(self, ecosystem: dict[str, Any] | GlobalEcosystemIdentity) -> dict[str, Any]:
         module_count = None
+        module_reference = None
+        module_entrypoint = None
         if isinstance(ecosystem, dict):
             ecosystem = dict(ecosystem)
             module_count = ecosystem.pop("module_count", None)
+            module_reference = ecosystem.pop("module", None)
+            module_entrypoint = ecosystem.pop("entrypoint", None)
         identity = ecosystem if isinstance(ecosystem, GlobalEcosystemIdentity) else GlobalEcosystemIdentity(
             ecosystem_id=str(ecosystem.get("ecosystem_id", "")).strip(),
             name=str(ecosystem.get("name", "")).strip(),
@@ -133,6 +146,10 @@ class GlobalEcosystemManager:
             registered = self.registry.register(identity)
             if module_count is not None:
                 self.module_counts[identity.ecosystem_id] = int(module_count)
+            if module_reference is not None:
+                self.module_references[identity.ecosystem_id] = str(module_reference)
+            if module_entrypoint is not None:
+                self.module_entrypoints[identity.ecosystem_id] = str(module_entrypoint)
             return {"success": True, "ecosystem": registered}
         except (ValueError, KeyError) as exc:
             return {"success": False, "error": "REGISTRATION_FAILED", "message": str(exc)}
