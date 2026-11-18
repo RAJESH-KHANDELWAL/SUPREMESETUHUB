@@ -1223,7 +1223,7 @@ def get_catalog() -> list[dict[str, Any]]:
             "division_layout": "INDEPENDENT_SIBLING_ECOSYSTEM",
             "status": "CORE_CATALOG_ONLY",
             "division": "SECURITY",
-            "security_domain_count": 18,
+            "security_domain_count": 33,
             "security_provider_count": 6,
             "domain_coverage_exhaustive": False,
             "provider_coverage_exhaustive": False,
