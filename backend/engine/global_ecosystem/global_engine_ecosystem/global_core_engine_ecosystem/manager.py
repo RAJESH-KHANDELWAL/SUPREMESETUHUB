@@ -8,7 +8,7 @@ from __future__ import annotations
 from copy import deepcopy
 from typing import Any
 
-from backend.engine.global_ecosystem.models import GlobalEcosystemIdentity
+from backend.engine.global_ecosystem.models import EcosystemIdentity
 from backend.engine.global_ecosystem.registry import GlobalEcosystemRegistry
 
 ROOT_ID = "GLOBAL-CORE-ENGINE-ECOSYSTEM"
@@ -51,7 +51,7 @@ class GlobalCoreEngineEcosystemManager:
     def __init__(self) -> None:
         self.registry = GlobalEcosystemRegistry()
         for record in get_catalog():
-            self.registry.register(GlobalEcosystemIdentity(**record))
+            self.registry.register(EcosystemIdentity(**record))
 
     def status(self) -> dict[str, Any]:
         root = self.registry.get(self.ROOT_ID)
