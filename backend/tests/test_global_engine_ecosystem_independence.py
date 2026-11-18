@@ -30,8 +30,8 @@ def test_engine_catalog_mirrors_the_shared_category_taxonomy():
 def test_engine_packages_do_not_import_sibling_layers():
     import inspect
     import backend.engine.global_ecosystem.global_engine_ecosystem.manager as manager_module
-    import backend.engine.global_ecosystem.models as models_module
-    import backend.engine.global_ecosystem.registry as registry_module
+    import backend.engine.global_ecosystem.global_engine_ecosystem.manager as models_module
+    import backend.engine.global_ecosystem.global_engine_ecosystem.registry as registry_module
 
     source = "\n".join(inspect.getsource(module) for module in (
         manager_module, models_module, registry_module
