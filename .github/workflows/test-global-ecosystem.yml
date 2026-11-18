@@ -39,6 +39,11 @@ jobs:
             php -l "$file"
           done < <(git ls-files -z '*.php')
 
+      - name: Run backend/tests PHP tests
+        run: |
+          php backend/tests/php/global_algorithm_kernel_test.php
+          php backend/tests/php/global_model_ecosystem_test.php
+
   python-quality:
     name: Python syntax checks
     runs-on: ubuntu-latest
