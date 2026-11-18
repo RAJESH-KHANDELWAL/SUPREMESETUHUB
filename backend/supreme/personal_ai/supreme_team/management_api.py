@@ -8,7 +8,7 @@ from .auth_adapter import get_team_actor
 from .management import Actor, SupremeTeamManagement
 
 router = APIRouter(
-    prefix="/api/v1/supreme/team-management",
+    prefix="/team-management",
     tags=["SUPREME TEAM MANAGEMENT"],
 )
 service = SupremeTeamManagement()
