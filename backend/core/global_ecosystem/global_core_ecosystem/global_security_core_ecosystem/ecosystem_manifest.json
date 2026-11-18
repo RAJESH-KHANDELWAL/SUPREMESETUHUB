@@ -11,14 +11,15 @@
   "status": "CORE_CATALOG_ONLY",
   "canonical_path": "backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem",
   "registry": {
-    "module": "catalog.py",
+    "module": "manager.py",
     "domains": "catalog.json",
-    "domain_catalog_module": "domain_catalog.py",
+    "domain_catalog_module": "manager.py",
     "providers": "provider_catalog.json",
     "provider_catalog_module": "provider_catalog.py",
     "shared_provider_service": "module_service.py",
     "jurisdictions": "jurisdiction_catalog.py",
-    "content_safety_policy": "content_safety_policy.py"
+    "content_safety_policy": "content_safety_policy.py",
+    "compatibility_facade": "catalog.py"
   },
   "domain_count": 33,
   "domain_coverage_exhaustive": false,
@@ -95,5 +96,12 @@
   "jurisdiction_profile_count": 2,
   "legal_compliance_verified": false,
   "domain_folder_suffix": "_core_ecosystem",
-  "domain_package_location": "ECOSYSTEM_ROOT"
+  "domain_package_location": "ECOSYSTEM_ROOT",
+  "protected_groups": [
+    "MEN",
+    "WOMEN",
+    "GIRLS",
+    "BOYS"
+  ],
+  "protected_group_safety_metadata": true
 }
