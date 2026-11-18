@@ -19,6 +19,11 @@ class GlobalEcosystemIdentity:
     metadata: dict[str, Any] = field(default_factory=dict)
     message: str | None = None
     parent_id: str | None = None
+    module_count: int | None = None
+    module: str | None = None
+    entrypoint: str | None = None
+    module: str | None = None
+    entrypoint: str | None = None
     created_at: str = field(default_factory=utc_now)
     updated_at: str = field(default_factory=utc_now)
 
@@ -29,6 +34,8 @@ class GlobalEcosystemIdentity:
             "status": self.status, "enabled": self.enabled,
             "capabilities": list(self.capabilities), "metadata": dict(self.metadata),
             "message": self.message, "parent_id": self.parent_id,
+            "module_count": self.module_count, "module": self.module,
+            "entrypoint": self.entrypoint,
             "created_at": self.created_at, "updated_at": self.updated_at,
         }
 
