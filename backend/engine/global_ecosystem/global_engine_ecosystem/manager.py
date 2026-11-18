@@ -59,6 +59,7 @@ ROOT: dict[str, Any] = {
 
 _PACKAGE_ROOT = Path(__file__).resolve().parent
 _MASTER_CATALOG_PATH = Path(__file__).resolve().parents[3] / "GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+MASTER_CATALOG_TARGET_UNIQUE_ENTRIES = 2468
 
 
 def get_master_catalog() -> dict[str, Any]:
@@ -108,7 +109,7 @@ def get_master_catalog_summary() -> dict[str, Any]:
             "cross_reference_count": section_cross_references,
         })
     expansion = catalog.get("expansion", {})
-    target = int(expansion.get("target_unique_entries", 2468))
+    target = int(expansion.get("target_unique_entries", MASTER_CATALOG_TARGET_UNIQUE_ENTRIES))
     return {
         "success": True,
         "catalogue_id": catalog["catalogue_id"],
