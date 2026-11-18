@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_AI_STORAGE_ECOSYSTEM",
+  "category_folder_count": 13,
+  "folder_naming": "global_ai_<category>_storage_ecosystem",
+  "folders": [
+    {
+      "category": "MODEL_ARTIFACTS",
+      "group": "AI_MODEL_AND_ARTIFACTS",
+      "folder": "global_ai_model_artifacts_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_ai_storage_ecosystem/global_ai_model_artifacts_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DATASETS",
+      "group": "AI_MODEL_AND_ARTIFACTS",
+      "folder": "global_ai_datasets_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_ai_storage_ecosystem/global_ai_datasets_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "TRAINING_RUNS",
+      "group": "AI_MODEL_AND_ARTIFACTS",
+      "folder": "global_ai_training_runs_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_ai_storage_ecosystem/global_ai_training_runs_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "INFERENCE_ASSETS",
+      "group": "AI_RUNTIME_AND_ORCHESTRATION",
+      "folder": "global_ai_inference_assets_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_ai_storage_ecosystem/global_ai_inference_assets_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PROMPT_AND_CONTEXT",
+      "group": "AI_PROMPT_AND_KNOWLEDGE",
+      "folder": "global_ai_prompt_and_context_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_ai_storage_ecosystem/global_ai_prompt_and_context_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "EMBEDDINGS_AND_VECTORS",
+      "group": "AI_PROMPT_AND_KNOWLEDGE",
+      "folder": "global_ai_embeddings_and_vectors_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_ai_storage_ecosystem/global_ai_embeddings_and_vectors_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "RETRIEVAL_AND_KNOWLEDGE",
+      "group": "AI_PROMPT_AND_KNOWLEDGE",
+      "folder": "global_ai_retrieval_and_knowledge_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_ai_storage_ecosystem/global_ai_retrieval_and_knowledge_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "FINE_TUNING",
+      "group": "AI_MODEL_AND_ARTIFACTS",
+      "folder": "global_ai_fine_tuning_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_ai_storage_ecosystem/global_ai_fine_tuning_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "EVALUATION_AND_BENCHMARKS",
+      "group": "AI_EVALUATION_AND_MULTIMODAL",
+      "folder": "global_ai_evaluation_and_benchmarks_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_ai_storage_ecosystem/global_ai_evaluation_and_benchmarks_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MULTIMODAL_ASSETS",
+      "group": "AI_EVALUATION_AND_MULTIMODAL",
+      "folder": "global_ai_multimodal_assets_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_ai_storage_ecosystem/global_ai_multimodal_assets_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "AGENT_MEMORY",
+      "group": "AI_PROMPT_AND_KNOWLEDGE",
+      "folder": "global_ai_agent_memory_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_ai_storage_ecosystem/global_ai_agent_memory_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "WORKFLOWS_AND_PIPELINES",
+      "group": "AI_RUNTIME_AND_ORCHESTRATION",
+      "folder": "global_ai_workflows_and_pipelines_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_ai_storage_ecosystem/global_ai_workflows_and_pipelines_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "GOVERNANCE_AND_AUDIT",
+      "group": "AI_GOVERNANCE_AND_SECURITY",
+      "folder": "global_ai_governance_and_audit_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_ai_storage_ecosystem/global_ai_governance_and_audit_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    }
+  ]
+}

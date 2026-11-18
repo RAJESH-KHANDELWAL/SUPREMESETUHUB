@@ -1,85 +1,137 @@
-from backend.foundation.core.service import FoundationService
-from backend.foundation.core.integrity import FoundationIntegrity
-from backend.foundation.core.orchestrator import FoundationOrchestrator
+"""
+MAIN BASE FOUNDATION
+Central Foundation Bootstrap
 
-from backend.foundation.identity.manager import FoundationIdentityManager
-from backend.foundation.registry.registry import FoundationRegistry
-from backend.foundation.dependencies.manager import FoundationDependencyManager
-from backend.foundation.audit.service import FoundationAuditService
-from backend.foundation.security.manager import FoundationSecurityManager
-from backend.foundation.sync.manager import FoundationSyncManager
-from backend.foundation.file_manager.manager import FoundationFileManager
+Controls the complete lifecycle of the Foundation layer.
+"""
+
+from pathlib import Path
+
+from foundation.core.foundation import foundation
+from foundation.core.integrity import integrity
+from foundation.core.orchestrator import orchestrator
+from foundation.core.service import FoundationService
+
+from foundation.file_manager.manager import FileManager
+from foundation.sync.sync import SyncEngine
 
 
 class FoundationBootstrap:
     """
-    MAIN BASE FOUNDATION
-
-    Central bootstrap point for the complete Foundation layer.
+    Central lifecycle controller for the Foundation.
     """
 
-    NAME = "MAIN BASE FOUNDATION"
-    VERSION = "1.0.0"
+    def __init__(self, root: str):
+        self.root = Path(root).resolve()
 
-    def __init__(self):
-        self.service = FoundationService()
-        self.integrity = FoundationIntegrity()
-        self.orchestrator = FoundationOrchestrator()
-
-        self.identity = FoundationIdentityManager()
-        self.registry = FoundationRegistry()
-        self.dependencies = FoundationDependencyManager()
-        self.audit = FoundationAuditService()
-        self.security = FoundationSecurityManager()
-        self.sync = FoundationSyncManager()
-        self.file_manager = FoundationFileManager()
-
-    def boot(self):
-        foundation = self.service.initialize()
-        integrity = self.integrity.verify()
-        identity = self.identity.initialize()
-
-        self.audit.record(
-            event="FOUNDATION_BOOT",
-            source="FoundationBootstrap",
-            details={
-                "version": self.VERSION
-            }
+        self.file_manager = FileManager(
+            str(self.root)
         )
 
-        return {
-            "foundation": self.NAME,
-            "version": self.VERSION,
-            "status": "RUNNING",
-            "service": foundation,
-            "integrity": integrity,
-            "identity": identity,
-            "registry": self.registry.list_components(),
-            "dependencies": self.dependencies.list_dependencies(),
-            "audit": self.audit.list_events(),
-            "security": self.security.list_checks(),
-            "sync": self.sync.status(),
-            "file_manager": self.file_manager.list_files(),
-        }
+        self.sync_engine = SyncEngine(
+            str(self.root)
+        )
 
-    def health(self):
-        integrity = self.integrity.verify()
+        orchestrator.set_file_manager(
+            self.file_manager
+        )
+
+        orchestrator.set_sync_engine(
+            self.sync_engine
+        )
+
+        self.service = FoundationService(
+            file_manager=self.file_manager,
+            sync_engine=self.sync_engine,
+        )
+
+        self.started = False
+
+    # ==========================================================
+    # START
+    # ==========================================================
+
+    def start(self) -> dict:
+        """
+        Start the complete Foundation lifecycle.
+        """
+
+        if self.started:
+            return self.status()
+
+        foundation.status = "active"
+
+        self.started = True
+
+        return self.status()
+
+    # ==========================================================
+    # SYNCHRONIZE
+    # ==========================================================
+
+    def synchronize(self) -> dict:
+        """
+        Synchronize the filesystem and validate integrity.
+        """
+
+        if not self.started:
+            self.start()
+
+        return self.service.synchronize()
+
+    # ==========================================================
+    # INTEGRITY
+    # ==========================================================
+
+    def integrity_check(self) -> dict:
+        """
+        Run a complete Foundation integrity check.
+        """
+
+        return integrity.check(
+            root=self.root
+        )
+
+    # ==========================================================
+    # STATUS
+    # ==========================================================
+
+    def status(self) -> dict:
+        """
+        Return complete Foundation lifecycle status.
+        """
 
         return {
-            "foundation": self.NAME,
-            "version": self.VERSION,
-            "status": (
-                "HEALTHY"
-                if integrity["verified"]
-                else "UNHEALTHY"
+            "foundation": foundation.info(),
+            "lifecycle": (
+                "RUNNING"
+                if self.started
+                else "STOPPED"
             ),
-            "integrity": integrity,
+            "systems": orchestrator.status(),
+            "service": self.service.status(),
+            "integrity": self.integrity_check(),
+            "root": str(self.root),
         }
 
-    def shutdown(self):
-        self.audit.record(
-            event="FOUNDATION_SHUTDOWN",
-            source="FoundationBootstrap"
-        )
+    # ==========================================================
+    # STOP
+    # ==========================================================
 
-        return self.service.shutdown()
+    def stop(self) -> dict:
+        """
+        Stop the Foundation lifecycle controller.
+        """
+
+        self.started = False
+
+        return {
+            "foundation": foundation.info(),
+            "lifecycle": "STOPPED",
+            "root": str(self.root),
+        }
+
+
+__all__ = [
+    "FoundationBootstrap",
+]

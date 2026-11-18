@@ -1,0 +1,10 @@
+"""Static Atlassian family configuration; no credentials or API calls."""
+PROVIDER = "atlassian"
+CORE_LAYER = "ATLASSIAN_CORE"
+ECOSYSTEM_ID = "ATLASSIAN-CONFLUENCE-CORE-ECOSYSTEM"
+DISPLAY_NAME = "Confluence"
+API_CATALOG_REF = "backend/api/global_ecosystem/global_api_ecosystem/atlassian_api_ecosystem/atlassian_confluence_api_ecosystem"
+CAPABILITIES = ["SPACE_METADATA","PAGE_LIFECYCLE_BOUNDARY","CONTENT_PERMISSION_METADATA","CONTENT_DISCOVERY_METADATA"]
+DOMAINS = ["KNOWLEDGE_AND_COLLABORATION","GOVERNANCE_AND_SECURITY"]
+READINESS = "CORE_CATALOG_ONLY"
+LIVE_CONNECTION_VERIFIED = False

@@ -1,1 +1,0 @@
-"""Snowflake Cortex Core tests."""

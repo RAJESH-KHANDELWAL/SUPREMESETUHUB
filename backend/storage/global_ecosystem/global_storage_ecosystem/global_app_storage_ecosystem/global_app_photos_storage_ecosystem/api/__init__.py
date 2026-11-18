@@ -1,0 +1,1 @@
+"""API namespace for GLOBAL_APP_PHOTOS_STORAGE_ECOSYSTEM."""

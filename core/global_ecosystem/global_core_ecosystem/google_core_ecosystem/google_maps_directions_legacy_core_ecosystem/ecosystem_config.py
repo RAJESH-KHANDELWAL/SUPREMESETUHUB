@@ -1,9 +1,0 @@
-PRODUCT_ID="google_maps_directions_legacy"
-PRODUCT_NAME="Google Maps Directions (legacy)"
-CATEGORY="MAPS_AND_ROUTES"
-API_NAME="Directions API (Legacy)"
-INTEGRATION_MODE="API_KEY_OR_OAUTH"
-AVAILABILITY="API_AVAILABLE"
-AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
-REQUIRED_SCOPES=[]
-LIVE_CONNECTION_ENABLED=False

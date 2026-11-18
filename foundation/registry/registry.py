@@ -1,90 +1,396 @@
-from __future__ import annotations
+"""
+MAIN BASE FOUNDATION
+Central Persistent Foundation Registry
 
-from typing import Any
+Maintains the canonical persistent registry of entities
+belonging to MAIN-BASE-FOUNDATION.
+"""
+
+from dataclasses import dataclass
+from datetime import datetime, timezone
+from typing import Optional
+
+from backend.engine.database.manager import DatabaseEngine
+
+
+@dataclass
+class RegistryEntry:
+    entity_id: str
+    entity_type: str
+    path: str
+    identity_id: str
+    status: str = "active"
+    created_at: str = ""
+    updated_at: str = ""
+
+    def __post_init__(self):
+        now = datetime.now(timezone.utc).isoformat()
+
+        if not self.created_at:
+            self.created_at = now
+
+        if not self.updated_at:
+            self.updated_at = now
+
+    def to_dict(self) -> dict:
+        return {
+            "entity_id": self.entity_id,
+            "entity_type": self.entity_type,
+            "path": self.path,
+            "identity_id": self.identity_id,
+            "status": self.status,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at,
+        }
 
 
 class FoundationRegistry:
     """
-    CENTRAL FOUNDATION REGISTRY
+    Persistent registry for MAIN-BASE-FOUNDATION.
 
-    Maintains registered Foundation components
-    for MAIN BASE FOUNDATION.
+    Filesystem remains the source of truth for physical files
+    and directories. The registry stores their stable metadata.
     """
 
-    def __init__(self):
-        self._components: dict[str, dict[str, Any]] = {}
+    TABLE_NAME = "foundation_registry"
 
-    def register_component(
+    def __init__(
         self,
-        name: str,
-        component: Any,
-        category: str = "FOUNDATION",
-    ) -> dict[str, Any]:
-        component_name = name.strip().lower()
+        database: Optional[DatabaseEngine] = None,
+    ):
+        self.database = database or DatabaseEngine()
+        self._initialize()
 
-        if not component_name:
-            raise ValueError("COMPONENT_NAME_REQUIRED")
+    def _initialize(self) -> None:
+        """Create the registry table when required."""
 
-        self._components[component_name] = {
-            "name": component_name,
-            "category": category,
-            "component": component,
-            "status": "REGISTERED",
+        self.database.create_table(
+            f"""
+            CREATE TABLE IF NOT EXISTS {self.TABLE_NAME} (
+                entity_id TEXT PRIMARY KEY,
+                entity_type TEXT NOT NULL,
+                path TEXT NOT NULL,
+                identity_id TEXT NOT NULL,
+                status TEXT NOT NULL DEFAULT 'active',
+                created_at TEXT NOT NULL,
+                updated_at TEXT NOT NULL
+            )
+            """
+        )
+
+        self.database.execute(
+            f"""
+            CREATE INDEX IF NOT EXISTS
+            idx_{self.TABLE_NAME}_path
+            ON {self.TABLE_NAME}(path)
+            """
+        )
+
+    def register(self, entry: RegistryEntry) -> RegistryEntry:
+        """Register a new entity."""
+
+        existing = self.get(entry.entity_id)
+
+        if existing is not None:
+            raise ValueError(
+                f"Entity already registered: {entry.entity_id}"
+            )
+
+        self.database.execute(
+            f"""
+            INSERT INTO {self.TABLE_NAME} (
+                entity_id,
+                entity_type,
+                path,
+                identity_id,
+                status,
+                created_at,
+                updated_at
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                entry.entity_id,
+                entry.entity_type,
+                entry.path,
+                entry.identity_id,
+                entry.status,
+                entry.created_at,
+                entry.updated_at,
+            ),
+        )
+
+        return entry
+
+    def get(
+        self,
+        entity_id: str,
+    ) -> Optional[RegistryEntry]:
+        """Return one registry entry."""
+
+        row = self.database.fetch_one(
+            f"""
+            SELECT
+                entity_id,
+                entity_type,
+                path,
+                identity_id,
+                status,
+                created_at,
+                updated_at
+            FROM {self.TABLE_NAME}
+            WHERE entity_id = ?
+            """,
+            (entity_id,),
+        )
+
+        if row is None:
+            return None
+
+        return RegistryEntry(
+            entity_id=row["entity_id"],
+            entity_type=row["entity_type"],
+            path=row["path"],
+            identity_id=row["identity_id"],
+            status=row["status"],
+            created_at=row["created_at"],
+            updated_at=row["updated_at"],
+        )
+
+    def require(
+        self,
+        entity_id: str,
+    ) -> RegistryEntry:
+        """Return an entry or raise KeyError."""
+
+        entry = self.get(entity_id)
+
+        if entry is None:
+            raise KeyError(
+                f"Entity not found: {entity_id}"
+            )
+
+        return entry
+
+    def update_path(
+        self,
+        entity_id: str,
+        path: str,
+    ) -> RegistryEntry:
+        """Update an entity's filesystem path."""
+
+        entry = self.require(entity_id)
+
+        updated_at = datetime.now(
+            timezone.utc
+        ).isoformat()
+
+        self.database.execute(
+            f"""
+            UPDATE {self.TABLE_NAME}
+            SET
+                path = ?,
+                updated_at = ?
+            WHERE entity_id = ?
+            """,
+            (
+                path,
+                updated_at,
+                entity_id,
+            ),
+        )
+
+        entry.path = path
+        entry.updated_at = updated_at
+
+        return entry
+
+    def update(
+        self,
+        entity_id: str,
+        **changes,
+    ) -> RegistryEntry:
+        """Update allowed registry metadata."""
+
+        entry = self.require(entity_id)
+
+        allowed_fields = {
+            "entity_type",
+            "path",
+            "identity_id",
+            "status",
         }
 
-        return self.component_info(component_name)
+        unknown_fields = (
+            set(changes.keys()) - allowed_fields
+        )
 
-    def unregister_component(self, name: str) -> dict[str, Any]:
-        component_name = name.strip().lower()
+        if unknown_fields:
+            raise ValueError(
+                f"Unknown registry fields: "
+                f"{sorted(unknown_fields)}"
+            )
 
-        if component_name not in self._components:
-            raise ValueError("COMPONENT_NOT_FOUND")
+        if not changes:
+            return entry
 
-        del self._components[component_name]
+        updated_at = datetime.now(
+            timezone.utc
+        ).isoformat()
 
-        return {
-            "success": True,
-            "component": component_name,
-            "status": "UNREGISTERED",
-        }
+        assignments = []
+        parameters = []
 
-    def component_info(self, name: str) -> dict[str, Any]:
-        component_name = name.strip().lower()
+        for field in allowed_fields:
+            if field in changes:
+                assignments.append(
+                    f"{field} = ?"
+                )
+                parameters.append(
+                    changes[field]
+                )
 
-        component = self._components.get(component_name)
+                setattr(
+                    entry,
+                    field,
+                    changes[field],
+                )
 
-        if component is None:
-            raise ValueError("COMPONENT_NOT_FOUND")
+        assignments.append(
+            "updated_at = ?"
+        )
+        parameters.append(updated_at)
 
-        return {
-            "name": component["name"],
-            "category": component["category"],
-            "status": component["status"],
-        }
+        parameters.append(entity_id)
 
-    def list_components(self) -> list[dict[str, Any]]:
+        self.database.execute(
+            f"""
+            UPDATE {self.TABLE_NAME}
+            SET {", ".join(assignments)}
+            WHERE entity_id = ?
+            """,
+            tuple(parameters),
+        )
+
+        entry.updated_at = updated_at
+
+        return entry
+
+    def remove(
+        self,
+        entity_id: str,
+    ) -> bool:
+        """Remove an entity from the registry."""
+
+        self.require(entity_id)
+
+        self.database.execute(
+            f"""
+            DELETE FROM {self.TABLE_NAME}
+            WHERE entity_id = ?
+            """,
+            (entity_id,),
+        )
+
+        return True
+
+    def find_by_path(
+        self,
+        path: str,
+    ) -> Optional[RegistryEntry]:
+        """Find an entity by filesystem path."""
+
+        row = self.database.fetch_one(
+            f"""
+            SELECT
+                entity_id,
+                entity_type,
+                path,
+                identity_id,
+                status,
+                created_at,
+                updated_at
+            FROM {self.TABLE_NAME}
+            WHERE path = ?
+            """,
+            (path,),
+        )
+
+        if row is None:
+            return None
+
+        return RegistryEntry(
+            entity_id=row["entity_id"],
+            entity_type=row["entity_type"],
+            path=row["path"],
+            identity_id=row["identity_id"],
+            status=row["status"],
+            created_at=row["created_at"],
+            updated_at=row["updated_at"],
+        )
+
+    def list_all(self) -> list[dict]:
+        """Return every registered entity."""
+
+        rows = self.database.fetch_all(
+            f"""
+            SELECT
+                entity_id,
+                entity_type,
+                path,
+                identity_id,
+                status,
+                created_at,
+                updated_at
+            FROM {self.TABLE_NAME}
+            ORDER BY path COLLATE NOCASE
+            """
+        )
+
         return [
-            self.component_info(name)
-            for name in sorted(self._components)
+            {
+                "entity_id": row["entity_id"],
+                "entity_type": row["entity_type"],
+                "path": row["path"],
+                "identity_id": row["identity_id"],
+                "status": row["status"],
+                "created_at": row["created_at"],
+                "updated_at": row["updated_at"],
+            }
+            for row in rows
         ]
 
-    def has_component(self, name: str) -> bool:
-        return name.strip().lower() in self._components
-
     def count(self) -> int:
-        return len(self._components)
+        """Return the number of registered entities."""
+
+        row = self.database.fetch_one(
+            f"""
+            SELECT COUNT(*) AS total
+            FROM {self.TABLE_NAME}
+            """
+        )
+
+        return int(row["total"])
 
     def clear(self) -> None:
-        self._components.clear()
+        """
+        Clear the registry.
 
-    def status(self) -> dict[str, Any]:
-        return {
-            "component_count": self.count(),
-            "components": self.list_components(),
-            "status": "READY",
-        }
+        Intended for controlled maintenance/testing operations.
+        """
+
+        self.database.execute(
+            f"""
+            DELETE FROM {self.TABLE_NAME}
+            """
+        )
+
+
+registry = FoundationRegistry()
 
 
 __all__ = [
+    "RegistryEntry",
     "FoundationRegistry",
+    "registry",
 ]

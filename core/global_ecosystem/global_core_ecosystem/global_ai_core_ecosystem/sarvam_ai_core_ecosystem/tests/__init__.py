@@ -1,1 +1,0 @@
-"""Sarvam AI Core tests."""

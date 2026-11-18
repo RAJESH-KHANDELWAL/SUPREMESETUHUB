@@ -1,58 +1,77 @@
-# ============================================================
-# MAIN BASE FOUNDATION
-# BACKEND ENVIRONMENT / SECRETS
-# ============================================================
-
+# Local environment and secrets
 .env
 .env.*
 !.env.example
+**/.env
+**/.env.*
+!**/.env.example
 
-
-# ============================================================
-# DATABASE FILES
-# ============================================================
-
-*.db
-*.sqlite
-*.sqlite3
-
-
-# ============================================================
-# PYTHON
-# ============================================================
-
+# Python
 __pycache__/
 *.py[cod]
-*.pyo
-
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-
-
-# ============================================================
-# VIRTUAL ENVIRONMENTS
-# ============================================================
-
+*.pyd
+.Python
 .venv/
 venv/
 env/
-ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 
+# Databases and local data
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.sqlite-wal
+*.sqlite-shm
+data/
+backups/
+*.bak
 
-# ============================================================
-# LOGS
-# ============================================================
-
+# Logs and temporary files
 *.log
 logs/
-
-
-# ============================================================
-# LOCAL / TEMPORARY FILES
-# ============================================================
-
+tmp/
+temp/
 *.tmp
-*.temp
+
+# Node / frontend tooling
+node_modules/
+.npm/
+dist/
+coverage/
+
+# Android / Gradle
+.gradle/
+**/build/
+local.properties
+*.jks
+*.keystore
+key.properties
+captures/
+.externalNativeBuild/
+.cxx/
+
+# iOS / Xcode (for future native iOS project)
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.ipa
+*.dSYM/
+Pods/
+
+# IDE / OS
+.idea/
+.vscode/
 .DS_Store
 Thumbs.db
+Desktop.ini
+
+# Test and packaging artifacts
+*.aab
+*.apk
+*.whl
+*.tar.gz

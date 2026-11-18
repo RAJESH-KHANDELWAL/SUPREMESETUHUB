@@ -1,0 +1,5 @@
+"""Independent Photography freelance specialization package."""
+SPECIALIZATION_ID = "photography"
+SPECIALIZATION_NAME = "Photography"
+DOMAIN_ID = "freelance_gig_independent_work"
+DESCRIPTION = "Commercial, product, portrait, event and property photography and post-production."

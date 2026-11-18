@@ -1,9 +1,11 @@
-
 name: Android Build
 
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 
@@ -16,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -26,10 +28,11 @@ jobs:
           cache: pip
           cache-dependency-path: backend/requirements.txt
 
-      - name: Install Python dependencies
+      - name: Install Backend Dependencies
+        working-directory: backend
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -r backend/requirements.txt
+          python -m pip install -r requirements.txt
           python -m pip install pytest
 
       - name: Run Backend Tests
@@ -56,23 +59,19 @@ jobs:
           test -d "$ANDROID_HOME/platforms/android-36"
           test -d "$ANDROID_HOME/build-tools/36.0.0"
 
-      - name: Install Gradle
+      - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: "9.6.0"
 
-      - name: Check Gradle
-        working-directory: mobile/android
-        run: gradle --version
-
-      - name: Build Release AAB
+      - name: Build Android Release AAB
         working-directory: mobile/android
         run: |
           gradle :app:bundleRelease \
             --stacktrace \
             --no-daemon
 
-      - name: Verify AAB
+      - name: Verify Release AAB
         run: |
           AAB="mobile/android/app/build/outputs/bundle/release/app-release.aab"
           test -f "$AAB"
@@ -81,6 +80,7 @@ jobs:
       - name: Upload Release AAB
         uses: actions/upload-artifact@v4
         with:
-          name: main-base-foundation-release-aab
+          name: supreme-setu-hub-release-aab
           path: mobile/android/app/build/outputs/bundle/release/app-release.aab
           if-no-files-found: error
+          

@@ -1,7 +1,10 @@
 """
-FOUNDATION SYNC
-
-Central synchronization layer for MAIN BASE FOUNDATION.
+MAIN BASE FOUNDATION
+Synchronization Package
 """
 
-SYNC_LAYER = "FOUNDATION SYNC"
+from foundation.sync.sync import SyncEngine
+
+__all__ = [
+    "SyncEngine",
+]

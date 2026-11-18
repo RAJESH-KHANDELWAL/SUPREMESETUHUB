@@ -1,0 +1,9 @@
+<?php
+/** Separate metadata for 👑 DR RAJESH KHANDELWAL IBC OFFICIAL 👑. */
+return [
+    'display_name' => "👑 DR RAJESH KHANDELWAL IBC OFFICIAL 👑",
+    'username' => "DRRAJESHKHANDELWALIBCOFFICIAL",
+    'domain_name' => "DRRAJESHKHANDELWALIBCOFFICIAL.COM",
+    'gmail_id_name' => "DRRAJESHKANDELWALIBCOFFICIAL@GMAIL.COM",
+    'tagline' => "🌍 GLOBAL BUSINESS COACH | 🧠 INDEPENDENT BUSINESS CONSULTANT | 💼 BUSINESS ADVISOR | 🏢 FOUNDER & CEO",
+];

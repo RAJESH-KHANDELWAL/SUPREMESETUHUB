@@ -1,1 +1,0 @@
-"""Anthropic models Core tests."""

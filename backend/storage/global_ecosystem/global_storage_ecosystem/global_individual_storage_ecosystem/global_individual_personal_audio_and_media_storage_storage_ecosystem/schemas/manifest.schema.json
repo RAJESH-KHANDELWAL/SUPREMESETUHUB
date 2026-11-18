@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GLOBAL_INDIVIDUAL_PERSONAL_AUDIO_AND_MEDIA_STORAGE_STORAGE_ECOSYSTEM manifest",
+  "type": "object",
+  "required": [
+    "ecosystem_id",
+    "package_name",
+    "provider",
+    "category",
+    "category_group",
+    "connection_state",
+    "provider_product_verified",
+    "storage_operations_enabled"
+  ],
+  "properties": {
+    "ecosystem_id": {
+      "const": "GLOBAL_INDIVIDUAL_PERSONAL_AUDIO_AND_MEDIA_STORAGE_STORAGE_ECOSYSTEM"
+    },
+    "package_name": {
+      "const": "global_individual_personal_audio_and_media_storage_storage_ecosystem"
+    },
+    "provider": {
+      "const": "GLOBAL_INDIVIDUAL"
+    },
+    "category": {
+      "const": "PERSONAL_AUDIO_AND_MEDIA_STORAGE"
+    },
+    "category_group": {
+      "const": "PERSONAL_CONTENT"
+    },
+    "connection_state": {
+      "const": "NOT_CONFIGURED"
+    },
+    "provider_product_verified": {
+      "const": false
+    },
+    "storage_operations_enabled": {
+      "const": false
+    }
+  }
+}

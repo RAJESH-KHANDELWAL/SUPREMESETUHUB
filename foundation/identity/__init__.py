@@ -1,7 +1,16 @@
 """
-FOUNDATION REGISTRY
-
-Central registry for MAIN BASE FOUNDATION components.
+MAIN BASE FOUNDATION
+Identity Package
 """
 
-REGISTRY_NAME = "MAIN BASE FOUNDATION REGISTRY"
+from foundation.identity.identity import (
+    Identity,
+    IdentityManager,
+    identity_manager,
+)
+
+__all__ = [
+    "Identity",
+    "IdentityManager",
+    "identity_manager",
+]

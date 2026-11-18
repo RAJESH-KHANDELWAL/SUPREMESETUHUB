@@ -1,7 +1,0 @@
-{
-  "schema_version": "1.0.0",
-  "provider": "GOOGLE",
-  "status": "DOCUMENTATION_SCAFFOLD",
-  "live_connection_verified": false,
-  "notes": "Catalog only; verify product availability, entitlements and policies."
-}

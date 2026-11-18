@@ -1,0 +1,1 @@
+"""Offline tests for GLOBAL_AI_MODEL_ARTIFACTS_STORAGE_ECOSYSTEM."""
