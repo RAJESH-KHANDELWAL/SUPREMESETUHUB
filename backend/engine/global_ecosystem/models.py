@@ -8,7 +8,7 @@ def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 @dataclass
-class GlobalEcosystemIdentity:
+class EcosystemIdentity:
     ecosystem_id: str
     name: str
     ecosystem_type: str = "GENERAL"
@@ -32,5 +32,4 @@ class GlobalEcosystemIdentity:
             "created_at": self.created_at, "updated_at": self.updated_at,
         }
 
-EcosystemIdentity = GlobalEcosystemIdentity
-__all__ = ["EcosystemIdentity", "GlobalEcosystemIdentity", "utc_now"]
+__all__ = ["EcosystemIdentity", "utc_now"]
