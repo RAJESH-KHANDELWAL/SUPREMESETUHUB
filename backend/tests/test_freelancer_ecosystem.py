@@ -1,4 +1,4 @@
-from backend.core.global_ecosystem.global_core_ecosystem.catalog import get_catalog
+from backend.core.global_ecosystem.global_core_ecosystem.manager import get_catalog
 from backend.database.freelancer_ecosystem import FreelancerEcosystemRepository
 from backend.engine.freelancer_ecosystem.manager import FreelancerEcosystemEngine
 
