@@ -22,5 +22,15 @@ CORE stores metadata and policy only. It does not compile or execute user code, 
 ## Coverage and tiers
 The catalog is intentionally non-exhaustive. Normal → Basic → Standard → Premium → Professional → Enterprise → Supreme describes service/governance tiers, not guaranteed compiler availability, language support or production runtime entitlement.
 
+## Integrity validation
+
+Run the focused regression suite from the repository root:
+
+```bash
+python -m pytest -q backend/core/global_ecosystem/global_core_ecosystem/global_programming_language_core_ecosystem/tests
+```
+
+The suite checks canonical identity and path, manifest/catalog counts, unique domain identifiers and folders, domain-directory presence, shared-support area consistency, language-record counts and metadata-only/runtime security boundaries. The same suite is wired into the Python Core Database GitHub Actions workflow.
+
 ## API
 `ProgrammingLanguageCoreEcosystemService` exposes status, health, domain and language discovery. `ProgrammingLanguageDomainCoreService` provides policy-aware metadata for one registered domain. Passing a CORE capability check is not authorization to execute code or access external systems.
