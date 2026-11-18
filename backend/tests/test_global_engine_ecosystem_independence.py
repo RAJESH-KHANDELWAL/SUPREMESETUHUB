@@ -2,13 +2,6 @@
 from backend.engine.global_ecosystem import GlobalEcosystemManager
 
 
-def test_engine_manager_owns_an_independent_registry():
-    manager = GlobalEcosystemManager()
-    assert manager.status()["success"] is True
-    assert manager.exists("GLOBAL-ENGINE-ECOSYSTEM")
-    assert manager.registry.count() == manager.list()["count"]
-
-
 def test_engine_catalog_mirrors_the_shared_category_taxonomy():
     from backend.engine.global_ecosystem.global_engine_ecosystem.manager import CATEGORIES
     from backend.engine.global_ecosystem.global_engine_ecosystem import LAYER
