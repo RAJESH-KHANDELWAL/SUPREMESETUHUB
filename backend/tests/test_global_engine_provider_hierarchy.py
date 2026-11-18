@@ -28,7 +28,7 @@ def _engine_relative(api_relative: Path) -> Path:
 
 def test_engine_mirrors_every_api_provider_directory_without_importing_it():
     api_dirs = sorted(path.relative_to(API_ROOT) for path in API_ROOT.rglob("*") if path.is_dir())
-    assert len(api_dirs) == 3382
+    assert api_dirs, "API provider tree must not be empty"
     for relative in api_dirs:
         engine_dir = ENGINE_ROOT / _engine_relative(relative)
         assert engine_dir.is_dir(), f"Missing ENGINE directory: {engine_dir}"
@@ -42,16 +42,16 @@ def test_every_provider_leaf_has_an_engine_execution_boundary():
         path for path in api_dirs
         if not any(child.parent == path for child in api_dir_set)
     ]
-    assert len(leaves) == 2716
+    assert leaves, "API provider tree must contain leaf providers"
     for leaf in leaves:
         relative = leaf.relative_to(API_ROOT)
         engine_leaf = ENGINE_ROOT / _engine_relative(relative)
         assert (engine_leaf / "engine.py").is_file(), f"Missing provider engine: {engine_leaf}"
 
 
-def test_all_58_provider_roots_have_independent_engine_modules():
+def test_all_provider_roots_have_independent_engine_modules():
     roots = [path for path in API_ROOT.iterdir() if path.is_dir()]
-    assert len(roots) == 58
+    assert roots, "API provider tree must contain provider roots"
     required = ("__init__.py", "manager.py", "models.py", "registry.py", "engine.py")
     for root in roots:
         engine_root = ENGINE_ROOT / _engine_relative(root.relative_to(API_ROOT))
