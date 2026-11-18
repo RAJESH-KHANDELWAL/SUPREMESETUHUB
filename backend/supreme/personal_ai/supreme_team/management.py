@@ -259,8 +259,8 @@ class SupremeTeamManagement:
     ) -> dict[str, Any]:
         """Record an externally executed change; this method does not execute it."""
         self._actor(actor)
-        if actor.role != OWNER:
-            raise PermissionError("OWNER_ONLY_EXECUTION_RECORDING")
+        if actor.role not in {OWNER, "CMD"}:
+            raise PermissionError("CMD_OR_OWNER_EXECUTION_RECORDING_REQUIRED")
         if not evidence.strip():
             raise ValueError("EXECUTION_EVIDENCE_REQUIRED")
         proposal = self.get_proposal(actor, proposal_id)
