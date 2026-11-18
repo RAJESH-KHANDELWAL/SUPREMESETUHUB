@@ -27,3 +27,12 @@ This directory defines identity and role structure only. It does not grant opera
 - [Role accountability matrix](ROLE_ACCOUNTABILITY_MATRIX.md)
 
 CMD is the highest delegated operational authority and reports to the Owner. Owner approval is mandatory for protected rename, move, delete, overwrite, merge, deployment, structural, access-control, and other reserved changes. Daily reports must include exact before/after locations and evidence for every verified movement or change.
+
+## Management service
+
+- `management.py` provides persistent task tracking, department daily reports, protected-change proposals, Owner-only approval decisions, execution evidence records, and an Owner-only audit view.
+- `tests/test_management.py` covers authenticated-actor rejection, Owner approval, approved-state matching, task completion evidence, daily-report completeness, and audit access.
+- Protected GitHub/filesystem/database changes are **not executed by this service**. CMD can coordinate execution only after the exact proposal is Owner-approved, then record evidence. A separate authenticated executor and GitHub branch protection are required before production mutation endpoints are enabled.
+- The service uses the existing `DatabaseService` and its configured `SUPREME_DB_PATH` (default `data/supreme.db`).
+
+The API must obtain Actor identity from a trusted authentication dependency. Never accept `actor_id`, `role`, or `authenticated` from a public request body.
