@@ -6,14 +6,14 @@ on:
       - main
     paths:
       - "backend/php/**"
-      - "backend/tests/php/**"
+      - "backend/test/php/**"
       - ".github/workflows/test-global-php-ecosystem.yml"
   pull_request:
     branches:
       - main
     paths:
       - "backend/php/**"
-      - "backend/tests/php/**"
+      - "backend/test/php/**"
       - ".github/workflows/test-global-php-ecosystem.yml"
   workflow_dispatch:
 
@@ -39,7 +39,7 @@ jobs:
           php -l backend/php/global_ecosystem/global_php_ecosystem/bootstrap.php
           php -l backend/php/global_ecosystem/global_php_ecosystem/bada_business_php_ecosystem/BadaBusinessPHPAdapter.php
           php -l backend/php/global_ecosystem/global_php_ecosystem/bada_business_php_ecosystem/bootstrap.php
-          php -l backend/tests/php/global_algorithm_kernel_test.php
+          php -l backend/test/php/global_algorithm_kernel_test.php
 
       - name: Run GLOBAL PHP ECOSYSTEM smoke tests
-        run: php backend/tests/php/global_algorithm_kernel_test.php
+        run: php backend/test/php/global_algorithm_kernel_test.php
