@@ -125,7 +125,9 @@ class GlobalEcosystemManager:
 
     def __init__(self) -> None:
         self.name, self.version = self.ROOT_NAME, self.VERSION
-        from .registry import GlobalEcosystemRegistry\n\n        self.registry = GlobalEcosystemRegistry()
+        from .registry import GlobalEcosystemRegistry
+
+        self.registry = GlobalEcosystemRegistry()
         # Module counts belong to the ENGINE manager, not the shared identity model.
         self.module_counts: dict[str, int] = {}
         self.module_references: dict[str, str] = {}
@@ -250,7 +252,10 @@ class GlobalEcosystemManager:
 EcosystemManager = GlobalEcosystemManager
 
 __all__ = [
-    "EcosystemIdentity",\n    "utc_now",\n    "ROOT_ID",\n    "ROOT",
+    "EcosystemIdentity",
+    "utc_now",
+    "ROOT_ID",
+    "ROOT",
     "CATEGORIES",
     "PROVIDER_ECOSYSTEMS",
     "get_catalog",
