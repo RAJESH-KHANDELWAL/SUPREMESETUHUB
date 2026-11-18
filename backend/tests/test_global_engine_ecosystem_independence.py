@@ -1,5 +1,4 @@
 """Regression tests for the independent GLOBAL ENGINE ecosystem layer."""
-from backend.engine.global_ecosystem import GlobalEcosystemManager
 
 
 def test_engine_catalog_mirrors_the_shared_category_taxonomy():
