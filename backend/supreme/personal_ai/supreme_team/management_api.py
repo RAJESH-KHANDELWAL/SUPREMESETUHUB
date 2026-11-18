@@ -153,6 +153,12 @@ def list_daily_reports(report_date: str | None = None,
     return _run(service.list_daily_reports, actor, report_date=report_date)
 
 
+@router.get("/daily-reports/consolidated")
+def consolidated_daily_report(report_date: str,
+                              actor: Actor = Depends(get_team_actor)):
+    return _run(service.consolidated_daily_report, actor, report_date=report_date)
+
+
 @router.get("/audit")
 def audit_log(resource_id: str | None = None,
               actor: Actor = Depends(get_team_actor)):
