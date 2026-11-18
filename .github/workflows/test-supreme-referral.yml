@@ -9,7 +9,7 @@ on:
       - "backend/database/**"
       - "backend/storage/**"
       - "backend/supreme/**"
-      - "backend/tests/test_supreme_referral_stack.py"
+      - "backend/test/test_supreme_referral_stack.py"
       - ".github/workflows/test-supreme-referral.yml"
   pull_request:
     branches: [main]
@@ -19,7 +19,7 @@ on:
       - "backend/database/**"
       - "backend/storage/**"
       - "backend/supreme/**"
-      - "backend/tests/test_supreme_referral_stack.py"
+      - "backend/test/test_supreme_referral_stack.py"
       - ".github/workflows/test-supreme-referral.yml"
   workflow_dispatch:
 
@@ -41,4 +41,4 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r backend/requirements.txt
       - name: Test GLOBAL CORE ECOSYSTEM layers
-        run: python -m pytest -q backend/tests/test_supreme_referral_stack.py
+        run: python -m pytest -q backend/test/test_supreme_referral_stack.py
