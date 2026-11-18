@@ -7,12 +7,41 @@ implementations.
 from __future__ import annotations
 
 from copy import deepcopy
+from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from ..models import EcosystemIdentity
-from ..registry import GlobalEcosystemRegistry
+
+
+def utc_now() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+@dataclass
+class EcosystemIdentity:
+    ecosystem_id: str
+    name: str
+    ecosystem_type: str = "GENERAL"
+    repository_ref: str | None = None
+    status: str = "REGISTERED"
+    enabled: bool = True
+    capabilities: list[str] = field(default_factory=list)
+    metadata: dict[str, Any] = field(default_factory=dict)
+    message: str | None = None
+    parent_id: str | None = None
+    created_at: str = field(default_factory=utc_now)
+    updated_at: str = field(default_factory=utc_now)
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "ecosystem_id": self.ecosystem_id, "name": self.name,
+            "ecosystem_type": self.ecosystem_type, "repository_ref": self.repository_ref,
+            "status": self.status, "enabled": self.enabled,
+            "capabilities": list(self.capabilities), "metadata": dict(self.metadata),
+            "message": self.message, "parent_id": self.parent_id,
+            "created_at": self.created_at, "updated_at": self.updated_at,
+        }
 
 
 ROOT_ID = "GLOBAL-ENGINE-ECOSYSTEM"
@@ -96,7 +125,7 @@ class GlobalEcosystemManager:
 
     def __init__(self) -> None:
         self.name, self.version = self.ROOT_NAME, self.VERSION
-        self.registry = GlobalEcosystemRegistry()
+        from .registry import GlobalEcosystemRegistry\n\n        self.registry = GlobalEcosystemRegistry()
         # Module counts belong to the ENGINE manager, not the shared identity model.
         self.module_counts: dict[str, int] = {}
         self.module_references: dict[str, str] = {}
@@ -221,8 +250,7 @@ class GlobalEcosystemManager:
 EcosystemManager = GlobalEcosystemManager
 
 __all__ = [
-    "ROOT_ID",
-    "ROOT",
+    "EcosystemIdentity",\n    "utc_now",\n    "ROOT_ID",\n    "ROOT",
     "CATEGORIES",
     "PROVIDER_ECOSYSTEMS",
     "get_catalog",
