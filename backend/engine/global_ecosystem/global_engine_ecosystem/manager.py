@@ -7,6 +7,7 @@ implementations.
 from __future__ import annotations
 
 from copy import deepcopy
+import json
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
@@ -57,6 +58,73 @@ ROOT: dict[str, Any] = {
 }
 
 _PACKAGE_ROOT = Path(__file__).resolve().parent
+_MASTER_CATALOG_PATH = Path(__file__).resolve().parents[3] / "GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+
+
+def get_master_catalog() -> dict[str, Any]:
+    """Load the Bharat-to-global master planning catalog from the backend root."""
+    if not _MASTER_CATALOG_PATH.is_file():
+        raise FileNotFoundError(f"Master ecosystem catalog not found: {_MASTER_CATALOG_PATH}")
+    with _MASTER_CATALOG_PATH.open("r", encoding="utf-8") as stream:
+        catalog = json.load(stream)
+    if catalog.get("catalogue_id") != "GLOBAL_TO_SUPREME_MASTER_ECOSYSTEM":
+        raise ValueError("Unexpected master ecosystem catalog identity")
+    return catalog
+
+
+def get_master_catalog_summary() -> dict[str, Any]:
+    """Return verified section, unique-entry, cross-reference, and expansion counts."""
+    catalog = get_master_catalog()
+    sections = []
+    source_count = 0
+    unique_count = 0
+    cross_reference_count = 0
+    capability_level_count = 0
+    seen_ids: set[str] = set()
+    for section in catalog.get("sections", []):
+        entries = section.get("entries", [])
+        section_unique = 0
+        section_cross_references = 0
+        for entry in entries:
+            entry_id = entry.get("entry_id")
+            if not entry_id or entry_id in seen_ids:
+                raise ValueError(f"Missing or duplicate master catalog entry_id: {entry_id!r}")
+            seen_ids.add(entry_id)
+            source_count += 1
+            if entry.get("entry_kind") == "cross_reference":
+                section_cross_references += 1
+                cross_reference_count += 1
+            else:
+                section_unique += 1
+                unique_count += 1
+                if entry.get("entry_kind") == "capability_level":
+                    capability_level_count += 1
+        sections.append({
+            "section_number": section.get("section_number"),
+            "section_id": section.get("section_id"),
+            "title": section.get("title"),
+            "source_entry_count": len(entries),
+            "unique_entry_count": section_unique,
+            "cross_reference_count": section_cross_references,
+        })
+    expansion = catalog.get("expansion", {})
+    target = int(expansion.get("target_unique_entries", 2468))
+    return {
+        "success": True,
+        "catalogue_id": catalog["catalogue_id"],
+        "title": catalog.get("title"),
+        "section_count": len(sections),
+        "source_numbered_entry_count": source_count,
+        "unique_entry_count": unique_count,
+        "cross_reference_count": cross_reference_count,
+        "capability_level_count": capability_level_count,
+        "target_unique_entry_count": target,
+        "remaining_unique_entries": max(target - unique_count, 0),
+        "target_reached": unique_count >= target,
+        "expansion_status": "TARGET_REACHED" if unique_count >= target else "FOUNDATION_CATALOG_ONLY",
+        "sections": sections,
+    }
+
 
 
 def _discover() -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
@@ -185,8 +253,17 @@ class GlobalEcosystemManager:
         except (ValueError, KeyError) as exc:
             return {"success": False, "error": "REGISTRATION_FAILED", "message": str(exc)}
 
+    def master_catalog(self) -> dict[str, Any]:
+        """Return the complete planning catalog; this does not imply implementation."""
+        return get_master_catalog()
+
+    def master_catalog_summary(self) -> dict[str, Any]:
+        """Return exact counts from the structured master planning catalog."""
+        return get_master_catalog_summary()
+
     def status(self) -> dict[str, Any]:
         root = self.registry.get(self.ROOT_ID)
+        master_summary = get_master_catalog_summary()
         return {
             "success": root is not None,
             "ecosystem_id": self.ROOT_ID,
@@ -194,6 +271,7 @@ class GlobalEcosystemManager:
             "version": self.VERSION,
             "status": "OPERATIONAL" if root else "NOT_INITIALIZED",
             "ecosystem_count": self.registry.count(),
+            "master_catalog": master_summary,
             "category_module_counts": dict(self.module_counts),
             "total_engine_modules": sum(self.module_counts.values()),
             "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -261,6 +339,8 @@ __all__ = [
     "get_catalog",
     "get_category_catalog",
     "get_provider_catalog",
+    "get_master_catalog",
+    "get_master_catalog_summary",
     "GlobalEcosystemManager",
     "EcosystemManager",
 ]
