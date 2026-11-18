@@ -1,0 +1,38 @@
+{
+  "ecosystem_id": "GLOBAL-STORAGE-CORE-ECOSYSTEM",
+  "name": "GLOBAL STORAGE CORE ECOSYSTEM",
+  "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+  "provider_families": [
+    "apple",
+    "aws",
+    "digitalocean",
+    "google",
+    "microsoft"
+  ],
+  "shared_root_areas": [
+    "integrations",
+    "services",
+    "tools"
+  ],
+  "core_modules": [
+    "contracts.py",
+    "catalog.py",
+    "policy.py",
+    "orchestrator.py",
+    "service.py"
+  ],
+  "layer_boundary": {
+    "core": "provider identity, capability metadata, tenant policy, lifecycle and readiness",
+    "storage": "provider-specific object/file storage adapters and operations",
+    "api": "authentication, SDK clients, transport and response normalization",
+    "database": "database engines, schemas, queries and transactions",
+    "runtime": "jobs, retries, queues and scheduling"
+  },
+  "security": {
+    "tenant_context_required": true,
+    "secrets_committed": false,
+    "live_connections_verified": false,
+    "destructive_operations_enabled": false
+  },
+  "status": "CATALOG_FOUNDATION_NOT_LIVE_INTEGRATED"
+}

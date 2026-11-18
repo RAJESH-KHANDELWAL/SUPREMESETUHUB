@@ -1,9 +1,0 @@
-PRODUCT_ID="google_search_console"
-PRODUCT_NAME="Google Search Console"
-CATEGORY="SEO_AND_SEARCH_PERFORMANCE"
-API_NAME="Search Console API"
-INTEGRATION_MODE="USER_OAUTH"
-AVAILABILITY="API_AVAILABLE"
-AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
-REQUIRED_SCOPES=[]
-LIVE_CONNECTION_ENABLED=False

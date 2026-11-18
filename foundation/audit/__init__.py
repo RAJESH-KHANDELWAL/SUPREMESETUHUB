@@ -1,16 +1,7 @@
 """
-MAIN BASE FOUNDATION
-Audit Package
+FOUNDATION AUDIT
+
+Central audit layer for MAIN BASE FOUNDATION.
 """
 
-from foundation.audit.audit import (
-    AuditRecord,
-    AuditLog,
-    audit_log,
-)
-
-__all__ = [
-    "AuditRecord",
-    "AuditLog",
-    "audit_log",
-]
+AUDIT_LAYER = "FOUNDATION AUDIT"

@@ -1,0 +1,172 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "AWS_STORAGE_ECOSYSTEM",
+  "provider": "AWS",
+  "taxonomy_only": true,
+  "groups": [
+    {
+      "group": "OBJECT_AND_ARCHIVE_STORAGE",
+      "categories": [
+        "S3"
+      ]
+    },
+    {
+      "group": "BLOCK_STORAGE",
+      "categories": [
+        "EBS"
+      ]
+    },
+    {
+      "group": "FILE_STORAGE",
+      "categories": [
+        "EFS",
+        "FSX"
+      ]
+    },
+    {
+      "group": "BACKUP_AND_RECOVERY",
+      "categories": [
+        "BACKUP",
+        "ELASTIC_DISASTER_RECOVERY"
+      ]
+    },
+    {
+      "group": "HYBRID_AND_EDGE_STORAGE",
+      "categories": [
+        "STORAGE_GATEWAY",
+        "SNOW_FAMILY",
+        "OUTPOSTS"
+      ]
+    },
+    {
+      "group": "DATA_MOVEMENT_AND_TRANSFER",
+      "categories": [
+        "DATASYNC",
+        "TRANSFER_FAMILY"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "category": "S3",
+      "name": "Amazon S3",
+      "folder": "aws_s3_storage_ecosystem",
+      "group": "OBJECT_AND_ARCHIVE_STORAGE",
+      "purpose": "Object storage namespace covering buckets, objects, versioning, lifecycle, replication and S3 storage classes.",
+      "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "provider_product_verified": false,
+      "storage_operations_enabled": false
+    },
+    {
+      "category": "EBS",
+      "name": "Amazon EBS",
+      "folder": "aws_ebs_storage_ecosystem",
+      "group": "BLOCK_STORAGE",
+      "purpose": "Block storage volumes, snapshots, volume lifecycle and attachment metadata for compute workloads.",
+      "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "provider_product_verified": false,
+      "storage_operations_enabled": false
+    },
+    {
+      "category": "EFS",
+      "name": "Amazon EFS",
+      "folder": "aws_efs_storage_ecosystem",
+      "group": "FILE_STORAGE",
+      "purpose": "Elastic shared file storage namespace, file systems, mount targets and access-point metadata.",
+      "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "provider_product_verified": false,
+      "storage_operations_enabled": false
+    },
+    {
+      "category": "FSX",
+      "name": "Amazon FSx",
+      "folder": "aws_fsx_storage_ecosystem",
+      "group": "FILE_STORAGE",
+      "purpose": "Managed file-system families, deployment options, backup metadata and lifecycle classification.",
+      "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "provider_product_verified": false,
+      "storage_operations_enabled": false
+    },
+    {
+      "category": "BACKUP",
+      "name": "AWS Backup",
+      "folder": "aws_backup_storage_ecosystem",
+      "group": "BACKUP_AND_RECOVERY",
+      "purpose": "Backup plans, protected resources, recovery points, vault metadata and restore lifecycle.",
+      "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "provider_product_verified": false,
+      "storage_operations_enabled": false
+    },
+    {
+      "category": "STORAGE_GATEWAY",
+      "name": "AWS Storage Gateway",
+      "folder": "aws_storage_gateway_storage_ecosystem",
+      "group": "HYBRID_AND_EDGE_STORAGE",
+      "purpose": "Hybrid cloud storage gateway namespace for file, volume and tape gateway metadata.",
+      "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "provider_product_verified": false,
+      "storage_operations_enabled": false
+    },
+    {
+      "category": "DATASYNC",
+      "name": "AWS DataSync",
+      "folder": "aws_datasync_storage_ecosystem",
+      "group": "DATA_MOVEMENT_AND_TRANSFER",
+      "purpose": "Managed data movement task metadata, source and destination references, schedules and transfer status.",
+      "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "provider_product_verified": false,
+      "storage_operations_enabled": false
+    },
+    {
+      "category": "TRANSFER_FAMILY",
+      "name": "AWS Transfer Family",
+      "folder": "aws_transfer_family_storage_ecosystem",
+      "group": "DATA_MOVEMENT_AND_TRANSFER",
+      "purpose": "Managed SFTP, FTPS, FTP and AS2 transfer endpoint and workflow metadata.",
+      "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "provider_product_verified": false,
+      "storage_operations_enabled": false
+    },
+    {
+      "category": "SNOW_FAMILY",
+      "name": "AWS Snow Family",
+      "folder": "aws_snow_family_storage_ecosystem",
+      "group": "HYBRID_AND_EDGE_STORAGE",
+      "purpose": "Offline and edge data transfer device/job metadata, shipment lifecycle and import/export classification.",
+      "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "provider_product_verified": false,
+      "storage_operations_enabled": false
+    },
+    {
+      "category": "ELASTIC_DISASTER_RECOVERY",
+      "name": "AWS Elastic Disaster Recovery",
+      "folder": "aws_elastic_disaster_recovery_storage_ecosystem",
+      "group": "BACKUP_AND_RECOVERY",
+      "purpose": "Disaster recovery source server, replication, recovery launch and failback metadata.",
+      "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "provider_product_verified": false,
+      "storage_operations_enabled": false
+    },
+    {
+      "category": "OUTPOSTS",
+      "name": "AWS Outposts",
+      "folder": "aws_outposts_storage_ecosystem",
+      "group": "HYBRID_AND_EDGE_STORAGE",
+      "purpose": "On-premises AWS infrastructure storage placement and local capacity metadata.",
+      "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "provider_product_verified": false,
+      "storage_operations_enabled": false
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "AI-APPLE_INTELLIGENCE-CORE-ECOSYSTEM",
+  "provider_id": "apple_intelligence",
+  "provider_name": "Apple Intelligence",
+  "parent_id": "GLOBAL-AI-CORE-ECOSYSTEM",
+  "layer": "GLOBAL_AI_PRODUCT_CORE",
+  "runtime_catalog_ref": "backend/global_ecosystem/global_ai_ecosystem/providers.py",
+  "runtime_package_ref": "backend/global_ecosystem/global_ai_ecosystem/apple_intelligence_ecosystem",
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem/apple_ai_api_ecosystem",
+  "folders": [
+    "authentication",
+    "capabilities",
+    "docs",
+    "events",
+    "lifecycle",
+    "models",
+    "schemas",
+    "security",
+    "services",
+    "tests"
+  ],
+  "status": "DYNAMICALLY_REGISTERED_NOT_LIVE_VERIFIED",
+  "live_connection_verified": false,
+  "api_calls_performed": 0
+}

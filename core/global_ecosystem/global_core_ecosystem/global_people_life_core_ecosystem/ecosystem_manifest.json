@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL-PEOPLE-LIFE-CORE-ECOSYSTEM",
+  "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+  "layer": "CORE",
+  "category": "PEOPLE_LIFE",
+  "division": {
+    "id": "PEOPLE-LIFE",
+    "folder": "global_people_life_core_ecosystem"
+  },
+  "status": "CORE_CATALOG_ONLY",
+  "canonical_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem",
+  "registry": {
+    "module": "catalog.py",
+    "domains": "catalog.json",
+    "domain_catalog_module": "domain_catalog.py",
+    "shared_domain_service": "module_service.py"
+  },
+  "domain_count": 28,
+  "age_restricted_domain_count": 11,
+  "domain_coverage_exhaustive": false,
+  "service_tiers": [
+    "NORMAL",
+    "BASIC",
+    "STANDARD",
+    "PREMIUM",
+    "PROFESSIONAL",
+    "ENTERPRISE",
+    "SUPREME"
+  ],
+  "live_service_connections_verified": false,
+  "api_calls_performed": 0,
+  "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+  "adult_content_scope": "LAWFUL_CONSENTING_VERIFIED_ADULTS_ONLY",
+  "adult_content_age_verification_required": true,
+  "adult_content_consent_and_rights_required": true,
+  "adult_content_moderation_required": true,
+  "prohibited_adult_content": [
+    "sexual content involving minors",
+    "non-consensual intimate imagery",
+    "coercion",
+    "trafficking",
+    "exploitation",
+    "illegal sexual content"
+  ],
+  "layer_boundaries": {
+    "core": "identity, taxonomy, capability policy, safety metadata and readiness",
+    "api": "external provider authentication and transport",
+    "storage": "durable files and records",
+    "database": "persistence, schemas and migrations",
+    "runtime": "jobs, retries and execution",
+    "application": "sessions, consent screens and user workflows"
+  },
+  "security": {
+    "sensitive_metadata_redaction": true,
+    "verified_adult_context_required_for_adult_domains": true,
+    "informed_consent_context_required_for_adult_domains": true,
+    "jurisdiction_context_required_for_adult_domains": true,
+    "legal_review_required": true,
+    "privacy_by_design_required": true
+  },
+  "shared_support_areas": [
+    "compatibility",
+    "configuration",
+    "contracts",
+    "documentation",
+    "events",
+    "exceptions",
+    "orchestration",
+    "security",
+    "testing",
+    "utilities",
+    "validation"
+  ]
+}

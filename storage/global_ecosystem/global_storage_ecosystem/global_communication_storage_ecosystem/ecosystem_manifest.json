@@ -1,0 +1,10 @@
+{
+  "ecosystem": "GLOBAL_COMMUNICATION",
+  "namespace": "communication",
+  "category_count": 30,
+  "category_index": "category_index.json",
+  "layout": "direct_child_packages",
+  "readiness_status": "FOUNDATION_ONLY",
+  "provider_connections_enabled": false,
+  "storage_operations_enabled": false
+}

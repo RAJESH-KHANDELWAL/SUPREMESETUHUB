@@ -1,1 +1,0 @@
-"""ByteDance Doubao Core tests."""

@@ -1,0 +1,9 @@
+PRODUCT_ID="firebase_performance"
+PRODUCT_NAME="Firebase Performance Monitoring"
+CATEGORY="APP_PERFORMANCE"
+API_NAME="Firebase APIs"
+INTEGRATION_MODE="CLOUD_PROJECT_CREDENTIALS"
+AVAILABILITY="API_AVAILABLE"
+AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
+REQUIRED_SCOPES=[]
+LIVE_CONNECTION_ENABLED=False

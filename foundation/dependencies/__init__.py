@@ -1,16 +1,8 @@
 """
-MAIN BASE FOUNDATION
-Dependency Package
+FOUNDATION DEPENDENCIES
+
+Central dependency management layer for
+MAIN BASE FOUNDATION.
 """
 
-from foundation.dependencies.index import (
-    Dependency,
-    DependencyIndex,
-    dependency_index,
-)
-
-__all__ = [
-    "Dependency",
-    "DependencyIndex",
-    "dependency_index",
-]
+DEPENDENCY_LAYER = "FOUNDATION DEPENDENCIES"

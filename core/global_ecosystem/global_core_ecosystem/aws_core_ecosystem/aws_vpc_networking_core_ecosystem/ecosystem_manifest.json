@@ -1,0 +1,23 @@
+{
+  "provider": "aws",
+  "core_layer": "AWS_CORE",
+  "ecosystem_id": "AWS-VPC-NETWORKING-CORE-ECOSYSTEM",
+  "display_name": "AWS VPC Networking",
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/aws_api_ecosystem/aws_vpc_networking_api_ecosystem",
+  "capabilities": [
+    "VPC_METADATA",
+    "SUBNET_AND_ROUTE_TABLE_METADATA",
+    "GATEWAY_METADATA",
+    "SECURITY_GROUP_POLICY_METADATA",
+    "NETWORK_INTERFACE_METADATA"
+  ],
+  "domains": [
+    "NETWORKING_AND_EDGE",
+    "SECURITY_AND_IDENTITY"
+  ],
+  "readiness": "CORE_CATALOG_ONLY",
+  "api_available": null,
+  "live_connection_verified": false,
+  "credential_handling": "IAM_ROLE_OR_WEB_IDENTITY_OR_EXTERNAL_SECRET_REFERENCE_ONLY",
+  "api_transport_in_core": false
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "domain_id": "FRAUD_ABUSE_PROTECTION",
+  "name": "Fraud and abuse protection",
+  "scope": "Abuse prevention, fraud signals and trust-and-safety metadata",
+  "parent_id": "GLOBAL-SECURITY-CORE-ECOSYSTEM",
+  "layer": "CORE",
+  "status": "CORE_CATALOG_ONLY",
+  "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/fraud_abuse_protection_core_ecosystem",
+  "implementation_boundary": "Metadata, contracts and discovery only; enforcement belongs in separately tested API, application, identity, runtime and infrastructure layers."
+}

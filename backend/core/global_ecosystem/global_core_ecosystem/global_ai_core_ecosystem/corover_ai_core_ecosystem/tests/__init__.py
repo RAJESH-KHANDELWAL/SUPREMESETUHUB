@@ -1,1 +1,0 @@
-"""CoRover AI Core tests."""

@@ -1,48 +1,40 @@
-"""
-MAIN BASE FOUNDATION
-Foundation Core
-
-Central core identity and metadata for the
-entire MAIN-BASE-FOUNDATION system.
-"""
-
-
-class Foundation:
+class MainBaseFoundation:
     """
-    Central representation of MAIN-BASE-FOUNDATION.
+    MAIN BASE FOUNDATION
+
+    Central foundation layer for the backend system.
+
+    The Foundation provides the common base that can be
+    consumed by API, CORE, ENGINE and other backend modules.
     """
 
-    SYSTEM_NAME = "MAIN-BASE-FOUNDATION"
-    SYSTEM_VERSION = "1.0.0"
+    NAME = "MAIN BASE FOUNDATION"
+    VERSION = "1.0.0"
+    STATUS = "READY"
 
     def __init__(self):
-        self.name = self.SYSTEM_NAME
-        self.version = self.SYSTEM_VERSION
-        self.status = "active"
+        self.status = self.STATUS
 
-    def info(self) -> dict:
-        """
-        Return the current foundation information.
-        """
+    def initialize(self):
+        self.status = "RUNNING"
 
         return {
-            "name": self.name,
-            "version": self.version,
+            "foundation": self.NAME,
+            "version": self.VERSION,
             "status": self.status,
         }
 
-    def is_active(self) -> bool:
-        """
-        Check whether the foundation is active.
-        """
+    def health(self):
+        return {
+            "foundation": self.NAME,
+            "version": self.VERSION,
+            "status": self.status,
+        }
 
-        return self.status == "active"
+    def shutdown(self):
+        self.status = "STOPPED"
 
-
-foundation = Foundation()
-
-
-__all__ = [
-    "Foundation",
-    "foundation",
-]
+        return {
+            "foundation": self.NAME,
+            "status": self.status,
+        }

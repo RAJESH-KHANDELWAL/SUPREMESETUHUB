@@ -1,10 +1,8 @@
 """
-MAIN BASE FOUNDATION
-Central File Manager Package
+FOUNDATION FILE MANAGER
+
+Central file-management coordination layer for
+MAIN BASE FOUNDATION.
 """
 
-from foundation.file_manager.manager import FileManager
-
-__all__ = [
-    "FileManager",
-]
+FILE_MANAGER_LAYER = "FOUNDATION FILE MANAGER"

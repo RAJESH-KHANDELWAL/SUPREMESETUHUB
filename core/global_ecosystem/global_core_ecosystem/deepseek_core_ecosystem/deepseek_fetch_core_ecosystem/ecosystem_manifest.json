@@ -1,0 +1,8 @@
+{
+  "provider": "deepseek",
+  "layer": "CORE",
+  "capability": "fetch",
+  "endpoint": "POST /v1/tools/fetch",
+  "status": "CONTRACT_ONLY",
+  "live_provider_calls_enabled": false
+}
