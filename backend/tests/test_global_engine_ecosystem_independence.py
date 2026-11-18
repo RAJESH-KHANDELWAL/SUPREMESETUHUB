@@ -21,7 +21,7 @@ def test_engine_catalog_mirrors_the_shared_category_taxonomy():
         "domain", "web", "social_media", "freelancer", "database",
     }
     actual = {
-        item["ecosystem_id"].removesuffix("-ENGINE-ECOSYSTEM").lower().replace("-", "_")
+        item["ecosystem_id"].removeprefix("GLOBAL-").removesuffix("-ENGINE-ECOSYSTEM").lower().replace("-", "_")
         for item in CATEGORIES
     }
     assert actual == expected
