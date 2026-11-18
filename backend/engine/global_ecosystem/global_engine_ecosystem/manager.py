@@ -97,10 +97,20 @@ class GlobalEcosystemManager:
     def __init__(self) -> None:
         self.name, self.version = self.ROOT_NAME, self.VERSION
         self.registry = GlobalEcosystemRegistry()
+        # Module counts belong to the ENGINE manager, not the shared identity model.
+        self.module_counts: dict[str, int] = {}
         for record in get_catalog():
-            self.registry.register(GlobalEcosystemIdentity(**record))
+            item = dict(record)
+            module_count = item.pop("module_count", None)
+            if module_count is not None:
+                self.module_counts[item["ecosystem_id"]] = int(module_count)
+            self.registry.register(GlobalEcosystemIdentity(**item))
 
     def register(self, ecosystem: dict[str, Any] | GlobalEcosystemIdentity) -> dict[str, Any]:
+        module_count = None
+        if isinstance(ecosystem, dict):
+            ecosystem = dict(ecosystem)
+            module_count = ecosystem.pop("module_count", None)
         identity = ecosystem if isinstance(ecosystem, GlobalEcosystemIdentity) else GlobalEcosystemIdentity(
             ecosystem_id=str(ecosystem.get("ecosystem_id", "")).strip(),
             name=str(ecosystem.get("name", "")).strip(),
@@ -120,7 +130,10 @@ class GlobalEcosystemManager:
                 "ecosystem_id": identity.ecosystem_id,
             }
         try:
-            return {"success": True, "ecosystem": self.registry.register(identity)}
+            registered = self.registry.register(identity)
+            if module_count is not None:
+                self.module_counts[identity.ecosystem_id] = int(module_count)
+            return {"success": True, "ecosystem": registered}
         except (ValueError, KeyError) as exc:
             return {"success": False, "error": "REGISTRATION_FAILED", "message": str(exc)}
 
@@ -133,6 +146,8 @@ class GlobalEcosystemManager:
             "version": self.VERSION,
             "status": "OPERATIONAL" if root else "NOT_INITIALIZED",
             "ecosystem_count": self.registry.count(),
+            "category_module_counts": dict(self.module_counts),
+            "total_engine_modules": sum(self.module_counts.values()),
             "timestamp": datetime.now(timezone.utc).isoformat(),
         }
 
@@ -144,6 +159,8 @@ class GlobalEcosystemManager:
             "status": "HEALTHY" if ready else "DEGRADED",
             "registry_available": self.registry is not None,
             "ecosystem_count": self.registry.count(),
+            "category_module_counts": dict(self.module_counts),
+            "total_engine_modules": sum(self.module_counts.values()),
         }
 
     def list(self) -> dict[str, Any]:
