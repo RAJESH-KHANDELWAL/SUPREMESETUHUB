@@ -1,2 +1,21 @@
-"""ENGINE-owned namespace: global_kamasutra_intimacy_relationship_sex_chudai_porn_adult_health_wellness_api_ecosystem."""
+"""ENGINE package for global Kamasutra relationship, intimacy, and wellness services."""
 LAYER = "ENGINE"
+
+from .manager import (
+    CATALOG,
+    CHILD_ECOSYSTEMS,
+    CHILD_ENGINE_MODULES,
+    PROVIDER,
+    EcosystemEngineManager,
+    list_engines,
+)
+
+__all__ = [
+    "LAYER",
+    "PROVIDER",
+    "CATALOG",
+    "CHILD_ECOSYSTEMS",
+    "CHILD_ENGINE_MODULES",
+    "EcosystemEngineManager",
+    "list_engines",
+]
