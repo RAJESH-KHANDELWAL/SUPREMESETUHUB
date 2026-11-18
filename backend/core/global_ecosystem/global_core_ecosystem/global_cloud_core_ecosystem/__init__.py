@@ -1,11 +1,15 @@
-"""CLOUD CORE ECOSYSTEM package.
+"""Public entry point for GLOBAL CLOUD CORE ECOSYSTEM."""
+from .contracts import CloudCoreResult, CloudReadiness, CloudTenantContext
+from .service import GlobalCloudCoreService
 
-This package is an independent layer-owned namespace. It contains no imports
-from API, CORE, or ENGINE sibling layers.
-"""
 LAYER = "CORE"
 CATEGORY = "CLOUD"
-ECOSYSTEM_NAME = f"GLOBAL {CATEGORY.replace('_', ' ')} {LAYER} ECOSYSTEM"
-ECOSYSTEM_ID = f"GLOBAL-{CATEGORY.replace('_', '-')}-{LAYER.upper()}-ECOSYSTEM"
+ECOSYSTEM_NAME = "GLOBAL CLOUD CORE ECOSYSTEM"
+ECOSYSTEM_ID = "GLOBAL-CLOUD-CORE-ECOSYSTEM"
+RUNTIME_ECOSYSTEM = "GLOBAL_CLOUD_ECOSYSTEM"
 
-__all__ = ["LAYER", "CATEGORY", "ECOSYSTEM_NAME", "ECOSYSTEM_ID"]
+__all__ = [
+    "LAYER", "CATEGORY", "ECOSYSTEM_NAME", "ECOSYSTEM_ID",
+    "RUNTIME_ECOSYSTEM", "CloudCoreResult", "CloudReadiness",
+    "CloudTenantContext", "GlobalCloudCoreService",
+]

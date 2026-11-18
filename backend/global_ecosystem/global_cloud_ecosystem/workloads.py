@@ -107,7 +107,7 @@ def validate_cloud_workloads() -> tuple[str, ...]:
             errors.append(f"{item['id']} has invalid tier")
         if not item["regions"] or any(region not in _REGIONS for region in item["regions"]):
             errors.append(f"{item['id']} has invalid region")
-        if item["adult_industry"] and not set(_ADULT_GUARDRAILS).issubset(item["guardrails"]):
+        if item["id"].startswith("adult_") and not set(_ADULT_GUARDRAILS).issubset(item["guardrails"]):
             errors.append(f"{item['id']} is missing adult-industry safeguards")
         if item["live_provider_connection_verified"] is not False:
             errors.append(f"{item['id']} incorrectly claims live provider verification")
