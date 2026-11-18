@@ -5,15 +5,16 @@ A provider-neutral, read-only CORE control plane for security-domain taxonomy, p
 ## Canonical architecture
 
 - `ecosystem_manifest.json`: canonical identity, counts, boundaries, jurisdictional coverage and declared support areas
-- `catalog.json` + `domain_catalog.py`: 33 non-exhaustive security-domain records, each mapped to a direct-child CORE ecosystem package
+- `manager.py`: canonical security-domain loader, integrity validation, shared manager instance and protected-group safety metadata for MEN, WOMEN, GIRLS and BOYS
+- `catalog.json`: 33 non-exhaustive security-domain records, each mapped to a direct-child CORE ecosystem package
 - `<domain>_core_ecosystem/`: each domain is a direct child of this ecosystem root, with `__init__.py`, `domain_manifest.json` and a domain-specific README; there is no intermediate `domains/` folder
 - `provider_catalog.json` + `provider_catalog.py`: 6 non-exhaustive provider metadata records
-- `catalog.py`: canonical ecosystem registry and compatibility facade
+- `catalog.py`: compatibility facade for aggregate domain, provider and jurisdiction discovery
+- `domain_catalog.py`: backward-compatible imports delegated to `manager.py`
 - `jurisdiction_catalog.py`: validated India and cross-border jurisdiction profile registry
 - `contracts.py`: tenant-context, external secret-reference and result contracts
 - `policy.py`: metadata redaction and capability classification; not an authorization engine
 - `content_safety_policy.py`: protective adult-platform, age-assurance, consent and prohibited-content metadata guardrails only
-- `domain_catalog.py`: validates every registered domain package and its manifest at catalog load
 - `module_service.py`: provider-neutral, policy-aware metadata service
 - `orchestrator.py`: provider/domain discovery, health and dependency summaries
 - `service.py`: read-only public control-plane facade
