@@ -60,8 +60,17 @@ Replace these example usernames with actual, verified account usernames. Do not 
 - `POST /api/v1/supreme/team-management/change-proposals/{proposal_id}/owner-decision`
 - `POST /api/v1/supreme/team-management/change-proposals/{proposal_id}/execution-record`
 - `GET|POST /api/v1/supreme/team-management/daily-reports`
+- `GET /api/v1/supreme/team-management/daily-reports/consolidated?report_date=YYYY-MM-DD`
 - `GET /api/v1/supreme/team-management/audit`
 
 All endpoints require a valid existing Bearer session. CMD can coordinate tasks and submit/read consolidated reports. Only the Owner role can approve/reject protected changes and read the audit log. Completion requires evidence. Execution recording requires an approved proposal and an exact match with the approved after-state.
 
 **Deployment gate:** the existing `backend/app/main.py` already imports and mounts `backend.supreme.personal_ai.api.router`. Still configure the private role map, run the test suite, and enable GitHub branch protection / required reviews before treating this as production-ready. The API code is committed, but runtime deployment and test success have not yet been verified. The service records approvals and evidence; it does not itself rename, move, delete, merge, or deploy repository resources.
+
+
+## CI and deployment configuration
+
+- Workflow: `.github/workflows/supreme-team-management.yml` (compile + unittest on matching pushes/PRs and manual dispatch).
+- Environment template: `backend/.env.example` contains an empty `SUPREME_TEAM_ROLE_MAP={}`. Configure the real mapping only in the private hosting environment after verifying the application usernames and appointing role holders.
+- Branch-protection status could not be read with the current GitHub integration (403); configure/verify required reviews and status checks in repository Settings as the owner.
+- Workflow execution has not yet been observed for these commits; do not treat the test suite as passed until Actions shows a successful run.
