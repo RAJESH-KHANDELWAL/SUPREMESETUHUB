@@ -16,3 +16,7 @@ Apply data minimization, purpose limitation, least-privilege access, encryption,
 
 ## Readiness boundary
 This README is a namespace scaffold only. It does not represent a completed service, data-collection workflow, external integration, production persistence or working upload/download/delete operation. Implement only after requirements, lawful basis, security review, tests and operational controls are defined.
+
+## Classification metadata schema
+
+The content-classification record schema is `classification_metadata.schema.json`. Store optional content labels and provenance only. Do not create viewer/user sexual-orientation profiles, infer orientation, or store raw identity documents or media payloads in this namespace. Keep consent and rights evidence in separately protected records referenced by opaque IDs. Apply encryption, least privilege, purpose limitation, retention and deletion controls.

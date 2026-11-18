@@ -1,0 +1,54 @@
+name: Adult Media Classification Integrity
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/adult_media_pornography_18_plus/**"
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/**"
+      - "backend/api/global_ecosystem/global_api_ecosystem/global_people_life_api_ecosystem/**"
+      - "backend/engine/global_ecosystem/global_engine_ecosystem/global_people_life_engine_ecosystem/adult_media_pornography_18_plus/**"
+      - "backend/storage/global_ecosystem/global_storage_ecosystem/global_people_life_storage_ecosystem/**"
+      - "backend/global_ecosystem/global_app_ecosystem/**"
+      - "backend/global_ecosystem/global_ai_ecosystem/governance/policy.py"
+      - "backend/global_ecosystem/global_database_ecosystem/catalog.py"
+      - "backend/tests/test_adult_media_taxonomy.py"
+      - ".github/workflows/adult-media-classification-integrity.yml"
+  push:
+    branches: [main]
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/adult_media_pornography_18_plus/**"
+      - "backend/tests/test_adult_media_taxonomy.py"
+      - ".github/workflows/adult-media-classification-integrity.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  adult-media-classification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          coverage: none
+      - name: Validate JSON contracts
+        run: |
+          python -m json.tool backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/adult_media_pornography_18_plus/classification_taxonomy.json >/dev/null
+          python -m json.tool backend/storage/global_ecosystem/global_storage_ecosystem/global_people_life_storage_ecosystem/adult_media_pornography_18_plus_storage_ecosystem/classification_metadata.schema.json >/dev/null
+          python -m json.tool backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/catalog.json >/dev/null
+          python -m json.tool backend/storage/global_ecosystem/global_storage_ecosystem/global_people_life_storage_ecosystem/api_namespace_index.json >/dev/null
+      - name: Run cross-layer taxonomy tests
+        env:
+          PYTHONPATH: .
+        run: python -m unittest discover -s backend/tests -p "test_adult_media_taxonomy.py" -v
+      - name: Validate PHP contract syntax
+        run: php -l backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/adult_media_pornography_18_plus/AdultMediaClassificationContract.php

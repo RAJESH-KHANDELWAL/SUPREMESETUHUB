@@ -51,7 +51,8 @@ WORKLOADS: dict[str, tuple[str, ...]] = {
     "communications": ("messaging_metadata", "community_platforms", "social_networks", "customer_support"),
     "adult_and_sexual_content": (
         "adult_creator_accounts", "age_assurance_status", "consent_and_release_records",
-        "content_metadata", "subscription_entitlements", "payout_ledger",
+        "content_metadata", "content_classification_metadata", "classification_taxonomy_version",
+        "subscription_entitlements", "payout_ledger",
         "moderation_cases", "copyright_and_takedown_records", "privacy_requests",
     ),
     "security_and_identity": ("identity_records", "access_events", "fraud_signals", "security_audit_events"),
@@ -71,6 +72,7 @@ QUALITY_CAPABILITIES = (
 ADULT_DATA_GUARDRAILS = {
     "scope": "Lawful adult-oriented services involving consenting adults only.",
     "age_assurance": "Store minimal verification status and provider reference; avoid unnecessary identity document retention.",
+    "content_classification": "Store optional content labels with provenance and taxonomy version only; never infer or create viewer/user sexual-orientation profiles.",
     "consent": "Maintain versioned, revocable consent and model/content release evidence where legally required.",
     "privacy": "Apply strict access controls, encryption, data minimization, purpose limitation, and retention schedules.",
     "safety": (

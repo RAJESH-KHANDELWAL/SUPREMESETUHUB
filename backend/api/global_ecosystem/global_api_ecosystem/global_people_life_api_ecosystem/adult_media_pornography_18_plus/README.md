@@ -16,3 +16,10 @@ Any real service requires verified providers, appropriate professional qualifica
 
 ## Adult-only safeguards (18+)
 Lawful adult-only services must use verified adults who meet the applicable local age threshold, freely given and ongoing consent, performer rights, privacy by design, moderation, reporting and takedown processes. No minors, coercion, trafficking, exploitation, non-consensual intimate imagery or unlawful content.
+
+## Classification contract
+
+The API catalog references the canonical People Life CORE taxonomy at:
+`backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/adult_media_pornography_18_plus/classification_taxonomy.json`.
+
+Orientation labels are optional content metadata and require self-declared or authorised provenance. The API must not infer or store viewer orientation. Participant configuration is a separate field. Age assurance, informed consent, distribution rights, moderation and jurisdiction checks remain independent mandatory gates.

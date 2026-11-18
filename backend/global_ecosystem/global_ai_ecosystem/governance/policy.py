@@ -11,7 +11,7 @@ from typing import Any
 _POLICY_CATALOG: tuple[dict[str, Any], ...] = (
     {"id": "privacy_by_design", "requirements": ["data_minimization", "purpose_limitation", "secret_redaction", "retention_controls"]},
     {"id": "human_oversight", "requirements": ["human_review_for_high_impact_decisions", "appeal_path", "auditability"]},
-    {"id": "adult_only_content", "requirements": ["adults_only", "age_assurance", "informed_consent", "verified_rights", "no_minors", "no_nonconsensual_intimate_content", "no_exploitation"]},
+    {"id": "adult_only_content", "requirements": ["adults_only", "age_assurance", "informed_consent", "verified_rights", "no_minors", "no_nonconsensual_intimate_content", "no_exploitation", "orientation_labels_content_metadata_only", "no_orientation_inference", "no_viewer_orientation_profiling", "classification_provenance_required"]},
     {"id": "safety_critical_systems", "requirements": ["qualified_oversight", "simulation_and_testing", "bounded_authority", "human_override"]},
     {"id": "regulated_domains", "requirements": ["jurisdiction_review", "professional_scope_limits", "applicable_regulatory_compliance"]},
 )

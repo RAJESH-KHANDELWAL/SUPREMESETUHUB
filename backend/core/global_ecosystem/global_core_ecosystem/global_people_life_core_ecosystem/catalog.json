@@ -48,7 +48,11 @@
       "name": "ADULT MEDIA PORNOGRAPHY 18 PLUS",
       "folder": "adult_media_pornography_18_plus",
       "scope": "Legal and policy metadata for lawful adult media categories; excludes exploitative and non-consensual material.",
-      "age_restricted": true
+      "age_restricted": true,
+      "classification_taxonomy_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/adult_media_pornography_18_plus/classification_taxonomy.json",
+      "orientation_inference_enabled": false,
+      "viewer_orientation_profiling_enabled": false,
+      "classification_scope": "CONTENT_METADATA_ONLY"
     },
     {
       "id": "ADULT_PERFORMER_RIGHTS_CONSENT_18_PLUS",

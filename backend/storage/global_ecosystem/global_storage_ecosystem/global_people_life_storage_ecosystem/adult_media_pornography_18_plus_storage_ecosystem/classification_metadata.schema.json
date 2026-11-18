@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "adult-media-classification-metadata-v1",
+  "title": "Adult media content classification metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "taxonomy_version": {
+      "const": "1.0.0"
+    },
+    "orientation_label": {
+      "enum": [
+        "STRAIGHT",
+        "GAY",
+        "BISEXUAL",
+        "OTHER",
+        "UNSPECIFIED"
+      ]
+    },
+    "orientation_source": {
+      "enum": [
+        "SELF_DECLARED",
+        "AUTHORIZED_RIGHTS_HOLDER",
+        "UNSPECIFIED"
+      ]
+    },
+    "classification_subject_type": {
+      "enum": [
+        "CREATOR",
+        "PERFORMER",
+        "UNSPECIFIED"
+      ]
+    },
+    "participant_configuration": {
+      "enum": [
+        "DIFFERENT_GENDER",
+        "SAME_GENDER",
+        "MULTIPLE_GENDERS",
+        "UNSPECIFIED"
+      ]
+    },
+    "orientation_inferred": {
+      "const": false
+    },
+    "viewer_orientation_profile_created": {
+      "const": false
+    },
+    "consent_record_reference": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rights_record_reference": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "taxonomy_version",
+    "orientation_label",
+    "orientation_source",
+    "classification_subject_type",
+    "participant_configuration",
+    "orientation_inferred",
+    "viewer_orientation_profile_created"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "orientation_label": {
+            "not": {
+              "const": "UNSPECIFIED"
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "consent_record_reference",
+          "rights_record_reference"
+        ]
+      }
+    }
+  ]
+}
