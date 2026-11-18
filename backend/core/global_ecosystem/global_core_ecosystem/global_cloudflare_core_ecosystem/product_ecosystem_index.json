@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0.0",
+  "provider": "cloudflare",
+  "source_of_record": "backend/global_ecosystem/global_cloudflare_ecosystem/catalog.py",
+  "source_offering_count": 10,
+  "product_ecosystems": [
+    {
+      "product_id": "dns",
+      "product_name": "Cloudflare DNS",
+      "category": "connectivity",
+      "capabilities": [
+        "authoritative_dns"
+      ],
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_cloudflare_core_ecosystem/dns_cloudflare_core_ecosystem",
+      "api_catalog_ref": null,
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "cdn",
+      "product_name": "Cloudflare CDN",
+      "category": "performance",
+      "capabilities": [
+        "cdn",
+        "cache_rules"
+      ],
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_cloudflare_core_ecosystem/cdn_cloudflare_core_ecosystem",
+      "api_catalog_ref": null,
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "workers",
+      "product_name": "Cloudflare Workers",
+      "category": "application_delivery",
+      "capabilities": [
+        "workers",
+        "durable_objects",
+        "queues",
+        "workflows"
+      ],
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_cloudflare_core_ecosystem/workers_cloudflare_core_ecosystem",
+      "api_catalog_ref": null,
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "pages",
+      "product_name": "Cloudflare Pages",
+      "category": "application_delivery",
+      "capabilities": [
+        "pages"
+      ],
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_cloudflare_core_ecosystem/pages_cloudflare_core_ecosystem",
+      "api_catalog_ref": null,
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "r2",
+      "product_name": "Cloudflare R2",
+      "category": "storage",
+      "capabilities": [
+        "r2_object_storage"
+      ],
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_cloudflare_core_ecosystem/r2_cloudflare_core_ecosystem",
+      "api_catalog_ref": null,
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "kv",
+      "product_name": "Workers KV",
+      "category": "storage",
+      "capabilities": [
+        "kv_storage"
+      ],
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_cloudflare_core_ecosystem/kv_cloudflare_core_ecosystem",
+      "api_catalog_ref": null,
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "d1",
+      "product_name": "Cloudflare D1",
+      "category": "storage",
+      "capabilities": [
+        "d1_sql_database"
+      ],
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_cloudflare_core_ecosystem/d1_cloudflare_core_ecosystem",
+      "api_catalog_ref": null,
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "zero_trust",
+      "product_name": "Cloudflare Zero Trust",
+      "category": "networking",
+      "capabilities": [
+        "zero_trust_networking",
+        "tunnels",
+        "access_policies"
+      ],
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_cloudflare_core_ecosystem/zero_trust_cloudflare_core_ecosystem",
+      "api_catalog_ref": null,
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "waf",
+      "product_name": "Web Application Firewall",
+      "category": "security",
+      "capabilities": [
+        "web_application_firewall",
+        "rate_limiting"
+      ],
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_cloudflare_core_ecosystem/waf_cloudflare_core_ecosystem",
+      "api_catalog_ref": null,
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "api",
+      "product_name": "Cloudflare API",
+      "category": "developer_platform",
+      "capabilities": [
+        "account_and_zone_apis",
+        "api_tokens"
+      ],
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_cloudflare_core_ecosystem/api_cloudflare_core_ecosystem",
+      "api_catalog_ref": null,
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    }
+  ]
+}

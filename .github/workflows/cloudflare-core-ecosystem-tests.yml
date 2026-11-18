@@ -1,0 +1,33 @@
+name: Cloudflare CORE Ecosystem Tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_cloudflare_core_ecosystem/**"
+      - "backend/global_ecosystem/global_cloudflare_ecosystem/catalog.py"
+      - ".github/workflows/cloudflare-core-ecosystem-tests.yml"
+  pull_request:
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_cloudflare_core_ecosystem/**"
+      - "backend/global_ecosystem/global_cloudflare_ecosystem/catalog.py"
+      - ".github/workflows/cloudflare-core-ecosystem-tests.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile Cloudflare Core Python packages
+        run: python -m compileall -q backend/core/global_ecosystem/global_core_ecosystem/global_cloudflare_core_ecosystem
+      - name: Run Cloudflare Core contract tests
+        run: python -m unittest backend.core.global_ecosystem.global_core_ecosystem.global_cloudflare_core_ecosystem.tests.test_cloudflare_core_ecosystem -v
