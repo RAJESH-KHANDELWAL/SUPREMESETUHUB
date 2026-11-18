@@ -152,6 +152,76 @@ def get_protected_group_safety(group_id: str | None = None) -> dict[str, Any]:
         "production_enforcement_verified": False,
     }
 
+
+def get_security_core_catalog() -> dict[str, Any]:
+    """Build the provider-neutral security CORE registry from manager-owned data."""
+    from .provider_catalog import get_provider_catalog
+
+    return {
+        "ecosystem_id": ECOSYSTEM_ID,
+        "name": "GLOBAL SECURITY CORE ECOSYSTEM",
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "status": STATUS,
+        "enabled": True,
+        "capabilities": [
+            "SECURITY_DOMAIN_REGISTRY", "PROVIDER_SECURITY_METADATA",
+            "JURISDICTION_PROFILE_METADATA", "CONTENT_SAFETY_POLICY_METADATA",
+            "IDENTITY_AND_ACCESS_POLICY_METADATA", "THREAT_AND_VULNERABILITY_METADATA",
+            "GOVERNANCE_AND_AUDIT_METADATA", "PROTECTED_GROUP_SAFETY_METADATA",
+        ],
+        "children": [
+            {
+                "ecosystem_id": item["ecosystem_id"],
+                "provider_id": item["provider_id"],
+                "name": item["name"],
+                "provider": item["provider_id"].lower(),
+                "core_module": f"backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/{item['folder']}",
+                "status": item["status"],
+                "enabled": item["enabled"],
+                "capabilities": list(item["capabilities"]),
+                "live_connection_verified": False,
+            }
+            for item in get_provider_catalog()
+        ],
+    }
+
+def list_security_core_modules(include_disabled: bool = False) -> list[dict[str, Any]]:
+    items = get_security_core_catalog()["children"]
+    return items if include_disabled else [item for item in items if item.get("enabled", True)]
+
+def get_catalog() -> dict[str, Any]:
+    """Return the complete security discovery view through the manager."""
+    from .jurisdiction_catalog import get_jurisdictions, jurisdiction_summary
+    from .provider_catalog import get_provider_catalog, provider_summary
+
+    return {
+        "ecosystem_id": ECOSYSTEM_ID,
+        "name": "GLOBAL SECURITY CORE ECOSYSTEM",
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "status": STATUS,
+        "domain_count": domain_summary()["domain_count"],
+        "domains": get_domains(),
+        "provider_count": provider_summary()["provider_count"],
+        "providers": get_provider_catalog(),
+        "jurisdiction_profile_count": jurisdiction_summary()["jurisdiction_profile_count"],
+        "jurisdictions": get_jurisdictions(),
+        "service_tiers": [
+            {"tier_id": tier, "rank": rank}
+            for rank, tier in enumerate(
+                ("NORMAL", "BASIC", "STANDARD", "PREMIUM", "PROFESSIONAL", "ENTERPRISE", "SUPREME"),
+                start=1,
+            )
+        ],
+        "domain_coverage_exhaustive": False,
+        "provider_coverage_exhaustive": False,
+        "jurisdiction_coverage_exhaustive": False,
+        "legal_compliance_verified": False,
+        "live_provider_connections_verified": False,
+        "api_calls_performed": 0,
+        "security_enforcement_verified": False,
+        "protected_group_safety": get_protected_group_safety(),
+    }
+
 class GlobalSecurityCoreManager:
     """Read-only manager for security domains and safety policy metadata."""
 
@@ -175,6 +245,15 @@ class GlobalSecurityCoreManager:
     def get_protected_group_safety(self, group_id: str | None = None) -> dict[str, Any]:
         return get_protected_group_safety(group_id)
 
+    def catalog(self) -> dict[str, Any]:
+        return get_catalog()
+
+    def get_security_core_catalog(self) -> dict[str, Any]:
+        return get_security_core_catalog()
+
+    def list_modules(self, include_disabled: bool = False) -> list[dict[str, Any]]:
+        return list_security_core_modules(include_disabled)
+
 _manager_instance: GlobalSecurityCoreManager | None = None
 
 def get_manager() -> GlobalSecurityCoreManager:
@@ -188,4 +267,5 @@ __all__ = [
     "ECOSYSTEM_ID", "STATUS", "SECURITY_DOMAINS", "PROTECTED_GROUP_SAFETY",
     "UNIVERSAL_SAFETY_BASELINE", "GlobalSecurityCoreManager", "get_manager",
     "get_domains", "get_domain", "domain_summary", "get_protected_group_safety",
+    "get_catalog", "get_security_core_catalog", "list_security_core_modules",
 ]
