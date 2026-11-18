@@ -80,6 +80,12 @@ def create_task(payload: TaskCreate, actor: Actor = Depends(get_team_actor)):
     )
 
 
+@router.get("/tasks")
+def list_tasks(status: str | None = None, department: str | None = None,
+               actor: Actor = Depends(get_team_actor)):
+    return _run(service.list_tasks, actor, status=status, department=department)
+
+
 @router.get("/tasks/{task_id}")
 def get_task(task_id: str, actor: Actor = Depends(get_team_actor)):
     return _run(service.get_task, actor, task_id)
