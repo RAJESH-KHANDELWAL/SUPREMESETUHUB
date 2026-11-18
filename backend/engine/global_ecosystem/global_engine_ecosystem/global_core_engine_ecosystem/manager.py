@@ -8,8 +8,8 @@ from __future__ import annotations
 from copy import deepcopy
 from typing import Any
 
-from backend.engine.global_ecosystem.models import EcosystemIdentity
-from backend.engine.global_ecosystem.registry import GlobalEcosystemRegistry
+from ..manager import EcosystemIdentity
+from ..registry import GlobalEcosystemRegistry
 
 ROOT_ID = "GLOBAL-CORE-ENGINE-ECOSYSTEM"
 ROOT: dict[str, Any] = {
