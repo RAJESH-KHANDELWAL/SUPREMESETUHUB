@@ -1,4 +1,4 @@
-name: GLOBAL ENGINE Ecosystem Tests
+name: GLOBAL ENGINE Ecosystem Test
 
 on:
   push:
