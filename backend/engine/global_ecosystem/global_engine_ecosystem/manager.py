@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from ..models import GlobalEcosystemIdentity
+from ..models import EcosystemIdentity
 from ..registry import GlobalEcosystemRegistry
 
 
@@ -113,9 +113,9 @@ class GlobalEcosystemManager:
                 self.module_references[ecosystem_id] = str(module_reference)
             if module_entrypoint is not None:
                 self.module_entrypoints[ecosystem_id] = str(module_entrypoint)
-            self.registry.register(GlobalEcosystemIdentity(**item))
+            self.registry.register(EcosystemIdentity(**item))
 
-    def register(self, ecosystem: dict[str, Any] | GlobalEcosystemIdentity) -> dict[str, Any]:
+    def register(self, ecosystem: dict[str, Any] | EcosystemIdentity) -> dict[str, Any]:
         module_count = None
         module_reference = None
         module_entrypoint = None
@@ -124,7 +124,7 @@ class GlobalEcosystemManager:
             module_count = ecosystem.pop("module_count", None)
             module_reference = ecosystem.pop("module", None)
             module_entrypoint = ecosystem.pop("entrypoint", None)
-        identity = ecosystem if isinstance(ecosystem, GlobalEcosystemIdentity) else GlobalEcosystemIdentity(
+        identity = ecosystem if isinstance(ecosystem, EcosystemIdentity) else EcosystemIdentity(
             ecosystem_id=str(ecosystem.get("ecosystem_id", "")).strip(),
             name=str(ecosystem.get("name", "")).strip(),
             ecosystem_type=str(ecosystem.get("ecosystem_type", "GENERAL")).strip(),
