@@ -148,6 +148,34 @@ class SupremeTeamManagement:
         self._audit(actor,"TASK_CREATED","TASK",task_id,{"title":title,"department":department})
         return self.get_task(actor, task_id)
 
+    def list_tasks(
+        self, actor: Actor, *, status: str | None = None,
+        department: str | None = None,
+    ) -> list[dict[str, Any]]:
+        self._actor(actor)
+        query = "SELECT * FROM supreme_team_tasks"
+        clauses: list[str] = []
+        parameters: list[Any] = []
+        if actor.role not in {OWNER, "CMD"}:
+            clauses.append("(assigned_to = ? OR created_by = ?)")
+            parameters.extend([actor.actor_id, actor.actor_id])
+        if status:
+            clauses.append("status = ?")
+            parameters.append(status)
+        if department:
+            clauses.append("department = ?")
+            parameters.append(department)
+        if clauses:
+            query += " WHERE " + " AND ".join(clauses)
+        query += " ORDER BY created_at DESC"
+        rows = self.database.fetchall(query, parameters)
+        result = []
+        for row in rows:
+            item = dict(row)
+            item["evidence"] = json.loads(item["evidence"])
+            result.append(item)
+        return result
+
     def get_task(self, actor: Actor, task_id: str) -> dict[str, Any]:
         self._actor(actor)
         row = self.database.fetchone(
