@@ -86,3 +86,9 @@ def remember(payload: MemoryRequest):
             status_code=400,
             detail=str(exc),
         ) from exc
+
+
+# Authenticated SUPREME Team management endpoints.
+from .supreme_team.management_api import router as team_management_router
+
+router.include_router(team_management_router)
