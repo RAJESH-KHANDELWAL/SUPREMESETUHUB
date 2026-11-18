@@ -9,7 +9,7 @@ on:
       - "backend/engine/global_ecosystem/global_engine_ecosystem/global_ai_engine_ecosystem/**"
       - "backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem/**"
       - "backend/api/global_ai_ecosystem.py"
-      - "backend/tests/test_global_ai_ecosystem.py"
+      - "backend/test/test_global_ai_ecosystem.py"
       - ".github/workflows/global-ai-ecosystem-tests.yml"
   pull_request:
     paths:
@@ -18,7 +18,7 @@ on:
       - "backend/engine/global_ecosystem/global_engine_ecosystem/global_ai_engine_ecosystem/**"
       - "backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem/**"
       - "backend/api/global_ai_ecosystem.py"
-      - "backend/tests/test_global_ai_ecosystem.py"
+      - "backend/test/test_global_ai_ecosystem.py"
       - ".github/workflows/global-ai-ecosystem-tests.yml"
 
 jobs:
@@ -47,5 +47,5 @@ jobs:
             backend.global_ecosystem.global_ai_ecosystem.adapters.tests.test_contracts \
             backend.global_ecosystem.global_ai_ecosystem.adapters.tests.test_chat_adapter \
             backend.api.global_ecosystem.global_api_ecosystem.global_ai_api_ecosystem.tests.test_registry_service \
-            backend.tests.test_global_ai_ecosystem \
-            backend.tests.test_global_engine_ecosystem_independence
+            backend.test.test_global_ai_ecosystem \
+            backend.test.test_global_engine_ecosystem_independence
