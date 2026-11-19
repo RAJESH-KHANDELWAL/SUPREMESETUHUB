@@ -43,3 +43,17 @@ def test_frontend_infrastructure_scaffold_checks_backend_managers_and_domains():
     assert (root / "backend" / "infrastructure" / "global_ecosystem" / "manager.py").is_file()
     assert (root / "backend" / "infrastructure" / "global_ecosystem" /
             "global_infrastructure_ecosystem" / "manager.py").is_file()
+
+
+def test_infrastructure_ecosystem_does_not_duplicate_core_ownership():
+    root = Path(__file__).resolve().parents[2]
+    infrastructure_ecosystem = (
+        root / "backend" / "infrastructure" / "global_ecosystem"
+        / "global_infrastructure_ecosystem"
+    )
+    canonical_google_core = (
+        root / "backend" / "core" / "global_ecosystem"
+        / "global_core_ecosystem" / "google_core_ecosystem"
+    )
+    assert canonical_google_core.is_dir()
+    assert not (infrastructure_ecosystem / "CORE").exists()
