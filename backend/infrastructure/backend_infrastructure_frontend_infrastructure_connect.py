@@ -59,17 +59,14 @@ class BackendInfrastructureFrontendInfrastructureConnector:
             name: (self.backend_ecosystem / name).is_dir()
             for name in self.REQUIRED_DOMAINS
         }
-        frontend_domain_checks = {
-            name: (self.frontend_ecosystem / name).is_dir()
-            for name in self.REQUIRED_DOMAINS
-        }
+        frontend_checks["global_infrastructure_ecosystem_manager"] = (
+            self.frontend_ecosystem / "manager.py"
+        ).is_file()
 
         backend_healthy = all(backend_checks.values()) and all(
             backend_domain_checks.values()
         )
-        frontend_healthy = all(frontend_checks.values()) and all(
-            frontend_domain_checks.values()
-        )
+        frontend_healthy = all(frontend_checks.values())
         return {
             "name": "BACKEND-FRONTEND INFRASTRUCTURE CONNECTOR",
             "backend": {
@@ -81,9 +78,6 @@ class BackendInfrastructureFrontendInfrastructureConnector:
             },
             "frontend": {
                 "checks": frontend_checks,
-                "domain_checks": frontend_domain_checks,
-                "expected_domain_count": len(self.REQUIRED_DOMAINS),
-                "present_domain_count": sum(frontend_domain_checks.values()),
                 "healthy": frontend_healthy,
             },
             "connected": backend_healthy and frontend_healthy,
