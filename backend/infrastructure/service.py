@@ -358,14 +358,11 @@ class InfrastructureService:
                 f"{resource_id}"
             )
 
+        if not isinstance(status, InfrastructureResourceStatus):
+            raise ValueError("Invalid infrastructure status.")
+
         resource.status = status
-
-        # Current repository implementation has
-        # create/read/delete persistence only.
-        # Update persistence will be added in the
-        # next database update step.
-
-        return resource
+        return self.repository.update(resource)
 
     # ==============================================================
     # STATUS
