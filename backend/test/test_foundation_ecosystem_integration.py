@@ -12,8 +12,13 @@ from backend.foundation.security.global_ecosystem.global_security_ecosystem impo
 from backend.foundation.sync.global_ecosystem.global_sync_ecosystem import GlobalSyncEcosystemManager
 
 
+class SampleFoundationComponent:
+    def ping(self):
+        return "PONG"
+
+
 class FoundationEcosystemIntegrationTests(unittest.TestCase):
-    def test_all_ecosystem_managers_wrap_the_original_component(self):
+    def test_all_ecosystem_managers_wrap_and_delegate_to_original_component(self):
         cases = (
             (GlobalAuditEcosystemManager, "audit"),
             (GlobalCoreEcosystemManager, "core"),
@@ -27,15 +32,19 @@ class FoundationEcosystemIntegrationTests(unittest.TestCase):
 
         for manager_class, component_key in cases:
             with self.subTest(ecosystem=manager_class.NAME):
-                original_component = object()
+                original_component = SampleFoundationComponent()
                 manager = manager_class(original_component)
 
                 self.assertIs(manager.get_component(), original_component)
+                self.assertEqual(manager.ping(), "PONG")
                 result = manager.status()
                 self.assertEqual(result["status"], "INTEGRATED")
                 self.assertEqual(result["ecosystem"], manager_class.NAME)
                 self.assertEqual(result["component_key"], component_key)
-                self.assertEqual(result["component_type"], "object")
+                self.assertEqual(
+                    result["component_type"],
+                    "SampleFoundationComponent",
+                )
 
     def test_manager_rejects_missing_component(self):
         for manager_class in (
