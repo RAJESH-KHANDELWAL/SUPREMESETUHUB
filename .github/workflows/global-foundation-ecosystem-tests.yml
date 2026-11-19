@@ -58,16 +58,20 @@ jobs:
         run: python -m unittest discover -s backend/test -p "test_*global_foundation_ecosystem.py" -v
       - name: Check backend PHP syntax
         run: |
+          php -l backend/infrastructure/backend_infrastructure_frontend_foundation_connect.php
+          php -l backend/infrastructure/global_ecosystem/global_infrastructure_ecosystem/backend_global_infrastructure_ecosystem_frontend_global_foundation_ecosystem_connect.php
           php -l backend/foundation/manager.php
-          php -l backend/foundation/backend_foundation_frontend_infrastructure.php
+          php -l backend/foundation/backend_foundation_frontend_infrastructure_connect.php
           php -l backend/foundation/global_ecosystem/manager.php
           php -l backend/foundation/global_ecosystem/global_foundation_ecosystem/manager.php
           php -l backend/foundation/global_ecosystem/global_foundation_ecosystem/backend_global_foundation_ecosystem_frontend_global_foundation_ecosystem_connect.php
           php -l backend/foundation/global_ecosystem/global_foundation_ecosystem/backend_global_foundation_ecosystem_frontend_global_infrastructure_ecosystem_connect.php
       - name: Check frontend PHP syntax
         run: |
+          php -l frontend/infrastructure/frontend_infrastructure_backend_foundation_connect.php
+          php -l frontend/infrastructure/global_ecosystem/global_infrastructure_ecosystem/frontend_global_infrastructure_ecosystem_backend_global_foundation_ecosystem_connect.php
           php -l frontend/foundation/manager.php
-          php -l frontend/foundation/frontend_foundation_backend_infrastructure.php
+          php -l frontend/foundation/frontend_foundation_backend_infrastructure_connect.php
           php -l frontend/foundation/global_ecosystem/manager.php
           php -l frontend/foundation/global_ecosystem/global_foundation_ecosystem/manager.php
           php -l frontend/foundation/global_ecosystem/global_foundation_ecosystem/frontend_global_foundation_ecosystem_backend_global_foundation_ecosystem_connect.php
