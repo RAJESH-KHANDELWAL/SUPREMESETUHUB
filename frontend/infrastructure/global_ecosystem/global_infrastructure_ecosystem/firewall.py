@@ -1,0 +1,5 @@
+"""Frontend integration contract for the firewall infrastructure domain."""
+
+DOMAIN = "firewall"
+OWNER = "backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem"
+OPERATIONS_ENABLED = False
