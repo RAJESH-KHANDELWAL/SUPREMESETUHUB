@@ -1,18 +1,19 @@
-"""Backend-side connector for the Backend and Frontend Foundation packages.
-
-This module validates the repository contract without importing frontend runtime code.
-"""
+"""Backend-side connector for the Backend and Frontend Foundation roots."""
 from pathlib import Path
 
 
 def connect_foundations() -> dict:
-    """Check that both foundation packages and their mirrored contracts exist."""
+    """Validate the two foundation roots and their manager entry points."""
     repository_root = Path(__file__).resolve().parents[2]
+    backend_root = repository_root / "backend/foundation"
+    frontend_root = repository_root / "frontend/foundation"
     checks = {
-        "backend_foundation": (repository_root / "backend/foundation/backend_foundation").is_dir(),
-        "backend_frontend_contract": (repository_root / "backend/foundation/frontend_foundation").is_dir(),
-        "frontend_foundation": (repository_root / "frontend/foundation/frontend_foundation").is_dir(),
-        "frontend_backend_contract": (repository_root / "frontend/foundation/backend_foundation").is_dir(),
+        "backend_foundation_root": backend_root.is_dir(),
+        "backend_manager_py": (backend_root / "manager.py").is_file(),
+        "backend_manager_php": (backend_root / "manager.php").is_file(),
+        "frontend_foundation_root": frontend_root.is_dir(),
+        "frontend_manager_py": (frontend_root / "manager.py").is_file(),
+        "frontend_manager_php": (frontend_root / "manager.php").is_file(),
     }
     connected = all(checks.values())
     return {
