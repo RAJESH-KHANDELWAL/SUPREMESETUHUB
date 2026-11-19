@@ -98,13 +98,16 @@ class FoundationBootstrap:
             for item in ecosystems.values()
         )
 
-        healthy = integrity["verified"] and ecosystems_integrated
+        android = self.android.status()
+        android_configured = android["status"] == "CONFIGURED"
+        healthy = integrity["verified"] and ecosystems_integrated and android_configured
         return {
             "foundation": self.NAME,
             "version": self.VERSION,
             "status": "HEALTHY" if healthy else "UNHEALTHY",
             "integrity": integrity,
             "ecosystems": ecosystems,
+            "android": android,
         }
 
     def shutdown(self):
