@@ -9,6 +9,7 @@ from backend.foundation.audit.service import FoundationAuditService
 from backend.foundation.security.manager import FoundationSecurityManager
 from backend.foundation.sync.manager import FoundationSyncManager
 from backend.foundation.file_manager.manager import FoundationFileManager
+from backend.foundation.android import AndroidFoundationManager
 
 from backend.foundation.audit.global_ecosystem.global_audit_ecosystem.manager import GlobalAuditEcosystemManager
 from backend.foundation.core.global_ecosystem.global_core_ecosystem.manager import GlobalCoreEcosystemManager
@@ -18,6 +19,7 @@ from backend.foundation.identity.global_ecosystem.global_identity_ecosystem.mana
 from backend.foundation.registry.global_ecosystem.global_registry_ecosystem.manager import GlobalRegistryEcosystemManager
 from backend.foundation.security.global_ecosystem.global_security_ecosystem.manager import GlobalSecurityEcosystemManager
 from backend.foundation.sync.global_ecosystem.global_sync_ecosystem.manager import GlobalSyncEcosystemManager
+from backend.foundation.android.global_ecosystem.global_android_ecosystem.manager import GlobalAndroidEcosystemManager
 
 
 class FoundationBootstrap:
@@ -38,6 +40,7 @@ class FoundationBootstrap:
         self.security = FoundationSecurityManager()
         self.sync = FoundationSyncManager()
         self.file_manager = FoundationFileManager()
+        self.android = AndroidFoundationManager()
 
         # Ecosystem managers wrap the existing Foundation components.
         # They do not create duplicate identity, registry, or service logic.
@@ -50,6 +53,7 @@ class FoundationBootstrap:
             "registry": GlobalRegistryEcosystemManager(self.registry),
             "security": GlobalSecurityEcosystemManager(self.security),
             "sync": GlobalSyncEcosystemManager(self.sync),
+            "android": GlobalAndroidEcosystemManager(self.android),
         }
 
     def _ecosystem_status(self):
@@ -82,6 +86,7 @@ class FoundationBootstrap:
             "security": self.security.list_checks(),
             "sync": self.sync.status(),
             "file_manager": self.file_manager.list_files(),
+            "android": self.android.status(),
             "ecosystems": self._ecosystem_status(),
         }
 
