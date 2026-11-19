@@ -1,4 +1,4 @@
-"""Tests for the backend Global Foundation Ecosystem."""
+"""Tests for the backend Global Foundation Ecosystem and consolidated layout."""
 from importlib.util import module_from_spec, spec_from_file_location
 from pathlib import Path
 import shutil
@@ -8,7 +8,10 @@ import unittest
 ROOT = Path(__file__).resolve().parents[2]
 BACKEND = ROOT / "backend" / "foundation" / "global_ecosystem"
 PACKAGE = BACKEND / "global_foundation_ecosystem"
-
+CONSOLIDATED_FOLDERS = (
+    "android", "audit", "core", "dependencies", "file_manager",
+    "identity", "registry", "security", "sync",
+)
 
 def load_module(path, name):
     spec = spec_from_file_location(name, path)
@@ -17,7 +20,6 @@ def load_module(path, name):
     module = module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
-
 
 class BackendGlobalFoundationEcosystemTests(unittest.TestCase):
     def test_backend_parent_manager_health(self):
@@ -29,6 +31,12 @@ class BackendGlobalFoundationEcosystemTests(unittest.TestCase):
         manager = load_module(PACKAGE / "manager.py", "backend_global_foundation_manager").get_manager()
         report = manager.health()
         self.assertTrue(report["healthy"], report)
+
+    def test_remaining_foundation_folders_are_consolidated(self):
+        missing = [name for name in CONSOLIDATED_FOLDERS if not (PACKAGE / name).is_dir()]
+        self.assertEqual(missing, [], f"Missing consolidated folders: {missing}")
+        misplaced = [name for name in CONSOLIDATED_FOLDERS if (ROOT / "backend" / "foundation" / name).exists()]
+        self.assertEqual(misplaced, [], f"Folders remain outside ecosystem: {misplaced}")
 
     def test_backend_connector_detects_both_sides(self):
         connector = load_module(
@@ -47,7 +55,6 @@ class BackendGlobalFoundationEcosystemTests(unittest.TestCase):
         for path in files:
             result = subprocess.run(["php", "-l", str(path)], capture_output=True, text=True)
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-
 
 if __name__ == "__main__":
     unittest.main()
