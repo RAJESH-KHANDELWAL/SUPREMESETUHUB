@@ -251,6 +251,45 @@ class InfrastructureRepository:
         ]
 
     # ==============================================================
+    # RESOURCE UPDATE
+    # ==============================================================
+
+    def update(
+        self,
+        resource: InfrastructureResource,
+    ) -> InfrastructureResource:
+        """Persist changes to an existing infrastructure resource."""
+        self.initialize()
+        cursor = self.database.execute(
+            f"""
+            UPDATE {self.RESOURCE_TABLE}
+            SET name = ?, resource_type = ?, category = ?, status = ?,
+                ownership_type = ?, owner_id = ?, organization_id = ?,
+                business_id = ?, customer_id = ?, parent_resource_id = ?,
+                provider = ?, region = ?, location = ?, hostname = ?,
+                ip_address = ?, description = ?, metadata = ?, tags = ?,
+                updated_at = CURRENT_TIMESTAMP
+            WHERE resource_id = ?
+            """,
+            (
+                resource.name, resource.resource_type.value,
+                resource.category.value, resource.status.value,
+                resource.ownership_type.value, resource.owner_id,
+                resource.organization_id, resource.business_id,
+                resource.customer_id, resource.parent_resource_id,
+                resource.provider, resource.region, resource.location,
+                resource.hostname, resource.ip_address, resource.description,
+                json.dumps(resource.metadata), json.dumps(resource.tags),
+                resource.resource_id,
+            ),
+        )
+        if cursor.rowcount == 0:
+            raise ValueError(
+                f"Infrastructure resource not found: {resource.resource_id}"
+            )
+        return resource
+
+    # ==============================================================
     # RESOURCE DELETE
     # ==============================================================
 
@@ -262,7 +301,7 @@ class InfrastructureRepository:
 
         self.initialize()
 
-        affected = self.database.execute(
+        cursor = self.database.execute(
             f"""
             DELETE FROM {self.RESOURCE_TABLE}
             WHERE resource_id = ?
@@ -270,7 +309,7 @@ class InfrastructureRepository:
             (resource_id,),
         )
 
-        return affected > 0
+        return cursor.rowcount > 0
 
     # ==============================================================
     # RELATIONSHIP CREATE
