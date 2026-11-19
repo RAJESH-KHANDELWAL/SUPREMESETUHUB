@@ -50,6 +50,15 @@ class FrontendGlobalFoundationEcosystemTests(unittest.TestCase):
         ).connect_frontend_foundation_backend_infrastructure()
         self.assertTrue(result["connected"], result)
 
+    def test_frontend_global_infrastructure_to_backend_global_foundation_connector(self):
+        connector = (
+            ROOT / "frontend" / "infrastructure" / "global_ecosystem"
+            / "global_infrastructure_ecosystem"
+            / "frontend_global_infrastructure_ecosystem_backend_global_foundation_ecosystem_connect.py"
+        )
+        result = load_module(connector, "frontend_global_infrastructure_backend_foundation").connect_ecosystems()
+        self.assertTrue(result["connected"], result)
+
     @unittest.skipUnless(shutil.which("php"), "PHP CLI is not installed")
     def test_frontend_php_files_pass_syntax_check(self):
         files = (
@@ -59,6 +68,7 @@ class FrontendGlobalFoundationEcosystemTests(unittest.TestCase):
             PACKAGE / "manager.php",
             PACKAGE / "frontend_global_foundation_ecosystem_backend_global_foundation_ecosystem_connect.php",
             PACKAGE / "frontend_global_foundation_ecosystem_backend_global_infrastructure_ecosystem_connect.php",
+            ROOT / "frontend/infrastructure/global_ecosystem/global_infrastructure_ecosystem/frontend_global_infrastructure_ecosystem_backend_global_foundation_ecosystem_connect.php",
         )
         for path in files:
             result = subprocess.run(["php", "-l", str(path)], capture_output=True, text=True)
