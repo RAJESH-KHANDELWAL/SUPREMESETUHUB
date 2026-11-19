@@ -93,3 +93,17 @@ def test_frontend_global_infrastructure_ecosystem_has_no_domain_modules():
     )
     assert not any((frontend_root / f"{name}.py").exists() for name in domain_names)
     assert not any((frontend_root / name).exists() for name in domain_names)
+
+
+def test_root_infrastructure_foundation_connectors_are_connected():
+    from backend.infrastructure.backend_infrastructure_frontend_foundation_connect import (
+        connect_foundation as backend_to_frontend,
+    )
+    from frontend.infrastructure.frontend_infrastructure_backend_foundation_connect import (
+        connect_foundation as frontend_to_backend,
+    )
+
+    backend_report = backend_to_frontend()
+    frontend_report = frontend_to_backend()
+    assert backend_report["connected"], backend_report
+    assert frontend_report["connected"], frontend_report
