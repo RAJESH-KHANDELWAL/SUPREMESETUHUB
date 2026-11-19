@@ -1,6 +1,6 @@
 <?php
 /** Frontend Infrastructure -> Backend Foundation structural connector. */
-function frontend_infrastructure_backend_foundation(): array
+function frontend_infrastructure_backend_foundation_connect(): array
 {
     $repositoryRoot = dirname(__DIR__, 2);
     $frontendInfrastructure = $repositoryRoot . '/frontend/infrastructure';
