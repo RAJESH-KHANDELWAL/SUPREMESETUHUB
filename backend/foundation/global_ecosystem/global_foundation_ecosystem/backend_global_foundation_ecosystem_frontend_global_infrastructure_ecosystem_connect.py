@@ -7,7 +7,7 @@ class BackendGlobalFoundationFrontendGlobalInfrastructureConnector:
 
     def __init__(self):
         self.foundation_root = Path(__file__).resolve().parent
-        self.repository_root = self.foundation_root.parents[4]
+        self.repository_root = self.foundation_root.parents[3]
         self.infrastructure_root = (
             self.repository_root
             / "frontend"
