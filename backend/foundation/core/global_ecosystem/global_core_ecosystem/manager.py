@@ -1,10 +1,11 @@
-"""Manager skeleton for Global Core Ecosystem."""
+"""Adapter manager for Global Core Ecosystem."""
+
+from backend.foundation.core.ecosystem_adapter import FoundationEcosystemAdapter
 
 
-class GlobalCoreEcosystemManager:
+class GlobalCoreEcosystemManager(FoundationEcosystemAdapter):
     NAME = "GLOBAL_CORE_ECOSYSTEM"
-    STATUS = "SKELETON"
+    COMPONENT_KEY = "core"
 
-    def status(self):
-        """Return structural status; component integration is pending."""
-        return {"ecosystem": self.NAME, "status": self.STATUS}
+
+__all__ = ["GlobalCoreEcosystemManager"]
