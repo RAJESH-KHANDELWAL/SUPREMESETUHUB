@@ -1,0 +1,1 @@
+"""Global Dependencies Ecosystem package."""
