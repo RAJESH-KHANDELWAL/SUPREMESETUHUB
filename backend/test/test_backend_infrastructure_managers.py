@@ -57,3 +57,14 @@ def test_infrastructure_ecosystem_does_not_duplicate_core_ownership():
     )
     assert canonical_google_core.is_dir()
     assert not (infrastructure_ecosystem / "CORE").exists()
+
+def test_backend_frontend_infrastructure_connector_is_connected():
+    from backend.infrastructure.backend_infrastructure_frontend_infrastructure_connect import (
+        connect_infrastructure,
+    )
+
+    report = connect_infrastructure()
+    assert report["connected"], report
+    assert report["backend"]["present_domain_count"] == 21
+    assert report["frontend"]["healthy"]
+
