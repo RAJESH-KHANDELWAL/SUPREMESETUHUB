@@ -4,16 +4,20 @@ on:
   push:
     branches: [main]
     paths:
-      - "backend/foundation/global_ecosystem/**"
-      - "frontend/foundation/global_ecosystem/**"
+      - "backend/foundation/**"
+      - "frontend/foundation/**"
+      - "backend/infrastructure/global_ecosystem/**"
+      - "frontend/infrastructure/global_ecosystem/**"
       - "backend/test/test_backend_global_foundation_ecosystem.py"
       - "backend/test/test_frontend_global_foundation_ecosystem.py"
       - ".github/workflows/global-foundation-ecosystem-tests.yml"
   pull_request:
     branches: [main]
     paths:
-      - "backend/foundation/global_ecosystem/**"
-      - "frontend/foundation/global_ecosystem/**"
+      - "backend/foundation/**"
+      - "frontend/foundation/**"
+      - "backend/infrastructure/global_ecosystem/**"
+      - "frontend/infrastructure/global_ecosystem/**"
       - "backend/test/test_backend_global_foundation_ecosystem.py"
       - "backend/test/test_frontend_global_foundation_ecosystem.py"
       - ".github/workflows/global-foundation-ecosystem-tests.yml"
@@ -44,19 +48,27 @@ jobs:
       - name: Compile targeted Python files
         run: |
           python -m compileall -q \
-            backend/foundation/global_ecosystem \
-            frontend/foundation/global_ecosystem \
+            backend/foundation \
+            frontend/foundation \
+            backend/infrastructure/global_ecosystem \
+            frontend/infrastructure/global_ecosystem \
             backend/test/test_backend_global_foundation_ecosystem.py \
             backend/test/test_frontend_global_foundation_ecosystem.py
-      - name: Run focused Global Foundation tests
+      - name: Run focused Foundation and Infrastructure tests
         run: python -m unittest discover -s backend/test -p "test_*global_foundation_ecosystem.py" -v
       - name: Check backend PHP syntax
         run: |
+          php -l backend/foundation/manager.php
+          php -l backend/foundation/backend_foundation_frontend_infrastructure.php
           php -l backend/foundation/global_ecosystem/manager.php
           php -l backend/foundation/global_ecosystem/global_foundation_ecosystem/manager.php
           php -l backend/foundation/global_ecosystem/global_foundation_ecosystem/backend_global_foundation_ecosystem_frontend_global_foundation_ecosystem_connect.php
+          php -l backend/foundation/global_ecosystem/global_foundation_ecosystem/backend_global_foundation_ecosystem_frontend_global_infrastructure_ecosystem_connect.php
       - name: Check frontend PHP syntax
         run: |
+          php -l frontend/foundation/manager.php
+          php -l frontend/foundation/frontend_foundation_backend_infrastructure.php
           php -l frontend/foundation/global_ecosystem/manager.php
           php -l frontend/foundation/global_ecosystem/global_foundation_ecosystem/manager.php
           php -l frontend/foundation/global_ecosystem/global_foundation_ecosystem/frontend_global_foundation_ecosystem_backend_global_foundation_ecosystem_connect.php
+          php -l frontend/foundation/global_ecosystem/global_foundation_ecosystem/frontend_global_foundation_ecosystem_backend_global_infrastructure_ecosystem_connect.php
