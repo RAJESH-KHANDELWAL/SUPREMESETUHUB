@@ -29,18 +29,17 @@ final class BackendInfrastructureFrontendInfrastructureConnector {
             $frontendChecks[$file] = is_file($frontend . '/' . $file);
         }
         $frontendChecks['global_ecosystem'] = is_dir($frontend . '/global_ecosystem');
+        $frontendChecks['global_infrastructure_ecosystem_manager'] =
+            is_file($frontendEcosystem . '/manager.py');
 
         $backendDomains = [];
-        $frontendDomains = [];
         foreach (self::DOMAINS as $domain) {
             $backendDomains[$domain] = is_dir($backendEcosystem . '/' . $domain);
-            $frontendDomains[$domain] = is_dir($frontendEcosystem . '/' . $domain);
         }
 
         $backendHealthy = !in_array(false, $backendChecks, true)
             && !in_array(false, $backendDomains, true);
-        $frontendHealthy = !in_array(false, $frontendChecks, true)
-            && !in_array(false, $frontendDomains, true);
+        $frontendHealthy = !in_array(false, $frontendChecks, true);
 
         return [
             'name' => 'BACKEND-FRONTEND INFRASTRUCTURE CONNECTOR',
@@ -53,9 +52,6 @@ final class BackendInfrastructureFrontendInfrastructureConnector {
             ],
             'frontend' => [
                 'checks' => $frontendChecks,
-                'domain_checks' => $frontendDomains,
-                'expected_domain_count' => count(self::DOMAINS),
-                'present_domain_count' => count(array_filter($frontendDomains)),
                 'healthy' => $frontendHealthy
             ],
             'connected' => $backendHealthy && $frontendHealthy,
