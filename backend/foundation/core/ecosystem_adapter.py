@@ -12,6 +12,13 @@ class FoundationEcosystemAdapter:
             raise ValueError("Foundation component is required.")
         self._component = component
 
+    def __getattr__(self, name):
+        """Delegate component APIs without duplicating their implementation."""
+        component = self.__dict__.get("_component")
+        if component is None:
+            raise AttributeError(name)
+        return getattr(component, name)
+
     def get_component(self):
         """Return the original component; no duplicate implementation is made."""
         return self._component
@@ -24,3 +31,6 @@ class FoundationEcosystemAdapter:
             "component_key": self.COMPONENT_KEY,
             "component_type": type(self._component).__name__,
         }
+
+
+__all__ = ["FoundationEcosystemAdapter"]
