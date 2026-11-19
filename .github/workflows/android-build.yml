@@ -13,8 +13,8 @@ permissions:
   contents: read
 
 jobs:
-  build:
-    name: Test Backend and Build Android Release
+  backend-tests:
+    name: Backend and Android Foundation Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -35,8 +35,19 @@ jobs:
           python -m pip install -r requirements.txt
           python -m pip install pytest
 
-      - name: Run Backend Tests
+      - name: Run Android Foundation Contract Tests
+        run: python -m pytest backend/test/test_android_foundation.py -v
+
+      - name: Run Full Backend Tests
         run: python -m pytest backend/test -v
+
+  android-release:
+    name: Build Android Release AAB
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
@@ -83,4 +94,3 @@ jobs:
           name: supreme-setu-hub-release-aab
           path: mobile/android/app/build/outputs/bundle/release/app-release.aab
           if-no-files-found: error
-          
