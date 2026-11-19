@@ -13,7 +13,7 @@ def test_infrastructure_model_package_exports_existing_resource_contract():
 
 def test_global_infrastructure_catalog_has_all_twenty_domains():
     service = GlobalInfrastructureEcosystemService()
-    assert len(service.get_modules()) == 20
+    assert len(service.get_modules()) == 21
     assert service.get_overview()["provider_operations_enabled"] is False
 
 def test_global_infrastructure_catalog_marks_provider_connections_unconfigured():
