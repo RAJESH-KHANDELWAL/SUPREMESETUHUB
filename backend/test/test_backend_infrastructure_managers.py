@@ -68,3 +68,19 @@ def test_backend_frontend_infrastructure_connector_is_connected():
     assert report["backend"]["present_domain_count"] == 21
     assert report["frontend"]["healthy"]
 
+def test_frontend_global_infrastructure_ecosystem_mirrors_backend_domains():
+    from frontend.infrastructure.global_ecosystem.global_infrastructure_ecosystem.manager import (
+        get_manager as get_frontend_ecosystem_manager,
+    )
+    from frontend.infrastructure.global_ecosystem.global_infrastructure_ecosystem.frontend_global_infrastructure_ecosystem_backend_global_infrastructure_ecosystem_connect import (
+        connect_infrastructure,
+    )
+
+    report = get_frontend_ecosystem_manager().health()
+    connection = connect_infrastructure()
+    assert report["healthy"], report
+    assert report["frontend_present_domain_count"] == 21
+    assert report["backend_present_domain_count"] == 21
+    assert connection["connected"], connection
+    assert connection["frontend"]["present_domain_count"] == 21
+    assert connection["backend"]["present_domain_count"] == 21
