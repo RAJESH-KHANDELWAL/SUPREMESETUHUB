@@ -1,10 +1,11 @@
-"""Manager skeleton for Global File Manager Ecosystem."""
+"""Adapter manager for Global File Manager Ecosystem."""
+
+from backend.foundation.core.ecosystem_adapter import FoundationEcosystemAdapter
 
 
-class GlobalFileManagerEcosystemManager:
+class GlobalFileManagerEcosystemManager(FoundationEcosystemAdapter):
     NAME = "GLOBAL_FILE_MANAGER_ECOSYSTEM"
-    STATUS = "SKELETON"
+    COMPONENT_KEY = "file_manager"
 
-    def status(self):
-        """Return structural status; component integration is pending."""
-        return {"ecosystem": self.NAME, "status": self.STATUS}
+
+__all__ = ["GlobalFileManagerEcosystemManager"]
