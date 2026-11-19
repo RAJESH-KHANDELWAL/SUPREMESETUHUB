@@ -1,6 +1,33 @@
 <?php
-/** Frontend Infrastructure structural manager; no infrastructure operations implemented. */
+/** Frontend Infrastructure structural manager; backend owns infrastructure operations. */
 final class FrontendInfrastructureManager {
- public const NAME='FRONTEND INFRASTRUCTURE'; public const VERSION='1.0.0';
- public function health(): array { $p=__DIR__; $names=['__init__.py','manager.py','manager.php','frontend_infrastructure_backend_infrastructure_connect.py','frontend_infrastructure_backend_infrastructure_connect.php','global_ecosystem']; $c=[]; foreach($names as $n){$c[$n]=($n==='global_ecosystem')?is_dir($p.'/'.$n):file_exists($p.'/'.$n);} return ['name'=>self::NAME,'version'=>self::VERSION,'status'=>'READY','checks'=>$c,'healthy'=>!in_array(false,$c,true)]; }
+    public const NAME = 'FRONTEND INFRASTRUCTURE';
+    public const VERSION = '1.0.1';
+
+    public function health(): array {
+        $root = __DIR__;
+        $names = [
+            '__init__.py',
+            'manager.py',
+            'manager.php',
+            'frontend_infrastructure_backend_infrastructure_connect.py',
+            'frontend_infrastructure_backend_infrastructure_connect.php',
+            'global_ecosystem',
+        ];
+        $checks = [];
+        foreach ($names as $name) {
+            $path = $root . '/' . $name;
+            $checks[$name] = $name === 'global_ecosystem'
+                ? is_dir($path)
+                : is_file($path);
+        }
+        $healthy = !in_array(false, $checks, true);
+        return [
+            'name' => self::NAME,
+            'version' => self::VERSION,
+            'status' => $healthy ? 'READY' : 'INCOMPLETE',
+            'checks' => $checks,
+            'healthy' => $healthy,
+        ];
+    }
 }
