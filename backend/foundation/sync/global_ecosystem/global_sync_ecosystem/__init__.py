@@ -1,0 +1,1 @@
+"""Global Sync Ecosystem package."""
