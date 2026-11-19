@@ -68,7 +68,7 @@ def test_backend_frontend_infrastructure_connector_is_connected():
     assert report["backend"]["present_domain_count"] == 21
     assert report["frontend"]["healthy"]
 
-def test_frontend_global_infrastructure_ecosystem_uses_files_not_domain_folders():
+def test_frontend_global_infrastructure_ecosystem_has_no_domain_modules():
     from frontend.infrastructure.global_ecosystem.global_infrastructure_ecosystem.manager import (
         get_manager as get_frontend_ecosystem_manager,
     )
@@ -79,19 +79,17 @@ def test_frontend_global_infrastructure_ecosystem_uses_files_not_domain_folders(
     report = get_frontend_ecosystem_manager().health()
     connection = connect_infrastructure()
     assert report["healthy"], report
-    assert report["frontend_present_file_count"] == 21
     assert report["backend_present_domain_count"] == 21
+    assert report["frontend_domain_files_expected"] == 0
+    assert report["frontend_domain_folders_expected"] == 0
     assert connection["connected"], connection
-    assert connection["frontend"]["present_domain_file_count"] == 21
-    assert connection["backend"]["present_domain_count"] == 21
+    assert connection["frontend"]["domain_file_count"] == 0
+    assert connection["frontend"]["domain_folder_count"] == 0
     frontend_root = Path(__file__).resolve().parents[2] / "frontend" / "infrastructure" / "global_ecosystem" / "global_infrastructure_ecosystem"
-    assert all((frontend_root / f"{name}.py").is_file() for name in (
+    domain_names = (
         "backup", "billing", "cdn", "containers", "database", "dns", "domains",
         "email", "firewall", "ftp", "hosting", "ipam", "load_balancer", "model",
         "monitoring", "network", "object_storage", "security", "server", "ssl", "storage",
-    ))
-    assert not any((frontend_root / name).is_dir() for name in (
-        "backup", "billing", "cdn", "containers", "database", "dns", "domains",
-        "email", "firewall", "ftp", "hosting", "ipam", "load_balancer", "model",
-        "monitoring", "network", "object_storage", "security", "server", "ssl", "storage",
-    ))
+    )
+    assert not any((frontend_root / f"{name}.py").exists() for name in domain_names)
+    assert not any((frontend_root / name).exists() for name in domain_names)
