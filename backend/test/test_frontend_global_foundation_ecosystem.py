@@ -45,7 +45,7 @@ class FrontendGlobalFoundationEcosystemTests(unittest.TestCase):
 
     def test_frontend_foundation_to_backend_infrastructure_root_connector(self):
         result = load_module(
-            FOUNDATION / "frontend_foundation_backend_infrastructure.py",
+            FOUNDATION / "frontend_foundation_backend_infrastructure_connect.py",
             "frontend_foundation_backend_infrastructure_connector",
         ).connect_frontend_foundation_backend_infrastructure()
         self.assertTrue(result["connected"], result)
@@ -54,7 +54,7 @@ class FrontendGlobalFoundationEcosystemTests(unittest.TestCase):
     def test_frontend_php_files_pass_syntax_check(self):
         files = (
             FOUNDATION / "manager.php",
-            FOUNDATION / "frontend_foundation_backend_infrastructure.php",
+            FOUNDATION / "frontend_foundation_backend_infrastructure_connect.php",
             GLOBAL_ECOSYSTEM / "manager.php",
             PACKAGE / "manager.php",
             PACKAGE / "frontend_global_foundation_ecosystem_backend_global_foundation_ecosystem_connect.php",
