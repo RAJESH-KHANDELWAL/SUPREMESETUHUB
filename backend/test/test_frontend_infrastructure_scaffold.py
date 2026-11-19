@@ -30,7 +30,7 @@ class FrontendInfrastructureScaffoldTests(unittest.TestCase):
   self.assertTrue((BACK/"global_ecosystem"/"global_infrastructure_ecosystem").is_dir())
  @unittest.skipUnless(shutil.which("php"),"PHP CLI missing")
  def test_php_syntax(self):
-  for p in [FRONT/"manager.php",FRONT/"frontend_infrastructure_backend_infrastructure_connect.php",GE/"manager.php",GIE/"manager.php"]:
+  for p in [FRONT/"manager.php",FRONT/"frontend_infrastructure_backend_infrastructure_connect.php",GE/"manager.php",GIE/"manager.php",GIE/"frontend_global_infrastructure_ecosystem_backend_global_infrastructure_ecosystem_connect.php"]:
    r=subprocess.run(["php","-l",str(p)],capture_output=True,text=True)
    self.assertEqual(r.returncode,0,r.stdout+r.stderr)
 if __name__=="__main__": unittest.main()
