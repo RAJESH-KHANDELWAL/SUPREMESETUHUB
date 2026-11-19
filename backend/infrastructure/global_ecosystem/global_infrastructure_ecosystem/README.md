@@ -14,6 +14,8 @@ Each folder contains its actual implementation files and its own `global_ecosyst
 
 ## Supporting ecosystem structure
 
+CORE is not stored inside this infrastructure ecosystem. The canonical Google Core implementation is `backend/core/global_ecosystem/global_core_ecosystem/google_core_ecosystem/`. The former nested `CORE/GLOBAL_ECOSYSTEM/GLOBAL_CORE_ECOSYSTEM/GOOGLE_CORE_ECOSYSTEM/` copy was an exact duplicate and has been removed; keep provider Core implementations under `backend/core/`.
+
 - `modules/` exposes adapters for six infrastructure root modules: controller, Hostinger API, Hostinger catalog, NSFWinfra, repository and service.
 - `integrations/` contains explicit CORE and GLOBAL CORE integration entry points.
 - `structure.py` records canonical package paths and ownership.
