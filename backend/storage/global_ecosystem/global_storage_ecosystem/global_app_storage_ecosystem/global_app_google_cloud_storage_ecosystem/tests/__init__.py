@@ -1,1 +1,0 @@
-"""Offline tests for GLOBAL_APP_GOOGLE_CLOUD_STORAGE_ECOSYSTEM."""

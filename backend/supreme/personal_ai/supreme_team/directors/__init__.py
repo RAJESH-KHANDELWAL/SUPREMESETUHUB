@@ -1,1 +1,0 @@
-"""DIRECTORS designation package."""

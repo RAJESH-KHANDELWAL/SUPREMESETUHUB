@@ -1,7 +1,0 @@
-PROVIDER_ID="apple_intelligence"
-ECOSYSTEM_ID="AI-APPLE_INTELLIGENCE-CORE-ECOSYSTEM"
-PARENT_ECOSYSTEM_ID="GLOBAL-AI-CORE-ECOSYSTEM"
-RUNTIME_CATALOG_REF="backend/global_ecosystem/global_ai_ecosystem/providers.py"
-RUNTIME_PACKAGE_REF="backend/global_ecosystem/global_ai_ecosystem/apple_intelligence_ecosystem"
-API_CATALOG_REF="backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem/apple_ai_api_ecosystem"
-LIVE_CONNECTION_VERIFIED=False

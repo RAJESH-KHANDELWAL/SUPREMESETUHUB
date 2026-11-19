@@ -1,7 +1,0 @@
-"""Fraud Core ecosystem package."""
-from .catalog import STRIPE_FRAUD_CORE_ECOSYSTEM, get_catalog
-
-ECOSYSTEM_ID = "STRIPE-FRAUD-CORE-ECOSYSTEM"
-ECOSYSTEM_NAME = "STRIPE FRAUD CORE ECOSYSTEM"
-
-__all__ = ["STRIPE_FRAUD_CORE_ECOSYSTEM", "get_catalog", "ECOSYSTEM_ID", "ECOSYSTEM_NAME"]
