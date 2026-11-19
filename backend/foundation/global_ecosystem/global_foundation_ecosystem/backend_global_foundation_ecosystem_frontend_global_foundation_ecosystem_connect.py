@@ -7,7 +7,7 @@ class BackendGlobalFoundationEcosystemFrontendConnector:
 
     def __init__(self):
         self.backend_root = Path(__file__).resolve().parent
-        self.repository_root = self.backend_root.parents[4]
+        self.repository_root = self.backend_root.parents[3]
         self.frontend_root = (
             self.repository_root
             / "frontend"
