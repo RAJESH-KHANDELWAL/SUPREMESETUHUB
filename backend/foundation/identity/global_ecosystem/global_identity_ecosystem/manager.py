@@ -1,8 +1,10 @@
-"""Manager for Global Identity Ecosystem."""
+"""Manager skeleton for Global Identity Ecosystem."""
+
 
 class GlobalIdentityEcosystemManager:
     NAME = "GLOBAL_IDENTITY_ECOSYSTEM"
-    STATUS = "READY"
+    STATUS = "SKELETON"
 
     def status(self):
+        """Return structural status; component integration is pending."""
         return {"ecosystem": self.NAME, "status": self.STATUS}
