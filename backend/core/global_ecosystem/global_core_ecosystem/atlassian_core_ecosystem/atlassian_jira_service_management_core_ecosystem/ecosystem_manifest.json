@@ -1,0 +1,21 @@
+{
+  "provider": "atlassian",
+  "core_layer": "ATLASSIAN_CORE",
+  "ecosystem_id": "ATLASSIAN-JIRA-SERVICE-MANAGEMENT-CORE-ECOSYSTEM",
+  "display_name": "Jira Service Management",
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/atlassian_api_ecosystem/atlassian_jira_service_management_api_ecosystem",
+  "capabilities": [
+    "SERVICE_PROJECT_METADATA",
+    "REQUEST_AND_INCIDENT_LIFECYCLE_BOUNDARY",
+    "SERVICE_LEVEL_METADATA",
+    "ASSET_AND_CHANGE_GOVERNANCE_BOUNDARY"
+  ],
+  "domains": [
+    "IT_SERVICE_AND_OPERATIONS",
+    "WORK_MANAGEMENT_AND_PLANNING"
+  ],
+  "readiness": "CORE_CATALOG_ONLY",
+  "api_available": null,
+  "live_connection_verified": false,
+  "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
+}

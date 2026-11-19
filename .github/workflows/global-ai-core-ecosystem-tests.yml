@@ -1,0 +1,48 @@
+name: Global AI CORE Ecosystem Tests
+on:
+  push:
+    branches: [main]
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem/**"
+      - "backend/global_ecosystem/global_ai_ecosystem/**"
+      - ".github/workflows/global-ai-core-ecosystem-tests.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem/**"
+      - "backend/global_ecosystem/global_ai_ecosystem/**"
+      - ".github/workflows/global-ai-core-ecosystem-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  contract-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile Global AI CORE
+        run: python -m compileall -q backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem
+      - name: Verify runtime registry and Google-standard packages
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from backend.global_ecosystem.global_ai_ecosystem.providers import list_ai_providers, validate_provider_registry
+          root=Path("backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem")
+          expected={"authentication","capabilities","docs","events","lifecycle","models","schemas","security","services","tests"}
+          providers=list_ai_providers()
+          assert len(providers)>=68, len(providers)
+          assert validate_provider_registry()==(), validate_provider_registry()
+          for provider in providers:
+              package=root/(provider["id"]+"_core_ecosystem")
+              assert package.is_dir(), provider["id"]
+              manifest=json.loads((package/"ecosystem_manifest.json").read_text())
+              assert manifest["provider_id"]==provider["id"]
+              assert manifest["parent_id"]=="GLOBAL-AI-CORE-ECOSYSTEM"
+              assert {x.name for x in package.iterdir() if x.is_dir() and x.name!="__pycache__"}==expected
+          PY
+      - name: Run Global AI CORE tests
+        run: python -m unittest discover -s backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem -t backend/core/global_ecosystem/global_core_ecosystem -p "test*.py" -v

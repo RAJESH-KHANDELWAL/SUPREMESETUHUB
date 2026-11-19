@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "provider_id": "GOOGLE",
+  "provider_name": "Google",
+  "ecosystem_id": "GOOGLE-SECURITY-CORE-ECOSYSTEM",
+  "parent_id": "GLOBAL-SECURITY-CORE-ECOSYSTEM",
+  "status": "CORE_CATALOG_ONLY",
+  "live_connection_verified": false,
+  "api_calls_performed": 0,
+  "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+  "capability_scope": "Provider security capability metadata only; no live integration or enforcement"
+}

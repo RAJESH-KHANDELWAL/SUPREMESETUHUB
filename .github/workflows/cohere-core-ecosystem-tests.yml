@@ -1,0 +1,98 @@
+name: Cohere CORE Ecosystem Tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/cohere_core_ecosystem/**"
+      - ".github/workflows/cohere-core-ecosystem-tests.yml"
+  pull_request:
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/cohere_core_ecosystem/**"
+      - ".github/workflows/cohere-core-ecosystem-tests.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cohere-core-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Compile Cohere CORE packages
+        run: |
+          python -m compileall -q backend/core/global_ecosystem/global_core_ecosystem/cohere_core_ecosystem
+
+      - name: Validate provider and capability manifests
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("backend/core/global_ecosystem/global_core_ecosystem/cohere_core_ecosystem")
+          provider = json.loads((root / "ecosystem_manifest.json").read_text())
+          index = json.loads((root / "product_ecosystem_index.json").read_text())
+          assert provider["provider"] == "cohere"
+          assert provider["layer"] == "CORE"
+          assert provider["capability_count"] == 5
+          assert provider["live_provider_calls_enabled"] is False
+          assert index["capability_count"] == 5
+          assert index["live_provider_calls_enabled"] is False
+
+          expected = {"classify", "command", "embed", "rerank", "tokenize"}
+          actual = {item["id"] for item in index["capabilities"]}
+          assert actual == expected, (actual, expected)
+
+          legacy_root_dirs = {
+              "authentication", "capabilities", "events", "lifecycle",
+              "models", "schemas", "security", "services", "tests",
+          }
+          assert not any((root / name).exists() for name in legacy_root_dirs)
+
+          expected_shared = {
+              "cohere_shared_compatibility", "cohere_shared_configuration",
+              "cohere_shared_contracts", "cohere_shared_documentation",
+              "cohere_shared_events", "cohere_shared_exceptions",
+              "cohere_shared_orchestration", "cohere_shared_security",
+              "cohere_shared_testing", "cohere_shared_utilities",
+              "cohere_shared_validation",
+          }
+          assert all((root / name).is_dir() for name in expected_shared)
+
+          required_folders = {
+              "authentication", "capabilities", "docs", "events", "lifecycle",
+              "models", "schemas", "security", "services", "tests",
+          }
+          for item in index["capabilities"]:
+              package = root / item["package"]
+              manifest = json.loads((package / "ecosystem_manifest.json").read_text())
+              assert manifest["provider"] == "cohere"
+              assert manifest["capability"] == item["id"]
+              assert manifest["live_provider_calls_enabled"] is False
+              assert (package / "authentication" / "contract.php").is_file()
+              assert not (package / "php").exists()
+              assert all((package / folder).is_dir() for folder in required_folders)
+
+          print("Cohere CORE manifests and five package boundaries are valid.")
+          PY
+
+      - name: Run Cohere CORE unit and contract tests
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m unittest discover \
+            -s backend/core/global_ecosystem/global_core_ecosystem/cohere_core_ecosystem \
+            -t . \
+            -p "test_*.py"

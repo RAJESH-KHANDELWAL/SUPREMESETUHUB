@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL-SERVER-CORE-ECOSYSTEM",
+  "provider_count": 7,
+  "provider_coverage_exhaustive": false,
+  "providers": [
+    {
+      "provider_id": "ABELOHOST",
+      "name": "Abelohost",
+      "folder": "abelohost_server_core_ecosystem",
+      "capabilities": [
+        "VPS_RESOURCE_METADATA",
+        "DEDICATED_SERVER_METADATA",
+        "HOSTING_PLAN_METADATA"
+      ]
+    },
+    {
+      "provider_id": "AWS",
+      "name": "Amazon Web Services",
+      "folder": "aws_server_core_ecosystem",
+      "capabilities": [
+        "EC2_INSTANCE_METADATA",
+        "REGION_AND_ZONE_METADATA",
+        "INSTANCE_LIFECYCLE_METADATA",
+        "NETWORK_ATTACHMENT_METADATA"
+      ]
+    },
+    {
+      "provider_id": "CLOUDFLARE",
+      "name": "Cloudflare",
+      "folder": "cloudflare_server_core_ecosystem",
+      "capabilities": [
+        "EDGE_RESOURCE_METADATA",
+        "WORKER_RUNTIME_METADATA",
+        "NETWORK_AND_TUNNEL_METADATA"
+      ]
+    },
+    {
+      "provider_id": "DIGITALOCEAN",
+      "name": "DigitalOcean",
+      "folder": "digitalocean_server_core_ecosystem",
+      "capabilities": [
+        "DROPLET_RESOURCE_METADATA",
+        "REGION_AND_SIZE_METADATA",
+        "VOLUME_AND_NETWORK_METADATA"
+      ]
+    },
+    {
+      "provider_id": "GOOGLE",
+      "name": "Google Cloud",
+      "folder": "google_server_core_ecosystem",
+      "capabilities": [
+        "COMPUTE_INSTANCE_METADATA",
+        "ZONE_AND_MACHINE_TYPE_METADATA",
+        "DISK_AND_NETWORK_METADATA"
+      ]
+    },
+    {
+      "provider_id": "MICROSOFT",
+      "name": "Microsoft Azure",
+      "folder": "microsoft_server_core_ecosystem",
+      "capabilities": [
+        "VIRTUAL_MACHINE_METADATA",
+        "REGION_AND_SIZE_METADATA",
+        "NETWORK_AND_DISK_METADATA"
+      ]
+    },
+    {
+      "provider_id": "VICETEMPLE",
+      "name": "ViceTemple",
+      "folder": "vicetemple_server_core_ecosystem",
+      "capabilities": [
+        "VPS_RESOURCE_METADATA",
+        "DEDICATED_SERVER_METADATA",
+        "HOSTING_PLAN_METADATA"
+      ]
+    }
+  ],
+  "service_tiers": [
+    "NORMAL",
+    "BASIC",
+    "STANDARD",
+    "PREMIUM",
+    "PROFESSIONAL",
+    "ENTERPRISE",
+    "SUPREME"
+  ],
+  "live_connections_verified": false
+}

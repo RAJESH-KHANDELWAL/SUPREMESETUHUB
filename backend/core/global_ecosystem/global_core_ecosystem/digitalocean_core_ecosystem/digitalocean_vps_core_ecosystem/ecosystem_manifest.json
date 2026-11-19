@@ -1,0 +1,9 @@
+{
+  "provider": "digitalocean",
+  "layer": "CORE",
+  "capability": "vps",
+  "scope": "Virtual private server provisioning and management",
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/digitalocean_api_ecosystem/digitalocean_vps_api_ecosystem",
+  "status": "CONTRACT_ONLY",
+  "live_provider_calls_enabled": false
+}

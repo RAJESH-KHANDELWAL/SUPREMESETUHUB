@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "ADOBE_STORAGE_ECOSYSTEM",
+  "provider": "ADOBE",
+  "category_count": 9,
+  "categories": [
+    {
+      "category_id": "cloud_storage_and_collaboration",
+      "name": "Adobe Cloud Storage and Collaboration",
+      "group": "CLOUD_AND_COLLABORATION",
+      "folder": "adobe_cloud_storage_and_collaboration_storage_ecosystem",
+      "path": "adobe_cloud_storage_and_collaboration_storage_ecosystem/",
+      "implementation_state": "FOUNDATION_INITIALIZED",
+      "external_connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "category_id": "creative_cloud_assets",
+      "name": "Adobe Creative Cloud Assets Storage",
+      "group": "CREATIVE_ASSETS",
+      "folder": "adobe_creative_cloud_assets_storage_ecosystem",
+      "path": "adobe_creative_cloud_assets_storage_ecosystem/",
+      "implementation_state": "FOUNDATION_INITIALIZED",
+      "external_connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "category_id": "creative_cloud",
+      "name": "Adobe Creative Cloud Storage",
+      "group": "CREATIVE_CLOUD",
+      "folder": "adobe_creative_cloud_storage_ecosystem",
+      "path": "adobe_creative_cloud_storage_ecosystem/",
+      "implementation_state": "FOUNDATION_INITIALIZED",
+      "external_connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "category_id": "document_cloud",
+      "name": "Adobe Document Cloud Storage",
+      "group": "DOCUMENTS",
+      "folder": "adobe_document_cloud_storage_ecosystem",
+      "path": "adobe_document_cloud_storage_ecosystem/",
+      "implementation_state": "FOUNDATION_INITIALIZED",
+      "external_connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "category_id": "experience_manager_assets",
+      "name": "Adobe Experience Manager Assets Storage",
+      "group": "ENTERPRISE_ASSETS",
+      "folder": "adobe_experience_manager_assets_storage_ecosystem",
+      "path": "adobe_experience_manager_assets_storage_ecosystem/",
+      "implementation_state": "FOUNDATION_INITIALIZED",
+      "external_connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "category_id": "express",
+      "name": "Adobe Express Storage",
+      "group": "DESIGN_AND_PUBLISHING",
+      "folder": "adobe_express_storage_ecosystem",
+      "path": "adobe_express_storage_ecosystem/",
+      "implementation_state": "FOUNDATION_INITIALIZED",
+      "external_connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "category_id": "frameio",
+      "name": "Adobe Frame.io Storage",
+      "group": "MEDIA_COLLABORATION",
+      "folder": "adobe_frameio_storage_ecosystem",
+      "path": "adobe_frameio_storage_ecosystem/",
+      "implementation_state": "FOUNDATION_INITIALIZED",
+      "external_connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "category_id": "lightroom",
+      "name": "Adobe Lightroom Storage",
+      "group": "PHOTO_AND_VIDEO",
+      "folder": "adobe_lightroom_storage_ecosystem",
+      "path": "adobe_lightroom_storage_ecosystem/",
+      "implementation_state": "FOUNDATION_INITIALIZED",
+      "external_connection_state": "NOT_CONFIGURED"
+    },
+    {
+      "category_id": "workfront",
+      "name": "Adobe Workfront Storage",
+      "group": "WORK_MANAGEMENT",
+      "folder": "adobe_workfront_storage_ecosystem",
+      "path": "adobe_workfront_storage_ecosystem/",
+      "implementation_state": "FOUNDATION_INITIALIZED",
+      "external_connection_state": "NOT_CONFIGURED"
+    }
+  ]
+}

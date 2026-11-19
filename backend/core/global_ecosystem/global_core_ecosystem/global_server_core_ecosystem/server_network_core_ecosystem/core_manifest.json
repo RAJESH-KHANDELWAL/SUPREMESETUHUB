@@ -1,0 +1,24 @@
+{
+  "domain_id": "server_network_core",
+  "label": "Server Network Core",
+  "description": "Network topology, endpoint, connectivity, and segmentation metadata.",
+  "layer": "CORE",
+  "schema_version": "1.0.0",
+  "status": "DECLARATIVE_CORE_CONTRACT",
+  "execution_enabled": false,
+  "bharat_first_global_scope": true,
+  "owns": [
+    "taxonomy",
+    "metadata",
+    "contracts",
+    "policy references"
+  ],
+  "excludes": [
+    "API",
+    "ENGINE execution",
+    "DATABASE",
+    "STORAGE",
+    "APPLICATION",
+    "UI"
+  ]
+}

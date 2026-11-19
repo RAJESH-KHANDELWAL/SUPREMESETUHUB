@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0.0",
+  "catalog_id": "WHAT_GOOGLE_PROVIDES",
+  "provider": "GOOGLE",
+  "offerings": [
+    "storage_ecosystem"
+  ]
+}

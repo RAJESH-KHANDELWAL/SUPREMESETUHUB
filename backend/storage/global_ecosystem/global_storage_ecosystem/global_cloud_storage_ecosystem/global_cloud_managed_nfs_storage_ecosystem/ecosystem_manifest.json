@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_CLOUD_MANAGED_NFS_STORAGE_ECOSYSTEM",
+  "package_name": "global_cloud_managed_nfs_storage_ecosystem",
+  "provider_scope": "GLOBAL_CLOUD_PROVIDER_NEUTRAL",
+  "parent_ecosystem_id": "GLOBAL_CLOUD_STORAGE_ECOSYSTEM",
+  "category_id": "FILE_STORAGE",
+  "category_group": "FILE_STORAGE",
+  "category": "MANAGED_NFS_STORAGE",
+  "category_name": "Managed NFS File Storage",
+  "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+  "connection_state": "NOT_CONFIGURED",
+  "provider_product_verified": false,
+  "storage_operations_enabled": false,
+  "requires_authorized_integration": true,
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true,
+  "geographic_scope": [
+    "BHARAT",
+    "GLOBAL"
+  ],
+  "security_baseline": [
+    "LEAST_PRIVILEGE",
+    "ENCRYPTION",
+    "AUDIT_LOGGING",
+    "RETENTION_CONTROLS"
+  ],
+  "notes": "Independent provider-neutral category scaffold. No live cloud provider integration or storage operation is implied."
+}

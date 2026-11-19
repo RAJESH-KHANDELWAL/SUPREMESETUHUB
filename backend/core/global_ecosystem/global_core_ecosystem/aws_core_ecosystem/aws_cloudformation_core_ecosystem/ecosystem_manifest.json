@@ -1,0 +1,23 @@
+{
+  "provider": "aws",
+  "core_layer": "AWS_CORE",
+  "ecosystem_id": "AWS-CLOUDFORMATION-CORE-ECOSYSTEM",
+  "display_name": "AWS CloudFormation",
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/aws_api_ecosystem/aws_cloudformation_api_ecosystem",
+  "capabilities": [
+    "STACK_METADATA",
+    "TEMPLATE_METADATA",
+    "CHANGE_SET_REVIEW_BOUNDARY",
+    "PROVISIONING_LIFECYCLE",
+    "DRIFT_DETECTION_METADATA"
+  ],
+  "domains": [
+    "INFRASTRUCTURE_PROVISIONING_AND_AUTOMATION",
+    "DEVELOPER_AND_APPLICATION_PLATFORM"
+  ],
+  "readiness": "CORE_CATALOG_ONLY",
+  "api_available": null,
+  "live_connection_verified": false,
+  "credential_handling": "IAM_ROLE_OR_WEB_IDENTITY_OR_EXTERNAL_SECRET_REFERENCE_ONLY",
+  "api_transport_in_core": false
+}

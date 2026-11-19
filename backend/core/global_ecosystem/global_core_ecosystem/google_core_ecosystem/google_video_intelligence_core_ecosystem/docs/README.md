@@ -1,0 +1,9 @@
+# Cloud Video Intelligence Core
+
+Product ID: `google_video_intelligence`  
+Category: `VIDEO_ANALYSIS`  
+API: Cloud Video Intelligence API  
+Mode: `CLOUD_PROJECT_CREDENTIALS`  
+Availability: `API_AVAILABLE`
+
+Core metadata only. OAuth and transport belong to Google API Ecosystem. No live connection is claimed.

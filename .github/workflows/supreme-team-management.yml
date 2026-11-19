@@ -1,0 +1,50 @@
+name: SUPREME Team Management
+
+on:
+  pull_request:
+    paths:
+      - "backend/supreme/personal_ai/**"
+      - ".github/workflows/supreme-team-management.yml"
+  push:
+    paths:
+      - "backend/supreme/personal_ai/**"
+      - ".github/workflows/supreme-team-management.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  management-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install fastapi pydantic
+
+      - name: Compile management modules
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m py_compile \
+            backend/supreme/personal_ai/supreme_team/management.py \
+            backend/supreme/personal_ai/supreme_team/auth_adapter.py \
+            backend/supreme/personal_ai/supreme_team/management_api.py \
+            backend/supreme/personal_ai/api.py
+
+      - name: Run management unit tests
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m unittest \
+            backend.supreme.personal_ai.supreme_team.tests.test_management \
+            -v

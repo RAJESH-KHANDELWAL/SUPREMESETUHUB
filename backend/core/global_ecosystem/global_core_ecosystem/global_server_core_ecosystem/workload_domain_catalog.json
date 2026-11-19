@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0.0",
+  "catalog_id": "GLOBAL-SERVER-WORKLOAD-DOMAINS",
+  "coverage_exhaustive": false,
+  "domains": [
+    {
+      "domain_id": "GOVERNMENT_PUBLIC_SERVICES",
+      "label": "Government and Public Services",
+      "risk_profile": "HIGH_COMPLIANCE"
+    },
+    {
+      "domain_id": "EDUCATION_RESEARCH",
+      "label": "Education and Research",
+      "risk_profile": "STANDARD"
+    },
+    {
+      "domain_id": "HEALTHCARE_LIFE_SCIENCES",
+      "label": "Healthcare and Life Sciences",
+      "risk_profile": "SENSITIVE_DATA"
+    },
+    {
+      "domain_id": "AGRICULTURE_FOOD_SUPPLY_CHAIN",
+      "label": "Agriculture, Food and Supply Chains",
+      "risk_profile": "STANDARD"
+    },
+    {
+      "domain_id": "BUSINESS_COMMERCE_ENTERPRISE",
+      "label": "Business, Commerce and Enterprise",
+      "risk_profile": "STANDARD"
+    },
+    {
+      "domain_id": "BANKING_FINANCE_INSURANCE",
+      "label": "Banking, Finance and Insurance",
+      "risk_profile": "HIGH_COMPLIANCE"
+    },
+    {
+      "domain_id": "TECHNOLOGY_SOFTWARE_AI_DATA",
+      "label": "Technology, Software, AI and Data",
+      "risk_profile": "STANDARD"
+    },
+    {
+      "domain_id": "CLOUD_HOSTING_NETWORKING",
+      "label": "Cloud, Hosting and Networking",
+      "risk_profile": "INFRASTRUCTURE_CRITICAL"
+    },
+    {
+      "domain_id": "CYBERSECURITY_PRIVACY",
+      "label": "Cybersecurity and Privacy",
+      "risk_profile": "SECURITY_CRITICAL"
+    },
+    {
+      "domain_id": "REAL_ESTATE_CONSTRUCTION",
+      "label": "Real Estate and Construction",
+      "risk_profile": "STANDARD"
+    },
+    {
+      "domain_id": "TRANSPORT_MOBILITY_LOGISTICS",
+      "label": "Transport, Mobility and Logistics",
+      "risk_profile": "INFRASTRUCTURE_CRITICAL"
+    },
+    {
+      "domain_id": "ENERGY_UTILITIES_ENVIRONMENT",
+      "label": "Energy, Utilities and Environment",
+      "risk_profile": "INFRASTRUCTURE_CRITICAL"
+    },
+    {
+      "domain_id": "RETAIL_MANUFACTURING_INDUSTRY",
+      "label": "Retail, Manufacturing and Industry",
+      "risk_profile": "STANDARD"
+    },
+    {
+      "domain_id": "MEDIA_PUBLISHING",
+      "label": "Media and Publishing",
+      "risk_profile": "STANDARD"
+    },
+    {
+      "domain_id": "GAMING_INTERACTIVE_ENTERTAINMENT",
+      "label": "Gaming and Interactive Entertainment",
+      "risk_profile": "STANDARD"
+    },
+    {
+      "domain_id": "TRAVEL_TOURISM_HOSPITALITY",
+      "label": "Travel, Tourism and Hospitality",
+      "risk_profile": "STANDARD"
+    },
+    {
+      "domain_id": "LEGAL_PROFESSIONAL_SERVICES",
+      "label": "Legal and Professional Services",
+      "risk_profile": "SENSITIVE_DATA"
+    },
+    {
+      "domain_id": "RELATIONSHIPS_DATING_COMMUNITY",
+      "label": "Relationships, Dating and Community Platforms",
+      "risk_profile": "PERSONAL_DATA"
+    },
+    {
+      "domain_id": "SEXUAL_WELLNESS_HEALTH_EDUCATION",
+      "label": "Sexual Wellness and Health Education",
+      "risk_profile": "SENSITIVE_DATA"
+    },
+    {
+      "domain_id": "ADULT_ONLY_ENTERTAINMENT",
+      "label": "Lawful Adult-only Entertainment Platforms",
+      "risk_profile": "RESTRICTED_HIGH_COMPLIANCE",
+      "age_assurance_required": true,
+      "consent_and_rights_verification_required": true,
+      "jurisdiction_gate_required": true,
+      "moderation_and_reporting_required": true,
+      "content_hosting_authorized_by_core": false
+    }
+  ],
+  "adult_workload_policy": {
+    "scope": "INFRASTRUCTURE_METADATA_ONLY",
+    "minimum_age": "18_PLUS_OR_HIGHER_WHERE_LOCAL_LAW_REQUIRES",
+    "mandatory_controls": [
+      "robust_age_assurance",
+      "informed_consent",
+      "privacy_by_design",
+      "security_controls",
+      "content_moderation",
+      "reporting_and_takedown",
+      "jurisdiction_restrictions",
+      "auditability"
+    ],
+    "prohibited": [
+      "child_sexual_abuse_material",
+      "non_consensual_intimate_imagery",
+      "trafficking",
+      "sexual_exploitation",
+      "unlawful_content"
+    ],
+    "core_authority": "CORE DOES NOT HOST, GENERATE, DISTRIBUTE, REVIEW OR AUTHORIZE EXPLICIT CONTENT"
+  },
+  "note": "Workload labels classify server requirements only. They do not grant legal approval, user access or content distribution rights."
+}

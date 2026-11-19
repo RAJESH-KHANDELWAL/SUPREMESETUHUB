@@ -1,0 +1,5 @@
+"""Independent Home Service Gigs freelance specialization package."""
+SPECIALIZATION_ID = "home_service_gigs"
+SPECIALIZATION_NAME = "Home Service Gigs"
+DOMAIN_ID = "freelance_gig_independent_work"
+DESCRIPTION = "Household maintenance, repair, cleaning and local home-service assignments subject to required qualifications."

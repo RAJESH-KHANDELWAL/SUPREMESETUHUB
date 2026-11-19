@@ -1,0 +1,9 @@
+PRODUCT_ID="google_endpoint_management"
+PRODUCT_NAME="Google Endpoint Management"
+CATEGORY="DEVICE_MANAGEMENT"
+API_NAME="Google Workspace Admin SDK"
+INTEGRATION_MODE="USER_OAUTH"
+AVAILABILITY="WORKSPACE_ADMIN_ELIGIBILITY_REQUIRED"
+AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
+REQUIRED_SCOPES=[]
+LIVE_CONNECTION_ENABLED=False
