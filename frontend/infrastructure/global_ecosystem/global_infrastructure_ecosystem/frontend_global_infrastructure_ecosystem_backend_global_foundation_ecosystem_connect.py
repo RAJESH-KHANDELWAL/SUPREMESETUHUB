@@ -7,7 +7,8 @@ class FrontendGlobalInfrastructureBackendGlobalFoundationConnector:
 
     def __init__(self):
         self.infrastructure_root = Path(__file__).resolve().parent
-        self.repository_root = self.infrastructure_root.parents[4]
+        # infrastructure_root is four directory levels below the repository root.
+        self.repository_root = self.infrastructure_root.parents[3]
         self.foundation_root = (
             self.repository_root / "backend" / "foundation" / "global_ecosystem"
             / "global_foundation_ecosystem"
