@@ -1,9 +1,3 @@
 # Frontend Global Infrastructure Ecosystem
 
-File-only frontend integration scaffold aligned with the canonical backend Global Infrastructure Ecosystem.
-
-- Represents all 21 infrastructure domains as individual Python files in this directory.
-- Contains no per-domain folders.
-- Python and PHP managers validate the frontend files and backend domain structure.
-- Connector files validate repository contracts only; they do not perform live provider operations.
-- Backend remains the canonical owner of infrastructure operations.
+This directory contains only its ecosystem-level scaffold and managers/connectors. It intentionally contains **no per-domain folders and no per-domain files**. The 21 infrastructure domains remain defined and owned by the backend Global Infrastructure Ecosystem. Frontend managers and connectors validate the backend contract without duplicating domain modules or performing live provider operations.
