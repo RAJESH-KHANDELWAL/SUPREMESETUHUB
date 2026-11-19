@@ -1,0 +1,1 @@
+"""Global Core Ecosystem package."""
