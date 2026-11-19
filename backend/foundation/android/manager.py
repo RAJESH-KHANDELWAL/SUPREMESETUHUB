@@ -12,12 +12,12 @@ class AndroidFoundationManager:
     """
 
     NAME = "ANDROID_FOUNDATION"
-    PROJECT_PATH = "mobile/android"
-    APP_MODULE_PATH = "mobile/android/app"
+    PROJECT_PATH = "backend/mobile/android"
+    APP_MODULE_PATH = "backend/mobile/android/app"
     RELEASE_TASK = ":app:bundleRelease"
     DEBUG_TASK = ":app:assembleDebug"
     RELEASE_ARTIFACT = (
-        "mobile/android/app/build/outputs/bundle/release/app-release.aab"
+        "backend/mobile/android/app/build/outputs/bundle/release/app-release.aab"
     )
 
     def _gradle_config(self):

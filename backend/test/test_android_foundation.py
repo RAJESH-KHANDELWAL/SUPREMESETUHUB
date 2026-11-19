@@ -13,8 +13,8 @@ class AndroidFoundationTests(unittest.TestCase):
         android = AndroidFoundationManager()
         contract = android.project_contract()
 
-        self.assertEqual(contract["project_path"], "mobile/android")
-        self.assertEqual(contract["app_module_path"], "mobile/android/app")
+        self.assertEqual(contract["project_path"], "backend/mobile/android")
+        self.assertEqual(contract["app_module_path"], "backend/mobile/android/app")
         self.assertEqual(contract["application_id"], "com.mainbasefoundation.android")
         self.assertEqual(contract["namespace"], "com.mainbasefoundation.android")
         self.assertEqual(contract["compile_sdk"], 36)
@@ -24,7 +24,7 @@ class AndroidFoundationTests(unittest.TestCase):
         self.assertEqual(contract["release_task"], ":app:bundleRelease")
         self.assertEqual(
             contract["release_artifact"],
-            "mobile/android/app/build/outputs/bundle/release/app-release.aab",
+            "backend/mobile/android/app/build/outputs/bundle/release/app-release.aab",
         )
 
     def test_android_ecosystem_wraps_and_delegates_to_original_manager(self):
