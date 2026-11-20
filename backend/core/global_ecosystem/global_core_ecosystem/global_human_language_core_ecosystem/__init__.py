@@ -7,6 +7,11 @@ from .catalog import (
     get_provider_catalog, get_service_tiers, list_human_language_core_modules,
 )
 from .domain_catalog import DOMAIN_DEFINITIONS, human_language_domain_summary
+from .master_catalog import (
+    get_adjacent_master_entries, get_language_master_entries,
+    master_catalog_mapping_summary,
+)
+from .manager import get_manager
 from .module_service import HumanLanguageProviderCoreService
 from .orchestrator import GlobalHumanLanguageCoreOrchestrator
 from .provider_catalog import get_provider
@@ -19,6 +24,8 @@ __all__ = [
     "get_catalog", "get_domain", "get_domains", "get_human_language_core_catalog",
     "get_provider", "get_provider_catalog", "get_service_tiers",
     "list_human_language_core_modules", "human_language_domain_summary",
+    "get_language_master_entries", "get_adjacent_master_entries",
+    "master_catalog_mapping_summary", "get_manager",
     "HumanLanguageProviderCoreService", "GlobalHumanLanguageCoreOrchestrator",
     "GlobalHumanLanguageCoreService",
 ]
