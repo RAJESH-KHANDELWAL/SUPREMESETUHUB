@@ -1,5 +1,3 @@
-# GLOBAL ${TITLE} CORE ECOSYSTEM
+# Relationship Data Submodule
 
-This folder has a reusable operational manager, category-specific required-field contract, Python and PHP status/validation facades, and public Python exports. It is a metadata and validation module only: it does not claim a live provider integration, persistent database, or verified real-world relationships.
-
-Naming rule: GLOBAL + SUBJECT + CORE ECOSYSTEM. Verified claims require source evidence; do not infer consent, ownership, identity, age, affiliation, or licensing from directory presence.
+Reference-only metadata helpers for locating the canonical 2468 master ecosystem catalog. This module intentionally does not copy or mutate master catalog entries and does not hold private relationship records.

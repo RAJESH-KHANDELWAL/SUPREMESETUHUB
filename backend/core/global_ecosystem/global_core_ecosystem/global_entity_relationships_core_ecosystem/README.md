@@ -1,24 +1,18 @@
 # GLOBAL ENTITY RELATIONSHIPS CORE ECOSYSTEM
 
-Canonical taxonomy, relationship types, validation policy and discovery metadata for connecting entities without duplicating entity identities.
+The parent CORE defines a canonical 36-category taxonomy and 21 relationship types. Each of its 36 category subfolders is populated with Python manager, PHP facade, package export, and README. Category-specific required-field contracts are maintained in the shared submodule manager and keyed by folder.
 
-## Naming standard
-Every CORE ecosystem record follows **GLOBAL + SUBJECT + CORE ECOSYSTEM** and ID **GLOBAL-SUBJECT-CORE-ECOSYSTEM**. Provider/category names are normalized consistently; documentation/data/test folders are not ecosystem records.
+## Child folder work
+- 36 category submodules (including the taxonomy and relationship-tier categories)
+- 1 data helper folder for read-only reference metadata
+- 1 tests folder with contract coverage for every category manager
+- Each category manager validates input metadata and evidence, and explicitly reports no live connection or persistence.
 
-## Coverage
-This CORE includes 36 taxonomy categories: adult industry relationship categories; age verification and consent; brand/trademark; partner/supplier; commerce marketplace; ownership/control and corporate groups; dating platform; developer/API provider; digital platform/social media; founder/director/management; global and India entities; relationship tiers; payments/finance; provenance/verification; sexual health and wellness education; trust/safety/moderation.
+## Naming convention
+Ecosystem display names: GLOBAL + SUBJECT + CORE ECOSYSTEM. IDs: GLOBAL-SUBJECT-CORE-ECOSYSTEM. Every category manager derives the display name and ID from its folder name.
 
-## Data model
-Relationship edges require stable relationship ID, source entity ID, target entity ID, relationship type, verification status, optional jurisdiction and effective dates, evidence source URLs and metadata. Verified claims must include HTTP(S) evidence. Self-edges are rejected. Unverified and pending records are not treated as factual claims.
+## Boundaries and limitations
+Catalog and validation only; not a relationship database, not live APIs, and not a source of verified ownership/affiliation/consent/licensing. Verified status requires HTTP(S) evidence. Data minimization, consent and lawful adult-only safeguards apply to sensitive relationship categories.
 
-## Layer boundaries
-CORE owns taxonomy, metadata, policy and read-only discovery. API owns routes/contracts, ENGINE owns execution orchestration, DATABASE owns persistence, STORAGE owns artifacts, and external provider adapters belong in the appropriate integration/API layer. Credentials are not stored here. No live provider connections are claimed.
-
-## Master 2468 catalog
-Reference-only, on-demand pointer to `backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json` (target 2468; current numbered inventory remains separate). CORE does not duplicate, edit, or count its numbered entries.
-
-## Safety and privacy
-Minimize personal data and use public or consented professional data. Do not infer ownership, affiliation, consent, licensing, age or API access from a directory entry. Adult-related categories are limited to lawful, consenting adults (18+); prohibit minors, exploitation, non-consensual sexual content and illegal content; age-verification, consent, privacy and reporting controls are required where applicable.
-
-## Status
-Catalog/taxonomy implementation only. Tests are authored; execution/CI must confirm before calling runtime validation complete. This module is not a live relationship database and does not assert any real-world relationship.
+## Master catalog
+Read-only reference to backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json; 2468 target remains separate and is not copied or modified by this module.
