@@ -1,18 +1,19 @@
-"""Manager for GLOBAL HOSTING CORE ECOSYSTEM."""
-from .catalog import ROOT_ID,get_catalog,list_providers
-from .registry import HostingProviderRegistry
+"""Central manager for GLOBAL HOSTING CORE ECOSYSTEM."""
+from .orchestrator import GlobalHostingCoreOrchestrator
+from .service import GlobalHostingCoreService
+from .module_service import HostingProviderCoreService
+from .domain_catalog import get_hosting_domain
 class GlobalHostingCoreManager:
- def __init__(self):self.registry=HostingProviderRegistry(get_catalog())
- def status(self):return {"success":True,"ecosystem_id":ROOT_ID,"name":"GLOBAL HOSTING CORE ECOSYSTEM","status":"CORE_CATALOG_ONLY","provider_count":len(list_providers()),"live_connection_verified":False,"api_transport_in_core":False,"persistence_enabled":False}
- def list_providers(self):return {"success":True,"count":len(list_providers()),"providers":list_providers()}
- def get_provider(self,key):return self.registry.get(key)
- def provider_tree(self):
-  rows=self.registry.list();root=next((x for x in rows if x["ecosystem_id"]==ROOT_ID),None)
-  if root is None:return {"success":False,"tree":None}
-  root["children"]=[x for x in rows if x["ecosystem_id"]!=ROOT_ID]
-  return {"success":True,"tree":root}
-_manager=None
-def get_manager():
- global _manager
- if _manager is None:_manager=GlobalHostingCoreManager()
- return _manager
+ NAME="GLOBAL HOSTING CORE ECOSYSTEM";ECOSYSTEM_ID="GLOBAL-HOSTING-CORE-ECOSYSTEM"
+ def __init__(self):self._orchestrator=GlobalHostingCoreOrchestrator();self._service=GlobalHostingCoreService()
+ def status(self):return self._service.status()
+ def health(self):return self._orchestrator.health()
+ def list_providers(self,*,provider_records_only=False,category=None):return self._orchestrator.list_providers(provider_records_only=provider_records_only,category=category)
+ def get_provider(self,key):return self._orchestrator.get_provider(key)
+ def get_provider_manager(self,provider_id):return HostingProviderCoreService(provider_id)
+ def list_domains(self):return self._orchestrator.domains()
+ def list_domain_inventory(self):return self._orchestrator.domain_inventory()
+ def get_domain(self,domain_id):return get_hosting_domain(domain_id)
+ def dependency_map(self):return self._orchestrator.dependency_map()
+def get_manager():return GlobalHostingCoreManager()
+__all__=["GlobalHostingCoreManager","get_manager"]

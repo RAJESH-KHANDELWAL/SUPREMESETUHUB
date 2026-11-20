@@ -1,5 +1,3 @@
 # Hosting Provider Core Package
 
-This package identifies one hosting-related provider/platform in the global catalog. It exposes read-only metadata only. It does not connect to provider APIs, provision infrastructure, change DNS, deploy workloads, process billing or store credentials.
-
-The canonical classification and provider record live in the parent `catalog.py` and `hosting_categories.py`.
+Read-only provider identity metadata. The parent Hosting Core owns the canonical inventory and classification. No API calls, provisioning, DNS changes, deployments, billing or credential storage occur here.

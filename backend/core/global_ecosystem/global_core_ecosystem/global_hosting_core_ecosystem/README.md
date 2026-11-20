@@ -1,29 +1,28 @@
 # GLOBAL HOSTING CORE ECOSYSTEM
 
-**Parent:** GLOBAL CORE ECOSYSTEM  
-**Root:** `backend/core/global_ecosystem/global_core_ecosystem/global_hosting_core_ecosystem/`
+Parent: GLOBAL CORE ECOSYSTEM. Canonical path: `backend/core/global_ecosystem/global_core_ecosystem/global_hosting_core_ecosystem/`.
 
-## Purpose
-A normalized, read-only global directory for hosting and hosting-adjacent providers. It separates actual service providers from developer platforms, control-panel software, generic category labels and regional tags.
+## Mission
+Read-only hosting control plane for provider identity, domain taxonomy, capability metadata, discovery, policy, readiness and dependency mapping. Architecture follows the separation used by `google_core_ecosystem/` while retaining hosting-specific records.
 
-## Taxonomy
-See `hosting_categories.py` for the canonical service taxonomy: shared/WordPress, managed WordPress, cloud/VPS/dedicated compute, managed hosting, application platforms, CDN/edge, object/media storage, managed databases, email, domains/DNS, colocation/data centres, control panels and static/developer hosting.
+## Components
+- `catalog.py`: canonical provider inventory and ecosystem root.
+- `provider_catalog.py`: filtered provider inventory and lookup facade.
+- `hosting_categories.py` + `domain_catalog.py`: taxonomy, domain inventory and coverage summary.
+- `contracts.py`: tenant context, opaque secret reference, readiness and result contracts.
+- `module_service.py`: reusable provider Core service and capability metadata.
+- `orchestrator.py`: discovery, health and dependency metadata.
+- `policy.py`: tenant checks, capability classification and metadata redaction.
+- `service.py`: public service and read-only 2468 master catalog reference.
+- `manager.py`: canonical Python entry point; `manager.php` is an interoperability facade.
+- `models.py`, `registry.py`, `tests/`: typed contract, lookup and verification.
+- Domain packages expose category managers; provider packages expose provider identity metadata.
 
-## Data integrity
-- `catalog.py` is the canonical provider inventory; provider IDs and ecosystem IDs are unique.
-- `hosting_categories.py` adds explicit category and entity-type classification. Unclassified legacy records remain marked `UNCLASSIFIED`; category labels and software are not counted as provider companies.
-- Each provider package exposes a consistent Python/PHP metadata contract.
-- Catalog presence does not prove current trading status, service availability, account ownership, price, API access or live connectivity. Verify those separately before integration.
-- No API calls, provisioning, DNS changes, deployment, billing, secrets or durable customer data are handled in Core.
+## Domains
+Shared/WordPress; managed WordPress; cloud/VPS/dedicated compute; managed hosting; application platforms; CDN/edge; object storage; media; managed databases; email; domains/DNS; colocation/data centres; control panels; static/developer hosting; specialist platforms; unclassified.
 
-## Structure
-- `catalog.py`: canonical inventory and enriched lookups.
-- `hosting_categories.py`: taxonomy and conservative classification.
-- `registry.py`: deterministic lookup and duplicate-ID protection.
-- `manager.py` / `manager.php`: read-only metadata facade.
-- `models.py`: typed provider metadata contract.
-- `tests/test_hosting_core.py`: inventory, classification and package-contract tests.
-- Each provider package: `manager.py`, `manager.php`, `__init__.py`, `README.md`.
+## 2468 master catalog
+The canonical file is `backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json`. Hosting Core references it on demand and read-only. Its `ecosystem_module_index` entry is architecture metadata and does not change the numbered 2468 target. Provider/domain inventory is not copied into numbered sections. Existing expansion counters and entries remain unchanged.
 
-## Important
-This is a maintained inventory baseline, not a claim that every hosting company worldwide has been identified. Add providers only with a verifiable brand identity and an actual hosting-related service. Keep software, service categories and regions as separate entity types.
+## Boundaries
+CORE owns identity, taxonomy, metadata, policy and readiness. OAuth/API transport belongs to API; persistence/migrations to database/storage; provisioning, DNS mutation, deployment, billing and execution to infrastructure/runtime; workflows to application. Secrets remain in an external secret manager. Catalog registration is not proof of availability, entitlement, authorization or live connectivity. No API calls, provisioning, DNS changes, deployments, billing or persistence writes occur in Core. Inventory is extensible and not claimed exhaustive.

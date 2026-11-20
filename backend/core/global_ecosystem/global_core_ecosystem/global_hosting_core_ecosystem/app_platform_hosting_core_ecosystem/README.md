@@ -1,7 +1,3 @@
-# Provider Hosting Core Ecosystem
+# Hosting Domain Core Package
 
-**Status:** `CORE_CATALOG_ONLY`
-
-This provider package exposes identity, hosting capability metadata, discovery and readiness only. It does not call provider APIs, provision infrastructure, change DNS, deploy workloads or store credentials.
-
-Files: `manager.py`, `manager.php`, `__init__.py`, `README.md`. Live integration requires a separately implemented API/Infrastructure adapter, authenticated configuration, authorization and successful smoke tests.
+Category-level metadata entry point. The parent Hosting Core owns canonical provider inventory, taxonomy, policy and orchestration. No duplicate provider records or external API calls.
