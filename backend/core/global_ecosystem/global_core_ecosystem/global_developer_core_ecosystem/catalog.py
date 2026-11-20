@@ -25,7 +25,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "DEVELOPER_DOMAIN_CORE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/adult_creator_business_core_ecosystem",
-        "domain_id": "DEVELOPER_CREATOR_BUSINESS",
+        "domain_id": "CREATOR_AND_PLATFORM_ECONOMY",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -43,7 +43,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "DEVELOPER_DOMAIN_CORE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/adult_platform_discovery_core_ecosystem",
-        "domain_id": "DEVELOPER_PLATFORM_DISCOVERY",
+        "domain_id": "CONTENT_AND_TRUST_SAFETY",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -61,7 +61,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "DEVELOPER_DOMAIN_CORE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/age_verification_consent_core_ecosystem",
-        "domain_id": "DEVELOPER_AGE_CONSENT",
+        "domain_id": "AGE_ASSURANCE_AND_CONSENT",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -79,7 +79,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "DEVELOPER_DOMAIN_CORE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/ai_ml_data_core_ecosystem",
-        "domain_id": "DEVELOPER_AI_ML_DATA",
+        "domain_id": "AI_ML_AND_MODEL_DEVELOPMENT",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -97,7 +97,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "PROVIDER_CORE_SERVICE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/anthropic_developer_core_ecosystem",
-        "domain_id": "DEVELOPER_PROVIDER",
+        "domain_id": "DEVELOPER_PROVIDER_PLATFORMS",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -115,7 +115,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "PROVIDER_CORE_SERVICE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/apple_developer_core_ecosystem",
-        "domain_id": "DEVELOPER_PROVIDER",
+        "domain_id": "DEVELOPER_PROVIDER_PLATFORMS",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -133,7 +133,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "PROVIDER_CORE_SERVICE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/atlassian_developer_core_ecosystem",
-        "domain_id": "DEVELOPER_PROVIDER",
+        "domain_id": "DEVELOPER_PROVIDER_PLATFORMS",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -151,7 +151,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "PROVIDER_CORE_SERVICE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/aws_developer_core_ecosystem",
-        "domain_id": "DEVELOPER_PROVIDER",
+        "domain_id": "DEVELOPER_PROVIDER_PLATFORMS",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -169,7 +169,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "DEVELOPER_DOMAIN_CORE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/blockchain_web3_core_ecosystem",
-        "domain_id": "DEVELOPER_BLOCKCHAIN",
+        "domain_id": "BLOCKCHAIN_AND_WEB3",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -187,7 +187,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "PROVIDER_CORE_SERVICE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/cohere_developer_core_ecosystem",
-        "domain_id": "DEVELOPER_PROVIDER",
+        "domain_id": "DEVELOPER_PROVIDER_PLATFORMS",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -205,7 +205,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "DEVELOPER_DOMAIN_CORE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/content_moderation_safety_core_ecosystem",
-        "domain_id": "DEVELOPER_TRUST_SAFETY",
+        "domain_id": "CONTENT_AND_TRUST_SAFETY",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -223,7 +223,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "DEVELOPER_DOMAIN_CORE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/database_storage_core_ecosystem",
-        "domain_id": "DEVELOPER_DATA",
+        "domain_id": "DATABASE_AND_DATA_ENGINEERING",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -241,7 +241,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "DEVELOPER_DOMAIN_CORE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/dating_relationships_core_ecosystem",
-        "domain_id": "DEVELOPER_RELATIONSHIPS",
+        "domain_id": "DATING_AND_RELATIONSHIP_PLATFORMS",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -259,7 +259,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "PROVIDER_CORE_SERVICE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/deepseek_developer_core_ecosystem",
-        "domain_id": "DEVELOPER_PROVIDER",
+        "domain_id": "DEVELOPER_PROVIDER_PLATFORMS",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -277,7 +277,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "DEVELOPER_DOMAIN_CORE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/developer_security_compliance_core_ecosystem",
-        "domain_id": "DEVELOPER_SECURITY",
+        "domain_id": "SECURITY_AND_COMPLIANCE",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -295,11 +295,12 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "PROVIDER_CORE_SERVICE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/github_developer_core_ecosystem",
-        "domain_id": "DEVELOPER_PROVIDER",
+        "domain_id": "DEVELOPER_PROVIDER_PLATFORMS",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
-            "LIFECYCLE_STATUS"
+            "LIFECYCLE_STATUS",
+            "REPOSITORY_WRITE"
         ],
         "purpose": "GitHub repositories, actions, apps and developer workflow metadata.",
         "status": "CORE_CATALOG_ONLY",
@@ -313,7 +314,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "DEVELOPER_DOMAIN_CORE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/global_cloud_infrastructure_core_ecosystem",
-        "domain_id": "DEVELOPER_CLOUD",
+        "domain_id": "CLOUD_AND_INFRASTRUCTURE",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -331,7 +332,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "PROVIDER_CORE_SERVICE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/google_developer_core_ecosystem",
-        "domain_id": "DEVELOPER_PROVIDER",
+        "domain_id": "DEVELOPER_PROVIDER_PLATFORMS",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -349,7 +350,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "PROVIDER_CORE_SERVICE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/huggingface_developer_core_ecosystem",
-        "domain_id": "DEVELOPER_PROVIDER",
+        "domain_id": "DEVELOPER_PROVIDER_PLATFORMS",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -367,7 +368,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "DEVELOPER_DOMAIN_CORE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/identity_authentication_core_ecosystem",
-        "domain_id": "DEVELOPER_IDENTITY",
+        "domain_id": "IDENTITY_AND_ACCESS",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -385,7 +386,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "DEVELOPER_DOMAIN_CORE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/india_developer_platform_core_ecosystem",
-        "domain_id": "DEVELOPER_INDIA",
+        "domain_id": "INDIA_DEVELOPER_ECOSYSTEM",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -403,7 +404,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "PROVIDER_CORE_SERVICE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/microsoft_developer_core_ecosystem",
-        "domain_id": "DEVELOPER_PROVIDER",
+        "domain_id": "DEVELOPER_PROVIDER_PLATFORMS",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -421,7 +422,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "PROVIDER_CORE_SERVICE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/mistral_developer_core_ecosystem",
-        "domain_id": "DEVELOPER_PROVIDER",
+        "domain_id": "DEVELOPER_PROVIDER_PLATFORMS",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -439,7 +440,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "DEVELOPER_DOMAIN_CORE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/no_code_automation_core_ecosystem",
-        "domain_id": "DEVELOPER_AUTOMATION",
+        "domain_id": "NO_CODE_AND_AUTOMATION",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -457,7 +458,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "PROVIDER_CORE_SERVICE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/nvidia_developer_core_ecosystem",
-        "domain_id": "DEVELOPER_PROVIDER",
+        "domain_id": "DEVELOPER_PROVIDER_PLATFORMS",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -475,7 +476,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "PROVIDER_CORE_SERVICE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/openai_developer_core_ecosystem",
-        "domain_id": "DEVELOPER_PROVIDER",
+        "domain_id": "DEVELOPER_PROVIDER_PLATFORMS",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -493,7 +494,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "DEVELOPER_DOMAIN_CORE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/payments_billing_core_ecosystem",
-        "domain_id": "DEVELOPER_PAYMENTS",
+        "domain_id": "PAYMENTS_AND_BILLING",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -511,7 +512,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "DEVELOPER_DOMAIN_CORE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/sexual_wellness_education_core_ecosystem",
-        "domain_id": "DEVELOPER_WELLNESS_EDUCATION",
+        "domain_id": "SEXUAL_WELLNESS_EDUCATION",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
@@ -529,7 +530,7 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         "ecosystem_type": "DEVELOPER_DOMAIN_CORE",
         "parent_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
         "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem/testing_observability_core_ecosystem",
-        "domain_id": "DEVELOPER_QUALITY",
+        "domain_id": "TESTING_AND_QUALITY",
         "capabilities": [
             "DISCOVERY_METADATA",
             "CAPABILITY_CLASSIFICATION",
