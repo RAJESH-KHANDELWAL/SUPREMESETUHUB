@@ -6,8 +6,8 @@ ROOT_MODULES = {
     "repository": "backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem.modules.repository",
     "service": "backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem.modules.service",
     "hostinger_catalog": "backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem.modules.hostinger_catalog",
-    "hostinger_api": "backend.infrastructure.global_ecosystem.hostinger_api",
-    "nsfwinfra": "backend.infrastructure.global_ecosystem.nsfwinfra",
+    "hostinger_api": "backend.global_ecosystem.global_hosting_ecosystem.hostinger_api",
+    "nsfwinfra": "backend.global_ecosystem.nsfwinfra_ecosystem.nsfwinfra",
 }
 
 def load_module(name: str):
