@@ -1228,6 +1228,19 @@ DEVELOPER_CORE_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
     },
 )
 
+
+# Domain Core registry (provider inventory only; no API transport or live DNS operations asserted).
+DOMAIN_CORE_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
+    {
+        "ecosystem_id": "GLOBAL-DOMAIN-CORE-ECOSYSTEM",
+        "name": "GLOBAL DOMAIN CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["DOMAIN_REGISTRY", "DNS_AND_REGISTRAR_CLASSIFICATION", "DOMAIN_LIFECYCLE_METADATA", "DNSSEC_AND_TLS_METADATA", "PROVIDER_DISCOVERY", "TENANT_SCOPED_DOMAIN_METADATA", "POLICY_AND_READINESS"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_domain_core_ecosystem", "status": "CORE_CATALOG_ONLY", "provider_directory_count": 75, "domain_count": 18, "live_connection_verified": False, "api_transport_in_core": False, "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"},
+    },
+)
+
 # Communication Core registry (catalog-only metadata; no credentials or live access asserted).
 COMMUNICATION_CORE_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
     {
@@ -1403,6 +1416,7 @@ def get_catalog() -> list[dict[str, Any]]:
         *CLOUDFLARE_CORE_ECOSYSTEMS,
         *COMMUNICATION_CORE_ECOSYSTEMS,
         *DEVELOPER_CORE_ECOSYSTEMS,
+        *DOMAIN_CORE_ECOSYSTEMS,
         *PERSONAL_REGISTRATIONS,
         *COMPANY_REGISTRATIONS,
     ]
