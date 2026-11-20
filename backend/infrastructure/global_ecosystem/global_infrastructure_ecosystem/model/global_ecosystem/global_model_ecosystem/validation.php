@@ -14,15 +14,11 @@ final class ResourceValidator
             }
         }
 
-        if (isset($resource['metadata']) && !is_array($resource['metadata'])) {
-            $errors[] = 'metadata must be an array when provided';
-        }
-
-        if (isset($resource['category']) && is_string($resource['category'])) {
-            $knownCategories = array_keys(ResourceCategories::all());
-            if (!in_array($resource['category'], $knownCategories, true)) {
-                $errors[] = 'Unknown resource category';
-            }
+        $categories = ResourceCategories::all();
+        $knownCategories = array_keys($categories);
+        if (isset($resource['category']) && is_string($resource['category'])
+            && !in_array($resource['category'], $knownCategories, true)) {
+            $errors[] = 'Unknown resource category';
         }
 
         return $errors;
