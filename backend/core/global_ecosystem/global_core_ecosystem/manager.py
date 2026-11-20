@@ -1199,6 +1199,35 @@ CLOUDFLARE_CORE_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
 )
 
 
+# Developer Core registry (catalog-only metadata; no provider APIs or credentials asserted).
+DEVELOPER_CORE_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
+    {
+        "ecosystem_id": "GLOBAL-DEVELOPER-CORE-ECOSYSTEM",
+        "name": "GLOBAL DEVELOPER CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": [
+            "DEVELOPER_PLATFORM_REGISTRY",
+            "DEVELOPER_PRODUCT_SERVICE_DISCOVERY",
+            "SDK_AND_API_CAPABILITY_METADATA",
+            "DEVELOPER_TOOLCHAIN_CLASSIFICATION",
+            "SECURITY_AND_COMPLIANCE_POLICY_METADATA",
+            "TENANT_SCOPED_CONNECTION_METADATA",
+            "CREDENTIAL_BOUNDARY_AND_SECRET_REFERENCE",
+            "DEPENDENCY_AND_LIFECYCLE_METADATA",
+        ],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem",
+            "status": "CORE_CATALOG_ONLY",
+            "module_reference_count": 28,
+            "domain_count": 19,
+            "live_connection_verified": False,
+            "api_transport_in_core": False,
+            "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+        },
+    },
+)
+
 # Communication Core registry (catalog-only metadata; no credentials or live access asserted).
 COMMUNICATION_CORE_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
     {
@@ -1373,6 +1402,7 @@ def get_catalog() -> list[dict[str, Any]]:
         people_life_core,
         *CLOUDFLARE_CORE_ECOSYSTEMS,
         *COMMUNICATION_CORE_ECOSYSTEMS,
+        *DEVELOPER_CORE_ECOSYSTEMS,
         *PERSONAL_REGISTRATIONS,
         *COMPANY_REGISTRATIONS,
     ]
