@@ -6,7 +6,7 @@ Canonical taxonomy, relationship types, validation policy and discovery metadata
 Every CORE ecosystem record follows **GLOBAL + SUBJECT + CORE ECOSYSTEM** and ID **GLOBAL-SUBJECT-CORE-ECOSYSTEM**. Provider/category names are normalized consistently; documentation/data/test folders are not ecosystem records.
 
 ## Coverage
-This CORE includes 35 taxonomy categories: adult industry relationship categories; age verification and consent; brand/trademark; partner/supplier; commerce marketplace; ownership/control and corporate groups; dating platform; developer/API provider; digital platform/social media; founder/director/management; global and India entities; relationship tiers; payments/finance; provenance/verification; sexual health and wellness education; trust/safety/moderation.
+This CORE includes 36 taxonomy categories: adult industry relationship categories; age verification and consent; brand/trademark; partner/supplier; commerce marketplace; ownership/control and corporate groups; dating platform; developer/API provider; digital platform/social media; founder/director/management; global and India entities; relationship tiers; payments/finance; provenance/verification; sexual health and wellness education; trust/safety/moderation.
 
 ## Data model
 Relationship edges require stable relationship ID, source entity ID, target entity ID, relationship type, verification status, optional jurisdiction and effective dates, evidence source URLs and metadata. Verified claims must include HTTP(S) evidence. Self-edges are rejected. Unverified and pending records are not treated as factual claims.
