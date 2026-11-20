@@ -1,15 +1,13 @@
 {
   "provider": "digitalocean",
+  "ecosystem_id": "DIGITALOCEAN-CORE-ECOSYSTEM",
+  "name": "DIGITALOCEAN CORE ECOSYSTEM",
+  "parent_id": "GLOBAL-CORE-ECOSYSTEM",
   "layer": "CORE",
   "capability_count": 5,
-  "capabilities": [
-    "cloud",
-    "hosting",
-    "server",
-    "storage",
-    "vps"
-  ],
+  "capabilities": ["cloud", "hosting", "server", "storage", "vps"],
   "status": "INTERFACE_ONLY",
   "live_provider_calls_enabled": false,
+  "live_connection_verified": false,
   "api_ecosystem_ref": "backend/api/global_ecosystem/global_api_ecosystem/digitalocean_api_ecosystem"
 }
