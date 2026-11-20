@@ -1,7 +1,7 @@
 # Global Domain Core — Expanded Coverage Update
 
 ## Coverage model
-The previous **78 provider directory references** are retained as a legacy directory inventory. They are not a coverage limit or a claim of global completeness. The expanded registry now combines a broad curated provider-reference list and a sector taxonomy. Names are discovery references, not verification of current product availability, accreditation, API support, or live connectivity.
+The previous **78 provider directory references** are retained as a legacy directory inventory. They are not a coverage limit or a claim of global completeness. The expanded registry now contains **39 sectors** and **230 normalized unique curated provider references** (232 raw name entries before normalization). It combines a broad curated provider-reference list and sector taxonomy. Names are discovery references, not verification of current product availability, accreditation, API support, or live connectivity.
 
 ## New sector taxonomy
 The taxonomy includes registry governance, gTLD and ccTLD registries, registrars/resellers, marketplaces, auctions/backorders, portfolio/lifecycle/transfers, WHOIS/RDAP, DNS hosting/resolvers/security/privacy/automation/routing/monitoring, nameserver infrastructure, TLS/ACME, brand protection/disputes/reputation, IDN, parking/redirect/email, deployment bindings, APIs, tenant security, data retention, observability, pricing and localization.
