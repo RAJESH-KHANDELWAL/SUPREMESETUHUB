@@ -9,7 +9,7 @@ The canonical implementations are stored under `modules/`:
 - `service.py`
 - `hostinger_catalog.py`
 
-The parent `backend/infrastructure/` files with these names are compatibility shims only. The module registry in `modules/__init__.py` points directly to the canonical ecosystem implementations.
+`backend/infrastructure/controller.py`, `repository.py` and `service.py` are thin compatibility shims that preserve legacy imports. `hostinger_catalog.py` has one canonical implementation in `modules/`; there is deliberately no root-level compatibility shim. The module registry in `modules/__init__.py` points directly to canonical implementations and separately registered provider adapters.
 
 ## Domain structure
 All 21 domain folders live directly inside this ecosystem root. There is no intermediate `domains/` wrapper:
