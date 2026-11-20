@@ -5,6 +5,7 @@ on:
     paths:
       - "backend/core/global_ecosystem/global_core_ecosystem/global_cloudflare_core_ecosystem/**"
       - "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+      - "backend/core/global_ecosystem/global_core_ecosystem/manager.py"
       - ".github/workflows/global-cloudflare-core-ecosystem-tests.yml"
   pull_request:
     paths:
