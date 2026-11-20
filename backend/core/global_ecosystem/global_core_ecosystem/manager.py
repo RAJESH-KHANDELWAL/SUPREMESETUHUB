@@ -1377,6 +1377,24 @@ def get_catalog() -> list[dict[str, Any]]:
             "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
         },
     }
+    entity_relationships_core = {
+        "ecosystem_id": "GLOBAL-ENTITY-RELATIONSHIPS-CORE-ECOSYSTEM",
+        "name": "GLOBAL ENTITY RELATIONSHIPS CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["ENTITY_REFERENCE", "RELATIONSHIP_TAXONOMY", "PROVENANCE", "VERIFICATION_POLICY"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_entity_relationships_core_ecosystem",
+            "category_count": 35,
+            "relationship_type_count": 21,
+            "status": "CORE_CATALOG_ONLY",
+            "live_connection_verified": False,
+            "api_transport_in_core": False,
+            "master_catalog_target_unique_entries": 2468,
+            "master_catalog_access_mode": "READ_ONLY_ON_DEMAND",
+        },
+    }
+
     people_life_core = {
         "ecosystem_id": "GLOBAL-PEOPLE-LIFE-CORE-ECOSYSTEM",
         "name": "GLOBAL PEOPLE LIFE CORE ECOSYSTEM",
@@ -1413,6 +1431,7 @@ def get_catalog() -> list[dict[str, Any]]:
         server_core,
         security_core,
         people_life_core,
+        entity_relationships_core,
         *CLOUDFLARE_CORE_ECOSYSTEMS,
         *COMMUNICATION_CORE_ECOSYSTEMS,
         *DEVELOPER_CORE_ECOSYSTEMS,
