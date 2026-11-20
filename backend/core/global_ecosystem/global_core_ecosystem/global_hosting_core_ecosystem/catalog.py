@@ -2317,7 +2317,7 @@ PROVIDERS=[
     "live_connection_verified": False, "api_transport_in_core": False
   },
   {
-    "ecosystem_id": "GLOBAL-HOSTING-COM-HOSTING-CORE-ECOSYSTEM",
+    "ecosystem_id": "GLOBAL-HOSTING-DOT-COM-HOSTING-CORE-ECOSYSTEM",
     "name": "GLOBAL HOSTING COM HOSTING CORE ECOSYSTEM",
     "provider_id": "HOSTING.COM", "provider_name": "HOSTING COM",
     "category": "HOSTING_PROVIDER", "sort_order": 153,
