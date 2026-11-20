@@ -1,15 +1,17 @@
 # Implementation Status
 
-- [x] Python manager and stable `get_manager()` entry point
+- [x] Python manager and stable `get_manager()`
 - [x] PHP interoperability facade
-- [x] 19 existing directory entries classified without creating duplicate provider folders
-- [x] Communication domain taxonomy
-- [x] Read-only master catalog bridge
-- [x] Security and restricted-domain policy metadata
-- [x] Unit tests authored
+- [x] Read-only bridge to the 2468 master catalog
+- [x] Existing 19 directory placeholders accounted for
+- [x] Expanded provider discovery directory (95 reference records)
+- [x] 28 communication domain categories
+- [x] Provider-family and geographic filters
+- [x] Privacy, authorization and restricted-service metadata boundaries
+- [x] Unit tests authored for expanded catalog
 - [ ] CI execution pass not yet verified
-- [ ] Provider OAuth/API integrations not implemented
-- [ ] Message, email, voice and video delivery not implemented
-- [ ] Live provider connections not verified
+- [ ] Provider APIs/OAuth not implemented
+- [ ] Live message, email, voice and video delivery not implemented
+- [ ] Current product lifecycle and country availability require source-by-source verification
 
-Status: `CORE_CATALOG_ONLY`.
+Status: `CORE_CATALOG_ONLY`; provider entries are reference metadata only.
