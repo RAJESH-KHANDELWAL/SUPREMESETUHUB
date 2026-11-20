@@ -1385,7 +1385,7 @@ def get_catalog() -> list[dict[str, Any]]:
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
         "metadata": {
             "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_entity_relationships_core_ecosystem",
-            "category_count": 35,
+            "category_count": 36,
             "relationship_type_count": 21,
             "status": "CORE_CATALOG_ONLY",
             "live_connection_verified": False,
