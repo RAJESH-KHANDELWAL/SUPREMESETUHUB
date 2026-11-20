@@ -20,7 +20,7 @@ def test_sector_names_ids_and_registry_unique():
     assert all(s["description"].strip() for s in sectors)
     assert all(s["ecosystem_name"].startswith("GLOBAL ") for s in sectors)
     assert all(s["ecosystem_name"].endswith(" CORE ECOSYSTEM") for s in sectors)
-    assert all(s["ecosystem_id"].startswith("GLOBAL-") and s["ecosystem_id"].endswith("-CORE-ECOSYSTEM") for s in sectors)
+    assert all(s["ecosystem_id"].startswith("GLOBAL-") and s["ecosystem_id"].endswith("-CORE-ECOSYSTEM") and "_" not in s["ecosystem_id"] for s in sectors)
     assert all(s["naming_standard"]=="GLOBAL + SUBJECT + CORE ECOSYSTEM" for s in sectors)
 
 def test_catalog_registers_all_sector_ecosystems():
