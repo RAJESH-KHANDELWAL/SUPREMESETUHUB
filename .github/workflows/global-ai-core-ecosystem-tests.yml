@@ -5,16 +5,21 @@ on:
     paths:
       - "backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem/**"
       - "backend/global_ecosystem/global_ai_ecosystem/**"
+      - "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
       - ".github/workflows/global-ai-core-ecosystem-tests.yml"
   pull_request:
     branches: [main]
     paths:
       - "backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem/**"
       - "backend/global_ecosystem/global_ai_ecosystem/**"
+      - "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
       - ".github/workflows/global-ai-core-ecosystem-tests.yml"
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: global-ai-core-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   contract-tests:
     runs-on: ubuntu-latest
@@ -23,19 +28,27 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
       - name: Compile Global AI CORE
         run: python -m compileall -q backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem
-      - name: Verify runtime registry and Google-standard packages
+      - name: Verify Google-standard manager, runtime registry, packages and master catalog reference
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
           from backend.global_ecosystem.global_ai_ecosystem.providers import list_ai_providers, validate_provider_registry
+          from backend.core.global_ecosystem.global_core_ecosystem.global_ai_core_ecosystem import get_manager
           root=Path("backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem")
           expected={"authentication","capabilities","docs","events","lifecycle","models","schemas","security","services","tests"}
           providers=list_ai_providers()
           assert len(providers)>=68, len(providers)
           assert validate_provider_registry()==(), validate_provider_registry()
+          assert (root/"manager.py").is_file()
+          assert (root/"manager.php").is_file()
+          assert (root/"domain_runtime.py").is_file()
+          assert len(get_manager().list_domain_inventory())==19
           for provider in providers:
               package=root/(provider["id"]+"_core_ecosystem")
               assert package.is_dir(), provider["id"]
@@ -43,6 +56,19 @@ jobs:
               assert manifest["provider_id"]==provider["id"]
               assert manifest["parent_id"]=="GLOBAL-AI-CORE-ECOSYSTEM"
               assert {x.name for x in package.iterdir() if x.is_dir() and x.name!="__pycache__"}==expected
+          master=json.loads(Path("backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json").read_text())
+          assert master["catalogue_id"]=="GLOBAL_TO_SUPREME_MASTER_ECOSYSTEM"
+          expansion=master["expansion"]
+          assert expansion["target_unique_entries"]==2468
+          assert expansion["remaining_unique_entries"]==2468-expansion["current_unique_entries"]
+          assert expansion["current_unique_entries"]==master["counts"]["unique_catalogue_entries"]
+          reference=get_manager().master_catalog_reference()
+          assert reference["target_unique_entries"]==2468
+          assert reference["loaded_by_global_ai_core"] is False
           PY
+      - name: Validate PHP interoperability contracts
+        run: |
+          php -l backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem/manager.php
+          php -l backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem/php/GlobalAICoreContract.php
       - name: Run Global AI CORE tests
         run: python -m unittest discover -s backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem -t backend/core/global_ecosystem/global_core_ecosystem -p "test*.py" -v
