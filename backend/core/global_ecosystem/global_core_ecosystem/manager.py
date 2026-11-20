@@ -1237,7 +1237,7 @@ DOMAIN_CORE_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
         "ecosystem_type": "CORE_SERVICE",
         "capabilities": ["DOMAIN_REGISTRY", "DNS_AND_REGISTRAR_CLASSIFICATION", "DOMAIN_LIFECYCLE_METADATA", "DNSSEC_AND_TLS_METADATA", "PROVIDER_DISCOVERY", "TENANT_SCOPED_DOMAIN_METADATA", "POLICY_AND_READINESS"],
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
-        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_domain_core_ecosystem", "status": "CORE_CATALOG_ONLY", "legacy_provider_directory_count": 78, "legacy_domain_responsibility_count": 18, "expanded_sector_taxonomy_module": "global_domain_core_ecosystem/sector_catalog.py", "expanded_provider_registry_module": "global_domain_core_ecosystem/provider_registry.py", "coverage_exhaustive": False, "live_connection_verified": False, "api_transport_in_core": False, "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"},
+        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_domain_core_ecosystem", "status": "CORE_CATALOG_ONLY", "legacy_provider_directory_count": 78, "legacy_domain_responsibility_count": 18, "sector_ecosystem_count": 39, "naming_standard": "GLOBAL + SUBJECT + CORE ECOSYSTEM", "expanded_sector_taxonomy_module": "global_domain_core_ecosystem/sector_catalog.py", "expanded_provider_registry_module": "global_domain_core_ecosystem/provider_registry.py", "coverage_exhaustive": False, "live_connection_verified": False, "api_transport_in_core": False, "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"},
     },
 )
 
