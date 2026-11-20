@@ -3,9 +3,9 @@ from importlib import import_module
 
 ROOT_MODULES = {
     "controller": "backend.infrastructure.controller",
-    "hostinger_api": "backend.infrastructure.hostinger_api",
+    "hostinger_api": "backend.infrastructure.global_ecosystem.hostinger_api",
     "hostinger_catalog": "backend.infrastructure.hostinger_catalog",
-    "nsfwinfra": "backend.infrastructure.nsfwinfra",
+    "nsfwinfra": "backend.infrastructure.global_ecosystem.nsfwinfra",
     "repository": "backend.infrastructure.repository",
     "service": "backend.infrastructure.service",
 }
