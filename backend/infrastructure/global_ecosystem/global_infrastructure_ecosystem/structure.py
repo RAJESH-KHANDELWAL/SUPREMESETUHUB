@@ -19,7 +19,7 @@ def get_module_paths() -> dict[str, str]: return dict(CANONICAL_DOMAIN_PATHS)
 def get_ecosystem_domain_paths() -> dict[str, str]: return dict(ECOSYSTEM_DOMAIN_PATHS)
 def get_root_module_paths() -> dict[str, str]:
     paths = {name: f"backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem.modules.{name}" for name in ("controller","repository","service","hostinger_catalog")}
-    paths.update({"hostinger_api":"backend.infrastructure.global_ecosystem.hostinger_api","nsfwinfra":"backend.infrastructure.global_ecosystem.nsfwinfra"})
+    paths.update({"hostinger_api":"backend.global_ecosystem.global_hosting_ecosystem.hostinger_api","nsfwinfra":"backend.global_ecosystem.nsfwinfra_ecosystem.nsfwinfra"})
     return paths
 def get_canonical_ownership() -> dict[str, str]:
     return {
