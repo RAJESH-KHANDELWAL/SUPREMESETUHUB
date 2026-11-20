@@ -9,6 +9,7 @@ final class BackendGlobalInfrastructureEcosystemManager {
         $backendRoot = dirname(dirname(dirname($root)));
         $required = ['README.md','__init__.py','catalog.py','capabilities.py','governance.py','integrations.py','models.py','providers.py','registry.py','schemas.py','service.py','services.py','structure.py','manager.py','manager.php'];
         $checks = [];
+        $domainChecks = [];
         foreach ($required as $name) { $checks['root_file_' . $name] = is_file($root . '/' . $name); }
         foreach (['__init__.py','controller.py','repository.py','service.py','hostinger_catalog.py'] as $name) {
             $checks['canonical_module_' . $name] = is_file($root . '/modules/' . $name);
@@ -16,7 +17,8 @@ final class BackendGlobalInfrastructureEcosystemManager {
         $checks['core_integration_adapter'] = is_file($root . '/integrations/core/__init__.py');
         $checks['global_core_integration_adapter'] = is_file($root . '/integrations/global_core_ecosystem/__init__.py');
         foreach (self::DOMAINS as $domain) {
-            $checks['domain_' . $domain] = is_dir($root . '/' . $domain) && is_file($root . '/' . $domain . '/__init__.py');
+            $domainChecks[$domain] = is_dir($root . '/' . $domain) && is_file($root . '/' . $domain . '/__init__.py');
+            $checks['domain_' . $domain] = $domainChecks[$domain];
             $checks['domain_global_ecosystem_' . $domain] = is_dir($root . '/' . $domain . '/global_ecosystem');
         }
         $checks['backend_global_hostinger_api'] = is_file($backendRoot . '/global_ecosystem/global_hosting_ecosystem/hostinger_api.py');
@@ -27,6 +29,6 @@ final class BackendGlobalInfrastructureEcosystemManager {
         return ['name'=>self::NAME,'version'=>self::VERSION,
                 'status'=>$healthy?'READY':'INCOMPLETE',
                 'expected_domain_count'=>count(self::DOMAINS),'present_domain_count'=>$present,
-                'checks'=>$checks,'healthy'=>$healthy,'provider_operations_enabled'=>false];
+                'checks'=>$checks,'domain_checks'=>$domainChecks,'healthy'=>$healthy,'provider_operations_enabled'=>false];
     }
 }
