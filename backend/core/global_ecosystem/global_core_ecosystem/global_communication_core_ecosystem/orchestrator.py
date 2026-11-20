@@ -11,7 +11,7 @@ class CommunicationCoreOrchestrator:
             "success": True,
             "ecosystem_id": "GLOBAL-COMMUNICATION-CORE-ECOSYSTEM",
             "status": "CORE_CATALOG_ONLY",
-            "provider_reference_count": summary["provider_reference_count"],
+            "provider_reference_count": summary["provider_platform_reference_count"],
             "service_family_count": summary["service_family_count"],
             "existing_directory_count": summary["existing_directory_count"],
             "domain_count": len(list_domains()),
