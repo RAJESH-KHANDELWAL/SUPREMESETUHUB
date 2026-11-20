@@ -1,5 +1,7 @@
 """Contract tests for Global Entity Relationships CORE."""
 import unittest
+import json
+from pathlib import Path
 from .catalog import ROOT_ID,get_catalog,list_categories,RELATIONSHIP_TYPES
 from .manager import get_manager
 from .policy import RelationshipPolicy,RelationshipPolicyError
@@ -18,6 +20,15 @@ class GlobalEntityRelationshipsCoreTests(unittest.TestCase):
  def test_self_edge_rejected(self):
   item={"relationship_id":"r2","source_entity_id":"e1","target_entity_id":"e1","relationship_type":"owns","verification_status":"UNVERIFIED"}
   with self.assertRaises(RelationshipPolicyError): RelationshipPolicy.validate(item)
+ def test_master_module_index_and_central_registry_are_registered(self):
+  backend_root=Path(__file__).resolve().parents[4]
+  master=json.loads((backend_root/"GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json").read_text(encoding="utf-8"))
+  module_id="GLOBAL-ENTITY-RELATIONSHIPS-CORE-ECOSYSTEM"
+  modules=master["ecosystem_module_index"]["modules"]
+  entry=next((x for x in modules if x.get("ecosystem_id")==module_id),None)
+  self.assertIsNotNone(entry); self.assertEqual(entry["category_count"],35); self.assertFalse(entry["live_connection_verified"])
+  central=(backend_root/"core/global_ecosystem/global_core_ecosystem/manager.py").read_text(encoding="utf-8")
+  self.assertIn(module_id,central); self.assertIn("GLOBAL ENTITY RELATIONSHIPS CORE ECOSYSTEM",central)
  def test_master_catalog_reference_read_only_2468(self):
   r=get_manager().master_catalog_reference(); self.assertEqual(r["target_unique_entries"],2468); self.assertEqual(r["owner_layer"],"GLOBAL_ENGINE_ECOSYSTEM"); self.assertEqual(r["access_mode"],"READ_ONLY_ON_DEMAND")
 if __name__=="__main__": unittest.main()
