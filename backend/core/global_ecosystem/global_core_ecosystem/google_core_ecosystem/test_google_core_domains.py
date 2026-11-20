@@ -3,9 +3,13 @@ from __future__ import annotations
 
 import importlib
 
-from .domain_catalog import DOMAIN_DEFINITIONS, google_domain_summary
-from .domain_runtime import GoogleCoreDomainManager
-
+from backend.core.global_ecosystem.global_core_ecosystem.google_core_ecosystem.domain_catalog import (
+    DOMAIN_DEFINITIONS,
+    google_domain_summary,
+)
+from backend.core.global_ecosystem.global_core_ecosystem.google_core_ecosystem.domain_runtime import (
+    GoogleCoreDomainManager,
+)
 
 DOMAIN_PACKAGES = {
     "PROVIDER_GOVERNANCE": "provider_governance",
@@ -37,8 +41,12 @@ def test_all_nineteen_domain_packages_are_registered():
 
 
 def test_each_domain_package_exports_a_working_manager():
+    package_root = (
+        "backend.core.global_ecosystem.global_core_ecosystem."
+        "google_core_ecosystem"
+    )
     for domain_id, package_name in DOMAIN_PACKAGES.items():
-        package = importlib.import_module(f".{package_name}", package=__package__)
+        package = importlib.import_module(f"{package_root}.{package_name}")
         manager = package.get_manager()
         assert manager.DOMAIN_ID == domain_id
         assert manager.status()["domain_id"] == domain_id
@@ -49,11 +57,5 @@ def test_domain_offerings_match_the_canonical_inventory():
     summary = google_domain_summary()
     assert summary["domain_count"] == 19
     for domain in summary["domains"]:
-        manager = GoogleCoreDomainManagerForTest(domain["domain_id"])
+        manager = GoogleCoreDomainManager(domain["domain_id"])
         assert manager.list_offerings()["count"] == domain["offering_count"]
-
-
-class GoogleCoreDomainManagerForTest(GoogleCoreDomainManager):
-    def __init__(self, domain_id: str) -> None:
-        self.DOMAIN_ID = domain_id
-        super().__init__()
