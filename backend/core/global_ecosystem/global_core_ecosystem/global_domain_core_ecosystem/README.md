@@ -1,13 +1,19 @@
 # GLOBAL DOMAIN CORE ECOSYSTEM
-Provider-neutral domain/registrar/registry/DNS/TLS taxonomy and metadata governance.
 
-## Naming standard
-Every sector ecosystem is named **GLOBAL + SUBJECT + CORE ECOSYSTEM** and uses an ID shaped as `GLOBAL-SUBJECT-CORE-ECOSYSTEM`. Example: `GLOBAL DNSSEC CORE ECOSYSTEM`.
+Canonical name: **GLOBAL DOMAIN CORE ECOSYSTEM**  
+ID: `GLOBAL-DOMAIN-CORE-ECOSYSTEM`  
+Parent: `GLOBAL-CORE-ECOSYSTEM`
 
-- `catalog.py`: legacy provider directory inventory and 18 responsibility definitions.
-- `sector_catalog.py`: expanded sectors with standardized ecosystem IDs and display names.
-- `provider_registry.py`: curated provider discovery references; unverified/catalog-only.
-- `manager.py`: canonical manager.
-- `manager.php`: PHP compatibility surface.
+## Ecosystem naming rule
+Sector ecosystem display names follow **GLOBAL + SUBJECT + CORE ECOSYSTEM**. IDs follow `GLOBAL-SUBJECT-CORE-ECOSYSTEM`. The 39 sector entries are integrated into the canonical catalog and exposed through the manager.
 
-Provider references are not live adapters or proof of global coverage. See `DOMAIN_IMPLEMENTATION_STATUS.md`.
+## Modules
+- `catalog.py`: canonical root catalog, legacy directory list, domain responsibility catalog and sector ecosystem registration.
+- `sector_catalog.py`: 39 sector definitions, standardized display names and IDs.
+- `provider_registry.py`: curated discovery references with explicit catalog-only status.
+- `manager.py`: canonical manager exposing status, sectors and sector lookup.
+- `domain_runtime.py`: read-only metadata runtime.
+- `manager.php`: PHP interoperability facade.
+- `test_global_domain_core.py`: naming, catalog registration and safety checks.
+
+Provider entries are references, not verified live integrations or a complete global provider census. No API transport or operational domain/DNS actions are enabled in Core.
