@@ -1,5 +1,6 @@
 {
   "provider": "deepseek",
+  "ecosystem_id": "DEEPSEEK-CORE-ECOSYSTEM",
   "layer": "CORE",
   "capabilities": [
     "chat_completions",
@@ -8,5 +9,6 @@
     "fetch"
   ],
   "status": "INTERFACE_ONLY",
-  "live_provider_calls_enabled": false
+  "live_provider_calls_enabled": false,
+  "live_connection_verified": false
 }
