@@ -1,7 +1,7 @@
 """Shared read-only runtime for Apple Core responsibility domains."""
 from __future__ import annotations
 from typing import Any
-from .domain_catalog import DOMAIN_DEFINITIONS, PRODUCT_DOMAIN, list_apple_domain_inventory
+from .domain_catalog import DOMAIN_DEFINITIONS, PRODUCT_DOMAIN
 from .product_catalog import list_apple_offerings
 
 class AppleCoreDomainManager:
