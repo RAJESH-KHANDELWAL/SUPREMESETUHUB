@@ -1,6 +1,6 @@
 """Integration contract tests for cultural knowledge platform layers."""
 from backend.ai.cultural_knowledge_assistant import CulturalKnowledgeAssistant
-from backend.core.global_ecosystem.global_core_ecosystem.cultural_knowledge_core_ecosystem import CulturalKnowledgeCoreService
+from backend.global_ecosystem.global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem.service import CulturalKnowledgeDomainService
 from backend.engine.global_ecosystem.global_engine_ecosystem.cultural_knowledge_engine_ecosystem import CulturalKnowledgeEngineManager
 from backend.global_ecosystem.global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem import CULTURAL_DOMAINS
 from backend.database.cultural_knowledge_repository import CulturalKnowledgeRepository
@@ -9,9 +9,9 @@ from backend.cloud.global_ecosystem.global_cloud_ecosystem.cultural_knowledge_cl
 
 
 def test_core_and_engine_are_connected():
-    core = CulturalKnowledgeCoreService()
-    engine = CulturalKnowledgeEngineManager(core=core, domains=CULTURAL_DOMAINS)
-    assert core.describe()["ecosystem_id"].startswith("GLOBAL_VASUDHAIVA")
+    domain_service = CulturalKnowledgeDomainService()
+    engine = CulturalKnowledgeEngineManager(core=domain_service, domains=CULTURAL_DOMAINS)
+    assert domain_service.describe()["ecosystem_id"].startswith("GLOBAL_VASUDHAIVA")
     result = engine.search("Maha Upanishad")
     assert result["foundational_matches"]
     assert result["domain_count_searched"] == 13
