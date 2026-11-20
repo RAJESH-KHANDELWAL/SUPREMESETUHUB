@@ -1,36 +1,63 @@
 # GITHUB CORE ECOSYSTEM
 
-Canonical provider-level CORE control plane for GitHub's 12 API families.
+**Parent:** GLOBAL CORE ECOSYSTEM  
+**Root:** `backend/core/global_ecosystem/global_core_ecosystem/github_core_ecosystem/`
 
 ## Mission
-Provider/family identity, capability registration, tenant and caller-context contracts, policy classification, lifecycle metadata, readiness, discovery and cross-family orchestration.
+
+GitHub Core is the provider-level control plane and canonical registry for GitHub's 12 API families. It owns provider and family identity, capability metadata, tenant and actor context contracts, policy classification, lifecycle/readiness metadata, discovery and cross-family dependency mapping.
+
+## Canonical entry points
+
+- `manager.py`: Google Core-style application entry point; exposes `GitHubCoreManager` and `get_manager()`.
+- `manager.php`: metadata-only PHP interoperability facade with recursive secret-field filtering.
+- `catalog.py`: canonical provider identity and the 12-family registry.
+- `contracts.py`: tenant context, opaque secret references, readiness and result contracts.
+- `request_contracts.py`: safe request-shape validation; rejects credential material.
+- `policy.py`: tenant-context checks, capability registration checks and sensitivity classification.
+- `module_service.py`: shared read-only service for family-level Core packages.
+- `orchestrator.py`: family discovery, health, offerings and dependency mapping.
+- `product_catalog.py`: unified family offering inventory.
+- `service.py`: provider status and service-level discovery.
+- `test_github_core_domains.py` and `tests/`: structural and contract tests.
+- `github_*_core_ecosystem/`: the 12 provider-family Core packages.
 
 ## Registered families
-- **Actions** — Workflows, workflow runs, jobs, logs, artifacts and workflow permissions
-- **Apps** — GitHub Apps, installations, app permissions and installation access tokens
-- **Authentication** — Fine-grained personal access tokens, OAuth flows, GitHub App authentication and token handling
-- **Checks** — Check runs, check suites and commit status reporting
-- **GraphQL** — GraphQL queries, mutations, schemas and API versioning
-- **Issues** — Issues, labels, milestones, assignees and issue comments
-- **Organizations** — Organizations, teams, members, roles and organization-level controls
-- **Pull Requests** — Pull requests, reviews, review comments, review requests and merge operations
-- **Repositories** — Repositories, branches, commits, trees, blobs, contents and releases
-- **REST** — REST resources, pagination, rate limits and endpoint-specific operations
-- **Security** — Code scanning, secret scanning, Dependabot alerts and security advisories
-- **Webhooks** — Webhook subscriptions, deliveries, signatures, event processing and retries
 
-## Existing API integration
-The repository contains an authenticated GitHub REST provider at `backend/integration/provider/github.py` and routes in `backend/api/connectors.py`. Exposed routes cover authenticated connection status, account identity, repository listing and repository metadata. CORE references these components and does not duplicate them or inspect token values.
-
-The 12 API family directories are not proof of 12 complete endpoint adapters. Family-specific endpoint coverage, scopes and live smoke tests must be verified in the API layer.
+1. Actions — workflows, runs, jobs, logs, artifacts and workflow permissions
+2. Apps — GitHub Apps, installations and app permissions
+3. Authentication — token/OAuth/GitHub App authentication boundaries
+4. Checks — check runs, check suites and commit status
+5. GraphQL — queries, mutations, schemas and API versioning
+6. Issues — issues, labels, milestones, assignees and comments
+7. Organizations — organizations, teams, members and roles
+8. Pull Requests — pull requests, reviews, review requests and merge boundaries
+9. Repositories — repositories, branches, commits, contents and releases
+10. REST — REST resources, pagination, rate limits and endpoint metadata
+11. Security — code scanning, secret scanning, Dependabot and advisories
+12. Webhooks — subscriptions, deliveries, signatures, event processing and retries
 
 ## Layer ownership
+
 | Layer | Responsibility |
 |---|---|
-| CORE | identity, capability metadata, policy, lifecycle, readiness, orchestration |
-| API / Integration | token authentication, REST/GraphQL transport, endpoint adapters, response normalization |
-| ENGINE | jobs, retries, rate-limit scheduling, webhook execution |
-| DATABASE / STORAGE | structured records, transactions, files and artifacts |
-| Application | sessions, consent, workflows and UI |
+| GitHub Core | provider/family identity, capability metadata, policy, lifecycle, readiness and orchestration |
+| API / Integration | credential handling, REST/GraphQL transport, endpoint adapters and response normalization |
+| ENGINE | jobs, retries, rate-limit scheduling and webhook execution |
+| DATABASE / STORAGE | durable records, transactions, files and artifacts |
+| Application | sessions, consent, user workflows and UI |
 
-Never commit tokens, app private keys or webhook secrets. Use least-privilege permissions and explicit authorization for writes, merges, workflow dispatches, organization administration and security changes.
+## Security and readiness rules
+
+1. Tenant and actor identity must come from the authenticated application layer.
+2. A registered capability is metadata, not proof of authorization, GitHub permission or account entitlement.
+3. Never commit tokens, app private keys, webhook secrets or authorization headers.
+4. Use least-privilege GitHub App/PAT permissions and explicit authorization plus audit for writes, merges, dispatches, organization administration and security changes.
+5. Family package registration does not prove complete endpoint adapter coverage.
+6. Report a live connection only after the API-layer authentication/status check succeeds in the deployed environment.
+
+## Current integration boundary
+
+The repository has shared authenticated REST transport at `backend/integration/provider/github.py` and connector routes at `backend/api/connectors.py`. The current route coverage is partial (authenticated status, account identity, repository listing and repository metadata). The 12 family packages are not evidence of 12 complete API adapters.
+
+Core discovery is metadata-only. It performs no GitHub API calls and does not inspect or resolve credentials.
