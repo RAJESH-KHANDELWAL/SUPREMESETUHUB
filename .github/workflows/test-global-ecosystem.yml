@@ -43,6 +43,7 @@ jobs:
         run: |
           php backend/test/php/global_algorithm_kernel_test.php
           php backend/test/php/global_model_ecosystem_test.php
+          php backend/test/php/infrastructure_manager_test.php
 
   python-quality:
     name: Python syntax checks
