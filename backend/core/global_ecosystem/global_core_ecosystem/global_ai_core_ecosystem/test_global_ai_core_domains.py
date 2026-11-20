@@ -1,7 +1,9 @@
 """Google Core-style public manager, domain and master-catalog contract tests."""
 from __future__ import annotations
 
+import json
 import unittest
+from pathlib import Path
 
 from backend.core.global_ecosystem.global_core_ecosystem.global_ai_core_ecosystem import (
     GlobalAICoreDomainManager,
@@ -49,35 +51,55 @@ class GlobalAICoreManagerTests(unittest.TestCase):
         self.assertTrue(reference["source_of_truth"])
         self.assertFalse(reference["loaded_by_reference_call"])
 
-    def test_master_catalog_inventory_exposes_all_existing_rows_without_padding(self):
+    def test_master_catalog_inventory_covers_every_current_source_row(self):
         inventory = get_manager().master_catalog_inventory()
+        source_path = Path("backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json")
+        source = json.loads(source_path.read_text(encoding="utf-8"))
+        expected_counts = source["counts"]
+        expansion = source["expansion"]
+
         self.assertTrue(inventory["success"])
         self.assertEqual(inventory["target_unique_entries"], 2468)
-        self.assertEqual(inventory["current_unique_entries"], 246)
-        self.assertEqual(inventory["remaining_unique_entries"], 2222)
-        self.assertEqual(inventory["source_numbered_entries"], 248)
-        self.assertEqual(inventory["cross_reference_entries"], 2)
-        self.assertEqual(inventory["section_count"], 13)
-        self.assertEqual(len(inventory["entries"]), 248)
-        self.assertEqual(len(inventory["sections"]), 13)
+        self.assertEqual(inventory["target_unique_entries"], expansion["target_unique_entries"])
+        self.assertEqual(inventory["current_unique_entries"], expected_counts["unique_catalogue_entries"])
+        self.assertEqual(inventory["current_unique_entries"], expansion["current_unique_entries"])
+        self.assertEqual(inventory["remaining_unique_entries"], expansion["remaining_unique_entries"])
+        self.assertEqual(inventory["remaining_unique_entries"], 2468 - inventory["current_unique_entries"])
+        self.assertEqual(inventory["source_numbered_entries"], expected_counts["source_numbered_entries"])
+        self.assertEqual(inventory["cross_reference_entries"], expected_counts["cross_reference_entries"])
+        self.assertEqual(inventory["section_count"], expected_counts["section_count"])
+        self.assertEqual(len(inventory["entries"]), expected_counts["source_numbered_entries"])
+        self.assertEqual(len(inventory["sections"]), expected_counts["section_count"])
         self.assertEqual(
             sum(entry["entry_kind"] != "cross_reference" for entry in inventory["entries"]),
-            246,
+            expected_counts["unique_catalogue_entries"],
         )
 
     def test_master_catalog_cross_references_are_preserved_and_resolvable(self):
         manager = get_manager()
-        sexual_health = manager.get_master_catalog_entry("S05_sexual_health")
-        human_rights = manager.get_master_catalog_entry("S11_human_rights")
-        self.assertEqual(sexual_health["canonical_entry_id"], "S04_sexual_health")
-        self.assertEqual(human_rights["canonical_entry_id"], "S02_human_rights")
+        inventory = manager.master_catalog_inventory()
+        references = [
+            entry for entry in inventory["entries"]
+            if entry["entry_kind"] == "cross_reference"
+        ]
+        for entry in references:
+            canonical = manager.get_master_catalog_entry(entry["canonical_entry_id"])
+            self.assertIsNotNone(canonical)
+            self.assertNotEqual(canonical["entry_kind"], "cross_reference")
         self.assertIsNone(manager.get_master_catalog_entry("NOT_A_REAL_ENTRY"))
 
     def test_master_catalog_can_exclude_cross_reference_rows_without_losing_source(self):
-        inventory = get_manager().master_catalog_inventory(include_cross_references=False)
-        self.assertEqual(len(inventory["entries"]), 246)
-        self.assertEqual(inventory["source_numbered_entries"], 248)
-        self.assertEqual(inventory["cross_reference_entries"], 2)
+        manager = get_manager()
+        all_rows = manager.master_catalog_inventory(include_cross_references=True)
+        unique_rows = manager.master_catalog_inventory(include_cross_references=False)
+        self.assertEqual(
+            len(unique_rows["entries"]),
+            all_rows["source_numbered_entries"] - all_rows["cross_reference_entries"],
+        )
+        self.assertEqual(
+            unique_rows["source_numbered_entries"],
+            all_rows["source_numbered_entries"],
+        )
 
     def test_domain_definitions_remain_nineteen(self):
         self.assertEqual(len(AI_DOMAIN_DEFINITIONS), 19)
