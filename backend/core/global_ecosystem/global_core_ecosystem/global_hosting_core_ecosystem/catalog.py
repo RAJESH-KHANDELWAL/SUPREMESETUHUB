@@ -1,5 +1,6 @@
 """Canonical provider inventory."""
 from copy import deepcopy
+from .hosting_categories import classify_provider
 ROOT_ID="GLOBAL-HOSTING-CORE-ECOSYSTEM"
 ROOT={"ecosystem_id":ROOT_ID,"name":"GLOBAL HOSTING CORE ECOSYSTEM","category":"ROOT","parent_id":None,"status":"CORE_CATALOG_ONLY","capabilities":["HOSTING_PROVIDER_REGISTRY","CAPABILITY_METADATA","READINESS_REPORTING"],"live_connection_verified":False}
 PROVIDERS=[
@@ -2008,10 +2009,807 @@ PROVIDERS=[
     ],
     "live_connection_verified": false,
     "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-AKILE-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL AKILE HOSTING CORE ECOSYSTEM",
+    "provider_id": "AKILE", "provider_name": "AKILE",
+    "category": "HOSTING_PROVIDER", "sort_order": 119,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-ALWAYS--HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL ALWAYS  HOSTING CORE ECOSYSTEM",
+    "provider_id": "ALWAYSdata", "provider_name": "ALWAYS ",
+    "category": "HOSTING_PROVIDER", "sort_order": 120,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-A2-HOSTING-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL A2 HOSTING HOSTING CORE ECOSYSTEM",
+    "provider_id": "A2_HOSTING", "provider_name": "A2 HOSTING",
+    "category": "HOSTING_PROVIDER", "sort_order": 121,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-ACCUPWEB-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL ACCUPWEB HOSTING CORE ECOSYSTEM",
+    "provider_id": "ACCUPWEB", "provider_name": "ACCUPWEB",
+    "category": "HOSTING_PROVIDER", "sort_order": 122,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-ASPHOSTPORTAL-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL ASPHOSTPORTAL HOSTING CORE ECOSYSTEM",
+    "provider_id": "ASPHOSTPORTAL", "provider_name": "ASPHOSTPORTAL",
+    "category": "HOSTING_PROVIDER", "sort_order": 123,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-CHEAPO-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL CHEAPO HOSTING CORE ECOSYSTEM",
+    "provider_id": "CHEAPO", "provider_name": "CHEAPO",
+    "category": "HOSTING_PROVIDER", "sort_order": 124,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-DREAMHOST-PRO-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL DREAMHOST PRO HOSTING CORE ECOSYSTEM",
+    "provider_id": "DREAMHOST_PRO", "provider_name": "DREAMHOST PRO",
+    "category": "HOSTING_PROVIDER", "sort_order": 125,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-FLYWHEEL-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL FLYWHEEL HOSTING CORE ECOSYSTEM",
+    "provider_id": "FLYWHEEL", "provider_name": "FLYWHEEL",
+    "category": "HOSTING_PROVIDER", "sort_order": 126,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-GODADDY-PRO-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL GODADDY PRO HOSTING CORE ECOSYSTEM",
+    "provider_id": "GODADDY_PRO", "provider_name": "GODADDY PRO",
+    "category": "HOSTING_PROVIDER", "sort_order": 127,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-HOSTINGUK-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL HOSTINGUK HOSTING CORE ECOSYSTEM",
+    "provider_id": "HOSTINGUK", "provider_name": "HOSTINGUK",
+    "category": "HOSTING_PROVIDER", "sort_order": 128,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-HOSTMANTIS-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL HOSTMANTIS HOSTING CORE ECOSYSTEM",
+    "provider_id": "HOSTMANTIS", "provider_name": "HOSTMANTIS",
+    "category": "HOSTING_PROVIDER", "sort_order": 129,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-HOSTROCKET-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL HOSTROCKET HOSTING CORE ECOSYSTEM",
+    "provider_id": "HOSTROCKET", "provider_name": "HOSTROCKET",
+    "category": "HOSTING_PROVIDER", "sort_order": 130,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-HOSTROUND-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL HOSTROUND HOSTING CORE ECOSYSTEM",
+    "provider_id": "HOSTROUND", "provider_name": "HOSTROUND",
+    "category": "HOSTING_PROVIDER", "sort_order": 131,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-INTERNETVIKINGS-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL INTERNETVIKINGS HOSTING CORE ECOSYSTEM",
+    "provider_id": "INTERNETVIKINGS", "provider_name": "INTERNETVIKINGS",
+    "category": "HOSTING_PROVIDER", "sort_order": 132,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-KRYSTAL-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL KRYSTAL HOSTING CORE ECOSYSTEM",
+    "provider_id": "KRYSTAL", "provider_name": "KRYSTAL",
+    "category": "HOSTING_PROVIDER", "sort_order": 133,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-LIQUID-WEB-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL LIQUID WEB HOSTING CORE ECOSYSTEM",
+    "provider_id": "LIQUID_WEB", "provider_name": "LIQUID WEB",
+    "category": "HOSTING_PROVIDER", "sort_order": 134,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-MDDHOSTING-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL MDDHOSTING HOSTING CORE ECOSYSTEM",
+    "provider_id": "MDDHOSTING", "provider_name": "MDDHOSTING",
+    "category": "HOSTING_PROVIDER", "sort_order": 135,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-NAMESILO-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL NAMESILO HOSTING CORE ECOSYSTEM",
+    "provider_id": "NAMESILO", "provider_name": "NAMESILO",
+    "category": "HOSTING_PROVIDER", "sort_order": 136,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-NEXCESS-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL NEXCESS HOSTING CORE ECOSYSTEM",
+    "provider_id": "NEXCESS", "provider_name": "NEXCESS",
+    "category": "HOSTING_PROVIDER", "sort_order": 137,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-PORKBUN-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL PORKBUN HOSTING CORE ECOSYSTEM",
+    "provider_id": "PORKBUN", "provider_name": "PORKBUN",
+    "category": "HOSTING_PROVIDER", "sort_order": 138,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-ROCKHOSTER-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL ROCKHOSTER HOSTING CORE ECOSYSTEM",
+    "provider_id": "ROCKHOSTER", "provider_name": "ROCKHOSTER",
+    "category": "HOSTING_PROVIDER", "sort_order": 139,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-SCALAHOSTING-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL SCALAHOSTING HOSTING CORE ECOSYSTEM",
+    "provider_id": "SCALAHOSTING", "provider_name": "SCALAHOSTING",
+    "category": "HOSTING_PROVIDER", "sort_order": 140,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-SERVERS-COM-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL SERVERS COM HOSTING CORE ECOSYSTEM",
+    "provider_id": "SERVERS.COM", "provider_name": "SERVERS COM",
+    "category": "HOSTING_PROVIDER", "sort_order": 141,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-STABLEPOINT-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL STABLEPOINT HOSTING CORE ECOSYSTEM",
+    "provider_id": "STABLEPOINT", "provider_name": "STABLEPOINT",
+    "category": "HOSTING_PROVIDER", "sort_order": 142,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-TEMOK-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL TEMOK HOSTING CORE ECOSYSTEM",
+    "provider_id": "TEMOK", "provider_name": "TEMOK",
+    "category": "HOSTING_PROVIDER", "sort_order": 143,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-THE-ONLINE-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL THE ONLINE HOSTING CORE ECOSYSTEM",
+    "provider_id": "THE_ONLINE", "provider_name": "THE ONLINE",
+    "category": "HOSTING_PROVIDER", "sort_order": 144,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-ULTAHOST-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL ULTAHOST HOSTING CORE ECOSYSTEM",
+    "provider_id": "ULTAHOST", "provider_name": "ULTAHOST",
+    "category": "HOSTING_PROVIDER", "sort_order": 145,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-WEBHOSTINGPAD-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL WEBHOSTINGPAD HOSTING CORE ECOSYSTEM",
+    "provider_id": "WEBHOSTINGPAD", "provider_name": "WEBHOSTINGPAD",
+    "category": "HOSTING_PROVIDER", "sort_order": 146,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-WEBHOSTUK-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL WEBHOSTUK HOSTING CORE ECOSYSTEM",
+    "provider_id": "WEBHOSTUK", "provider_name": "WEBHOSTUK",
+    "category": "HOSTING_PROVIDER", "sort_order": 147,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-WP-SERVERS-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL WP SERVERS HOSTING CORE ECOSYSTEM",
+    "provider_id": "WP_SERVERS", "provider_name": "WP SERVERS",
+    "category": "HOSTING_PROVIDER", "sort_order": 148,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-XSERVER-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL XSERVER HOSTING CORE ECOSYSTEM",
+    "provider_id": "XSERVER", "provider_name": "XSERVER",
+    "category": "HOSTING_PROVIDER", "sort_order": 149,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-ZUME-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL ZUME HOSTING CORE ECOSYSTEM",
+    "provider_id": "ZUME", "provider_name": "ZUME",
+    "category": "HOSTING_PROVIDER", "sort_order": 150,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-GREENHOST-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL GREENHOST HOSTING CORE ECOSYSTEM",
+    "provider_id": "GREENHOST", "provider_name": "GREENHOST",
+    "category": "HOSTING_PROVIDER", "sort_order": 151,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-HOSTNET-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL HOSTNET HOSTING CORE ECOSYSTEM",
+    "provider_id": "HOSTNET", "provider_name": "HOSTNET",
+    "category": "HOSTING_PROVIDER", "sort_order": 152,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-HOSTING-COM-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL HOSTING COM HOSTING CORE ECOSYSTEM",
+    "provider_id": "HOSTING.COM", "provider_name": "HOSTING COM",
+    "category": "HOSTING_PROVIDER", "sort_order": 153,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-HOSTINGER-PRO-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL HOSTINGER PRO HOSTING CORE ECOSYSTEM",
+    "provider_id": "HOSTINGER_PRO", "provider_name": "HOSTINGER PRO",
+    "category": "HOSTING_PROVIDER", "sort_order": 154,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-KAMATERA-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL KAMATERA HOSTING CORE ECOSYSTEM",
+    "provider_id": "KAMATERA", "provider_name": "KAMATERA",
+    "category": "HOSTING_PROVIDER", "sort_order": 155,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-LEASEWEB-CLOUD-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL LEASEWEB CLOUD HOSTING CORE ECOSYSTEM",
+    "provider_id": "LEASEWEB_CLOUD", "provider_name": "LEASEWEB CLOUD",
+    "category": "HOSTING_PROVIDER", "sort_order": 156,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-LINODE-AKAMAI-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL LINODE AKAMAI HOSTING CORE ECOSYSTEM",
+    "provider_id": "LINODE_AKAMAI", "provider_name": "LINODE AKAMAI",
+    "category": "HOSTING_PROVIDER", "sort_order": 157,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-ORACLE-CLOUD-INFRASTRUCTURE-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL ORACLE CLOUD INFRASTRUCTURE HOSTING CORE ECOSYSTEM",
+    "provider_id": "ORACLE_CLOUD_INFRASTRUCTURE", "provider_name": "ORACLE CLOUD INFRASTRUCTURE",
+    "category": "HOSTING_PROVIDER", "sort_order": 158,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-OVH-CLOUD-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL OVH CLOUD HOSTING CORE ECOSYSTEM",
+    "provider_id": "OVH_CLOUD", "provider_name": "OVH CLOUD",
+    "category": "HOSTING_PROVIDER", "sort_order": 159,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-VPSDIME-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL VPSDIME HOSTING CORE ECOSYSTEM",
+    "provider_id": "VPSDIME", "provider_name": "VPSDIME",
+    "category": "HOSTING_PROVIDER", "sort_order": 160,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-UPTIME-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL UPTIME HOSTING CORE ECOSYSTEM",
+    "provider_id": "UPTIME", "provider_name": "UPTIME",
+    "category": "HOSTING_PROVIDER", "sort_order": 161,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-PANTHEON-PLATFORM-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL PANTHEON PLATFORM HOSTING CORE ECOSYSTEM",
+    "provider_id": "PANTHEON_PLATFORM", "provider_name": "PANTHEON PLATFORM",
+    "category": "HOSTING_PROVIDER", "sort_order": 162,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-CLOUDFOUNDRY-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL CLOUDFOUNDRY HOSTING CORE ECOSYSTEM",
+    "provider_id": "CLOUDFOUNDRY", "provider_name": "CLOUDFOUNDRY",
+    "category": "HOSTING_PROVIDER", "sort_order": 163,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-DENO-DEPLOY-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL DENO DEPLOY HOSTING CORE ECOSYSTEM",
+    "provider_id": "DENO_DEPLOY", "provider_name": "DENO DEPLOY",
+    "category": "HOSTING_PROVIDER", "sort_order": 164,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-FLY-DEPLOY-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL FLY DEPLOY HOSTING CORE ECOSYSTEM",
+    "provider_id": "FLY_DEPLOY", "provider_name": "FLY DEPLOY",
+    "category": "HOSTING_PROVIDER", "sort_order": 165,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-GOOGLE-APP-ENGINE-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL GOOGLE APP ENGINE HOSTING CORE ECOSYSTEM",
+    "provider_id": "GOOGLE_APP_ENGINE", "provider_name": "GOOGLE APP ENGINE",
+    "category": "HOSTING_PROVIDER", "sort_order": 166,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-VERCEL-EDGE-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL VERCEL EDGE HOSTING CORE ECOSYSTEM",
+    "provider_id": "VERCEL_EDGE", "provider_name": "VERCEL EDGE",
+    "category": "HOSTING_PROVIDER", "sort_order": 167,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-CLOUDFRONT-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL CLOUDFRONT HOSTING CORE ECOSYSTEM",
+    "provider_id": "CLOUDFRONT", "provider_name": "CLOUDFRONT",
+    "category": "HOSTING_PROVIDER", "sort_order": 168,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-KEYCDN-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL KEYCDN HOSTING CORE ECOSYSTEM",
+    "provider_id": "KEYCDN", "provider_name": "KEYCDN",
+    "category": "HOSTING_PROVIDER", "sort_order": 169,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-EDGIO-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL EDGIO HOSTING CORE ECOSYSTEM",
+    "provider_id": "EDGIO", "provider_name": "EDGIO",
+    "category": "HOSTING_PROVIDER", "sort_order": 170,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-STACKPATH-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL STACKPATH HOSTING CORE ECOSYSTEM",
+    "provider_id": "STACKPATH", "provider_name": "STACKPATH",
+    "category": "HOSTING_PROVIDER", "sort_order": 171,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-CLOUDFLARE-R2-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL CLOUDFLARE R2 HOSTING CORE ECOSYSTEM",
+    "provider_id": "CLOUDFLARE_R2", "provider_name": "CLOUDFLARE R2",
+    "category": "HOSTING_PROVIDER", "sort_order": 172,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-IDRIVE-E2-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL IDRIVE E2 HOSTING CORE ECOSYSTEM",
+    "provider_id": "IDRIVE_E2", "provider_name": "IDRIVE E2",
+    "category": "HOSTING_PROVIDER", "sort_order": 173,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-LINODE-OBJECT-STORAGE-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL LINODE OBJECT STORAGE HOSTING CORE ECOSYSTEM",
+    "provider_id": "LINODE_OBJECT_STORAGE", "provider_name": "LINODE OBJECT STORAGE",
+    "category": "HOSTING_PROVIDER", "sort_order": 174,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-DIGITALOCEAN-SPACES-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL DIGITALOCEAN SPACES HOSTING CORE ECOSYSTEM",
+    "provider_id": "DIGITALOCEAN_SPACES", "provider_name": "DIGITALOCEAN SPACES",
+    "category": "HOSTING_PROVIDER", "sort_order": 175,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-STORJ-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL STORJ HOSTING CORE ECOSYSTEM",
+    "provider_id": "STORJ", "provider_name": "STORJ",
+    "category": "HOSTING_PROVIDER", "sort_order": 176,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-CLOUDINARY-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL CLOUDINARY HOSTING CORE ECOSYSTEM",
+    "provider_id": "CLOUDINARY", "provider_name": "CLOUDINARY",
+    "category": "HOSTING_PROVIDER", "sort_order": 177,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-NEON-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL NEON HOSTING CORE ECOSYSTEM",
+    "provider_id": "NEON", "provider_name": "NEON",
+    "category": "HOSTING_PROVIDER", "sort_order": 178,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-PLANETSCALE-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL PLANETSCALE HOSTING CORE ECOSYSTEM",
+    "provider_id": "PLANETSCALE", "provider_name": "PLANETSCALE",
+    "category": "HOSTING_PROVIDER", "sort_order": 179,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-TURSO-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL TURSO HOSTING CORE ECOSYSTEM",
+    "provider_id": "TURSO", "provider_name": "TURSO",
+    "category": "HOSTING_PROVIDER", "sort_order": 180,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-UPSTASH-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL UPSTASH HOSTING CORE ECOSYSTEM",
+    "provider_id": "UPSTASH", "provider_name": "UPSTASH",
+    "category": "HOSTING_PROVIDER", "sort_order": 181,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-AIVEN-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL AIVEN HOSTING CORE ECOSYSTEM",
+    "provider_id": "AIVEN", "provider_name": "AIVEN",
+    "category": "HOSTING_PROVIDER", "sort_order": 182,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-MONGODB-ATLAS-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL MONGODB ATLAS HOSTING CORE ECOSYSTEM",
+    "provider_id": "MONGODB_ATLAS", "provider_name": "MONGODB ATLAS",
+    "category": "HOSTING_PROVIDER", "sort_order": 183,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-REDIS-CLOUD-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL REDIS CLOUD HOSTING CORE ECOSYSTEM",
+    "provider_id": "REDIS_CLOUD", "provider_name": "REDIS CLOUD",
+    "category": "HOSTING_PROVIDER", "sort_order": 184,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-MAILGUN-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL MAILGUN HOSTING CORE ECOSYSTEM",
+    "provider_id": "MAILGUN", "provider_name": "MAILGUN",
+    "category": "HOSTING_PROVIDER", "sort_order": 185,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-POSTMARK-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL POSTMARK HOSTING CORE ECOSYSTEM",
+    "provider_id": "POSTMARK", "provider_name": "POSTMARK",
+    "category": "HOSTING_PROVIDER", "sort_order": 186,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-RESEND-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL RESEND HOSTING CORE ECOSYSTEM",
+    "provider_id": "RESEND", "provider_name": "RESEND",
+    "category": "HOSTING_PROVIDER", "sort_order": 187,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-ZOHO-MAIL-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL ZOHO MAIL HOSTING CORE ECOSYSTEM",
+    "provider_id": "ZOHO_MAIL", "provider_name": "ZOHO MAIL",
+    "category": "HOSTING_PROVIDER", "sort_order": 188,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-FASTMAIL-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL FASTMAIL HOSTING CORE ECOSYSTEM",
+    "provider_id": "FASTMAIL", "provider_name": "FASTMAIL",
+    "category": "HOSTING_PROVIDER", "sort_order": 189,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-MXROUTE-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL MXROUTE HOSTING CORE ECOSYSTEM",
+    "provider_id": "MXROUTE", "provider_name": "MXROUTE",
+    "category": "HOSTING_PROVIDER", "sort_order": 190,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-GMAIL-WORKSPACE-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL GMAIL WORKSPACE HOSTING CORE ECOSYSTEM",
+    "provider_id": "GMAIL_WORKSPACE", "provider_name": "GMAIL WORKSPACE",
+    "category": "HOSTING_PROVIDER", "sort_order": 191,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-MICROSOFT-365-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL MICROSOFT 365 HOSTING CORE ECOSYSTEM",
+    "provider_id": "MICROSOFT_365", "provider_name": "MICROSOFT 365",
+    "category": "HOSTING_PROVIDER", "sort_order": 192,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-HOSTING-CONCEPTS-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL HOSTING CONCEPTS HOSTING CORE ECOSYSTEM",
+    "provider_id": "HOSTING_CONCEPTS", "provider_name": "HOSTING CONCEPTS",
+    "category": "HOSTING_PROVIDER", "sort_order": 193,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-HOSTING-CO-UK-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL HOSTING CO UK HOSTING CORE ECOSYSTEM",
+    "provider_id": "HOSTING.CO.UK", "provider_name": "HOSTING CO UK",
+    "category": "HOSTING_PROVIDER", "sort_order": 194,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-HOSTMAYOR-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL HOSTMAYOR HOSTING CORE ECOSYSTEM",
+    "provider_id": "HOSTMAYOR", "provider_name": "HOSTMAYOR",
+    "category": "HOSTING_PROVIDER", "sort_order": 195,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-HOSTPRESTO-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL HOSTPRESTO HOSTING CORE ECOSYSTEM",
+    "provider_id": "HOSTPRESTO", "provider_name": "HOSTPRESTO",
+    "category": "HOSTING_PROVIDER", "sort_order": 196,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-HOSTSEO-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL HOSTSEO HOSTING CORE ECOSYSTEM",
+    "provider_id": "HOSTSEO", "provider_name": "HOSTSEO",
+    "category": "HOSTING_PROVIDER", "sort_order": 197,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-HOSTUPON-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL HOSTUPON HOSTING CORE ECOSYSTEM",
+    "provider_id": "HOSTUPON", "provider_name": "HOSTUPON",
+    "category": "HOSTING_PROVIDER", "sort_order": 198,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-INFINITYHOST-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL INFINITYHOST HOSTING CORE ECOSYSTEM",
+    "provider_id": "INFINITYHOST", "provider_name": "INFINITYHOST",
+    "category": "HOSTING_PROVIDER", "sort_order": 199,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-NORDICWAY-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL NORDICWAY HOSTING CORE ECOSYSTEM",
+    "provider_id": "NORDICWAY", "provider_name": "NORDICWAY",
+    "category": "HOSTING_PROVIDER", "sort_order": 200,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-SERVINT-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL SERVINT HOSTING CORE ECOSYSTEM",
+    "provider_id": "SERVINT", "provider_name": "SERVINT",
+    "category": "HOSTING_PROVIDER", "sort_order": 201,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-SERVERHUB-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL SERVERHUB HOSTING CORE ECOSYSTEM",
+    "provider_id": "SERVERHUB", "provider_name": "SERVERHUB",
+    "category": "HOSTING_PROVIDER", "sort_order": 202,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-SERVERMATRIX-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL SERVERMATRIX HOSTING CORE ECOSYSTEM",
+    "provider_id": "SERVERMATRIX", "provider_name": "SERVERMATRIX",
+    "category": "HOSTING_PROVIDER", "sort_order": 203,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-SERVERWALA-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL SERVERWALA HOSTING CORE ECOSYSTEM",
+    "provider_id": "SERVERWALA", "provider_name": "SERVERWALA",
+    "category": "HOSTING_PROVIDER", "sort_order": 204,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-VPS-HOSTING-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL VPS HOSTING HOSTING CORE ECOSYSTEM",
+    "provider_id": "VPS_HOSTING", "provider_name": "VPS HOSTING",
+    "category": "HOSTING_PROVIDER", "sort_order": 205,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
+  },
+  {
+    "ecosystem_id": "GLOBAL-WEBHOSTINGPAD-INDIA-HOSTING-CORE-ECOSYSTEM",
+    "name": "GLOBAL WEBHOSTINGPAD INDIA HOSTING CORE ECOSYSTEM",
+    "provider_id": "WEBHOSTINGPAD_INDIA", "provider_name": "WEBHOSTINGPAD INDIA",
+    "category": "HOSTING_PROVIDER", "sort_order": 206,
+    "status": "CORE_CATALOG_ONLY",
+    "capabilities": ["HOSTING_METADATA","PROVIDER_DISCOVERY","CAPABILITY_CLASSIFICATION","READINESS_REPORTING"],
+    "live_connection_verified": false, "api_transport_in_core": false
   }
 ]
-def get_catalog():return [deepcopy(ROOT)]+[deepcopy(x) for x in PROVIDERS]
-def list_providers():return [deepcopy(x) for x in PROVIDERS]
+def _enrich(record):
+ item=deepcopy(record)
+ if item.get("provider_id"):
+  item.update(classify_provider(item["provider_id"]))
+ return item
+def get_catalog():return [deepcopy(ROOT)]+[_enrich(x) for x in PROVIDERS]
+def list_providers():return [_enrich(x) for x in PROVIDERS]
 def get_provider(key):
  key=key.strip().casefold()
- return next((deepcopy(x) for x in PROVIDERS if x["ecosystem_id"].casefold()==key or x["provider_id"].casefold()==key),None)
+ return next((_enrich(x) for x in PROVIDERS if x["ecosystem_id"].casefold()==key or x["provider_id"].casefold()==key),None)
