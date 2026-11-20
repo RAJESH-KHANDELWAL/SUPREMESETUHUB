@@ -1,7 +1,13 @@
-# GLOBAL INTEGRATIONS CORE ECOSYSTEM
+# GLOBAL INTEGRATION GOVERNANCE INTEGRATIONS CORE ECOSYSTEM
 
-Canonical global integration registry domain. Owns provider-neutral identity, cross-domain capability taxonomy, catalog governance and discovery metadata.
+**Domain ID:** `GLOBAL_INTEGRATIONS`  
+**Shared runtime:** `../domain_runtime.py`
 
-This folder is distinct from the parent ecosystem package and does not execute provider integrations. Live adapters, credentials, network calls and webhook handling belong in their dedicated runtime boundaries.
+This package exposes a domain-scoped, read-only view of the canonical Global Integrations Core registry.
 
-Status: `CORE_CATALOG_ONLY`; no live provider connection is claimed.
+- `manager.py` provides the domain manager.
+- `__init__.py` exports the stable package interface.
+- Provider credentials, SDK execution, API transport, webhooks, persistence and jobs belong to their dedicated layers.
+- Registration is metadata only and does not imply a provider connection or operational readiness.
+
+Enforce tenant isolation, least privilege and regional policy in the authenticated runtime before any operation.

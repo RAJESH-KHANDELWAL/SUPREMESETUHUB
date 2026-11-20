@@ -1,7 +1,13 @@
-# INTEGRATION TIERS NORMAL TO SUPREME CORE ECOSYSTEM
+# INTEGRATION SERVICE TIERS: NORMAL TO SUPREME INTEGRATIONS CORE ECOSYSTEM
 
-Defines metadata for integration service tiers, capability entitlements, limits and policy classification from Normal through Supreme.
+**Domain ID:** `INTEGRATION_TIERS_NORMAL_TO_SUPREME`  
+**Shared runtime:** `../domain_runtime.py`
 
-CORE owns tier identifiers and entitlement metadata only. Billing, subscription enforcement, usage metering and runtime feature gating belong to the appropriate API, ENGINE and billing boundaries.
+This package exposes a domain-scoped, read-only view of the canonical Global Integrations Core registry.
 
-Status: `CORE_CATALOG_ONLY`; no billing or entitlement enforcement is performed here.
+- `manager.py` provides the domain manager.
+- `__init__.py` exports the stable package interface.
+- Provider credentials, SDK execution, API transport, webhooks, persistence and jobs belong to their dedicated layers.
+- Registration is metadata only and does not imply a provider connection or operational readiness.
+
+Enforce tenant isolation, least privilege and regional policy in the authenticated runtime before any operation.

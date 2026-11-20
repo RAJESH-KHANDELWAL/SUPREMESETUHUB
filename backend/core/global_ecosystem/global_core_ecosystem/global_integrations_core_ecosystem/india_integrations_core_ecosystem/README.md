@@ -1,14 +1,13 @@
-# INDIA INTEGRATIONS CORE ECOSYSTEM
+# INDIA REGIONAL INTEGRATIONS INTEGRATIONS CORE ECOSYSTEM
 
-India-specific digital public infrastructure, payment, identity and regional service provider references; compliance must be reviewed.
+**Domain ID:** `INDIA`  
+**Shared runtime:** `../domain_runtime.py`
 
-## CORE responsibilities
-- Maintain provider-neutral capability identifiers and integration metadata.
-- Define contract, policy and lifecycle expectations for the domain.
-- Expose read-only discovery metadata to API and ENGINE consumers.
+This package exposes a domain-scoped, read-only view of the canonical Global Integrations Core registry.
 
-## Boundaries
-- No credentials, access tokens, personal records or customer payloads in CORE.
-- No provider SDK calls, HTTP transport, webhook processing or live operations here.
-- Provider-specific execution belongs to adapter/integration runtime packages and requires tenant authorization, least-privilege scopes, auditability and secret-manager references.
-- Status: `CORE_CATALOG_ONLY`; live provider connectivity is not verified.
+- `manager.py` provides the domain manager.
+- `__init__.py` exports the stable package interface.
+- Provider credentials, SDK execution, API transport, webhooks, persistence and jobs belong to their dedicated layers.
+- Registration is metadata only and does not imply a provider connection or operational readiness.
+
+Enforce tenant isolation, least privilege and regional policy in the authenticated runtime before any operation.
