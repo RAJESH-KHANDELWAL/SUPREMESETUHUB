@@ -7,93 +7,87 @@
 
 ## Mission
 
-Global AI Core is the provider-level control plane and canonical product Core inventory for the Bharat-to-global AI ecosystem. It owns provider identity, canonical registration, domain classification, capability metadata, Core policy metadata, lifecycle/readiness reporting and orchestration.
+Global AI Core is the canonical provider-level control plane and product inventory for the Bharat-to-global AI ecosystem. It owns provider identity mapping, domain classification, capability metadata, tenant context contracts, Core policy metadata, lifecycle/readiness reporting, discovery and dependency mapping.
 
 The runtime provider registry remains the single source of truth:
 `backend/global_ecosystem/global_ai_ecosystem/providers.py`.
 
-Each canonical runtime registry entry maps to exactly one dedicated:
-`<provider_id>_core_ecosystem/` package.
+Each canonical runtime registry entry maps to exactly one `<provider_id>_core_ecosystem/` package. Compatibility aliases resolve to canonical IDs and do not create duplicate provider identities.
+
+## Google Core-aligned public structure
+
+- `manager.py`: canonical `GlobalAICoreManager` and `get_manager()` entry point.
+- `manager.php`: thin PHP metadata interoperability facade.
+- `domain_runtime.py`: shared read-only manager for the 19 AI domains.
+- `catalog.py`: canonical provider lookup, alias resolution and registry validation.
+- `product_catalog.py`: unified provider offering inventory.
+- `domain_catalog.py`: 19-domain taxonomy and provider coverage.
+- `contracts.py`: tenant context, opaque secret reference, readiness and result contracts.
+- `policy.py`: capability metadata guardrails and recursive secret-field filtering.
+- `request_contracts.py`: strict provider-neutral task payload validation and secret-material rejection.
+- `module_service.py`: reusable read-only service for provider Core packages.
+- `orchestrator.py`: provider/domain discovery, health, offerings and dependency mapping.
+- `ecosystem_service.py`: global registry registration/status and registered-module discovery.
+- `service.py`: executor-injected task boundary; execution remains delegated to the application/ENGINE.
+- `php/GlobalAICoreContract.php`: PHP 8+ result-contract validation and sanitization.
+- `test_global_ai_core_domains.py` and `tests/`: provider, domain and contract tests.
+- `<provider_id>_core_ecosystem/`: existing provider-specific Core packages.
+
+Provider packages keep the ten Google Core folders: `authentication/`, `capabilities/`, `docs/`, `events/`, `lifecycle/`, `models/`, `schemas/`, `security/`, `services/` and `tests/`. Do not create duplicate managers or unnecessary nested folders in every provider package.
 
 ## Coverage model
 
-The inspected runtime registry contains **68 canonical provider entries**. The ecosystem defines **19 AI domains**. The product index separately records **17 legacy API aliases** and **24 adjacent integration aliases**; these compatibility entries are not additional canonical AI providers.
+The canonical runtime inventory is verified by CI and currently contains at least 68 provider entries. The ecosystem defines 19 AI domains. The product index separately records 17 legacy API aliases and 24 adjacent integration aliases; these compatibility entries are not additional canonical AI providers.
 
-The canonical provider inventory includes hosted model providers, open model families, agent frameworks, inference infrastructure and enterprise AI platforms. Their original runtime classifications must be preserved. Registration does not imply an available public API, entitlement, authenticated account, provider authorization or live integration.
+The inventory includes hosted model providers, open model families, agent frameworks, inference infrastructure and enterprise AI platforms. Their original runtime classifications must be preserved. Registration does not imply a public API, entitlement, authenticated account, provider authorization or live integration.
 
-## Canonical ten-folder product standard
+## Master Bharat-to-Supreme catalog reference
 
-Every canonical product Core package follows the Google Core ten-folder convention:
+The separate master planning catalog is:
+`backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json`.
 
-1. `authentication/` — authentication-context contract references only; credentials and token exchange remain outside Core.
-2. `capabilities/` — declared capability metadata and policy classification.
-3. `docs/` — provider-specific architecture and implementation documentation.
-4. `events/` — lifecycle and domain event contracts.
-5. `lifecycle/` — registration, readiness and lifecycle metadata.
-6. `models/` — model/service metadata, not model execution.
-7. `schemas/` — provider-specific metadata schemas and validation contracts.
-8. `security/` — security policy metadata and safe handling rules.
-9. `services/` — read-only provider Core facade and service contracts.
-10. `tests/` — provider package and contract tests.
+Its target is **2,468 unique entries**. At the last inspected catalog snapshot it contained **246 unique entries**, with **2,222 remaining**. This is a cross-ecosystem planning catalog, not an AI provider count.
 
-Do not create a second provider identity for an alias. Resolve aliases to the canonical provider ID and preserve legacy import paths only where compatibility requires them.
+Ownership stays with `GLOBAL_ENGINE_ECOSYSTEM`. Global AI Core exposes only the catalog identity, source path and target count as reference metadata. It does not load, mutate, expand or count master-catalog entries as AI providers. Only meaningful, individually defined, non-duplicate entries may be added to the master catalog.
 
 ## Core domains
 
 The taxonomy contains 19 domains:
 
-- Bharat Indic and Regional AI
-- Global Foundation Models
-- Open Model Families
-- Agent Frameworks and Orchestration
-- Enterprise and Business AI
-- Inference and AI Infrastructure
-- Generative Media and Creative AI
-- Speech, Audio and Language AI
-- Video and Media Generation
-- Search, Knowledge and Retrieval
-- Developer and Code AI
-- Safety, Governance and Evaluation
-- AI Research and Evaluation
-- On-device and Edge AI
-- Multimodal and Spatial AI
-- Healthcare and Life Sciences AI
-- Finance and Risk AI
-- Education and Learning AI
-- Specialty and Cross-product AI
+1. Bharat Indic and Regional AI
+2. Global Foundation Models
+3. Open Model Families
+4. Agent Frameworks and Orchestration
+5. Enterprise and Business AI
+6. Inference and AI Infrastructure
+7. Generative Media and Creative AI
+8. Speech, Audio and Language AI
+9. Video and Media Generation
+10. Search, Knowledge and Retrieval
+11. Developer and Code AI
+12. Safety, Governance and Evaluation
+13. AI Research and Evaluation
+14. On-device and Edge AI
+15. Multimodal and Spatial AI
+16. Healthcare and Life Sciences AI
+17. Finance and Risk AI
+18. Education and Learning AI
+19. Specialty and Cross-product AI
 
-Provider-to-domain assignment is metadata classification, not a claim that every provider offers every capability in that domain. Unclassified entries must remain visible in the specialty domain until reviewed.
+Provider-to-domain assignment is metadata classification, not a claim that every provider offers every capability in that domain. Unclassified entries remain visible in the specialty domain until reviewed.
 
 ## Layer ownership
 
 | Layer | Owns |
 |---|---|
 | Global AI Core | Canonical provider identity, registry mapping, domain classification, capability metadata, Core policy, lifecycle, readiness and orchestration |
-| Global AI API | Provider authentication, OAuth where applicable, secret resolution, SDK clients, HTTP transport, retries and response normalization |
+| Global AI API | Provider authentication, OAuth, secret resolution, SDK clients, HTTP transport, retries and response normalization |
 | Global AI Engine | Model inference, agent execution, tool execution, routing and runtime execution |
 | Global AI Database | Structured records, schemas, queries, migrations and transactions |
 | Global AI Storage | Durable artifacts, tenant isolation, retention and backups |
 | Application/UI | User sessions, consent, user workflows and presentation |
 
 Core must not duplicate API transport, token exchange, secret storage, inference execution, tool execution, persistence or user-interface workflows.
-
-## Python implementation
-
-- `catalog.py`: canonical provider lookup, legacy alias resolution and registry validation.
-- `contracts.py`: tenant context, opaque secret references, readiness and result contracts.
-- `policy.py`: tenant-context checks, capability metadata policy and recursive secret-field filtering. It is not application authorization or provider authorization.
-- `request_contracts.py`: strict provider-neutral task payload validation and secret-material rejection.
-- `module_service.py`: shared read-only product Core service.
-- `provider_service.py`: compatibility facade for legacy API aliases.
-- `product_catalog.py`: unified provider offering inventory.
-- `domain_catalog.py`: 19-domain taxonomy and provider coverage.
-- `orchestrator.py`: provider/domain discovery, inventory, health and dependency map.
-- `ecosystem_service.py`: manager registration and ecosystem status.
-- `service.py`: executor-injected task boundary; execution remains delegated to the application/Engine.
-
-## PHP interoperability
-
-`php/GlobalAICoreContract.php` validates and normalizes PHP 8+ JSON result contracts. It performs no network I/O and does not duplicate provider authentication, API clients or inference execution.
 
 ## Security and lifecycle rules
 
@@ -104,18 +98,6 @@ Core must not duplicate API transport, token exchange, secret storage, inference
 - Destructive, administrative, publishing, billing, training and tool-execution capabilities require explicit authorization and audit.
 - A provider marked `live` in registry metadata is not considered connection-verified by Core.
 - Report a live connection only after deployment-level authentication and provider smoke tests succeed.
-- Catalog health must report zero live connections and zero API calls unless verified runtime evidence is supplied by the owning integration layer.
-
-## Verification requirements
-
-Before declaring this ecosystem production-ready, CI must verify:
-
-1. Runtime registry IDs are unique and every canonical entry has exactly one Core package.
-2. Every canonical package contains the ten required folders.
-3. The product index, runtime registry and package inventory agree.
-4. Every alias resolves to a canonical provider or is explicitly marked compatibility-only.
-5. Domain totals reconcile to the canonical provider total and specialty assignments remain visible.
-6. Python imports, contract tests and PHP syntax/contract tests pass.
-7. No credentials or secret material appear in tracked files or status responses.
+- Core health reports zero live connections and zero provider API calls.
 
 A successful catalog check does not establish a live provider connection.
