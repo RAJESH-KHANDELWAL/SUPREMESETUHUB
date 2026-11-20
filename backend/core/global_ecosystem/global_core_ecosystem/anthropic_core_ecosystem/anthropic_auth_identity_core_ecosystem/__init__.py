@@ -10,3 +10,6 @@ def _manifest():
     }
 
 __all__=["AnthropicAuthIdentityCoreService","PRODUCT_ID","PRODUCT_NAME","CATEGORY","API_NAME","AVAILABILITY"]
+
+# Google Core-style domain manager entry point.
+from .manager import get_manager
