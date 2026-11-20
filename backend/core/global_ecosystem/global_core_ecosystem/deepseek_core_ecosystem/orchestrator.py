@@ -51,4 +51,3 @@ class DeepSeekCoreOrchestrator:
                 for capability, metadata in catalog["capabilities"].items()
             ],
         }
-}
