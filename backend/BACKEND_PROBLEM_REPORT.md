@@ -100,22 +100,18 @@ The inspected CI output reported:
 
 **Recommended investigation/fix:** Generate a deterministic API-to-ENGINE path comparison. Classify every extra API directory and provider root; identify missing ENGINE directories, package initializers, and leaf `engine.py` files. Replace brittle global counts with explicit invariants or a reviewed manifest where appropriate. Do not move or nest folders to satisfy the old counts.
 
-### BE-005 — Cultural Knowledge ENGINE crosses its declared layer boundary
+### BE-005 — Cultural Knowledge layer ownership
 
-**Severity:** High  
-**File:** `backend/engine/global_ecosystem/global_engine_ecosystem/cultural_knowledge_engine_ecosystem/manager.py`  
-**Source:** [Open Cultural Knowledge manager](https://github.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/blob/main/backend/engine/global_ecosystem/global_engine_ecosystem/cultural_knowledge_engine_ecosystem/manager.py)  
-**Structural rule:** `backend/tests/test_global_engine_provider_hierarchy.py`
+**Severity:** High (historical finding; remediation committed on main)  
+**Files:** Cultural Knowledge API, domain service, ENGINE manager, and integration tests.
 
-The ENGINE manager imports:
-- `CulturalKnowledgeCoreService` from `backend.core...`
-- `CULTURAL_DOMAINS` from `backend.global_ecosystem...`
+The audited snapshot imported `CulturalKnowledgeCoreService` from a dedicated CORE package and passed it into the ENGINE. The CORE package was only a thin facade over the cultural domain's own knowledge and publication-governance functions, so it duplicated domain ownership and caused an unnecessary layer dependency.
 
-The structural test explicitly rejects imports from `backend.api` or `backend.core` in ENGINE ecosystem source. The CORE import therefore violates the test's stated architecture boundary. The second import also needs an explicit architecture decision because it bypasses the API/CORE/ENGINE separation being tested.
+**Remediation committed:** The facade now lives at `backend/global_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem/service.py` as `CulturalKnowledgeDomainService`. The API and integration tests now import that domain-owned service. The obsolete `backend/core/global_ecosystem/global_core_ecosystem/cultural_knowledge_core_ecosystem/` package was deleted.
 
-**Impact:** Layer ownership becomes unclear and the ENGINE hierarchy test fails.
+The ENGINE manager continues to depend on the shared `CulturalKnowledgeSearch` contract and receives the service through constructor injection. Its domain registry is also injected by the API composition root.
 
-**Recommended investigation/fix:** Define a stable dependency contract for this ENGINE module and inject that contract through an allowed boundary. Decide where the domain registry is owned, then import it only from that approved layer. Add a focused test for the dependency boundary.
+**Verification still required:** Run the focused Cultural Knowledge integration tests and the ENGINE hierarchy boundary test in CI. The code change addresses the specific CORE-package import, but a passing test result has not yet been confirmed.
 
 ### BE-006 — Infrastructure ENGINE expects a possibly absent overview field
 
