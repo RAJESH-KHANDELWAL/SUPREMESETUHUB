@@ -40,5 +40,25 @@ SECTORS = {
  "DOMAIN_REGIONAL_LOCALIZATION": "Country-specific rules, local language and regional service coverage",
  "DOMAIN_LEGACY_SPECIALTY": "Legacy, niche, specialty and uncommon domain service types",
 }
+
+def _sector_title(sector_id: str) -> str:
+    subject = sector_id.replace("_", " ").strip()
+    return f"GLOBAL {subject} CORE ECOSYSTEM"
+
+def _sector_ecosystem_id(sector_id: str) -> str:
+    return f"GLOBAL-{sector_id}-CORE-ECOSYSTEM"
+
 def list_sectors():
-    return [{"sector_id": k, "description": v} for k,v in SECTORS.items()]
+    return [
+        {
+            "sector_id": key,
+            "ecosystem_id": _sector_ecosystem_id(key),
+            "ecosystem_name": _sector_title(key),
+            "name": _sector_title(key),
+            "description": value,
+            "naming_standard": "GLOBAL + SUBJECT + CORE ECOSYSTEM",
+            "status": "CATALOG_ONLY",
+            "live_connection_verified": False,
+        }
+        for key, value in SECTORS.items()
+    ]
