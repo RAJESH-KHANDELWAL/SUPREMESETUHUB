@@ -1652,6 +1652,19 @@
         "live_connection_verified": false,
         "api_transport_in_core": false,
         "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
+      },
+      {
+        "ecosystem_id": "GLOBAL-DOMAIN-CORE-ECOSYSTEM",
+        "name": "GLOBAL DOMAIN CORE ECOSYSTEM",
+        "layer": "backend/core/global_ecosystem/global_core_ecosystem/global_domain_core_ecosystem",
+        "catalog_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_domain_core_ecosystem/catalog.py",
+        "manager_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_domain_core_ecosystem/manager.py",
+        "status": "CORE_CATALOG_ONLY",
+        "provider_directory_count": 75,
+        "domain_count": 18,
+        "live_connection_verified": false,
+        "api_transport_in_core": false,
+        "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
       }
     ]
   }
