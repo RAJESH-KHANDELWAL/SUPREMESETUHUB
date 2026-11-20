@@ -1,26 +1,27 @@
-"""Backend Infrastructure control-plane manager."""
+"""Backend Infrastructure structural health manager."""
 from pathlib import Path
 
 class BackendInfrastructureManager:
     NAME = "BACKEND INFRASTRUCTURE"
-    VERSION = "1.0.0"
+    VERSION = "1.1.0"
 
     def __init__(self):
         self.root = Path(__file__).resolve().parent
         self.global_root = self.root / "global_ecosystem"
+        self.ecosystem = self.global_root / "global_infrastructure_ecosystem"
+        self.modules = self.ecosystem / "modules"
 
     def health(self):
-        required = ("__init__.py", "controller.py", "repository.py", "service.py",
-                    "hostinger_catalog.py", "global_ecosystem")
-        checks = {name: (self.root / name).exists() for name in required}
+        required_modules = ("controller.py", "repository.py", "service.py", "hostinger_catalog.py", "__init__.py")
+        checks = {f"canonical_module_{name}": (self.modules / name).is_file() for name in required_modules}
+        checks["root_compatibility_package"] = (self.root / "__init__.py").is_file()
+        checks["global_ecosystem"] = self.global_root.is_dir()
         checks["global_hostinger_api"] = (self.global_root / "hostinger_api.py").is_file()
         checks["global_nsfwinfra"] = (self.global_root / "nsfwinfra.py").is_file()
-        ecosystem = self.global_root / "global_infrastructure_ecosystem"
-        checks["global_infrastructure_manager"] = (ecosystem / "manager.py").is_file()
+        checks["global_infrastructure_manager"] = (self.ecosystem / "manager.py").is_file()
         healthy = all(checks.values())
-        return {"name": self.NAME, "version": self.VERSION, "status": "READY" if healthy else "INCOMPLETE",
-                "checks": checks, "healthy": healthy,
-                "provider_operations_enabled": False}
+        return {"name":self.NAME,"version":self.VERSION,"status":"READY" if healthy else "INCOMPLETE",
+                "checks":checks,"healthy":healthy,"provider_operations_enabled":False}
 
 def get_manager():
     return BackendInfrastructureManager()
