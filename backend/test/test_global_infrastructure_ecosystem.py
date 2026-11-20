@@ -68,3 +68,18 @@ def test_global_infrastructure_api_is_registered_in_global_api_parent():
     paths = {route.path for route in app.routes}
     assert "/api/v1/global-api-ecosystem/infrastructure/status" in paths
     assert "/api/v1/global-api-ecosystem/infrastructure/catalog" in paths
+
+
+def test_global_infrastructure_manager_checks_required_structure_and_external_provider_ownership():
+    from backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem.manager import get_manager
+    health = get_manager().health()
+    assert health["expected_domain_count"] == 21
+    assert health["present_domain_count"] == 21
+    assert health["healthy"] is True
+    assert health["provider_operations_enabled"] is False
+
+
+def test_provider_adapters_are_registered_from_backend_global_ecosystem():
+    from backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem.modules import ROOT_MODULES
+    assert ROOT_MODULES["hostinger_api"] == "backend.global_ecosystem.global_hosting_ecosystem.hostinger_api"
+    assert ROOT_MODULES["nsfwinfra"] == "backend.global_ecosystem.nsfwinfra_ecosystem.nsfwinfra"
