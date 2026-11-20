@@ -6,7 +6,7 @@
 - Branch: `main`
 - Domain taxonomy: 19 registered domains in `domain_catalog.py`.
 - Product packages: 130 existing `google_*_core_ecosystem/` directories were present before the domain-package implementation.
-- Domain packages: 19 domain-level packages are implemented as classification/discovery facades over the canonical runtime offering inventory.
+- Domain packages: 19 `google_*_core_ecosystem` domain-level packages are implemented as classification/discovery facades over the canonical runtime offering inventory.
 - Shared domain runtime: `domain_runtime.py`.
 - Python tests: `test_google_core_domains.py` added; execution is still required in the repository environment.
 - PHP interoperability: `manager.php`, `php/GoogleCoreContract.php`, and `php/GoogleCoreDomainContract.php` provide metadata contract handling only.
