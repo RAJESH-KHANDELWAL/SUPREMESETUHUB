@@ -1,13 +1,20 @@
-# Expanded Domain Core Architecture
+# GLOBAL DOMAIN CORE ECOSYSTEM Architecture
 
 ```
-Global Domain Core Manager
-├── Legacy provider directory inventory (preserved)
-├── Sector taxonomy (domain service areas)
-├── Curated provider discovery registry (source-aware status)
-├── Registry/Registrar and TLD governance boundary
-├── DNS, security, lifecycle, TLS, discovery, marketplace, compliance sectors
-└── Adapter readiness contract (catalog-only until verified)
+GLOBAL DOMAIN CORE ECOSYSTEM
+├── GLOBAL DOMAIN REGISTRY OPERATORS CORE ECOSYSTEM
+├── GLOBAL ICANN IANA GOVERNANCE CORE ECOSYSTEM
+├── GLOBAL GTLD REGISTRARS CORE ECOSYSTEM
+├── GLOBAL CCTLD REGISTRIES CORE ECOSYSTEM
+├── GLOBAL DNS AUTHORITATIVE HOSTING CORE ECOSYSTEM
+├── GLOBAL DNS RECURSIVE RESOLVERS CORE ECOSYSTEM
+├── GLOBAL DNSSEC CORE ECOSYSTEM
+├── GLOBAL DNS SECURITY CORE ECOSYSTEM
+├── GLOBAL TLS CERTIFICATE AUTHORITIES CORE ECOSYSTEM
+├── GLOBAL DOMAIN MARKETPLACES CORE ECOSYSTEM
+└── ... remaining catalog sectors
 ```
 
-Provider and sector entries are metadata; transport, credentials, persistence, execution, and live verification belong to separate layers. Avoid provider-per-folder growth: individual providers are registry records, while folders represent architecture modules.
+All 39 sector entries are generated from `sector_catalog.py`, registered in `catalog.py`, and exposed via manager APIs. Ecosystem display names must start with GLOBAL and end with CORE ECOSYSTEM; IDs start with GLOBAL and end with CORE-ECOSYSTEM.
+
+Provider and sector records are metadata only. Transport, credentials, persistence, execution, and live verification remain separate layers. Provider-per-folder growth is avoided: provider identities are registry records.
