@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from copy import deepcopy
+from .global_communication_core_ecosystem.product_catalog import PROVIDER_DIRECTORY
 from typing import Any
 
 
@@ -1206,7 +1207,7 @@ COMMUNICATION_CORE_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
         "ecosystem_type": "CORE_SERVICE",
         "capabilities": ["COMMUNICATION_PROVIDER_DISCOVERY", "EMAIL_AND_MESSAGING_TAXONOMY", "VOICE_AND_VIDEO_METADATA", "NOTIFICATION_ROUTING_METADATA", "PRIVACY_AND_TRUST_SAFETY_POLICY"],
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
-        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_communication_core_ecosystem", "status": "CORE_CATALOG_ONLY", "directory_entry_count": 19, "live_connection_verified": False, "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"},
+        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_communication_core_ecosystem", "status": "CORE_CATALOG_ONLY", "provider_reference_count": 95, "service_family_count": 30, "directory_entry_count": 19, "domain_count": 28, "live_connection_verified": False, "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"},
     },
     {
         "ecosystem_id": "GLOBAL-COMMUNICATION-PROVIDERS-CORE-ECOSYSTEM",
@@ -1214,18 +1215,26 @@ COMMUNICATION_CORE_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
         "ecosystem_type": "CORE_SERVICE",
         "capabilities": ["PROVIDER_DIRECTORY", "PROVIDER_CLASSIFICATION", "PROVIDER_LIFECYCLE_METADATA"],
         "parent_id": "GLOBAL-COMMUNICATION-CORE-ECOSYSTEM",
-        "metadata": {"source_module": "backend/core/global_ecosystem/global_core_ecosystem/global_communication_core_ecosystem/product_catalog.py", "provider_family_count": 7, "status": "CORE_CATALOG_ONLY", "live_connection_verified": False},
+        "metadata": {"source_module": "backend/core/global_ecosystem/global_core_ecosystem/global_communication_core_ecosystem/product_catalog.py", "provider_reference_count": 95, "service_family_count": 30, "domain_count": 28, "status": "CORE_CATALOG_ONLY", "live_connection_verified": False},
     },
     *[
         {
-            "ecosystem_id": f"GLOBAL-{provider.upper()}-COMMUNICATION-CORE-ECOSYSTEM",
-            "name": f"GLOBAL {provider.upper()} COMMUNICATION CORE ECOSYSTEM",
-            "ecosystem_type": "PROVIDER_CORE",
-            "capabilities": ["PROVIDER_IDENTITY_METADATA", "COMMUNICATION_PRODUCT_DISCOVERY", "CAPABILITY_CLASSIFICATION", "TENANT_SCOPE_POLICY"],
+            "ecosystem_id": f"GLOBAL-{provider['id'].upper()}-COMMUNICATION-CORE-ECOSYSTEM",
+            "name": f"GLOBAL {provider['name'].upper()} COMMUNICATION CORE ECOSYSTEM",
+            "ecosystem_type": "PROVIDER_REFERENCE",
+            "capabilities": ["PROVIDER_IDENTITY_METADATA", "COMMUNICATION_PRODUCT_DISCOVERY", "CAPABILITY_CLASSIFICATION"],
             "parent_id": "GLOBAL-COMMUNICATION-PROVIDERS-CORE-ECOSYSTEM",
-            "metadata": {"provider_id": provider, "directory": f"{provider}_communication_core_ecosystem", "status": "CORE_CATALOG_ONLY", "live_connection_verified": False, "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"},
+            "metadata": {
+                "provider_id": provider["id"],
+                "service_family": provider["family"],
+                "geographic_scope": provider["region"],
+                "products_reference": provider["products"],
+                "status": "REFERENCE_ONLY",
+                "live_connection_verified": False,
+                "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+            },
         }
-        for provider in ("aws", "google", "meta", "microsoft", "slack", "twilio", "zoom")
+        for provider in PROVIDER_DIRECTORY
     ],
     {
         "ecosystem_id": "GLOBAL-COMMUNICATION-PRIVACY-CORE-ECOSYSTEM",
