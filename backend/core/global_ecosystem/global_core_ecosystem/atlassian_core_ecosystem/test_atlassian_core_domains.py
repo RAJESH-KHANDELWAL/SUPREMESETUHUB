@@ -34,3 +34,18 @@ def test_package_directory_names_follow_provider_standard():
  exceptions={"php","tests"}
  packages=[item.name for item in root.iterdir() if item.is_dir() and item.name not in exceptions]
  assert packages and all(pattern.fullmatch(name) for name in packages)
+
+PRODUCT_MANAGERS={
+ "ATLASSIAN-ADMIN-IDENTITY-CORE-ECOSYSTEM":"atlassian_admin_identity_core_ecosystem",
+ "ATLASSIAN-BITBUCKET-CORE-ECOSYSTEM":"atlassian_bitbucket_core_ecosystem",
+ "ATLASSIAN-CONFLUENCE-CORE-ECOSYSTEM":"atlassian_confluence_core_ecosystem",
+ "ATLASSIAN-JIRA-CORE-ECOSYSTEM":"atlassian_jira_core_ecosystem",
+ "ATLASSIAN-JIRA-SERVICE-MANAGEMENT-CORE-ECOSYSTEM":"atlassian_jira_service_management_core_ecosystem",
+}
+def test_all_product_family_managers_return_the_registered_family():
+ package_root="backend.core.global_ecosystem.global_core_ecosystem.atlassian_core_ecosystem"
+ for ecosystem_id,package_name in PRODUCT_MANAGERS.items():
+  module=importlib.import_module(f"{package_root}.{package_name}")
+  manager=module.get_manager()
+  assert manager.status()["ecosystem_id"]==ecosystem_id
+  assert manager.capabilities()["ecosystem_id"]==ecosystem_id
