@@ -1221,11 +1221,11 @@ COMMUNICATION_CORE_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
         {
             "ecosystem_id": f"GLOBAL-{provider['id'].upper()}-COMMUNICATION-CORE-ECOSYSTEM",
             "name": f"GLOBAL {provider['name'].upper()} COMMUNICATION CORE ECOSYSTEM",
-            "ecosystem_type": "PROVIDER_REFERENCE",
+            "ecosystem_type": "PROVIDER_PLATFORM_REFERENCE",
             "capabilities": ["PROVIDER_IDENTITY_METADATA", "COMMUNICATION_PRODUCT_DISCOVERY", "CAPABILITY_CLASSIFICATION"],
             "parent_id": "GLOBAL-COMMUNICATION-PROVIDERS-CORE-ECOSYSTEM",
             "metadata": {
-                "provider_id": provider["id"],
+                "reference_id": provider["id"],
                 "service_family": provider["family"],
                 "geographic_scope": provider["region"],
                 "products_reference": provider["products"],
