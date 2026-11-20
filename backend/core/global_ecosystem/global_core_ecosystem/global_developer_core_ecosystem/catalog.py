@@ -33,9 +33,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "Creator business models, monetization and platform governance.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-ADULT-PLATFORM-DISCOVERY-CORE-ECOSYSTEM",
@@ -51,9 +51,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "Age-appropriate discovery metadata for adult-oriented platforms; no explicit content processing.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-AGE-VERIFICATION-CONSENT-CORE-ECOSYSTEM",
@@ -69,9 +69,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "Age assurance, consent evidence and jurisdiction-aware policy boundaries.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-AI-ML-DATA-CORE-ECOSYSTEM",
@@ -87,9 +87,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "AI/ML developer platforms, model lifecycle and data tooling.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-ANTHROPIC-DEVELOPER-CORE-ECOSYSTEM",
@@ -105,9 +105,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "Anthropic developer products and API capability metadata.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-APPLE-DEVELOPER-CORE-ECOSYSTEM",
@@ -123,9 +123,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "Apple developer ecosystem, app distribution and platform services.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-ATLASSIAN-DEVELOPER-CORE-ECOSYSTEM",
@@ -141,9 +141,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "Atlassian developer tools, collaboration and extensibility.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-AWS-DEVELOPER-CORE-ECOSYSTEM",
@@ -159,9 +159,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "AWS developer services, SDKs and cloud development.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-BLOCKCHAIN-WEB3-CORE-ECOSYSTEM",
@@ -177,9 +177,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "Blockchain, Web3 developer infrastructure and smart-contract tooling.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-COHERE-DEVELOPER-CORE-ECOSYSTEM",
@@ -195,9 +195,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "Cohere developer products and AI platform metadata.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-CONTENT-MODERATION-SAFETY-CORE-ECOSYSTEM",
@@ -213,9 +213,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "Content moderation, abuse prevention and developer safety controls.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-DATABASE-STORAGE-CORE-ECOSYSTEM",
@@ -231,9 +231,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "Database engines, data platforms, storage and data access tooling.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-DATING-RELATIONSHIPS-CORE-ECOSYSTEM",
@@ -249,9 +249,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "Relationship and dating platform integration metadata with safety boundaries.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-DEEPSEEK-DEVELOPER-CORE-ECOSYSTEM",
@@ -267,9 +267,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "DeepSeek developer products and AI platform metadata.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-DEVELOPER-SECURITY-COMPLIANCE-CORE-ECOSYSTEM",
@@ -285,9 +285,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "Secure development, vulnerability management, compliance and software supply chain.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-GITHUB-DEVELOPER-CORE-ECOSYSTEM",
@@ -304,9 +304,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "GitHub repositories, actions, apps and developer workflow metadata.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-GLOBAL-CLOUD-INFRASTRUCTURE-CORE-ECOSYSTEM",
@@ -322,9 +322,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "Cloud infrastructure providers, deployment and infrastructure-as-code.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-GOOGLE-DEVELOPER-CORE-ECOSYSTEM",
@@ -340,9 +340,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "Google developer products, APIs and developer tooling.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-HUGGINGFACE-DEVELOPER-CORE-ECOSYSTEM",
@@ -358,9 +358,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "Model hubs, datasets, inference and ML developer tooling.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-IDENTITY-AUTHENTICATION-CORE-ECOSYSTEM",
@@ -376,9 +376,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "Developer identity, OAuth/OIDC, authentication and authorization metadata.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-INDIA-DEVELOPER-PLATFORM-CORE-ECOSYSTEM",
@@ -394,9 +394,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "India-focused developer platforms, digital public infrastructure and compliance references.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-MICROSOFT-DEVELOPER-CORE-ECOSYSTEM",
@@ -412,9 +412,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "Microsoft developer products, Azure and software development tooling.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-MISTRAL-DEVELOPER-CORE-ECOSYSTEM",
@@ -430,9 +430,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "Mistral developer products and AI platform metadata.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-NO-CODE-AUTOMATION-CORE-ECOSYSTEM",
@@ -448,9 +448,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "No-code, low-code, workflow automation and integration builders.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-NVIDIA-DEVELOPER-CORE-ECOSYSTEM",
@@ -466,9 +466,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "NVIDIA developer platforms, GPU software and AI compute tooling.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-OPENAI-DEVELOPER-CORE-ECOSYSTEM",
@@ -484,9 +484,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "OpenAI developer platform, API product and model capability metadata.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-PAYMENTS-BILLING-CORE-ECOSYSTEM",
@@ -502,9 +502,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "Developer payment gateways, billing APIs and subscription infrastructure.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-SEXUAL-WELLNESS-EDUCATION-CORE-ECOSYSTEM",
@@ -520,9 +520,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "Educational and wellness developer resources with age, consent and safety boundaries.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     },
     {
         "ecosystem_id": "GLOBAL-DEVELOPER-TESTING-OBSERVABILITY-CORE-ECOSYSTEM",
@@ -538,9 +538,9 @@ GLOBAL_DEVELOPER_CORE_ECOSYSTEM: dict[str, Any] = {
         ],
         "purpose": "Testing, CI/CD quality, monitoring, tracing and developer observability.",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False
     }
 ]
 }
