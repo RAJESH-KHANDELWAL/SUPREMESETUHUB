@@ -29,6 +29,7 @@ class DeveloperCoreTests(unittest.TestCase):
         with self.assertRaises(ValueError): DeveloperCoreDomainManager("NOT_A_DOMAIN")
     def test_domain_runtime_lists_modules(self):
         self.assertTrue(DeveloperCoreDomainManager("DEVELOPER_PROVIDER_PLATFORMS").status()["success"])
+        self.assertGreater(DeveloperCoreDomainManager("DEVELOPER_PROVIDER_PLATFORMS").list_modules()["count"],0)
     def test_secret_reference_is_opaque(self):
         self.assertEqual(SecretReference("vault","path/key").reference,"path/key")
     def test_sensitive_capability_requires_authorization(self):
@@ -39,6 +40,18 @@ class DeveloperCoreTests(unittest.TestCase):
         allowed=s.authorize_capability("REPOSITORY_WRITE",TenantContext("tenant","actor"),authorized=True)
         self.assertTrue(allowed["success"])
         self.assertFalse(allowed["data"]["api_call_performed"])
+    def test_master_catalog_index_preserves_2468_target(self):
+        import json
+        from pathlib import Path
+        master_path=Path(__file__).resolve().parents[5]/"GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+        master=json.loads(master_path.read_text(encoding="utf-8"))
+        self.assertEqual(master["expansion"]["target_unique_entries"],2468)
+        self.assertEqual(master["counts"]["unique_catalogue_entries"],246)
+        self.assertEqual(master["expansion"]["remaining_unique_entries"],2222)
+        self.assertIn("GLOBAL-DEVELOPER-CORE-ECOSYSTEM",[x["ecosystem_id"] for x in master["ecosystem_module_index"]["modules"]])
+    def test_global_registry_contains_developer_core(self):
+        from backend.core.global_ecosystem.global_core_ecosystem.manager import GlobalEcosystemManager
+        self.assertIsNotNone(GlobalEcosystemManager().get("GLOBAL-DEVELOPER-CORE-ECOSYSTEM"))
     def test_metadata_does_not_call_api(self):
         s=DeveloperProviderCoreService("GLOBAL-DEVELOPER-GITHUB-DEVELOPER-CORE-ECOSYSTEM")
         self.assertFalse(s.status()["live_connection_verified"])
