@@ -18,8 +18,6 @@ final class ResourceCategories
 
 final class ModelCatalog
 {
-    public const MODEL_FAMILY = 'GLOBAL_MODEL_ECOSYSTEM';
-
     public static function all(): array
     {
         return [
