@@ -1,14 +1,18 @@
 # SUPREMESETUHUB Infrastructure
 
-The canonical infrastructure control plane and its root-level integration modules remain in this package. All 21 infrastructure domain implementations are physically organized under:
+The canonical infrastructure control plane remains in this package. Infrastructure domain implementations are organized under:
 
 `backend/infrastructure/global_ecosystem/global_infrastructure_ecosystem/`
 
+## Global ecosystem provider modules
+
+- `global_ecosystem/hostinger_api.py`: read-only Hostinger website and VPS inventory API client.
+- `global_ecosystem/nsfwinfra.py`: NSFWInfra image-generation API helper; provider connection is not verified.
+- `hostinger_catalog.py`: Hostinger service catalog and configuration-readiness metadata, retained at infrastructure root.
+
 ## Domain ownership
 
-The ecosystem root directly contains: Backup, Billing, CDN, Containers, Database adapters, DNS, Domains, Email, Firewall, FTP, Hosting, IPAM, Load Balancer, Infrastructure Models, Monitoring, Network, Object Storage, Security, Server inventory, SSL and Storage inventory.
-
-Root-level infrastructure modules include controller, repository, service, Hostinger API/catalog and NSFWinfra.
+The ecosystem contains Backup, Billing, CDN, Containers, Database adapters, DNS, Domains, Email, Firewall, FTP, Hosting, IPAM, Load Balancer, Infrastructure Models, Monitoring, Network, Object Storage, Security, Server inventory, SSL and Storage inventory.
 
 ## Compatibility
 
