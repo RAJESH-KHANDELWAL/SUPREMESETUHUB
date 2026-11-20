@@ -5,19 +5,24 @@ namespace SupremeSetuHub\Infrastructure\Model\GlobalEcosystem\GlobalModelEcosyst
 
 final class ResourceValidator
 {
-    private const REQUIRED_FIELDS = ['resource_id', 'resource_type', 'category'];
-
-    public static function validate(array $record): array
+    public static function validate(array $resource): array
     {
         $errors = [];
-        foreach (self::REQUIRED_FIELDS as $field) {
-            if (!isset($record[$field]) || !is_string($record[$field]) || trim($record[$field]) === '') {
-                $errors[] = $field . ' must be a non-empty string';
+        foreach (GlobalResourceSchema::requiredFields() as $field) {
+            if (!isset($resource[$field]) || !is_string($resource[$field]) || trim($resource[$field]) === '') {
+                $errors[] = "Missing or invalid required field: {$field}";
             }
         }
 
-        if (isset($record['metadata']) && !is_array($record['metadata'])) {
+        if (isset($resource['metadata']) && !is_array($resource['metadata'])) {
             $errors[] = 'metadata must be an array when provided';
+        }
+
+        if (isset($resource['category']) && is_string($resource['category'])) {
+            $knownCategories = array_keys(ResourceCategories::all());
+            if (!in_array($resource['category'], $knownCategories, true)) {
+                $errors[] = 'Unknown resource category';
+            }
         }
 
         return $errors;
