@@ -4,7 +4,7 @@ from types import SimpleNamespace
 
 import pytest
 
-from backend.infrastructure import hostinger_api
+from backend.global_ecosystem.global_hosting_ecosystem import hostinger_api
 
 
 def test_connection_status_reports_not_configured_without_token(monkeypatch):
