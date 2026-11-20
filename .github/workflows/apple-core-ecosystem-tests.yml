@@ -18,4 +18,4 @@ jobs:
         with:
           python-version: '3.11'
       - name: Run Apple Core manager tests
-        run: python -m unittest backend.core.global_ecosystem.global_core_ecosystem.apple_core_ecosystem.tests.test_apple_core_manager -v
+        run: python -m unittest discover -s backend/core/global_ecosystem/global_core_ecosystem/apple_core_ecosystem/tests -p 'test_apple_core_manager.py' -v
