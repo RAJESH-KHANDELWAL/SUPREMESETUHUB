@@ -1,3 +1,4 @@
-"""AWS VPC Networking product-family Core package."""
+"""Public exports for aws_vpc_networking_core_ecosystem."""
 from .service import AwsVpcNetworkingCoreService
-__all__ = ["AwsVpcNetworkingCoreService"]
+from .manager import AwsVpcNetworkingCoreManager,get_manager
+__all__=["AwsVpcNetworkingCoreService","AwsVpcNetworkingCoreManager","get_manager"]
