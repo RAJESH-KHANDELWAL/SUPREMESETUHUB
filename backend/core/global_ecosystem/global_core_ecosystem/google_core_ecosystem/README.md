@@ -24,7 +24,7 @@ Google Core is the provider-level control plane and canonical capability invento
 - `domain_runtime.py`: shared read-only implementation used by all 19 domain managers.
 - `test_google_core_domains.py`: structural and behavior tests for the 19 domain packages.
 - `google_*_core_ecosystem/`: existing product-specific Core packages (130 product package directories at the time of this update).
-- The 19 domain packages (`provider_governance/` through `specialty_services/`) group existing products by Core responsibility; they do not duplicate product implementations.
+- The 19 domain packages (`google_provider_governance_core_ecosystem/` through `google_specialty_services_core_ecosystem/`) group existing products by Core responsibility; they do not duplicate product implementations.
 
 Product packages should contain only files required by that product's real Core responsibilities. Do not generate a fixed set of empty subfolders or duplicate shared managers in every product package.
 
