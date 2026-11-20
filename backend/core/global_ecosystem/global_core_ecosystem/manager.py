@@ -1151,6 +1151,52 @@ COMPANY_REGISTRATIONS: tuple[dict[str, Any], ...] = (
 )
 
 
+
+# Cloudflare Core registry (metadata only; no credentials or live access asserted).
+CLOUDFLARE_CORE_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
+    {
+        "ecosystem_id": "GLOBAL-CLOUDFLARE-CORE-ECOSYSTEM",
+        "name": "GLOBAL CLOUDFLARE CORE ECOSYSTEM",
+        "ecosystem_type": "PROVIDER_CORE",
+        "capabilities": [
+            "CLOUDFLARE_PRODUCT_DISCOVERY",
+            "CLOUDFLARE_DOMAIN_TAXONOMY",
+            "CLOUDFLARE_ACCOUNT_GOVERNANCE_METADATA",
+            "CLOUDFLARE_SECURITY_POLICY_METADATA",
+            "CLOUDFLARE_EDGE_AND_DEVELOPER_PLATFORM_METADATA",
+        ],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "provider_id": "cloudflare",
+            "core_catalog": "backend/core/global_ecosystem/global_core_ecosystem/global_cloudflare_core_ecosystem",
+            "product_catalog_module": "backend/core/global_ecosystem/global_core_ecosystem/global_cloudflare_core_ecosystem/product_catalog.py",
+            "product_count": 67,
+            "existing_directory_count": 89,
+            "live_connection_verified": False,
+            "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+            "status": "CORE_CATALOG_ONLY",
+        },
+    },
+    {
+        "ecosystem_id": "GLOBAL-CLOUDFLARE-PRODUCT-CORE-ECOSYSTEM",
+        "name": "GLOBAL CLOUDFLARE PRODUCT CORE ECOSYSTEM",
+        "ecosystem_type": "PROVIDER_CORE_SERVICE",
+        "capabilities": [
+            "CLOUDFLARE_PRODUCT_CATALOG",
+            "PRODUCT_TO_DOMAIN_ROUTING",
+            "DIRECTORY_CLASSIFICATION_AUDIT",
+        ],
+        "parent_id": "GLOBAL-CLOUDFLARE-CORE-ECOSYSTEM",
+        "metadata": {
+            "source_module": "backend/core/global_ecosystem/global_core_ecosystem/global_cloudflare_core_ecosystem/product_catalog.py",
+            "product_count": 67,
+            "directory_count": 89,
+            "live_connection_verified": False,
+            "status": "CORE_CATALOG_ONLY",
+        },
+    },
+)
+
 def _normalize_record(record: dict[str, Any]) -> dict[str, Any]:
     """Return a complete, independent record with safe defaults."""
     normalized = deepcopy(record)
@@ -1268,6 +1314,7 @@ def get_catalog() -> list[dict[str, Any]]:
         server_core,
         security_core,
         people_life_core,
+        *CLOUDFLARE_CORE_ECOSYSTEMS,
         *PERSONAL_REGISTRATIONS,
         *COMPANY_REGISTRATIONS,
     ]
