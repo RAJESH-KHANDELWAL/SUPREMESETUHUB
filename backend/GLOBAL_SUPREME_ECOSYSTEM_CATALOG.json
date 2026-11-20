@@ -1621,5 +1621,25 @@
     "SUPREME"
   ],
   "safety_boundary": "Adult-content scope is limited to lawful content involving consenting adults. Minors, exploitation, non-consensual sexual material, child sexual abuse material, and illegal content are prohibited and require prevention, reporting, and moderation controls.",
-  "architecture_note": "Catalogue records are planning and reference metadata only. Each future implementation requires defined ownership, scope, interfaces, privacy/security controls, legal compliance, and tests. Avoid duplicate or unnecessary nested directories."
+  "architecture_note": "Catalogue records are planning and reference metadata only. Each future implementation requires defined ownership, scope, interfaces, privacy/security controls, legal compliance, and tests. Avoid duplicate or unnecessary nested directories.",
+  "ecosystem_module_index": {
+    "schema_version": "1.0.0",
+    "policy": "Module references are architecture metadata and do not count as unique catalogue entries.",
+    "modules": [
+      {
+        "ecosystem_id": "GLOBAL-COMMUNICATION-CORE-ECOSYSTEM",
+        "name": "GLOBAL COMMUNICATION CORE ECOSYSTEM",
+        "layer": "backend/core/global_ecosystem/global_core_ecosystem/global_communication_core_ecosystem",
+        "catalog_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_communication_core_ecosystem/catalog.py",
+        "manager_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_communication_core_ecosystem/manager.py",
+        "status": "CORE_CATALOG_ONLY",
+        "provider_platform_reference_count": 95,
+        "domain_count": 28,
+        "existing_directory_count": 19,
+        "live_connection_verified": false,
+        "api_transport_in_core": false,
+        "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
+      }
+    ]
+  }
 }
