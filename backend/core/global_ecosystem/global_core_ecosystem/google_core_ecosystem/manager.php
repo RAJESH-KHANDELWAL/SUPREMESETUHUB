@@ -7,8 +7,8 @@ declare(strict_types=1);
  * This is an interoperability facade only. Python remains the canonical
  * metadata orchestrator; this file does not call Google APIs or OAuth.
  */
-require_once __DIR__ . '/php/GoogleCoreContract.php';
-require_once __DIR__ . '/php/GoogleCoreDomainContract.php';
+require_once __DIR__ . '/google_php_core_ecosystem/GoogleCoreContract.php';
+require_once __DIR__ . '/google_php_core_ecosystem/GoogleCoreDomainContract.php';
 
 final class GoogleCoreManager
 {

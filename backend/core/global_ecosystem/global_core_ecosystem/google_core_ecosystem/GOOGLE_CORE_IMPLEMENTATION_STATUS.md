@@ -9,7 +9,7 @@
 - Domain packages: 19 `google_*_core_ecosystem` domain-level packages are implemented as classification/discovery facades over the canonical runtime offering inventory.
 - Shared domain runtime: `domain_runtime.py`.
 - Python tests: `test_google_core_domains.py` added; execution is still required in the repository environment.
-- PHP interoperability: `manager.php`, `php/GoogleCoreContract.php`, and `php/GoogleCoreDomainContract.php` provide metadata contract handling only.
+- PHP interoperability: `manager.php`, `google_php_core_ecosystem/GoogleCoreContract.php`, and `google_php_core_ecosystem/GoogleCoreDomainContract.php` provide metadata contract handling only.
 
 ## Domain package layout
 

@@ -19,8 +19,8 @@ Google Core is the provider-level control plane and canonical capability invento
 - `module_service.py`: reusable read-only service for individual product Core packages.
 - `orchestrator.py`: product/domain discovery, health and dependency metadata.
 - `service.py`: public ecosystem status and global registry integration.
-- `php/GoogleCoreContract.php`: PHP 8+ result-contract validation and sanitization.
-- `php/GoogleCoreDomainContract.php`: PHP 8+ domain-result contract validation and sanitization.
+- `google_php_core_ecosystem/GoogleCoreContract.php`: PHP 8+ result-contract validation and sanitization.
+- `google_php_core_ecosystem/GoogleCoreDomainContract.php`: PHP 8+ domain-result contract validation and sanitization.
 - `domain_runtime.py`: shared read-only implementation used by all 19 domain managers.
 - `test_google_core_domains.py`: structural and behavior tests for the 19 domain packages.
 - `google_*_core_ecosystem/`: existing product-specific Core packages (130 product package directories at the time of this update).
