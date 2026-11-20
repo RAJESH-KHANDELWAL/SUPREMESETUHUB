@@ -52,7 +52,7 @@ class GoogleCoreManager:
         return self._orchestrator.dependency_map()
 
     def get_domain_manager(self, domain_id: str) -> GoogleCoreDomainManager:
-        \"\"\"Return a read-only manager for a registered domain ID.\"\"\"
+        """Return a read-only manager for a registered domain ID."""
         return GoogleCoreDomainManager(domain_id)
 
 
