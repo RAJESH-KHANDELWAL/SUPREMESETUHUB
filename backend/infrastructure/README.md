@@ -11,7 +11,7 @@ Canonical modules:
 - `service.py` — validation and resource service layer
 - `hostinger_catalog.py` — Hostinger service catalog/readiness metadata
 
-The former implementation files at this package root have been replaced with thin compatibility shims only. They preserve existing import paths but do not own duplicate implementation code.
+`controller.py`, `repository.py` and `service.py` at this package root are thin compatibility shims. `hostinger_catalog.py` has one canonical implementation under `global_ecosystem/global_infrastructure_ecosystem/modules/` and no root-level shim. No duplicate implementation is maintained at the package root.
 
 ## Other ecosystem modules
 - `backend/global_ecosystem/global_hosting_ecosystem/hostinger_api.py`: read-only Hostinger inventory API client.
