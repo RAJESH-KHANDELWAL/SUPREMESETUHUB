@@ -33,7 +33,7 @@ jobs:
           php-version: "8.2"
       - name: Compile Global AI CORE
         run: python -m compileall -q backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem
-      - name: Verify Google-standard manager, runtime registry, packages and master catalog reference
+      - name: Verify Google-standard manager, provider registry, packages and complete master catalog coverage
         run: |
           python - <<'PY'
           import json
@@ -57,18 +57,27 @@ jobs:
               assert manifest["parent_id"]=="GLOBAL-AI-CORE-ECOSYSTEM"
               assert {x.name for x in package.iterdir() if x.is_dir() and x.name!="__pycache__"}==expected
           master=json.loads(Path("backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json").read_text())
-          assert master["catalogue_id"]=="GLOBAL_TO_SUPREME_MASTER_ECOSYSTEM"
+          counts=master["counts"]
           expansion=master["expansion"]
+          assert master["catalogue_id"]=="GLOBAL_TO_SUPREME_MASTER_ECOSYSTEM"
           assert expansion["target_unique_entries"]==2468
+          assert expansion["current_unique_entries"]==counts["unique_catalogue_entries"]
           assert expansion["remaining_unique_entries"]==2468-expansion["current_unique_entries"]
-          assert expansion["current_unique_entries"]==master["counts"]["unique_catalogue_entries"]
+          inventory=get_manager().master_catalog_inventory()
+          assert inventory["source_numbered_entries"]==counts["source_numbered_entries"]
+          assert inventory["current_unique_entries"]==counts["unique_catalogue_entries"]
+          assert inventory["cross_reference_entries"]==counts["cross_reference_entries"]
+          assert len(inventory["entries"])==counts["source_numbered_entries"]
+          assert len(inventory["sections"])==counts["section_count"]
           reference=get_manager().master_catalog_reference()
           assert reference["target_unique_entries"]==2468
-          assert reference["loaded_by_global_ai_core"] is False
+          assert reference["owner_layer"]=="GLOBAL_ENGINE_ECOSYSTEM"
+          assert reference["access_mode"]=="READ_ONLY_ON_DEMAND"
           PY
-      - name: Validate PHP interoperability contracts
+      - name: Validate PHP interoperability and master catalog parity
         run: |
           php -l backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem/manager.php
           php -l backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem/php/GlobalAICoreContract.php
+          php -r 'require "backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem/manager.php"; $catalog=GlobalAICoreManager::masterCatalogInventory(); if ($catalog["target_unique_entries"] !== 2468 || count($catalog["entries"]) !== $catalog["source_numbered_entries"]) { fwrite(STDERR, "PHP_MASTER_CATALOG_CONTRACT_FAILED\n"); exit(1); }'
       - name: Run Global AI CORE tests
         run: python -m unittest discover -s backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem -t backend/core/global_ecosystem/global_core_ecosystem -p "test*.py" -v
