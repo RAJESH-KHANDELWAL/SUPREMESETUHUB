@@ -19,8 +19,8 @@ Apple Core is a read-only provider control plane for Apple provider identity, pr
 - `service.py`: public ecosystem status and registry integration.
 - `domain_runtime.py`: shared read-only manager for responsibility domains.
 - `tests/test_apple_core_manager.py`: manager and domain behavior tests.
-- `apple_*_core_ecosystem/`: product-family Core packages with canonical `manager.py` entry points.
-- `apple_*_core_ecosystem/`: six responsibility-domain packages and eight product-family packages.
+- `apple_*_core_ecosystem/` product-family packages: eight packages with canonical `manager.py` entry points.
+- `apple_*_domain_core_ecosystem/` and named responsibility packages: six domain manager packages.
 - `apple_shared_*/`: shared support/responsibility packages.
 
 ## Domains
