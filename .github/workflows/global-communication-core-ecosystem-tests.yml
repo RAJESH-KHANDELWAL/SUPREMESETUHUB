@@ -28,6 +28,8 @@ jobs:
       - name: Compile Communication Core modules
         run: python -m compileall -q backend/core/global_ecosystem/global_core_ecosystem/global_communication_core_ecosystem
       - name: Run Communication Core unit tests
-        run: python -m unittest backend.core.global_ecosystem.global_core_ecosystem.global_communication_core_ecosystem.test_global_communication_core
+        run: |
+          python -m unittest backend.core.global_ecosystem.global_core_ecosystem.global_communication_core_ecosystem.test_global_communication_core
+          python -m unittest backend.core.global_ecosystem.global_core_ecosystem.global_communication_core_ecosystem.test_global_communication_core_domains
       - name: Validate PHP interoperability facade
         run: php -l backend/core/global_ecosystem/global_core_ecosystem/global_communication_core_ecosystem/manager.php
