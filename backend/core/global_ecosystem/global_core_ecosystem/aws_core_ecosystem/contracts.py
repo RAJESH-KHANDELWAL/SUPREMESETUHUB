@@ -53,7 +53,7 @@ class AwsAccountContext:
 
         if self.principal_arn:
             match = re.match(
-                r"^arn:(?:aws|aws-us-gov|aws-cn):iam::(\d{12}):",
+                r"^arn:(?:aws|aws-us-gov|aws-cn):(?:iam|sts)::(\d{12}):",
                 self.principal_arn.strip(),
             )
             if not match:
