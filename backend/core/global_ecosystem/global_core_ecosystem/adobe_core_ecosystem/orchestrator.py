@@ -35,4 +35,4 @@ class AdobeCoreOrchestrator:
     def dependency_map(self) -> dict[str, Any]:
         return {"success": True, "edges": [{"core_module": item["core_module"],
                 "api_catalog_ref": item.get("api_catalog_ref"),
-                "relationship": "DELEGATES_TO_API_LAYER"} for item in self.catalog()["children"]}
+                "relationship": "DELEGATES_TO_API_LAYER"} for item in self.catalog()["children"]]}
