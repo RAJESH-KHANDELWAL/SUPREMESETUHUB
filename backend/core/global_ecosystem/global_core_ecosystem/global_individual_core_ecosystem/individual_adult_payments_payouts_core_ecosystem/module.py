@@ -9,8 +9,8 @@ MODULE={
   ],
   "parent_id": "GLOBAL-INDIVIDUAL-CORE-ECOSYSTEM",
   "status": "CORE_CATALOG_ONLY",
-  "connected": false,
-  "api_transport_in_core": false,
-  "persistence_enabled": false
+  "connected": False,
+  "api_transport_in_core": False,
+  "persistence_enabled": False
 }
 def get_module_metadata(): return dict(MODULE)

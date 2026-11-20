@@ -11,7 +11,7 @@ MODULES=[
       "S02_community"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIA-INDIVIDUAL-SERVICES-CORE-ECOSYSTEM",
@@ -22,7 +22,7 @@ MODULES=[
       "S02_human_identity"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-ACCOUNT-ACCESS-CORE-ECOSYSTEM",
@@ -33,7 +33,7 @@ MODULES=[
       "S02_individual"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-ADULT-AGE-VERIFICATION-CORE-ECOSYSTEM",
@@ -44,7 +44,7 @@ MODULES=[
       "S02_human_rights"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-ADULT-CONTENT-CREATOR-CORE-ECOSYSTEM",
@@ -55,7 +55,7 @@ MODULES=[
       "S02_human_rights"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-ADULT-CONTENT-DISTRIBUTION-LICENSING-CORE-ECOSYSTEM",
@@ -66,7 +66,7 @@ MODULES=[
       "S02_human_rights"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-ADULT-CONTENT-PRODUCTION-STUDIO-CORE-ECOSYSTEM",
@@ -77,7 +77,7 @@ MODULES=[
       "S02_human_rights"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-ADULT-ENTERTAINMENT-PLATFORMS-CORE-ECOSYSTEM",
@@ -88,7 +88,7 @@ MODULES=[
       "S02_human_rights"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-ADULT-LEGAL-REGIONAL-COMPLIANCE-CORE-ECOSYSTEM",
@@ -99,7 +99,7 @@ MODULES=[
       "S02_adults"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-ADULT-LIVE-STREAMING-CORE-ECOSYSTEM",
@@ -110,7 +110,7 @@ MODULES=[
       "S02_human_rights"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-ADULT-MODERATION-SAFETY-TAKEDOWN-CORE-ECOSYSTEM",
@@ -121,7 +121,7 @@ MODULES=[
       "S02_adults"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-ADULT-PAYMENTS-PAYOUTS-CORE-ECOSYSTEM",
@@ -132,7 +132,7 @@ MODULES=[
       "S02_human_rights"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-ADULT-PERFORMER-RIGHTS-CONSENT-CORE-ECOSYSTEM",
@@ -143,7 +143,7 @@ MODULES=[
       "S02_adults"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-ADULT-PRIVACY-SECURITY-CORE-ECOSYSTEM",
@@ -154,7 +154,7 @@ MODULES=[
       "S02_adults"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-ADULT-SUBSCRIPTION-MEMBERSHIP-CORE-ECOSYSTEM",
@@ -165,7 +165,7 @@ MODULES=[
       "S02_individual"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-CLOUD-STORAGE-CORE-ECOSYSTEM",
@@ -176,7 +176,7 @@ MODULES=[
       "S02_human_identity"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-COMMUNICATION-SOCIAL-CORE-ECOSYSTEM",
@@ -188,7 +188,7 @@ MODULES=[
       "S02_society"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-DATING-RELATIONSHIPS-CORE-ECOSYSTEM",
@@ -200,7 +200,7 @@ MODULES=[
       "S02_human_behaviour"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-DOCUMENTS-DIGITAL-LOCKER-CORE-ECOSYSTEM",
@@ -211,7 +211,7 @@ MODULES=[
       "S02_individual"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-EDUCATION-LEARNING-CORE-ECOSYSTEM",
@@ -223,7 +223,7 @@ MODULES=[
       "S02_skills_and_talents"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-IDENTITY-PROFILE-CORE-ECOSYSTEM",
@@ -234,7 +234,7 @@ MODULES=[
       "S02_individual"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-INTIMACY-RELATIONSHIP-COACHING-CORE-ECOSYSTEM",
@@ -246,7 +246,7 @@ MODULES=[
       "S02_adults"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-KYC-VERIFICATION-CORE-ECOSYSTEM",
@@ -257,7 +257,7 @@ MODULES=[
       "S02_human_rights"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-PRIVACY-SECURITY-CORE-ECOSYSTEM",
@@ -268,7 +268,7 @@ MODULES=[
       "S02_human_identity"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-PROFESSIONAL-FREELANCER-CORE-ECOSYSTEM",
@@ -279,7 +279,7 @@ MODULES=[
       "S02_skills_and_talents"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-SERVICE-TIERS-NORMAL-TO-SUPREME-CORE-ECOSYSTEM",
@@ -289,7 +289,7 @@ MODULES=[
       "S02_individual"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-SEXUAL-WELLNESS-EDUCATION-CORE-ECOSYSTEM",
@@ -300,7 +300,7 @@ MODULES=[
       "S02_human_rights"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-WALLET-FINANCE-CORE-ECOSYSTEM",
@@ -311,7 +311,7 @@ MODULES=[
       "S02_human_identity"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   },
   {
     "module_id": "INDIVIDUAL-WELLNESS-HEALTH-RESOURCES-CORE-ECOSYSTEM",
@@ -322,7 +322,7 @@ MODULES=[
       "S02_human_development"
     ],
     "status": "CORE_CATALOG_ONLY",
-    "connected": false
+    "connected": False
   }
 ]
 INDIVIDUAL_CORE_ECOSYSTEM={"ecosystem_id":"GLOBAL-INDIVIDUAL-CORE-ECOSYSTEM","name":"GLOBAL INDIVIDUAL CORE ECOSYSTEM","parent_id":"GLOBAL-CORE-ECOSYSTEM","modules":MODULES,"module_count":len(MODULES)}
