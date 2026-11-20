@@ -1,7 +1,7 @@
 # Global Developer Core — Implementation Status
 
 ## Implemented
-- [x] Canonical catalog for 28 existing domain/provider directories
+- [x] Canonical catalog for 29 existing domain/provider directories
 - [x] 19-domain taxonomy
 - [x] Tenant, secret-reference, readiness and result contracts
 - [x] Capability classification and explicit authorization boundaries
