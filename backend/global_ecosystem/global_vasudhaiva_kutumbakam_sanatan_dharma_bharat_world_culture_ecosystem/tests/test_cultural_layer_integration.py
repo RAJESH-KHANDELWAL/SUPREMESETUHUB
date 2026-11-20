@@ -8,7 +8,7 @@ from backend.database.service import DatabaseService
 from backend.cloud.global_ecosystem.global_cloud_ecosystem.cultural_knowledge_cloud_ecosystem import CulturalKnowledgeCloudBridge
 
 
-def test_core_and_engine_are_connected():
+def test_domain_service_and_engine_are_connected():
     domain_service = CulturalKnowledgeDomainService()
     engine = CulturalKnowledgeEngineManager(core=domain_service, domains=CULTURAL_DOMAINS)
     assert domain_service.describe()["ecosystem_id"].startswith("GLOBAL_VASUDHAIVA")
