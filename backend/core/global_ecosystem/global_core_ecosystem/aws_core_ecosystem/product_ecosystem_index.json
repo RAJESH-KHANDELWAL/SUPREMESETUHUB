@@ -1,0 +1,60 @@
+{
+  "provider": "aws",
+  "ecosystem_id": "AWS-CORE-ECOSYSTEM",
+  "service_family_count": 16,
+  "domain_count": 13,
+  "domains": [
+    {
+      "domain_id": "APPLICATION_INTEGRATION_AND_API_MANAGEMENT",
+      "package": "aws_application_integration_and_api_management_core_ecosystem"
+    },
+    {
+      "domain_id": "AI_ML_AND_INTELLIGENCE",
+      "package": "aws_ai_ml_and_intelligence_core_ecosystem"
+    },
+    {
+      "domain_id": "BILLING_COST_AND_GOVERNANCE",
+      "package": "aws_billing_cost_and_governance_core_ecosystem"
+    },
+    {
+      "domain_id": "COMPUTE_AND_CONTAINERS",
+      "package": "aws_compute_and_containers_core_ecosystem"
+    },
+    {
+      "domain_id": "DATABASE_AND_DATA_SERVICES",
+      "package": "aws_database_and_data_services_core_ecosystem"
+    },
+    {
+      "domain_id": "DOMAIN_AND_NAME_SERVICES",
+      "package": "aws_domain_and_name_services_core_ecosystem"
+    },
+    {
+      "domain_id": "INFRASTRUCTURE_PROVISIONING_AND_AUTOMATION",
+      "package": "aws_infrastructure_provisioning_and_automation_core_ecosystem"
+    },
+    {
+      "domain_id": "NETWORKING_AND_EDGE",
+      "package": "aws_networking_and_edge_core_ecosystem"
+    },
+    {
+      "domain_id": "OBSERVABILITY_AND_AUDIT",
+      "package": "aws_observability_and_audit_core_ecosystem"
+    },
+    {
+      "domain_id": "ORGANIZATION_AND_GOVERNANCE",
+      "package": "aws_organization_and_governance_core_ecosystem"
+    },
+    {
+      "domain_id": "SECURITY_AND_IDENTITY",
+      "package": "aws_security_and_identity_core_ecosystem"
+    },
+    {
+      "domain_id": "STORAGE_AND_DATA_MANAGEMENT",
+      "package": "aws_storage_and_data_management_core_ecosystem"
+    },
+    {
+      "domain_id": "DEVELOPER_AND_APPLICATION_PLATFORM",
+      "package": "aws_developer_and_application_platform_core_ecosystem"
+    }
+  ]
+}
