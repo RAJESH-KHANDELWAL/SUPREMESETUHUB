@@ -2,6 +2,7 @@
 from .catalog import GOOGLE_CORE_ECOSYSTEM, get_google_core_catalog, list_google_core_modules
 from .contracts import CoreResult, Readiness, SecretReference, TenantContext
 from .domain_catalog import DOMAIN_DEFINITIONS, google_domain_summary, list_google_domain_inventory
+from .domain_runtime import GoogleCoreDomainManager
 from .manager import GoogleCoreManager, get_manager
 from .module_service import GoogleProductCoreService
 from .orchestrator import GoogleCoreOrchestrator
@@ -13,7 +14,7 @@ __all__ = [
     "GOOGLE_CORE_ECOSYSTEM", "get_google_core_catalog", "list_google_core_modules",
     "CoreResult", "Readiness", "SecretReference", "TenantContext",
     "DOMAIN_DEFINITIONS", "google_domain_summary", "list_google_domain_inventory",
-    "GoogleCoreManager", "get_manager", "GoogleProductCoreService",
+    "GoogleCoreManager", "get_manager", "GoogleProductCoreService", "GoogleCoreDomainManager",
     "GoogleCoreOrchestrator", "GoogleCorePolicy", "GoogleCorePolicyError",
     "google_offerings_summary", "list_google_offerings", "GoogleCoreEcosystemService",
 ]

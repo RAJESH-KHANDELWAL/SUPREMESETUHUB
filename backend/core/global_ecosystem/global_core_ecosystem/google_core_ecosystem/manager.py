@@ -9,6 +9,7 @@ from __future__ import annotations
 from typing import Any
 
 from .orchestrator import GoogleCoreOrchestrator
+from .domain_runtime import GoogleCoreDomainManager
 from .service import GoogleCoreEcosystemService
 
 
@@ -49,6 +50,10 @@ class GoogleCoreManager:
 
     def dependency_map(self) -> dict[str, Any]:
         return self._orchestrator.dependency_map()
+
+    def get_domain_manager(self, domain_id: str) -> GoogleCoreDomainManager:
+        \"\"\"Return a read-only manager for a registered domain ID.\"\"\"
+        return GoogleCoreDomainManager(domain_id)
 
 
 def get_manager() -> GoogleCoreManager:
