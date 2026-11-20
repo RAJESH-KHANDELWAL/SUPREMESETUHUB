@@ -9,10 +9,10 @@ class GlobalEntityRelationshipsCoreTests(unittest.TestCase):
  def test_root_name_and_id_standard(self):
   root=get_catalog()[0]; self.assertEqual(root["ecosystem_id"],ROOT_ID); self.assertTrue(root["name"].startswith("GLOBAL ")); self.assertTrue(root["name"].endswith(" CORE ECOSYSTEM"))
  def test_all_children_follow_global_subject_core_standard(self):
-  children=list_categories(); self.assertEqual(len(children),35); self.assertEqual(len({x["ecosystem_id"] for x in children}),len(children))
+  children=list_categories(); self.assertEqual(len(children),36); self.assertEqual(len({x["ecosystem_id"] for x in children}),len(children))
   for item in children: self.assertTrue(item["name"].startswith("GLOBAL ")); self.assertTrue(item["name"].endswith(" CORE ECOSYSTEM")); self.assertTrue(item["ecosystem_id"].startswith("GLOBAL-")); self.assertTrue(item["ecosystem_id"].endswith("-CORE-ECOSYSTEM"))
  def test_manager_and_tree(self):
-  manager=get_manager(); self.assertEqual(manager.status()["category_count"],35); self.assertTrue(manager.tree()["success"]); self.assertEqual(manager.registry.count(),36)
+  manager=get_manager(); self.assertEqual(manager.status()["category_count"],36); self.assertTrue(manager.tree()["success"]); self.assertEqual(manager.registry.count(),37)
  def test_relationship_types_are_unique(self): self.assertEqual(len(RELATIONSHIP_TYPES),len(set(RELATIONSHIP_TYPES))); self.assertGreaterEqual(len(RELATIONSHIP_TYPES),20)
  def test_verified_claim_requires_source(self):
   item={"relationship_id":"r1","source_entity_id":"e1","target_entity_id":"e2","relationship_type":"owns","verification_status":"VERIFIED","source_urls":["https://example.com"]}; self.assertTrue(RelationshipPolicy.validate(item)); item["source_urls"]=[]
@@ -26,7 +26,7 @@ class GlobalEntityRelationshipsCoreTests(unittest.TestCase):
   module_id="GLOBAL-ENTITY-RELATIONSHIPS-CORE-ECOSYSTEM"
   modules=master["ecosystem_module_index"]["modules"]
   entry=next((x for x in modules if x.get("ecosystem_id")==module_id),None)
-  self.assertIsNotNone(entry); self.assertEqual(entry["category_count"],35); self.assertFalse(entry["live_connection_verified"])
+  self.assertIsNotNone(entry); self.assertEqual(entry["category_count"],36); self.assertFalse(entry["live_connection_verified"])
   central=(backend_root/"core/global_ecosystem/global_core_ecosystem/manager.py").read_text(encoding="utf-8")
   self.assertIn(module_id,central); self.assertIn("GLOBAL ENTITY RELATIONSHIPS CORE ECOSYSTEM",central)
  def test_master_catalog_reference_read_only_2468(self):
