@@ -21,7 +21,7 @@ All 21 domain folders live directly inside this ecosystem root. There is no inte
 - `integrations/`: CORE and Global CORE integration entry points.
 - `structure.py`: canonical ownership and package path registry.
 - `manager.py` / `manager.php`: structural domain health checks.
-- Provider helper modules (Hostinger API and NSFWinfra) remain under the Infrastructure Global Ecosystem parent.
+- Hostinger API and NSFWinfra provider adapters are owned by `backend/global_ecosystem/` in `global_hosting_ecosystem/` and `nsfwinfra_ecosystem/`; this infrastructure ecosystem references them through the provider module registry.
 
 ## Cross-layer boundaries
 CORE stays in `backend/core/`; database persistence in `backend/database/`; storage runtime in `backend/storage/`; server ecosystem in `backend/server/`; provider execution in ENGINE; HTTP orchestration in API.
