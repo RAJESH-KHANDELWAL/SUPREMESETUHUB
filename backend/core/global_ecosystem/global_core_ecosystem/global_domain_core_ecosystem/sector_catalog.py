@@ -46,7 +46,7 @@ def _sector_title(sector_id: str) -> str:
     return f"GLOBAL {subject} CORE ECOSYSTEM"
 
 def _sector_ecosystem_id(sector_id: str) -> str:
-    return f"GLOBAL-{sector_id}-CORE-ECOSYSTEM"
+    return f"GLOBAL-{sector_id.replace('_', '-')}-CORE-ECOSYSTEM"
 
 def list_sectors():
     return [
