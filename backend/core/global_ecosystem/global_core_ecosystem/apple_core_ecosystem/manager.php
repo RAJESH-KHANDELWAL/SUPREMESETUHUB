@@ -23,7 +23,8 @@ final class AppleCoreManager
     }
     public static function isLiveConnectionVerified(array $payload): bool
     {
-        return self::normalizeResult($payload)['live_connection_verified'] ?? false === true;
+        $normalized = self::normalizeResult($payload);
+        return (($normalized['live_connection_verified'] ?? false) === true);
     }
     private static function sanitize(array $payload): array
     {
