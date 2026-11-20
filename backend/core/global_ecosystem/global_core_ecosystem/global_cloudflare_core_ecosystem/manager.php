@@ -20,7 +20,7 @@ final class CloudflareCoreManager
 
     public static function masterCatalogSnapshot(?string $backendRoot = null): array
     {
-        $root = $backendRoot ?? dirname(__DIR__, 5);
+        $root = $backendRoot ?? dirname(__DIR__, 4);
         $path = $root . DIRECTORY_SEPARATOR . 'GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json';
         if (!is_file($path)) {
             return ['available' => false, 'error' => 'MASTER_CATALOG_NOT_FOUND'];
