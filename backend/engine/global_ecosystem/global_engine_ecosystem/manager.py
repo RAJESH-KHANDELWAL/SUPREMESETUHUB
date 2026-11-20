@@ -73,43 +73,124 @@ def get_master_catalog() -> dict[str, Any]:
     return catalog
 
 
-def get_master_catalog_summary() -> dict[str, Any]:
-    """Return verified section, unique-entry, cross-reference, and expansion counts."""
-    catalog = get_master_catalog()
+def _summarize_master_catalog(catalog: dict[str, Any]) -> dict[str, Any]:
+    """Validate catalog structure and return counts derived from its actual entries."""
+    if catalog.get("catalogue_id") != "GLOBAL_TO_SUPREME_MASTER_ECOSYSTEM":
+        raise ValueError("Unexpected master ecosystem catalog identity")
+
     sections = []
     source_count = 0
     unique_count = 0
     cross_reference_count = 0
     capability_level_count = 0
     seen_ids: set[str] = set()
-    for section in catalog.get("sections", []):
-        entries = section.get("entries", [])
+    seen_section_ids: set[str] = set()
+    seen_names: set[str] = set()
+    canonical_ids: set[str] = set()
+    pending_references: list[tuple[str, str]] = []
+
+    raw_sections = catalog.get("sections")
+    if not isinstance(raw_sections, list) or not raw_sections:
+        raise ValueError("Master catalog must contain a non-empty sections list")
+
+    for expected_number, section in enumerate(raw_sections, start=1):
+        section_id = str(section.get("section_id", "")).strip()
+        if not section_id or section_id in seen_section_ids:
+            raise ValueError(f"Missing or duplicate section_id: {section_id!r}")
+        seen_section_ids.add(section_id)
+        if section.get("section_number") != expected_number:
+            raise ValueError(f"Section numbering must be contiguous at {section_id}")
+
+        entries = section.get("entries")
+        if not isinstance(entries, list):
+            raise ValueError(f"Section entries must be a list: {section_id}")
+
         section_unique = 0
         section_cross_references = 0
-        for entry in entries:
-            entry_id = entry.get("entry_id")
+        for expected_position, entry in enumerate(entries, start=1):
+            if not isinstance(entry, dict):
+                raise ValueError(f"Catalog entry must be an object in {section_id}")
+            entry_id = str(entry.get("entry_id", "")).strip()
+            name = str(entry.get("name", "")).strip()
+            kind = str(entry.get("entry_kind", "")).strip()
             if not entry_id or entry_id in seen_ids:
                 raise ValueError(f"Missing or duplicate master catalog entry_id: {entry_id!r}")
+            if not name or not kind:
+                raise ValueError(f"Entry requires name and entry_kind: {entry_id}")
+            if entry.get("position") != expected_position:
+                raise ValueError(f"Entry positions must be contiguous in {section_id}: {entry_id}")
             seen_ids.add(entry_id)
             source_count += 1
-            if entry.get("entry_kind") == "cross_reference":
+
+            if kind == "cross_reference":
+                canonical_id = str(entry.get("canonical_entry_id", "")).strip()
+                if not canonical_id:
+                    raise ValueError(f"Cross-reference requires canonical_entry_id: {entry_id}")
+                pending_references.append((entry_id, canonical_id))
                 section_cross_references += 1
                 cross_reference_count += 1
-            else:
-                section_unique += 1
-                unique_count += 1
-                if entry.get("entry_kind") == "capability_level":
-                    capability_level_count += 1
+                continue
+
+            normalized_name = " ".join(name.casefold().split())
+            if normalized_name in seen_names:
+                raise ValueError(f"Duplicate unique catalog entry name: {name!r}")
+            seen_names.add(normalized_name)
+            canonical_ids.add(entry_id)
+            section_unique += 1
+            unique_count += 1
+            if kind == "capability_level":
+                capability_level_count += 1
+
         sections.append({
             "section_number": section.get("section_number"),
-            "section_id": section.get("section_id"),
+            "section_id": section_id,
             "title": section.get("title"),
             "source_entry_count": len(entries),
             "unique_entry_count": section_unique,
             "cross_reference_count": section_cross_references,
         })
+
+    for entry_id, canonical_id in pending_references:
+        if canonical_id not in canonical_ids:
+            raise ValueError(
+                f"Cross-reference {entry_id} points to missing/non-canonical entry {canonical_id}"
+            )
+
     expansion = catalog.get("expansion", {})
-    target = int(expansion.get("target_unique_entries", MASTER_CATALOG_TARGET_UNIQUE_ENTRIES))
+    counts = catalog.get("counts", {})
+    target = int(expansion.get("target_unique_entries", 0))
+    if target != MASTER_CATALOG_TARGET_UNIQUE_ENTRIES:
+        raise ValueError(
+            f"Catalog target must be {MASTER_CATALOG_TARGET_UNIQUE_ENTRIES}, got {target}"
+        )
+
+    actual_counts = {
+        "section_count": len(sections),
+        "source_numbered_entries": source_count,
+        "unique_catalogue_entries": unique_count,
+        "cross_reference_entries": cross_reference_count,
+        "capability_levels": capability_level_count,
+    }
+    for key, actual in actual_counts.items():
+        if counts.get(key) != actual:
+            raise ValueError(
+                f"Catalog counts.{key} mismatch: declared={counts.get(key)!r}, actual={actual}"
+            )
+
+    remaining = max(target - unique_count, 0)
+    if expansion.get("current_unique_entries") != unique_count:
+        raise ValueError(
+            "Catalog expansion.current_unique_entries mismatch: "
+            f"declared={expansion.get('current_unique_entries')!r}, actual={unique_count}"
+        )
+    if expansion.get("remaining_unique_entries") != remaining:
+        raise ValueError(
+            "Catalog expansion.remaining_unique_entries mismatch: "
+            f"declared={expansion.get('remaining_unique_entries')!r}, actual={remaining}"
+        )
+    if unique_count > target:
+        raise ValueError(f"Catalog has {unique_count} unique entries; target is exactly {target}")
+
     return {
         "success": True,
         "catalogue_id": catalog["catalogue_id"],
@@ -120,13 +201,16 @@ def get_master_catalog_summary() -> dict[str, Any]:
         "cross_reference_count": cross_reference_count,
         "capability_level_count": capability_level_count,
         "target_unique_entry_count": target,
-        "remaining_unique_entries": max(target - unique_count, 0),
-        "target_reached": unique_count >= target,
-        "expansion_status": "TARGET_REACHED" if unique_count >= target else "FOUNDATION_CATALOG_ONLY",
+        "remaining_unique_entries": remaining,
+        "target_reached": unique_count == target,
+        "expansion_status": "TARGET_REACHED" if unique_count == target else "FOUNDATION_CATALOG_ONLY",
         "sections": sections,
     }
 
 
+def get_master_catalog_summary() -> dict[str, Any]:
+    """Return validated counts; reject stale metadata and duplicate catalog records."""
+    return _summarize_master_catalog(get_master_catalog())
 
 def _discover() -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     """Discover provider groups and executable engine modules owned by ENGINE."""
