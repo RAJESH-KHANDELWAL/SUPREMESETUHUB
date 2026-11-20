@@ -1,26 +1,37 @@
 # Global Communication Core Ecosystem
 
-A provider-neutral global communication taxonomy and discovery catalog.
+**Parent:** GLOBAL CORE ECOSYSTEM  
+**Root:** `backend/core/global_ecosystem/global_core_ecosystem/global_communication_core_ecosystem/`
 
-## Coverage
-- 28 communication domains spanning telecom networks, email, OTT messaging, SMS/MMS/RCS, voice, video, UCaaS, CPaaS, CCaaS, customer engagement, push notifications, RTC SDKs, AI voice, verification, legacy channels, satellite/IoT, analytics, privacy, trust and safety, accessibility, and India-specific regulation.
-- 95 provider and platform reference records across telecom operators, cloud/workspace platforms, CPaaS, UCaaS, CCaaS, OTT messaging, email delivery, customer engagement, real-time SDKs and notifications.
-- The 19 directories already present in this repository remain separately tracked; the provider directory is not restricted to those folders.
+## Mission
+Provider-neutral control plane for communication provider identity, product/service discovery, domain classification, capability metadata, lifecycle/readiness, dependency mapping and governance. It follows the responsibility-driven Google Core architecture without copying Google-specific product logic.
 
-## Canonical implementation
-- `manager.py`: Python manager and read-only master-catalog bridge.
-- `manager.php`: PHP interoperability facade.
-- `product_catalog.py`: provider reference inventory and filters.
-- `domain_catalog.py`: domain taxonomy.
-- `orchestrator.py`: read-only orchestration.
-- `service.py`: status and health.
-- `policy.py`: authorization, privacy and restricted-service boundaries.
-- `test_global_communication_core.py`: validation tests.
+## Canonical structure
+- `manager.py`: canonical Python manager and singleton `get_manager()`.
+- `manager.php`: thin PHP interoperability facade; Python remains canonical.
+- `catalog.py`: canonical root catalog and provider/domain references.
+- `product_catalog.py`: curated provider/platform inventory and existing-directory inventory.
+- `domain_catalog.py`: 28-domain taxonomy.
+- `contracts.py`: tenant context, opaque secret references, readiness and result contracts.
+- `policy.py`: authorization, privacy and restricted-domain guardrails.
+- `module_service.py`: shared read-only provider metadata service.
+- `domain_runtime.py`: shared read-only domain discovery runtime.
+- `orchestrator.py` and `service.py`: health, discovery, dependency and status facades.
+- `PRODUCT_ECOSYSTEM_STANDARD.md`: package/layer ownership standard.
+- `test_global_communication_core.py` and `test_global_communication_core_domains.py`: catalog, contract and policy tests.
 
-## Master catalog
-Reads `backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json` only. Does not duplicate or alter the 2468-entry master catalog.
+Provider directories remain responsibility-driven. Do not create empty placeholder folders or duplicate shared managers in every provider directory. Add provider-specific code only for a documented, independently reviewed responsibility.
 
-## Accuracy and implementation status
-Provider and platform records are research/discovery references, not endorsements, live API connections, or proof of current product availability. Some products/brands change names, merge, retire or vary by country; verify official documentation, service availability, regulatory status and current product lifecycle before implementation. Duplicate brand aliases are kept only where they represent a distinct known product identity and must be reconciled during provider governance.
+## Inventory
+- 95 provider/platform reference records (not 95 verified independent companies or live integrations).
+- 28 domain definitions.
+- 19 pre-existing directories, tracked separately from the provider reference inventory.
+- 40 service-family labels (classification metadata).
 
-No provider OAuth, message sending, phone calling, or video delivery is enabled by this catalog. Credentials belong in an external secret store.
+## Master catalog integration
+`backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json` has a separate `ecosystem_module_index` entry pointing to this module. This index is architecture metadata, not part of the numbered 2468 target. The original expansion counters and 246 unique catalogue entries remain unchanged. Communication Core reads the master catalog only; it does not mutate or duplicate its numbered entries.
+
+## Layer boundaries
+Core owns metadata and policy. OAuth, provider SDK/API transport, message/email delivery, telephony, video transport, durable storage, database operations, queues, billing and UI belong to their dedicated layers. Credentials remain in an external secret manager.
+
+Catalog membership does not prove API availability, account entitlement, caller authorization, implementation or live connectivity. Live status requires deployment authentication and provider smoke tests. Provider names, aliases, products and geographic availability require source-by-source lifecycle verification.
