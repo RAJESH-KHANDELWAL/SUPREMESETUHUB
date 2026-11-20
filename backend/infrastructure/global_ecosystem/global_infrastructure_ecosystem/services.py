@@ -25,6 +25,6 @@ SERVICES = (
     CatalogRecord("server", "Server", "domain_service", f"Inventory module: {_BASE}.server; canonical server ecosystem: backend.server."),
     CatalogRecord("ssl", "SSL", "domain_service", f"Canonical module: {_BASE}.ssl."),
     CatalogRecord("storage", "Storage", "domain_service", f"Inventory module: {_BASE}.storage; storage implementation remains backend.storage."),
-    CatalogRecord("hostinger", "Hostinger Integration", "provider_adapter", "Existing adapters: backend.infrastructure.global_ecosystem.hostinger_api and backend.infrastructure.hostinger_catalog."),
-    CatalogRecord("nsfwinfra", "NSFW Infrastructure", "domain_service", "Existing module: backend.infrastructure.global_ecosystem.nsfwinfra; subject to dedicated safety and policy governance."),
+    CatalogRecord("hostinger", "Hostinger Integration", "provider_adapter", "Existing adapters: backend.global_ecosystem.global_hosting_ecosystem.hostinger_api."),
+    CatalogRecord("nsfwinfra", "NSFW Infrastructure", "domain_service", "Existing module: backend.global_ecosystem.nsfwinfra_ecosystem.nsfwinfra; subject to dedicated safety and policy governance."),
 )
