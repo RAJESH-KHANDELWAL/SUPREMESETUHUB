@@ -30,13 +30,14 @@ class BackendGlobalInfrastructureEcosystemManager:
             checks[f"domain_global_ecosystem_{name}"] = (domain / "global_ecosystem").is_dir()
         checks["backend_global_hostinger_api"] = (self.backend_root / "global_ecosystem" / "global_hosting_ecosystem" / "hostinger_api.py").is_file()
         checks["backend_global_nsfwinfra"] = (self.backend_root / "global_ecosystem" / "nsfwinfra_ecosystem" / "nsfwinfra.py").is_file()
+        domain_checks = {name: checks[f"domain_{name}"] for name in INFRASTRUCTURE_MODULES}
         healthy = all(checks.values())
         return {
             "name": self.NAME, "version": self.VERSION,
             "status": "READY" if healthy else "INCOMPLETE",
             "expected_domain_count": len(INFRASTRUCTURE_MODULES),
             "present_domain_count": sum(checks[f"domain_{name}"] for name in INFRASTRUCTURE_MODULES),
-            "checks": checks, "healthy": healthy,
+            "checks": checks, "domain_checks": domain_checks, "healthy": healthy,
             "provider_operations_enabled": False,
         }
 
