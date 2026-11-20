@@ -5,6 +5,7 @@ from .domain_catalog import DOMAIN_DEFINITIONS, domain_summary
 from .manager import get_manager
 from .product_catalog import list_products, list_directory_audit, get_product
 from .policy import CloudflareCorePolicy, CloudflarePolicyError
+from backend.core.global_ecosystem.global_core_ecosystem.manager import GlobalEcosystemManager
 
 class CloudflareCoreTests(unittest.TestCase):
     def test_domain_taxonomy_and_product_reconciliation(self):
@@ -37,6 +38,15 @@ class CloudflareCoreTests(unittest.TestCase):
         self.assertEqual(snapshot["target_unique_entries"], 2468)
         self.assertEqual(snapshot["current_unique_entries"], 246)
         self.assertEqual(snapshot["remaining_unique_entries"], 2222)
+    def test_global_ecosystem_registry_contains_cloudflare_core(self):
+        registry = GlobalEcosystemManager()
+        root = registry.get("GLOBAL-CLOUDFLARE-CORE-ECOSYSTEM")
+        product = registry.get("GLOBAL-CLOUDFLARE-PRODUCT-CORE-ECOSYSTEM")
+        self.assertIsNotNone(root)
+        self.assertIsNotNone(product)
+        self.assertEqual(root["parent_id"], "GLOBAL-CORE-ECOSYSTEM")
+        self.assertEqual(product["parent_id"], "GLOBAL-CLOUDFLARE-CORE-ECOSYSTEM")
+        self.assertEqual(root["metadata"]["product_count"], len(list_products()))
     def test_health_never_claims_live_connectivity(self):
         health = get_manager().health()
         self.assertEqual(health["live_connections_verified"], 0)
