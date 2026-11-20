@@ -20,6 +20,8 @@ class AdobeCoreManager:
     def list_domains(self) -> dict[str, Any]: return self._orchestrator.domains()
     def list_domain_inventory(self) -> list[dict[str, Any]]: return self._orchestrator.domain_inventory()
     def dependency_map(self) -> dict[str, Any]: return self._orchestrator.dependency_map()
+    def manager_status(self) -> dict[str, Any]: return self._service.manager_status()
+    def list_registered_modules(self) -> dict[str, Any]: return self._service.list_registered_modules()
     def get_domain_manager(self, domain_id: str) -> AdobeCoreDomainManager:
         return AdobeCoreDomainManager(domain_id)
 
