@@ -1,7 +1,7 @@
 """Manager for Atlassian Work Management and Planning Core domain."""
 from __future__ import annotations
 from . import DOMAIN_ID
-from ...domain_runtime import AtlassianCoreDomainManager
+from ..domain_runtime import AtlassianCoreDomainManager
 class AtlassianDomainManager(AtlassianCoreDomainManager):
  DOMAIN_ID=DOMAIN_ID
 def get_manager()->AtlassianDomainManager: return AtlassianDomainManager()
