@@ -1,42 +1,32 @@
 {
-  "schema_version": "1.1.0",
+  "schema_version": "1.2.0",
   "ecosystem_id": "GLOBAL-HUMAN-LANGUAGE-CORE-ECOSYSTEM",
   "parent_id": "GLOBAL-CORE-ECOSYSTEM",
   "layer": "CORE",
   "category": "HUMAN_LANGUAGE",
   "status": "CORE_CATALOG_ONLY",
   "canonical_path": "backend/core/global_ecosystem/global_core_ecosystem/global_human_language_core_ecosystem",
+  "manager": {"python": "manager.py", "php": "manager.php"},
   "registry": {
     "module": "catalog.py",
     "domains": "catalog.json",
     "providers": "provider_catalog.json",
     "domain_catalog_module": "domain_catalog.py",
     "provider_catalog_module": "provider_catalog.py",
+    "master_catalog_adapter": "master_catalog.py",
     "shared_provider_service": "module_service.py"
   },
   "domain_count": 22,
   "provider_count": 11,
-  "provider_module_standard": [
-    "authentication",
-    "capabilities",
-    "docs",
-    "events",
-    "lifecycle",
-    "models",
-    "schemas",
-    "security",
-    "services",
-    "tests"
-  ],
-  "service_tiers": [
-    "NORMAL",
-    "BASIC",
-    "STANDARD",
-    "PREMIUM",
-    "PROFESSIONAL",
-    "ENTERPRISE",
-    "SUPREME"
-  ],
+  "master_catalog": {
+    "source": "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json",
+    "target_unique_entries": 2468,
+    "current_unique_entries_at_last_source_snapshot": 246,
+    "mapping_exhaustive": false,
+    "source_mutated": false
+  },
+  "provider_module_standard": ["authentication", "capabilities", "docs", "events", "lifecycle", "models", "schemas", "security", "services", "tests"],
+  "service_tiers": ["NORMAL", "BASIC", "STANDARD", "PREMIUM", "PROFESSIONAL", "ENTERPRISE", "SUPREME"],
   "human_language_coverage_exhaustive": false,
   "provider_coverage_exhaustive": false,
   "live_provider_connections_verified": false,
@@ -46,14 +36,7 @@
   "adult_content_age_verification_required": true,
   "adult_content_consent_and_rights_required": true,
   "adult_content_moderation_required": true,
-  "prohibited_adult_content": [
-    "sexual content involving minors",
-    "non-consensual intimate imagery",
-    "coercion",
-    "trafficking",
-    "exploitation",
-    "illegal sexual content"
-  ],
+  "prohibited_adult_content": ["sexual content involving minors", "non-consensual intimate imagery", "coercion", "trafficking", "exploitation", "illegal sexual content"],
   "layer_boundaries": {
     "core": "identity, taxonomy, provider metadata, capability policy, lifecycle and readiness",
     "api": "provider authentication, SDK clients and HTTP transport",
@@ -62,9 +45,5 @@
     "runtime": "jobs, retries, queues and execution",
     "application": "sessions, consent screens and user workflows"
   },
-  "division": {
-    "id": "HUMAN-LANGUAGES",
-    "folder": "global_human_language_core_ecosystem"
-  },
-  "provider_metadata_count": 11
+  "division": {"id": "HUMAN-LANGUAGES", "folder": "global_human_language_core_ecosystem"}
 }
