@@ -19,6 +19,7 @@ DeepSeek Core is the provider-level control plane for the registered DeepSeek ca
 - `deepseek_*_core_ecosystem/`: four capability-specific Core packages.
 - `deepseek_shared_*_core_ecosystem/`: shared contracts, security and supporting concerns.
 - `test_deepseek_core_domains.py` and `tests/`: structural and behavior tests.
+- `DEEPSEEK_CORE_IMPLEMENTATION_STATUS.md`: implementation status and verification boundary.
 - `ecosystem_manifest.json` and `product_ecosystem_index.json`: machine-readable registry metadata.
 
 ## Capability inventory

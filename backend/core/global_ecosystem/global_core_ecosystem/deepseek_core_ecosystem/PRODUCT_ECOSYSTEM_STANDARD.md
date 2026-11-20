@@ -4,7 +4,7 @@ DeepSeek Core follows the provider-level Google Core architectural pattern while
 
 ## Root-level files
 
-The provider root owns `manager.py`, `manager.php`, `catalog.py`, `contracts.py`, `service.py`, `orchestrator.py`, `policy.py`, `README.md`, `ARCHITECTURE.md`, `IMPLEMENTATION_STATUS.md`, `ecosystem_manifest.json` and `product_ecosystem_index.json`.
+The provider root owns `manager.py`, `manager.php`, `catalog.py`, `contracts.py`, `service.py`, `orchestrator.py`, `policy.py`, `README.md`, `ARCHITECTURE.md`, `DEEPSEEK_CORE_IMPLEMENTATION_STATUS.md`, `ecosystem_manifest.json` and `product_ecosystem_index.json`.
 
 ## Capability packages
 
