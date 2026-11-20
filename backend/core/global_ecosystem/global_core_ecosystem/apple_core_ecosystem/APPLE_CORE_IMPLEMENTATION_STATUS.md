@@ -4,6 +4,8 @@
 - Product families: 8
 - Responsibility domains: 6
 - Shared support areas: 11 (directory inventory; contents require separate audit)
+- Apple Core registry package: 1
+- Directory naming audit: all 24 Apple package/domain/shared/registry directories follow `apple_*_core_ecosystem`; `php/` and `tests/` are intentional non-Apple package support directories.
 - API family references: 8
 - Live connections verified: 0
 - API calls performed by Core: 0
