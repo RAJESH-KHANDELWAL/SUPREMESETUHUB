@@ -1197,6 +1197,54 @@ CLOUDFLARE_CORE_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
     },
 )
 
+
+# Communication Core registry (catalog-only metadata; no credentials or live access asserted).
+COMMUNICATION_CORE_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
+    {
+        "ecosystem_id": "GLOBAL-COMMUNICATION-CORE-ECOSYSTEM",
+        "name": "GLOBAL COMMUNICATION CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["COMMUNICATION_PROVIDER_DISCOVERY", "EMAIL_AND_MESSAGING_TAXONOMY", "VOICE_AND_VIDEO_METADATA", "NOTIFICATION_ROUTING_METADATA", "PRIVACY_AND_TRUST_SAFETY_POLICY"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_communication_core_ecosystem", "status": "CORE_CATALOG_ONLY", "directory_entry_count": 19, "live_connection_verified": False, "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"},
+    },
+    {
+        "ecosystem_id": "GLOBAL-COMMUNICATION-PROVIDERS-CORE-ECOSYSTEM",
+        "name": "GLOBAL COMMUNICATION PROVIDERS CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["PROVIDER_DIRECTORY", "PROVIDER_CLASSIFICATION", "PROVIDER_LIFECYCLE_METADATA"],
+        "parent_id": "GLOBAL-COMMUNICATION-CORE-ECOSYSTEM",
+        "metadata": {"source_module": "backend/core/global_ecosystem/global_core_ecosystem/global_communication_core_ecosystem/product_catalog.py", "provider_family_count": 7, "status": "CORE_CATALOG_ONLY", "live_connection_verified": False},
+    },
+    *[
+        {
+            "ecosystem_id": f"GLOBAL-{provider.upper()}-COMMUNICATION-CORE-ECOSYSTEM",
+            "name": f"GLOBAL {provider.upper()} COMMUNICATION CORE ECOSYSTEM",
+            "ecosystem_type": "PROVIDER_CORE",
+            "capabilities": ["PROVIDER_IDENTITY_METADATA", "COMMUNICATION_PRODUCT_DISCOVERY", "CAPABILITY_CLASSIFICATION", "TENANT_SCOPE_POLICY"],
+            "parent_id": "GLOBAL-COMMUNICATION-PROVIDERS-CORE-ECOSYSTEM",
+            "metadata": {"provider_id": provider, "directory": f"{provider}_communication_core_ecosystem", "status": "CORE_CATALOG_ONLY", "live_connection_verified": False, "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"},
+        }
+        for provider in ("aws", "google", "meta", "microsoft", "slack", "twilio", "zoom")
+    ],
+    {
+        "ecosystem_id": "GLOBAL-COMMUNICATION-PRIVACY-CORE-ECOSYSTEM",
+        "name": "GLOBAL COMMUNICATION PRIVACY CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["DATA_MINIMIZATION_POLICY", "RETENTION_POLICY_METADATA", "ACCESS_AND_AUDIT_BOUNDARIES"],
+        "parent_id": "GLOBAL-COMMUNICATION-CORE-ECOSYSTEM",
+        "metadata": {"status": "CORE_CATALOG_ONLY", "live_enforcement_verified": False},
+    },
+    {
+        "ecosystem_id": "GLOBAL-COMMUNICATION-TRUST-SAFETY-CORE-ECOSYSTEM",
+        "name": "GLOBAL COMMUNICATION TRUST AND SAFETY CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["ABUSE_REPORTING_METADATA", "MODERATION_POLICY", "AGE_AND_CONSENT_BOUNDARIES"],
+        "parent_id": "GLOBAL-COMMUNICATION-CORE-ECOSYSTEM",
+        "metadata": {"status": "CORE_CATALOG_ONLY", "live_enforcement_verified": False},
+    },
+)
+
 def _normalize_record(record: dict[str, Any]) -> dict[str, Any]:
     """Return a complete, independent record with safe defaults."""
     normalized = deepcopy(record)
@@ -1315,6 +1363,7 @@ def get_catalog() -> list[dict[str, Any]]:
         security_core,
         people_life_core,
         *CLOUDFLARE_CORE_ECOSYSTEMS,
+        *COMMUNICATION_CORE_ECOSYSTEMS,
         *PERSONAL_REGISTRATIONS,
         *COMPANY_REGISTRATIONS,
     ]
