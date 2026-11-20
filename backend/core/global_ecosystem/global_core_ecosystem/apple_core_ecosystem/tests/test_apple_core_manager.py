@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import importlib
+import re
 from pathlib import Path
 import unittest
 
@@ -35,6 +36,16 @@ PACKAGE_IMPORT_ROOT = (
 class AppleCoreManagerTests(unittest.TestCase):
     def setUp(self):
         self.manager = get_manager()
+
+    def test_apple_package_directories_follow_name_pattern(self):
+        for directory in PACKAGE_ROOT.iterdir():
+            if not directory.is_dir() or directory.name in {"php", "tests"}:
+                continue
+            self.assertRegex(
+                directory.name,
+                r"^apple_[a-z0-9_]+_core_ecosystem$",
+                f"Non-standard Apple Core directory: {directory.name}",
+            )
 
     def test_status_is_catalog_only_and_not_live(self):
         status = self.manager.status()
