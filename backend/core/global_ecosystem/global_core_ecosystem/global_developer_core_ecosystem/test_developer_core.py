@@ -23,7 +23,7 @@ class DeveloperCoreTests(unittest.TestCase):
         self.assertIsInstance(get_manager(),GlobalDeveloperCoreManager)
     def test_health_reports_catalog_only(self):
         h=get_manager().health()
-        self.assertEqual(h["product_family_count"],28)
+        self.assertEqual(h["product_family_count"],29)
         self.assertEqual(h["live_connections_verified"],0)
     def test_domain_runtime_rejects_unknown(self):
         with self.assertRaises(ValueError): DeveloperCoreDomainManager("NOT_A_DOMAIN")
@@ -35,6 +35,10 @@ class DeveloperCoreTests(unittest.TestCase):
         s=DeveloperProviderCoreService("GLOBAL-DEVELOPER-GITHUB-DEVELOPER-CORE-ECOSYSTEM")
         result=s.authorize_capability("REPOSITORY_WRITE",TenantContext("tenant","actor"))
         self.assertFalse(result["success"])
+        self.assertEqual(result["status"],"POLICY_DENIED")
+        allowed=s.authorize_capability("REPOSITORY_WRITE",TenantContext("tenant","actor"),authorized=True)
+        self.assertTrue(allowed["success"])
+        self.assertFalse(allowed["data"]["api_call_performed"])
     def test_metadata_does_not_call_api(self):
         s=DeveloperProviderCoreService("GLOBAL-DEVELOPER-GITHUB-DEVELOPER-CORE-ECOSYSTEM")
         self.assertFalse(s.status()["live_connection_verified"])
