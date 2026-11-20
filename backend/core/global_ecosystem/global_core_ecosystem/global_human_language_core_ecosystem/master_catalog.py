@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Any
 
 MASTER_CATALOG_RELATIVE_PATH = Path("backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json")
-REPOSITORY_ROOT = Path(__file__).resolve().parents[4]
+REPOSITORY_ROOT = Path(__file__).resolve().parents[5]
 MASTER_CATALOG_PATH = REPOSITORY_ROOT / MASTER_CATALOG_RELATIVE_PATH
 
 # Exact source IDs from the master catalog. Adjacent topics are contextual,
