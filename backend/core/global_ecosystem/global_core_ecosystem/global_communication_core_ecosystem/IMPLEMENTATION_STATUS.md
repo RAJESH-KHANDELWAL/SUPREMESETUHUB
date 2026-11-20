@@ -1,17 +1,22 @@
-# Implementation Status
+# Global Communication Core — Implementation Status
 
-- [x] Python manager and stable `get_manager()`
-- [x] PHP interoperability facade
-- [x] Read-only bridge to the 2468 master catalog
-- [x] Existing 19 directory placeholders accounted for
-- [x] Expanded provider discovery directory (95 reference records)
-- [x] 28 communication domain categories
-- [x] Provider-family and geographic filters
-- [x] Privacy, authorization and restricted-service metadata boundaries
-- [x] Unit tests authored for expanded catalog
-- [ ] CI execution pass not yet verified
-- [ ] Provider APIs/OAuth not implemented
-- [ ] Live message, email, voice and video delivery not implemented
-- [ ] Current product lifecycle and country availability require source-by-source verification
+## Implemented in repository
+- [x] Google Core-aligned canonical catalog and Python manager singleton
+- [x] PHP metadata interoperability facade
+- [x] Provider/platform reference inventory (95 records)
+- [x] Domain taxonomy (28 definitions) and shared domain runtime
+- [x] Shared provider metadata service
+- [x] Tenant, secret-reference, readiness and result contracts
+- [x] Privacy, authorization and restricted-domain policy boundaries
+- [x] Master catalog module-index registration without changing numbered entry counts
+- [x] Existing 19 directories inventoried separately
+- [x] Unit tests authored for catalog, domain runtime, contracts and policy
 
-Status: `CORE_CATALOG_ONLY`; provider entries are reference metadata only.
+## Not implemented / not verified
+- [ ] CI test execution pass (must be confirmed from GitHub Actions)
+- [ ] Provider OAuth/API adapters and live credentials
+- [ ] Live email/message delivery, voice calls or video transport
+- [ ] Durable connection storage, queue execution or UI
+- [ ] Source-by-source provider lifecycle, legal and regional availability verification
+
+**Current status:** `CORE_CATALOG_ONLY`. Reference entries are discovery metadata only.
