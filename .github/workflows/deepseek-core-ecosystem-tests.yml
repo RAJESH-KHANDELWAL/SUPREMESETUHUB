@@ -37,8 +37,17 @@ jobs:
           from pathlib import Path
           root = Path("backend/core/global_ecosystem/global_core_ecosystem/deepseek_core_ecosystem")
           expected = {"authentication", "capabilities", "docs", "events", "lifecycle", "models", "schemas", "security", "services", "tests"}
-          packages = sorted(p for p in root.glob("deepseek_*_core_ecosystem") if p.is_dir())
+          packages = sorted(
+              p for p in root.glob("deepseek_*_core_ecosystem")
+              if p.is_dir() and not p.name.startswith("deepseek_shared_")
+          )
+          shared_packages = sorted(
+              p for p in root.glob("deepseek_shared_*_core_ecosystem")
+              if p.is_dir()
+          )
           assert len(packages) == 4, packages
+          assert len(shared_packages) == 11, shared_packages
+          assert all(p.name.endswith("_core_ecosystem") for p in shared_packages)
           for package in packages:
               actual = {p.name for p in package.iterdir() if p.is_dir() and p.name != "__pycache__"}
               assert actual == expected, (package, actual)
