@@ -1,11 +1,6 @@
-"""HOSTING CORE ECOSYSTEM package.
-
-This package is an independent layer-owned namespace. It contains no imports
-from API, CORE, or ENGINE sibling layers.
-"""
-LAYER = "CORE"
-CATEGORY = "HOSTING"
-ECOSYSTEM_NAME = f"GLOBAL {CATEGORY.replace('_', ' ')} {LAYER} ECOSYSTEM"
-ECOSYSTEM_ID = f"GLOBAL-{CATEGORY.replace('_', '-')}-{LAYER.upper()}-ECOSYSTEM"
-
-__all__ = ["LAYER", "CATEGORY", "ECOSYSTEM_NAME", "ECOSYSTEM_ID"]
+"""Global Hosting Core Ecosystem public interface."""
+from .catalog import ROOT_ID,get_catalog,get_provider,list_providers
+from .manager import GlobalHostingCoreManager,get_manager
+from .models import HostingProviderRecord
+from .registry import HostingProviderRegistry
+__all__=["ROOT_ID","get_catalog","get_provider","list_providers","GlobalHostingCoreManager","get_manager","HostingProviderRecord","HostingProviderRegistry"]
