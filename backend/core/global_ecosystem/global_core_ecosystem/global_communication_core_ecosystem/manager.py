@@ -1,7 +1,7 @@
 """Canonical manager for Global Communication Core Ecosystem.
 
-Metadata-only facade. Provider OAuth, message delivery, telephony and storage
-are deliberately outside this manager and require dedicated adapters.
+The catalog is metadata-only. Provider OAuth, message delivery, telephony and
+storage require separately reviewed adapters and are not enabled here.
 """
 from __future__ import annotations
 import json
@@ -44,13 +44,16 @@ class CommunicationCoreManager:
         }
 
     def status(self) -> dict[str, Any]:
-        return {**self._service.status(), "master_catalog": self.master_catalog_summary()}
+        return {**self._service.status(), "master_catalog": self.master_catalog_summary(), "inventory": self.health()}
 
     def health(self) -> dict[str, Any]:
         return self._orchestrator.health()
 
     def list_products(self, *, enabled_only: bool = False) -> dict[str, Any]:
         return self._orchestrator.list_products(enabled_only=enabled_only)
+
+    def list_providers(self, *, family: str | None = None, region: str | None = None) -> dict[str, Any]:
+        return self._orchestrator.list_providers(family=family, region=region)
 
     def get_product(self, product_id: str) -> dict[str, Any] | None:
         return self._orchestrator.get_product(product_id)
