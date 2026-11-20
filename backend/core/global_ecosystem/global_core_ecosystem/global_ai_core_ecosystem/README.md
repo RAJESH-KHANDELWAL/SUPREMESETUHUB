@@ -16,8 +16,8 @@ Each canonical runtime registry entry maps to exactly one `<provider_id>_core_ec
 
 ## Google Core-aligned public structure
 
-- `manager.py`: canonical `GlobalAICoreManager` and `get_manager()` entry point.
-- `manager.php`: thin PHP metadata interoperability facade.
+- `manager.py`: canonical `GlobalAICoreManager`, `get_manager()`, and read-only master-catalog inventory access.
+- `manager.php`: PHP interoperability facade with matching read-only master-catalog access.
 - `domain_runtime.py`: shared read-only manager for the 19 AI domains.
 - `catalog.py`: canonical provider lookup, alias resolution and registry validation.
 - `product_catalog.py`: unified provider offering inventory.
@@ -30,7 +30,7 @@ Each canonical runtime registry entry maps to exactly one `<provider_id>_core_ec
 - `ecosystem_service.py`: global registry registration/status and registered-module discovery.
 - `service.py`: executor-injected task boundary; execution remains delegated to the application/ENGINE.
 - `php/GlobalAICoreContract.php`: PHP 8+ result-contract validation and sanitization.
-- `test_global_ai_core_domains.py` and `tests/`: provider, domain and contract tests.
+- `test_global_ai_core_domains.py`: provider, domain, catalog coverage and manager contract tests.
 - `<provider_id>_core_ecosystem/`: existing provider-specific Core packages.
 
 Provider packages keep the ten Google Core folders: `authentication/`, `capabilities/`, `docs/`, `events/`, `lifecycle/`, `models/`, `schemas/`, `security/`, `services/` and `tests/`. Do not create duplicate managers or unnecessary nested folders in every provider package.
@@ -41,14 +41,27 @@ The canonical runtime inventory is verified by CI and currently contains at leas
 
 The inventory includes hosted model providers, open model families, agent frameworks, inference infrastructure and enterprise AI platforms. Their original runtime classifications must be preserved. Registration does not imply a public API, entitlement, authenticated account, provider authorization or live integration.
 
-## Master Bharat-to-Supreme catalog reference
+## Complete master Bharat-to-Supreme catalog coverage
 
-The separate master planning catalog is:
+The single source of truth remains:
 `backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json`.
 
-Its target is **2,468 unique entries**. At the last inspected catalog snapshot it contained **246 unique entries**, with **2,222 remaining**. This is a cross-ecosystem planning catalog, not an AI provider count.
+Global AI Core now exposes the existing catalog through `master_catalog_inventory()` and `get_master_catalog_entry(entry_id)` in Python, with matching `masterCatalogInventory()` and `getMasterCatalogEntry()` PHP methods. The bridge is read-only and loads the source file on demand; it does not copy the catalog into another file, move ownership, create provider records, or generate placeholder entries.
 
-Ownership stays with `GLOBAL_ENGINE_ECOSYSTEM`. Global AI Core exposes only the catalog identity, source path and target count as reference metadata. It does not load, mutate, expand or count master-catalog entries as AI providers. Only meaningful, individually defined, non-duplicate entries may be added to the master catalog.
+The last verified source snapshot contains:
+
+| Catalog measure | Count |
+|---|---:|
+| Target unique entries | 2,468 |
+| Current unique entries | 246 |
+| Remaining unique entries | 2,222 |
+| Numbered source rows | 248 |
+| Cross-reference rows included in source rows | 2 |
+| Master catalog sections | 13 |
+
+The 246 unique entries consist of the catalog's non-cross-reference rows; the two cross-reference rows are also returned by default and retain their canonical entry IDs. The catalog's own count fields are checked whenever the inventory is loaded. If the source file is missing, malformed, or its counts do not reconcile, the bridge raises an explicit error instead of silently returning partial or fabricated data.
+
+The master catalog is cross-ecosystem planning data, not an AI provider count. Global AI Core exposes all current source rows as a read-only planning inventory, while the AI provider registry remains separate and authoritative for provider operations. The 2,468 target is not treated as permission to create folders, files, dummy records or duplicate modules. Only meaningful, individually defined, non-duplicate entries may be added to the master catalog by its owning layer, `GLOBAL_ENGINE_ECOSYSTEM`.
 
 ## Core domains
 
@@ -80,7 +93,7 @@ Provider-to-domain assignment is metadata classification, not a claim that every
 
 | Layer | Owns |
 |---|---|
-| Global AI Core | Canonical provider identity, registry mapping, domain classification, capability metadata, Core policy, lifecycle, readiness and orchestration |
+| Global AI Core | Canonical provider identity, registry mapping, domain classification, capability metadata, Core policy, lifecycle, readiness, discovery and read-only master-catalog access |
 | Global AI API | Provider authentication, OAuth, secret resolution, SDK clients, HTTP transport, retries and response normalization |
 | Global AI Engine | Model inference, agent execution, tool execution, routing and runtime execution |
 | Global AI Database | Structured records, schemas, queries, migrations and transactions |
