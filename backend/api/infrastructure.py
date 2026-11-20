@@ -20,7 +20,7 @@ from backend.infrastructure.hostinger_catalog import (
 from backend.api.wordpress import require_wordpress_owner
 from backend.database.gde_connection import GDEDatabaseConnection
 from backend.infrastructure.ftp.service import FtpInfrastructureService
-from backend.infrastructure.hostinger_api import (
+from backend.infrastructure.global_ecosystem.hostinger_api import (
     connection_status as hostinger_connection_status,
     list_vps_instances as hostinger_list_vps_instances,
     list_websites as hostinger_list_websites,
