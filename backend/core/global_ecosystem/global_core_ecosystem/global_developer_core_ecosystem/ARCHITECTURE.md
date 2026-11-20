@@ -3,7 +3,7 @@
 ```text
 GLOBAL CORE ECOSYSTEM
 └── GLOBAL DEVELOPER CORE ECOSYSTEM
-    ├── Canonical catalog (28 module/domain references)
+    ├── Canonical catalog (29 module/domain references)
     ├── Product/provider inventory facade
     ├── Domain taxonomy (19 domains)
     ├── Tenant and secret-reference contracts
