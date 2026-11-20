@@ -14,12 +14,12 @@ Canonical modules:
 The former implementation files at this package root have been replaced with thin compatibility shims only. They preserve existing import paths but do not own duplicate implementation code.
 
 ## Other ecosystem modules
-- `global_ecosystem/hostinger_api.py`: read-only Hostinger inventory API client.
-- `global_ecosystem/nsfwinfra.py`: NSFWInfra API helper; connection is not verified.
+- `backend/global_ecosystem/global_hosting_ecosystem/hostinger_api.py`: read-only Hostinger inventory API client.
+- `backend/global_ecosystem/nsfwinfra_ecosystem/nsfwinfra.py`: NSFWInfra API helper; connection is not verified.
 - `global_ecosystem/global_infrastructure_ecosystem/`: 21 domain packages, their ecosystem support modules, integrations, catalog, managers and structure metadata.
 
 ## Managers
-The Python and PHP root managers verify canonical module presence, package compatibility entry point, Hostinger API and NSFWinfra helper files, and the Global Infrastructure Ecosystem manager. Structural health is not proof of runtime tests or provider connectivity.
+The Python and PHP root managers verify canonical module presence, package compatibility entry point, Backend Global Ecosystem Hostinger API and NSFWinfra helper files, and the Global Infrastructure Ecosystem manager. Structural health is not proof of runtime tests or provider connectivity.
 
 ## Cross-layer ownership
 - CORE and identity/policy: `backend.core`
