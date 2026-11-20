@@ -83,3 +83,16 @@ def test_provider_adapters_are_registered_from_backend_global_ecosystem():
     from backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem.modules import ROOT_MODULES
     assert ROOT_MODULES["hostinger_api"] == "backend.global_ecosystem.global_hosting_ecosystem.hostinger_api"
     assert ROOT_MODULES["nsfwinfra"] == "backend.global_ecosystem.nsfwinfra_ecosystem.nsfwinfra"
+
+
+def test_all_global_infrastructure_domain_packages_have_structural_managers():
+    from backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem.manager import get_manager
+    health = get_manager().health()
+    assert health["expected_global_package_count"] == 21
+    assert health["present_global_package_count"] == 21
+    assert all(health["checks"][f"global_package_{name}"] for name in (
+        "backup", "billing", "cdn", "containers", "database", "dns", "domains",
+        "email", "firewall", "ftp", "hosting", "ipam", "load_balancer", "model",
+        "monitoring", "network", "object_storage", "security", "server", "ssl", "storage",
+    ))
+    assert health["healthy"] is True

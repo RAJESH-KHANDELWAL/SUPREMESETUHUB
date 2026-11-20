@@ -19,16 +19,23 @@ final class BackendGlobalInfrastructureEcosystemManager {
         foreach (self::DOMAINS as $domain) {
             $domainChecks[$domain] = is_dir($root . '/' . $domain) && is_file($root . '/' . $domain . '/__init__.py');
             $checks['domain_' . $domain] = $domainChecks[$domain];
-            $checks['domain_global_ecosystem_' . $domain] = is_dir($root . '/' . $domain . '/global_ecosystem');
+            $ecosystemRoot = $root . '/' . $domain . '/global_ecosystem';
+            $checks['domain_global_ecosystem_' . $domain] = is_dir($ecosystemRoot) && is_file($ecosystemRoot . '/__init__.py');
+            $packageRoot = $ecosystemRoot . '/global_' . $domain . '_ecosystem';
+            $packageFiles = in_array($domain, ['model','server'], true) ? ['__init__.py'] : ['__init__.py','manager.py','manager.php'];
+            $packageHealthy = is_dir($packageRoot);
+            foreach ($packageFiles as $packageFile) { if (!is_file($packageRoot . '/' . $packageFile)) { $packageHealthy = false; } }
+            $checks['global_package_' . $domain] = $packageHealthy;
         }
         $checks['backend_global_hostinger_api'] = is_file($backendRoot . '/global_ecosystem/global_hosting_ecosystem/hostinger_api.py');
         $checks['backend_global_nsfwinfra'] = is_file($backendRoot . '/global_ecosystem/nsfwinfra_ecosystem/nsfwinfra.py');
         $healthy = !in_array(false, $checks, true);
-        $present = 0;
-        foreach (self::DOMAINS as $domain) { if ($checks['domain_' . $domain]) { $present++; } }
+        $present = 0; $globalPackagesPresent = 0;
+        foreach (self::DOMAINS as $domain) { if ($checks['domain_' . $domain]) { $present++; } if ($checks['global_package_' . $domain]) { $globalPackagesPresent++; } }
         return ['name'=>self::NAME,'version'=>self::VERSION,
                 'status'=>$healthy?'READY':'INCOMPLETE',
                 'expected_domain_count'=>count(self::DOMAINS),'present_domain_count'=>$present,
+                'expected_global_package_count'=>count(self::DOMAINS),'present_global_package_count'=>$globalPackagesPresent,
                 'checks'=>$checks,'domain_checks'=>$domainChecks,'healthy'=>$healthy,'provider_operations_enabled'=>false];
     }
 }
