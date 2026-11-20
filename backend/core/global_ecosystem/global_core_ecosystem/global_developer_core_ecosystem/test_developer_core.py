@@ -13,8 +13,8 @@ class DeveloperCoreTests(unittest.TestCase):
         self.assertEqual(c["ecosystem_id"],"GLOBAL-DEVELOPER-CORE-ECOSYSTEM")
         self.assertEqual(c["parent_id"],"GLOBAL-CORE-ECOSYSTEM")
     def test_catalog_has_all_domain_folders(self):
-        self.assertEqual(len(get_global_developer_core_catalog()["children"]),28)
-        self.assertEqual(len({x["ecosystem_id"] for x in get_global_developer_core_catalog()["children"]}),28)
+        self.assertEqual(len(get_global_developer_core_catalog()["children"]),29)
+        self.assertEqual(len({x["ecosystem_id"] for x in get_global_developer_core_catalog()["children"]}),29)
     def test_domains_are_unique(self):
         self.assertEqual(len(DOMAIN_DEFINITIONS),19)
         self.assertEqual(len(DOMAIN_DEFINITIONS),len(set(DOMAIN_DEFINITIONS)))
