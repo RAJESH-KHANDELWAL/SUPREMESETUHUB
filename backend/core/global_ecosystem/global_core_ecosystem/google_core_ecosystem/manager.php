@@ -8,6 +8,7 @@ declare(strict_types=1);
  * metadata orchestrator; this file does not call Google APIs or OAuth.
  */
 require_once __DIR__ . '/php/GoogleCoreContract.php';
+require_once __DIR__ . '/php/GoogleCoreDomainContract.php';
 
 final class GoogleCoreManager
 {
