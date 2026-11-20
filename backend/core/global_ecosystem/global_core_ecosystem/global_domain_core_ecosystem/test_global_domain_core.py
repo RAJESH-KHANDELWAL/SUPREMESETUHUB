@@ -13,6 +13,9 @@ def test_expanded_sectors_are_meaningful_and_unique():
     assert len(sectors)>=35
     assert len({s["sector_id"] for s in sectors})==len(sectors)
     assert all(s["description"].strip() for s in sectors)
+    assert all(s["ecosystem_name"].startswith("GLOBAL ") for s in sectors)
+    assert all(s["ecosystem_name"].endswith(" CORE ECOSYSTEM") for s in sectors)
+    assert all(s["ecosystem_id"].startswith("GLOBAL-") and s["ecosystem_id"].endswith("-CORE-ECOSYSTEM") for s in sectors)
 
 def test_provider_registry_scales_and_is_explicitly_catalog_only():
     rows=list_expanded_provider_registry()
