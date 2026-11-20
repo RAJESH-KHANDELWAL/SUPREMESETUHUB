@@ -1,15 +1,14 @@
 # AWS Core Implementation Status
 
-- Provider root: metadata-only AWS Core control plane implemented.
+- Provider root: metadata-only AWS Core control plane.
 - Service families: 16 registered from the existing AWS API Ecosystem catalog.
-- Domain taxonomy: 13 domain groups.
-- Product package structure: Google Core-style standard package files and ten subfolders per family.
-- Shared support directories: 11.
-- Global Core registry integration: provider root, API/product roots and all service families.
-- Automated tests: provider catalog, domain coverage, manifests, package structure, safe readiness and global registry integration.
+- Domain taxonomy: 13 AWS-specific domains with package managers and inventory routing.
+- Canonical manager: `AwsCoreManager` with status, health, products, domains, offerings, dependencies and domain-manager access.
+- PHP interoperability facade: `manager.php`.
+- Product-family manager facades: 16, each delegating to its existing family service.
+- Shared support packages: 11, using standardized `aws_shared_<capability>_core_ecosystem` names.
+- Automated tests: existing catalog/policy/account/manifest tests plus Google Core alignment, domain manager and naming tests.
 - API availability: unverified (`null`).
-- Live AWS connections verified by this Core: 0.
-- Credentials stored in Core: 0.
-- AWS API calls performed by Core: 0.
+- Live AWS connections verified: 0. Credentials stored in Core: 0. AWS API calls performed by Core: 0.
 
-This is a Core foundation implementation record, not a claim of AWS account authorization, deployed adapter readiness or live AWS connectivity. Review CI for the exact commit before treating the tests as passed.
+Implementation changes are committed to MAIN. Test execution and CI success must be verified separately; this file does not claim tests passed or production readiness.
