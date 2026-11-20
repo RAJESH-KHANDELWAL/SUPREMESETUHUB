@@ -1,9 +1,9 @@
 # GLOBAL ENTITY RELATIONSHIPS CORE IMPLEMENTATION STATUS
 
 - Naming standard: GLOBAL + SUBJECT + CORE ECOSYSTEM.
-- Taxonomy category count: 35.
+- Taxonomy category count: 36.
 - Relationship type count: 21.
-- Catalog entries including root: 36.
+- Catalog entries including root: 37.
 - Catalog status: CORE_CATALOG_ONLY.
 - Live integrations: none verified.
 - API transport: not implemented in CORE.
