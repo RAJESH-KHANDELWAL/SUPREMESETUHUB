@@ -1,5 +1,7 @@
 """Structural and behavioral tests for Atlassian Core domain and package managers."""
 import importlib
+import re
+from pathlib import Path
 from .domain_catalog import DOMAIN_DEFINITIONS,atlassian_domain_summary
 from .domain_runtime import AtlassianCoreDomainManager
 DOMAIN_PACKAGES={
@@ -26,3 +28,9 @@ def test_canonical_manager_contract():
  manager=get_manager()
  assert manager.status()["success"] and manager.health()["product_family_count"]==5
  assert manager.list_products()["count"]==5 and manager.list_offerings()["count"]==5 and manager.list_domains()["domain_count"]==8
+def test_package_directory_names_follow_provider_standard():
+ root=Path(__file__).parent
+ pattern=re.compile(r"^atlassian_(?:shared_[a-z0-9_]+|[a-z0-9_]+)_core_ecosystem$")
+ exceptions={"php","tests"}
+ packages=[item.name for item in root.iterdir() if item.is_dir() and item.name not in exceptions]
+ assert packages and all(pattern.fullmatch(name) for name in packages)
