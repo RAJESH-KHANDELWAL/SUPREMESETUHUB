@@ -30,7 +30,7 @@ class CloudflareCoreManager:
         return self._orchestrator.dependency_map()
     def master_catalog_snapshot(self) -> dict[str, Any]:
         """Read the existing 2468 master catalog; never copy or expand it here."""
-        path = Path(__file__).resolve().parents[5] / "GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+        path = Path(__file__).resolve().parents[4] / "GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
         if not path.is_file():
             return {"available": False, "error": "MASTER_CATALOG_NOT_FOUND"}
         data = json.loads(path.read_text(encoding="utf-8"))
