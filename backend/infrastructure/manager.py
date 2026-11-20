@@ -16,8 +16,9 @@ class BackendInfrastructureManager:
         checks = {f"canonical_module_{name}": (self.modules / name).is_file() for name in required_modules}
         checks["root_compatibility_package"] = (self.root / "__init__.py").is_file()
         checks["global_ecosystem"] = self.global_root.is_dir()
-        checks["global_hostinger_api"] = (self.global_root / "hostinger_api.py").is_file()
-        checks["global_nsfwinfra"] = (self.global_root / "nsfwinfra.py").is_file()
+        backend_global = self.root.parent / "global_ecosystem"
+        checks["backend_global_hostinger_api"] = (backend_global / "global_hosting_ecosystem" / "hostinger_api.py").is_file()
+        checks["backend_global_nsfwinfra"] = (backend_global / "nsfwinfra_ecosystem" / "nsfwinfra.py").is_file()
         checks["global_infrastructure_manager"] = (self.ecosystem / "manager.py").is_file()
         healthy = all(checks.values())
         return {"name":self.NAME,"version":self.VERSION,"status":"READY" if healthy else "INCOMPLETE",
