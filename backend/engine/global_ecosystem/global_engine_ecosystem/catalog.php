@@ -91,7 +91,8 @@ final class GlobalSupremeEcosystemCatalog
                     continue;
                 }
 
-                $normalizedName = mb_strtolower(preg_replace('/\s+/', ' ', $name) ?? $name);
+                $normalized = preg_replace('/\\s+/', ' ', $name) ?? $name;
+                $normalizedName = function_exists('mb_strtolower') ? mb_strtolower($normalized) : strtolower($normalized);
                 if (isset($seenNames[$normalizedName])) {
                     throw new UnexpectedValueException('Duplicate unique catalog entry name: ' . $name);
                 }
