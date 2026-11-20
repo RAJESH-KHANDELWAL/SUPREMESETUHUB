@@ -12,16 +12,16 @@ Apple Core is a read-only provider control plane for Apple provider identity, pr
 - `catalog.py`: provider identity and 8 registered product families.
 - `product_catalog.py`: offering inventory and routing metadata.
 - `domain_catalog.py`: six responsibility domains and product routing.
-- `contracts.py`: tenant context, secret-reference, readiness and result contracts.
+- `contracts.py`: tenant context, secret references, readiness and result contracts.
 - `policy.py`: metadata-only capability guardrails.
 - `module_service.py`: reusable product-family Core service.
 - `orchestrator.py`: discovery, health and dependency metadata.
 - `service.py`: public ecosystem status and registry integration.
 - `domain_runtime.py`: shared read-only manager for responsibility domains.
-- `tests/test_apple_core_manager.py`: manager and domain behavior tests.
-- `apple_*_core_ecosystem/` product-family packages: eight packages with canonical `manager.py` entry points.
-- Domain manager packages: `apple_app_store_and_distribution_core_ecosystem/`, `apple_app_store_commerce_core_ecosystem/`, `apple_device_management_domain_core_ecosystem/`, `apple_cloud_data_core_ecosystem/`, `apple_payments_and_commerce_core_ecosystem/`, and `apple_identity_and_notifications_core_ecosystem/`.
-- `apple_shared_*/`: shared support/responsibility packages.
+- `tests/test_apple_core_manager.py`: structural and behavior validation for catalog, domain and product-family manager contracts.
+- `apple_*_core_ecosystem/` product-family packages: eight packages with canonical `manager.py` entry points and package documentation.
+- Six responsibility-domain packages: each contains `manager.py`, `__init__.py` and `README.md`, backed by the shared runtime.
+- `apple_shared_*/`: shared support/responsibility packages; inspect contents before adding implementation or duplicating utilities.
 
 ## Domains
 1. App Store and Distribution
