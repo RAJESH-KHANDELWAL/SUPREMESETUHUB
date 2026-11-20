@@ -29,3 +29,12 @@ def test_hostinger_catalog_compatibility_shim():
     canonical = import_module("backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem.modules.hostinger_catalog")
     assert old.hostinger_catalog is canonical.hostinger_catalog
     assert old.hostinger_readiness is canonical.hostinger_readiness
+
+
+def test_python_managers_report_canonical_structure():
+    from backend.infrastructure.manager import get_manager
+    from backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem.manager import get_manager as get_ecosystem_manager
+    root_health = get_manager().health()
+    ecosystem_health = get_ecosystem_manager().health()
+    assert root_health["healthy"], root_health
+    assert ecosystem_health["healthy"], ecosystem_health
