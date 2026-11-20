@@ -2,15 +2,15 @@
 from __future__ import annotations
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel, Field
-from backend.core.global_ecosystem.global_core_ecosystem.cultural_knowledge_core_ecosystem.service import CulturalKnowledgeCoreService
+from backend.global_ecosystem.global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem.service import CulturalKnowledgeDomainService
 from backend.global_ecosystem.global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem import CULTURAL_DOMAINS
 from backend.engine.global_ecosystem.global_engine_ecosystem.cultural_knowledge_engine_ecosystem.manager import CulturalKnowledgeEngineManager
 from backend.ai.cultural_knowledge_assistant import CulturalKnowledgeAssistant
 from backend.database.cultural_knowledge_repository import CulturalKnowledgeRepository
 
 router = APIRouter(prefix="/api/v1/global-cultural-knowledge", tags=["GLOBAL CULTURAL KNOWLEDGE"])
-core = CulturalKnowledgeCoreService()
-engine = CulturalKnowledgeEngineManager(core=core, domains=CULTURAL_DOMAINS)
+domain_service = CulturalKnowledgeDomainService()
+engine = CulturalKnowledgeEngineManager(core=domain_service, domains=CULTURAL_DOMAINS)
 assistant = CulturalKnowledgeAssistant(engine=engine)
 repository = CulturalKnowledgeRepository()
 
@@ -20,7 +20,7 @@ class CulturalSearchRequest(BaseModel):
 
 @router.get("/status")
 def cultural_knowledge_status():
-    return {"success": True, "ecosystem": core.describe(),
+    return {"success": True, "ecosystem": domain_service.describe(),
             "engine": engine.status(),
             "database": "AVAILABLE_ON_INITIALIZATION",
             "ai_context_builder": "READY_NO_PROVIDER_CALL",
@@ -28,7 +28,7 @@ def cultural_knowledge_status():
 
 @router.get("/knowledge")
 def cultural_knowledge():
-    return {"success": True, "knowledge": core.knowledge()}
+    return {"success": True, "knowledge": domain_service.knowledge()}
 
 @router.get("/search")
 def cultural_knowledge_search(q: str = Query(min_length=1, max_length=300),
