@@ -13,6 +13,7 @@ PROVIDER = "cloudflare"
 
 # (directory, product_id, display_name, domain_id, status)
 _PRODUCTS = (
+    ("access_zero_trust_cloudflare_core_ecosystem", "access_zero_trust", "Cloudflare Access", "ZERO_TRUST_ACCESS", "DIRECTORY_PLACEHOLDER"),
     ("accounts_cloudflare_core_ecosystem", "accounts", "Cloudflare Accounts", "GOVERNANCE_IDENTITY", "DIRECTORY_PLACEHOLDER"),
     ("agents_cloudflare_core_ecosystem", "agents", "Cloudflare Agents", "AI_DEVELOPER_PLATFORM", "DIRECTORY_PLACEHOLDER"),
     ("ai_gateway_cloudflare_core_ecosystem", "ai_gateway", "AI Gateway", "AI_DEVELOPER_PLATFORM", "DIRECTORY_PLACEHOLDER"),
@@ -57,12 +58,14 @@ _PRODUCTS = (
     ("queues_cloudflare_core_ecosystem", "queues", "Queues", "DATA_STORAGE_MESSAGING", "DIRECTORY_PLACEHOLDER"),
     ("r2_cloudflare_core_ecosystem", "r2", "R2 Object Storage", "DATA_STORAGE_MESSAGING", "DIRECTORY_PLACEHOLDER"),
     ("rate_limiting_cloudflare_core_ecosystem", "rate_limiting", "Rate Limiting", "APPLICATION_SECURITY", "DIRECTORY_PLACEHOLDER"),
+    ("realtime_cloudflare_core_ecosystem", "realtime", "Cloudflare Realtime", "MEDIA_DELIVERY", "DIRECTORY_PLACEHOLDER"),
     ("registrar_cloudflare_core_ecosystem", "registrar", "Cloudflare Registrar", "DNS_DOMAIN_REGISTRY", "DIRECTORY_PLACEHOLDER"),
     ("security_cloudflare_core_ecosystem", "security", "Security Center", "APPLICATION_SECURITY", "DIRECTORY_PLACEHOLDER"),
     ("spectrum_cloudflare_core_ecosystem", "spectrum", "Spectrum", "NETWORK_EDGE", "DIRECTORY_PLACEHOLDER"),
     ("ssl_certificates_cloudflare_core_ecosystem", "ssl_certificates", "SSL Certificates", "APPLICATION_SECURITY", "DIRECTORY_PLACEHOLDER"),
     ("ssl_tls_cloudflare_core_ecosystem", "ssl_tls", "SSL/TLS", "APPLICATION_SECURITY", "DIRECTORY_PLACEHOLDER"),
     ("stream_cloudflare_core_ecosystem", "stream", "Cloudflare Stream", "MEDIA_DELIVERY", "DIRECTORY_PLACEHOLDER"),
+    ("time_services_cloudflare_core_ecosystem", "time_services", "Time Services", "NETWORK_EDGE", "DIRECTORY_PLACEHOLDER"),
     ("tunnel_cloudflare_core_ecosystem", "tunnel", "Cloudflare Tunnel", "ZERO_TRUST_ACCESS", "DIRECTORY_PLACEHOLDER"),
     ("turn_service_cloudflare_core_ecosystem", "turn_service", "TURN Service", "NETWORK_EDGE", "DIRECTORY_PLACEHOLDER"),
     ("turnstile_cloudflare_core_ecosystem", "turnstile", "Turnstile", "APPLICATION_SECURITY", "DIRECTORY_PLACEHOLDER"),
