@@ -20,7 +20,7 @@ Provider-neutral developer control plane for discovery, classification, capabili
 - `manager.php`: PHP interoperability facade; Python remains canonical.
 
 ## Inventory
-- 28 existing domain/provider directories represented in the catalog.
+- 29 existing domain/provider directories represented in the catalog.
 - 19 normalized developer domains.
 - Directories `integrations`, `services`, and `tools` remain support namespaces, not falsely counted as provider implementations.
 - No live provider adapters are claimed.
