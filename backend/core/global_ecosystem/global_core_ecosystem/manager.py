@@ -1207,7 +1207,7 @@ COMMUNICATION_CORE_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
         "ecosystem_type": "CORE_SERVICE",
         "capabilities": ["COMMUNICATION_PROVIDER_DISCOVERY", "EMAIL_AND_MESSAGING_TAXONOMY", "VOICE_AND_VIDEO_METADATA", "NOTIFICATION_ROUTING_METADATA", "PRIVACY_AND_TRUST_SAFETY_POLICY"],
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
-        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_communication_core_ecosystem", "status": "CORE_CATALOG_ONLY", "provider_reference_count": 95, "service_family_count": 30, "directory_entry_count": 19, "domain_count": 28, "live_connection_verified": False, "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"},
+        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_communication_core_ecosystem", "status": "CORE_CATALOG_ONLY", "provider_reference_count": 95, "service_family_count": 40, "directory_entry_count": 19, "domain_count": 28, "live_connection_verified": False, "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"},
     },
     {
         "ecosystem_id": "GLOBAL-COMMUNICATION-PROVIDERS-CORE-ECOSYSTEM",
@@ -1215,7 +1215,7 @@ COMMUNICATION_CORE_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
         "ecosystem_type": "CORE_SERVICE",
         "capabilities": ["PROVIDER_DIRECTORY", "PROVIDER_CLASSIFICATION", "PROVIDER_LIFECYCLE_METADATA"],
         "parent_id": "GLOBAL-COMMUNICATION-CORE-ECOSYSTEM",
-        "metadata": {"source_module": "backend/core/global_ecosystem/global_core_ecosystem/global_communication_core_ecosystem/product_catalog.py", "provider_reference_count": 95, "service_family_count": 30, "domain_count": 28, "status": "CORE_CATALOG_ONLY", "live_connection_verified": False},
+        "metadata": {"source_module": "backend/core/global_ecosystem/global_core_ecosystem/global_communication_core_ecosystem/product_catalog.py", "provider_reference_count": 95, "service_family_count": 40, "domain_count": 28, "status": "CORE_CATALOG_ONLY", "live_connection_verified": False},
     },
     *[
         {
