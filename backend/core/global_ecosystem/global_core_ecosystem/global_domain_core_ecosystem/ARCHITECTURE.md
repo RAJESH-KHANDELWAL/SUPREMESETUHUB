@@ -1,13 +1,13 @@
-# Architecture
+# Expanded Domain Core Architecture
 
-GLOBAL DOMAIN CORE is a metadata/governance layer only.
+```
+Global Domain Core Manager
+├── Legacy provider directory inventory (preserved)
+├── Sector taxonomy (domain service areas)
+├── Curated provider discovery registry (source-aware status)
+├── Registry/Registrar and TLD governance boundary
+├── DNS, security, lifecycle, TLS, discovery, marketplace, compliance sectors
+└── Adapter readiness contract (catalog-only until verified)
+```
 
-| Layer | Ownership |
-|---|---|
-| Core | Registry, taxonomy, policy, lifecycle metadata, readiness |
-| API | Provider HTTP/SDK calls, auth, normalization |
-| Storage/Database | Durable tenant data, schemas and migrations |
-| Engine | Jobs, retries, schedules and execution |
-| Application | User workflows, consent and UI |
-
-Security: tenant context is authenticated upstream; secrets use external secret storage; write actions require explicit authorization; live status requires deployed smoke tests. Catalog presence does not establish adapter implementation.
+Provider and sector entries are metadata; transport, credentials, persistence, execution, and live verification belong to separate layers. Avoid provider-per-folder growth: individual providers are registry records, while folders represent architecture modules.
