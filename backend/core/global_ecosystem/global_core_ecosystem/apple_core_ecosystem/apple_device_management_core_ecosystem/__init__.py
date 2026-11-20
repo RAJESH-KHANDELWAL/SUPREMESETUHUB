@@ -1,3 +1,4 @@
-"""Apple Apple Device Management product-family Core package."""
+"""APPLE_DEVICE_MANAGEMENT_CORE_ECOSYSTEM product-family Core package."""
 from .service import AppleDeviceManagementCoreService
-__all__=["AppleDeviceManagementCoreService"]
+from .manager import AppleDeviceManagementCoreManager, get_manager
+__all__=["AppleDeviceManagementCoreService","AppleDeviceManagementCoreManager","get_manager"]
