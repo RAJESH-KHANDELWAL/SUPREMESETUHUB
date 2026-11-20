@@ -1219,7 +1219,7 @@ DEVELOPER_CORE_ECOSYSTEMS: tuple[dict[str, Any], ...] = (
         "metadata": {
             "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_developer_core_ecosystem",
             "status": "CORE_CATALOG_ONLY",
-            "module_reference_count": 28,
+            "module_reference_count": 29,
             "domain_count": 19,
             "live_connection_verified": False,
             "api_transport_in_core": False,
