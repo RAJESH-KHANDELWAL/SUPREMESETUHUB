@@ -50,6 +50,12 @@ class HuggingFaceCoreTests(unittest.TestCase):
             module = importlib.import_module(f"{__package__}.huggingface_{slug}_core_ecosystem")
             self.assertTrue(any(name.endswith("CoreManager") for name in module.__all__), slug)
 
+    def test_domain_runtime_rejects_unknown_domain(self):
+        manager = get_manager().get_domain_manager("MODEL_DISCOVERY")
+        self.assertEqual(manager.describe()["domain"]["domain_id"], "MODEL_DISCOVERY")
+        with self.assertRaises(ValueError):
+            get_manager().get_domain_manager("NOT_A_HUGGINGFACE_DOMAIN")
+
     def test_policy_rejects_live_claims(self):
         policy=HuggingFaceCorePolicy()
         item=dict(list_products()[0],live_connection_verified=True)
