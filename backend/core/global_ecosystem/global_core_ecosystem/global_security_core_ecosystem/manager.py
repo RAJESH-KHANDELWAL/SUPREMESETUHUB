@@ -277,7 +277,7 @@ def get_catalog() -> dict[str, Any]:
         "domain_coverage_exhaustive": False,
         "provider_coverage_exhaustive": False,
         "jurisdiction_coverage_exhaustive": False,
-        "master_catalog_alignment": "REFERENCE_MAPPING_ONLY",
+        "master_catalog_alignment": "REFERENCE_MAPPING_ONLY_VALIDATED_AT_RUNTIME",
         "legal_compliance_verified": False,
         "live_provider_connections_verified": False,
         "api_calls_performed": 0,
