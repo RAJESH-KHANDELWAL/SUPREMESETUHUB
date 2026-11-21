@@ -1,12 +1,15 @@
-# Architecture
+# GLOBAL ENTITY RELATIONSHIPS CORE ECOSYSTEM — Architecture
 
-- catalog.py: canonical 35-category taxonomy, root and relationship type set.
-- models.py: immutable relationship record contract.
-- registry.py: in-memory taxonomy registry with duplicate-key detection.
-- policy.py: required-field, relationship-type, self-edge and evidence checks.
-- service.py: read-only service facade.
-- manager.py: status, discovery, hierarchy and master-catalog reference.
-- manager.php: PHP metadata contract facade; no duplicated catalog data.
-- test_global_entity_relationships_core.py: naming, counts, tree, policy and 2468 reference checks.
+## Control plane
+`catalog.py` → `registry.py` → `manager.py` → `service.py`
 
-Architecture boundaries: no API calls, credential access, persistence writes, or claims of real-world verification.
+`models.py` defines relationship metadata. `policy.py` validates metadata shape, relationship types, verification-state labels, self-edge restrictions, and evidence URL format. `orchestrator.py` provides discovery and health coordination.
+
+## Data boundary
+- Taxonomy and metadata are read-only.
+- No relationship persistence, API transport, OAuth, scraping, or background execution.
+- No claim is independently verified by this CORE.
+- The 2468 master catalog is referenced by path and counts; it is not copied or modified.
+
+## Safety and privacy
+Minimize personal data; treat sensitive categories as restricted metadata; require lawful purpose, applicable consent, access controls, and human review. Validation must never be presented as proof of a real-world relationship.
