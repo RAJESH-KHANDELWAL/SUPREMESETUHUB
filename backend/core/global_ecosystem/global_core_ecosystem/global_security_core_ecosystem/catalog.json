@@ -9,7 +9,7 @@
       "folder": "identity_access_security_core_ecosystem",
       "package_path": "identity_access_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "governance_law_security",
+      "master_catalog_section": "human_individual_ecosystem",
       "master_catalog_refs": [
         "S02_human_identity",
         "S09_digital_identity",
@@ -66,6 +66,11 @@
           "name": "Identity fraud and proofing assurance",
           "scope": "Identity fraud and proofing assurance within Identity and access management; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "human_individual_ecosystem",
+        "technology_digital_ecosystem",
+        "infrastructure_server_core_ecosystem"
       ]
     },
     {
@@ -75,7 +80,7 @@
       "folder": "zero_trust_security_core_ecosystem",
       "package_path": "zero_trust_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "governance_law_security",
+      "master_catalog_section": "technology_digital_ecosystem",
       "master_catalog_refs": [
         "S09_cybersecurity",
         "S11_digital_security",
@@ -132,6 +137,11 @@
           "name": "Exception expiry and trust reassessment",
           "scope": "Exception expiry and trust reassessment within Zero trust architecture; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem",
+        "infrastructure_server_core_ecosystem",
+        "governance_law_security"
       ]
     },
     {
@@ -141,7 +151,7 @@
       "folder": "endpoint_device_security_core_ecosystem",
       "package_path": "endpoint_device_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "governance_law_security",
+      "master_catalog_section": "technology_digital_ecosystem",
       "master_catalog_refs": [
         "S09_computer",
         "S09_mobile",
@@ -199,6 +209,10 @@
           "name": "Secure boot, firmware and device attestation",
           "scope": "Secure boot, firmware and device attestation within Endpoint and device security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem",
+        "governance_law_security"
       ]
     },
     {
@@ -208,7 +222,7 @@
       "folder": "network_security_core_ecosystem",
       "package_path": "network_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "governance_law_security",
+      "master_catalog_section": "technology_digital_ecosystem",
       "master_catalog_refs": [
         "S09_global_networks",
         "S10_global_network",
@@ -265,6 +279,10 @@
           "name": "Network access control and device admission",
           "scope": "Network access control and device admission within Network security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem",
+        "infrastructure_server_core_ecosystem"
       ]
     },
     {
@@ -274,7 +292,7 @@
       "folder": "cloud_infrastructure_security_core_ecosystem",
       "package_path": "cloud_infrastructure_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "governance_law_security",
+      "master_catalog_section": "technology_digital_ecosystem",
       "master_catalog_refs": [
         "S09_cloud_computing",
         "S10_global_infrastructure",
@@ -331,6 +349,10 @@
           "name": "Multi-cloud and hybrid control consistency",
           "scope": "Multi-cloud and hybrid control consistency within Cloud and infrastructure security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem",
+        "infrastructure_server_core_ecosystem"
       ]
     },
     {
@@ -340,7 +362,7 @@
       "folder": "application_product_security_core_ecosystem",
       "package_path": "application_product_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "governance_law_security",
+      "master_catalog_section": "technology_digital_ecosystem",
       "master_catalog_refs": [
         "S09_applications",
         "S09_software",
@@ -398,6 +420,9 @@
           "name": "Secure release signing and attestation",
           "scope": "Secure release signing and attestation within Application and product security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem"
       ]
     },
     {
@@ -407,7 +432,7 @@
       "folder": "data_privacy_security_core_ecosystem",
       "package_path": "data_privacy_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "governance_law_security",
+      "master_catalog_section": "adult_content_media_ecosystem",
       "master_catalog_refs": [
         "S07_privacy_and_data_protection",
         "S11_privacy_law",
@@ -464,6 +489,10 @@
           "name": "Privacy engineering, pseudonymization and anonymization",
           "scope": "Privacy engineering, pseudonymization and anonymization within Data security and privacy; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "adult_content_media_ecosystem",
+        "governance_law_security"
       ]
     },
     {
@@ -530,6 +559,9 @@
           "name": "Key compromise response and recovery",
           "scope": "Key compromise response and recovery within Cryptography and key management; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "governance_law_security"
       ]
     },
     {
@@ -539,7 +571,7 @@
       "folder": "threat_intelligence_core_ecosystem",
       "package_path": "threat_intelligence_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "governance_law_security",
+      "master_catalog_section": "technology_digital_ecosystem",
       "master_catalog_refs": [
         "S09_cybersecurity",
         "S11_risk_management",
@@ -596,6 +628,11 @@
           "name": "Intelligence confidence and deception handling",
           "scope": "Intelligence confidence and deception handling within Threat intelligence; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem",
+        "governance_law_security",
+        "knowledge_research_innovation"
       ]
     },
     {
@@ -605,7 +642,7 @@
       "folder": "detection_response_core_ecosystem",
       "package_path": "detection_response_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "governance_law_security",
+      "master_catalog_section": "technology_digital_ecosystem",
       "master_catalog_refs": [
         "S09_cybersecurity",
         "S11_digital_security",
@@ -662,6 +699,10 @@
           "name": "Breach notification and regulatory escalation",
           "scope": "Breach notification and regulatory escalation within Detection and incident response; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem",
+        "governance_law_security"
       ]
     },
     {
@@ -671,7 +712,7 @@
       "folder": "vulnerability_exposure_core_ecosystem",
       "package_path": "vulnerability_exposure_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "governance_law_security",
+      "master_catalog_section": "technology_digital_ecosystem",
       "master_catalog_refs": [
         "S09_cybersecurity",
         "S11_risk_management",
@@ -728,6 +769,10 @@
           "name": "External asset and cloud-exposure review",
           "scope": "External asset and cloud-exposure review within Vulnerability and exposure management; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem",
+        "governance_law_security"
       ]
     },
     {
@@ -795,6 +840,9 @@
           "name": "Regulatory change and control crosswalk",
           "scope": "Regulatory change and control crosswalk within Governance, risk and compliance; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "governance_law_security"
       ]
     },
     {
@@ -804,7 +852,7 @@
       "folder": "backup_recovery_resilience_core_ecosystem",
       "package_path": "backup_recovery_resilience_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "governance_law_security",
+      "master_catalog_section": "infrastructure_server_core_ecosystem",
       "master_catalog_refs": [
         "S10_global_infrastructure",
         "S10_global_storage",
@@ -861,6 +909,10 @@
           "name": "Dependency failure and supply-chain continuity",
           "scope": "Dependency failure and supply-chain continuity within Backup, recovery and resilience; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "infrastructure_server_core_ecosystem",
+        "governance_law_security"
       ]
     },
     {
@@ -870,7 +922,7 @@
       "folder": "supply_chain_security_core_ecosystem",
       "package_path": "supply_chain_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "governance_law_security",
+      "master_catalog_section": "technology_digital_ecosystem",
       "master_catalog_refs": [
         "S09_software",
         "S11_business_law",
@@ -927,6 +979,10 @@
           "name": "SBOM, VEX and component-vulnerability lifecycle",
           "scope": "SBOM, VEX and component-vulnerability lifecycle within Software and supply-chain security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem",
+        "governance_law_security"
       ]
     },
     {
@@ -936,7 +992,7 @@
       "folder": "email_collaboration_security_core_ecosystem",
       "package_path": "email_collaboration_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "governance_law_security",
+      "master_catalog_section": "technology_digital_ecosystem",
       "master_catalog_refs": [
         "S09_applications",
         "S09_internet",
@@ -993,6 +1049,10 @@
           "name": "Account compromise and session revocation",
           "scope": "Account compromise and session revocation within Email and collaboration security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem",
+        "governance_law_security"
       ]
     },
     {
@@ -1002,7 +1062,7 @@
       "folder": "security_awareness_core_ecosystem",
       "package_path": "security_awareness_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "governance_law_security",
+      "master_catalog_section": "human_individual_ecosystem",
       "master_catalog_refs": [
         "S02_education",
         "S12_technical_knowledge",
@@ -1059,6 +1119,10 @@
           "name": "Accessible and multilingual security content",
           "scope": "Accessible and multilingual security content within Security awareness and education; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "human_individual_ecosystem",
+        "knowledge_research_innovation"
       ]
     },
     {
@@ -1068,7 +1132,7 @@
       "folder": "fraud_abuse_protection_core_ecosystem",
       "package_path": "fraud_abuse_protection_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "governance_law_security",
+      "master_catalog_section": "business_economic_ecosystem",
       "master_catalog_refs": [
         "S08_services",
         "S11_consumer_protection",
@@ -1125,6 +1189,10 @@
           "name": "Financial-crime escalation and dispute evidence",
           "scope": "Financial-crime escalation and dispute evidence within Fraud and abuse protection; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "business_economic_ecosystem",
+        "governance_law_security"
       ]
     },
     {
@@ -1134,7 +1202,7 @@
       "folder": "physical_iot_ot_security_core_ecosystem",
       "package_path": "physical_iot_ot_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "governance_law_security",
+      "master_catalog_section": "technology_digital_ecosystem",
       "master_catalog_refs": [
         "S09_hardware",
         "S09_robotics",
@@ -1191,6 +1259,10 @@
           "name": "IoT cloud backend and device-update security",
           "scope": "IoT cloud backend and device-update security within Physical, IoT and OT security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem",
+        "infrastructure_server_core_ecosystem"
       ]
     },
     {
@@ -1257,6 +1329,9 @@
           "name": "Age-assurance bypass and evasion risk",
           "scope": "Age-assurance bypass and evasion risk within Age assurance and age-appropriate access; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "adult_content_media_ecosystem"
       ]
     },
     {
@@ -1323,6 +1398,9 @@
           "name": "Lawful evidence handling and authority requests",
           "scope": "Lawful evidence handling and authority requests within Child safety and exploitation prevention; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "adult_content_media_ecosystem"
       ]
     },
     {
@@ -1390,6 +1468,9 @@
           "name": "Payment, advertising and affiliate safety",
           "scope": "Payment, advertising and affiliate safety within Adult-content platform safety; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "adult_content_media_ecosystem"
       ]
     },
     {
@@ -1456,6 +1537,9 @@
           "name": "Re-upload prevention and platform coordination",
           "scope": "Re-upload prevention and platform coordination within Consent and intimate-image protection; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "adult_content_media_ecosystem"
       ]
     },
     {
@@ -1522,6 +1606,9 @@
           "name": "Survivor privacy and safe-referral controls",
           "scope": "Survivor privacy and safe-referral controls within Sexual exploitation and trafficking prevention; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "adult_content_media_ecosystem"
       ]
     },
     {
@@ -1588,6 +1675,10 @@
           "name": "De-identification and re-identification risk",
           "scope": "De-identification and re-identification risk within Sensitive intimate-data privacy; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "adult_content_media_ecosystem",
+        "governance_law_security"
       ]
     },
     {
@@ -1597,7 +1688,7 @@
       "folder": "sexual_health_information_integrity_core_ecosystem",
       "package_path": "sexual_health_information_integrity_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "adult_content_media_ecosystem",
+      "master_catalog_section": "adult_sexuality_sex_education_ecosystem",
       "master_catalog_refs": [
         "S05_sexual_health",
         "S07_privacy_and_data_protection",
@@ -1654,6 +1745,11 @@
           "name": "Privacy-safe health-community moderation",
           "scope": "Privacy-safe health-community moderation within Sexual-health information integrity; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "adult_sexuality_sex_education_ecosystem",
+        "adult_content_media_ecosystem",
+        "knowledge_research_innovation"
       ]
     },
     {
@@ -1720,6 +1816,9 @@
           "name": "Policy versioning and enforcement audit",
           "scope": "Policy versioning and enforcement audit within Content moderation and classification; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "adult_content_media_ecosystem"
       ]
     },
     {
@@ -1786,6 +1885,10 @@
           "name": "Prompt injection and agent-tool abuse risk",
           "scope": "Prompt injection and agent-tool abuse risk within AI and synthetic-media abuse prevention; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "adult_content_media_ecosystem",
+        "technology_digital_ecosystem"
       ]
     },
     {
@@ -1854,6 +1957,9 @@
           "name": "Legal hold, retention and evidence requests",
           "scope": "Legal hold, retention and evidence requests within Jurisdictional legal compliance; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "governance_law_security"
       ]
     },
     {
@@ -1863,7 +1969,7 @@
       "folder": "digital_wellbeing_harm_reduction_core_ecosystem",
       "package_path": "digital_wellbeing_harm_reduction_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "governance_law_security",
+      "master_catalog_section": "human_individual_ecosystem",
       "master_catalog_refs": [
         "S02_human_development",
         "S02_human_psychology",
@@ -1920,6 +2026,10 @@
           "name": "Repeat abuse and cross-account contact controls",
           "scope": "Repeat abuse and cross-account contact controls within Digital wellbeing and harm reduction; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "human_individual_ecosystem",
+        "technology_digital_ecosystem"
       ]
     },
     {
@@ -1929,7 +2039,7 @@
       "folder": "identity_impersonation_protection_core_ecosystem",
       "package_path": "identity_impersonation_protection_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "governance_law_security",
+      "master_catalog_section": "human_individual_ecosystem",
       "master_catalog_refs": [
         "S02_human_identity",
         "S09_digital_identity",
@@ -1986,6 +2096,11 @@
           "name": "Account-recovery proof and takeover reversal",
           "scope": "Account-recovery proof and takeover reversal within Identity and impersonation protection; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "human_individual_ecosystem",
+        "adult_content_media_ecosystem",
+        "technology_digital_ecosystem"
       ]
     },
     {
@@ -1995,7 +2110,7 @@
       "folder": "payment_transaction_security_core_ecosystem",
       "package_path": "payment_transaction_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "governance_law_security",
+      "master_catalog_section": "technology_digital_ecosystem",
       "master_catalog_refs": [
         "S09_digital_payments",
         "S11_consumer_protection",
@@ -2052,6 +2167,10 @@
           "name": "Refund, chargeback and merchant-collusion risk",
           "scope": "Refund, chargeback and merchant-collusion risk within Payment and transaction security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem",
+        "governance_law_security"
       ]
     },
     {
@@ -2061,7 +2180,7 @@
       "folder": "platform_trust_safety_core_ecosystem",
       "package_path": "platform_trust_safety_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "governance_law_security",
+      "master_catalog_section": "adult_content_media_ecosystem",
       "master_catalog_refs": [
         "S07_adult_content_moderation",
         "S07_legal_compliance",
@@ -2118,6 +2237,10 @@
           "name": "Transparency reporting and external assurance",
           "scope": "Transparency reporting and external assurance within Platform trust and safety operations; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "adult_content_media_ecosystem",
+        "governance_law_security"
       ]
     },
     {
@@ -2185,6 +2308,10 @@
           "name": "Assessment-method reproducibility and limitations",
           "scope": "Assessment-method reproducibility and limitations within Research and evidence assurance; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
         }
+      ],
+      "master_catalog_sections": [
+        "governance_law_security",
+        "knowledge_research_innovation"
       ]
     }
   ],
