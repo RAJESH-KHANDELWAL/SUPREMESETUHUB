@@ -1769,7 +1769,9 @@
         "api_transport_in_core": false,
         "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
         "master_catalog_access_mode": "READ_ONLY_VALIDATED_REFERENCES",
-        "taxonomy_entries_counted_in_global_2468_target": false
+        "taxonomy_entries_counted_in_global_2468_target": false,
+        "workload_area_count": 100,
+        "workload_areas_per_profile": 5
       }
     ]
   },
@@ -3553,7 +3555,10 @@
       "domain_manifest_pattern": "<domain_directory>/domain_manifest.json",
       "live_connections_verified": false,
       "remote_operations_enabled": false,
-      "api_calls_performed": 0
+      "api_calls_performed": 0,
+      "workload_area_count": 100,
+      "workload_areas_per_profile": 5,
+      "workload_area_catalog_path": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/workload_domain_catalog.json"
     }
   }
 }
