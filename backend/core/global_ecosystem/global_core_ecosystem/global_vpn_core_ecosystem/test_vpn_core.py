@@ -9,7 +9,7 @@ from .domain_runtime import VPNCoreDomainManager
 from .master_catalog import get_master_catalog_mapping
 from .manager import get_manager
 ROOT=Path(__file__).resolve().parent
-REPO_ROOT=Path(__file__).resolve().parents[4]
+REPO_ROOT=Path(__file__).resolve().parents[5]
 EXPECTED={"wireguard","openvpn","tailscale","protonvpn"}
 def test_provider_inventory_matches_existing_vpn_registry():
  assert {p["provider_id"] for p in PROVIDERS}==EXPECTED and len(PROVIDERS)==4

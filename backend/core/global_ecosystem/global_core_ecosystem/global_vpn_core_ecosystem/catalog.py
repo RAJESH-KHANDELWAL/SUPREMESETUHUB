@@ -14,7 +14,7 @@ PROVIDERS:tuple[dict[str,Any],...]=[
         "enabled": true,
         "configured": false,
         "live_connection_verified": false,
-        "source_registry_ref": "backend/vpn/global_ecosystem/global_vpn_ecosystem/wireguard_vpn/service.py",
+        "source_service_ref": "backend/vpn/global_ecosystem/global_vpn_ecosystem/wireguard_vpn/service.py",
         "api_transport_verified": false,
         "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
     },
@@ -27,7 +27,7 @@ PROVIDERS:tuple[dict[str,Any],...]=[
         "enabled": true,
         "configured": false,
         "live_connection_verified": false,
-        "source_registry_ref": "backend/vpn/global_ecosystem/global_vpn_ecosystem/openvpn_vpn/service.py",
+        "source_service_ref": "backend/vpn/global_ecosystem/global_vpn_ecosystem/openvpn_vpn/service.py",
         "api_transport_verified": false,
         "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
     },
@@ -40,7 +40,7 @@ PROVIDERS:tuple[dict[str,Any],...]=[
         "enabled": true,
         "configured": false,
         "live_connection_verified": false,
-        "source_registry_ref": "backend/vpn/global_ecosystem/global_vpn_ecosystem/tailscale_vpn/service.py",
+        "source_service_ref": "backend/vpn/global_ecosystem/global_vpn_ecosystem/tailscale_vpn/service.py",
         "api_transport_verified": false,
         "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
     },
@@ -53,14 +53,14 @@ PROVIDERS:tuple[dict[str,Any],...]=[
         "enabled": true,
         "configured": false,
         "live_connection_verified": false,
-        "source_registry_ref": "backend/vpn/global_ecosystem/global_vpn_ecosystem/proton_vpn/service.py",
+        "source_service_ref": "backend/vpn/global_ecosystem/global_vpn_ecosystem/proton_vpn/service.py",
         "api_transport_verified": false,
         "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
     }
 ]
 CAPABILITIES=("VPN_PROVIDER_DISCOVERY","PROTOCOL_CAPABILITY_METADATA","DEVICE_CLIENT_COVERAGE","TUNNEL_AND_MESH_METADATA","ROUTING_AND_DNS_POLICY_METADATA","PRIVACY_AND_SECURITY_METADATA","CONNECTIVITY_HEALTH_METADATA","JURISDICTION_AND_COMPLIANCE_METADATA")
 def get_catalog()->dict[str,Any]:
- return {"ecosystem_id":ECOSYSTEM_ID,"name":"GLOBAL VPN CORE ECOSYSTEM","ecosystem_type":"GLOBAL_NETWORK_CORE","parent_id":"GLOBAL-CORE-ECOSYSTEM","layer":"CORE","status":"CORE_CATALOG_ONLY","enabled":True,"source_registry_ref":SOURCE_REGISTRY_REF,"provider_count":len(PROVIDERS),"provider_directory_count":len(PROVIDERS),"providers":deepcopy(list(PROVIDERS)),"capabilities":list(CAPABILITIES),"configured_provider_count":0,"connected_provider_count":0,"live_connection_verified":False,"tunnel_operations_in_core":False,"credential_storage":"EXTERNAL_SECRET_STORE_ONLY"}
+ return {"ecosystem_id":ECOSYSTEM_ID,"name":"GLOBAL VPN CORE ECOSYSTEM","ecosystem_type":"GLOBAL_NETWORK_CORE","parent_id":"GLOBAL-CORE-ECOSYSTEM","layer":"CORE","status":"CORE_CATALOG_ONLY","enabled":True,"source_service_ref":SOURCE_REGISTRY_REF,"provider_count":len(PROVIDERS),"provider_directory_count":len(PROVIDERS),"providers":deepcopy(list(PROVIDERS)),"capabilities":list(CAPABILITIES),"configured_provider_count":0,"connected_provider_count":0,"live_connection_verified":False,"tunnel_operations_in_core":False,"credential_storage":"EXTERNAL_SECRET_STORE_ONLY"}
 def get_provider(provider_id:str)->dict[str,Any]|None:
  needle=provider_id.strip().casefold() if isinstance(provider_id,str) else ""
  item=next((p for p in PROVIDERS if p["provider_id"]==needle or p["directory"]==needle),None)
