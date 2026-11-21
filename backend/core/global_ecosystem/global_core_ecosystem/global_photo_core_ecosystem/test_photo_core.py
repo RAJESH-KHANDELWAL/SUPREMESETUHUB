@@ -25,4 +25,7 @@ def test_global_core_hierarchy_registers_photo_core():
     assert record["metadata"]["core_catalog"].endswith("/global_photo_core_ecosystem")
 
 def test_master_catalog_is_read_only_reference():
-    assert master_catalog_status()["access_mode"]=="READ_ONLY"
+    result = master_catalog_status()
+    assert result["available"] is True
+    assert result["access_mode"] == "READ_ONLY"
+    assert result["target_unique_entries"] == 2468
