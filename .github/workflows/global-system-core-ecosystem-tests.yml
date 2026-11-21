@@ -1,6 +1,7 @@
 name: Global System Core Ecosystem Tests
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/**"
