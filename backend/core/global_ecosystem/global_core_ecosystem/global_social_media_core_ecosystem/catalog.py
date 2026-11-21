@@ -2,7 +2,8 @@
 from copy import deepcopy
 from typing import Any
 from .product_catalog import get_social_media_product_index
-SOCIAL_MEDIA_CORE_ECOSYSTEM: dict[str, Any] = {
+import json
+_SOCIAL_MEDIA_CORE_ECOSYSTEM_JSON = r'''{
     "ecosystem_id": "GLOBAL-SOCIAL-MEDIA-CORE-ECOSYSTEM",
     "name": "GLOBAL SOCIAL MEDIA CORE ECOSYSTEM",
     "provider": "multi-platform",
@@ -29,7 +30,8 @@ SOCIAL_MEDIA_CORE_ECOSYSTEM: dict[str, Any] = {
     "live_connections_verified": false,
     "api_calls_performed": 0,
     "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
-}
+}'''
+SOCIAL_MEDIA_CORE_ECOSYSTEM: dict[str, Any] = json.loads(_SOCIAL_MEDIA_CORE_ECOSYSTEM_JSON)
 def get_social_media_core_catalog() -> dict[str, Any]:
     result=deepcopy(SOCIAL_MEDIA_CORE_ECOSYSTEM)
     result["platforms"]=get_social_media_product_index()["platform_ecosystems"]
