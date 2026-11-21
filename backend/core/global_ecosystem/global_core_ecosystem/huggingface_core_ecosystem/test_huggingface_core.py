@@ -33,6 +33,23 @@ class HuggingFaceCoreTests(unittest.TestCase):
         self.assertFalse(c["remote_operations_enabled"])
         self.assertEqual(c["api_calls_performed"],0)
         self.assertEqual(len(get_manager().dependency_map()["product_api_mappings"]),15)
+    def test_parent_global_core_registration(self):
+        from backend.core.global_ecosystem.global_core_ecosystem.manager import get_catalog as get_global_catalog
+        matches = [item for item in get_global_catalog() if item["ecosystem_id"] == "HUGGINGFACE-CORE-ECOSYSTEM"]
+        self.assertEqual(len(matches), 1)
+        self.assertEqual(matches[0]["parent_id"], "GLOBAL-CORE-ECOSYSTEM")
+        self.assertEqual(matches[0]["metadata"]["canonical_master_entry_ids"],
+                         ["S09_artificial_intelligence", "S09_machine_learning"])
+
+    def test_all_existing_product_namespaces_are_implemented(self):
+        import importlib
+        slugs = ["authentication", "billing", "datasets", "discussions", "downloads",
+                 "evaluation", "hub", "inference", "inference_endpoints", "models",
+                 "organizations", "spaces", "storage", "tasks", "webhooks"]
+        for slug in slugs:
+            module = importlib.import_module(f"{__package__}.huggingface_{slug}_core_ecosystem")
+            self.assertTrue(any(name.endswith("CoreManager") for name in module.__all__), slug)
+
     def test_policy_rejects_live_claims(self):
         policy=HuggingFaceCorePolicy()
         item=dict(list_products()[0],live_connection_verified=True)
