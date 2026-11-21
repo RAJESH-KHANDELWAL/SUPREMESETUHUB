@@ -44,9 +44,10 @@ final class GlobalServerCoreScopeContract
             $seenDomains[$id] = true;
         }
 
-        $country = strtoupper((string) ($geography['default_country'] ?? ''));
-        $bharatFirst = (bool) ($geography['bharat_first'] ?? false);
-        if ($country !== 'IN' || !$bharatFirst) {
+        $india = $geography['india'] ?? [];
+        $country = strtoupper((string) ($india['country_code'] ?? ''));
+        $coverageModel = strtoupper((string) ($geography['coverage_model'] ?? ''));
+        if ($country !== 'IN' || $coverageModel !== 'INDIA_FIRST_GLOBAL_EXTENSIBLE') {
             throw new InvalidArgumentException('Geography must retain Bharat-first scope');
         }
 
