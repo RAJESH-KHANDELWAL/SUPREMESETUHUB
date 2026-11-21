@@ -25,3 +25,10 @@ __all__ = [
     "get_geographic_scope_catalog", "get_workload_domain_catalog",
     "get_service_tier_catalog", "get_scope_catalog",
 ]
+
+from .manager import GlobalServerCoreManager, get_manager, manager_status, validate_master_alignment
+
+__all__ = [
+    "GlobalServerCoreManager", "get_manager", "manager_status",
+    "validate_master_alignment",
+]
