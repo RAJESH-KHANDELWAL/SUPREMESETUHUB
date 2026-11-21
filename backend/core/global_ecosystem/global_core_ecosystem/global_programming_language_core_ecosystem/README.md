@@ -1,26 +1,45 @@
 # GLOBAL PROGRAMMING LANGUAGE CORE ECOSYSTEM
 
-A dedicated, read-only CORE control plane for programming languages, language types, runtimes, compilers, specifications, toolchains and developer-language metadata. It is a direct sibling of `global_human_language_core_ecosystem/` under `global_core_ecosystem/`.
+**Parent:** GLOBAL CORE ECOSYSTEM  
+**Root:** `backend/core/global_ecosystem/global_core_ecosystem/global_programming_language_core_ecosystem/`  
+**Reference architecture:** Google Core Ecosystem's metadata control-plane pattern.  
+**Master planning reference:** `backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json` (whole-ecosystem planning taxonomy, not implementation proof).
 
-## Architecture
-- `catalog.py`: stable ecosystem registry and compatibility facade
-- `domain_catalog.py` + `catalog.json`: canonical 26-domain taxonomy
-- `language_catalog.py`: curated, explicitly non-exhaustive language/type records
-- `contracts.py`: typed tenant, result, secret-reference and language contracts
-- `policy.py`: tenant-context, capability and metadata-redaction boundaries
-- `module_service.py`: reusable read-only domain service
-- `orchestrator.py`: domain/language discovery and health summaries
-- `service.py`: public control-plane service
-- `shared_support/`: cross-cutting support contracts and conventions
+## Mission and coverage
+A canonical read-only CORE registry for executable languages, paradigms, language families, dialects, shells, query DSLs, markup, stylesheets, serialization/configuration, build languages, hardware/shader languages, smart-contract languages, proof/verification languages, compilers/interpreters, runtimes, standards, toolchains and developer tooling.
 
-## Classification boundary
-General-purpose and systems languages are distinct from markup (HTML/XML), stylesheets (CSS), database query languages (SQL), and data-serialization formats (JSON/YAML). A category does not imply that every member is a general-purpose executable language.
+Classifications are distinct: general-purpose executable languages; systems/embedded; scripting/shell; functional/logic; scientific/data; query/DB; markup; stylesheet; serialization/configuration; build/automation DSL; UI/template DSL; hardware-description/shader/GPU; smart contract/crypto; proof/verification; education/visual; and binary targets. Cross-domain membership is allowed.
 
-## Runtime and security boundary
-CORE stores metadata and policy only. It does not compile or execute user code, install packages, invoke compilers, or prove that a runtime is present. Any execution must occur in a separately provisioned, isolated sandbox with resource limits, dependency controls, license checks and security review.
+## Stable 26-domain taxonomy
+The existing 26 domain packages remain the organizational taxonomy. Scope descriptions are broadened; no fixed empty folders are generated. Language records can map to multiple domains and paradigms.
 
-## Coverage and tiers
-The catalog is intentionally non-exhaustive. Normal → Basic → Standard → Premium → Professional → Enterprise → Supreme describes service/governance tiers, not guaranteed compiler availability, language support or production runtime entitlement.
+## CORE architecture
+- `manager.py`: canonical entry point for status, health, catalog, domains, language search/lookup, tiers and domain manager access.
+- `catalog.py`: registry, compatibility facade, capabilities and tier metadata.
+- `catalog.json`: 26 domain definitions and scope.
+- `domain_catalog.py`: validated domain discovery.
+- `language_catalog.py`: curated languages, dialects, DSLs and adjacent format metadata; searchable and non-exhaustive.
+- `contracts.py`: typed tenant, secret reference, language record, readiness and result contracts.
+- `policy.py`: metadata redaction and tenant/capability guardrails.
+- `module_service.py`: read-only per-domain service.
+- `orchestrator.py`: language/domain discovery and health.
+- `service.py`: public service facade.
+- `ecosystem_manifest.json`: identity, scope, tiers and layer boundaries.
+- `tests/test_core_domains.py`: integrity and API behavior tests.
 
-## API
-`ProgrammingLanguageCoreEcosystemService` exposes status, health, domain and language discovery. `ProgrammingLanguageDomainCoreService` provides policy-aware metadata for one registered domain. Passing a CORE capability check is not authorization to execute code or access external systems.
+## Tiers
+Normal → Basic → Standard → Premium → Professional → Enterprise → Supreme. Tier labels describe catalog/governance and possible service levels, not installed compiler/runtime/package availability or execution entitlement.
+
+## Layer boundaries
+CORE owns identity, taxonomy, metadata, policy, discovery, lifecycle and readiness. API owns external registries, provider adapters and transport. Storage owns durable records/artifacts and retention. Database owns schemas/migrations/transactions. Runtime/Engine owns compiler/interpreter execution, sandbox, jobs, queues and quotas. Application/UI owns IDE/workspace and user flows.
+
+CORE does not execute code, compile, install packages, run builds, call external APIs, store secrets or validate licensing. Execution must use a separately provisioned isolated sandbox, dependency controls, quotas, audit and security review.
+
+## Master catalog relationship
+The 2468-target master catalog is the planning taxonomy for the whole ecosystem. This CORE includes relevant computer/software/technology/developer topics without copying unrelated entries or manufacturing counts. Records are individually meaningful and coverage remains curated/non-exhaustive.
+
+## Current coverage status
+- Domain packages: 26.
+- Curated language and language-adjacent metadata inventory: see `language_catalog.py`; not exhaustive.
+- Runtime/compiler execution and external integrations: not performed or verified.
+- Credentials: external secret-store references only.
