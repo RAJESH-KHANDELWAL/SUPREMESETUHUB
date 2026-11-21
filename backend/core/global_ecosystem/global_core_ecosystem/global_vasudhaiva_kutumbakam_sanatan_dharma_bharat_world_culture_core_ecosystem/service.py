@@ -6,7 +6,7 @@ from .domain_catalog import list_domains
 from .orchestrator import CulturalCoreOrchestrator
 from .resource_catalog import get_foundational_knowledge, search_knowledge
 from .governance import validate_cultural_record, assess_evidence
-from .policy import CulturalCorePolicy
+from backend.global_ecosystem.global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem import assess_publication as assess_domain_publication
 
 class GlobalCulturalCore:
     ecosystem_id = "GLOBAL-VASUDHAIVA-KUTUMBAKAM-SANATAN-DHARMA-BHARAT-WORLD-CULTURE-CORE-ECOSYSTEM"
@@ -21,7 +21,10 @@ class GlobalCulturalCore:
         if isinstance(resource, dict):
             errors = validate_cultural_record(resource)
             if errors: return {"approved": False, "status": "REVIEW_REQUIRED", "errors": errors}
-        return assess_publication(resource)
+        if isinstance(resource, dict):
+            errors = validate_cultural_record(resource)
+            return {"approved": not errors and str(resource.get("publication_status", "DRAFT")).upper() == "APPROVED", "status": "APPROVED" if not errors and str(resource.get("publication_status", "DRAFT")).upper() == "APPROVED" else "REVIEW_REQUIRED", "errors": errors}
+        return assess_domain_publication(resource)
     def status(self) -> dict[str, Any]: return self.orchestrator.health()
     def list_domains(self) -> dict[str, Any]: return self.orchestrator.list_domains()
     def list_offerings(self) -> dict[str, Any]: return self.orchestrator.offerings()
