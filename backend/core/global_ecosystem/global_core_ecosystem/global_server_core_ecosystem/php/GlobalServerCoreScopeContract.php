@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 /**
  * Read-only PHP 8+ normalizer for GLOBAL SERVER CORE scope metadata.
- * This class validates catalog shape; it does not authorize deployments.
+ * Validates catalog shape only; it never grants access or authorizes deployments.
  */
 final class GlobalServerCoreScopeContract
 {
@@ -32,10 +32,22 @@ final class GlobalServerCoreScopeContract
             throw new InvalidArgumentException('Service tier order does not match the canonical contract');
         }
 
+        $seenDomains = [];
         foreach ($domains as $domain) {
             if (!is_array($domain) || empty($domain['domain_id'])) {
                 throw new InvalidArgumentException('Each workload domain requires domain_id');
             }
+            $id = strtoupper((string) $domain['domain_id']);
+            if (isset($seenDomains[$id])) {
+                throw new InvalidArgumentException('Duplicate workload domain_id: ' . $id);
+            }
+            $seenDomains[$id] = true;
+        }
+
+        $country = strtoupper((string) ($geography['default_country'] ?? ''));
+        $bharatFirst = (bool) ($geography['bharat_first'] ?? false);
+        if ($country !== 'IN' || !$bharatFirst) {
+            throw new InvalidArgumentException('Geography must retain Bharat-first scope');
         }
 
         return [
