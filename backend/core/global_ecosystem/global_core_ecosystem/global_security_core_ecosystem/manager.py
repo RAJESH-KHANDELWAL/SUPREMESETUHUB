@@ -175,11 +175,18 @@ def domain_summary() -> dict[str, Any]:
         "coverage_area_count": sum(len(item.get("coverage_areas", [])) for item in SECURITY_DOMAINS),
         "coverage_exhaustive": bool(_DOMAIN_DATA.get("domain_coverage_exhaustive", False)),
         "master_catalog_ref_count": sum(len(item.get("master_catalog_refs", [])) for item in SECURITY_DOMAINS),
+        "master_catalog_unique_ref_count": len({ref for item in SECURITY_DOMAINS for ref in item.get("master_catalog_refs", [])}),
         "master_catalog_refs_present": True,
         "master_catalog_source_loaded_at_runtime": True,
         "master_catalog_current_unique_entries": MASTER_CATALOG_COUNTS["current_unique_entries"],
         "master_catalog_target_unique_entries": MASTER_CATALOG_COUNTS["target_unique_entries"],
     }
+
+
+def get_domain_manager(domain_id: str):
+    """Return a shared-runtime manager for a registered security domain."""
+    from .domain_runtime import SecurityCoreDomainManager
+    return SecurityCoreDomainManager(domain_id)
 
 
 def get_service_tiers() -> list[dict[str, Any]]:
@@ -259,6 +266,7 @@ def get_catalog() -> dict[str, Any]:
         "master_catalog_source": MASTER_CATALOG_PATH,
         "master_catalog_counts": deepcopy(MASTER_CATALOG_COUNTS),
         "domain_count": domain_summary()["domain_count"],
+        "coverage_area_count": domain_summary()["coverage_area_count"],
         "domains": get_domains(),
         "taxonomy": deepcopy(_DOMAIN_DATA.get("taxonomy", {})),
         "provider_count": provider_summary()["provider_count"],
@@ -314,8 +322,7 @@ class GlobalSecurityCoreManager:
         return get_domains()
 
     def get_domain_manager(self, domain_id: str):
-        from .domain_runtime import SecurityCoreDomainManager
-        return SecurityCoreDomainManager(domain_id)
+        return get_domain_manager(domain_id)
 
     def get_domain(self, domain_id: str) -> dict[str, Any] | None:
         return get_domain(domain_id)
