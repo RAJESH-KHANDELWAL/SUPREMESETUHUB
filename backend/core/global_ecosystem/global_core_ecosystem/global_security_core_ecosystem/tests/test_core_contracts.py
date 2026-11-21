@@ -33,14 +33,25 @@ def test_security_taxonomy_provider_inventory_and_master_catalog_refs():
         for entry in section["entries"]
     }
     known_sections = {section["section_id"] for section in master["sections"]}
+    entry_sections = {
+        entry["entry_id"]: section["section_id"]
+        for section in master["sections"]
+        for entry in section["entries"]
+    }
     assert master["counts"]["unique_catalogue_entries"] == 246
     assert master["expansion"]["target_unique_entries"] == 2468
+    module_index = master["ecosystem_module_index"]["modules"]
+    security_module = [x for x in module_index if x["ecosystem_id"] == "GLOBAL-SECURITY-CORE-ECOSYSTEM"]
+    assert len(security_module) == 1
+    assert security_module[0]["control_area_count"] == 330
+    assert master["implementation_registry"]["global_security_core_ecosystem"]["taxonomy_entries_counted_in_global_2468_target"] is False
     for domain in domains:
         refs = domain["master_catalog_refs"]
         assert refs and len(refs) == len(set(refs))
         assert set(refs) <= known_refs
         assert domain["scope"].strip()
         assert domain["master_catalog_section"] in known_sections
+        assert domain["master_catalog_section"] in {entry_sections[ref] for ref in refs}
 
     safety = get_protected_group_safety()
     assert set(safety["groups"]) == {"MEN", "WOMEN", "GIRLS", "BOYS"}
