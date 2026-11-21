@@ -1720,7 +1720,11 @@
             "FAMILY-RELATIONSHIPS-PARENTING",
             "MARRIAGE-MARRIED-LIFE",
             "MATURE-ADULT-RELATIONSHIPS"
-          ]
+          ],
+          "domain_package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_relationships_compatibility_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_relationships_compatibility_core_ecosystem/manager.py",
+          "package_initializer_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_relationships_compatibility_core_ecosystem/__init__.py",
+          "readme_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_relationships_compatibility_core_ecosystem/README.md"
         },
         {
           "domain_id": "SEXUAL_EDUCATION_AND_TRADITIONAL_KNOWLEDGE",
@@ -1729,7 +1733,11 @@
             "ADULT-SEXUAL-EDUCATION",
             "KAMASUTRA-ANCIENT-KNOWLEDGE",
             "SEXUAL-PRACTICES-INTIMACY"
-          ]
+          ],
+          "domain_package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_sexual_education_traditional_knowledge_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_sexual_education_traditional_knowledge_core_ecosystem/manager.py",
+          "package_initializer_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_sexual_education_traditional_knowledge_core_ecosystem/__init__.py",
+          "readme_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_sexual_education_traditional_knowledge_core_ecosystem/README.md"
         },
         {
           "domain_id": "HEALTHCARE_AND_RESEARCH",
@@ -1742,7 +1750,11 @@
             "SEXUAL-HEALTH-RESEARCH-INNOVATION",
             "SEXUAL-REPRODUCTIVE-HEALTHCARE",
             "WOMENS-SEXUAL-HEALTH"
-          ]
+          ],
+          "domain_package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_sexual_reproductive_healthcare_research_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_sexual_reproductive_healthcare_research_core_ecosystem/manager.py",
+          "package_initializer_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_sexual_reproductive_healthcare_research_core_ecosystem/__init__.py",
+          "readme_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_sexual_reproductive_healthcare_research_core_ecosystem/README.md"
         },
         {
           "domain_id": "COACHING_AND_COUNSELLING",
@@ -1754,7 +1766,11 @@
             "SEXOLOGY-PROFESSIONAL-COUNSELLING",
             "SEXUAL-PSYCHOLOGY-THERAPY",
             "SEXUAL-WELLNESS-COACHING"
-          ]
+          ],
+          "domain_package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_relationship_intimacy_coaching_counselling_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_relationship_intimacy_coaching_counselling_core_ecosystem/manager.py",
+          "package_initializer_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_relationship_intimacy_coaching_counselling_core_ecosystem/__init__.py",
+          "readme_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_relationship_intimacy_coaching_counselling_core_ecosystem/README.md"
         },
         {
           "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
@@ -1777,7 +1793,11 @@
             "VICETEMPLE-ADULT-INDUSTRY-CORE-ECOSYSTEM",
             "XHAMSTER-ADULT-INDUSTRY-CORE-ECOSYSTEM",
             "XVIDEOS-ADULT-INDUSTRY-CORE-ECOSYSTEM"
-          ]
+          ],
+          "domain_package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_media_creator_economy_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_media_creator_economy_core_ecosystem/manager.py",
+          "package_initializer_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_media_creator_economy_core_ecosystem/__init__.py",
+          "readme_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_media_creator_economy_core_ecosystem/README.md"
         },
         {
           "domain_id": "BUSINESS_WORK_AND_TRAINING",
@@ -1787,7 +1807,11 @@
             "ADULT-STARTUPS-MSMES-COMPANIES",
             "ADULT-TRAINING-CERTIFICATION-DEVELOPMENT",
             "ADULT-WORK-JOBS-CAREERS"
-          ]
+          ],
+          "domain_package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_business_work_training_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_business_work_training_core_ecosystem/manager.py",
+          "package_initializer_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_business_work_training_core_ecosystem/__init__.py",
+          "readme_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_business_work_training_core_ecosystem/README.md"
         },
         {
           "domain_id": "COMMERCE_AND_MARKETPLACES",
@@ -1795,7 +1819,11 @@
           "package_ids": [
             "ADULT-B2B-B2C-MARKETPLACE-TRADE",
             "ADULT-WELLNESS-PRODUCTS-COMMERCE"
-          ]
+          ],
+          "domain_package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_wellness_commerce_marketplace_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_wellness_commerce_marketplace_core_ecosystem/manager.py",
+          "package_initializer_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_wellness_commerce_marketplace_core_ecosystem/__init__.py",
+          "readme_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_wellness_commerce_marketplace_core_ecosystem/README.md"
         },
         {
           "domain_id": "TECHNOLOGY_AND_INFRASTRUCTURE",
@@ -1803,14 +1831,22 @@
           "package_ids": [
             "ADULT-TECHNOLOGY-SOFTWARE-APIS",
             "CLOUDFLARE-ADULT-INDUSTRY-CORE-ECOSYSTEM"
-          ]
+          ],
+          "domain_package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_technology_infrastructure_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_technology_infrastructure_core_ecosystem/manager.py",
+          "package_initializer_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_technology_infrastructure_core_ecosystem/__init__.py",
+          "readme_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_technology_infrastructure_core_ecosystem/README.md"
         },
         {
           "domain_id": "LAW_SAFETY_AND_COMPLIANCE",
           "name": "Law, Safety and Compliance",
           "package_ids": [
             "ADULT-LAW-SAFETY-COMPLIANCE"
-          ]
+          ],
+          "domain_package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_law_safety_compliance_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_law_safety_compliance_core_ecosystem/manager.py",
+          "package_initializer_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_law_safety_compliance_core_ecosystem/__init__.py",
+          "readme_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_law_safety_compliance_core_ecosystem/README.md"
         },
         {
           "domain_id": "PAYMENTS_AND_BILLING",
@@ -1821,7 +1857,11 @@
             "PAXUM-ADULT-INDUSTRY-CORE-ECOSYSTEM",
             "SEGPAY-ADULT-INDUSTRY-CORE-ECOSYSTEM",
             "VEROTEL-ADULT-INDUSTRY-CORE-ECOSYSTEM"
-          ]
+          ],
+          "domain_package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_payments_billing_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_payments_billing_core_ecosystem/manager.py",
+          "package_initializer_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_payments_billing_core_ecosystem/__init__.py",
+          "readme_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_payments_billing_core_ecosystem/README.md"
         },
         {
           "domain_id": "ADVERTISING_AND_DISTRIBUTION",
@@ -1830,7 +1870,11 @@
             "CRAKREVENUE-ADULT-INDUSTRY-CORE-ECOSYSTEM",
             "EXOCLICK-ADULT-INDUSTRY-CORE-ECOSYSTEM",
             "TRAFFICJUNKY-ADULT-INDUSTRY-CORE-ECOSYSTEM"
-          ]
+          ],
+          "domain_package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_advertising_distribution_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_advertising_distribution_core_ecosystem/manager.py",
+          "package_initializer_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_advertising_distribution_core_ecosystem/__init__.py",
+          "readme_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_advertising_distribution_core_ecosystem/README.md"
         },
         {
           "domain_id": "GLOBAL_AND_REGIONAL_GOVERNANCE",
@@ -1840,7 +1884,11 @@
             "BHARAT-ADULT-WELLNESS-CORE-ECOSYSTEM",
             "GLOBAL-ADULT-WELLNESS-CORE-ECOSYSTEM",
             "GLOBAL-PARTNERSHIPS-NETWORKING"
-          ]
+          ],
+          "domain_package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_wellness_governance_partnerships_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_wellness_governance_partnerships_core_ecosystem/manager.py",
+          "package_initializer_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_wellness_governance_partnerships_core_ecosystem/__init__.py",
+          "readme_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_wellness_governance_partnerships_core_ecosystem/README.md"
         }
       ],
       "packages": [
@@ -2278,7 +2326,15 @@
           "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/xvideos_adult_industry_core_ecosystem",
           "status": "REGISTERED_SCAFFOLD"
         }
-      ]
+      ],
+      "domain_package_count": 12,
+      "shared_runtime_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/domain_runtime.py",
+      "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/manager.py",
+      "catalog_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/catalog.py",
+      "domain_catalog_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/domain_catalog.py",
+      "test_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/test_core_domains.py",
+      "workflow_path": ".github/workflows/kamasutra-core-domain-tests.yml",
+      "php_facade_included": false
     }
   }
 }
