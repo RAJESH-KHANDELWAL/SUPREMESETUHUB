@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "PORNHUB-SOCIAL-MEDIA-CORE-ECOSYSTEM",
+  "platform_id": "pornhub",
+  "platform_name": "Pornhub",
+  "parent_id": "GLOBAL-SOCIAL-MEDIA-CORE-ECOSYSTEM",
+  "domain_id": "ADULT_COMMUNITIES_AND_CREATOR_PLATFORMS_18_PLUS",
+  "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_social_media_core_ecosystem/pornhub_social_media_core_ecosystem",
+  "status": "CORE_CATALOG_ONLY",
+  "age_classification": "ADULT_18_PLUS",
+  "adult_only_18_plus": true,
+  "api_transport_in_core": false,
+  "live_connection_verified": false,
+  "api_calls_performed": 0,
+  "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
+}
