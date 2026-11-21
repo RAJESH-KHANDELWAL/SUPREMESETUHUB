@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "profile_id": "SERVER-WORKLOAD-TRAVEL_TOURISM_HOSPITALITY",
   "domain_id": "TRAVEL_TOURISM_HOSPITALITY",
   "label": "Travel, Tourism and Hospitality",
@@ -30,5 +30,33 @@
     "storage": "files, objects, backups and artifacts"
   },
   "operational_status": "NON_EXECUTING_PROFILE",
-  "note": "No provisioning, legal approval or production operation is performed by this profile."
+  "note": "No provisioning, legal approval or production operation is performed by this profile.",
+  "workload_areas": [
+    {
+      "area_id": "TRAVEL_TOURISM_HOSPITALITY_WORKLOAD_01",
+      "name": "Travel search and booking platforms",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "TRAVEL_TOURISM_HOSPITALITY_WORKLOAD_02",
+      "name": "Hotel property management and reservations",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "TRAVEL_TOURISM_HOSPITALITY_WORKLOAD_03",
+      "name": "Airline and passenger service systems",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "TRAVEL_TOURISM_HOSPITALITY_WORKLOAD_04",
+      "name": "Tour, activity and destination platforms",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "TRAVEL_TOURISM_HOSPITALITY_WORKLOAD_05",
+      "name": "Hospitality operations and guest services",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    }
+  ],
+  "workload_area_count": 5
 }
