@@ -6,9 +6,11 @@ from typing import Any
 ROOT_ID="MISTRAL-CORE-ECOSYSTEM"
 ROOT_PATH="backend/core/global_ecosystem/global_core_ecosystem/mistral_core_ecosystem"
 API_ROOT="backend/api/global_ecosystem/global_api_ecosystem/mistral_api_ecosystem"
-ENGINE_ROOT="backend/engine/global_ecosystem/global_engine_ecosystem/global_ai_engine_ecosystem/mistral_ai_engine_ecosystem"
-RUNTIME_ROOT="backend/global_ecosystem/global_ai_ecosystem/mistral_ecosystem"
+AI_PROVIDER_ROOT="backend/ai/global_ecosystem/global_ai_ecosystem/global_ai_providers/mistral_ai_ecosystem"
 AI_CORE_FACADE="backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem/mistral_core_ecosystem"
+# No dedicated Mistral ENGINE or runtime directory is currently registered.
+ENGINE_ROOT=None
+RUNTIME_ROOT=None
 _COMMON=["PROVIDER_GOVERNANCE","TENANT_ACCESS_AND_PRIVACY","API_INTEROPERABILITY"]
 _PRODUCTS=(
  {"key":"agents","ecosystem_id":"MISTRAL-AGENTS-CORE-ECOSYSTEM","name":"Mistral Agents","directory":"mistral_agents_core_ecosystem","api_directory":"mistral_agents_api_ecosystem","domains":["AGENT_ORCHESTRATION","TOOL_USE_AND_HANDOFF"],"capabilities":["AGENT_DEFINITION_METADATA","TOOL_REGISTRY_METADATA","HANDOFF_POLICY_METADATA","AGENT_READINESS_DISCOVERY"]},
@@ -34,10 +36,12 @@ def get_mistral_core_catalog()->dict[str,Any]:
   children.append(row)
  return {"ecosystem_id":ROOT_ID,"name":"MISTRAL CORE ECOSYSTEM","provider":"mistral","vendor":"Mistral AI",
   "ecosystem_type":"PROVIDER_CORE","parent_id":"GLOBAL-CORE-ECOSYSTEM","status":"CORE_CATALOG_ONLY","enabled":True,
-  "core_path":ROOT_PATH,"api_catalog_ref":API_ROOT,"engine_ref":ENGINE_ROOT,"runtime_ref":RUNTIME_ROOT,
-  "ai_core_facade_ref":AI_CORE_FACADE,
+  "core_path":ROOT_PATH,"api_catalog_ref":API_ROOT,"ai_provider_ref":AI_PROVIDER_ROOT,
+  "ai_core_facade_ref":AI_CORE_FACADE,"engine_ref":ENGINE_ROOT,"runtime_ref":RUNTIME_ROOT,
+  "layer_availability":{"core":"REGISTERED","api":"REGISTERED","ai_provider":"REGISTERED",
+   "ai_core_facade":"REGISTERED","engine":"NOT_REGISTERED","runtime":"NOT_REGISTERED"},
   "capabilities":["MISTRAL_PROVIDER_REGISTRY","MODEL_AND_PRODUCT_DISCOVERY","AI_CAPABILITY_TAXONOMY",
    "TENANT_SCOPED_POLICY_METADATA","READINESS_AND_DEPENDENCY_DISCOVERY","READ_ONLY_MASTER_CATALOG_MAPPING"],
   "children":children}
 
-__all__=["ROOT_ID","ROOT_PATH","API_ROOT","ENGINE_ROOT","RUNTIME_ROOT","AI_CORE_FACADE","get_mistral_core_catalog"]
+__all__=["ROOT_ID","ROOT_PATH","API_ROOT","AI_PROVIDER_ROOT","AI_CORE_FACADE","ENGINE_ROOT","RUNTIME_ROOT","get_mistral_core_catalog"]

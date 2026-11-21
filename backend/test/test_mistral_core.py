@@ -16,6 +16,15 @@ class MistralCoreTests(unittest.TestCase):
   for row in rows:
    self.assertTrue((root/row["core_module"]).is_dir(),row["core_module"])
    self.assertTrue((root/row["api_catalog_ref"]).is_dir(),row["api_catalog_ref"])
+ def test_existing_ai_provider_and_core_facade_references_resolve(self):
+  root=Path(__file__).resolve().parents[2]
+  catalog=get_mistral_core_catalog()
+  self.assertTrue((root/catalog["ai_provider_ref"]).is_dir())
+  self.assertTrue((root/catalog["ai_core_facade_ref"]).is_dir())
+  self.assertIsNone(catalog["engine_ref"])
+  self.assertIsNone(catalog["runtime_ref"])
+  self.assertEqual(catalog["layer_availability"]["engine"],"NOT_REGISTERED")
+  self.assertEqual(catalog["layer_availability"]["runtime"],"NOT_REGISTERED")
  def test_product_ids_are_unique(self):
   ids=[x["ecosystem_id"] for x in get_mistral_core_catalog()["children"]]
   self.assertEqual(len(ids),len(set(ids)))
@@ -35,6 +44,8 @@ class MistralCoreTests(unittest.TestCase):
   result=get_manager().master_catalog()
   self.assertTrue(result["available"],result)
   self.assertEqual(result["status"],"MASTER_CATALOG_READ_ONLY")
+  self.assertEqual(result["current_unique_entries"],246)
+  self.assertEqual(result["remaining_unique_entries"],2222)
   self.assertTrue(all(result["mapped_entry_presence"].values()))
  def test_status_is_metadata_only(self):
   status=get_manager().status()
