@@ -1537,11 +1537,6 @@ def get_catalog() -> list[dict[str, Any]]:
             "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
         },
     }
-    records = [
-        ROOT,
-        *CATEGORIES,
-        infrastructure_core,
-        integrations_core,
     ibm_core = {
         "ecosystem_id": "IBM-CORE-ECOSYSTEM",
         "name": "IBM CORE ECOSYSTEM",
@@ -1564,6 +1559,12 @@ def get_catalog() -> list[dict[str, Any]]:
             "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
         },
     }
+
+    records = [
+        ROOT,
+        *CATEGORIES,
+        infrastructure_core,
+        integrations_core,
         huggingface_core,
         ibm_core,
         human_language_core,
