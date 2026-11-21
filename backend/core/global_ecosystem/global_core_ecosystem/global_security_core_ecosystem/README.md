@@ -5,8 +5,9 @@ Provider-neutral, read-only security CORE for canonical security-domain taxonomy
 ## Canonical architecture
 
 - `ecosystem_manifest.json`: canonical identity, source mapping, counts, scope and layer boundaries.
-- `manager.py`: canonical validated registry and stable manager facade; defensive-copy accessors, status, health, domain/provider/jurisdiction inventory, offerings, tiers, dependency map and protected-group safety metadata.
-- `catalog.json`: 33 unique security domains and 198 individually named control areas, each domain registered to a direct-child `*_core_ecosystem` package. Every domain includes scope and explicit references to master-catalog section/entry IDs. Control areas remain data records; they do not create one folder per item.
+- `manager.py`: canonical validated registry and stable manager facade; exact master-entry validation, defensive-copy accessors, status, health, domain/provider/jurisdiction inventory, domain-manager factory, offerings, tiers, dependency map and protected-group safety metadata.
+- `domain_runtime.py`: shared read-only runtime for all 33 domains; domain status, control-area inventory and master-catalog alignment without 33 duplicated manager implementations.
+- `catalog.json`: 33 unique security domains and 330 individually named control areas, each domain registered to a direct-child `*_core_ecosystem` package. Every domain includes scope and explicit references to master-catalog section/entry IDs. Control areas remain data records; they do not create one folder per item.
 - `<domain>_core_ecosystem/`: direct-child domain packages, with domain manifest, README and package marker; no extra intermediate domains directory.
 - `provider_catalog.json` + `provider_catalog.py`: 6 provider metadata entries; no live connections are implied.
 - `catalog.py`: compatibility facade for aggregate discovery.
@@ -32,7 +33,7 @@ The catalog source states that expansion must be meaningful, individually define
 
 The 33 catalog domains collectively cover identity/access; zero trust; endpoint/device; network; cloud/infrastructure; application/product; data privacy; cryptography/key management; threat intelligence; detection/response; vulnerability/exposure; governance/risk/compliance; backup/recovery/resilience; supply chain; email/collaboration; security awareness; fraud/abuse; physical/IoT/OT; age assurance; child safety; adult-platform safety; consent/intimate-image protection; exploitation/trafficking prevention; sensitive intimate-data privacy; sexual-health information integrity; moderation/classification; synthetic-media abuse; jurisdictional compliance; digital wellbeing; impersonation; payments; trust and safety; and evidence/research assurance.
 
-The taxonomy now defines **33 domains and 198 control areas**. Coverage remains explicitly **non-exhaustive**: this is a structured baseline, not a claim that every security threat, jurisdiction, vendor, control implementation or future technology is represented. Add a domain only when it has a distinct scope, ID, direct-child package, manifest, owner and tests. Add control-area records only when they are distinct and traceable. Do not create folders for individual control areas or duplicate concepts to increase counts.
+The taxonomy now defines **33 domains and 330 control areas (10 per domain)**. Coverage remains explicitly **non-exhaustive**: this is a structured baseline, not a claim that every security threat, jurisdiction, vendor, control implementation or future technology is represented. Add a domain only when it has a distinct scope, ID, direct-child package, manifest, owner and tests. Add control-area records only when they are distinct and traceable. Do not create folders for individual control areas or duplicate concepts to increase counts.
 
 ## Master capability tiers
 
