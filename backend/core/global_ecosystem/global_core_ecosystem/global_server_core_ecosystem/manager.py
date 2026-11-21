@@ -98,11 +98,28 @@ class GlobalServerCoreManager:
     def list_domains(self) -> list[dict[str, Any]]:
         registry = load_domain_registry()
         manifests = [_manifest_for(domain) for domain in registry["domains"]]
-        for manifest in manifests:
+        expected_root = (
+            "backend/core/global_ecosystem/global_core_ecosystem/"
+            "global_server_core_ecosystem/"
+        )
+        for domain, manifest in zip(registry["domains"], manifests):
+            expected_path = expected_root + domain["directory"] + "/"
+            if manifest.get("canonical_path") != expected_path:
+                raise ValueError(f"SERVER_DOMAIN_CANONICAL_PATH_MISMATCH: {domain['domain_id']}")
             areas = manifest.get("control_areas", [])
             area_ids = [item.get("area_id") for item in areas]
-            if len(areas) != 6 or len(area_ids) != len(set(area_ids)):
+            if (
+                len(areas) != 6
+                or any(not item.get("name") or not item.get("scope") for item in areas)
+                or any(not area_id for area_id in area_ids)
+                or len(area_ids) != len(set(area_ids))
+            ):
                 raise ValueError(f"SERVER_DOMAIN_CONTROL_AREAS_INVALID: {manifest['domain_id']}")
+        expected_count = registry.get("domain_count")
+        expected_area_count = registry.get("coverage", {}).get("control_area_count")
+        actual_area_count = sum(len(item.get("control_areas", [])) for item in manifests)
+        if expected_count != len(manifests) or expected_area_count != actual_area_count:
+            raise ValueError("SERVER_DOMAIN_REGISTRY_COVERAGE_COUNT_MISMATCH")
         return manifests
 
     def list_domain_inventory(self) -> list[dict[str, Any]]:
@@ -169,6 +186,22 @@ class GlobalServerCoreManager:
                 raise ValueError(f"SERVER_PROVIDER_MANIFEST_ID_MISMATCH: {provider_id}")
             if manifest.get("parent_id") != "GLOBAL-SERVER-CORE-ECOSYSTEM":
                 raise ValueError(f"SERVER_PROVIDER_MANIFEST_PARENT_MISMATCH: {provider_id}")
+            if manifest.get("status") != "CORE_CATALOG_ONLY":
+                raise ValueError(f"SERVER_PROVIDER_STATUS_INVALID: {provider_id}")
+            if (
+                manifest.get("live_connection_verified") is not False
+                or manifest.get("remote_operations_enabled") is not False
+                or manifest.get("api_calls_performed") != 0
+                or manifest.get("credential_storage") != "EXTERNAL_SECRET_STORE_ONLY"
+            ):
+                raise ValueError(f"SERVER_PROVIDER_OPERATIONAL_BOUNDARY_INVALID: {provider_id}")
+        catalog_ids = {item["provider_id"] for item in providers}
+        expected_ids = {
+            "ABELOHOST", "AWS", "CLOUDFLARE", "DIGITALOCEAN",
+            "GOOGLE", "MICROSOFT", "VICETEMPLE",
+        }
+        if catalog_ids != expected_ids:
+            raise ValueError("SERVER_PROVIDER_CATALOG_COVERAGE_MISMATCH")
         return {"success": True, "provider_count": len(providers)}
 
     def validate_workload_profiles(self) -> dict[str, Any]:
@@ -182,15 +215,35 @@ class GlobalServerCoreManager:
             if not domain_id or domain_id in seen:
                 raise ValueError(f"SERVER_WORKLOAD_ID_MISSING_OR_DUPLICATE: {domain_id}")
             seen.add(domain_id)
+            if not manifest_path.is_file():
+                raise FileNotFoundError(f"SERVER_WORKLOAD_MANIFEST_MISSING: {domain_id}")
+            if not (ROOT / folder / "__init__.py").is_file():
+                raise FileNotFoundError(f"SERVER_WORKLOAD_PACKAGE_INIT_MISSING: {domain_id}")
             manifest = _load_json(manifest_path)
             if manifest.get("domain_id") != domain_id:
                 raise ValueError(f"SERVER_WORKLOAD_MANIFEST_ID_MISMATCH: {domain_id}")
+            if manifest.get("profile_id") != f"SERVER-WORKLOAD-{domain_id}":
+                raise ValueError(f"SERVER_WORKLOAD_PROFILE_ID_INVALID: {domain_id}")
             if manifest.get("scope") != "SERVER_REQUIREMENTS_METADATA_ONLY":
                 raise ValueError(f"SERVER_WORKLOAD_SCOPE_INVALID: {domain_id}")
+            if manifest.get("operational_status") != "NON_EXECUTING_PROFILE":
+                raise ValueError(f"SERVER_WORKLOAD_OPERATIONAL_BOUNDARY_INVALID: {domain_id}")
+            tiers = manifest.get("service_tiers", [])
+            if tiers != ["NORMAL", "BASIC", "STANDARD", "PREMIUM",
+                         "PROFESSIONAL", "ENTERPRISE", "SUPREME"]:
+                raise ValueError(f"SERVER_WORKLOAD_SERVICE_TIERS_INVALID: {domain_id}")
             expected_areas = item.get("workload_areas", [])
             actual_areas = manifest.get("workload_areas", [])
-            if len(expected_areas) != 5 or len(actual_areas) != 5:
-                raise ValueError(f"SERVER_WORKLOAD_AREA_COUNT_INVALID: {domain_id}")
+            area_ids = [area.get("area_id") for area in actual_areas]
+            if (
+                len(expected_areas) != 5
+                or len(actual_areas) != 5
+                or manifest.get("workload_area_count") != 5
+                or any(not area_id for area_id in area_ids)
+                or len(area_ids) != len(set(area_ids))
+                or any(not area.get("name") or not area.get("scope") for area in actual_areas)
+            ):
+                raise ValueError(f"SERVER_WORKLOAD_AREA_COUNT_OR_SCHEMA_INVALID: {domain_id}")
             if expected_areas != actual_areas:
                 raise ValueError(f"SERVER_WORKLOAD_CATALOG_MANIFEST_MISMATCH: {domain_id}")
         return {
