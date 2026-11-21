@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "profile_id": "SERVER-WORKLOAD-REAL_ESTATE_CONSTRUCTION",
   "domain_id": "REAL_ESTATE_CONSTRUCTION",
   "label": "Real Estate and Construction",
@@ -30,5 +30,33 @@
     "storage": "files, objects, backups and artifacts"
   },
   "operational_status": "NON_EXECUTING_PROFILE",
-  "note": "No provisioning, legal approval or production operation is performed by this profile."
+  "note": "No provisioning, legal approval or production operation is performed by this profile.",
+  "workload_areas": [
+    {
+      "area_id": "REAL_ESTATE_CONSTRUCTION_WORKLOAD_01",
+      "name": "Property listing and transaction platforms",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "REAL_ESTATE_CONSTRUCTION_WORKLOAD_02",
+      "name": "Property and facility management",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "REAL_ESTATE_CONSTRUCTION_WORKLOAD_03",
+      "name": "Construction project and BIM systems",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "REAL_ESTATE_CONSTRUCTION_WORKLOAD_04",
+      "name": "Building automation and IoT platforms",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "REAL_ESTATE_CONSTRUCTION_WORKLOAD_05",
+      "name": "Land records and valuation systems",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    }
+  ],
+  "workload_area_count": 5
 }
