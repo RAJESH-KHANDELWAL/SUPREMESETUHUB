@@ -26,12 +26,18 @@ class IBMCoreTests(unittest.TestCase):
         self.assertEqual(len(items),18)
         self.assertEqual(len(ids),len(set(ids)))
         self.assertIsNotNone(get_domain("WATSONX_AI_MODELS_INFERENCE"))
+    def test_domain_to_product_mapping_covers_all_registered_families(self):
+        product_ids={x["product_id"] for x in list_products()}
+        mapped={product_id for domain in list_domains() for product_id in domain["product_ids"]}
+        self.assertEqual(mapped,product_ids)
     def test_all_product_packages_import(self):
         import importlib
         slugs=["api_connect_gateway","billing_usage_cost","cloud_object_storage","cloud_platform","cloudant","code_engine_serverless","db2_database","iam_identity","kubernetes_containers","monitoring_activity_tracker","resource_controller_catalog","secrets_manager","security_key_protect","vpc_compute_networking","watsonx_ai","watsonx_data"]
         for slug in slugs:
             module=importlib.import_module(f"{__package__}.ibm_{slug}_core_ecosystem")
             self.assertTrue(any(name.endswith("CoreManager") for name in module.__all__))
+            manager_class=getattr(module,module.__all__[0])
+            self.assertTrue(manager_class.PRODUCT_ID.startswith("ibm_"))
     def test_all_domain_packages_import(self):
         import importlib
         slugs=["provider_governance","cloud_account_resource_governance","iam_identity_access","compute_vpc_networking","kubernetes_containers","serverless_code_engine","object_storage_artifacts","databases_cloudant","watsonx_ai_models_inference","watsonx_data_analytics","api_management_gateway","secrets_management","key_management_cryptography","monitoring_observability","activity_tracking_audit","resource_catalog_lifecycle","billing_usage_cost","tenancy_region_quota_compliance"]
