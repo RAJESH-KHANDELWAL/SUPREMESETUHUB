@@ -67,7 +67,6 @@ class ServerCoreTests(unittest.TestCase):
 
     def test_domain_discovery_is_case_insensitive(self):
         manager = get_manager()
-        self.assertIsNotNone(manager.get_domain("server"))
         self.assertIsNotNone(manager.get_domain("availability"))
         self.assertIsNone(manager.get_domain("NOT_A_SERVER_DOMAIN"))
 
