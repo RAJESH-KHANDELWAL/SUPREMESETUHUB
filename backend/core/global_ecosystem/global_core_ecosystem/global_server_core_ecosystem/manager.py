@@ -132,6 +132,7 @@ class GlobalServerCoreManager:
     def status(self) -> dict[str, Any]:
         registry = load_domain_registry()
         providers = get_provider_catalog()
+        workload_validation = self.validate_workload_profiles()
         workloads = get_workload_domain_catalog().get("domains", [])
         tiers = get_service_tier_catalog().get("tiers", [])
         domains = self.list_domains()
@@ -146,6 +147,7 @@ class GlobalServerCoreManager:
             "domain_manifest_count": len(domains),
             "control_area_count": sum(len(x.get("control_areas", [])) for x in domains),
             "workload_profile_count": len(workloads),
+            "workload_profile_validation": workload_validation,
             "service_tier_count": len(tiers),
             "master_catalog_alignment": alignment,
             "live_provider_connections_verified": False,
