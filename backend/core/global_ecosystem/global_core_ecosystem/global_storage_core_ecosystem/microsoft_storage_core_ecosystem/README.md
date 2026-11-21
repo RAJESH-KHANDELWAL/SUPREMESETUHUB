@@ -1,5 +1,14 @@
 # MICROSOFT STORAGE CORE ECOSYSTEM
 
-Provider-level Core metadata boundary for MICROSOFT storage capabilities. This package owns provider identity, capability declarations, readiness metadata and policy boundaries only.
+Provider package for the Global Storage Core catalog.
 
-It does not implement SDK transport, OAuth/token exchange, object or file upload/download, database persistence, queues or user interfaces. Provider adapters and live connections remain unconfigured until separately implemented and verified.
+## Registered product families
+- Azure Blob Storage — OBJECT_STORAGE
+- Azure Files — MANAGED_FILE_STORAGE
+- Azure Managed Disks — BLOCK_STORAGE
+- Azure NetApp Files — ENTERPRISE_FILE_STORAGE
+- Azure Backup — BACKUP_AND_RECOVERY
+- OneDrive — PERSONAL_FILE_SYNC
+- SharePoint document libraries — COLLABORATIVE_DOCUMENT_STORAGE
+
+The manager exposes read-only provider metadata. It does not authenticate, connect, upload, download, delete, restore or verify account entitlements. Provider API adapters belong in the API/Provider Storage layers.

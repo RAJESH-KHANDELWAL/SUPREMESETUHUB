@@ -1815,6 +1815,19 @@
         "live_connection_verified": false,
         "api_transport_in_core": false,
         "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
+      },
+      {
+        "ecosystem_id": "GLOBAL-STORAGE-CORE-ECOSYSTEM",
+        "name": "GLOBAL STORAGE CORE ECOSYSTEM",
+        "layer": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem",
+        "catalog_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/catalog.py",
+        "product_catalog_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/product_catalog.py",
+        "manager_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/manager.py",
+        "status": "CATALOG_FOUNDATION_NOT_LIVE_INTEGRATED",
+        "provider_count": 5,
+        "product_family_count": 25,
+        "domain_count": 17,
+        "live_connections_verified": false
       }
     ]
   },
@@ -3784,6 +3797,155 @@
       "php_contract_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/php/GlobalSoftwareCoreContract.php",
       "test_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/test_software_core_domains.py",
       "live_connection_verified": false,
+      "api_transport_in_core": false,
+      "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
+    },
+    "global_storage_core_ecosystem": {
+      "ecosystem_id": "GLOBAL-STORAGE-CORE-ECOSYSTEM",
+      "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem",
+      "classification": "CORE_IMPLEMENTATION_REGISTRY",
+      "taxonomy_entries_counted_in_global_2468_target": false,
+      "reason": "Architecture implementation reference only; provider/product/domain metadata is not counted as separate master taxonomy topics.",
+      "provider_count": 5,
+      "product_family_count": 25,
+      "domain_count": 17,
+      "providers": [
+        {
+          "provider_id": "apple",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/apple_storage_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/apple_storage_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "aws",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/aws_storage_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/aws_storage_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "digitalocean",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/digitalocean_storage_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/digitalocean_storage_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "google",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/google_storage_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/google_storage_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "microsoft",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/microsoft_storage_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/microsoft_storage_core_ecosystem/manager.py"
+        }
+      ],
+      "domains": [
+        {
+          "domain_id": "PROVIDER_GOVERNANCE",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_provider_governance_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_provider_governance_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "OBJECT_STORAGE",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_object_storage_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_object_storage_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "FILE_STORAGE",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_file_storage_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_file_storage_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "BLOCK_STORAGE",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_block_storage_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_block_storage_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "PERSONAL_CLOUD_DRIVES",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_personal_cloud_drives_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_personal_cloud_drives_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "COLLABORATIVE_DOCUMENT_STORAGE",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_collaborative_document_storage_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_collaborative_document_storage_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "BACKUP_AND_RECOVERY",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_backup_and_recovery_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_backup_and_recovery_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "ARCHIVE_AND_RETENTION",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_archive_and_retention_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_archive_and_retention_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "DATA_TRANSFER_AND_MIGRATION",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_data_transfer_and_migration_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_data_transfer_and_migration_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "SYNC_AND_REPLICATION",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_sync_and_replication_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_sync_and_replication_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "SHARING_AND_ACCESS",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_sharing_and_access_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_sharing_and_access_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "ENCRYPTION_AND_KEY_BOUNDARIES",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_encryption_and_key_boundaries_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_encryption_and_key_boundaries_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "STORAGE_SECURITY_AND_COMPLIANCE",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_storage_security_and_compliance_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_storage_security_and_compliance_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "OBSERVABILITY_AND_COST",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_observability_and_cost_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_observability_and_cost_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "EDGE_AND_HYBRID_STORAGE",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_edge_and_hybrid_storage_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_edge_and_hybrid_storage_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "LIFECYCLE_AND_VERSIONING",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_lifecycle_and_versioning_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_lifecycle_and_versioning_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "TENANCY_AND_DATA_GOVERNANCE",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_tenancy_and_data_governance_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/global_tenancy_and_data_governance_core_ecosystem/manager.py"
+        }
+      ],
+      "shared_files": [
+        "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/product_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/domain_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/domain_runtime.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/contracts.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/policy.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/module_service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/orchestrator.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/manager.php",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/README.md",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/STORAGE_CORE_IMPLEMENTATION_STATUS.md",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/ecosystem_manifest.json",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/product_ecosystem_index.json",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/test_storage_core_domains.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/integrations/registry.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/services/storage_inventory_service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_storage_core_ecosystem/tools/validate_storage_catalog.py"
+      ],
+      "live_connections_verified": false,
       "api_transport_in_core": false,
       "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
     }

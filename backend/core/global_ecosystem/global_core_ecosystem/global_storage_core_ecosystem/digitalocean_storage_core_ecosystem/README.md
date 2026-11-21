@@ -1,5 +1,10 @@
 # DIGITALOCEAN STORAGE CORE ECOSYSTEM
 
-Provider-level Core metadata boundary for DIGITALOCEAN storage capabilities. This package owns provider identity, capability declarations, readiness metadata and policy boundaries only.
+Provider package for the Global Storage Core catalog.
 
-It does not implement SDK transport, OAuth/token exchange, object or file upload/download, database persistence, queues or user interfaces. Provider adapters and live connections remain unconfigured until separately implemented and verified.
+## Registered product families
+- DigitalOcean Spaces — OBJECT_STORAGE
+- DigitalOcean Volumes — BLOCK_STORAGE
+- DigitalOcean Droplet Backups — BACKUP_AND_RECOVERY
+
+The manager exposes read-only provider metadata. It does not authenticate, connect, upload, download, delete, restore or verify account entitlements. Provider API adapters belong in the API/Provider Storage layers.

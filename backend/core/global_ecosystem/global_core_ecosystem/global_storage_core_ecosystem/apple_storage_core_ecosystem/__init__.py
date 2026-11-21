@@ -1,3 +1,3 @@
-"""Apple Storage Core provider package."""
-PROVIDER = "apple"
-ECOSYSTEM_ID = "APPLE-STORAGE-CORE-ECOSYSTEM"
+"""Apple Storage Core package."""
+from .manager import AppleStorageCoreManager,get_manager
+__all__=["AppleStorageCoreManager","get_manager"]

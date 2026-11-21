@@ -1,7 +1,3 @@
-"""GOOGLE Storage Core provider package."""
-PROVIDER = "google"
-ECOSYSTEM_ID = "GOOGLE-STORAGE-CORE-ECOSYSTEM"
-
-from .service import GoogleStorageCoreService
-
-__all__ = ["PROVIDER", "ECOSYSTEM_ID", "GoogleStorageCoreService"]
+"""Google Cloud Storage Core package."""
+from .manager import GoogleStorageCoreManager,get_manager
+__all__=["GoogleStorageCoreManager","get_manager"]

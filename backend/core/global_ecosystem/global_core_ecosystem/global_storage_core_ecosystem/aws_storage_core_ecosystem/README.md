@@ -1,5 +1,14 @@
-# AWS STORAGE CORE ECOSYSTEM
+# AMAZON WEB SERVICES STORAGE CORE ECOSYSTEM
 
-Provider-level Core metadata boundary for AWS storage capabilities. This package owns provider identity, capability declarations, readiness metadata and policy boundaries only.
+Provider package for the Global Storage Core catalog.
 
-It does not implement SDK transport, OAuth/token exchange, object or file upload/download, database persistence, queues or user interfaces. Provider adapters and live connections remain unconfigured until separately implemented and verified.
+## Registered product families
+- Amazon S3 — OBJECT_STORAGE
+- Amazon S3 Glacier storage classes — ARCHIVE_OBJECT_STORAGE
+- Amazon EFS — MANAGED_FILE_STORAGE
+- Amazon FSx — MANAGED_FILE_STORAGE
+- Amazon EBS — BLOCK_STORAGE
+- AWS Storage Gateway — HYBRID_STORAGE
+- AWS Backup — BACKUP_AND_RECOVERY
+
+The manager exposes read-only provider metadata. It does not authenticate, connect, upload, download, delete, restore or verify account entitlements. Provider API adapters belong in the API/Provider Storage layers.

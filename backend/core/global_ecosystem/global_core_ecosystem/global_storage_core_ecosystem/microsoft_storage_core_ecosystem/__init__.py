@@ -1,7 +1,3 @@
-"""MICROSOFT Storage Core provider package."""
-PROVIDER = "microsoft"
-ECOSYSTEM_ID = "MICROSOFT-STORAGE-CORE-ECOSYSTEM"
-
-from .service import MicrosoftStorageCoreService
-
-__all__ = ["PROVIDER", "ECOSYSTEM_ID", "MicrosoftStorageCoreService"]
+"""Microsoft Storage Core package."""
+from .manager import MicrosoftStorageCoreManager,get_manager
+__all__=["MicrosoftStorageCoreManager","get_manager"]

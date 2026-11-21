@@ -1,3 +1,10 @@
 # APPLE STORAGE CORE ECOSYSTEM
 
-Provider-level Core metadata boundary for Apple storage-related capabilities. This package does not implement Apple SDK transport, account authentication, file synchronization or object/file operations. Those require separately verified APIs, permissions and adapters.
+Provider package for the Global Storage Core catalog.
+
+## Registered product families
+- iCloud Drive — PERSONAL_FILE_SYNC
+- iCloud Photos — PHOTO_LIBRARY_STORAGE
+- iCloud Backup — DEVICE_BACKUP
+
+The manager exposes read-only provider metadata. It does not authenticate, connect, upload, download, delete, restore or verify account entitlements. Provider API adapters belong in the API/Provider Storage layers.
