@@ -25,7 +25,7 @@ def list_meta_products() -> list[dict[str, Any]]:
         if mapping is None:
             continue
         result.append({
-            "product_id": "meta_"+family_id,
+            "product_id": "meta_ai" if family_id=="meta_ai" else "meta_"+family_id,
             "family_id": family_id,
             "name": mapping["name"],
             "core_module": mapping["core_module"],
