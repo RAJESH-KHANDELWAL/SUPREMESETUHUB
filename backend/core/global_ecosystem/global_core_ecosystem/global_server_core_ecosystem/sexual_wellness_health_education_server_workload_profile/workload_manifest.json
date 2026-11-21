@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "profile_id": "SERVER-WORKLOAD-SEXUAL_WELLNESS_HEALTH_EDUCATION",
   "domain_id": "SEXUAL_WELLNESS_HEALTH_EDUCATION",
   "label": "Sexual Wellness and Health Education",
@@ -30,5 +30,33 @@
     "storage": "files, objects, backups and artifacts"
   },
   "operational_status": "NON_EXECUTING_PROFILE",
-  "note": "No provisioning, legal approval or production operation is performed by this profile."
+  "note": "No provisioning, legal approval or production operation is performed by this profile.",
+  "workload_areas": [
+    {
+      "area_id": "SEXUAL_WELLNESS_HEALTH_EDUCATION_WORKLOAD_01",
+      "name": "Sexual health education and information portals",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "SEXUAL_WELLNESS_HEALTH_EDUCATION_WORKLOAD_02",
+      "name": "Reproductive health and family planning services",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "SEXUAL_WELLNESS_HEALTH_EDUCATION_WORKLOAD_03",
+      "name": "Clinical telehealth and care coordination",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "SEXUAL_WELLNESS_HEALTH_EDUCATION_WORKLOAD_04",
+      "name": "Research, evidence and medical publishing",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "SEXUAL_WELLNESS_HEALTH_EDUCATION_WORKLOAD_05",
+      "name": "Sensitive health-data privacy and consent systems",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    }
+  ],
+  "workload_area_count": 5
 }
