@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
   "ecosystem_id": "GLOBAL-SERVER-CORE-ECOSYSTEM",
   "parent_id": "GLOBAL-CORE-ECOSYSTEM",
   "layer": "CORE",
@@ -30,7 +30,7 @@
     "SUPREME"
   ],
   "layer_boundaries": {
-    "core": "provider-neutral server identity, resource contracts, lifecycle policy and metadata registry",
+    "core": "Provider-neutral server identity, resource and lifecycle contracts, policy metadata, provider/domain/workload catalogs and readiness discovery; no remote execution",
     "api": "HTTP routes, authentication, request and response handling",
     "engine": "cloud SDKs, provider adapters, provisioning and remote execution",
     "database": "durable SQL/NoSQL persistence and migrations",
@@ -88,5 +88,14 @@
     "server_service_tier_core_ecosystem",
     "server_interoperability_core_ecosystem"
   ],
-  "workload_governance_domain": "server_workload_governance_core_ecosystem"
+  "workload_governance_domain": "server_workload_governance_core_ecosystem",
+  "manager": "manager.py",
+  "manager_factory": "manager.py:get_manager",
+  "core_domain_manifest_file": "domain_manifest.json",
+  "core_domain_manifest_count": 16,
+  "control_area_count": 96,
+  "master_catalog_source": "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json",
+  "master_catalog_access_mode": "READ_ONLY_VALIDATED_REFERENCES",
+  "master_catalog_alignment": "EXACT_ENTRY_ID_VALIDATED",
+  "master_catalog_entries_counted_as_new": false
 }
