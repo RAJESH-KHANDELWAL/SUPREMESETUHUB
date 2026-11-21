@@ -4520,6 +4520,166 @@
       "host_operations_performed": 0,
       "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
       "master_catalog_access_mode": "READ_ONLY_IMPLEMENTATION_REGISTRY"
+    },
+    "global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem": {
+      "ecosystem_id": "GLOBAL-VASUDHAIVA-KUTUMBAKAM-SANATAN-DHARMA-BHARAT-WORLD-CULTURE-CORE-ECOSYSTEM",
+      "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/",
+      "classification": "CORE_IMPLEMENTATION_REGISTRY",
+      "taxonomy_entries_counted_in_global_2468_target": false,
+      "reason": "Registers the existing cultural knowledge domains and shared Core managers without duplicating canonical API/domain content or inflating the 2,468 unique-topic taxonomy.",
+      "pillar_count": 4,
+      "domain_count": 13,
+      "domain_package_count": 13,
+      "resource_count": null,
+      "resource_count_verified": false,
+      "domains": [
+        {
+          "domain_id": "SANATAN_DHARMA",
+          "name": "Sanatan Dharma",
+          "purpose": "Plural philosophical, spiritual, ethical, textual and living traditions.",
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "sanatan_dharma_cultural_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/sanatan_dharma_cultural_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/sanatan_dharma_cultural_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "BHARAT_SANSKRITI",
+          "name": "Bharat Sanskriti",
+          "purpose": "Regional, linguistic, artistic, culinary and community heritage of Bharat.",
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "bharat_sanskriti_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/bharat_sanskriti_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/bharat_sanskriti_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "BHARAT_CIVILIZATION",
+          "name": "Bharat Civilization",
+          "purpose": "Civilizational history, archaeology, institutions, knowledge systems and historical context.",
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "bharat_civilization_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/bharat_civilization_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/bharat_civilization_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "WORLD_CULTURES",
+          "name": "World Cultures",
+          "purpose": "Distinct living cultures, communities, practices and intercultural understanding worldwide.",
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "world_cultures_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/world_cultures_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/world_cultures_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "WORLD_CIVILIZATIONS",
+          "name": "World Civilizations",
+          "purpose": "Comparative civilizational histories, timelines, evidence and cross-cultural context.",
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "world_civilizations_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/world_civilizations_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/world_civilizations_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "LANGUAGES_AND_LITERATURE",
+          "name": "Languages and Literature",
+          "purpose": "Classical, regional, indigenous and contemporary languages, scripts and literature.",
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "languages_literature_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/languages_literature_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/languages_literature_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "HERITAGE_AND_ARCHIVES",
+          "name": "Heritage and Archives",
+          "purpose": "Tangible and intangible heritage, monuments, manuscripts, archives and preservation metadata.",
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "heritage_archives_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/heritage_archives_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/heritage_archives_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "FESTIVALS_AND_LIVING_TRADITIONS",
+          "name": "Festivals and Living Traditions",
+          "purpose": "Calendars, celebrations, rituals and living practices with community context.",
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "festivals_living_traditions_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/festivals_living_traditions_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/festivals_living_traditions_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "ARTS_AND_TRADITIONS",
+          "name": "Arts and Traditions",
+          "purpose": "Music, dance, theatre, crafts, visual arts, architecture and creative traditions.",
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "arts_traditions_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/arts_traditions_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/arts_traditions_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "KNOWLEDGE_AND_EDUCATION",
+          "name": "Knowledge and Education",
+          "purpose": "Research, learning pathways, texts, teaching resources and knowledge traditions.",
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "knowledge_education_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/knowledge_education_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/knowledge_education_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "ORAL_HISTORY",
+          "name": "Oral History",
+          "purpose": "Community-led oral accounts, interviews, consent, attribution and provenance.",
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "oral_history_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/oral_history_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/oral_history_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "CULTURAL_TIMELINE",
+          "name": "Cultural Timeline",
+          "purpose": "Chronologies, events, periods and versioned historical interpretations.",
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "cultural_timeline_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/cultural_timeline_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/cultural_timeline_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "EVIDENCE_AND_VERIFICATION",
+          "name": "Evidence and Verification",
+          "purpose": "Source assessment, corroboration, uncertainty, corrections and publication review.",
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "cultural_evidence_verification_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/cultural_evidence_verification_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/cultural_evidence_verification_core_ecosystem/manager.py"
+        }
+      ],
+      "shared_files": [
+        "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/domain_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/domain_runtime.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/contracts.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/governance.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/policy.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/resource_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/module_service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/orchestrator.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/manager.php",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/README.md",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/CULTURAL_CORE_IMPLEMENTATION_STATUS.md",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/ecosystem_manifest.json",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/resource_ecosystem_index.json",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/test_cultural_core_domains.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/tools/validate_cultural_core.py"
+      ],
+      "php_facade_included": true,
+      "live_connections_verified": false,
+      "api_transport_in_core": false,
+      "api_calls_performed": 0,
+      "application_workflows_executed": 0,
+      "canonical_domain_source_ref": "backend/global_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem",
+      "canonical_api_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/",
+      "business_expression_ref": "backend/global_ecosystem/global_bada_business_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_business_ecosystem"
     }
   }
 }
