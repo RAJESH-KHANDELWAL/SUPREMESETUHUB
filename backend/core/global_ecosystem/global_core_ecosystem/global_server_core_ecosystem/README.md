@@ -29,7 +29,10 @@ Adult-category entries are workload classifications only. Any deployment must en
 The canonical service-tier progression is **NORMAL → BASIC → STANDARD → PREMIUM → PROFESSIONAL → ENTERPRISE → SUPREME**. Tier names are labels only. Actual quotas, pricing, SLAs, support levels, security controls and availability must be defined by the consuming product or commercial contract; CORE does not invent or guarantee them.
 
 ## Root-level implementation files
-- `catalog.json`: provider metadata catalog.
+- `catalog.json`: canonical provider metadata catalog.
+- `catalog.py`: assembled read-only catalog across providers, 16 CORE domains, workloads, geography and service tiers.
+- `manager.py`: canonical manager, domain-manifest validation, master-catalog reference validation and offline readiness status.
+- `domain_registry.json` and `domain_registry.py`: 16-domain registry and strict directory/manifest validation.
 - `ecosystem_manifest.json`: ecosystem identity, boundaries and capability declarations.
 - `geographic_scope_catalog.json`: India-first and global geographic scope model.
 - `workload_domain_catalog.json`: server workload domain taxonomy.
@@ -83,7 +86,7 @@ All 16 domain directories are direct children of this canonical root and are ind
 - `server_service_tier_core_ecosystem/`
 - `server_interoperability_core_ecosystem/`
 
-The added domains cover resource inventory, discovery/registry, provider abstraction, geography, workload governance, service tiers and interoperability. Existing nine domain folders and all provider/workload-profile folders remain in their current locations; no folder has been nested under another domain.
+The added domains cover resource inventory, discovery/registry, provider abstraction, geography, workload governance, service tiers and interoperability. Each of the 16 direct-child domain folders now has one `domain_manifest.json` with six named control areas, ownership boundaries and operational constraints (96 control areas total). Existing provider and workload-profile folders remain in their current locations; no folder has been nested under another domain.
 
 ## Bharat-to-global and NORMAL-to-SUPREME
 India remains a first-class jurisdiction in the shared geographic catalog, with an extensible global country/region model. The service-tier order remains NORMAL → BASIC → STANDARD → PREMIUM → PROFESSIONAL → ENTERPRISE → SUPREME. Tier names do not imply quotas, pricing, SLAs or provider entitlements.
@@ -93,3 +96,15 @@ The existing relationship, sexual-wellness/health-education and lawful adult-onl
 
 ## Implementation boundary
 This commit adds metadata manifests, domain contracts and registry definitions only. It does not claim live provider connections, remote provisioning, production readiness, durable database/storage execution or production age-assurance enforcement. Those responsibilities remain in API, ENGINE, DATABASE, STORAGE and APPLICATION layers.
+
+
+## Master ecosystem catalog alignment
+The canonical master source is `backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json`. This ecosystem is registered in both `ecosystem_module_index` and `implementation_registry`. The server domain registry and each domain manifest reference existing master entry IDs, and `manager.py` validates those references at runtime. These are implementation and cross-reference records, not additional unique master topics; they do not inflate the 2,468-topic target.
+
+The master catalog currently reports 246 unique entries against a target of 2,468, with 2,222 remaining. Server references are mapped to existing infrastructure, technology, geography, governance, business and capability-tier topics; this package does not claim that the master catalog itself is complete.
+
+## Domain control areas
+Each of the 16 CORE domains defines six named control areas (96 total). These are provider-neutral metadata and contract scopes, not implemented cloud controls or remote operations. Each of the 20 industry workload profiles remains a separate workload classification and is not duplicated as a CORE domain.
+
+## Validation and status
+Use `GlobalServerCoreManager.status()` or `manager_status()` for offline structural readiness and exact master-reference validation. A successful catalog check does not establish provider connectivity, credentials, account entitlement, region availability, provisioning capability, SLA, certification or production readiness.
