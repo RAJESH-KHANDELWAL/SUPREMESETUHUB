@@ -238,7 +238,9 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
         "metadata": {
             "core_catalog": "backend/core/global_ecosystem/global_core_ecosystem/global_video_core_ecosystem",
-            "status": "FOUNDATION_READY",
+            "status": "CORE_CATALOG_READY",
+            "provider_count": 19,
+            "domain_count": 16,
             "live_connection_verified": False,
             "api_transport_in_core": False
         },
@@ -251,7 +253,9 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
         "metadata": {
             "core_catalog": "backend/core/global_ecosystem/global_core_ecosystem/global_photo_core_ecosystem",
-            "status": "FOUNDATION_READY",
+            "status": "CORE_CATALOG_READY",
+            "provider_count": 10,
+            "domain_count": 15,
             "live_connection_verified": False,
             "api_transport_in_core": False
         },
