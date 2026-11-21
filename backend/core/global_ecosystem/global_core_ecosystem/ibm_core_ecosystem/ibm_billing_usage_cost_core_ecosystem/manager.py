@@ -1,4 +1,4 @@
-"""Thin shared-runtime adapter for Billing, Usage and Cost."""
+"""Thin adapter over the shared read-only IBM domain runtime."""
 from ..domain_runtime import IBMCoreDomainManager
 class IBMBillingUsageCostCoreManager(IBMCoreDomainManager):
     def __init__(self):
