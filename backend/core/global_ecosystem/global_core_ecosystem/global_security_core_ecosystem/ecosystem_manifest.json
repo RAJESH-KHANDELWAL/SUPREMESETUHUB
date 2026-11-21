@@ -121,11 +121,11 @@
     "remaining_unique_entries": 2222,
     "source": "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json",
     "alignment_scope": [
-      "S07_adult_content_media_ecosystem",
-      "S09_technology_digital_ecosystem",
-      "S10_infrastructure_server_core_ecosystem",
-      "S11_governance_law_security",
-      "S12_knowledge_research_innovation"
+      "adult_content_media_ecosystem",
+      "technology_digital_ecosystem",
+      "infrastructure_server_core_ecosystem",
+      "governance_law_security",
+      "knowledge_research_innovation"
     ],
     "reference_mapping_only": true
   },
