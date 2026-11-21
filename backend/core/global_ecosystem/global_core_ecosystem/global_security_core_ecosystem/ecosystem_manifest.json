@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.2.0",
+  "schema_version": "1.3.0",
   "ecosystem_id": "GLOBAL-SECURITY-CORE-ECOSYSTEM",
   "parent_id": "GLOBAL-CORE-ECOSYSTEM",
   "layer": "CORE",
@@ -19,7 +19,12 @@
     "shared_provider_service": "module_service.py",
     "jurisdictions": "jurisdiction_catalog.py",
     "content_safety_policy": "content_safety_policy.py",
-    "compatibility_facade": "catalog.py"
+    "compatibility_facade": "catalog.py",
+    "master_catalog_source": "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json",
+    "master_catalog_reference_mapping": "catalog.json",
+    "central_manager": "manager.py",
+    "orchestrator": "orchestrator.py",
+    "service_facade": "service.py"
   },
   "domain_count": 33,
   "domain_coverage_exhaustive": false,
@@ -30,12 +35,18 @@
   "api_calls_performed": 0,
   "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
   "service_tiers": [
-    "NORMAL",
     "BASIC",
+    "NORMAL",
     "STANDARD",
-    "PREMIUM",
     "PROFESSIONAL",
+    "ADVANCED",
+    "EXPERT",
+    "SPECIALIZED",
     "ENTERPRISE",
+    "NATIONAL",
+    "INTERNATIONAL",
+    "GLOBAL",
+    "UNIVERSAL",
     "SUPREME"
   ],
   "security_baseline": {
@@ -48,7 +59,7 @@
     "independent_runtime_enforcement_required": true
   },
   "layer_boundaries": {
-    "core": "taxonomy, provider metadata, capability policy and readiness",
+    "core": "Canonical security-domain/provider/jurisdiction metadata, master-catalog references, safety metadata, discovery and readiness; no provider transport or enforcement.",
     "api": "provider authentication, transport and webhooks",
     "storage": "security evidence and durable artifacts",
     "database": "policy persistence, schemas and migrations",
@@ -103,5 +114,20 @@
     "GIRLS",
     "BOYS"
   ],
-  "protected_group_safety_metadata": true
+  "protected_group_safety_metadata": true,
+  "master_catalog_alignment": {
+    "current_unique_entries": 246,
+    "target_unique_entries": 2468,
+    "remaining_unique_entries": 2222,
+    "source": "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json",
+    "alignment_scope": [
+      "S07_adult_content_media_ecosystem",
+      "S09_technology_digital_ecosystem",
+      "S10_infrastructure_server_core_ecosystem",
+      "S11_governance_law_security",
+      "S12_knowledge_research_innovation"
+    ],
+    "reference_mapping_only": true
+  },
+  "tier_count": 13
 }
