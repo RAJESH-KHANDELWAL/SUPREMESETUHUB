@@ -146,7 +146,17 @@ class GlobalServerCoreManager:
                 raise ValueError(f"SERVER_WORKLOAD_MANIFEST_ID_MISMATCH: {domain_id}")
             if manifest.get("scope") != "SERVER_REQUIREMENTS_METADATA_ONLY":
                 raise ValueError(f"SERVER_WORKLOAD_SCOPE_INVALID: {domain_id}")
-        return {"success": True, "workload_profile_count": len(domains)}
+            expected_areas = item.get("workload_areas", [])
+            actual_areas = manifest.get("workload_areas", [])
+            if len(expected_areas) != 5 or len(actual_areas) != 5:
+                raise ValueError(f"SERVER_WORKLOAD_AREA_COUNT_INVALID: {domain_id}")
+            if expected_areas != actual_areas:
+                raise ValueError(f"SERVER_WORKLOAD_CATALOG_MANIFEST_MISMATCH: {domain_id}")
+        return {
+            "success": True,
+            "workload_profile_count": len(domains),
+            "workload_area_count": sum(len(x.get("workload_areas", [])) for x in domains),
+        }
 
     def geography(self) -> dict[str, Any]:
         return get_geographic_scope_catalog()
@@ -177,6 +187,7 @@ class GlobalServerCoreManager:
             "domain_manifest_count": len(domains),
             "control_area_count": sum(len(x.get("control_areas", [])) for x in domains),
             "workload_profile_count": len(workloads),
+            "workload_area_count": workload_validation["workload_area_count"],
             "workload_profile_validation": workload_validation,
             "service_tier_count": len(tiers),
             "master_catalog_alignment": alignment,
