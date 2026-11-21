@@ -1,8 +1,9 @@
 """Canonical provider and product-family metadata for Global Software Core."""
 from __future__ import annotations
 from copy import deepcopy
+import json
 from typing import Any
-SOFTWARE_CORE_CATALOG: dict[str, Any] = {
+SOFTWARE_CORE_CATALOG: dict[str, Any] = __CATALOG_JSON = r'''{
   "schema_version": "1.0.0",
   "ecosystem_id": "GLOBAL-SOFTWARE-CORE-ECOSYSTEM",
   "name": "GLOBAL SOFTWARE CORE ECOSYSTEM",
@@ -220,7 +221,9 @@ SOFTWARE_CORE_CATALOG: dict[str, Any] = {
     "domain_count": 18,
     "live_connections_verified": 0
   }
-}
+}'''
+SOFTWARE_CORE_CATALOG: dict[str, Any] = json.loads(__CATALOG_JSON)
+
 def get_software_core_catalog() -> dict[str, Any]:
     return deepcopy(SOFTWARE_CORE_CATALOG)
 def list_software_providers(*, enabled_only: bool = False) -> list[dict[str, Any]]:

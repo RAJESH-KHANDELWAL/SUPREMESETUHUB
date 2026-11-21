@@ -1,3 +1,3 @@
-"""Communication and Collaboration domain package."""
+"""communication and collaboration domain package."""
 from .manager import CommunicationAndCollaborationManager, get_manager
-__all__=["get_manager"]
+__all__=["CommunicationAndCollaborationManager","get_manager"]

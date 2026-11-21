@@ -1,3 +1,3 @@
-"""Database and Data domain package."""
+"""database and data domain package."""
 from .manager import DatabaseAndDataManager, get_manager
-__all__=["get_manager"]
+__all__=["DatabaseAndDataManager","get_manager"]
