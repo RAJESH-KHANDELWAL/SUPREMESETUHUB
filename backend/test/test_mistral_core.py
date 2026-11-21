@@ -2,7 +2,6 @@
 from __future__ import annotations
 import unittest
 from pathlib import Path
-
 from backend.core.global_ecosystem.global_core_ecosystem.mistral_core_ecosystem.catalog import get_mistral_core_catalog
 from backend.core.global_ecosystem.global_core_ecosystem.mistral_core_ecosystem.contracts import TenantContext
 from backend.core.global_ecosystem.global_core_ecosystem.mistral_core_ecosystem.manager import get_manager
@@ -20,7 +19,7 @@ class MistralCoreTests(unittest.TestCase):
  def test_product_ids_are_unique(self):
   ids=[x["ecosystem_id"] for x in get_mistral_core_catalog()["children"]]
   self.assertEqual(len(ids),len(set(ids)))
- def test_all_eighteen_domains_are_mapped(self):
+ def test_all_eighteen_domains_have_product_coverage(self):
   rows=get_manager().list_domain_inventory()
   self.assertEqual(len(rows),18)
   self.assertTrue(all(x["product_count"]>0 for x in rows))
@@ -45,9 +44,9 @@ class MistralCoreTests(unittest.TestCase):
  def test_policy_requires_tenant_and_registered_capability(self):
   service=MistralProductCoreService("chat")
   self.assertFalse(service.authorize_capability("CHAT_COMPLETION_METADATA",None)["success"])
-  allowed=service.authorize_capability("CHAT_COMPLETION_METADATA",TenantContext("tenant-1","actor-1"))
-  self.assertTrue(allowed["success"])
-  self.assertFalse(allowed["data"]["api_call_performed"])
+  result=service.authorize_capability("CHAT_COMPLETION_METADATA",TenantContext("tenant-1","actor-1"))
+  self.assertTrue(result["success"])
+  self.assertFalse(result["data"]["api_call_performed"])
  def test_unknown_product_and_domain_are_rejected(self):
   with self.assertRaises(LookupError): MistralProductCoreService("unknown")
   with self.assertRaises(LookupError): get_manager().get_domain_manager("UNKNOWN_DOMAIN")
