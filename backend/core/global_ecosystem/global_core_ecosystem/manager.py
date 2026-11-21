@@ -278,6 +278,31 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
     },
 
     {
+        "ecosystem_id": "GLOBAL-WEBSITE-CORE-ECOSYSTEM",
+        "name": "GLOBAL WEBSITE CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": [
+            "WEBSITE_PROVIDER_REGISTRY",
+            "WEBSITE_HOSTING_AND_PLATFORM_CATALOG",
+            "WEBSITE_DOMAIN_TAXONOMY",
+            "WEBSITE_SECURITY_AND_POLICY_METADATA",
+            "WEBSITE_READINESS_AND_DEPENDENCY_DISCOVERY",
+        ],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_website_core_ecosystem",
+            "status": "CORE_CATALOG_ONLY",
+            "provider_count": 4,
+            "product_family_count": 7,
+            "domain_count": 26,
+            "canonical_master_entry_ids": ["S09_websites"],
+            "live_connection_verified": False,
+            "api_transport_in_core": False,
+            "remote_operations_enabled": False,
+            "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+        },
+    },
+    {
         "ecosystem_id": "STRIPE-CORE-ECOSYSTEM",
         "name": "STRIPE CORE ECOSYSTEM",
         "ecosystem_type": "PROVIDER_CORE",
