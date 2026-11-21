@@ -246,6 +246,22 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         },
     },
     {
+        "ecosystem_id": "GLOBAL-VPN-CORE-ECOSYSTEM",
+        "name": "GLOBAL VPN CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["VPN_PROVIDER_REGISTRY", "VPN_PROTOCOL_METADATA", "TUNNEL_AND_MESH_POLICY_METADATA", "PRIVACY_AND_NETWORK_SECURITY_METADATA"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_vpn_core_ecosystem",
+            "status": "CORE_CATALOG_ONLY",
+            "provider_count": 4,
+            "domain_count": 18,
+            "live_connection_verified": false,
+            "tunnel_operations_in_core": false,
+            "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
+        },
+    },
+    {
         "ecosystem_id": "GLOBAL-PHOTO-CORE-ECOSYSTEM",
         "name": "GLOBAL PHOTO CORE ECOSYSTEM",
         "ecosystem_type": "CORE_SERVICE",

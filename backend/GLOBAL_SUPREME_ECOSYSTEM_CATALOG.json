@@ -1916,6 +1916,30 @@
         "master_catalog_access_mode": "READ_ONLY_ON_DEMAND",
         "taxonomy_entries_counted_in_global_2468_target": false,
         "note": "Provider IDs align with the existing Global VPS API catalogue. Provider API adapters and live connectivity are not asserted by this Core registry."
+      },
+      {
+        "ecosystem_id": "GLOBAL-VPN-CORE-ECOSYSTEM",
+        "name": "GLOBAL VPN CORE ECOSYSTEM",
+        "layer": "backend/core/global_ecosystem/global_core_ecosystem/global_vpn_core_ecosystem",
+        "catalog_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_vpn_core_ecosystem/catalog.py",
+        "manager_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_vpn_core_ecosystem/manager.py",
+        "service_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_vpn_core_ecosystem/service.py",
+        "domain_catalog_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_vpn_core_ecosystem/domain_catalog.py",
+        "shared_runtime_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_vpn_core_ecosystem/domain_runtime.py",
+        "master_catalog_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_vpn_core_ecosystem/master_catalog.py",
+        "php_facade_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_vpn_core_ecosystem/manager.php",
+        "test_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_vpn_core_ecosystem/test_vpn_core.py",
+        "status": "CORE_CATALOG_ONLY",
+        "provider_count": 4,
+        "provider_directory_count": 4,
+        "domain_count": 18,
+        "live_connection_verified": false,
+        "tunnel_operations_in_core": false,
+        "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+        "master_catalog_reference_target": 2468,
+        "master_catalog_access_mode": "READ_ONLY_ON_DEMAND",
+        "taxonomy_entries_counted_in_global_2468_target": false,
+        "note": "Four providers are sourced from the existing VPN registry. No live VPN connections or tunnel operations are claimed."
       }
     ]
   },
