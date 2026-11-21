@@ -15,10 +15,20 @@ ECOSYSTEM_ID = "GLOBAL-SECURITY-CORE-ECOSYSTEM"
 NAME = "GLOBAL SECURITY CORE ECOSYSTEM"
 STATUS = "CORE_CATALOG_ONLY"
 MASTER_CATALOG_PATH = "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+_MASTER_CATALOG_FILE = ROOT.parents[3] / "GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+if not _MASTER_CATALOG_FILE.is_file():
+    raise FileNotFoundError(f"MASTER_ECOSYSTEM_CATALOG_NOT_FOUND: {_MASTER_CATALOG_FILE}")
+_MASTER_CATALOG = json.loads(_MASTER_CATALOG_FILE.read_text(encoding="utf-8"))
+_MASTER_ENTRIES = {
+    entry["entry_id"]: section["section_id"]
+    for section in _MASTER_CATALOG.get("sections", [])
+    for entry in section.get("entries", [])
+    if entry.get("entry_id")
+}
 MASTER_CATALOG_COUNTS = {
-    "current_unique_entries": 246,
-    "target_unique_entries": 2468,
-    "remaining_unique_entries": 2222,
+    "current_unique_entries": _MASTER_CATALOG["expansion"]["current_unique_entries"],
+    "target_unique_entries": _MASTER_CATALOG["expansion"]["target_unique_entries"],
+    "remaining_unique_entries": _MASTER_CATALOG["expansion"]["remaining_unique_entries"],
 }
 SERVICE_TIERS = (
     "BASIC", "NORMAL", "STANDARD", "PROFESSIONAL", "ADVANCED", "EXPERT",
@@ -71,8 +81,13 @@ def _load_domains() -> tuple[dict[str, Any], ...]:
                 raise ValueError(f"SECURITY_DOMAIN_COVERAGE_AREA_INVALID_OR_DUPLICATE: {domain_id}")
             seen_area_ids.add(area_id)
         refs = item.get("master_catalog_refs", [])
-        if not refs or not all(isinstance(ref, str) and ref.startswith("S") for ref in refs):
+        if not refs or len(refs) != len(set(refs)):
             raise ValueError(f"SECURITY_DOMAIN_MASTER_CATALOG_REFS_REQUIRED: {domain_id}")
+        if any(ref not in _MASTER_ENTRIES for ref in refs):
+            raise ValueError(f"SECURITY_DOMAIN_MASTER_CATALOG_REFERENCE_UNKNOWN: {domain_id}")
+        referenced_sections = {_MASTER_ENTRIES[ref] for ref in refs}
+        if item.get("master_catalog_section") not in referenced_sections:
+            raise ValueError(f"SECURITY_DOMAIN_MASTER_CATALOG_SECTION_MISMATCH: {domain_id}")
         loaded.append({**item, "status": STATUS})
         seen_ids.add(domain_id)
         seen_folders.add(folder)
@@ -161,7 +176,9 @@ def domain_summary() -> dict[str, Any]:
         "coverage_exhaustive": bool(_DOMAIN_DATA.get("domain_coverage_exhaustive", False)),
         "master_catalog_ref_count": sum(len(item.get("master_catalog_refs", [])) for item in SECURITY_DOMAINS),
         "master_catalog_refs_present": True,
-        "master_catalog_source_loaded_at_runtime": False,
+        "master_catalog_source_loaded_at_runtime": True,
+        "master_catalog_current_unique_entries": MASTER_CATALOG_COUNTS["current_unique_entries"],
+        "master_catalog_target_unique_entries": MASTER_CATALOG_COUNTS["target_unique_entries"],
     }
 
 
@@ -295,6 +312,10 @@ class GlobalSecurityCoreManager:
 
     def list_domain_inventory(self) -> list[dict[str, Any]]:
         return get_domains()
+
+    def get_domain_manager(self, domain_id: str):
+        from .domain_runtime import SecurityCoreDomainManager
+        return SecurityCoreDomainManager(domain_id)
 
     def get_domain(self, domain_id: str) -> dict[str, Any] | None:
         return get_domain(domain_id)
