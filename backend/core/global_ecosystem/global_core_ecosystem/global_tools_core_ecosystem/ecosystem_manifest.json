@@ -3,8 +3,8 @@
   "ecosystem_id": "GLOBAL-TOOLS-CORE-ECOSYSTEM",
   "parent_id": "GLOBAL-CORE-ECOSYSTEM",
   "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem",
-  "provider_count": 11,
-  "product_family_count": 56,
+  "provider_count": 28,
+  "product_family_count": 124,
   "domain_count": 20,
   "providers": [
     {
@@ -50,6 +50,74 @@
     {
       "provider_id": "twilio",
       "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/twilio_tools_core_ecosystem"
+    },
+    {
+      "provider_id": "adobe",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/adobe_tools_core_ecosystem"
+    },
+    {
+      "provider_id": "anthropic",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/anthropic_tools_core_ecosystem"
+    },
+    {
+      "provider_id": "apple",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/apple_tools_core_ecosystem"
+    },
+    {
+      "provider_id": "cohere",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/cohere_tools_core_ecosystem"
+    },
+    {
+      "provider_id": "deepseek",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/deepseek_tools_core_ecosystem"
+    },
+    {
+      "provider_id": "digitalocean",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/digitalocean_tools_core_ecosystem"
+    },
+    {
+      "provider_id": "huggingface",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/huggingface_tools_core_ecosystem"
+    },
+    {
+      "provider_id": "ibm",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/ibm_tools_core_ecosystem"
+    },
+    {
+      "provider_id": "meta",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/meta_tools_core_ecosystem"
+    },
+    {
+      "provider_id": "mistral",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/mistral_tools_core_ecosystem"
+    },
+    {
+      "provider_id": "nvidia",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/nvidia_tools_core_ecosystem"
+    },
+    {
+      "provider_id": "oracle",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/oracle_tools_core_ecosystem"
+    },
+    {
+      "provider_id": "paypal",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/paypal_tools_core_ecosystem"
+    },
+    {
+      "provider_id": "shopify",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/shopify_tools_core_ecosystem"
+    },
+    {
+      "provider_id": "slack",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/slack_tools_core_ecosystem"
+    },
+    {
+      "provider_id": "stripe",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/stripe_tools_core_ecosystem"
+    },
+    {
+      "provider_id": "cloudflare",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/cloudflare_tools_core_ecosystem"
     }
   ],
   "domains": [
