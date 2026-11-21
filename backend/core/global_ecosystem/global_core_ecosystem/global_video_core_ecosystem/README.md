@@ -11,7 +11,8 @@ Video Core is the read-only control plane for video provider identity, domain ta
 
 ## Architecture
 
-- `catalog.py`: canonical ecosystem identity, provider inventory and capability metadata.
+- `catalog.py`: canonical ecosystem identity, 19 provider records and capability metadata.
+- Each provider package: `README.md`, `__init__.py`, `ecosystem_manifest.json` and `service.py`.
 - `domain_catalog.py`: 16 responsibility domains and domain coverage.
 - `contracts.py`: stable tenant, provider, readiness and result contracts.
 - `master_catalog.py`: read-only references to relevant numbered master-catalog topics; never edits or duplicates the 2468-target file.
@@ -22,10 +23,6 @@ Video Core is the read-only control plane for video provider identity, domain ta
 - `domain_runtime.py`: shared read-only domain manager.
 - `module_service.py`: shared read-only provider metadata service.
 - `test_video_core.py`: structural and behavior tests.
-
-## Existing shared directories
-
-The existing `integrations/`, `services/` and `tools/` directories are retained as shared extension points. They are not provider records and are not counted as provider directories. Their implementation ownership must remain explicit; API transport, storage, execution and UI do not move into Core.
 
 ## Layer boundaries
 
