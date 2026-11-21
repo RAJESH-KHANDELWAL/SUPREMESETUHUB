@@ -9,12 +9,17 @@ final class GlobalServerCoreScopeContract
 {
     public static function normalize(array $payload): array
     {
-        $tiers = $payload['service_tiers'] ?? [];
-        $domains = $payload['workload_domains'] ?? [];
+        $tierCatalog = $payload['service_tiers'] ?? [];
+        $workloadCatalog = $payload['workload_domains'] ?? [];
         $geography = $payload['geographic_scope'] ?? null;
 
-        if (!is_array($tiers) || !is_array($domains) || !is_array($geography)) {
+        if (!is_array($tierCatalog) || !is_array($workloadCatalog) || !is_array($geography)) {
             throw new InvalidArgumentException('Invalid server scope catalog structure');
+        }
+        $tiers = $tierCatalog['tiers'] ?? $tierCatalog;
+        $domains = $workloadCatalog['domains'] ?? $workloadCatalog;
+        if (!is_array($tiers) || !is_array($domains)) {
+            throw new InvalidArgumentException('Invalid tier or workload list');
         }
 
         $requiredTiers = [
