@@ -624,27 +624,27 @@
         {
           "area_id": "ADULT_ONLY_ENTERTAINMENT_WORKLOAD_01",
           "name": "Lawful adult-only access and age-assurance services",
-          "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+          "scope": "Lawful adult-only server workload classification; requires independently enforced age assurance, consent, rights, privacy and jurisdiction controls. CORE does not host or authorize explicit content."
         },
         {
           "area_id": "ADULT_ONLY_ENTERTAINMENT_WORKLOAD_02",
           "name": "Creator, performer and rights-management systems",
-          "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+          "scope": "Lawful adult-only server workload classification; requires independently enforced age assurance, consent, rights, privacy and jurisdiction controls. CORE does not host or authorize explicit content."
         },
         {
           "area_id": "ADULT_ONLY_ENTERTAINMENT_WORKLOAD_03",
           "name": "Consent, release and content provenance records",
-          "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+          "scope": "Lawful adult-only server workload classification; requires independently enforced age assurance, consent, rights, privacy and jurisdiction controls. CORE does not host or authorize explicit content."
         },
         {
           "area_id": "ADULT_ONLY_ENTERTAINMENT_WORKLOAD_04",
           "name": "Payment, subscription and billing platforms",
-          "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+          "scope": "Lawful adult-only server workload classification; requires independently enforced age assurance, consent, rights, privacy and jurisdiction controls. CORE does not host or authorize explicit content."
         },
         {
           "area_id": "ADULT_ONLY_ENTERTAINMENT_WORKLOAD_05",
           "name": "Moderation, reporting, takedown and jurisdiction controls",
-          "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+          "scope": "Lawful adult-only server workload classification; requires independently enforced age assurance, consent, rights, privacy and jurisdiction controls. CORE does not host or authorize explicit content."
         }
       ]
     }
