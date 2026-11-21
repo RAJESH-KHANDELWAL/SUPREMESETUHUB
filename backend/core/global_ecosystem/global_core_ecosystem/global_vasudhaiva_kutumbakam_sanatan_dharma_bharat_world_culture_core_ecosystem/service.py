@@ -20,9 +20,6 @@ class GlobalCulturalCore:
     def publication_review(self, resource: Any) -> Any:
         if isinstance(resource, dict):
             errors = validate_cultural_record(resource)
-            if errors: return {"approved": False, "status": "REVIEW_REQUIRED", "errors": errors}
-        if isinstance(resource, dict):
-            errors = validate_cultural_record(resource)
             return {"approved": not errors and str(resource.get("publication_status", "DRAFT")).upper() == "APPROVED", "status": "APPROVED" if not errors and str(resource.get("publication_status", "DRAFT")).upper() == "APPROVED" else "REVIEW_REQUIRED", "errors": errors}
         return assess_domain_publication(resource)
     def status(self) -> dict[str, Any]: return self.orchestrator.health()
