@@ -32,9 +32,10 @@ def test_domain_catalog_matches_manifest_and_has_unique_ids():
     assert len(ids) == len(set(ids))
     assert catalog["domain_coverage_exhaustive"] is False
     assert catalog["taxonomy"]["domain_count"] == 33
-    assert catalog["taxonomy"]["control_area_count"] == 198
+    assert catalog["taxonomy"]["control_area_count"] == 330
+    assert catalog["taxonomy"]["coverage_areas_per_domain"] == 10
     area_ids = [area["area_id"] for domain in domains for area in domain["coverage_areas"]]
-    assert len(area_ids) == 198
+    assert len(area_ids) == 330
     assert len(area_ids) == len(set(area_ids))
     assert all(area["scope"].strip() for domain in domains for area in domain["coverage_areas"])
     assert len({item["folder"] for item in domains}) == len(domains)
@@ -161,7 +162,7 @@ def test_runtime_catalog_exposes_all_domains_providers_and_jurisdictions():
     from backend.core.global_ecosystem.global_core_ecosystem.global_security_core_ecosystem.catalog import get_catalog
     catalog = get_catalog()
     assert catalog["domain_count"] == 33
-    assert catalog["taxonomy"]["control_area_count"] == 198
+    assert catalog["taxonomy"]["control_area_count"] == 330
     assert catalog["provider_count"] == 6
     assert catalog["jurisdiction_profile_count"] == 2
     assert {item["jurisdiction_id"] for item in catalog["jurisdictions"]} == {"IN", "GLOBAL"}
