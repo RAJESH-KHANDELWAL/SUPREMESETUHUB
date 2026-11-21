@@ -1711,6 +1711,25 @@
         "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
         "master_catalog_reference_target": 2468,
         "master_catalog_access_mode": "READ_ONLY_ON_DEMAND"
+      },
+      {
+        "ecosystem_id": "GLOBAL-PEOPLE-LIFE-CORE-ECOSYSTEM",
+        "name": "GLOBAL PEOPLE LIFE CORE ECOSYSTEM",
+        "layer": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem",
+        "catalog_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/catalog.py",
+        "manager_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/manager.py",
+        "status": "CORE_CATALOG_ONLY",
+        "module_directory_count": 28,
+        "domain_count": 24,
+        "domain_package_count": 19,
+        "cross_ecosystem_domain_reference_count": 5,
+        "age_restricted_domain_count": 5,
+        "service_tier_count": 7,
+        "live_connection_verified": false,
+        "api_transport_in_core": false,
+        "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+        "master_catalog_reference_target": 2468,
+        "master_catalog_access_mode": "READ_ONLY_ON_DEMAND"
       }
     ]
   },
@@ -2570,6 +2589,801 @@
       "policy_path": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_gateway_core_ecosystem/policy.py",
       "transaction_execution_enabled": false,
       "provider_connections_verified": false
+    },
+    "global_people_life_core_ecosystem": {
+      "ecosystem_id": "GLOBAL-PEOPLE-LIFE-CORE-ECOSYSTEM",
+      "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem",
+      "classification": "CORE_IMPLEMENTATION_REGISTRY",
+      "taxonomy_entries_counted_in_global_2468_target": false,
+      "reason": "Registers the People Life domain taxonomy and managers without duplicating canonical Kamasutra adult implementations or inflating the 2,468 unique-topic target.",
+      "registered_package_count": 47,
+      "module_directory_count": 28,
+      "domain_package_count": 19,
+      "domain_count": 24,
+      "cross_ecosystem_domain_reference_count": 5,
+      "age_restricted_module_count": 11,
+      "age_restricted_domain_count": 5,
+      "service_tier_count": 7,
+      "domains": [
+        {
+          "domain_id": "LIFE_STAGES_AND_HUMAN_DEVELOPMENT",
+          "name": "Life Stages and Human Development",
+          "purpose": "Human development from prenatal and birth stages through infancy, childhood, adolescence, adulthood, midlife and major life transitions, including age-appropriate development and support.",
+          "age_restricted": false,
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "people_life_stages_human_development_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_life_stages_human_development_core_ecosystem"
+        },
+        {
+          "domain_id": "IDENTITY_CITIZENSHIP_AND_PERSONAL_ADMIN",
+          "name": "Identity, Citizenship and Personal Administration",
+          "purpose": "Personal identity, civil records, documentation, accessibility of identity services, personal administration and life-event records. Sensitive identifiers remain outside Core metadata.",
+          "age_restricted": false,
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "people_identity_citizenship_personal_admin_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_identity_citizenship_personal_admin_core_ecosystem"
+        },
+        {
+          "domain_id": "EDUCATION_LEARNING_AND_SKILLS",
+          "name": "Education, Learning and Skills",
+          "purpose": "Early learning, school, higher education, vocational learning, lifelong learning, skills, literacy, language learning, training and credentials.",
+          "age_restricted": false,
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "people_education_learning_skills_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_education_learning_skills_core_ecosystem"
+        },
+        {
+          "domain_id": "CAREER_EMPLOYMENT_AND_WORKFORCE",
+          "name": "Career, Employment and Workforce",
+          "purpose": "Career discovery, jobs, employment, recruitment metadata, workforce development, professional transitions, remote work, freelancing and workplace life.",
+          "age_restricted": false,
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "people_career_employment_workforce_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_career_employment_workforce_core_ecosystem"
+        },
+        {
+          "domain_id": "ENTREPRENEURSHIP_LIVELIHOOD_AND_SMALL_BUSINESS",
+          "name": "Entrepreneurship, Livelihood and Small Business",
+          "purpose": "Self-employment, entrepreneurship, livelihood, micro and small business support, independent work and business capability discovery; detailed commercial execution belongs to Business ecosystems.",
+          "age_restricted": false,
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "people_entrepreneurship_livelihood_small_business_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_entrepreneurship_livelihood_small_business_core_ecosystem"
+        },
+        {
+          "domain_id": "PERSONAL_FINANCE_AND_LIFE_PLANNING",
+          "name": "Personal Finance and Life Planning",
+          "purpose": "Personal budgeting, household financial planning, savings literacy, insurance and financial-service discovery, benefits and life planning; regulated financial execution remains in Finance ecosystems.",
+          "age_restricted": false,
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "people_personal_finance_life_planning_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_personal_finance_life_planning_core_ecosystem"
+        },
+        {
+          "domain_id": "FAMILY_PARENTING_AND_CAREGIVING",
+          "name": "Family, Parenting and Caregiving",
+          "purpose": "Family relationships, parenting, child development, caregiving, eldercare, household coordination and family-life transitions.",
+          "age_restricted": false,
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "people_family_parenting_caregiving_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_family_parenting_caregiving_core_ecosystem"
+        },
+        {
+          "domain_id": "PERSONAL_SAFETY_CRISIS_AND_SURVIVOR_SUPPORT",
+          "name": "Personal Safety, Crisis and Survivor Support",
+          "purpose": "Personal and family safety information, safeguarding, abuse prevention, crisis navigation, survivor support and referral metadata; not an emergency-response service.",
+          "age_restricted": false,
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "people_personal_safety_crisis_survivor_support_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_personal_safety_crisis_survivor_support_core_ecosystem"
+        },
+        {
+          "domain_id": "DATING_RELATIONSHIPS_MARRIAGE_AND_COMPATIBILITY",
+          "name": "Dating, Relationships, Marriage and Compatibility",
+          "purpose": "Dating, friendship, partnership, marriage, compatibility, communication, conflict navigation, separation and relationship-life education for age-appropriate audiences.",
+          "age_restricted": false,
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "people_dating_relationships_marriage_compatibility_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_dating_relationships_marriage_compatibility_core_ecosystem"
+        },
+        {
+          "domain_id": "HOME_HOUSEHOLD_AND_DAILY_LIVING",
+          "name": "Home, Household and Daily Living",
+          "purpose": "Housing and household administration, daily living, food and nutrition literacy, consumer life, routines, personal organization and independent living.",
+          "age_restricted": false,
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "people_home_household_daily_living_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_home_household_daily_living_core_ecosystem"
+        },
+        {
+          "domain_id": "PHYSICAL_HEALTH_WELLBEING_AND_ACCESSIBILITY",
+          "name": "Physical Health, Wellbeing and Accessibility",
+          "purpose": "General health literacy, preventive wellbeing, fitness, nutrition, disability inclusion and accessibility discovery; not diagnosis, treatment or clinical advice.",
+          "age_restricted": false,
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "people_physical_health_wellbeing_accessibility_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_physical_health_wellbeing_accessibility_core_ecosystem"
+        },
+        {
+          "domain_id": "MENTAL_EMOTIONAL_AND_SOCIAL_WELLBEING",
+          "name": "Mental, Emotional and Social Wellbeing",
+          "purpose": "Emotional literacy, resilience, social connection, stress-awareness, wellbeing resources and qualified-care referral discovery; not psychotherapy or crisis intervention.",
+          "age_restricted": false,
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "people_mental_emotional_social_wellbeing_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_mental_emotional_social_wellbeing_core_ecosystem"
+        },
+        {
+          "domain_id": "SEXUAL_REPRODUCTIVE_HEALTH_AND_EDUCATION",
+          "name": "Sexual and Reproductive Health Education",
+          "purpose": "Age-appropriate sexual and reproductive health education, consent literacy, puberty education and health-resource discovery with safeguarding and privacy boundaries.",
+          "age_restricted": false,
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "people_sexual_reproductive_health_education_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_sexual_reproductive_health_education_core_ecosystem"
+        },
+        {
+          "domain_id": "DIGITAL_LIFE_AND_GLOBAL_DIGITAL_SERVICES",
+          "name": "Digital Life and Global Digital Services",
+          "purpose": "Digital identity awareness, online participation, personal technology, digital literacy, online safety and cross-border digital-service discovery.",
+          "age_restricted": false,
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "people_digital_life_global_digital_services_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_digital_life_global_digital_services_core_ecosystem"
+        },
+        {
+          "domain_id": "CIVIC_LEGAL_AND_PUBLIC_SERVICES",
+          "name": "Civic, Legal and Public Services",
+          "purpose": "Citizen services, public-benefit discovery, legal-information navigation, civic participation and government-service metadata; not legal representation or official eligibility decisions.",
+          "age_restricted": false,
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "people_civic_legal_public_services_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_civic_legal_public_services_core_ecosystem"
+        },
+        {
+          "domain_id": "COMMUNITY_CULTURE_SPIRITUALITY_AND_BELONGING",
+          "name": "Community, Culture, Spirituality and Belonging",
+          "purpose": "Community participation, culture, language, traditions, spirituality, social belonging, volunteering and intergenerational connection.",
+          "age_restricted": false,
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "people_community_culture_spirituality_belonging_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_community_culture_spirituality_belonging_core_ecosystem"
+        },
+        {
+          "domain_id": "TRAVEL_MOBILITY_LEISURE_AND_RECREATION",
+          "name": "Travel, Mobility, Leisure and Recreation",
+          "purpose": "Mobility, relocation, travel-life planning, recreation, hobbies, sports, arts, entertainment and personal interests.",
+          "age_restricted": false,
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "people_travel_mobility_leisure_recreation_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_travel_mobility_leisure_recreation_core_ecosystem"
+        },
+        {
+          "domain_id": "AGEING_RETIREMENT_AND_LIFE_TRANSITIONS",
+          "name": "Ageing, Retirement and Life Transitions",
+          "purpose": "Healthy ageing information, later-life independence, retirement transitions, elder support, legacy planning and end-of-life resource discovery.",
+          "age_restricted": false,
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "people_ageing_retirement_life_transitions_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_ageing_retirement_life_transitions_core_ecosystem"
+        },
+        {
+          "domain_id": "GLOBAL_INDIA_AND_CROSS_BORDER_PEOPLE_LIFE",
+          "name": "Global, India and Cross-Border People Life",
+          "purpose": "Global and India-specific people-life contexts, migration and relocation information, cross-border family/work transitions and localized service discovery.",
+          "age_restricted": false,
+          "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
+          "package_name": "people_global_india_cross_border_life_core_ecosystem",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_global_india_cross_border_life_core_ecosystem"
+        },
+        {
+          "domain_id": "ADULT_INTIMACY_KAMASUTRA_AND_SEXUAL_WELLNESS_18_PLUS",
+          "name": "Adult Intimacy, Kamasutra and Sexual Wellness 18+",
+          "purpose": "Lawful, consenting-adult intimacy education, Kamasutra knowledge, couple intimacy and adult sexual-wellness metadata. Detailed canonical implementation is delegated to the Kamasutra ecosystem.",
+          "age_restricted": true,
+          "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+          "canonical_ecosystem_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/",
+          "canonical_domain_refs": [
+            {
+              "domain_id": "SEXUAL_EDUCATION_AND_TRADITIONAL_KNOWLEDGE",
+              "package_name": "global_sexual_education_traditional_knowledge_core_ecosystem",
+              "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_sexual_education_traditional_knowledge_core_ecosystem"
+            },
+            {
+              "domain_id": "RELATIONSHIPS_AND_COMPATIBILITY",
+              "package_name": "global_relationships_compatibility_core_ecosystem",
+              "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_relationships_compatibility_core_ecosystem"
+            },
+            {
+              "domain_id": "COACHING_AND_COUNSELLING",
+              "package_name": "global_relationship_intimacy_coaching_counselling_core_ecosystem",
+              "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_relationship_intimacy_coaching_counselling_core_ecosystem"
+            }
+          ]
+        },
+        {
+          "domain_id": "ADULT_MEDIA_PORNOGRAPHY_AND_CONTENT_GOVERNANCE_18_PLUS",
+          "name": "Adult Media, Pornography and Content Governance 18+",
+          "purpose": "Metadata for lawful adult-only media, pornography categories, platform distribution, live streaming, licensing, subscriptions, moderation and takedown boundaries.",
+          "age_restricted": true,
+          "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+          "canonical_ecosystem_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/",
+          "canonical_domain_refs": [
+            {
+              "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
+              "package_name": "global_adult_media_creator_economy_core_ecosystem",
+              "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_media_creator_economy_core_ecosystem"
+            },
+            {
+              "domain_id": "ADVERTISING_AND_DISTRIBUTION",
+              "package_name": "global_adult_advertising_distribution_core_ecosystem",
+              "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_advertising_distribution_core_ecosystem"
+            }
+          ]
+        },
+        {
+          "domain_id": "ADULT_CREATOR_ECONOMY_PRODUCTION_AND_WORK_18_PLUS",
+          "name": "Adult Creator Economy, Production and Work 18+",
+          "purpose": "Lawful adult creator work, studio production, professional operations, platform work and creator-economy metadata, subject to performer autonomy and labor safeguards.",
+          "age_restricted": true,
+          "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+          "canonical_ecosystem_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/",
+          "canonical_domain_refs": [
+            {
+              "domain_id": "BUSINESS_WORK_AND_TRAINING",
+              "package_name": "global_adult_business_work_training_core_ecosystem",
+              "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_business_work_training_core_ecosystem"
+            },
+            {
+              "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
+              "package_name": "global_adult_media_creator_economy_core_ecosystem",
+              "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_media_creator_economy_core_ecosystem"
+            },
+            {
+              "domain_id": "TECHNOLOGY_AND_INFRASTRUCTURE",
+              "package_name": "global_adult_technology_infrastructure_core_ecosystem",
+              "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_technology_infrastructure_core_ecosystem"
+            }
+          ]
+        },
+        {
+          "domain_id": "ADULT_CONSENT_AGE_SAFETY_PRIVACY_AND_RIGHTS_18_PLUS",
+          "name": "Adult Consent, Age, Safety, Privacy and Rights 18+",
+          "purpose": "Age assurance, informed consent, performer rights, privacy, safety, lawful licensing, jurisdictional review, moderation and protection against exploitation.",
+          "age_restricted": true,
+          "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+          "canonical_ecosystem_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/",
+          "canonical_domain_refs": [
+            {
+              "domain_id": "LAW_SAFETY_AND_COMPLIANCE",
+              "package_name": "global_adult_law_safety_compliance_core_ecosystem",
+              "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_law_safety_compliance_core_ecosystem"
+            },
+            {
+              "domain_id": "GLOBAL_AND_REGIONAL_GOVERNANCE",
+              "package_name": "global_adult_wellness_governance_partnerships_core_ecosystem",
+              "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_wellness_governance_partnerships_core_ecosystem"
+            },
+            {
+              "domain_id": "HEALTHCARE_AND_RESEARCH",
+              "package_name": "global_sexual_reproductive_healthcare_research_core_ecosystem",
+              "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_sexual_reproductive_healthcare_research_core_ecosystem"
+            }
+          ]
+        },
+        {
+          "domain_id": "ADULT_COMMERCE_SUBSCRIPTIONS_AND_BILLING_18_PLUS",
+          "name": "Adult Commerce, Subscriptions and Billing 18+",
+          "purpose": "Age-gated membership, subscription disclosure, lawful commerce, payment and cancellation metadata; actual payment processing is delegated to Finance and approved payment providers.",
+          "age_restricted": true,
+          "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+          "canonical_ecosystem_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/",
+          "canonical_domain_refs": [
+            {
+              "domain_id": "PAYMENTS_AND_BILLING",
+              "package_name": "global_adult_payments_billing_core_ecosystem",
+              "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_payments_billing_core_ecosystem"
+            },
+            {
+              "domain_id": "COMMERCE_AND_MARKETPLACES",
+              "package_name": "global_adult_wellness_commerce_marketplace_core_ecosystem",
+              "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_wellness_commerce_marketplace_core_ecosystem"
+            }
+          ]
+        }
+      ],
+      "packages": [
+        {
+          "package_id": "LIFE_STAGES_AND_HUMAN_DEVELOPMENT",
+          "package_name": "people_life_stages_human_development_core_ecosystem",
+          "package_type": "LOCAL_DOMAIN_PACKAGE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_life_stages_human_development_core_ecosystem",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "package_id": "IDENTITY_CITIZENSHIP_AND_PERSONAL_ADMIN",
+          "package_name": "people_identity_citizenship_personal_admin_core_ecosystem",
+          "package_type": "LOCAL_DOMAIN_PACKAGE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_identity_citizenship_personal_admin_core_ecosystem",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "package_id": "EDUCATION_LEARNING_AND_SKILLS",
+          "package_name": "people_education_learning_skills_core_ecosystem",
+          "package_type": "LOCAL_DOMAIN_PACKAGE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_education_learning_skills_core_ecosystem",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "package_id": "CAREER_EMPLOYMENT_AND_WORKFORCE",
+          "package_name": "people_career_employment_workforce_core_ecosystem",
+          "package_type": "LOCAL_DOMAIN_PACKAGE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_career_employment_workforce_core_ecosystem",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "package_id": "ENTREPRENEURSHIP_LIVELIHOOD_AND_SMALL_BUSINESS",
+          "package_name": "people_entrepreneurship_livelihood_small_business_core_ecosystem",
+          "package_type": "LOCAL_DOMAIN_PACKAGE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_entrepreneurship_livelihood_small_business_core_ecosystem",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "package_id": "PERSONAL_FINANCE_AND_LIFE_PLANNING",
+          "package_name": "people_personal_finance_life_planning_core_ecosystem",
+          "package_type": "LOCAL_DOMAIN_PACKAGE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_personal_finance_life_planning_core_ecosystem",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "package_id": "FAMILY_PARENTING_AND_CAREGIVING",
+          "package_name": "people_family_parenting_caregiving_core_ecosystem",
+          "package_type": "LOCAL_DOMAIN_PACKAGE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_family_parenting_caregiving_core_ecosystem",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "package_id": "PERSONAL_SAFETY_CRISIS_AND_SURVIVOR_SUPPORT",
+          "package_name": "people_personal_safety_crisis_survivor_support_core_ecosystem",
+          "package_type": "LOCAL_DOMAIN_PACKAGE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_personal_safety_crisis_survivor_support_core_ecosystem",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "package_id": "DATING_RELATIONSHIPS_MARRIAGE_AND_COMPATIBILITY",
+          "package_name": "people_dating_relationships_marriage_compatibility_core_ecosystem",
+          "package_type": "LOCAL_DOMAIN_PACKAGE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_dating_relationships_marriage_compatibility_core_ecosystem",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "package_id": "HOME_HOUSEHOLD_AND_DAILY_LIVING",
+          "package_name": "people_home_household_daily_living_core_ecosystem",
+          "package_type": "LOCAL_DOMAIN_PACKAGE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_home_household_daily_living_core_ecosystem",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "package_id": "PHYSICAL_HEALTH_WELLBEING_AND_ACCESSIBILITY",
+          "package_name": "people_physical_health_wellbeing_accessibility_core_ecosystem",
+          "package_type": "LOCAL_DOMAIN_PACKAGE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_physical_health_wellbeing_accessibility_core_ecosystem",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "package_id": "MENTAL_EMOTIONAL_AND_SOCIAL_WELLBEING",
+          "package_name": "people_mental_emotional_social_wellbeing_core_ecosystem",
+          "package_type": "LOCAL_DOMAIN_PACKAGE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_mental_emotional_social_wellbeing_core_ecosystem",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "package_id": "SEXUAL_REPRODUCTIVE_HEALTH_AND_EDUCATION",
+          "package_name": "people_sexual_reproductive_health_education_core_ecosystem",
+          "package_type": "LOCAL_DOMAIN_PACKAGE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_sexual_reproductive_health_education_core_ecosystem",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "package_id": "DIGITAL_LIFE_AND_GLOBAL_DIGITAL_SERVICES",
+          "package_name": "people_digital_life_global_digital_services_core_ecosystem",
+          "package_type": "LOCAL_DOMAIN_PACKAGE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_digital_life_global_digital_services_core_ecosystem",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "package_id": "CIVIC_LEGAL_AND_PUBLIC_SERVICES",
+          "package_name": "people_civic_legal_public_services_core_ecosystem",
+          "package_type": "LOCAL_DOMAIN_PACKAGE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_civic_legal_public_services_core_ecosystem",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "package_id": "COMMUNITY_CULTURE_SPIRITUALITY_AND_BELONGING",
+          "package_name": "people_community_culture_spirituality_belonging_core_ecosystem",
+          "package_type": "LOCAL_DOMAIN_PACKAGE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_community_culture_spirituality_belonging_core_ecosystem",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "package_id": "TRAVEL_MOBILITY_LEISURE_AND_RECREATION",
+          "package_name": "people_travel_mobility_leisure_recreation_core_ecosystem",
+          "package_type": "LOCAL_DOMAIN_PACKAGE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_travel_mobility_leisure_recreation_core_ecosystem",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "package_id": "AGEING_RETIREMENT_AND_LIFE_TRANSITIONS",
+          "package_name": "people_ageing_retirement_life_transitions_core_ecosystem",
+          "package_type": "LOCAL_DOMAIN_PACKAGE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_ageing_retirement_life_transitions_core_ecosystem",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "package_id": "GLOBAL_INDIA_AND_CROSS_BORDER_PEOPLE_LIFE",
+          "package_name": "people_global_india_cross_border_life_core_ecosystem",
+          "package_type": "LOCAL_DOMAIN_PACKAGE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/people_global_india_cross_border_life_core_ecosystem",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "package_id": "ADULT_AGE_VERIFICATION_SAFETY_18_PLUS",
+          "package_name": "adult_age_verification_safety_18_plus",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/adult_age_verification_safety_18_plus",
+          "domain_ids": [
+            "ADULT_CONSENT_AGE_SAFETY_PRIVACY_AND_RIGHTS_18_PLUS"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "ADULT_CONTENT_DISTRIBUTION_LICENSING_18_PLUS",
+          "package_name": "adult_content_distribution_licensing_18_plus",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/adult_content_distribution_licensing_18_plus",
+          "domain_ids": [
+            "ADULT_MEDIA_PORNOGRAPHY_AND_CONTENT_GOVERNANCE_18_PLUS"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "ADULT_COUPLE_INTIMACY_EDUCATION_18_PLUS",
+          "package_name": "adult_couple_intimacy_education_18_plus",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/adult_couple_intimacy_education_18_plus",
+          "domain_ids": [
+            "ADULT_INTIMACY_KAMASUTRA_AND_SEXUAL_WELLNESS_18_PLUS"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "ADULT_CREATOR_ECONOMY_18_PLUS",
+          "package_name": "adult_creator_economy_18_plus",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/adult_creator_economy_18_plus",
+          "domain_ids": [
+            "ADULT_CREATOR_ECONOMY_PRODUCTION_AND_WORK_18_PLUS"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "ADULT_INDUSTRY_WORK_BUSINESS_18_PLUS",
+          "package_name": "adult_industry_work_business_18_plus",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/adult_industry_work_business_18_plus",
+          "domain_ids": [
+            "ADULT_CREATOR_ECONOMY_PRODUCTION_AND_WORK_18_PLUS"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "ADULT_LIVE_STREAMING_18_PLUS",
+          "package_name": "adult_live_streaming_18_plus",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/adult_live_streaming_18_plus",
+          "domain_ids": [
+            "ADULT_MEDIA_PORNOGRAPHY_AND_CONTENT_GOVERNANCE_18_PLUS"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "ADULT_MEDIA_PORNOGRAPHY_18_PLUS",
+          "package_name": "adult_media_pornography_18_plus",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/adult_media_pornography_18_plus",
+          "domain_ids": [
+            "ADULT_MEDIA_PORNOGRAPHY_AND_CONTENT_GOVERNANCE_18_PLUS"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "ADULT_PERFORMER_RIGHTS_CONSENT_18_PLUS",
+          "package_name": "adult_performer_rights_consent_18_plus",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/adult_performer_rights_consent_18_plus",
+          "domain_ids": [
+            "ADULT_CONSENT_AGE_SAFETY_PRIVACY_AND_RIGHTS_18_PLUS"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "ADULT_PRIVACY_SECURITY_COMPLIANCE_18_PLUS",
+          "package_name": "adult_privacy_security_compliance_18_plus",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/adult_privacy_security_compliance_18_plus",
+          "domain_ids": [
+            "ADULT_CONSENT_AGE_SAFETY_PRIVACY_AND_RIGHTS_18_PLUS"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "ADULT_PRODUCTION_STUDIOS_18_PLUS",
+          "package_name": "adult_production_studios_18_plus",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/adult_production_studios_18_plus",
+          "domain_ids": [
+            "ADULT_CREATOR_ECONOMY_PRODUCTION_AND_WORK_18_PLUS"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "ADULT_SUBSCRIPTIONS_MEMBERSHIPS_18_PLUS",
+          "package_name": "adult_subscriptions_memberships_18_plus",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/adult_subscriptions_memberships_18_plus",
+          "domain_ids": [
+            "ADULT_COMMERCE_SUBSCRIPTIONS_AND_BILLING_18_PLUS"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "ADVANCED",
+          "package_name": "advanced",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/advanced",
+          "domain_ids": [
+            "LIFE_STAGES_AND_HUMAN_DEVELOPMENT",
+            "EDUCATION_LEARNING_AND_SKILLS"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "LOCAL_MODULE_METADATA",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "DATING_MATCHMAKING_RELATIONSHIPS",
+          "package_name": "dating_matchmaking_relationships",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/dating_matchmaking_relationships",
+          "domain_ids": [
+            "DATING_RELATIONSHIPS_MARRIAGE_AND_COMPATIBILITY"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "LOCAL_MODULE_METADATA",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "ENTERPRISE",
+          "package_name": "enterprise",
+          "package_type": "SERVICE_TIER",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/enterprise",
+          "domain_ids": [],
+          "service_tier_id": "ENTERPRISE",
+          "implementation_mode": "LOCAL_MODULE_METADATA",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "FAMILY_PARENTING_CARE",
+          "package_name": "family_parenting_care",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/family_parenting_care",
+          "domain_ids": [
+            "FAMILY_PARENTING_AND_CAREGIVING",
+            "DATING_RELATIONSHIPS_MARRIAGE_AND_COMPATIBILITY"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "LOCAL_MODULE_METADATA",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "FAMILY_SAFETY_SURVIVOR_SUPPORT",
+          "package_name": "family_safety_survivor_support",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/family_safety_survivor_support",
+          "domain_ids": [
+            "PERSONAL_SAFETY_CRISIS_AND_SURVIVOR_SUPPORT",
+            "MENTAL_EMOTIONAL_AND_SOCIAL_WELLBEING"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "LOCAL_MODULE_METADATA",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "GLOBAL_DIGITAL_SERVICES",
+          "package_name": "global_digital_services",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/global_digital_services",
+          "domain_ids": [
+            "DIGITAL_LIFE_AND_GLOBAL_DIGITAL_SERVICES"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "LOCAL_MODULE_METADATA",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "GLOBAL_PEOPLE_WORK_LIFE",
+          "package_name": "global_people_work_life",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/global_people_work_life",
+          "domain_ids": [
+            "LIFE_STAGES_AND_HUMAN_DEVELOPMENT",
+            "IDENTITY_CITIZENSHIP_AND_PERSONAL_ADMIN",
+            "PERSONAL_FINANCE_AND_LIFE_PLANNING",
+            "HOME_HOUSEHOLD_AND_DAILY_LIVING",
+            "PHYSICAL_HEALTH_WELLBEING_AND_ACCESSIBILITY",
+            "MENTAL_EMOTIONAL_AND_SOCIAL_WELLBEING",
+            "COMMUNITY_CULTURE_SPIRITUALITY_AND_BELONGING",
+            "TRAVEL_MOBILITY_LEISURE_AND_RECREATION",
+            "AGEING_RETIREMENT_AND_LIFE_TRANSITIONS",
+            "GLOBAL_INDIA_AND_CROSS_BORDER_PEOPLE_LIFE"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "LOCAL_MODULE_METADATA",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "INDIA_DIGITAL_PUBLIC_SERVICES",
+          "package_name": "india_digital_public_services",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/india_digital_public_services",
+          "domain_ids": [
+            "IDENTITY_CITIZENSHIP_AND_PERSONAL_ADMIN",
+            "CIVIC_LEGAL_AND_PUBLIC_SERVICES"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "LOCAL_MODULE_METADATA",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "INDIA_PEOPLE_WORK_LIFE",
+          "package_name": "india_people_work_life",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/india_people_work_life",
+          "domain_ids": [
+            "LIFE_STAGES_AND_HUMAN_DEVELOPMENT",
+            "CAREER_EMPLOYMENT_AND_WORKFORCE",
+            "HOME_HOUSEHOLD_AND_DAILY_LIVING",
+            "GLOBAL_INDIA_AND_CROSS_BORDER_PEOPLE_LIFE"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "LOCAL_MODULE_METADATA",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "NORMAL",
+          "package_name": "normal",
+          "package_type": "SERVICE_TIER",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/normal",
+          "domain_ids": [],
+          "service_tier_id": "NORMAL",
+          "implementation_mode": "LOCAL_MODULE_METADATA",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "PREMIUM",
+          "package_name": "premium",
+          "package_type": "SERVICE_TIER",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/premium",
+          "domain_ids": [],
+          "service_tier_id": "PREMIUM",
+          "implementation_mode": "LOCAL_MODULE_METADATA",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "SEXUAL_HEALTH_REPRODUCTIVE_EDUCATION",
+          "package_name": "sexual_health_reproductive_education",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/sexual_health_reproductive_education",
+          "domain_ids": [
+            "PHYSICAL_HEALTH_WELLBEING_AND_ACCESSIBILITY",
+            "SEXUAL_REPRODUCTIVE_HEALTH_AND_EDUCATION"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "LOCAL_MODULE_METADATA",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "SMALL_BUSINESS_MSME_SUPPORT",
+          "package_name": "small_business_msme_support",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/small_business_msme_support",
+          "domain_ids": [
+            "ENTREPRENEURSHIP_LIVELIHOOD_AND_SMALL_BUSINESS",
+            "PERSONAL_FINANCE_AND_LIFE_PLANNING"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "LOCAL_MODULE_METADATA",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "STANDARD",
+          "package_name": "standard",
+          "package_type": "SERVICE_TIER",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/standard",
+          "domain_ids": [],
+          "service_tier_id": "STANDARD",
+          "implementation_mode": "LOCAL_MODULE_METADATA",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "STUDENT_YOUTH_DEVELOPMENT",
+          "package_name": "student_youth_development",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/student_youth_development",
+          "domain_ids": [
+            "LIFE_STAGES_AND_HUMAN_DEVELOPMENT",
+            "EDUCATION_LEARNING_AND_SKILLS"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "LOCAL_MODULE_METADATA",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "SUPREME",
+          "package_name": "supreme",
+          "package_type": "SERVICE_TIER",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/supreme",
+          "domain_ids": [],
+          "service_tier_id": "SUPREME",
+          "implementation_mode": "LOCAL_MODULE_METADATA",
+          "status": "REGISTERED_MODULE"
+        },
+        {
+          "package_id": "WORKFORCE_PROFESSIONAL_SERVICES",
+          "package_name": "workforce_professional_services",
+          "package_type": "CAPABILITY_MODULE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/workforce_professional_services",
+          "domain_ids": [
+            "EDUCATION_LEARNING_AND_SKILLS",
+            "CAREER_EMPLOYMENT_AND_WORKFORCE",
+            "ENTREPRENEURSHIP_LIVELIHOOD_AND_SMALL_BUSINESS"
+          ],
+          "service_tier_id": null,
+          "implementation_mode": "LOCAL_MODULE_METADATA",
+          "status": "REGISTERED_MODULE"
+        }
+      ],
+      "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/manager.py",
+      "catalog_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/catalog.py",
+      "domain_catalog_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/domain_catalog.py",
+      "shared_runtime_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/domain_runtime.py",
+      "test_path": "backend/core/global_ecosystem/global_core_ecosystem/global_people_life_core_ecosystem/test_core_domains.py",
+      "canonical_adult_ecosystem_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/",
+      "php_facade_included": false,
+      "live_connections_verified": false,
+      "api_calls_performed": 0,
+      "application_workflows_executed": 0
     }
   }
 }
