@@ -1,14 +1,13 @@
-# GLOBAL ENTITY RELATIONSHIPS CORE IMPLEMENTATION STATUS
+# GLOBAL ENTITY RELATIONSHIPS CORE — Implementation Status
 
-- Naming standard: GLOBAL + SUBJECT + CORE ECOSYSTEM.
-- Parent taxonomy categories: 36.
-- Relationship type catalog: 21.
-- Parent catalog records including root: 37.
-- Subfolders populated: 38 (36 category modules, data, tests).
-- Files in each subfolder: manager.py, manager.php, __init__.py, README.md (152 files).
-- Data folder: catalog reference helper added.
-- Tests folder: submodule contract test suite added (4 tests, each iterates all category modules).
-- Submodule managers: category-specific required-field validation, common relationship fields, self-edge and evidence checks; no persistence or live connections.
-- CI workflow updated to run parent and child test suites; PHP syntax check remains configured.
-- Runtime/CI result must be checked after workflow execution.
-- Coverage: structured category modules, not exhaustive global legal/business registry.
+- Root ID: `GLOBAL-ENTITY-RELATIONSHIPS-CORE-ECOSYSTEM`
+- Catalog: 36 child categories; 21 relationship-type labels
+- Control plane: catalog, registry, metadata model, policy, manager, service, orchestrator
+- Master catalog reference: `backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json`
+- Master catalog target: 2,468 unique entries (reference only)
+- Persistence: not implemented
+- External API transport: not implemented
+- Live relationship verification: not implemented
+- API calls performed by CORE: 0
+
+This describes repository architecture, not deployment readiness or real-world verification.
