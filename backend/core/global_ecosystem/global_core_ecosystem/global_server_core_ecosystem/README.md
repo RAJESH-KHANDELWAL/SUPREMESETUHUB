@@ -38,7 +38,9 @@ The canonical service-tier progression is **NORMAL → BASIC → STANDARD → PR
 - `workload_domain_catalog.json`: server workload domain taxonomy.
 - `service_tier_catalog.json`: canonical tier order and semantics.
 - `scope_catalog.py`: read-only loader and query helpers for scope catalogs.
-- `php/GlobalServerCoreScopeContract.php`: PHP 8+ read-only contract normalizer for scope metadata.
+- `manager.php`: thin PHP interoperability facade matching the Google Core entry-point pattern; it performs no provider calls.
+- `php/GlobalServerCoreContract.php`: PHP 8+ result contract with recursive secret-field sanitization.
+- `php/GlobalServerCoreScopeContract.php`: PHP 8+ read-only normalizer for geography, workload and service-tier metadata.
 - Existing Python modules continue to own provider-neutral identity, contracts, policies, registry and orchestration.
 
 ## Layer ownership
@@ -107,4 +109,4 @@ The master catalog currently reports 246 unique entries against a target of 2,46
 Each of the 16 CORE domains defines six named control areas (96 total). These are provider-neutral metadata and contract scopes, not implemented cloud controls or remote operations. Each of the 20 industry workload profiles remains a separate workload classification and is not duplicated as a CORE domain. Each profile has five workload areas (100 total), mirrored exactly in its `workload_manifest.json`.
 
 ## Validation and status
-Use `GlobalServerCoreManager.status()` or `manager_status()` for offline structural readiness and exact master-reference validation. A successful catalog check does not establish provider connectivity, credentials, account entitlement, region availability, provisioning capability, SLA, certification or production readiness.
+Use `GlobalServerCoreManager.status()` or `manager_status()` for offline structural readiness and exact master-reference validation. PHP consumers may use `GlobalServerCoreManagerPHP::normalizeResult()` and `normalizeScope()` through the root `manager.php` facade. A successful catalog check does not establish provider connectivity, credentials, account entitlement, region availability, provisioning capability, SLA, certification or production readiness.
