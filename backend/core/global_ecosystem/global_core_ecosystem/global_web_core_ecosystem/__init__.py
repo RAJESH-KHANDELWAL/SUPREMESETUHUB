@@ -2,6 +2,7 @@
 from .constants import LAYER, CATEGORY, ECOSYSTEM_NAME, ECOSYSTEM_ID, CAPABILITIES
 from .contracts import CoreResult, Readiness, SecretReference, TenantContext
 from .domain_catalog import DOMAIN_DEFINITIONS, domain_summary, get_domain, list_domain_inventory
+from .domain_runtime import WebCoreDomainManager
 from .manager import GlobalWebCoreManager, get_manager
 from .module_service import WebProviderCoreService
 from .orchestrator import WebCoreOrchestrator
@@ -14,7 +15,8 @@ __all__ = [
     "LAYER", "CATEGORY", "ECOSYSTEM_NAME", "ECOSYSTEM_ID", "CAPABILITIES",
     "CoreResult", "Readiness", "SecretReference", "TenantContext",
     "DOMAIN_DEFINITIONS", "domain_summary", "get_domain", "list_domain_inventory",
-    "GlobalWebCoreManager", "get_manager", "WebProviderCoreService",
-    "WebCoreOrchestrator", "WebCorePolicy", "get_product_family",
-    "list_product_families", "get_provider", "list_providers", "WebCoreEcosystemService",
+    "WebCoreDomainManager", "GlobalWebCoreManager", "get_manager",
+    "WebProviderCoreService", "WebCoreOrchestrator", "WebCorePolicy",
+    "get_product_family", "list_product_families", "get_provider",
+    "list_providers", "WebCoreEcosystemService",
 ]
