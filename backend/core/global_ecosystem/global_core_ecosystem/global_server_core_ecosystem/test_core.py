@@ -71,6 +71,23 @@ class ServerCoreTests(unittest.TestCase):
         self.assertIsNotNone(manager.get_domain("availability"))
         self.assertIsNone(manager.get_domain("NOT_A_SERVER_DOMAIN"))
 
+    def test_google_core_style_discovery_contract(self):
+        manager = get_manager()
+        self.assertEqual(len(manager.list_domain_inventory()), 16)
+        self.assertIsNotNone(manager.get_provider("aws"))
+        self.assertIsNotNone(manager.get_workload("GOVERNMENT_PUBLIC_SERVICES"))
+        self.assertIsNone(manager.get_workload("UNKNOWN"))
+        dependencies = manager.dependency_map()
+        self.assertEqual(len(dependencies["provider_dependencies"]), 7)
+        self.assertFalse(dependencies["remote_operations_enabled"])
+
+    def test_scope_catalog_validation(self):
+        result = get_manager().validate_scope_catalogs()
+        self.assertTrue(result["success"])
+        self.assertEqual(result["service_tier_count"], 7)
+        self.assertEqual(result["workload_area_count"], 100)
+        self.assertEqual(result["geography_model"], "INDIA_FIRST_GLOBAL_EXTENSIBLE")
+
     def test_provider_inventory_is_metadata_only(self):
         providers = get_manager().list_providers()
         self.assertEqual(len(providers), 7)
