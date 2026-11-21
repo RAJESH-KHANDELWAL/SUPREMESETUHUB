@@ -18,6 +18,7 @@ Provider-level, provider-neutral control plane for Hugging Face identity, produc
 - `contracts.py`: tenant, secret-reference, readiness and result contracts.
 - `policy.py`: authorization, secret, licence, billing and production guardrails.
 - `module_service.py`: shared read-only service used by product packages.
+- `domain_runtime.py`: shared read-only manager for domain metadata.
 - `orchestrator.py`: discovery, health and dependency mapping.
 - `service.py`: public status/service interface.
 - `test_huggingface_core.py`: structural, contract and layer-boundary tests.
