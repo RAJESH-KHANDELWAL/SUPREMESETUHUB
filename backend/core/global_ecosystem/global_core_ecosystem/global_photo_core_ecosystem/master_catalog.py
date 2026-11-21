@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-MASTER_CATALOG_PATH = Path(__file__).resolve().parents[3] / "GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+MASTER_CATALOG_PATH = Path(__file__).resolve().parents[4] / "GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
 RELEVANT_ENTRY_IDS = ("S07_adult_photography", "S07_copyright_and_licensing", "S07_consent_verification", "S07_age_verification", "S07_non_consensual_content_prevention",)
 
 def master_catalog_status() -> dict[str, Any]:
