@@ -23,6 +23,13 @@ def test_every_provider_has_a_registered_domain_and_no_live_claim():
         assert provider["connected"] is False
         assert provider["live_connection_verified"] is False
 
+def test_global_core_hierarchy_registers_video_core():
+    from backend.core.global_ecosystem.global_core_ecosystem.manager import get_catalog as get_global_catalog
+    records = get_global_catalog()
+    record = next(item for item in records if item["ecosystem_id"] == "GLOBAL-VIDEO-CORE-ECOSYSTEM")
+    assert record["parent_id"] == "GLOBAL-CORE-ECOSYSTEM"
+    assert record["metadata"]["core_catalog"].endswith("/global_video_core_ecosystem")
+
 def test_master_catalog_is_read_only_reference():
     result = master_catalog_status()
     assert result["access_mode"] == "READ_ONLY"
