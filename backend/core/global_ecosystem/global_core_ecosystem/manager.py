@@ -239,8 +239,8 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "metadata": {
             "core_catalog": "backend/core/global_ecosystem/global_core_ecosystem/global_video_core_ecosystem",
             "status": "FOUNDATION_READY",
-            "live_connection_verified": false,
-            "api_transport_in_core": false
+            "live_connection_verified": False,
+            "api_transport_in_core": False
         },
     },
     {
@@ -252,8 +252,8 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "metadata": {
             "core_catalog": "backend/core/global_ecosystem/global_core_ecosystem/global_photo_core_ecosystem",
             "status": "FOUNDATION_READY",
-            "live_connection_verified": false,
-            "api_transport_in_core": false
+            "live_connection_verified": False,
+            "api_transport_in_core": False
         },
     },
 
@@ -1530,8 +1530,8 @@ class GlobalEcosystemManager:
         if not records:
             raise RuntimeError("GLOBAL ECOSYSTEM catalog is empty")
 
-        # The canonical Core catalog already contains provider roots and
-        # provider child records (Google and Stripe). Register that catalog once.
+        # The canonical Core catalog contains provider and domain Core records.
+        # Register that catalog once, preserving parent-first ordering.
         registered_ids: set[str] = set()
         for record in records:
             identity = self._to_identity(record)
