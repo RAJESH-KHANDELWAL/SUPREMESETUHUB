@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "profile_id": "SERVER-WORKLOAD-CYBERSECURITY_PRIVACY",
   "domain_id": "CYBERSECURITY_PRIVACY",
   "label": "Cybersecurity and Privacy",
@@ -30,5 +30,33 @@
     "storage": "files, objects, backups and artifacts"
   },
   "operational_status": "NON_EXECUTING_PROFILE",
-  "note": "No provisioning, legal approval or production operation is performed by this profile."
+  "note": "No provisioning, legal approval or production operation is performed by this profile.",
+  "workload_areas": [
+    {
+      "area_id": "CYBERSECURITY_PRIVACY_WORKLOAD_01",
+      "name": "Security operations, SIEM and SOAR",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "CYBERSECURITY_PRIVACY_WORKLOAD_02",
+      "name": "Identity, access and privileged access systems",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "CYBERSECURITY_PRIVACY_WORKLOAD_03",
+      "name": "Vulnerability and exposure management",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "CYBERSECURITY_PRIVACY_WORKLOAD_04",
+      "name": "Threat intelligence and incident response",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "CYBERSECURITY_PRIVACY_WORKLOAD_05",
+      "name": "Privacy engineering and data protection",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    }
+  ],
+  "workload_area_count": 5
 }
