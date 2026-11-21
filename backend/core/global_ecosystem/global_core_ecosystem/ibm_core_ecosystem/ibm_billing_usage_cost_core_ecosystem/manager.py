@@ -1,5 +1,4 @@
-"""Thin adapter over the shared read-only IBM domain runtime."""
-from ..domain_runtime import IBMCoreDomainManager
-class IBMBillingUsageCostCoreManager(IBMCoreDomainManager):
-    def __init__(self):
-        super().__init__("BILLING_USAGE_COST")
+"""Thin product metadata adapter; API and ENGINE work remain in their layers."""
+from ..module_service import IBMProductCoreService
+class IBMBillingUsageCostCoreManager(IBMProductCoreService):
+    PRODUCT_ID = "ibm_billing_usage_cost"

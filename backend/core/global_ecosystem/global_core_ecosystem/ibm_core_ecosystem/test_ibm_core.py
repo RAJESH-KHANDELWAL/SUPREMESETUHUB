@@ -36,7 +36,7 @@ class IBMCoreTests(unittest.TestCase):
         import importlib
         slugs=["provider_governance","cloud_account_resource_governance","iam_identity_access","compute_vpc_networking","kubernetes_containers","serverless_code_engine","object_storage_artifacts","databases_cloudant","watsonx_ai_models_inference","watsonx_data_analytics","api_management_gateway","secrets_management","key_management_cryptography","monitoring_observability","activity_tracking_audit","resource_catalog_lifecycle","billing_usage_cost","tenancy_region_quota_compliance"]
         for slug in slugs:
-            module=importlib.import_module(f"{__package__}.ibm_{slug}_core_ecosystem")
+            module=importlib.import_module(f"{__package__}.ibm_{slug}_domain_core_ecosystem")
             self.assertTrue(any(name.endswith("CoreManager") for name in module.__all__))
     def test_master_catalog_alignment_is_read_only_and_exact(self):
         path=Path(__file__).resolve().parents[4]/"GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
