@@ -37,6 +37,8 @@ class SecurityCoreEcosystemService:
     def list_modules(self, enabled_only=False): return self.orchestrator.list_modules(enabled_only)
     def list_domains(self): return self.orchestrator.list_domains()
     def get_domain(self, domain_id): return self.orchestrator.get_domain(domain_id)
+    def get_domain_manager(self, domain_id): return self.orchestrator.get_domain_manager(domain_id)
+    def domain_coverage(self, domain_id): return self.orchestrator.domain_coverage(domain_id)
     def list_providers(self): return self.orchestrator.list_providers()
     def get_provider(self, provider_id): return self.orchestrator.get_provider(provider_id)
     def list_jurisdictions(self): return self.orchestrator.list_jurisdictions()
