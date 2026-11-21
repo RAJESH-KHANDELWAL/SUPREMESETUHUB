@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "profile_id": "SERVER-WORKLOAD-AGRICULTURE_FOOD_SUPPLY_CHAIN",
   "domain_id": "AGRICULTURE_FOOD_SUPPLY_CHAIN",
   "label": "Agriculture, Food and Supply Chains",
@@ -30,5 +30,33 @@
     "storage": "files, objects, backups and artifacts"
   },
   "operational_status": "NON_EXECUTING_PROFILE",
-  "note": "No provisioning, legal approval or production operation is performed by this profile."
+  "note": "No provisioning, legal approval or production operation is performed by this profile.",
+  "workload_areas": [
+    {
+      "area_id": "AGRICULTURE_FOOD_SUPPLY_CHAIN_WORKLOAD_01",
+      "name": "Farm management and precision agriculture",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "AGRICULTURE_FOOD_SUPPLY_CHAIN_WORKLOAD_02",
+      "name": "Weather, soil and agricultural IoT",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "AGRICULTURE_FOOD_SUPPLY_CHAIN_WORKLOAD_03",
+      "name": "Agri-marketplace and commodity exchange",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "AGRICULTURE_FOOD_SUPPLY_CHAIN_WORKLOAD_04",
+      "name": "Food traceability and quality systems",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "AGRICULTURE_FOOD_SUPPLY_CHAIN_WORKLOAD_05",
+      "name": "Cold-chain and perishables logistics",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    }
+  ],
+  "workload_area_count": 5
 }
