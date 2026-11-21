@@ -29,3 +29,17 @@ def test_master_catalog_is_read_only_reference():
     assert result["available"] is True
     assert result["access_mode"] == "READ_ONLY"
     assert result["target_unique_entries"] == 2468
+
+def test_each_provider_has_a_real_core_package():
+    from pathlib import Path
+    import json
+    root = Path(__file__).parent
+    for provider in get_catalog()["providers"]:
+        package = root / provider["directory"]
+        assert package.is_dir()
+        for filename in ("README.md", "__init__.py", "ecosystem_manifest.json", "service.py"):
+            assert (package / filename).is_file()
+        manifest = json.loads((package / "ecosystem_manifest.json").read_text(encoding="utf-8"))
+        assert manifest["provider_id"] == provider["provider_id"]
+        assert manifest["domain_id"] == provider["domain_id"]
+        assert manifest["live_connection_verified"] is False
