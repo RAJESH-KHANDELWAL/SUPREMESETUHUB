@@ -7,11 +7,12 @@ from .manager import (
     get_domain,
     get_service_tiers,
     get_protected_group_safety,
+    get_domain_manager,
 )
 from .service import SecurityCoreEcosystemService
 
 __all__ = [
     "LAYER", "CATEGORY", "ECOSYSTEM_NAME", "ECOSYSTEM_ID", "STATUS",
     "GlobalSecurityCoreManager", "get_manager", "get_domains", "get_domain",
-    "get_service_tiers", "get_protected_group_safety", "SecurityCoreEcosystemService",
+    "get_service_tiers", "get_protected_group_safety", "get_domain_manager", "SecurityCoreEcosystemService",
 ]
