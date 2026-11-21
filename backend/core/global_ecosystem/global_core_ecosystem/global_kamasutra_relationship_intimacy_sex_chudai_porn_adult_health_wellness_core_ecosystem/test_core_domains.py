@@ -7,7 +7,8 @@ from pathlib import Path
 from .catalog import list_products
 from .domain_catalog import DOMAINS, list_domains
 from .manager import get_manager
-from .policy import get_policy
+from .policy import get_policy, validate_adult_access
+from .contracts import AdultAccessAttestation, TenantContext
 
 DOMAIN_PACKAGES = {
     "RELATIONSHIPS_AND_COMPATIBILITY": "global_relationships_compatibility_core_ecosystem",
@@ -21,8 +22,9 @@ DOMAIN_PACKAGES = {
     "LAW_SAFETY_AND_COMPLIANCE": "global_adult_law_safety_compliance_core_ecosystem",
     "PAYMENTS_AND_BILLING": "global_adult_payments_billing_core_ecosystem",
     "ADVERTISING_AND_DISTRIBUTION": "global_adult_advertising_distribution_core_ecosystem",
-    "GLOBAL_AND_REGIONAL_GOVERNANCE": "global_adult_wellness_governance_partnerships_core_ecosystem"
+    "GLOBAL_AND_REGIONAL_GOVERNANCE": "global_adult_wellness_governance_partnerships_core_ecosystem",
 }
+
 
 def test_all_registered_products_are_unique_and_enabled() -> None:
     products = list_products()
@@ -32,15 +34,19 @@ def test_all_registered_products_are_unique_and_enabled() -> None:
     assert all(item["enabled"] is True for item in products)
     assert all(item["connected"] is False for item in products)
 
+
 def test_every_existing_product_folder_is_in_the_catalog() -> None:
     root = Path(__file__).parent
     domain_folders = set(DOMAIN_PACKAGES.values())
     actual_product_folders = {
         item.name for item in root.iterdir()
-        if item.is_dir() and item.name not in domain_folders
+        if item.is_dir()
+        and item.name not in domain_folders
+        and not item.name.startswith("__")
     }
     catalog_product_folders = {item["package_name"] for item in list_products()}
     assert actual_product_folders == catalog_product_folders
+
 
 def test_every_domain_package_exposes_a_working_manager() -> None:
     package_root = __package__
@@ -54,19 +60,23 @@ def test_every_domain_package_exposes_a_working_manager() -> None:
         assert status["connected"] is False
         assert len(manager.list_products()) == len(DOMAINS[domain_id]["product_ids"])
 
-def test_all_62_products_are_classified_once() -> None:
+
+def test_all_62_products_are_classified_exactly_once() -> None:
     ids = [product_id for domain in list_domains() for product_id in domain["product_ids"]]
     assert len(ids) == 62
     assert len(set(ids)) == 62
     assert set(ids) == {item["ecosystem_id"] for item in list_products()}
+
 
 def test_root_manager_reports_complete_inventory() -> None:
     manager = get_manager()
     assert manager.status()["status"] == "CATALOG_ONLY"
     assert manager.inventory()["registered_package_count"] == 62
     assert manager.health()["connected"] is False
+    assert manager.get_product("KAMASUTRA-ANCIENT-KNOWLEDGE") is not None
 
-def test_adult_safety_policy_is_explicit() -> None:
+
+def test_adult_safety_policy_is_explicit_and_enforced() -> None:
     policy = get_policy()
     assert policy["adult_only"] is True
     assert policy["minimum_age"] == 18
@@ -74,3 +84,12 @@ def test_adult_safety_policy_is_explicit() -> None:
     assert policy["informed_consent_required"] is True
     assert policy["non_consensual_intimate_content_prohibited"] is True
     assert policy["minors_and_child_sexual_abuse_material_prohibited"] is True
+
+    context = TenantContext(tenant_id="test-tenant", actor_id="test-actor")
+    attestation = AdultAccessAttestation(
+        age_assured=True,
+        consent_confirmed=True,
+        rights_confirmed=True,
+        verified_by="trusted-test-verifier",
+    )
+    assert validate_adult_access(context, attestation)["success"] is True
