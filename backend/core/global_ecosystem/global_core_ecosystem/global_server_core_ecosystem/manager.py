@@ -18,7 +18,7 @@ from .scope_catalog import (
 )
 
 ROOT = Path(__file__).resolve().parent
-MASTER_CATALOG_PATH = ROOT.parents[4] / "GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+MASTER_CATALOG_PATH = ROOT.parents[3] / "GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
 
 
 def _load_json(path: Path) -> dict[str, Any]:
