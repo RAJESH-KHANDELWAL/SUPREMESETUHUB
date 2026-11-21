@@ -1697,14 +1697,14 @@
         "master_catalog_access_mode": "READ_ONLY_ON_DEMAND"
       },
       {
-        "ecosystem_id": "GLOBAL-FINANCE-BANKING-INSURANCE-FINANCIAL-PAYMENT-CORE-ECOSYSTEM",
-        "name": "GLOBAL FINANCE BANKING INSURANCE FINANCIAL PAYMENT CORE ECOSYSTEM",
-        "layer": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_core_ecosystem",
-        "catalog_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_core_ecosystem/catalog.py",
-        "manager_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_core_ecosystem/manager.py",
+        "ecosystem_id": "GLOBAL-FINANCE-BANKING-INSURANCE-FINANCIAL-PAYMENT-GATEWAY-CORE-ECOSYSTEM",
+        "name": "GLOBAL FINANCE BANKING INSURANCE FINANCIAL PAYMENT GATEWAY CORE ECOSYSTEM",
+        "layer": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_gateway_core_ecosystem",
+        "catalog_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_gateway_core_ecosystem/catalog.py",
+        "manager_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_gateway_core_ecosystem/manager.py",
         "status": "CORE_CATALOG_ONLY",
-        "existing_package_directory_count": 66,
-        "domain_count": 14,
+        "domain_count": 15,
+        "existing_package_directory_count": 103,
         "live_connection_verified": false,
         "api_transport_in_core": false,
         "transaction_execution_enabled": false,
@@ -2352,14 +2352,14 @@
       "workflow_path": ".github/workflows/kamasutra-core-domain-tests.yml",
       "php_facade_included": false
     },
-    "global_finance_banking_insurance_financial_payment_core_ecosystem": {
-      "ecosystem_id": "GLOBAL-FINANCE-BANKING-INSURANCE-FINANCIAL-PAYMENT-CORE-ECOSYSTEM",
-      "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_core_ecosystem",
+    "global_finance_banking_insurance_financial_payment_gateway_core_ecosystem": {
+      "ecosystem_id": "GLOBAL-FINANCE-BANKING-INSURANCE-FINANCIAL-PAYMENT-GATEWAY-CORE-ECOSYSTEM",
+      "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_gateway_core_ecosystem",
       "classification": "CORE_IMPLEMENTATION_REGISTRY",
       "taxonomy_entries_counted_in_global_2468_target": false,
-      "reason": "Registers the finance implementation structure without inflating the 2,468 unique-topic target or duplicating canonical taxonomy entries.",
-      "registered_package_count": 66,
-      "domain_count": 14,
+      "reason": "Registers the finance and payment-gateway implementation structure without inflating the 2,468 unique-topic target or duplicating canonical taxonomy entries.",
+      "registered_package_count": 103,
+      "domain_count": 15,
       "domains": [
         {
           "domain_id": "BANKING",
@@ -2370,7 +2370,12 @@
             "central_reserve_banking_monetary_policy_core_ecosystem",
             "digital_open_banking_core_ecosystem",
             "bank_transfer_neft_rtgs_imps_core_ecosystem",
-            "open_banking_account_to_account_payment_core_ecosystem"
+            "open_banking_account_to_account_payment_core_ecosystem",
+            "digital_neobanking_core_ecosystem",
+            "cooperative_rural_banking_core_ecosystem",
+            "investment_banking_core_ecosystem",
+            "correspondent_banking_core_ecosystem",
+            "deposit_accounts_savings_current_core_ecosystem"
           ]
         },
         {
@@ -2381,33 +2386,43 @@
             "life_health_insurance_core_ecosystem",
             "general_property_casualty_insurance_core_ecosystem",
             "reinsurance_catastrophe_risk_core_ecosystem",
-            "insurance_distribution_underwriting_claims_core_ecosystem"
+            "insurance_distribution_underwriting_claims_core_ecosystem",
+            "insurance_actuarial_pricing_risk_models_core_ecosystem",
+            "insurance_broker_agency_distribution_core_ecosystem"
           ]
         },
         {
-          "domain_id": "MARKETS_AND_INVESTMENTS",
-          "name": "Markets And Investments",
+          "domain_id": "CAPITAL_MARKETS_AND_INVESTMENTS",
+          "name": "Capital Markets And Investments",
           "package_names": [
             "capital_markets_securities_exchange_core_ecosystem",
             "asset_wealth_management_core_ecosystem",
-            "funds_etf_pension_retirement_core_ecosystem"
+            "funds_etf_pension_retirement_core_ecosystem",
+            "securities_custody_clearing_settlement_core_ecosystem",
+            "brokerage_trading_investment_services_core_ecosystem",
+            "private_equity_venture_capital_core_ecosystem",
+            "financial_market_infrastructure_depositories_core_ecosystem"
           ]
         },
         {
-          "domain_id": "LENDING_AND_INCLUSION",
-          "name": "Lending And Inclusion",
+          "domain_id": "LENDING_CREDIT_AND_ASSET_FINANCE",
+          "name": "Lending Credit And Asset Finance",
           "package_names": [
             "global_lending_credit_financing_core_ecosystem",
             "microfinance_financial_inclusion_core_ecosystem",
-            "merchant_onboarding_underwriting_core_ecosystem"
+            "consumer_personal_finance_core_ecosystem",
+            "asset_financing_leasing_core_ecosystem",
+            "factoring_invoice_discounting_core_ecosystem",
+            "trade_supply_chain_finance_core_ecosystem"
           ]
         },
         {
-          "domain_id": "ACCOUNTING_AND_TAX",
-          "name": "Accounting And Tax",
+          "domain_id": "ACCOUNTING_TAX_AND_AUDIT",
+          "name": "Accounting Tax And Audit",
           "package_names": [
             "accounting_tax_audit_reconciliation_core_ecosystem",
-            "invoice_tax_reconciliation_accounting_core_ecosystem"
+            "invoice_tax_reconciliation_accounting_core_ecosystem",
+            "financial_governance_audit_reporting_core_ecosystem"
           ]
         },
         {
@@ -2418,108 +2433,143 @@
           ]
         },
         {
-          "domain_id": "RISK_AND_COMPLIANCE",
-          "name": "Risk And Compliance",
+          "domain_id": "FINANCIAL_RISK_REGULATION_AND_COMPLIANCE",
+          "name": "Financial Risk Regulation And Compliance",
           "package_names": [
-            "financial_risk_compliance_aml_fraud_core_ecosystem",
             "financial_regulators_standards_deposit_protection_core_ecosystem",
+            "financial_risk_compliance_aml_fraud_core_ecosystem",
             "fraud_risk_velocity_screening_core_ecosystem",
             "regulatory_kyc_aml_sanctions_compliance_core_ecosystem",
-            "payment_security_tokenization_3ds_core_ecosystem"
+            "payment_security_tokenization_3ds_core_ecosystem",
+            "adult_age_consent_privacy_compliance_payment_core_ecosystem"
           ]
         },
         {
-          "domain_id": "FINANCIAL_DATA_AND_CREDIT",
-          "name": "Financial Data And Credit",
+          "domain_id": "FINANCIAL_DATA_AND_CREDIT_INTELLIGENCE",
+          "name": "Financial Data And Credit Intelligence",
           "package_names": [
-            "financial_data_analytics_credit_bureau_core_ecosystem"
+            "financial_data_analytics_credit_bureau_core_ecosystem",
+            "credit_scoring_reporting_bureau_core_ecosystem"
           ]
         },
         {
-          "domain_id": "FINTECH_AND_OPEN_FINANCE",
-          "name": "Fintech And Open Finance",
+          "domain_id": "FINTECH_OPEN_FINANCE_AND_INFRASTRUCTURE",
+          "name": "Fintech Open Finance And Infrastructure",
           "package_names": [
             "fintech_infrastructure_open_finance_core_ecosystem",
-            "payment_orchestration_routing_core_ecosystem",
-            "payment_gateway_core_ecosystem",
-            "global_payment_providers_core_ecosystem",
-            "integrations",
-            "services",
-            "tools"
+            "digital_assets_blockchain_finance_core_ecosystem"
           ]
         },
         {
-          "domain_id": "PAYMENTS_AND_BILLING",
-          "name": "Payments And Billing",
+          "domain_id": "PAYMENT_GATEWAYS_AND_MERCHANT_ACQUIRING",
+          "name": "Payment Gateways And Merchant Acquiring",
           "package_names": [
-            "adult_age_consent_privacy_compliance_payment_core_ecosystem",
-            "adult_content_platform_payment_processing_core_ecosystem",
-            "adult_creator_payouts_business_payments_core_ecosystem",
+            "payment_gateway_core_ecosystem",
+            "global_payment_providers_core_ecosystem",
             "adult_industry_payment_provider_directory_core_ecosystem",
             "adult_merchant_account_high_risk_underwriting_core_ecosystem",
-            "adult_refunds_chargebacks_disputes_core_ecosystem",
-            "adult_subscription_membership_billing_core_ecosystem",
+            "merchant_onboarding_underwriting_core_ecosystem",
             "apple_payment_core_ecosystem",
-            "card_payment_core_ecosystem",
             "ccbill_payment_core_ecosystem",
-            "creator_freelancer_payout_core_ecosystem",
-            "cross_border_multi_currency_fx_core_ecosystem",
-            "digital_wallet_payment_core_ecosystem",
             "epoch_payment_core_ecosystem",
-            "india_payment_core_ecosystem",
-            "international_wire_transfer_core_ecosystem",
-            "marketplace_split_payment_core_ecosystem",
             "paxum_payment_core_ecosystem",
-            "payment_links_checkout_core_ecosystem",
-            "payment_service_tiers_normal_to_supreme_core_ecosystem",
             "paypal_payment_core_ecosystem",
-            "pos_qr_contactless_payment_core_ecosystem",
-            "recurring_subscription_billing_core_ecosystem",
-            "refunds_reversals_disputes_chargebacks_core_ecosystem",
             "segpay_payment_core_ecosystem",
             "shopify_payment_core_ecosystem",
             "stripe_payment_core_ecosystem",
-            "upi_payment_core_ecosystem",
-            "verotel_payment_core_ecosystem"
+            "verotel_payment_core_ecosystem",
+            "adyen_payment_core_ecosystem",
+            "razorpay_payment_core_ecosystem",
+            "cashfree_payment_core_ecosystem",
+            "payu_payment_core_ecosystem",
+            "worldpay_payment_core_ecosystem",
+            "braintree_payment_core_ecosystem",
+            "square_payment_core_ecosystem",
+            "authorize_net_payment_core_ecosystem",
+            "checkout_com_payment_core_ecosystem",
+            "amazon_pay_payment_core_ecosystem",
+            "paytm_payment_core_ecosystem",
+            "phonepe_payment_core_ecosystem",
+            "billdesk_payment_core_ecosystem",
+            "ccavenue_payment_core_ecosystem",
+            "worldline_payment_core_ecosystem",
+            "globalpayments_payment_core_ecosystem",
+            "wise_payment_core_ecosystem",
+            "payoneer_payment_core_ecosystem",
+            "airwallex_payment_core_ecosystem",
+            "revolut_payment_core_ecosystem",
+            "skrill_payment_core_ecosystem",
+            "neteller_payment_core_ecosystem"
           ]
         },
         {
-          "domain_id": "ADVISORY_AND_PLANNING",
-          "name": "Advisory And Planning",
+          "domain_id": "PAYMENT_RAILS_WALLETS_AND_TRANSFERS",
+          "name": "Payment Rails Wallets And Transfers",
+          "package_names": [
+            "card_payment_core_ecosystem",
+            "cross_border_multi_currency_fx_core_ecosystem",
+            "digital_wallet_payment_core_ecosystem",
+            "india_payment_core_ecosystem",
+            "international_wire_transfer_core_ecosystem",
+            "pos_qr_contactless_payment_core_ecosystem",
+            "upi_payment_core_ecosystem"
+          ]
+        },
+        {
+          "domain_id": "PAYMENT_BILLING_SETTLEMENT_AND_PAYOUTS",
+          "name": "Payment Billing Settlement And Payouts",
+          "package_names": [
+            "adult_content_platform_payment_processing_core_ecosystem",
+            "adult_creator_payouts_business_payments_core_ecosystem",
+            "adult_refunds_chargebacks_disputes_core_ecosystem",
+            "adult_subscription_membership_billing_core_ecosystem",
+            "creator_freelancer_payout_core_ecosystem",
+            "marketplace_split_payment_core_ecosystem",
+            "payment_links_checkout_core_ecosystem",
+            "payment_orchestration_routing_core_ecosystem",
+            "payment_service_tiers_normal_to_supreme_core_ecosystem",
+            "recurring_subscription_billing_core_ecosystem",
+            "refunds_reversals_disputes_chargebacks_core_ecosystem"
+          ]
+        },
+        {
+          "domain_id": "FINANCIAL_ADVISORY_AND_EDUCATION",
+          "name": "Financial Advisory And Education",
           "package_names": [
             "financial_advisory_planning_education_core_ecosystem"
           ]
         },
         {
-          "domain_id": "INTERNATIONAL_FINANCE",
-          "name": "International Finance",
+          "domain_id": "INTERNATIONAL_FINANCE_FX_AND_REMITTANCE",
+          "name": "International Finance Fx And Remittance",
           "package_names": [
             "international_finance_fx_remittance_trade_finance_core_ecosystem"
           ]
         },
         {
-          "domain_id": "DIGITAL_ASSETS",
-          "name": "Digital Assets",
+          "domain_id": "PUBLIC_DEVELOPMENT_AND_SOCIAL_FINANCE",
+          "name": "Public Development And Social Finance",
           "package_names": [
-            "digital_assets_blockchain_finance_core_ecosystem"
-          ]
-        },
-        {
-          "domain_id": "PUBLIC_AND_DEVELOPMENT_FINANCE",
-          "name": "Public And Development Finance",
-          "package_names": [
-            "government_public_development_finance_core_ecosystem"
+            "government_public_development_finance_core_ecosystem",
+            "pension_social_security_benefits_core_ecosystem"
           ]
         }
       ],
       "package_directory_count": 66,
       "domain_package_count": 14,
       "shared_contracts_path": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_core_ecosystem/contracts.py",
-      "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_core_ecosystem/manager.py",
-      "catalog_path": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_core_ecosystem/catalog.py",
-      "domain_catalog_path": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_core_ecosystem/domain_catalog.py",
-      "test_path": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_core_ecosystem/test_core_domains.py",
-      "php_facade_included": false
+      "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_gateway_core_ecosystem/manager.py",
+      "catalog_path": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_gateway_core_ecosystem/catalog.py",
+      "domain_catalog_path": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_gateway_core_ecosystem/domain_catalog.py",
+      "test_path": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_gateway_core_ecosystem/test_core_domains.py",
+      "php_facade_included": false,
+      "product_catalog_path": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_gateway_core_ecosystem/product_catalog.py",
+      "domain_runtime_path": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_gateway_core_ecosystem/domain_runtime.py",
+      "orchestrator_path": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_gateway_core_ecosystem/orchestrator.py",
+      "service_path": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_gateway_core_ecosystem/service.py",
+      "policy_path": "backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_gateway_core_ecosystem/policy.py",
+      "transaction_execution_enabled": false,
+      "provider_connections_verified": false
     }
   }
 }
