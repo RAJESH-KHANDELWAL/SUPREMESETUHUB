@@ -201,7 +201,7 @@ def get_security_core_catalog() -> dict[str, Any]:
                 "provider_id": item["provider_id"],
                 "name": item["name"],
                 "provider": item["provider_id"].lower(),
-                "core_module": f"{ROOT.relative_to(Path.cwd()).as_posix()}/{item['folder']}",
+                "core_module": f"backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/{item['folder']}",
                 "status": item["status"],
                 "enabled": item["enabled"],
                 "capabilities": list(item["capabilities"]),
@@ -323,7 +323,7 @@ class GlobalSecurityCoreManager:
             "edges": [
                 {
                     "provider_id": item["provider_id"],
-                    "core_module": f"{ROOT.relative_to(Path.cwd()).as_posix()}/{item['folder']}",
+                    "core_module": f"backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/{item['folder']}",
                     "relationship": "PROVIDER_SECURITY_METADATA",
                     "live_connection_verified": False,
                 }
