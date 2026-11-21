@@ -8,6 +8,8 @@ from .domain_catalog import list_domains
 from .orchestrator import CulturalCoreOrchestrator
 from .resource_catalog import get_foundational_knowledge, search_knowledge
 from .governance import validate_cultural_record, assess_evidence
+from backend.global_ecosystem.global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem import assess_publication as assess_domain_publication
+
 
 class GlobalCulturalCore:
     NAME = "GLOBAL VASUDHAIVA KUTUMBAKAM | SANATAN DHARMA | BHARAT SANSKRITI | WORLD CULTURE CORE ECOSYSTEM"
@@ -35,10 +37,11 @@ class GlobalCulturalCore:
     def search_foundation(self, query: str) -> list[dict[str, Any]]:
         return search_knowledge(query)
 
-    def publication_review(self, resource: Any) -> dict[str, Any]:
-        record = resource if isinstance(resource, dict) else getattr(resource, "__dict__", {})
-        errors = validate_cultural_record(record)
-        approved = not errors and str(record.get("publication_status", "DRAFT")).upper() == "APPROVED"
+    def publication_review(self, resource: Any) -> Any:
+        if not isinstance(resource, dict):
+            return assess_domain_publication(resource)
+        errors = validate_cultural_record(resource)
+        approved = not errors and str(resource.get("publication_status", "DRAFT")).upper() == "APPROVED"
         return {
             "approved": approved,
             "status": "APPROVED" if approved else "REVIEW_REQUIRED",
@@ -88,3 +91,11 @@ class GlobalCulturalCore:
         except Exception as exc:
             return {"success": False, "registered": False, "ecosystem": None, "error": type(exc).__name__}
 
+
+def get_manager():
+    """Backward-compatible manager factory retained at the service boundary."""
+    from .manager import CulturalCoreManager
+    return CulturalCoreManager()
+
+
+__all__ = ["GlobalCulturalCore", "get_manager", "validate_cultural_record", "assess_evidence"]
