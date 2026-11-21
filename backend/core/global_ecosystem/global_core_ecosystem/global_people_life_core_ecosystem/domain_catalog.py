@@ -16,7 +16,7 @@ from .policy import redact_sensitive_metadata
 
 _DATA = json.loads(Path(__file__).with_name("catalog.json").read_text(encoding="utf-8"))
 PEOPLE_LIFE_MODULES = tuple({**item, "division": "PEOPLE_LIFE", "status": "CORE_CATALOG_ONLY"} for item in _DATA["domains"])
-DOMAIN_RECORDS = [
+DOMAIN_RECORDS = json.loads(r'''[
     {
         "domain_id": "LIFE_STAGES_AND_HUMAN_DEVELOPMENT",
         "name": "Life Stages and Human Development",
@@ -443,7 +443,7 @@ DOMAIN_RECORDS = [
             "adult_subscriptions_memberships_18_plus"
         ]
     }
-]
+]''')
 DOMAIN_DEFINITIONS: dict[str, dict[str, Any]] = {
     item["domain_id"]: item for item in DOMAIN_RECORDS
 }
