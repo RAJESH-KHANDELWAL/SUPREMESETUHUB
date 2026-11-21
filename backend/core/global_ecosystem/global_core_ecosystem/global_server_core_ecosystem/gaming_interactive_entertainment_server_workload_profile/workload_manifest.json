@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "profile_id": "SERVER-WORKLOAD-GAMING_INTERACTIVE_ENTERTAINMENT",
   "domain_id": "GAMING_INTERACTIVE_ENTERTAINMENT",
   "label": "Gaming and Interactive Entertainment",
@@ -30,5 +30,33 @@
     "storage": "files, objects, backups and artifacts"
   },
   "operational_status": "NON_EXECUTING_PROFILE",
-  "note": "No provisioning, legal approval or production operation is performed by this profile."
+  "note": "No provisioning, legal approval or production operation is performed by this profile.",
+  "workload_areas": [
+    {
+      "area_id": "GAMING_INTERACTIVE_ENTERTAINMENT_WORKLOAD_01",
+      "name": "Dedicated multiplayer game servers",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "GAMING_INTERACTIVE_ENTERTAINMENT_WORKLOAD_02",
+      "name": "Matchmaking, sessions and leaderboards",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "GAMING_INTERACTIVE_ENTERTAINMENT_WORKLOAD_03",
+      "name": "Game telemetry and analytics",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "GAMING_INTERACTIVE_ENTERTAINMENT_WORKLOAD_04",
+      "name": "Anti-cheat and player safety systems",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "GAMING_INTERACTIVE_ENTERTAINMENT_WORKLOAD_05",
+      "name": "Virtual economy and entitlement services",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    }
+  ],
+  "workload_area_count": 5
 }
