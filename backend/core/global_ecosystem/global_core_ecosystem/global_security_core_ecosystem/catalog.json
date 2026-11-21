@@ -9,7 +9,7 @@
       "folder": "identity_access_security_core_ecosystem",
       "package_path": "identity_access_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "human_individual_ecosystem",
+      "master_catalog_section": "technology_digital_ecosystem",
       "master_catalog_refs": [
         "S02_human_identity",
         "S09_digital_identity",
@@ -292,7 +292,7 @@
       "folder": "cloud_infrastructure_security_core_ecosystem",
       "package_path": "cloud_infrastructure_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "technology_digital_ecosystem",
+      "master_catalog_section": "infrastructure_server_core_ecosystem",
       "master_catalog_refs": [
         "S09_cloud_computing",
         "S10_global_infrastructure",
@@ -432,7 +432,7 @@
       "folder": "data_privacy_security_core_ecosystem",
       "package_path": "data_privacy_security_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "adult_content_media_ecosystem",
+      "master_catalog_section": "governance_law_security",
       "master_catalog_refs": [
         "S07_privacy_and_data_protection",
         "S11_privacy_law",
@@ -1618,7 +1618,7 @@
       "folder": "sensitive_intimate_data_privacy_core_ecosystem",
       "package_path": "sensitive_intimate_data_privacy_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "adult_content_media_ecosystem",
+      "master_catalog_section": "governance_law_security",
       "master_catalog_refs": [
         "S07_privacy_and_data_protection",
         "S11_privacy_law",
@@ -1828,7 +1828,7 @@
       "folder": "ai_synthetic_media_abuse_core_ecosystem",
       "package_path": "ai_synthetic_media_abuse_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "adult_content_media_ecosystem",
+      "master_catalog_section": "technology_digital_ecosystem",
       "master_catalog_refs": [
         "S09_artificial_intelligence",
         "S07_deepfake_abuse_prevention",
@@ -2039,7 +2039,7 @@
       "folder": "identity_impersonation_protection_core_ecosystem",
       "package_path": "identity_impersonation_protection_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "human_individual_ecosystem",
+      "master_catalog_section": "technology_digital_ecosystem",
       "master_catalog_refs": [
         "S02_human_identity",
         "S09_digital_identity",
@@ -2180,7 +2180,7 @@
       "folder": "platform_trust_safety_core_ecosystem",
       "package_path": "platform_trust_safety_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "adult_content_media_ecosystem",
+      "master_catalog_section": "governance_law_security",
       "master_catalog_refs": [
         "S07_adult_content_moderation",
         "S07_legal_compliance",
@@ -2250,7 +2250,7 @@
       "folder": "research_evidence_assurance_core_ecosystem",
       "package_path": "research_evidence_assurance_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
-      "master_catalog_section": "governance_law_security",
+      "master_catalog_section": "knowledge_research_innovation",
       "master_catalog_refs": [
         "S12_scientific_research",
         "S12_technical_knowledge",
