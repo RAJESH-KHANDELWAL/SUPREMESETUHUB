@@ -1,8 +1,9 @@
 """Canonical provider and product inventory for Global Storage Core."""
 from __future__ import annotations
 from copy import deepcopy
+import json
 from typing import Any
-GLOBAL_STORAGE_CORE_ECOSYSTEM: dict[str, Any] = {
+_CATALOG_JSON = r'''{
   "schema_version": "1.0.0",
   "ecosystem_id": "GLOBAL-STORAGE-CORE-ECOSYSTEM",
   "name": "GLOBAL STORAGE CORE ECOSYSTEM",
@@ -697,7 +698,9 @@ GLOBAL_STORAGE_CORE_ECOSYSTEM: dict[str, Any] = {
     "domain_count": 17,
     "live_connections_verified": 0
   }
-}
+}'''
+GLOBAL_STORAGE_CORE_ECOSYSTEM: dict[str, Any] = json.loads(_CATALOG_JSON)
+
 def get_storage_core_catalog() -> dict[str, Any]: return deepcopy(GLOBAL_STORAGE_CORE_ECOSYSTEM)
 def list_storage_providers(*, enabled_only: bool=False) -> list[dict[str, Any]]:
     items=get_storage_core_catalog()["providers"]
