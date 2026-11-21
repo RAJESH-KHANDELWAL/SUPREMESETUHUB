@@ -28,6 +28,7 @@ def test_security_taxonomy_provider_inventory_and_master_catalog_refs():
         for section in master["sections"]
         for entry in section["entries"]
     }
+    known_sections = {section["section_id"] for section in master["sections"]}
     assert master["counts"]["unique_catalogue_entries"] == 246
     assert master["expansion"]["target_unique_entries"] == 2468
     for domain in domains:
@@ -35,6 +36,7 @@ def test_security_taxonomy_provider_inventory_and_master_catalog_refs():
         assert refs and len(refs) == len(set(refs))
         assert set(refs) <= known_refs
         assert domain["scope"].strip()
+        assert domain["master_catalog_section"] in known_sections
 
     safety = get_protected_group_safety()
     assert set(safety["groups"]) == {"MEN", "WOMEN", "GIRLS", "BOYS"}
