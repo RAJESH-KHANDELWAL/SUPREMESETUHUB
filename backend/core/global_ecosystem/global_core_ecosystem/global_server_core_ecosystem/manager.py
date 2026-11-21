@@ -97,7 +97,17 @@ class GlobalServerCoreManager:
 
     def list_domains(self) -> list[dict[str, Any]]:
         registry = load_domain_registry()
-        return [_manifest_for(domain) for domain in registry["domains"]]
+        manifests = [_manifest_for(domain) for domain in registry["domains"]]
+        for manifest in manifests:
+            areas = manifest.get("control_areas", [])
+            area_ids = [item.get("area_id") for item in areas]
+            if len(areas) != 6 or len(area_ids) != len(set(area_ids)):
+                raise ValueError(f"SERVER_DOMAIN_CONTROL_AREAS_INVALID: {manifest['domain_id']}")
+        return manifests
+
+    def list_domain_inventory(self) -> list[dict[str, Any]]:
+        """Return validated domain manifests, matching the Google Core manager API."""
+        return self.list_domains()
 
     def get_domain(self, domain_id: str) -> dict[str, Any] | None:
         key = str(domain_id).strip().upper()
@@ -109,8 +119,39 @@ class GlobalServerCoreManager:
     def list_providers(self) -> list[dict[str, Any]]:
         return get_provider_catalog()
 
+    def get_provider(self, provider_id: str) -> dict[str, Any] | None:
+        from .provider_catalog import get_provider
+        return get_provider(provider_id)
+
     def list_workloads(self) -> list[dict[str, Any]]:
         return get_workload_domain_catalog().get("domains", [])
+
+    def get_workload(self, domain_id: str) -> dict[str, Any] | None:
+        key = str(domain_id).strip().upper()
+        return next((item for item in self.list_workloads()
+                     if item.get("domain_id") == key), None)
+
+    def dependency_map(self) -> dict[str, Any]:
+        return {
+            "success": True,
+            "provider_dependencies": [
+                {
+                    "provider_id": item["provider_id"],
+                    "relationship": "PROVIDER_METADATA_NAMESPACE",
+                    "remote_connection_verified": False,
+                }
+                for item in self.list_providers()
+            ],
+            "domain_dependencies": [
+                {
+                    "domain_id": item["domain_id"],
+                    "relationship": "SERVER_CORE_CONTROL_DOMAIN",
+                    "control_area_count": len(item.get("control_areas", [])),
+                }
+                for item in self.list_domains()
+            ],
+            "remote_operations_enabled": False,
+        }
 
     def validate_providers(self) -> dict[str, Any]:
         providers = get_provider_catalog()
@@ -158,6 +199,26 @@ class GlobalServerCoreManager:
             "workload_area_count": sum(len(x.get("workload_areas", [])) for x in domains),
         }
 
+    def validate_scope_catalogs(self) -> dict[str, Any]:
+        tiers = get_service_tier_catalog()
+        expected = ["NORMAL", "BASIC", "STANDARD", "PREMIUM",
+                    "PROFESSIONAL", "ENTERPRISE", "SUPREME"]
+        actual = [item.get("tier_id") for item in tiers.get("tiers", [])]
+        if actual != expected or tiers.get("tier_order") != expected:
+            raise ValueError("SERVER_SERVICE_TIER_ORDER_INVALID")
+        workload = self.validate_workload_profiles()
+        geography = get_geographic_scope_catalog()
+        if (geography.get("coverage_model") != "INDIA_FIRST_GLOBAL_EXTENSIBLE"
+                or geography.get("india", {}).get("country_code") != "IN"):
+            raise ValueError("SERVER_GEOGRAPHIC_SCOPE_INVALID")
+        return {
+            "success": True,
+            "service_tier_count": len(actual),
+            "workload_profile_count": workload["workload_profile_count"],
+            "workload_area_count": workload["workload_area_count"],
+            "geography_model": geography["coverage_model"],
+        }
+
     def geography(self) -> dict[str, Any]:
         return get_geographic_scope_catalog()
 
@@ -172,6 +233,7 @@ class GlobalServerCoreManager:
         provider_validation = self.validate_providers()
         providers = get_provider_catalog()
         workload_validation = self.validate_workload_profiles()
+        scope_validation = self.validate_scope_catalogs()
         workloads = get_workload_domain_catalog().get("domains", [])
         tiers = get_service_tier_catalog().get("tiers", [])
         domains = self.list_domains()
@@ -189,6 +251,7 @@ class GlobalServerCoreManager:
             "workload_profile_count": len(workloads),
             "workload_area_count": workload_validation["workload_area_count"],
             "workload_profile_validation": workload_validation,
+            "scope_validation": scope_validation,
             "service_tier_count": len(tiers),
             "master_catalog_alignment": alignment,
             "live_provider_connections_verified": False,
@@ -196,6 +259,8 @@ class GlobalServerCoreManager:
             "api_calls_performed": 0,
             "registry_persistence": "PROCESS_LOCAL_ONLY",
             "production_readiness_claimed": False,
+            "health": "HEALTHY",
+            "dependency_map_available": True,
         }
 
 
