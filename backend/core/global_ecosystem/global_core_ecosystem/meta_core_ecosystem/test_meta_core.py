@@ -14,11 +14,17 @@ class MetaCoreTests(unittest.TestCase):
         manager=get_manager()
         self.assertEqual(manager.ECOSYSTEM_ID,"META-CORE-ECOSYSTEM")
         self.assertEqual(manager.status()["status"],"CORE_CATALOG_ONLY")
+        self.assertTrue(manager.status()["registry_status"])
     def test_exact_api_catalog_family_parity(self):
         api_ids={x["id"] for x in META_API_ECOSYSTEM["children"]}
         core_ids={x["family_id"] for x in list_meta_products()}
         self.assertEqual(core_ids,api_ids)
         self.assertEqual(len(core_ids),11)
+    def test_api_and_engine_paths_are_real_layer_references(self):
+        products=list_meta_products()
+        self.assertTrue(all(x["api_path"].startswith("backend/api/") for x in products))
+        self.assertTrue(all(x["engine_path"].startswith("backend/engine/") for x in products))
+        self.assertTrue(all(x["api_module"] and x["engine_module"] for x in products))
     def test_meta_ai_is_discovery_only(self):
         item=get_manager().get_product("meta_ai")
         self.assertEqual(item["status"],"DISCOVERY_ONLY")
@@ -34,13 +40,13 @@ class MetaCoreTests(unittest.TestCase):
         self.assertEqual(mapped,product_ids)
     def test_product_and_domain_packages_import(self):
         import importlib
-        product_slugs=["graph_core","facebook_pages","instagram","whatsapp_business","messenger","threads","marketing_ads","login_identity","business_management","webhooks","meta_ai"]
-        domain_slugs=["provider_governance","graph_platform_and_object_model","facebook_pages_and_publishing","instagram_creator_and_professional","whatsapp_business_messaging","messenger_conversations","threads_social_network","marketing_advertising_campaigns","business_portfolio_assets","login_oauth_identity","webhook_event_delivery","meta_ai_discovery","social_content_publishing","audience_insights_analytics","media_asset_management","privacy_data_protection","app_review_permission_compliance","tenant_account_asset_governance"]
-        for slug in product_slugs:
+        product_packages=["graph","facebook_pages","instagram","whatsapp_business","messenger","threads","marketing_ads","login_identity","business_management","webhooks","ai"]
+        domain_packages=["provider_governance","graph_platform_and_object_model","facebook_pages_and_publishing","instagram_creator_and_professional","whatsapp_business_messaging","messenger_conversations","threads_social_network","marketing_advertising_campaigns","business_portfolio_assets","login_oauth_identity","webhook_event_delivery","meta_ai_discovery","social_content_publishing","audience_insights_analytics","media_asset_management","privacy_data_protection","app_review_permission_compliance","tenant_account_asset_governance"]
+        for slug in product_packages:
             module=importlib.import_module(f"{__package__}.meta_{slug}_core_ecosystem")
             cls=getattr(module,module.__all__[0])
-            self.assertEqual(cls.PRODUCT_ID,"meta_"+slug)
-        for slug in domain_slugs:
+            self.assertEqual(cls.PRODUCT_ID,"meta_"+("graph_core" if slug=="graph" else "meta_ai" if slug=="ai" else slug))
+        for slug in domain_packages:
             module=importlib.import_module(f"{__package__}.meta_{slug}_domain_core_ecosystem")
             cls=getattr(module,module.__all__[0])
             self.assertTrue(callable(cls))
