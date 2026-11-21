@@ -86,8 +86,11 @@ def _load_domains() -> tuple[dict[str, Any], ...]:
         if any(ref not in _MASTER_ENTRIES for ref in refs):
             raise ValueError(f"SECURITY_DOMAIN_MASTER_CATALOG_REFERENCE_UNKNOWN: {domain_id}")
         referenced_sections = {_MASTER_ENTRIES[ref] for ref in refs}
+        declared_sections = item.get("master_catalog_sections", [])
+        if not declared_sections or set(declared_sections) != referenced_sections:
+            raise ValueError(f"SECURITY_DOMAIN_MASTER_CATALOG_SECTIONS_MISMATCH: {domain_id}")
         if item.get("master_catalog_section") not in referenced_sections:
-            raise ValueError(f"SECURITY_DOMAIN_MASTER_CATALOG_SECTION_MISMATCH: {domain_id}")
+            raise ValueError(f"SECURITY_DOMAIN_MASTER_CATALOG_PRIMARY_SECTION_MISMATCH: {domain_id}")
         loaded.append({**item, "status": STATUS})
         seen_ids.add(domain_id)
         seen_folders.add(folder)
