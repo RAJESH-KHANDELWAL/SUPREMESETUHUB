@@ -1,0 +1,79 @@
+name: KAMASUTRA CORE DOMAIN TESTS
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/**"
+      - "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+      - ".github/workflows/kamasutra-core-domain-tests.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/**"
+      - "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+      - ".github/workflows/kamasutra-core-domain-tests.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kamasutra-core-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  core-domain-tests:
+    name: Kamasutra Core completeness and safety
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install backend and test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r backend/requirements.txt "pytest>=8.0,<9.0"
+
+      - name: Compile Core package
+        run: |
+          python -m compileall -q backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem
+
+      - name: Verify all product folders, domain packages and master catalog mapping
+        env:
+          PYTHONPATH: .
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from backend.core.global_ecosystem.global_core_ecosystem.global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem import get_manager
+          root = Path("backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem")
+          manager = get_manager()
+          assert manager.status()["registered_package_count"] == 62
+          assert manager.status()["domain_count"] == 12
+          assert manager.health()["connected"] is False
+          master = json.loads(Path("backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json").read_text())
+          expansion = master["expansion"]
+          counts = master["counts"]
+          assert expansion["target_unique_entries"] == 2468
+          assert expansion["current_unique_entries"] == counts["unique_catalogue_entries"]
+          assert expansion["remaining_unique_entries"] == 2468 - expansion["current_unique_entries"]
+          key = "global_kamasutra_relationship_intimacy_sexual_health_adult_wellness_core_ecosystem"
+          record = master["implementation_registry"][key]
+          assert record["registered_package_count"] == 62
+          assert record["domain_count"] == 12
+          package_ids = [package_id for domain in record["domains"] for package_id in domain["package_ids"]]
+          assert len(package_ids) == 62 and len(set(package_ids)) == 62
+          assert all((root / name).is_dir() for name in record["packages"] for name in [name["package_name"]])
+          PY
+
+      - name: Run Core behavior and completeness tests
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m pytest backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/test_core_domains.py -q
