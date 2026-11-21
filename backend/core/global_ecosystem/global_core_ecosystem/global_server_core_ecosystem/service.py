@@ -40,14 +40,13 @@ class ServerCoreService:
         return result
     def dependency_map(self): return self.orchestrator.dependency_map()
 
+    def core_domains(self): return self.orchestrator.domains()
+    def get_core_domain(self, domain_id: str): return self.orchestrator.domain(domain_id)
+    def master_catalog_alignment(self): return self.orchestrator.master_catalog_alignment()
     def manager_status(self):
-        try:
-            from backend.core.global_ecosystem.global_core_ecosystem.manager import GlobalEcosystemManager
-            record = GlobalEcosystemManager().get(ECOSYSTEM_ID)
-        except Exception as exc:
-            return {"success": False, "registered": False, "ecosystem": None, "error": type(exc).__name__}
-        return {"success": record is not None, "registered": record is not None, "ecosystem": record,
-                "live_service_connections_verified": False}
+        from .manager import get_manager
+        return get_manager().status()
+
 
     def validate_identity(self, payload: dict[str, Any]) -> dict[str, Any]:
         try:
