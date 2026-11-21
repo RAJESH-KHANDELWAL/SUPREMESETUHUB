@@ -32,4 +32,6 @@ def test_global_core_hierarchy_registers_video_core():
 
 def test_master_catalog_is_read_only_reference():
     result = master_catalog_status()
+    assert result["available"] is True
     assert result["access_mode"] == "READ_ONLY"
+    assert result["target_unique_entries"] == 2468
