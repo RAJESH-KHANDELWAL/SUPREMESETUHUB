@@ -3,6 +3,7 @@ from typing import Any
 from .constants import ECOSYSTEM_ID, ECOSYSTEM_NAME
 from .catalog import get_catalog
 from .domain_catalog import get_domain
+from .domain_runtime import HuggingFaceCoreDomainManager
 from .module_service import HuggingFaceProductCoreService
 from .orchestrator import HuggingFaceCoreOrchestrator
 from .service import HuggingFaceCoreEcosystemService
@@ -22,6 +23,8 @@ class HuggingFaceCoreManager:
     def get_domain(self, domain_id: str) -> dict[str, Any] | None: return get_domain(domain_id)
     def get_product_manager(self, product_id: str) -> HuggingFaceProductCoreService:
         return HuggingFaceProductCoreService(product_id)
+    def get_domain_manager(self, domain_id: str) -> HuggingFaceCoreDomainManager:
+        return HuggingFaceCoreDomainManager(domain_id)
     def dependency_map(self) -> dict[str, Any]: return self._orchestrator.dependency_map()
 
 def get_manager() -> HuggingFaceCoreManager:
