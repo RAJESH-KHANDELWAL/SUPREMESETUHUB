@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.4.0",
+  "schema_version": "1.5.0",
   "ecosystem_id": "GLOBAL-SECURITY-CORE-ECOSYSTEM",
   "parent_id": "GLOBAL-CORE-ECOSYSTEM",
   "layer": "CORE",
@@ -24,7 +24,9 @@
     "master_catalog_reference_mapping": "catalog.json",
     "central_manager": "manager.py",
     "orchestrator": "orchestrator.py",
-    "service_facade": "service.py"
+    "service_facade": "service.py",
+    "shared_domain_runtime": "domain_runtime.py",
+    "domain_manager_factory": "manager.py:get_domain_manager"
   },
   "domain_count": 33,
   "domain_coverage_exhaustive": false,
@@ -116,26 +118,23 @@
   ],
   "protected_group_safety_metadata": true,
   "master_catalog_alignment": {
+    "source": "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json",
     "current_unique_entries": 246,
     "target_unique_entries": 2468,
     "remaining_unique_entries": 2222,
-    "source": "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json",
-    "alignment_scope": [
-      "adult_content_media_ecosystem",
-      "technology_digital_ecosystem",
-      "infrastructure_server_core_ecosystem",
-      "governance_law_security",
-      "knowledge_research_innovation"
-    ],
-    "reference_mapping_only": true
+    "mapped_reference_count": 106,
+    "mapped_unique_entry_count": 52,
+    "validation": "EXACT_ENTRY_ID_AND_SECTION_VALIDATION_AT_RUNTIME",
+    "counts_as_new_master_entries": false
   },
   "tier_count": 13,
-  "control_area_count": 198,
+  "control_area_count": 330,
   "taxonomy": {
-    "coverage_model": "DOMAIN_WITH_CONTROL_AREAS",
     "domain_count": 33,
-    "control_area_count": 198,
+    "control_area_count": 330,
+    "coverage_area_count": 330,
+    "coverage_areas_per_domain": 10,
     "coverage_status": "DEFINED_CORE_TAXONOMY_NON_EXHAUSTIVE",
-    "individual_control_area_folders": false
+    "domain_coverage_exhaustive": false
   }
 }
