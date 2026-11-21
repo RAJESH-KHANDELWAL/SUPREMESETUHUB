@@ -15,7 +15,7 @@ The current catalog registers seven provider metadata namespaces: Abelohost, Ama
 The geographic scope catalog defines India as a first-class deployment jurisdiction and supports a global region/country model. Country, state, region, data-residency and jurisdiction records must be verified against authoritative provider and legal sources before operational use. The catalog does not claim an exhaustive list of countries or provider regions.
 
 ## Workload domain folders and files
-Twenty workload profile folders are present directly under this canonical root. Each folder contains:
+Twenty workload profile folders are present directly under this canonical root. The workload taxonomy defines five named workload areas per profile (100 total). Each folder contains:
 - `workload_manifest.json`: domain identity, risk profile, service-tier references, geographic scope reference, required control areas and layer boundaries.
 - `__init__.py`: read-only Python loader functions for the profile manifest and required control areas.
 
@@ -104,7 +104,7 @@ The canonical master source is `backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json`. 
 The master catalog currently reports 246 unique entries against a target of 2,468, with 2,222 remaining. Server references are mapped to existing infrastructure, technology, geography, governance, business and capability-tier topics; this package does not claim that the master catalog itself is complete.
 
 ## Domain control areas
-Each of the 16 CORE domains defines six named control areas (96 total). These are provider-neutral metadata and contract scopes, not implemented cloud controls or remote operations. Each of the 20 industry workload profiles remains a separate workload classification and is not duplicated as a CORE domain.
+Each of the 16 CORE domains defines six named control areas (96 total). These are provider-neutral metadata and contract scopes, not implemented cloud controls or remote operations. Each of the 20 industry workload profiles remains a separate workload classification and is not duplicated as a CORE domain. Each profile has five workload areas (100 total), mirrored exactly in its `workload_manifest.json`.
 
 ## Validation and status
 Use `GlobalServerCoreManager.status()` or `manager_status()` for offline structural readiness and exact master-reference validation. A successful catalog check does not establish provider connectivity, credentials, account entitlement, region availability, provisioning capability, SLA, certification or production readiness.
