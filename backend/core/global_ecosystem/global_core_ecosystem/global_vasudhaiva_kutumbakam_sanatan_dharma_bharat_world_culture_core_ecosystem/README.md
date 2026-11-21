@@ -73,3 +73,7 @@ The master catalog remains the system-wide source of taxonomy and implementation
 ## Verification status
 
 This package currently declares 4 pillars and 13 registered domain families. Resource totals and live external connections are not verified. A production-complete or exhaustive-coverage claim requires repository-wide tests, source inventory validation and runtime verification; catalog registration alone is insufficient.
+
+## Integrated SERVICE / WORK / BUSINESS child CORE
+
+The child package is located at `backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_core_ecosystem/` and is registered in the Cultural CORE catalog. It classifies cultural capabilities and validates records; provider listings, employment, transactions and execution remain outside CORE.
