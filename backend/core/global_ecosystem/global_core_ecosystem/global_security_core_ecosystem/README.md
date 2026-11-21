@@ -1,66 +1,73 @@
 # GLOBAL SECURITY CORE ECOSYSTEM
 
-A provider-neutral, read-only CORE control plane for security-domain taxonomy, provider capability metadata, jurisdictional governance boundaries and readiness discovery.
+Provider-neutral, read-only security CORE for canonical security-domain taxonomy, provider capability metadata, jurisdiction profiles, safety policy metadata, master-catalog alignment and discovery/readiness.
 
 ## Canonical architecture
 
-- `ecosystem_manifest.json`: canonical identity, counts, boundaries, jurisdictional coverage and declared support areas
-- `manager.py`: canonical security-domain loader, integrity validation, shared manager instance and protected-group safety metadata for MEN, WOMEN, GIRLS and BOYS
-- `catalog.json`: 33 non-exhaustive security-domain records, each mapped to a direct-child CORE ecosystem package
-- `<domain>_core_ecosystem/`: each domain is a direct child of this ecosystem root, with `__init__.py`, `domain_manifest.json` and a domain-specific README; there is no intermediate `domains/` folder
-- `provider_catalog.json` + `provider_catalog.py`: 6 non-exhaustive provider metadata records
-- `catalog.py`: compatibility facade for aggregate domain, provider and jurisdiction discovery
-- `domain_catalog.py`: backward-compatible imports delegated to `manager.py`
-- `jurisdiction_catalog.py`: validated India and cross-border jurisdiction profile registry
-- `contracts.py`: tenant-context, external secret-reference and result contracts
-- `policy.py`: metadata redaction and capability classification; not an authorization engine
-- `content_safety_policy.py`: protective adult-platform, age-assurance, consent and prohibited-content metadata guardrails only
-- `module_service.py`: provider-neutral, policy-aware metadata service
-- `orchestrator.py`: provider/domain discovery, health and dependency summaries
-- `service.py`: read-only public control-plane facade
-- `jurisdictions/india/` and `jurisdictions/global/`: jurisdictional control mappings and profiles; legal registers require authoritative, dated source review
-- `shared_support/`: the 11 declared shared-support areas
-- `integrations/`, `services/`, `tools/`: separately owned capability namespaces
-- `<provider>_security_core_ecosystem/`: provider-specific manifests and metadata-only packages
+- `ecosystem_manifest.json`: canonical identity, source mapping, counts, scope and layer boundaries.
+- `manager.py`: canonical validated registry and stable manager facade; defensive-copy accessors, status, health, domain/provider/jurisdiction inventory, offerings, tiers, dependency map and protected-group safety metadata.
+- `catalog.json`: 33 unique security domains, each registered to a direct-child `*_core_ecosystem` package. It now includes scope and explicit references to the master catalog's section/entry IDs.
+- `<domain>_core_ecosystem/`: direct-child domain packages, with domain manifest, README and package marker; no extra intermediate domains directory.
+- `provider_catalog.json` + `provider_catalog.py`: 6 provider metadata entries; no live connections are implied.
+- `catalog.py`: compatibility facade for aggregate discovery.
+- `domain_catalog.py`: backward-compatible import path delegating to `manager.py`.
+- `jurisdiction_catalog.py`: India and global profile registry; legal mappings are not certified.
+- `contracts.py`, `policy.py`: request/result and metadata-policy contracts; not an authorization engine.
+- `content_safety_policy.py`: protective policy metadata only.
+- `module_service.py`: provider-neutral policy-aware metadata service.
+- `orchestrator.py`: Google-Core-style discovery, inventory, health, offerings and dependency summaries.
+- `service.py`: read-only public facade.
+- `jurisdictions/india/` and `jurisdictions/global/`: jurisdiction profiles; legal review must be dated and source-backed.
+- `shared_support/`, `integrations/`, `services/`, `tools/`: owned shared/capability namespaces.
 
-## Domain coverage
+## Master catalog alignment (2468 reference)
 
-The 33 domain records cover identity, zero trust, endpoints, networks, cloud, applications, data privacy, cryptography, threat intelligence, incident response, vulnerabilities, GRC, resilience, supply chain, collaboration, awareness, fraud, physical/IoT/OT, age assurance, child safety, lawful adult-platform safeguards, consent and intimate-image protection, exploitation and trafficking prevention, sensitive intimate-data privacy, sexual-health information integrity, content moderation, synthetic-media abuse, jurisdictional compliance, digital wellbeing, identity impersonation, payment security, platform trust and safety, and research/evidence assurance.
+Canonical source: `backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json`.
 
-Coverage is intentionally non-exhaustive. New domains must receive a unique ID, a direct-child folder ending in `_core_ecosystem`, a manifest and a documented owner before registration.
+That source currently records **246 unique entries** against a planned target of **2468** (2222 remaining). This security CORE does not copy the entire master list or create folders for each planning entry. Instead, each of its 33 security-domain records carries explicit `master_catalog_refs` linking relevant entries in sections 7, 9, 10, 11 and 12. These are reference mappings, not implementation claims.
 
-## Adult, sexual-content and Kamasutra-related boundary
+The catalog source states that expansion must be meaningful, individually defined and non-duplicate; entries must not be manufactured simply to reach the 2468 target.
 
-This is a **security and protection ecosystem**, not an adult-content library. It covers age assurance, lawful age-restricted access, consent, privacy, exploitation prevention, non-consensual intimate-image reporting/takedown, child safety and platform trust. Kamasutra or sexual-health educational material may be governed by a separate lawful education/knowledge ecosystem; this CORE only defines protective controls around access, privacy and safety. It does not store, generate or distribute pornography or explicit sexual media. Child sexual-abuse material and non-consensual intimate imagery are prohibited and must never be stored or reproduced.
+## Security-domain scope
 
-## Jurisdictional coverage
+The 33 catalog domains collectively cover identity/access; zero trust; endpoint/device; network; cloud/infrastructure; application/product; data privacy; cryptography/key management; threat intelligence; detection/response; vulnerability/exposure; governance/risk/compliance; backup/recovery/resilience; supply chain; email/collaboration; security awareness; fraud/abuse; physical/IoT/OT; age assurance; child safety; adult-platform safety; consent/intimate-image protection; exploitation/trafficking prevention; sensitive intimate-data privacy; sexual-health information integrity; moderation/classification; synthetic-media abuse; jurisdictional compliance; digital wellbeing; impersonation; payments; trust and safety; and evidence/research assurance.
 
-- India profile: map applicable Indian laws, regulators, reporting channels and data-protection obligations with source, effective date and review status.
-- Global profile: map international standards and country/region-specific requirements without assuming one law applies worldwide.
-- Country coverage is non-exhaustive. Legal mappings require qualified review and dated authoritative sources; this catalog is not legal advice.
+Coverage is explicitly **non-exhaustive**. New domains require a distinct scope, ID, direct-child package, manifest, owner and tests. Do not duplicate concepts just to increase counts.
+
+## Master capability tiers
+
+The 13 levels from the source master catalog are registered for discovery:
+
+Basic → Normal → Standard → Professional → Advanced → Expert → Specialized → Enterprise → National → International → Global → Universal → Supreme.
+
+These are planning/readiness tiers, not a promise that any control is deployed, active, compliant or effective.
+
+## Adult, sexual-content and Kamasutra-related safety boundary
+
+This package is a **security and protection control-plane catalog**, not an adult-media library. Adult platform metadata is limited to lawful adult-only access safeguards, age assurance, consent, moderation, privacy, reporting and compliance boundaries. Child sexual-abuse material, exploitation content and non-consensual intimate imagery are prohibited and must never be stored or reproduced. Kamasutra/sexual-health education content belongs in separately governed knowledge/education ecosystems; this CORE only represents safety and privacy controls.
+
+## Jurisdiction coverage
+
+- India profile: mapping of applicable law, regulator, reporting and data-protection obligations, with authoritative source and effective/review dates required.
+- Global profile: cross-border and international references; country-specific obligations must not be assumed universal.
+- Jurisdiction catalog coverage is non-exhaustive. Legal verification and professional review remain external.
 
 ## Provider inventory
 
-Apple, AWS, Cloudflare, Google, IBM and Microsoft are represented as metadata-only provider packages. Registration does not imply an account, subscription, credential, API entitlement or live connection.
+Apple, AWS, Cloudflare, Google, IBM and Microsoft are metadata-only provider records. Registry presence does not imply accounts, credentials, API entitlements, live connections or security coverage.
 
-## Security boundaries
+## Boundaries
 
-CORE metadata checks do not authenticate a person, prove authorization, enforce network controls, scan a workload, detect an incident or certify compliance. Tenant-context validation checks required fields only. Production authentication and authorization belong in independently tested identity/API layers; enforcement belongs in independently tested runtime and infrastructure layers. Store secret values only in an external secret manager; CORE must contain references at most, never secret values.
+CORE checks catalog metadata only. It does not authenticate users, authorize access, scan workloads, monitor traffic, detect incidents, execute remediation, enforce controls or certify legal compliance. Tenant context and capability checks are metadata guardrails only. Provider calls and enforcement belong in separately implemented and independently tested API, application, runtime, storage and infrastructure layers. Secret values remain outside this repository; references only.
 
-## Technology boundaries
-
-This CORE package is Python-based. PHP belongs in separately deployed PHP application/API or WordPress integration packages when required; do not add PHP files to this Python metadata layer merely for symmetry. API, storage, database, runtime and application implementations must remain separately owned and tested.
-
-## Coverage and service tiers
-
-Normal → Basic → Standard → Premium → Professional → Enterprise → Supreme describes governance/service tiers, not guaranteed protection or provider features.
+This ecosystem is Python-based. Do not add PHP files for symmetry; PHP belongs in separately owned API/application or WordPress integration layers if needed.
 
 ## Validation
 
-Run the focused integrity and contract suite from the repository root:
+From repository root:
 
 ```bash
 PYTHONPATH=. python -m pytest -q backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/tests
 ```
 
-Passing these tests validates repository metadata contracts only; it does not certify live security controls or legal compliance.
+Tests validate registry metadata and contracts only. They do not certify live security controls, legal compliance or production protection.
