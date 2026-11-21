@@ -23,6 +23,10 @@ Video Core is the read-only control plane for video provider identity, domain ta
 - `module_service.py`: shared read-only provider metadata service.
 - `test_video_core.py`: structural and behavior tests.
 
+## Existing shared directories
+
+The existing `integrations/`, `services/` and `tools/` directories are retained as shared extension points. They are not provider records and are not counted as provider directories. Their implementation ownership must remain explicit; API transport, storage, execution and UI do not move into Core.
+
 ## Layer boundaries
 
 Core owns identity, taxonomy, metadata, policy and readiness only. API adapters, OAuth, provider SDKs, media upload/download, storage, database writes, transcoding, streaming, CDN delivery, moderation execution, payments, queues and UI belong to their dedicated layers.
