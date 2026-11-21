@@ -69,7 +69,7 @@ jobs:
           assert record["domain_count"] == 12
           package_ids = [package_id for domain in record["domains"] for package_id in domain["package_ids"]]
           assert len(package_ids) == 62 and len(set(package_ids)) == 62
-          assert all((root / name).is_dir() for name in record["packages"] for name in [name["package_name"]])
+          assert all((root / item["package_name"]).is_dir() for item in record["packages"])
           PY
 
       - name: Run Core behavior and completeness tests
