@@ -1,23 +1,78 @@
 {
-  "schema_version":"1.0.0",
-  "ecosystem_id":"GLOBAL-PROGRAMMING-LANGUAGE-CORE-ECOSYSTEM",
-  "parent_id":"GLOBAL-CORE-ECOSYSTEM",
-  "layer":"CORE",
-  "category":"PROGRAMMING_LANGUAGE",
-  "division":{"id":"PROGRAMMING","folder":"global_programming_language_core_ecosystem"},
-  "status":"CORE_CATALOG_ONLY",
-  "canonical_path":"backend/core/global_ecosystem/global_core_ecosystem/global_programming_language_core_ecosystem",
-  "registry":{"module":"catalog.py","domains":"catalog.json","domain_catalog_module":"domain_catalog.py","language_catalog_module":"language_catalog.py","shared_domain_service":"module_service.py"},
-  "domain_count":26,
-  "language_record_count":15,
-  "language_coverage_exhaustive":false,
-  "runtime_execution_verified":false,
-  "compiler_execution_verified":false,
-  "api_calls_performed":0,
-  "credential_storage":"EXTERNAL_SECRET_STORE_ONLY",
-  "service_tiers":["NORMAL","BASIC","STANDARD","PREMIUM","PROFESSIONAL","ENTERPRISE","SUPREME"],
-  "language_type_boundaries":{"general_purpose":"General-purpose executable programming languages","systems":"Low-level, systems and embedded language families","markup":"Document structure languages such as HTML and XML","stylesheet":"Presentation and styling languages such as CSS","database_query":"Query and database programming languages such as SQL","data_serialization":"Structured data representation formats such as JSON and YAML"},
-  "layer_boundaries":{"core":"identity, taxonomy, language metadata, capability policy, lifecycle and readiness","api":"external registries, package indexes and provider transport","storage":"durable artifacts and source packages","database":"persistence, schemas and migrations","runtime":"compiler execution, sandboxing, jobs and resource isolation","application":"developer workflows, IDE sessions and user experience"},
-  "security":{"untrusted_code_execution_in_core":false,"sandbox_required_for_execution":true,"dependency_and_supply_chain_review_required":true,"license_review_required":true},
-  "shared_support_areas":["compatibility","configuration","contracts","documentation","events","exceptions","orchestration","security","testing","utilities","validation"]
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL-PROGRAMMING-LANGUAGE-CORE-ECOSYSTEM",
+  "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+  "layer": "CORE",
+  "category": "PROGRAMMING_LANGUAGE",
+  "division": {
+    "id": "PROGRAMMING",
+    "folder": "global_programming_language_core_ecosystem"
+  },
+  "status": "CORE_CATALOG_ONLY",
+  "canonical_path": "backend/core/global_ecosystem/global_core_ecosystem/global_programming_language_core_ecosystem",
+  "registry": {
+    "module": "catalog.py",
+    "domains": "catalog.json",
+    "domain_catalog_module": "domain_catalog.py",
+    "language_catalog_module": "language_catalog.py",
+    "shared_domain_service": "module_service.py",
+    "manager_entry_point": "manager.py"
+  },
+  "domain_count": 26,
+  "language_record_count": 174,
+  "language_coverage_exhaustive": false,
+  "runtime_execution_verified": false,
+  "compiler_execution_verified": false,
+  "api_calls_performed": 0,
+  "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+  "service_tiers": [
+    "NORMAL",
+    "BASIC",
+    "STANDARD",
+    "PREMIUM",
+    "PROFESSIONAL",
+    "ENTERPRISE",
+    "SUPREME"
+  ],
+  "language_type_boundaries": {
+    "general_purpose": "General-purpose executable programming languages",
+    "systems": "Low-level, systems and embedded language families",
+    "markup": "Document structure languages such as HTML and XML",
+    "stylesheet": "Presentation and styling languages such as CSS",
+    "database_query": "Query and database programming languages such as SQL",
+    "data_serialization": "Structured data representation formats such as JSON and YAML"
+  },
+  "layer_boundaries": {
+    "core": "identity, taxonomy, language metadata, capability policy, lifecycle and readiness",
+    "api": "external registries, package indexes and provider transport",
+    "storage": "durable artifacts and source packages",
+    "database": "persistence, schemas and migrations",
+    "runtime": "compiler execution, sandboxing, jobs and resource isolation",
+    "application": "developer workflows, IDE sessions and user experience"
+  },
+  "security": {
+    "untrusted_code_execution_in_core": false,
+    "sandbox_required_for_execution": true,
+    "dependency_and_supply_chain_review_required": true,
+    "license_review_required": true
+  },
+  "shared_support_areas": [
+    "compatibility",
+    "configuration",
+    "contracts",
+    "documentation",
+    "events",
+    "exceptions",
+    "orchestration",
+    "security",
+    "testing",
+    "utilities",
+    "validation"
+  ],
+  "coverage_summary": {
+    "domains": 26,
+    "curated_language_records": 174,
+    "coverage_exhaustive": false,
+    "metadata_only": true
+  }
 }
