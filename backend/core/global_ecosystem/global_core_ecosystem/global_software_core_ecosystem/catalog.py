@@ -3,7 +3,7 @@ from __future__ import annotations
 from copy import deepcopy
 import json
 from typing import Any
-SOFTWARE_CORE_CATALOG: dict[str, Any] = __CATALOG_JSON = r'''{
+__CATALOG_JSON = r'''{
   "schema_version": "1.0.0",
   "ecosystem_id": "GLOBAL-SOFTWARE-CORE-ECOSYSTEM",
   "name": "GLOBAL SOFTWARE CORE ECOSYSTEM",
