@@ -23,6 +23,8 @@ Provider-neutral, read-only security CORE for canonical security-domain taxonomy
 
 ## Master catalog alignment (2468 reference)
 
+The master catalog now registers this ecosystem in both `ecosystem_module_index` and `implementation_registry`. These are architecture references, not new unique topics. The security runtime reads the master source, validates every referenced entry ID and verifies that the declared section contains those references.
+
 Canonical source: `backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json`.
 
 That source currently records **246 unique entries** against a planned target of **2468** (2222 remaining). This security CORE does not copy the entire master list or create folders for each planning entry. Instead, each of its 33 security-domain records carries explicit `master_catalog_refs` linking relevant entries in sections 7, 9, 10, 11 and 12. These are reference mappings, not implementation claims.
