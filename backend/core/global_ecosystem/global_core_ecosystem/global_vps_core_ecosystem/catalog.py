@@ -11,11 +11,11 @@ PROVIDERS: tuple[dict[str,Any],...]=[
         "directory": "aws_vps_core_ecosystem",
         "ecosystem_id": "AWS-VPS-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False,
         "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem",
-        "provider_api_adapter_verified": false
+        "provider_api_adapter_verified": False
     },
     {
         "provider_id": "google",
@@ -23,11 +23,11 @@ PROVIDERS: tuple[dict[str,Any],...]=[
         "directory": "google_vps_core_ecosystem",
         "ecosystem_id": "GOOGLE-VPS-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False,
         "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem",
-        "provider_api_adapter_verified": false
+        "provider_api_adapter_verified": False
     },
     {
         "provider_id": "microsoft",
@@ -35,11 +35,11 @@ PROVIDERS: tuple[dict[str,Any],...]=[
         "directory": "microsoft_vps_core_ecosystem",
         "ecosystem_id": "MICROSOFT-VPS-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False,
         "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem",
-        "provider_api_adapter_verified": false
+        "provider_api_adapter_verified": False
     },
     {
         "provider_id": "oracle",
@@ -47,11 +47,11 @@ PROVIDERS: tuple[dict[str,Any],...]=[
         "directory": "oracle_vps_core_ecosystem",
         "ecosystem_id": "ORACLE-VPS-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False,
         "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem",
-        "provider_api_adapter_verified": false
+        "provider_api_adapter_verified": False
     },
     {
         "provider_id": "digitalocean",
@@ -59,11 +59,11 @@ PROVIDERS: tuple[dict[str,Any],...]=[
         "directory": "digitalocean_vps_core_ecosystem",
         "ecosystem_id": "DIGITALOCEAN-VPS-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False,
         "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem",
-        "provider_api_adapter_verified": false
+        "provider_api_adapter_verified": False
     },
     {
         "provider_id": "alibaba_cloud",
@@ -71,11 +71,11 @@ PROVIDERS: tuple[dict[str,Any],...]=[
         "directory": "alibaba_cloud_vps_core_ecosystem",
         "ecosystem_id": "ALIBABA-CLOUD-VPS-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False,
         "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem",
-        "provider_api_adapter_verified": false
+        "provider_api_adapter_verified": False
     },
     {
         "provider_id": "tencent_cloud",
@@ -83,11 +83,11 @@ PROVIDERS: tuple[dict[str,Any],...]=[
         "directory": "tencent_cloud_vps_core_ecosystem",
         "ecosystem_id": "TENCENT-CLOUD-VPS-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False,
         "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem",
-        "provider_api_adapter_verified": false
+        "provider_api_adapter_verified": False
     },
     {
         "provider_id": "huawei_cloud",
@@ -95,11 +95,11 @@ PROVIDERS: tuple[dict[str,Any],...]=[
         "directory": "huawei_cloud_vps_core_ecosystem",
         "ecosystem_id": "HUAWEI-CLOUD-VPS-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False,
         "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem",
-        "provider_api_adapter_verified": false
+        "provider_api_adapter_verified": False
     },
     {
         "provider_id": "rackspace",
@@ -107,11 +107,11 @@ PROVIDERS: tuple[dict[str,Any],...]=[
         "directory": "rackspace_vps_core_ecosystem",
         "ecosystem_id": "RACKSPACE-VPS-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False,
         "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem",
-        "provider_api_adapter_verified": false
+        "provider_api_adapter_verified": False
     },
     {
         "provider_id": "scaleway",
@@ -119,11 +119,11 @@ PROVIDERS: tuple[dict[str,Any],...]=[
         "directory": "scaleway_vps_core_ecosystem",
         "ecosystem_id": "SCALEWAY-VPS-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False,
         "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem",
-        "provider_api_adapter_verified": false
+        "provider_api_adapter_verified": False
     },
     {
         "provider_id": "ovhcloud",
@@ -131,11 +131,11 @@ PROVIDERS: tuple[dict[str,Any],...]=[
         "directory": "ovhcloud_vps_core_ecosystem",
         "ecosystem_id": "OVHCLOUD-VPS-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False,
         "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem",
-        "provider_api_adapter_verified": false
+        "provider_api_adapter_verified": False
     },
     {
         "provider_id": "hetzner_cloud",
@@ -143,11 +143,11 @@ PROVIDERS: tuple[dict[str,Any],...]=[
         "directory": "hetzner_cloud_vps_core_ecosystem",
         "ecosystem_id": "HETZNER-CLOUD-VPS-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False,
         "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem",
-        "provider_api_adapter_verified": false
+        "provider_api_adapter_verified": False
     },
     {
         "provider_id": "vultr",
@@ -155,11 +155,11 @@ PROVIDERS: tuple[dict[str,Any],...]=[
         "directory": "vultr_vps_core_ecosystem",
         "ecosystem_id": "VULTR-VPS-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False,
         "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem",
-        "provider_api_adapter_verified": false
+        "provider_api_adapter_verified": False
     },
     {
         "provider_id": "ibm",
@@ -167,11 +167,11 @@ PROVIDERS: tuple[dict[str,Any],...]=[
         "directory": "ibm_vps_core_ecosystem",
         "ecosystem_id": "IBM-VPS-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False,
         "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem",
-        "provider_api_adapter_verified": false
+        "provider_api_adapter_verified": False
     },
     {
         "provider_id": "cloudflare",
@@ -179,11 +179,11 @@ PROVIDERS: tuple[dict[str,Any],...]=[
         "directory": "cloudflare_vps_core_ecosystem",
         "ecosystem_id": "CLOUDFLARE-VPS-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False,
         "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem",
-        "provider_api_adapter_verified": false
+        "provider_api_adapter_verified": False
     },
     {
         "provider_id": "nvidia",
@@ -191,11 +191,11 @@ PROVIDERS: tuple[dict[str,Any],...]=[
         "directory": "nvidia_vps_core_ecosystem",
         "ecosystem_id": "NVIDIA-VPS-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False,
         "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem",
-        "provider_api_adapter_verified": false
+        "provider_api_adapter_verified": False
     },
     {
         "provider_id": "jd_cloud",
@@ -203,11 +203,11 @@ PROVIDERS: tuple[dict[str,Any],...]=[
         "directory": "jd_cloud_vps_core_ecosystem",
         "ecosystem_id": "JD-CLOUD-VPS-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False,
         "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem",
-        "provider_api_adapter_verified": false
+        "provider_api_adapter_verified": False
     },
     {
         "provider_id": "kingsoft_cloud",
@@ -215,11 +215,11 @@ PROVIDERS: tuple[dict[str,Any],...]=[
         "directory": "kingsoft_cloud_vps_core_ecosystem",
         "ecosystem_id": "KINGSOFT-CLOUD-VPS-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False,
         "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem",
-        "provider_api_adapter_verified": false
+        "provider_api_adapter_verified": False
     },
     {
         "provider_id": "baidu_cloud",
@@ -227,11 +227,11 @@ PROVIDERS: tuple[dict[str,Any],...]=[
         "directory": "baidu_cloud_vps_core_ecosystem",
         "ecosystem_id": "BAIDU-CLOUD-VPS-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False,
         "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem",
-        "provider_api_adapter_verified": false
+        "provider_api_adapter_verified": False
     },
     {
         "provider_id": "china_telecom_cloud",
@@ -239,11 +239,11 @@ PROVIDERS: tuple[dict[str,Any],...]=[
         "directory": "china_telecom_cloud_vps_core_ecosystem",
         "ecosystem_id": "CHINA-TELECOM-CLOUD-VPS-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "connected": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "connected": False,
+        "live_connection_verified": False,
         "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vps_api_ecosystem",
-        "provider_api_adapter_verified": false
+        "provider_api_adapter_verified": False
     }
 ]
 CAPABILITIES=("PROVIDER_DISCOVERY","VPS_INSTANCE_METADATA","REGION_AND_IMAGE_METADATA","COMPUTE_CAPACITY_METADATA","NETWORK_AND_IP_METADATA","SECURITY_POLICY_METADATA","VOLUME_AND_SNAPSHOT_METADATA","MONITORING_AND_USAGE_METADATA","BILLING_AND_QUOTA_BOUNDARIES","LIFECYCLE_INTENT_VALIDATION")

@@ -1397,6 +1397,14 @@ def get_catalog() -> list[dict[str, Any]]:
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
         "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_programming_language_core_ecosystem", "division_layout": "INDEPENDENT_SIBLING_ECOSYSTEM", "status": "CORE_CATALOG_ONLY", "division": "PROGRAMMING-LANGUAGES", "programming_language_coverage_exhaustive": False, "live_provider_connections_verified": False},
     }
+    vps_core = {
+        "ecosystem_id": "GLOBAL-VPS-CORE-ECOSYSTEM",
+        "name": "GLOBAL VPS CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["VPS_PROVIDER_REGISTRY", "COMPUTE_INSTANCE_METADATA", "REGION_AND_IMAGE_METADATA", "NETWORK_AND_STORAGE_POLICY_METADATA", "INSTANCE_LIFECYCLE_CONTRACTS", "BILLING_AND_QUOTA_METADATA"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_vps_core_ecosystem", "division_layout": "INDEPENDENT_SIBLING_ECOSYSTEM", "status": "CORE_CATALOG_ONLY", "provider_count": 20, "domain_count": 16, "live_provider_connections_verified": False, "provider_api_transport_in_core": False, "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"},
+    }
     server_core = {
         "ecosystem_id": "GLOBAL-SERVER-CORE-ECOSYSTEM",
         "name": "GLOBAL SERVER CORE ECOSYSTEM",
@@ -1484,6 +1492,7 @@ def get_catalog() -> list[dict[str, Any]]:
         human_language_core,
         programming_language_core,
         server_core,
+        vps_core,
         security_core,
         people_life_core,
         entity_relationships_core,
