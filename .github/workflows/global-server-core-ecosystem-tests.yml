@@ -1,0 +1,69 @@
+name: GLOBAL SERVER CORE ECOSYSTEM TESTS
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/**"
+      - "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+      - ".github/workflows/global-server-core-ecosystem-tests.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/**"
+      - "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+      - ".github/workflows/global-server-core-ecosystem-tests.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  server-core:
+    name: Server Core metadata, Python and PHP contracts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "pytest>=8.0,<9.0"
+
+      - name: Validate JSON catalogs and manifests
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem")
+          files = sorted(root.rglob("*.json")) + [Path("backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json")]
+          failures = []
+          for path in files:
+              try:
+                  json.loads(path.read_text(encoding="utf-8"))
+              except Exception as exc:
+                  failures.append((path, exc))
+          if failures:
+              for path, exc in failures:
+                  print(f"FAIL: {path}: {exc}")
+              raise SystemExit(1)
+          print(f"JSON VALIDATION: PASS ({len(files)} files)")
+          PY
+
+      - name: Run Server Core tests
+        env:
+          PYTHONPATH: .
+        run: python -m pytest backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/test_core.py -q
+
+      - name: Check PHP contract syntax
+        run: |
+          php -l backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/manager.php
+          php -l backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/php/GlobalServerCoreContract.php
+          php -l backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/php/GlobalServerCoreScopeContract.php
