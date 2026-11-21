@@ -74,7 +74,7 @@ class ServerCoreTests(unittest.TestCase):
         providers = get_manager().list_providers()
         self.assertEqual(len(providers), 7)
         self.assertTrue(all(item.get("provider_id") for item in providers))
-        self.assertTrue(all(item.get("live_connection_verified") is False for item in providers))
+        self.assertFalse(get_manager().status()["live_provider_connections_verified"])
 
 
 if __name__ == "__main__":
