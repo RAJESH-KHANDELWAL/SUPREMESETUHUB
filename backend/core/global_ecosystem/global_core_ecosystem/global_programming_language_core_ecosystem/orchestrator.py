@@ -17,9 +17,9 @@ class ProgrammingLanguageCoreOrchestrator:
         return get_programming_language_domain(domain_id)
     def domains(self) -> dict[str, Any]:
         return {"success":True,**programming_language_domain_summary(),"domains":list_programming_language_domains()}
-    def languages(self, language_type: str | None = None) -> dict[str, Any]:
-        items=list_language_records(language_type)
-        return {"success":True,"count":len(items),"languages":items,"coverage_exhaustive":False}
+    def languages(self, language_type: str | None = None, *, search: str | None = None) -> dict[str, Any]:
+        items=list_language_records(language_type, search=search)
+        return {"success":True,"count":len(items),"languages":items,"coverage_exhaustive":False,"metadata_only":True}
     def get_language(self, language_id_or_name: str) -> dict[str, Any] | None:
         return get_language_record(language_id_or_name)
     def health(self) -> dict[str, Any]:
