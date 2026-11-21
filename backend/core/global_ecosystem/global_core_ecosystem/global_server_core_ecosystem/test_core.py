@@ -94,6 +94,22 @@ class ServerCoreTests(unittest.TestCase):
         self.assertTrue(all(item.get("provider_id") for item in providers))
         self.assertFalse(get_manager().status()["live_provider_connections_verified"])
 
+    def test_all_provider_manifests_enforce_non_executing_boundary(self):
+        result = get_manager().validate_providers()
+        self.assertTrue(result["success"])
+        self.assertEqual(result["provider_count"], 7)
+
+    def test_all_workload_profiles_have_valid_manifests_and_packages(self):
+        result = get_manager().validate_workload_profiles()
+        self.assertTrue(result["success"])
+        self.assertEqual(result["workload_profile_count"], 20)
+        self.assertEqual(result["workload_area_count"], 100)
+
+    def test_domain_manifests_match_canonical_paths_and_control_area_schema(self):
+        domains = get_manager().list_domain_inventory()
+        self.assertEqual(len(domains), 16)
+        self.assertTrue(all(len(item["control_areas"]) == 6 for item in domains))
+
 
 if __name__ == "__main__":
     unittest.main()
