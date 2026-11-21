@@ -11,7 +11,8 @@ Photo Core is the read-only control plane for photo provider identity, domain ta
 
 ## Architecture
 
-- `catalog.py`: canonical ecosystem identity, provider inventory and capability metadata.
+- `catalog.py`: canonical ecosystem identity, 10 verified repository-backed provider records and capability metadata.
+- Each provider package: `README.md`, `__init__.py`, `ecosystem_manifest.json` and `service.py.
 - `domain_catalog.py`: 15 responsibility domains and domain coverage.
 - `contracts.py`: stable tenant, provider, readiness and result contracts.
 - `master_catalog.py`: read-only references to relevant numbered master-catalog topics; never edits or duplicates the 2468-target file.
