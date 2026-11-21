@@ -102,6 +102,24 @@ class GlobalServerCoreManager:
     def list_workloads(self) -> list[dict[str, Any]]:
         return get_workload_domain_catalog().get("domains", [])
 
+    def validate_workload_profiles(self) -> dict[str, Any]:
+        workload_catalog = get_workload_domain_catalog()
+        domains = workload_catalog.get("domains", [])
+        seen: set[str] = set()
+        for item in domains:
+            domain_id = item.get("domain_id", "")
+            folder = domain_id.lower() + "_server_workload_profile"
+            manifest_path = ROOT / folder / "workload_manifest.json"
+            if not domain_id or domain_id in seen:
+                raise ValueError(f"SERVER_WORKLOAD_ID_MISSING_OR_DUPLICATE: {domain_id}")
+            seen.add(domain_id)
+            manifest = _load_json(manifest_path)
+            if manifest.get("domain_id") != domain_id:
+                raise ValueError(f"SERVER_WORKLOAD_MANIFEST_ID_MISMATCH: {domain_id}")
+            if manifest.get("scope") != "SERVER_REQUIREMENTS_METADATA_ONLY":
+                raise ValueError(f"SERVER_WORKLOAD_SCOPE_INVALID: {domain_id}")
+        return {"success": True, "workload_profile_count": len(domains)}
+
     def geography(self) -> dict[str, Any]:
         return get_geographic_scope_catalog()
 
