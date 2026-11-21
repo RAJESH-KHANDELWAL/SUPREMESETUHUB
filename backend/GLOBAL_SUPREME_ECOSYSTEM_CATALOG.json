@@ -1771,7 +1771,12 @@
         "master_catalog_access_mode": "READ_ONLY_VALIDATED_REFERENCES",
         "taxonomy_entries_counted_in_global_2468_target": false,
         "workload_area_count": 100,
-        "workload_areas_per_profile": 5
+        "workload_areas_per_profile": 5,
+        "php_facade_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/manager.php",
+        "php_contract_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/php/GlobalServerCoreContract.php",
+        "scope_contract_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/php/GlobalServerCoreScopeContract.php",
+        "test_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/test_core.py",
+        "dependency_inventory_available": true
       }
     ]
   },
@@ -3558,7 +3563,25 @@
       "api_calls_performed": 0,
       "workload_area_count": 100,
       "workload_areas_per_profile": 5,
-      "workload_area_catalog_path": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/workload_domain_catalog.json"
+      "workload_area_catalog_path": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/workload_domain_catalog.json",
+      "php_facade_path": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/manager.php",
+      "php_contract_path": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/php/GlobalServerCoreContract.php",
+      "php_scope_contract_path": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/php/GlobalServerCoreScopeContract.php",
+      "test_path": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/test_core.py",
+      "provider_manifest_pattern": "<provider_directory>/provider_manifest.json",
+      "workload_manifest_pattern": "<workload_profile_directory>/workload_manifest.json",
+      "service_tier_ids": [
+        "NORMAL",
+        "BASIC",
+        "STANDARD",
+        "PREMIUM",
+        "PROFESSIONAL",
+        "ENTERPRISE",
+        "SUPREME"
+      ],
+      "control_areas_per_domain": 6,
+      "php_contract_runtime_verified": false,
+      "python_test_execution_verified": false
     }
   }
 }
