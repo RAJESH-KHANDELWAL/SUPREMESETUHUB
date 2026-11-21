@@ -36,6 +36,16 @@ class GlobalWebsiteCoreTests(unittest.TestCase):
         self.assertEqual(catalog["api_calls_performed"], 0)
         self.assertTrue(all(p["remote_operations_enabled"] is False for p in catalog["providers"]))
 
+    def test_parent_core_hierarchy_registers_website_core(self):
+        from backend.core.global_ecosystem.global_core_ecosystem.manager import (
+            GlobalEcosystemManager, get_catalog as get_global_catalog,
+        )
+        records = get_global_catalog()
+        record = next(item for item in records if item["ecosystem_id"] == "GLOBAL-WEBSITE-CORE-ECOSYSTEM")
+        self.assertEqual(record["parent_id"], "GLOBAL-CORE-ECOSYSTEM")
+        self.assertTrue(record["metadata"]["core_module"].endswith("/global_website_core_ecosystem"))
+        self.assertTrue(GlobalEcosystemManager().exists("GLOBAL-WEBSITE-CORE-ECOSYSTEM"))
+
     def test_domain_runtime_rejects_unknown_domain(self):
         manager = get_manager().get_domain_manager("DOMAIN_NAME_MANAGEMENT")
         self.assertEqual(manager.describe()["domain"]["domain_id"], "DOMAIN_NAME_MANAGEMENT")
