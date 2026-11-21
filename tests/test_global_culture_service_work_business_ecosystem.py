@@ -3,14 +3,14 @@ import unittest
 from pathlib import Path
 
 from backend.ai.global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_ai_ecosystem.assistant import GlobalCultureServiceWorkBusinessAI
-from backend.core.global_ecosystem.global_core_ecosystem.global_bada_business_core_ecosystem.global_culture_service_work_business_core_ecosystem.service import GlobalCultureServiceWorkBusinessCore
+from backend.core.global_ecosystem.global_core_ecosystem.global_bada_business_core_ecosystem.global_culture_service_work_business_core_ecosystem.service import GlobalBadaBusinessCultureServiceWorkBusinessCore
 from backend.database.global_ecosystem.global_database_ecosystem.global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_database_ecosystem.repository import GlobalCultureServiceWorkBusinessRepository
 from backend.database.service import DatabaseService
 from backend.engine.global_ecosystem.global_engine_ecosystem.global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_engine_ecosystem.manager import GlobalCultureServiceWorkBusinessEngine
 
 class CultureServiceWorkBusinessLayerTests(unittest.TestCase):
     def test_catalogue_covers_service_work_and_business(self):
-        items=GlobalCultureServiceWorkBusinessCore().catalogue()
+        items=GlobalBadaBusinessCultureServiceWorkBusinessCore().catalogue()
         self.assertEqual({item["domain"] for item in items},{"SERVICE","WORK","BUSINESS"})
         self.assertGreaterEqual(len(items),10)
     def test_engine_ranks_artisan_and_craft_results(self):
