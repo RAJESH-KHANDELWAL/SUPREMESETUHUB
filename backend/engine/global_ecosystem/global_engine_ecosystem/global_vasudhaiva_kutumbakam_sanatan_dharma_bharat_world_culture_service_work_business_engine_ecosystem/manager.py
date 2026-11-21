@@ -1,7 +1,7 @@
 """ENGINE orchestration for culture-service-work-business discovery."""
 from __future__ import annotations
 from typing import Any
-from backend.core.global_ecosystem.global_core_ecosystem.global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_core_ecosystem.service import GlobalCultureServiceWorkBusinessCore
+from backend.core.global_ecosystem.global_core_ecosystem.global_bada_business_core_ecosystem.global_culture_service_work_business_core_ecosystem.service import GlobalBadaBusinessCultureServiceWorkBusinessCore
 from .discovery import search_catalogue
 class GlobalCultureServiceWorkBusinessEngine:
     def __init__(self, core: GlobalCultureServiceWorkBusinessCore | None = None) -> None:
