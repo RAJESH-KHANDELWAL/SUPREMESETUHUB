@@ -28,6 +28,12 @@ PROVIDERS: list[dict[str, Any]] = [
     {"provider_id": "xvideos", "name": "XVideos", "directory": "xvideos_video_core_ecosystem", "domain_id": "VIDEO_SHARING_AND_COMMUNITIES", "status": "CORE_CATALOG_ONLY", "enabled": True, "connected": False, "live_connection_verified": False, "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_video_core_ecosystem/xvideos_video_core_ecosystem"},
     {"provider_id": "zoom", "name": "Zoom", "directory": "zoom_video_core_ecosystem", "domain_id": "VIDEO_COMMUNICATION_AND_MEETINGS", "status": "CORE_CATALOG_ONLY", "enabled": True, "connected": False, "live_connection_verified": False, "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_video_core_ecosystem/zoom_video_core_ecosystem"}
 ]
+SHARED_COMPONENTS: list[dict[str, str]] = [
+    {"name": "integrations", "purpose": "Shared integration adapters and integration metadata; implementations remain in their owning layers."},
+    {"name": "services", "purpose": "Shared video-domain service interfaces and service metadata."},
+    {"name": "tools", "purpose": "Shared video-domain utilities and tooling metadata."},
+]
+
 CAPABILITIES = [
     "PROVIDER_IDENTITY_AND_REGISTRATION", "DOMAIN_CLASSIFICATION",
     "CAPABILITY_METADATA", "TENANT_SCOPED_DISCOVERY", "READINESS_METADATA",
@@ -39,7 +45,7 @@ def get_catalog() -> dict[str, Any]:
         "ecosystem_id": ECOSYSTEM_ID, "name": ECOSYSTEM_NAME,
         "category": "VIDEO", "parent_id": PARENT_ID,
         "status": "FOUNDATION_READY", "enabled": True,
-        "provider_count": len(PROVIDERS), "providers": deepcopy(PROVIDERS),
+        "provider_count": len(PROVIDERS), "providers": deepcopy(PROVIDERS), "shared_components": deepcopy(SHARED_COMPONENTS),
         "capabilities": list(CAPABILITIES),
         "api_transport_in_core": False, "storage_in_core": False,
         "live_connection_verified": False,
