@@ -256,8 +256,8 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
             "status": "CORE_CATALOG_ONLY",
             "provider_count": 4,
             "domain_count": 18,
-            "live_connection_verified": false,
-            "tunnel_operations_in_core": false,
+            "live_connection_verified": False,
+            "tunnel_operations_in_core": False,
             "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
         },
     },

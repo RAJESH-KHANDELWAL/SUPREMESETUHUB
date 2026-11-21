@@ -11,11 +11,11 @@ PROVIDERS:tuple[dict[str,Any],...]=[
         "directory": "wireguard_vpn_core_ecosystem",
         "ecosystem_id": "WIREGUARD-VPN-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "configured": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "configured": False,
+        "live_connection_verified": False,
         "source_service_ref": "backend/vpn/global_ecosystem/global_vpn_ecosystem/wireguard_vpn/service.py",
-        "api_transport_verified": false,
+        "api_transport_verified": False,
         "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
     },
     {
@@ -24,11 +24,11 @@ PROVIDERS:tuple[dict[str,Any],...]=[
         "directory": "openvpn_vpn_core_ecosystem",
         "ecosystem_id": "OPENVPN-VPN-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "configured": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "configured": False,
+        "live_connection_verified": False,
         "source_service_ref": "backend/vpn/global_ecosystem/global_vpn_ecosystem/openvpn_vpn/service.py",
-        "api_transport_verified": false,
+        "api_transport_verified": False,
         "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
     },
     {
@@ -37,11 +37,11 @@ PROVIDERS:tuple[dict[str,Any],...]=[
         "directory": "tailscale_vpn_core_ecosystem",
         "ecosystem_id": "TAILSCALE-VPN-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "configured": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "configured": False,
+        "live_connection_verified": False,
         "source_service_ref": "backend/vpn/global_ecosystem/global_vpn_ecosystem/tailscale_vpn/service.py",
-        "api_transport_verified": false,
+        "api_transport_verified": False,
         "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
     },
     {
@@ -50,11 +50,11 @@ PROVIDERS:tuple[dict[str,Any],...]=[
         "directory": "proton_vpn_core_ecosystem",
         "ecosystem_id": "PROTONVPN-VPN-CORE-ECOSYSTEM",
         "status": "CORE_CATALOG_ONLY",
-        "enabled": true,
-        "configured": false,
-        "live_connection_verified": false,
+        "enabled": True,
+        "configured": False,
+        "live_connection_verified": False,
         "source_service_ref": "backend/vpn/global_ecosystem/global_vpn_ecosystem/proton_vpn/service.py",
-        "api_transport_verified": false,
+        "api_transport_verified": False,
         "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
     }
 ]
