@@ -37,6 +37,7 @@ def _load_domains() -> tuple[dict[str, Any], ...]:
     loaded: list[dict[str, Any]] = []
     seen_ids: set[str] = set()
     seen_folders: set[str] = set()
+    seen_area_ids: set[str] = set()
     for item in _DOMAIN_DATA.get("domains", []):
         domain_id = str(item.get("id", "")).strip().upper()
         folder = str(item.get("folder", "")).strip()
@@ -59,6 +60,16 @@ def _load_domains() -> tuple[dict[str, Any], ...]:
             raise ValueError(f"SECURITY_DOMAIN_PARENT_MISMATCH: {domain_id}")
         if manifest.get("status") != STATUS:
             raise ValueError(f"SECURITY_DOMAIN_STATUS_INVALID: {domain_id}")
+        areas = item.get("coverage_areas", [])
+        if not areas:
+            raise ValueError(f"SECURITY_DOMAIN_COVERAGE_AREAS_REQUIRED: {domain_id}")
+        for area in areas:
+            area_id = str(area.get("area_id", "")).strip()
+            area_name = str(area.get("name", "")).strip()
+            area_scope = str(area.get("scope", "")).strip()
+            if not area_id or not area_name or not area_scope or area_id in seen_area_ids:
+                raise ValueError(f"SECURITY_DOMAIN_COVERAGE_AREA_INVALID_OR_DUPLICATE: {domain_id}")
+            seen_area_ids.add(area_id)
         refs = item.get("master_catalog_refs", [])
         if not refs or not all(isinstance(ref, str) and ref.startswith("S") for ref in refs):
             raise ValueError(f"SECURITY_DOMAIN_MASTER_CATALOG_REFS_REQUIRED: {domain_id}")
@@ -146,6 +157,7 @@ def get_domain(domain_id: str) -> dict[str, Any] | None:
 def domain_summary() -> dict[str, Any]:
     return {
         "domain_count": len(SECURITY_DOMAINS),
+        "coverage_area_count": sum(len(item.get("coverage_areas", [])) for item in SECURITY_DOMAINS),
         "coverage_exhaustive": bool(_DOMAIN_DATA.get("domain_coverage_exhaustive", False)),
         "master_catalog_ref_count": sum(len(item.get("master_catalog_refs", [])) for item in SECURITY_DOMAINS),
         "master_catalog_refs_present": True,
@@ -231,6 +243,7 @@ def get_catalog() -> dict[str, Any]:
         "master_catalog_counts": deepcopy(MASTER_CATALOG_COUNTS),
         "domain_count": domain_summary()["domain_count"],
         "domains": get_domains(),
+        "taxonomy": deepcopy(_DOMAIN_DATA.get("taxonomy", {})),
         "provider_count": provider_summary()["provider_count"],
         "providers": get_provider_catalog(),
         "jurisdiction_profile_count": jurisdiction_summary()["jurisdiction_profile_count"],
