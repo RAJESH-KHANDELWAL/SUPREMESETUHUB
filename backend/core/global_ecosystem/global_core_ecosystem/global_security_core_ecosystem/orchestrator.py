@@ -33,6 +33,13 @@ class SecurityCoreOrchestrator:
     def get_domain(self, domain_id):
         return get_domain(domain_id)
 
+    def get_domain_manager(self, domain_id):
+        return get_manager().get_domain_manager(domain_id)
+
+    def domain_coverage(self, domain_id):
+        domain_manager = self.get_domain_manager(domain_id)
+        return domain_manager.list_coverage_areas()
+
     def list_providers(self):
         return {"success": True, **provider_summary(), "providers": get_provider_catalog()}
 
