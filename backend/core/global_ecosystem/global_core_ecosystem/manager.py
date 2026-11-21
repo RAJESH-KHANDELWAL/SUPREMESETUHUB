@@ -872,12 +872,20 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "metadata": {"module_path": "global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem", "implementation_state": "FOUNDATION_READY"},
     },
     {
+        "ecosystem_id": "GLOBAL-BADA-BUSINESS-CORE-ECOSYSTEM",
+        "name": "GLOBAL BADA BUSINESS CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["BUSINESS_DOMAIN_CORE", "BUSINESS_CAPABILITY_CLASSIFICATION", "SERVICE_WORK_BUSINESS_GOVERNANCE"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {"module_path": "global_bada_business_core_ecosystem", "implementation_state": "FOUNDATION_READY"},
+    },
+    {
         "ecosystem_id": "GLOBAL-VASUDHAIVA-CULTURE-SERVICE-WORK-BUSINESS-CORE-ECOSYSTEM",
-        "name": "GLOBAL VASUDHAIVA KUTUMBAKAM CULTURE SERVICE WORK BUSINESS CORE ECOSYSTEM",
+        "name": "GLOBAL CULTURE SERVICE WORK BUSINESS CORE ECOSYSTEM",
         "ecosystem_type": "CORE_SERVICE",
         "capabilities": ["CULTURAL_SERVICE_TAXONOMY", "CULTURAL_WORK_CLASSIFICATION", "BUSINESS_CAPABILITY_GOVERNANCE", "RECORD_VALIDATION"],
-        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
-        "metadata": {"module_path": "global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_core_ecosystem", "implementation_state": "IMPLEMENTED_FOUNDATION"},
+        "parent_id": "GLOBAL-BADA-BUSINESS-CORE-ECOSYSTEM",
+        "metadata": {"module_path": "global_bada_business_core_ecosystem.global_culture_service_work_business_core_ecosystem", "implementation_state": "IMPLEMENTED_FOUNDATION"},
     }
 )
 
