@@ -51,7 +51,9 @@ def test_security_taxonomy_provider_inventory_and_master_catalog_refs():
         assert set(refs) <= known_refs
         assert domain["scope"].strip()
         assert domain["master_catalog_section"] in known_sections
-        assert domain["master_catalog_section"] in {entry_sections[ref] for ref in refs}
+        expected_sections = {entry_sections[ref] for ref in refs}
+        assert domain["master_catalog_section"] in expected_sections
+        assert set(domain["master_catalog_sections"]) == expected_sections
 
     safety = get_protected_group_safety()
     assert set(safety["groups"]) == {"MEN", "WOMEN", "GIRLS", "BOYS"}
