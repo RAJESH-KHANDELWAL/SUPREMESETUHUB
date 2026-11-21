@@ -1543,7 +1543,6 @@ def get_catalog() -> list[dict[str, Any]]:
         infrastructure_core,
         integrations_core,
         huggingface_core,
-        integrations_core,
         human_language_core,
         programming_language_core,
         server_core,
