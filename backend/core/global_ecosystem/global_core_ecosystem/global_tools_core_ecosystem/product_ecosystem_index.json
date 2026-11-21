@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "ecosystem_id": "GLOBAL-TOOLS-CORE-ECOSYSTEM",
   "source_of_record": "curated provider/product inventory",
-  "provider_count": 11,
-  "product_family_count": 56,
+  "provider_count": 28,
+  "product_family_count": 124,
   "product_ecosystems": [
     {
       "product_id": "jira",
@@ -506,6 +506,618 @@
       "provider_id": "twilio",
       "category": "COMMUNICATION_COLLABORATION",
       "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/twilio_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "creative_cloud",
+      "product_name": "Adobe Creative Cloud",
+      "provider_id": "adobe",
+      "category": "DESIGN_CREATIVE_MEDIA",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/adobe_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "acrobat_services",
+      "product_name": "Adobe Acrobat Services",
+      "provider_id": "adobe",
+      "category": "DOCUMENTATION_KNOWLEDGE",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/adobe_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "experience_cloud",
+      "product_name": "Adobe Experience Cloud",
+      "provider_id": "adobe",
+      "category": "MARKETING_SEO",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/adobe_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "firefly_services",
+      "product_name": "Adobe Firefly Services",
+      "provider_id": "adobe",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/adobe_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "claude",
+      "product_name": "Claude",
+      "provider_id": "anthropic",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/anthropic_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "claude_api",
+      "product_name": "Anthropic API",
+      "provider_id": "anthropic",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/anthropic_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "tool_use",
+      "product_name": "Claude tool use",
+      "provider_id": "anthropic",
+      "category": "AUTOMATION_WORKFLOW",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/anthropic_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "message_batches",
+      "product_name": "Anthropic Message Batches",
+      "provider_id": "anthropic",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/anthropic_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "xcode",
+      "product_name": "Xcode",
+      "provider_id": "apple",
+      "category": "DEVELOPER_SOURCE_CONTROL",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/apple_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "app_store_connect",
+      "product_name": "App Store Connect",
+      "provider_id": "apple",
+      "category": "PAYMENTS_COMMERCE_BILLING",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/apple_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "cloudkit",
+      "product_name": "CloudKit",
+      "provider_id": "apple",
+      "category": "CLOUD_INFRASTRUCTURE",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/apple_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "apple_business_manager",
+      "product_name": "Apple Business Manager",
+      "provider_id": "apple",
+      "category": "IT_SERVICE_MANAGEMENT",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/apple_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "command_models",
+      "product_name": "Cohere Command models and API",
+      "provider_id": "cohere",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/cohere_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "embed_api",
+      "product_name": "Cohere Embed API",
+      "provider_id": "cohere",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/cohere_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "rerank_api",
+      "product_name": "Cohere Rerank API",
+      "provider_id": "cohere",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/cohere_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "cohere_toolkit",
+      "product_name": "Cohere developer tooling",
+      "provider_id": "cohere",
+      "category": "DEVELOPER_SOURCE_CONTROL",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/cohere_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "deepseek_chat_api",
+      "product_name": "DeepSeek Chat API",
+      "provider_id": "deepseek",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/deepseek_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "deepseek_reasoner",
+      "product_name": "DeepSeek Reasoner",
+      "provider_id": "deepseek",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/deepseek_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "deepseek_coder",
+      "product_name": "DeepSeek Coder",
+      "provider_id": "deepseek",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/deepseek_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "deepseek_platform",
+      "product_name": "DeepSeek developer platform",
+      "provider_id": "deepseek",
+      "category": "DEVELOPER_SOURCE_CONTROL",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/deepseek_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "doctl",
+      "product_name": "DigitalOcean CLI (doctl)",
+      "provider_id": "digitalocean",
+      "category": "DEVELOPER_CLOUD_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/digitalocean_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "droplets",
+      "product_name": "DigitalOcean Droplets",
+      "provider_id": "digitalocean",
+      "category": "CLOUD_INFRASTRUCTURE",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/digitalocean_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "app_platform",
+      "product_name": "DigitalOcean App Platform",
+      "provider_id": "digitalocean",
+      "category": "HOSTING_WEB_DEPLOYMENT",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/digitalocean_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "spaces",
+      "product_name": "DigitalOcean Spaces",
+      "provider_id": "digitalocean",
+      "category": "CLOUD_INFRASTRUCTURE",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/digitalocean_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "huggingface_hub",
+      "product_name": "Hugging Face Hub",
+      "provider_id": "huggingface",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/huggingface_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "transformers",
+      "product_name": "Hugging Face Transformers",
+      "provider_id": "huggingface",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/huggingface_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "inference_endpoints",
+      "product_name": "Hugging Face Inference Endpoints",
+      "provider_id": "huggingface",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/huggingface_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "huggingface_spaces",
+      "product_name": "Hugging Face Spaces",
+      "provider_id": "huggingface",
+      "category": "HOSTING_WEB_DEPLOYMENT",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/huggingface_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "watsonx",
+      "product_name": "IBM watsonx",
+      "provider_id": "ibm",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/ibm_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "cloud_pak",
+      "product_name": "IBM Cloud Pak",
+      "provider_id": "ibm",
+      "category": "CLOUD_INFRASTRUCTURE",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/ibm_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "instana",
+      "product_name": "IBM Instana",
+      "provider_id": "ibm",
+      "category": "OBSERVABILITY_ANALYTICS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/ibm_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "turbonomic",
+      "product_name": "IBM Turbonomic",
+      "provider_id": "ibm",
+      "category": "CLOUD_INFRASTRUCTURE",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/ibm_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "graph_api",
+      "product_name": "Meta Graph API",
+      "provider_id": "meta",
+      "category": "INTEGRATION_API",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/meta_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "whatsapp_cloud_api",
+      "product_name": "WhatsApp Cloud API",
+      "provider_id": "meta",
+      "category": "COMMUNICATION_COLLABORATION",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/meta_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "meta_ads_manager",
+      "product_name": "Meta Ads Manager",
+      "provider_id": "meta",
+      "category": "ADVERTISING_MONETIZATION",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/meta_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "meta_business_suite",
+      "product_name": "Meta Business Suite",
+      "provider_id": "meta",
+      "category": "MARKETING_SEO",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/meta_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "mistral_api",
+      "product_name": "Mistral AI API",
+      "provider_id": "mistral",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/mistral_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "le_chat",
+      "product_name": "Le Chat",
+      "provider_id": "mistral",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/mistral_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "codestral",
+      "product_name": "Codestral",
+      "provider_id": "mistral",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/mistral_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "mistral_studio",
+      "product_name": "Mistral AI Studio",
+      "provider_id": "mistral",
+      "category": "DEVELOPER_SOURCE_CONTROL",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/mistral_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "cuda",
+      "product_name": "NVIDIA CUDA",
+      "provider_id": "nvidia",
+      "category": "DEVELOPER_SOURCE_CONTROL",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/nvidia_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "nvidia_nim",
+      "product_name": "NVIDIA NIM",
+      "provider_id": "nvidia",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/nvidia_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "nemo",
+      "product_name": "NVIDIA NeMo",
+      "provider_id": "nvidia",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/nvidia_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "triton_inference_server",
+      "product_name": "NVIDIA Triton Inference Server",
+      "provider_id": "nvidia",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/nvidia_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "oci_cli",
+      "product_name": "Oracle Cloud Infrastructure CLI",
+      "provider_id": "oracle",
+      "category": "DEVELOPER_CLOUD_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/oracle_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "oracle_cloud_console",
+      "product_name": "Oracle Cloud Console",
+      "provider_id": "oracle",
+      "category": "CLOUD_INFRASTRUCTURE",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/oracle_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "oracle_fusion_cloud",
+      "product_name": "Oracle Fusion Cloud",
+      "provider_id": "oracle",
+      "category": "CRM_BUSINESS_APPLICATIONS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/oracle_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "netsuite",
+      "product_name": "Oracle NetSuite",
+      "provider_id": "oracle",
+      "category": "CRM_BUSINESS_APPLICATIONS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/oracle_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "paypal_checkout",
+      "product_name": "PayPal Checkout",
+      "provider_id": "paypal",
+      "category": "PAYMENTS_COMMERCE_BILLING",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/paypal_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "paypal_payouts",
+      "product_name": "PayPal Payouts",
+      "provider_id": "paypal",
+      "category": "PAYMENTS_COMMERCE_BILLING",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/paypal_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "paypal_subscriptions",
+      "product_name": "PayPal Subscriptions",
+      "provider_id": "paypal",
+      "category": "PAYMENTS_COMMERCE_BILLING",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/paypal_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "braintree",
+      "product_name": "Braintree",
+      "provider_id": "paypal",
+      "category": "PAYMENTS_COMMERCE_BILLING",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/paypal_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "shopify_admin",
+      "product_name": "Shopify Admin",
+      "provider_id": "shopify",
+      "category": "PAYMENTS_COMMERCE_BILLING",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/shopify_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "storefront_api",
+      "product_name": "Shopify Storefront API",
+      "provider_id": "shopify",
+      "category": "INTEGRATION_API",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/shopify_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "shopify_flow",
+      "product_name": "Shopify Flow",
+      "provider_id": "shopify",
+      "category": "AUTOMATION_WORKFLOW",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/shopify_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "shopify_checkout",
+      "product_name": "Shopify Checkout",
+      "provider_id": "shopify",
+      "category": "PAYMENTS_COMMERCE_BILLING",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/shopify_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "slack_platform_api",
+      "product_name": "Slack Platform API",
+      "provider_id": "slack",
+      "category": "INTEGRATION_API",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/slack_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "slack_workflow_builder",
+      "product_name": "Slack Workflow Builder",
+      "provider_id": "slack",
+      "category": "AUTOMATION_WORKFLOW",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/slack_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "slack_cli",
+      "product_name": "Slack CLI",
+      "provider_id": "slack",
+      "category": "DEVELOPER_SOURCE_CONTROL",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/slack_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "slack_connect",
+      "product_name": "Slack Connect",
+      "provider_id": "slack",
+      "category": "PRODUCTIVITY_COLLABORATION",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/slack_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "stripe_payments",
+      "product_name": "Stripe Payments",
+      "provider_id": "stripe",
+      "category": "PAYMENTS_COMMERCE_BILLING",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/stripe_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "stripe_billing",
+      "product_name": "Stripe Billing",
+      "provider_id": "stripe",
+      "category": "PAYMENTS_COMMERCE_BILLING",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/stripe_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "stripe_connect",
+      "product_name": "Stripe Connect",
+      "provider_id": "stripe",
+      "category": "PAYMENTS_COMMERCE_BILLING",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/stripe_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "stripe_radar",
+      "product_name": "Stripe Radar",
+      "provider_id": "stripe",
+      "category": "SECURITY_IDENTITY",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/stripe_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "cloudflare_workers",
+      "product_name": "Cloudflare Workers",
+      "provider_id": "cloudflare",
+      "category": "HOSTING_WEB_DEPLOYMENT",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/cloudflare_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "cloudflare_pages",
+      "product_name": "Cloudflare Pages",
+      "provider_id": "cloudflare",
+      "category": "HOSTING_WEB_DEPLOYMENT",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/cloudflare_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "cloudflare_dns",
+      "product_name": "Cloudflare DNS",
+      "provider_id": "cloudflare",
+      "category": "CLOUD_INFRASTRUCTURE",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/cloudflare_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "cloudflare_r2",
+      "product_name": "Cloudflare R2",
+      "provider_id": "cloudflare",
+      "category": "CLOUD_INFRASTRUCTURE",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/cloudflare_tools_core_ecosystem",
       "status": "CORE_CATALOG_ONLY",
       "live_connection": false
     }
