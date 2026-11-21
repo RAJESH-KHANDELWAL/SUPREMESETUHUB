@@ -64,6 +64,16 @@ def validate_master_alignment() -> dict[str, Any]:
         if any(ref not in entry_sections for ref in domain_refs):
             raise ValueError(f"SERVER_MASTER_REF_UNKNOWN: {domain['domain_id']}")
         refs.extend(domain_refs)
+    module_index = master.get("ecosystem_module_index", {}).get("modules", [])
+    module_matches = [
+        item for item in module_index
+        if item.get("ecosystem_id") == "GLOBAL-SERVER-CORE-ECOSYSTEM"
+    ]
+    implementation = master.get("implementation_registry", {}).get("global_server_core_ecosystem")
+    if len(module_matches) != 1 or not implementation:
+        raise ValueError("SERVER_MASTER_IMPLEMENTATION_REGISTRATION_MISSING")
+    if implementation.get("master_catalog_unique_reference_count") != len(set(refs)):
+        raise ValueError("SERVER_MASTER_IMPLEMENTATION_REFERENCE_COUNT_MISMATCH")
     expansion = master.get("expansion", {})
     return {
         "success": True,
@@ -102,6 +112,24 @@ class GlobalServerCoreManager:
     def list_workloads(self) -> list[dict[str, Any]]:
         return get_workload_domain_catalog().get("domains", [])
 
+    def validate_providers(self) -> dict[str, Any]:
+        providers = get_provider_catalog()
+        seen: set[str] = set()
+        for provider in providers:
+            provider_id = provider.get("provider_id", "")
+            folder = provider.get("folder", "")
+            if not provider_id or provider_id in seen:
+                raise ValueError(f"SERVER_PROVIDER_ID_MISSING_OR_DUPLICATE: {provider_id}")
+            seen.add(provider_id)
+            if not folder or not (ROOT / folder).is_dir():
+                raise FileNotFoundError(f"SERVER_PROVIDER_DIRECTORY_MISSING: {folder}")
+            manifest = _load_json(ROOT / folder / "provider_manifest.json")
+            if manifest.get("provider_id") != provider_id:
+                raise ValueError(f"SERVER_PROVIDER_MANIFEST_ID_MISMATCH: {provider_id}")
+            if manifest.get("parent_id") != "GLOBAL-SERVER-CORE-ECOSYSTEM":
+                raise ValueError(f"SERVER_PROVIDER_MANIFEST_PARENT_MISMATCH: {provider_id}")
+        return {"success": True, "provider_count": len(providers)}
+
     def validate_workload_profiles(self) -> dict[str, Any]:
         workload_catalog = get_workload_domain_catalog()
         domains = workload_catalog.get("domains", [])
@@ -131,6 +159,7 @@ class GlobalServerCoreManager:
 
     def status(self) -> dict[str, Any]:
         registry = load_domain_registry()
+        provider_validation = self.validate_providers()
         providers = get_provider_catalog()
         workload_validation = self.validate_workload_profiles()
         workloads = get_workload_domain_catalog().get("domains", [])
@@ -143,6 +172,7 @@ class GlobalServerCoreManager:
             "layer": "CORE",
             "status": "CORE_CATALOG_AND_WORKLOAD_PROFILES",
             "provider_count": len(providers),
+            "provider_validation": provider_validation,
             "core_domain_count": len(registry["domains"]),
             "domain_manifest_count": len(domains),
             "control_area_count": sum(len(x.get("control_areas", [])) for x in domains),
