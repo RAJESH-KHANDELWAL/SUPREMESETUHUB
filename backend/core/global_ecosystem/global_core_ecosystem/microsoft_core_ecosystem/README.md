@@ -14,6 +14,7 @@ Provider-level, read-only control plane for Microsoft product-family metadata. T
 - `manager.py`: canonical Python entry point (`get_manager()`).
 - `manager.php`: PHP metadata interoperability facade; no provider API or DB access.
 - `product_ecosystem_index.json`: machine-readable inventory contract.
+- `backend/test/test_microsoft_core_domains.py`: repository-level automated tests (kept in the canonical singular `backend/test/` directory).
 
 ## Existing product packages
 The 16 existing product directories are retained and referenced by the canonical catalog. Their current placeholder state is not misrepresented as implemented adapters.
