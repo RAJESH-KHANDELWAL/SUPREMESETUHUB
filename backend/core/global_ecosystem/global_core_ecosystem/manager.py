@@ -1560,6 +1560,35 @@ def get_catalog() -> list[dict[str, Any]]:
         },
     }
 
+    meta_core = {
+        "ecosystem_id": "META-CORE-ECOSYSTEM",
+        "name": "META CORE ECOSYSTEM",
+        "ecosystem_type": "PROVIDER_CORE",
+        "capabilities": [
+            "META_PROVIDER_REGISTRY", "META_PRODUCT_FAMILY_DISCOVERY",
+            "META_SOCIAL_PLATFORM_DOMAIN_TAXONOMY", "META_OAUTH_AND_PERMISSION_POLICY",
+            "META_BUSINESS_ASSET_GOVERNANCE", "META_WEBHOOK_EVENT_GOVERNANCE",
+            "TENANT_SECRET_REFERENCE_BOUNDARY", "PRIVACY_AND_READINESS_METADATA",
+        ],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_module": "backend/core/global_ecosystem/global_core_ecosystem/meta_core_ecosystem",
+            "api_module": "backend/api/global_ecosystem/global_api_ecosystem/meta_api_ecosystem",
+            "engine_module": "backend/engine/global_ecosystem/global_engine_ecosystem/meta_engine_ecosystem",
+            "status": "CORE_CATALOG_ONLY",
+            "product_count": 11,
+            "domain_count": 18,
+            "canonical_master_entry_ids": ["S07_privacy_and_data_protection","S09_artificial_intelligence","S09_cybersecurity","S09_data_analytics","S09_digital_identity","S11_privacy_law","S08_individual_business","S08_small_business","S08_medium_business","S08_digital_business","S08_international_business"],
+            "master_catalog_alignment": "EXISTING_RELATED_TOPICS_ONLY_NO_META_SPECIFIC_ENTRY",
+            "live_connection_verified": False,
+            "oauth_exchange_in_core": False,
+            "api_transport_in_core": False,
+            "engine_execution_in_core": False,
+            "remote_operations_enabled": False,
+            "credential_storage": "TENANT_SCOPED_EXTERNAL_SECRET_STORE_ONLY",
+        },
+    }
+
     records = [
         ROOT,
         *CATEGORIES,
@@ -1567,6 +1596,7 @@ def get_catalog() -> list[dict[str, Any]]:
         integrations_core,
         huggingface_core,
         ibm_core,
+        meta_core,
         human_language_core,
         programming_language_core,
         server_core,
