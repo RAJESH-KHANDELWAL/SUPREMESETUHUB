@@ -12,10 +12,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "GLOBAL_AND_REGIONAL_GOVERNANCE",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/abelohost_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "ADULT-B2B-B2C-MARKETPLACE-TRADE": {
         "ecosystem_id": "ADULT-B2B-B2C-MARKETPLACE-TRADE",
@@ -23,10 +23,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "COMMERCE_AND_MARKETPLACES",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_b2b_b2c_marketplace_trade",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "ADULT-BODY-FITNESS-WELLNESS": {
         "ecosystem_id": "ADULT-BODY-FITNESS-WELLNESS",
@@ -34,10 +34,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "HEALTHCARE_AND_RESEARCH",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_body_fitness_wellness",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "ADULT-BUSINESS-MANAGEMENT-DEVELOPMENT": {
         "ecosystem_id": "ADULT-BUSINESS-MANAGEMENT-DEVELOPMENT",
@@ -45,10 +45,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "BUSINESS_WORK_AND_TRAINING",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_business_management_development",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "ADULT-ENTERTAINMENT-PORN-MEDIA": {
         "ecosystem_id": "ADULT-ENTERTAINMENT-PORN-MEDIA",
@@ -56,10 +56,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_entertainment_porn_media",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "ADULT-LAW-SAFETY-COMPLIANCE": {
         "ecosystem_id": "ADULT-LAW-SAFETY-COMPLIANCE",
@@ -67,10 +67,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "LAW_SAFETY_AND_COMPLIANCE",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_law_safety_compliance",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "ADULT-MEDIA-CREATORS": {
         "ecosystem_id": "ADULT-MEDIA-CREATORS",
@@ -78,10 +78,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_media_creators",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "ADULT-RELATIONSHIPS-COMPATIBILITY": {
         "ecosystem_id": "ADULT-RELATIONSHIPS-COMPATIBILITY",
@@ -89,10 +89,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "RELATIONSHIPS_AND_COMPATIBILITY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_relationships_compatibility",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "ADULT-SEXUAL-EDUCATION": {
         "ecosystem_id": "ADULT-SEXUAL-EDUCATION",
@@ -100,10 +100,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "SEXUAL_EDUCATION_AND_TRADITIONAL_KNOWLEDGE",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_sexual_education",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "ADULT-STARTUPS-MSMES-COMPANIES": {
         "ecosystem_id": "ADULT-STARTUPS-MSMES-COMPANIES",
@@ -111,10 +111,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "BUSINESS_WORK_AND_TRAINING",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_startups_msmes_companies",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "ADULT-TECHNOLOGY-SOFTWARE-APIS": {
         "ecosystem_id": "ADULT-TECHNOLOGY-SOFTWARE-APIS",
@@ -122,10 +122,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "TECHNOLOGY_AND_INFRASTRUCTURE",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_technology_software_apis",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "ADULT-TRAINING-CERTIFICATION-DEVELOPMENT": {
         "ecosystem_id": "ADULT-TRAINING-CERTIFICATION-DEVELOPMENT",
@@ -133,10 +133,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "BUSINESS_WORK_AND_TRAINING",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_training_certification_development",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "ADULT-WELLNESS-PRODUCTS-COMMERCE": {
         "ecosystem_id": "ADULT-WELLNESS-PRODUCTS-COMMERCE",
@@ -144,10 +144,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "COMMERCE_AND_MARKETPLACES",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_wellness_products_commerce",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "ADULT-WORK-JOBS-CAREERS": {
         "ecosystem_id": "ADULT-WORK-JOBS-CAREERS",
@@ -155,10 +155,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "BUSINESS_WORK_AND_TRAINING",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_work_jobs_careers",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "BANGBROS-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "BANGBROS-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -166,10 +166,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/bangbros_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "BHARAT-ADULT-WELLNESS-CORE-ECOSYSTEM": {
         "ecosystem_id": "BHARAT-ADULT-WELLNESS-CORE-ECOSYSTEM",
@@ -177,10 +177,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "GLOBAL_AND_REGIONAL_GOVERNANCE",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/bharat_adult_wellness_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "BRAZZERS-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "BRAZZERS-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -188,10 +188,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/brazzers_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "CCBILL-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "CCBILL-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -199,10 +199,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "PAYMENTS_AND_BILLING",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/ccbill_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "CLIPS4SALE-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "CLIPS4SALE-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -210,10 +210,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/clips4sale_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "CLOUDFLARE-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "CLOUDFLARE-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -221,10 +221,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "TECHNOLOGY_AND_INFRASTRUCTURE",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/cloudflare_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "CONSULTANTS-ADVISORS-PROFESSIONAL-SERVICES": {
         "ecosystem_id": "CONSULTANTS-ADVISORS-PROFESSIONAL-SERVICES",
@@ -232,10 +232,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "COACHING_AND_COUNSELLING",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/consultants_advisors_professional_services",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "COUPLE-INTIMACY-ROMANCE": {
         "ecosystem_id": "COUPLE-INTIMACY-ROMANCE",
@@ -243,10 +243,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "RELATIONSHIPS_AND_COMPATIBILITY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/couple_intimacy_romance",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "CRAKREVENUE-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "CRAKREVENUE-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -254,10 +254,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "ADVERTISING_AND_DISTRIBUTION",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/crakrevenue_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "DATING-GF-BF-RELATIONSHIPS": {
         "ecosystem_id": "DATING-GF-BF-RELATIONSHIPS",
@@ -265,10 +265,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "RELATIONSHIPS_AND_COMPATIBILITY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/dating_gf_bf_relationships",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "EPOCH-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "EPOCH-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -276,10 +276,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "PAYMENTS_AND_BILLING",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/epoch_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "EVILANGEL-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "EVILANGEL-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -287,10 +287,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/evilangel_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "EXOCLICK-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "EXOCLICK-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -298,10 +298,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "ADVERTISING_AND_DISTRIBUTION",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/exoclick_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "FAMILY-PARENTING-REPRODUCTIVE-WELLNESS": {
         "ecosystem_id": "FAMILY-PARENTING-REPRODUCTIVE-WELLNESS",
@@ -309,10 +309,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "RELATIONSHIPS_AND_COMPATIBILITY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/family_parenting_reproductive_wellness",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "FAMILY-RELATIONSHIPS-COMMUNITY-BUSINESS-CORE-ECOSYSTEM": {
         "ecosystem_id": "FAMILY-RELATIONSHIPS-COMMUNITY-BUSINESS-CORE-ECOSYSTEM",
@@ -320,10 +320,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "RELATIONSHIPS_AND_COMPATIBILITY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/family_relationships_community_business_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "FAMILY-RELATIONSHIPS-PARENTING": {
         "ecosystem_id": "FAMILY-RELATIONSHIPS-PARENTING",
@@ -331,10 +331,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "RELATIONSHIPS_AND_COMPATIBILITY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/family_relationships_parenting",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "FANSLY-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "FANSLY-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -342,10 +342,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/fansly_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "FAPHOUSE-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "FAPHOUSE-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -353,10 +353,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/faphouse_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "GLOBAL-ADULT-WELLNESS-CORE-ECOSYSTEM": {
         "ecosystem_id": "GLOBAL-ADULT-WELLNESS-CORE-ECOSYSTEM",
@@ -364,10 +364,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "GLOBAL_AND_REGIONAL_GOVERNANCE",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_wellness_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "GLOBAL-PARTNERSHIPS-NETWORKING": {
         "ecosystem_id": "GLOBAL-PARTNERSHIPS-NETWORKING",
@@ -375,10 +375,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "GLOBAL_AND_REGIONAL_GOVERNANCE",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_partnerships_networking",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "INTIMACY-COACHING": {
         "ecosystem_id": "INTIMACY-COACHING",
@@ -386,10 +386,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "COACHING_AND_COUNSELLING",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/intimacy_coaching",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "KAMASUTRA-ANCIENT-KNOWLEDGE": {
         "ecosystem_id": "KAMASUTRA-ANCIENT-KNOWLEDGE",
@@ -397,10 +397,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "SEXUAL_EDUCATION_AND_TRADITIONAL_KNOWLEDGE",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/kamasutra_ancient_knowledge",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "LGBTQ-ADULT-WELLNESS": {
         "ecosystem_id": "LGBTQ-ADULT-WELLNESS",
@@ -408,10 +408,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "HEALTHCARE_AND_RESEARCH",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/lgbtq_adult_wellness",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "LOYALFANS-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "LOYALFANS-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -419,10 +419,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/loyalfans_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "MANYVIDS-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "MANYVIDS-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -430,10 +430,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/manyvids_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "MARRIAGE-MARRIED-LIFE": {
         "ecosystem_id": "MARRIAGE-MARRIED-LIFE",
@@ -441,10 +441,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "RELATIONSHIPS_AND_COMPATIBILITY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/marriage_married_life",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "MATURE-ADULT-RELATIONSHIPS": {
         "ecosystem_id": "MATURE-ADULT-RELATIONSHIPS",
@@ -452,10 +452,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "RELATIONSHIPS_AND_COMPATIBILITY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/mature_adult_relationships",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "MEDICAL-HEALTHCARE-PROFESSIONALS": {
         "ecosystem_id": "MEDICAL-HEALTHCARE-PROFESSIONALS",
@@ -463,10 +463,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "HEALTHCARE_AND_RESEARCH",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/medical_healthcare_professionals",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "MENS-SEXUAL-HEALTH": {
         "ecosystem_id": "MENS-SEXUAL-HEALTH",
@@ -474,10 +474,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "HEALTHCARE_AND_RESEARCH",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/mens_sexual_health",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "NAUGHTYAMERICA-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "NAUGHTYAMERICA-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -485,10 +485,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/naughtyamerica_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "ONLYFANS-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "ONLYFANS-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -496,10 +496,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/onlyfans_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "PAXUM-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "PAXUM-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -507,10 +507,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "PAYMENTS_AND_BILLING",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/paxum_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "PORNHUB-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "PORNHUB-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -518,10 +518,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/pornhub_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "REALITYKINGS-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "REALITYKINGS-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -529,10 +529,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/realitykings_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "RELATIONSHIP-COACHING": {
         "ecosystem_id": "RELATIONSHIP-COACHING",
@@ -540,10 +540,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "COACHING_AND_COUNSELLING",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/relationship_coaching",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "SEGPAY-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "SEGPAY-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -551,10 +551,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "PAYMENTS_AND_BILLING",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/segpay_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "SEXOLOGY-PROFESSIONAL-COUNSELLING": {
         "ecosystem_id": "SEXOLOGY-PROFESSIONAL-COUNSELLING",
@@ -562,10 +562,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "COACHING_AND_COUNSELLING",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/sexology_professional_counselling",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "SEXUAL-HEALTH-RESEARCH-INNOVATION": {
         "ecosystem_id": "SEXUAL-HEALTH-RESEARCH-INNOVATION",
@@ -573,10 +573,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "HEALTHCARE_AND_RESEARCH",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/sexual_health_research_innovation",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "SEXUAL-PRACTICES-INTIMACY": {
         "ecosystem_id": "SEXUAL-PRACTICES-INTIMACY",
@@ -584,10 +584,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "SEXUAL_EDUCATION_AND_TRADITIONAL_KNOWLEDGE",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/sexual_practices_intimacy",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "SEXUAL-PSYCHOLOGY-THERAPY": {
         "ecosystem_id": "SEXUAL-PSYCHOLOGY-THERAPY",
@@ -595,10 +595,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "COACHING_AND_COUNSELLING",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/sexual_psychology_therapy",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "SEXUAL-REPRODUCTIVE-HEALTHCARE": {
         "ecosystem_id": "SEXUAL-REPRODUCTIVE-HEALTHCARE",
@@ -606,10 +606,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "HEALTHCARE_AND_RESEARCH",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/sexual_reproductive_healthcare",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "SEXUAL-WELLNESS-COACHING": {
         "ecosystem_id": "SEXUAL-WELLNESS-COACHING",
@@ -617,10 +617,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "COACHING_AND_COUNSELLING",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/sexual_wellness_coaching",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "TRAFFICJUNKY-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "TRAFFICJUNKY-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -628,10 +628,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "ADVERTISING_AND_DISTRIBUTION",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/trafficjunky_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "VEROTEL-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "VEROTEL-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -639,10 +639,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "PAYMENTS_AND_BILLING",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/verotel_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "VICETEMPLE-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "VICETEMPLE-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -650,10 +650,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/vicetemple_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "WOMENS-SEXUAL-HEALTH": {
         "ecosystem_id": "WOMENS-SEXUAL-HEALTH",
@@ -661,10 +661,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "HEALTHCARE_AND_RESEARCH",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/womens_sexual_health",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "XHAMSTER-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "XHAMSTER-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -672,10 +672,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/xhamster_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     },
     "XVIDEOS-ADULT-INDUSTRY-CORE-ECOSYSTEM": {
         "ecosystem_id": "XVIDEOS-ADULT-INDUSTRY-CORE-ECOSYSTEM",
@@ -683,10 +683,10 @@ PRODUCTS: dict[str, dict[str, Any]] = {
         "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
         "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/xvideos_adult_industry_core_ecosystem",
         "status": "REGISTERED_SCAFFOLD",
-        "connected": false,
-        "age_restricted": true,
-        "requires_adult_age_assurance": true,
-        "requires_consent_and_rights_review": true
+        "connected": False,
+        "age_restricted": True,
+        "requires_adult_age_assurance": True,
+        "requires_consent_and_rights_review": True
     }
 }
 def list_products(*, enabled_only: bool = False) -> list[dict[str, Any]]:
