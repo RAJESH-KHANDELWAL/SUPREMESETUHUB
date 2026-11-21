@@ -148,7 +148,7 @@ def domain_summary() -> dict[str, Any]:
         "domain_count": len(SECURITY_DOMAINS),
         "coverage_exhaustive": bool(_DOMAIN_DATA.get("domain_coverage_exhaustive", False)),
         "master_catalog_ref_count": sum(len(item.get("master_catalog_refs", [])) for item in SECURITY_DOMAINS),
-        "master_catalog_alignment_verified": True,
+        "master_catalog_refs_present": True,\n        "master_catalog_source_loaded_at_runtime": False,
     }
 
 
