@@ -1,4 +1,9 @@
-"""Mandatory governance boundaries for adult wellness metadata."""
+"""Safety and authorization boundaries for adult-wellness Core metadata."""
+from __future__ import annotations
+
+from typing import Any
+from .contracts import AdultAccessAttestation, TenantContext
+
 POLICY = {
     "adult_only": True,
     "minimum_age": 18,
@@ -13,6 +18,37 @@ POLICY = {
     "clinical_services_require_licensed_professionals": True,
     "catalog_registration_is_not_provider_approval": True,
 }
+
+
+class KamasutraCorePolicyError(PermissionError):
+    """Raised when a request violates a mandatory Core safety boundary."""
+
+
 def get_policy() -> dict[str, object]:
     return dict(POLICY)
-__all__ = ["POLICY", "get_policy"]
+
+
+def validate_adult_access(
+    context: TenantContext | None,
+    attestation: AdultAccessAttestation | None,
+) -> dict[str, Any]:
+    """Validate trusted upstream attestations; this function does not verify identity itself."""
+    try:
+        if context is None:
+            raise ValueError("AUTHENTICATED_TENANT_CONTEXT_REQUIRED")
+        context.validate()
+        if attestation is None:
+            raise ValueError("ADULT_ACCESS_ATTESTATION_REQUIRED")
+        attestation.validate()
+    except ValueError as exc:
+        raise KamasutraCorePolicyError(str(exc)) from exc
+    return {
+        "success": True,
+        "tenant_id": context.tenant_id,
+        "actor_id": context.actor_id,
+        "verified_by": attestation.verified_by,
+        "api_call_performed": False,
+    }
+
+
+__all__ = ["POLICY", "KamasutraCorePolicyError", "get_policy", "validate_adult_access"]
