@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
   "ecosystem_id": "GLOBAL-SECURITY-CORE-ECOSYSTEM",
   "parent_id": "GLOBAL-CORE-ECOSYSTEM",
   "layer": "CORE",
@@ -129,5 +129,13 @@
     ],
     "reference_mapping_only": true
   },
-  "tier_count": 13
+  "tier_count": 13,
+  "control_area_count": 198,
+  "taxonomy": {
+    "coverage_model": "DOMAIN_WITH_CONTROL_AREAS",
+    "domain_count": 33,
+    "control_area_count": 198,
+    "coverage_status": "DEFINED_CORE_TAXONOMY_NON_EXHAUSTIVE",
+    "individual_control_area_folders": false
+  }
 }
