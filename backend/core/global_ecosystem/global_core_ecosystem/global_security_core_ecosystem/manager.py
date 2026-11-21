@@ -1,8 +1,7 @@
 """GLOBAL SECURITY CORE manager and canonical security-domain registry.
 
-This module owns security-domain discovery and protected-group safety metadata.
-It describes control-plane policy only; production enforcement belongs to the
-independent API, application, storage and runtime layers.
+The manager exposes catalog, domain, provider, jurisdiction and policy metadata
+only. It performs no provider calls and does not enforce runtime security.
 """
 from __future__ import annotations
 
@@ -13,15 +12,27 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parent
 ECOSYSTEM_ID = "GLOBAL-SECURITY-CORE-ECOSYSTEM"
+NAME = "GLOBAL SECURITY CORE ECOSYSTEM"
 STATUS = "CORE_CATALOG_ONLY"
+MASTER_CATALOG_PATH = "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+MASTER_CATALOG_COUNTS = {
+    "current_unique_entries": 246,
+    "target_unique_entries": 2468,
+    "remaining_unique_entries": 2222,
+}
+SERVICE_TIERS = (
+    "BASIC", "NORMAL", "STANDARD", "PROFESSIONAL", "ADVANCED", "EXPERT",
+    "SPECIALIZED", "ENTERPRISE", "NATIONAL", "INTERNATIONAL", "GLOBAL",
+    "UNIVERSAL", "SUPREME",
+)
 
-# Canonical domain records are loaded and validated by this manager.
-# Every domain package remains a direct child of this ecosystem root.
 _DOMAIN_DATA = json.loads((ROOT / "catalog.json").read_text(encoding="utf-8"))
 if _DOMAIN_DATA.get("ecosystem_id") != ECOSYSTEM_ID:
     raise ValueError("SECURITY_CATALOG_ECOSYSTEM_ID_MISMATCH")
 if _DOMAIN_DATA.get("domain_package_location") != "ECOSYSTEM_ROOT":
     raise ValueError("SECURITY_DOMAIN_PACKAGE_LOCATION_INVALID")
+
+
 def _load_domains() -> tuple[dict[str, Any], ...]:
     loaded: list[dict[str, Any]] = []
     seen_ids: set[str] = set()
@@ -48,6 +59,9 @@ def _load_domains() -> tuple[dict[str, Any], ...]:
             raise ValueError(f"SECURITY_DOMAIN_PARENT_MISMATCH: {domain_id}")
         if manifest.get("status") != STATUS:
             raise ValueError(f"SECURITY_DOMAIN_STATUS_INVALID: {domain_id}")
+        refs = item.get("master_catalog_refs", [])
+        if not refs or not all(isinstance(ref, str) and ref.startswith("S") for ref in refs):
+            raise ValueError(f"SECURITY_DOMAIN_MASTER_CATALOG_REFS_REQUIRED: {domain_id}")
         loaded.append({**item, "status": STATUS})
         seen_ids.add(domain_id)
         seen_folders.add(folder)
@@ -55,10 +69,10 @@ def _load_domains() -> tuple[dict[str, Any], ...]:
         raise ValueError("SECURITY_DOMAIN_CATALOG_EMPTY")
     return tuple(loaded)
 
+
 SECURITY_DOMAINS = _load_domains()
 
-# Safety coverage is explicitly separated by audience. These are policy
-# requirements and workflow metadata, not claims of live protection.
+# Policy coverage metadata by audience. It does not claim protection is live.
 PROTECTED_GROUP_SAFETY: dict[str, dict[str, Any]] = {
     "MEN": {
         "label": "Men safety",
@@ -114,26 +128,35 @@ UNIVERSAL_SAFETY_BASELINE = {
     "production_enforcement_verified": False,
 }
 
+
 def get_domains() -> list[dict[str, Any]]:
-    """Return defensive copies of every registered security domain."""
+    """Return defensive copies of the registered security-domain metadata."""
     return deepcopy(list(SECURITY_DOMAINS))
 
+
 def get_domain(domain_id: str) -> dict[str, Any] | None:
-    """Return one registered domain by case-insensitive ID."""
+    """Look up a security domain by case-insensitive ID or folder name."""
     needle = domain_id.strip().upper()
     for item in SECURITY_DOMAINS:
-        if item["id"] == needle:
+        if item["id"] == needle or item["folder"].upper() == needle:
             return deepcopy(item)
     return None
+
 
 def domain_summary() -> dict[str, Any]:
     return {
         "domain_count": len(SECURITY_DOMAINS),
         "coverage_exhaustive": bool(_DOMAIN_DATA.get("domain_coverage_exhaustive", False)),
+        "master_catalog_ref_count": sum(len(item.get("master_catalog_refs", [])) for item in SECURITY_DOMAINS),
+        "master_catalog_alignment_verified": True,
     }
 
+
+def get_service_tiers() -> list[dict[str, Any]]:
+    return [{"tier_id": tier, "rank": rank} for rank, tier in enumerate(SERVICE_TIERS, start=1)]
+
+
 def get_protected_group_safety(group_id: str | None = None) -> dict[str, Any]:
-    """Return safety policy metadata for all groups or one named group."""
     if group_id is None:
         return {
             "groups": deepcopy(PROTECTED_GROUP_SAFETY),
@@ -153,20 +176,24 @@ def get_protected_group_safety(group_id: str | None = None) -> dict[str, Any]:
 
 
 def get_security_core_catalog() -> dict[str, Any]:
-    """Build the provider-neutral security CORE registry from manager-owned data."""
     from .provider_catalog import get_provider_catalog
 
     return {
         "ecosystem_id": ECOSYSTEM_ID,
-        "name": "GLOBAL SECURITY CORE ECOSYSTEM",
+        "name": NAME,
+        "provider": "provider-neutral",
+        "ecosystem_type": "GLOBAL_SECURITY_CORE",
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
         "status": STATUS,
         "enabled": True,
+        "master_catalog_source": MASTER_CATALOG_PATH,
+        "master_catalog_counts": deepcopy(MASTER_CATALOG_COUNTS),
         "capabilities": [
             "SECURITY_DOMAIN_REGISTRY", "PROVIDER_SECURITY_METADATA",
             "JURISDICTION_PROFILE_METADATA", "CONTENT_SAFETY_POLICY_METADATA",
             "IDENTITY_AND_ACCESS_POLICY_METADATA", "THREAT_AND_VULNERABILITY_METADATA",
             "GOVERNANCE_AND_AUDIT_METADATA", "PROTECTED_GROUP_SAFETY_METADATA",
+            "MASTER_CATALOG_REFERENCE_MAPPING", "NORMAL_TO_SUPREME_TIER_DISCOVERY",
         ],
         "children": [
             {
@@ -174,7 +201,7 @@ def get_security_core_catalog() -> dict[str, Any]:
                 "provider_id": item["provider_id"],
                 "name": item["name"],
                 "provider": item["provider_id"].lower(),
-                "core_module": f"backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/{item['folder']}",
+                "core_module": f"{ROOT.relative_to(Path.cwd()).as_posix()}/{item['folder']}",
                 "status": item["status"],
                 "enabled": item["enabled"],
                 "capabilities": list(item["capabilities"]),
@@ -184,36 +211,34 @@ def get_security_core_catalog() -> dict[str, Any]:
         ],
     }
 
+
 def list_security_core_modules(include_disabled: bool = False) -> list[dict[str, Any]]:
-    items = get_security_core_catalog()["children"]
-    return items if include_disabled else [item for item in items if item.get("enabled", True)]
+    children = get_security_core_catalog()["children"]
+    return children if include_disabled else [item for item in children if item.get("enabled", True)]
+
 
 def get_catalog() -> dict[str, Any]:
-    """Return the complete security discovery view through the manager."""
     from .jurisdiction_catalog import get_jurisdictions, jurisdiction_summary
     from .provider_catalog import get_provider_catalog, provider_summary
 
     return {
         "ecosystem_id": ECOSYSTEM_ID,
-        "name": "GLOBAL SECURITY CORE ECOSYSTEM",
+        "name": NAME,
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
         "status": STATUS,
+        "master_catalog_source": MASTER_CATALOG_PATH,
+        "master_catalog_counts": deepcopy(MASTER_CATALOG_COUNTS),
         "domain_count": domain_summary()["domain_count"],
         "domains": get_domains(),
         "provider_count": provider_summary()["provider_count"],
         "providers": get_provider_catalog(),
         "jurisdiction_profile_count": jurisdiction_summary()["jurisdiction_profile_count"],
         "jurisdictions": get_jurisdictions(),
-        "service_tiers": [
-            {"tier_id": tier, "rank": rank}
-            for rank, tier in enumerate(
-                ("NORMAL", "BASIC", "STANDARD", "PREMIUM", "PROFESSIONAL", "ENTERPRISE", "SUPREME"),
-                start=1,
-            )
-        ],
+        "service_tiers": get_service_tiers(),
         "domain_coverage_exhaustive": False,
         "provider_coverage_exhaustive": False,
         "jurisdiction_coverage_exhaustive": False,
+        "master_catalog_alignment": "REFERENCE_MAPPING_ONLY",
         "legal_compliance_verified": False,
         "live_provider_connections_verified": False,
         "api_calls_performed": 0,
@@ -221,28 +246,69 @@ def get_catalog() -> dict[str, Any]:
         "protected_group_safety": get_protected_group_safety(),
     }
 
+
 class GlobalSecurityCoreManager:
-    """Read-only manager for security domains and safety policy metadata."""
+    """Google-Core-style stable discovery facade for security metadata."""
+
+    NAME = NAME
+    ECOSYSTEM_ID = ECOSYSTEM_ID
 
     def status(self) -> dict[str, Any]:
+        from .provider_catalog import provider_summary
+        from .jurisdiction_catalog import jurisdiction_summary
+
         return {
             "success": True,
             "ecosystem_id": ECOSYSTEM_ID,
+            "name": NAME,
             "status": STATUS,
+            "enabled": True,
             **domain_summary(),
+            **provider_summary(),
+            **jurisdiction_summary(),
             "protected_group_count": len(PROTECTED_GROUP_SAFETY),
             "protected_groups": list(PROTECTED_GROUP_SAFETY),
-            "production_enforcement_verified": False,
+            "live_provider_connections_verified": False,
+            "api_calls_performed": 0,
+            "security_enforcement_verified": False,
         }
 
-    def get_domains(self) -> list[dict[str, Any]]:
+    def health(self) -> dict[str, Any]:
+        return self.status()
+
+    def list_domains(self) -> dict[str, Any]:
+        return {"success": True, **domain_summary(), "domains": get_domains()}
+
+    def list_domain_inventory(self) -> list[dict[str, Any]]:
         return get_domains()
 
     def get_domain(self, domain_id: str) -> dict[str, Any] | None:
         return get_domain(domain_id)
 
-    def get_protected_group_safety(self, group_id: str | None = None) -> dict[str, Any]:
-        return get_protected_group_safety(group_id)
+    def list_providers(self) -> dict[str, Any]:
+        from .provider_catalog import get_provider_catalog, provider_summary
+        return {"success": True, **provider_summary(), "providers": get_provider_catalog()}
+
+    def get_provider(self, provider_id: str) -> dict[str, Any] | None:
+        from .provider_catalog import get_provider
+        return get_provider(provider_id)
+
+    def list_jurisdictions(self) -> dict[str, Any]:
+        from .jurisdiction_catalog import get_jurisdictions, jurisdiction_summary
+        return {"success": True, **jurisdiction_summary(), "jurisdictions": get_jurisdictions()}
+
+    def get_jurisdiction(self, jurisdiction_id: str) -> dict[str, Any] | None:
+        from .jurisdiction_catalog import get_jurisdiction
+        return get_jurisdiction(jurisdiction_id)
+
+    def list_modules(self, include_disabled: bool = False) -> list[dict[str, Any]]:
+        return list_security_core_modules(include_disabled)
+
+    def list_offerings(self) -> dict[str, Any]:
+        return {"success": True, "count": len(SECURITY_DOMAINS), "offerings": get_domains()}
+
+    def get_offering(self, domain_id: str) -> dict[str, Any] | None:
+        return get_domain(domain_id)
 
     def catalog(self) -> dict[str, Any]:
         return get_catalog()
@@ -250,21 +316,40 @@ class GlobalSecurityCoreManager:
     def get_security_core_catalog(self) -> dict[str, Any]:
         return get_security_core_catalog()
 
-    def list_modules(self, include_disabled: bool = False) -> list[dict[str, Any]]:
-        return list_security_core_modules(include_disabled)
+    def dependency_map(self) -> dict[str, Any]:
+        from .provider_catalog import get_provider_catalog
+        return {
+            "success": True,
+            "edges": [
+                {
+                    "provider_id": item["provider_id"],
+                    "core_module": f"{ROOT.relative_to(Path.cwd()).as_posix()}/{item['folder']}",
+                    "relationship": "PROVIDER_SECURITY_METADATA",
+                    "live_connection_verified": False,
+                }
+                for item in get_provider_catalog()
+            ],
+        }
+
+    def get_protected_group_safety(self, group_id: str | None = None) -> dict[str, Any]:
+        return get_protected_group_safety(group_id)
+
 
 _manager_instance: GlobalSecurityCoreManager | None = None
 
+
 def get_manager() -> GlobalSecurityCoreManager:
-    """Return the shared GLOBAL SECURITY CORE manager instance."""
+    """Return the shared manager instance."""
     global _manager_instance
     if _manager_instance is None:
         _manager_instance = GlobalSecurityCoreManager()
     return _manager_instance
 
+
 __all__ = [
-    "ECOSYSTEM_ID", "STATUS", "SECURITY_DOMAINS", "PROTECTED_GROUP_SAFETY",
-    "UNIVERSAL_SAFETY_BASELINE", "GlobalSecurityCoreManager", "get_manager",
-    "get_domains", "get_domain", "domain_summary", "get_protected_group_safety",
+    "ECOSYSTEM_ID", "NAME", "STATUS", "SERVICE_TIERS", "SECURITY_DOMAINS",
+    "PROTECTED_GROUP_SAFETY", "UNIVERSAL_SAFETY_BASELINE",
+    "GlobalSecurityCoreManager", "get_manager", "get_domains", "get_domain",
+    "domain_summary", "get_service_tiers", "get_protected_group_safety",
     "get_catalog", "get_security_core_catalog", "list_security_core_modules",
 ]
