@@ -28,6 +28,7 @@ def get_catalog():
         "geographic_scope": scope["geographic_scope"],
         "workload_domains": scope["workload_domains"]["domains"],
         "workload_domain_count": len(scope["workload_domains"]["domains"]),
+        "workload_area_count": scope["workload_domains"].get("workload_area_count", 0),
         "adult_workload_policy": scope["workload_domains"]["adult_workload_policy"],
         "master_catalog_source": registry["master_catalog_source"],
         "master_catalog_access_mode": registry["master_catalog_access_mode"],
