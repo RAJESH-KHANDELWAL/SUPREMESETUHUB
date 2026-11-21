@@ -8,7 +8,7 @@
     "target_unique_entries": 2468,
     "current_unique_entries": 246,
     "remaining_unique_entries": 2222,
-    "status": "FOUNDATION_CATALOG_ONLY",
+    "status": "FOUNDATION_CATALOG_WITH_IMPLEMENTATION_REGISTRY",
     "policy": "Expand only with meaningful, individually defined, non-duplicate entries. Do not manufacture entries merely to reach the target."
   },
   "counts": {
@@ -1697,5 +1697,588 @@
         "master_catalog_access_mode": "READ_ONLY_ON_DEMAND"
       }
     ]
+  },
+  "implementation_registry": {
+    "global_kamasutra_relationship_intimacy_sexual_health_adult_wellness_core_ecosystem": {
+      "ecosystem_id": "GLOBAL-KAMASUTRA-RELATIONSHIP-INTIMACY-SEXUAL-HEALTH-AND-ADULT-WELLNESS-CORE-ECOSYSTEM",
+      "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem",
+      "classification": "CORE_IMPLEMENTATION_REGISTRY",
+      "taxonomy_entries_counted_in_global_2468_target": false,
+      "reason": "Maps existing implementation packages to the master taxonomy without inflating the 2,468 unique-topic target or duplicating canonical topics.",
+      "registered_package_count": 62,
+      "domain_count": 12,
+      "domains": [
+        {
+          "domain_id": "RELATIONSHIPS_AND_COMPATIBILITY",
+          "name": "Relationships and Compatibility",
+          "package_ids": [
+            "ADULT-RELATIONSHIPS-COMPATIBILITY",
+            "COUPLE-INTIMACY-ROMANCE",
+            "DATING-GF-BF-RELATIONSHIPS",
+            "FAMILY-PARENTING-REPRODUCTIVE-WELLNESS",
+            "FAMILY-RELATIONSHIPS-COMMUNITY-BUSINESS-CORE-ECOSYSTEM",
+            "FAMILY-RELATIONSHIPS-PARENTING",
+            "MARRIAGE-MARRIED-LIFE",
+            "MATURE-ADULT-RELATIONSHIPS"
+          ]
+        },
+        {
+          "domain_id": "SEXUAL_EDUCATION_AND_TRADITIONAL_KNOWLEDGE",
+          "name": "Sexual Education and Traditional Knowledge",
+          "package_ids": [
+            "ADULT-SEXUAL-EDUCATION",
+            "KAMASUTRA-ANCIENT-KNOWLEDGE",
+            "SEXUAL-PRACTICES-INTIMACY"
+          ]
+        },
+        {
+          "domain_id": "HEALTHCARE_AND_RESEARCH",
+          "name": "Healthcare and Research",
+          "package_ids": [
+            "ADULT-BODY-FITNESS-WELLNESS",
+            "LGBTQ-ADULT-WELLNESS",
+            "MEDICAL-HEALTHCARE-PROFESSIONALS",
+            "MENS-SEXUAL-HEALTH",
+            "SEXUAL-HEALTH-RESEARCH-INNOVATION",
+            "SEXUAL-REPRODUCTIVE-HEALTHCARE",
+            "WOMENS-SEXUAL-HEALTH"
+          ]
+        },
+        {
+          "domain_id": "COACHING_AND_COUNSELLING",
+          "name": "Coaching and Counselling",
+          "package_ids": [
+            "CONSULTANTS-ADVISORS-PROFESSIONAL-SERVICES",
+            "INTIMACY-COACHING",
+            "RELATIONSHIP-COACHING",
+            "SEXOLOGY-PROFESSIONAL-COUNSELLING",
+            "SEXUAL-PSYCHOLOGY-THERAPY",
+            "SEXUAL-WELLNESS-COACHING"
+          ]
+        },
+        {
+          "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
+          "name": "Adult Media and Creator Economy",
+          "package_ids": [
+            "ADULT-ENTERTAINMENT-PORN-MEDIA",
+            "ADULT-MEDIA-CREATORS",
+            "BANGBROS-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+            "BRAZZERS-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+            "CLIPS4SALE-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+            "EVILANGEL-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+            "FANSLY-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+            "FAPHOUSE-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+            "LOYALFANS-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+            "MANYVIDS-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+            "NAUGHTYAMERICA-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+            "ONLYFANS-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+            "PORNHUB-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+            "REALITYKINGS-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+            "VICETEMPLE-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+            "XHAMSTER-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+            "XVIDEOS-ADULT-INDUSTRY-CORE-ECOSYSTEM"
+          ]
+        },
+        {
+          "domain_id": "BUSINESS_WORK_AND_TRAINING",
+          "name": "Business, Work and Training",
+          "package_ids": [
+            "ADULT-BUSINESS-MANAGEMENT-DEVELOPMENT",
+            "ADULT-STARTUPS-MSMES-COMPANIES",
+            "ADULT-TRAINING-CERTIFICATION-DEVELOPMENT",
+            "ADULT-WORK-JOBS-CAREERS"
+          ]
+        },
+        {
+          "domain_id": "COMMERCE_AND_MARKETPLACES",
+          "name": "Commerce and Marketplaces",
+          "package_ids": [
+            "ADULT-B2B-B2C-MARKETPLACE-TRADE",
+            "ADULT-WELLNESS-PRODUCTS-COMMERCE"
+          ]
+        },
+        {
+          "domain_id": "TECHNOLOGY_AND_INFRASTRUCTURE",
+          "name": "Technology and Infrastructure",
+          "package_ids": [
+            "ADULT-TECHNOLOGY-SOFTWARE-APIS",
+            "CLOUDFLARE-ADULT-INDUSTRY-CORE-ECOSYSTEM"
+          ]
+        },
+        {
+          "domain_id": "LAW_SAFETY_AND_COMPLIANCE",
+          "name": "Law, Safety and Compliance",
+          "package_ids": [
+            "ADULT-LAW-SAFETY-COMPLIANCE"
+          ]
+        },
+        {
+          "domain_id": "PAYMENTS_AND_BILLING",
+          "name": "Payments and Billing",
+          "package_ids": [
+            "CCBILL-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+            "EPOCH-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+            "PAXUM-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+            "SEGPAY-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+            "VEROTEL-ADULT-INDUSTRY-CORE-ECOSYSTEM"
+          ]
+        },
+        {
+          "domain_id": "ADVERTISING_AND_DISTRIBUTION",
+          "name": "Advertising and Distribution",
+          "package_ids": [
+            "CRAKREVENUE-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+            "EXOCLICK-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+            "TRAFFICJUNKY-ADULT-INDUSTRY-CORE-ECOSYSTEM"
+          ]
+        },
+        {
+          "domain_id": "GLOBAL_AND_REGIONAL_GOVERNANCE",
+          "name": "Global and Regional Governance",
+          "package_ids": [
+            "ABELOHOST-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+            "BHARAT-ADULT-WELLNESS-CORE-ECOSYSTEM",
+            "GLOBAL-ADULT-WELLNESS-CORE-ECOSYSTEM",
+            "GLOBAL-PARTNERSHIPS-NETWORKING"
+          ]
+        }
+      ],
+      "packages": [
+        {
+          "package_id": "ABELOHOST-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "abelohost_adult_industry_core_ecosystem",
+          "domain_id": "GLOBAL_AND_REGIONAL_GOVERNANCE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/abelohost_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "ADULT-B2B-B2C-MARKETPLACE-TRADE",
+          "package_name": "adult_b2b_b2c_marketplace_trade",
+          "domain_id": "COMMERCE_AND_MARKETPLACES",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_b2b_b2c_marketplace_trade",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "ADULT-BODY-FITNESS-WELLNESS",
+          "package_name": "adult_body_fitness_wellness",
+          "domain_id": "HEALTHCARE_AND_RESEARCH",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_body_fitness_wellness",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "ADULT-BUSINESS-MANAGEMENT-DEVELOPMENT",
+          "package_name": "adult_business_management_development",
+          "domain_id": "BUSINESS_WORK_AND_TRAINING",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_business_management_development",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "ADULT-ENTERTAINMENT-PORN-MEDIA",
+          "package_name": "adult_entertainment_porn_media",
+          "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_entertainment_porn_media",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "ADULT-LAW-SAFETY-COMPLIANCE",
+          "package_name": "adult_law_safety_compliance",
+          "domain_id": "LAW_SAFETY_AND_COMPLIANCE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_law_safety_compliance",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "ADULT-MEDIA-CREATORS",
+          "package_name": "adult_media_creators",
+          "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_media_creators",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "ADULT-RELATIONSHIPS-COMPATIBILITY",
+          "package_name": "adult_relationships_compatibility",
+          "domain_id": "RELATIONSHIPS_AND_COMPATIBILITY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_relationships_compatibility",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "ADULT-SEXUAL-EDUCATION",
+          "package_name": "adult_sexual_education",
+          "domain_id": "SEXUAL_EDUCATION_AND_TRADITIONAL_KNOWLEDGE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_sexual_education",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "ADULT-STARTUPS-MSMES-COMPANIES",
+          "package_name": "adult_startups_msmes_companies",
+          "domain_id": "BUSINESS_WORK_AND_TRAINING",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_startups_msmes_companies",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "ADULT-TECHNOLOGY-SOFTWARE-APIS",
+          "package_name": "adult_technology_software_apis",
+          "domain_id": "TECHNOLOGY_AND_INFRASTRUCTURE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_technology_software_apis",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "ADULT-TRAINING-CERTIFICATION-DEVELOPMENT",
+          "package_name": "adult_training_certification_development",
+          "domain_id": "BUSINESS_WORK_AND_TRAINING",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_training_certification_development",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "ADULT-WELLNESS-PRODUCTS-COMMERCE",
+          "package_name": "adult_wellness_products_commerce",
+          "domain_id": "COMMERCE_AND_MARKETPLACES",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_wellness_products_commerce",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "ADULT-WORK-JOBS-CAREERS",
+          "package_name": "adult_work_jobs_careers",
+          "domain_id": "BUSINESS_WORK_AND_TRAINING",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/adult_work_jobs_careers",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "BANGBROS-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "bangbros_adult_industry_core_ecosystem",
+          "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/bangbros_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "BHARAT-ADULT-WELLNESS-CORE-ECOSYSTEM",
+          "package_name": "bharat_adult_wellness_core_ecosystem",
+          "domain_id": "GLOBAL_AND_REGIONAL_GOVERNANCE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/bharat_adult_wellness_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "BRAZZERS-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "brazzers_adult_industry_core_ecosystem",
+          "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/brazzers_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "CCBILL-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "ccbill_adult_industry_core_ecosystem",
+          "domain_id": "PAYMENTS_AND_BILLING",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/ccbill_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "CLIPS4SALE-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "clips4sale_adult_industry_core_ecosystem",
+          "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/clips4sale_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "CLOUDFLARE-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "cloudflare_adult_industry_core_ecosystem",
+          "domain_id": "TECHNOLOGY_AND_INFRASTRUCTURE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/cloudflare_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "CONSULTANTS-ADVISORS-PROFESSIONAL-SERVICES",
+          "package_name": "consultants_advisors_professional_services",
+          "domain_id": "COACHING_AND_COUNSELLING",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/consultants_advisors_professional_services",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "COUPLE-INTIMACY-ROMANCE",
+          "package_name": "couple_intimacy_romance",
+          "domain_id": "RELATIONSHIPS_AND_COMPATIBILITY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/couple_intimacy_romance",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "CRAKREVENUE-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "crakrevenue_adult_industry_core_ecosystem",
+          "domain_id": "ADVERTISING_AND_DISTRIBUTION",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/crakrevenue_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "DATING-GF-BF-RELATIONSHIPS",
+          "package_name": "dating_gf_bf_relationships",
+          "domain_id": "RELATIONSHIPS_AND_COMPATIBILITY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/dating_gf_bf_relationships",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "EPOCH-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "epoch_adult_industry_core_ecosystem",
+          "domain_id": "PAYMENTS_AND_BILLING",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/epoch_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "EVILANGEL-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "evilangel_adult_industry_core_ecosystem",
+          "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/evilangel_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "EXOCLICK-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "exoclick_adult_industry_core_ecosystem",
+          "domain_id": "ADVERTISING_AND_DISTRIBUTION",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/exoclick_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "FAMILY-PARENTING-REPRODUCTIVE-WELLNESS",
+          "package_name": "family_parenting_reproductive_wellness",
+          "domain_id": "RELATIONSHIPS_AND_COMPATIBILITY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/family_parenting_reproductive_wellness",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "FAMILY-RELATIONSHIPS-COMMUNITY-BUSINESS-CORE-ECOSYSTEM",
+          "package_name": "family_relationships_community_business_core_ecosystem",
+          "domain_id": "RELATIONSHIPS_AND_COMPATIBILITY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/family_relationships_community_business_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "FAMILY-RELATIONSHIPS-PARENTING",
+          "package_name": "family_relationships_parenting",
+          "domain_id": "RELATIONSHIPS_AND_COMPATIBILITY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/family_relationships_parenting",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "FANSLY-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "fansly_adult_industry_core_ecosystem",
+          "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/fansly_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "FAPHOUSE-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "faphouse_adult_industry_core_ecosystem",
+          "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/faphouse_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "GLOBAL-ADULT-WELLNESS-CORE-ECOSYSTEM",
+          "package_name": "global_adult_wellness_core_ecosystem",
+          "domain_id": "GLOBAL_AND_REGIONAL_GOVERNANCE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_adult_wellness_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "GLOBAL-PARTNERSHIPS-NETWORKING",
+          "package_name": "global_partnerships_networking",
+          "domain_id": "GLOBAL_AND_REGIONAL_GOVERNANCE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/global_partnerships_networking",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "INTIMACY-COACHING",
+          "package_name": "intimacy_coaching",
+          "domain_id": "COACHING_AND_COUNSELLING",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/intimacy_coaching",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "KAMASUTRA-ANCIENT-KNOWLEDGE",
+          "package_name": "kamasutra_ancient_knowledge",
+          "domain_id": "SEXUAL_EDUCATION_AND_TRADITIONAL_KNOWLEDGE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/kamasutra_ancient_knowledge",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "LGBTQ-ADULT-WELLNESS",
+          "package_name": "lgbtq_adult_wellness",
+          "domain_id": "HEALTHCARE_AND_RESEARCH",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/lgbtq_adult_wellness",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "LOYALFANS-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "loyalfans_adult_industry_core_ecosystem",
+          "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/loyalfans_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "MANYVIDS-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "manyvids_adult_industry_core_ecosystem",
+          "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/manyvids_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "MARRIAGE-MARRIED-LIFE",
+          "package_name": "marriage_married_life",
+          "domain_id": "RELATIONSHIPS_AND_COMPATIBILITY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/marriage_married_life",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "MATURE-ADULT-RELATIONSHIPS",
+          "package_name": "mature_adult_relationships",
+          "domain_id": "RELATIONSHIPS_AND_COMPATIBILITY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/mature_adult_relationships",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "MEDICAL-HEALTHCARE-PROFESSIONALS",
+          "package_name": "medical_healthcare_professionals",
+          "domain_id": "HEALTHCARE_AND_RESEARCH",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/medical_healthcare_professionals",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "MENS-SEXUAL-HEALTH",
+          "package_name": "mens_sexual_health",
+          "domain_id": "HEALTHCARE_AND_RESEARCH",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/mens_sexual_health",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "NAUGHTYAMERICA-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "naughtyamerica_adult_industry_core_ecosystem",
+          "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/naughtyamerica_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "ONLYFANS-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "onlyfans_adult_industry_core_ecosystem",
+          "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/onlyfans_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "PAXUM-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "paxum_adult_industry_core_ecosystem",
+          "domain_id": "PAYMENTS_AND_BILLING",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/paxum_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "PORNHUB-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "pornhub_adult_industry_core_ecosystem",
+          "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/pornhub_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "REALITYKINGS-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "realitykings_adult_industry_core_ecosystem",
+          "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/realitykings_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "RELATIONSHIP-COACHING",
+          "package_name": "relationship_coaching",
+          "domain_id": "COACHING_AND_COUNSELLING",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/relationship_coaching",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "SEGPAY-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "segpay_adult_industry_core_ecosystem",
+          "domain_id": "PAYMENTS_AND_BILLING",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/segpay_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "SEXOLOGY-PROFESSIONAL-COUNSELLING",
+          "package_name": "sexology_professional_counselling",
+          "domain_id": "COACHING_AND_COUNSELLING",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/sexology_professional_counselling",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "SEXUAL-HEALTH-RESEARCH-INNOVATION",
+          "package_name": "sexual_health_research_innovation",
+          "domain_id": "HEALTHCARE_AND_RESEARCH",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/sexual_health_research_innovation",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "SEXUAL-PRACTICES-INTIMACY",
+          "package_name": "sexual_practices_intimacy",
+          "domain_id": "SEXUAL_EDUCATION_AND_TRADITIONAL_KNOWLEDGE",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/sexual_practices_intimacy",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "SEXUAL-PSYCHOLOGY-THERAPY",
+          "package_name": "sexual_psychology_therapy",
+          "domain_id": "COACHING_AND_COUNSELLING",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/sexual_psychology_therapy",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "SEXUAL-REPRODUCTIVE-HEALTHCARE",
+          "package_name": "sexual_reproductive_healthcare",
+          "domain_id": "HEALTHCARE_AND_RESEARCH",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/sexual_reproductive_healthcare",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "SEXUAL-WELLNESS-COACHING",
+          "package_name": "sexual_wellness_coaching",
+          "domain_id": "COACHING_AND_COUNSELLING",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/sexual_wellness_coaching",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "TRAFFICJUNKY-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "trafficjunky_adult_industry_core_ecosystem",
+          "domain_id": "ADVERTISING_AND_DISTRIBUTION",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/trafficjunky_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "VEROTEL-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "verotel_adult_industry_core_ecosystem",
+          "domain_id": "PAYMENTS_AND_BILLING",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/verotel_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "VICETEMPLE-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "vicetemple_adult_industry_core_ecosystem",
+          "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/vicetemple_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "WOMENS-SEXUAL-HEALTH",
+          "package_name": "womens_sexual_health",
+          "domain_id": "HEALTHCARE_AND_RESEARCH",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/womens_sexual_health",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "XHAMSTER-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "xhamster_adult_industry_core_ecosystem",
+          "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/xhamster_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        },
+        {
+          "package_id": "XVIDEOS-ADULT-INDUSTRY-CORE-ECOSYSTEM",
+          "package_name": "xvideos_adult_industry_core_ecosystem",
+          "domain_id": "ADULT_MEDIA_AND_CREATOR_ECONOMY",
+          "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/xvideos_adult_industry_core_ecosystem",
+          "status": "REGISTERED_SCAFFOLD"
+        }
+      ]
+    }
   }
 }
