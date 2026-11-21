@@ -1802,6 +1802,19 @@
         "php_facade_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_social_media_core_ecosystem/manager.php",
         "php_contract_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_social_media_core_ecosystem/php/GlobalSocialMediaCoreContract.php",
         "test_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_social_media_core_ecosystem/test_social_media_core_domains.py"
+      },
+      {
+        "ecosystem_id": "GLOBAL-SOFTWARE-CORE-ECOSYSTEM",
+        "name": "GLOBAL SOFTWARE CORE ECOSYSTEM",
+        "layer": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem",
+        "catalog_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/catalog.py",
+        "manager_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/manager.py",
+        "status": "CORE_CATALOG_ONLY",
+        "provider_directory_count": 6,
+        "domain_count": 18,
+        "live_connection_verified": false,
+        "api_transport_in_core": false,
+        "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
       }
     ]
   },
@@ -3632,6 +3645,147 @@
       "api_calls_performed": 0,
       "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
       "master_catalog_access_mode": "READ_ONLY_VALIDATED_REFERENCES"
+    },
+    "global_software_core_ecosystem": {
+      "ecosystem_id": "GLOBAL-SOFTWARE-CORE-ECOSYSTEM",
+      "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem",
+      "classification": "CORE_IMPLEMENTATION_REGISTRY",
+      "taxonomy_entries_counted_in_global_2468_target": false,
+      "reason": "Implementation architecture reference only; does not create or duplicate master taxonomy topics.",
+      "provider_package_count": 6,
+      "domain_count": 18,
+      "domains": [
+        {
+          "domain_id": "SOFTWARE_GOVERNANCE",
+          "name": "Software Governance",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_software_governance_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_software_governance_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "OPERATING_SYSTEMS",
+          "name": "Operating Systems",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_operating_systems_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_operating_systems_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "DESKTOP_AND_PRODUCTIVITY",
+          "name": "Desktop and Productivity",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_desktop_and_productivity_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_desktop_and_productivity_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "BUSINESS_AND_ENTERPRISE",
+          "name": "Business and Enterprise",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_business_and_enterprise_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_business_and_enterprise_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "DEVELOPMENT_AND_IDE",
+          "name": "Development and IDE",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_development_and_ide_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_development_and_ide_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "DEVOPS_AND_DELIVERY",
+          "name": "DevOps and Delivery",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_devops_and_delivery_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_devops_and_delivery_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "CLOUD_AND_INFRASTRUCTURE",
+          "name": "Cloud and Infrastructure",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_cloud_and_infrastructure_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_cloud_and_infrastructure_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "DATABASE_AND_DATA",
+          "name": "Database and Data",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_database_and_data_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_database_and_data_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "AI_AND_MACHINE_LEARNING",
+          "name": "AI and Machine Learning",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_ai_and_machine_learning_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_ai_and_machine_learning_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "SECURITY_AND_PRIVACY",
+          "name": "Security and Privacy",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_security_and_privacy_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_security_and_privacy_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "DESIGN_AND_CREATIVE",
+          "name": "Design and Creative",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_design_and_creative_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_design_and_creative_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "WEB_AND_CONTENT",
+          "name": "Web and Content",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_web_and_content_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_web_and_content_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "COMMUNICATION_AND_COLLABORATION",
+          "name": "Communication and Collaboration",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_communication_and_collaboration_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_communication_and_collaboration_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "ANALYTICS_AND_OBSERVABILITY",
+          "name": "Analytics and Observability",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_analytics_and_observability_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_analytics_and_observability_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "NETWORKING_AND_SYSTEMS",
+          "name": "Networking and Systems",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_networking_and_systems_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_networking_and_systems_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "MOBILE_AND_APPLICATIONS",
+          "name": "Mobile and Applications",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_mobile_and_applications_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_mobile_and_applications_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "GAMING_AND_INTERACTIVE",
+          "name": "Gaming and Interactive",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_gaming_and_interactive_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_gaming_and_interactive_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "LICENSING_SUPPORT_AND_INTEROPERABILITY",
+          "name": "Licensing Support and Interoperability",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_licensing_support_and_interoperability_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/global_licensing_support_and_interoperability_core_ecosystem/manager.py"
+        }
+      ],
+      "shared_files": [
+        "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/contracts.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/domain_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/domain_runtime.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/policy.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/module_service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/orchestrator.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/manager.php",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/README.md",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/SOFTWARE_CORE_IMPLEMENTATION_STATUS.md",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/test_software_core_domains.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/product_ecosystem_index.json"
+      ],
+      "php_contract_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/php/GlobalSoftwareCoreContract.php",
+      "test_path": "backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/test_software_core_domains.py",
+      "live_connection_verified": false,
+      "api_transport_in_core": false,
+      "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
     }
   }
 }
