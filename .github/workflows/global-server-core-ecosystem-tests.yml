@@ -60,7 +60,7 @@ jobs:
       - name: Run Server Core tests
         env:
           PYTHONPATH: .
-        run: python -m pytest backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/test_core.py -q
+        run: python -m pytest backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/test_core.py backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/tests -q
 
       - name: Check PHP contract syntax
         run: |
