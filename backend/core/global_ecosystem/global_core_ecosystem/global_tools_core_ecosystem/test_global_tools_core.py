@@ -22,3 +22,8 @@ def test_policy_requires_tenant():
 def test_validator():
  from .tools.validate_tools_catalog import validate
  assert validate()["success"]
+def test_each_provider_facade_resolves():
+ from importlib import import_module
+ for provider in list_providers():
+  module=import_module(f"{__package__}.{provider['provider_id']}_tools_core_ecosystem.manager")
+  assert module.get_manager().status()["provider_id"]==provider["provider_id"]
