@@ -97,5 +97,8 @@
   "master_catalog_source": "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json",
   "master_catalog_access_mode": "READ_ONLY_VALIDATED_REFERENCES",
   "master_catalog_alignment": "EXACT_ENTRY_ID_VALIDATED",
-  "master_catalog_entries_counted_as_new": false
+  "master_catalog_entries_counted_as_new": false,
+  "workload_area_count": 100,
+  "workload_areas_per_domain": 5,
+  "workload_coverage_exhaustive": false
 }
