@@ -2,7 +2,7 @@
 from __future__ import annotations
 from typing import Any
 DOMAIN_DEFINITIONS={
-    "PROVIDER_GOVERNANCE":{"name":"Provider Governance","purpose":"Provider identity, product-family registration, lifecycle, readiness and ownership.","product_ids":["meta_graph_core","meta_facebook_pages","meta_instagram","meta_whatsapp_business","meta_messenger","meta_threads","meta_marketing_ads","meta_login_identity","meta_business_management","meta_webhooks","meta_meta_ai"]},
+    "PROVIDER_GOVERNANCE":{"name":"Provider Governance","purpose":"Provider identity, product-family registration, lifecycle, readiness and ownership.","product_ids":["meta_graph_core","meta_facebook_pages","meta_instagram","meta_whatsapp_business","meta_messenger","meta_threads","meta_marketing_ads","meta_login_identity","meta_business_management","meta_webhooks","meta_ai"]},
     "GRAPH_PLATFORM_AND_OBJECT_MODEL":{"name":"Graph Platform and Object Model","purpose":"Graph nodes, edges, fields, object identifiers, API versions, paging and error contracts.","product_ids":["meta_graph_core"]},
     "FACEBOOK_PAGES_AND_PUBLISHING":{"name":"Facebook Pages and Publishing","purpose":"Page discovery, Page-owned assets, supported publishing, moderation and Page insights.","product_ids":["meta_facebook_pages","meta_graph_core","meta_business_management"]},
     "INSTAGRAM_CREATOR_AND_PROFESSIONAL":{"name":"Instagram Creator and Professional Accounts","purpose":"Professional account discovery, media publishing, comments, mentions and insights subject to eligibility.","product_ids":["meta_instagram","meta_graph_core","meta_business_management"]},
