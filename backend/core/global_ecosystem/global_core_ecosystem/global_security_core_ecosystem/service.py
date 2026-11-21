@@ -1,37 +1,50 @@
-"""Global Security CORE read-only control-plane service."""
+"""Read-only service facade for GLOBAL SECURITY CORE metadata."""
 from __future__ import annotations
+
 from typing import Any
-from .catalog import get_catalog, get_security_core_catalog
 from .orchestrator import SecurityCoreOrchestrator
+
 
 class SecurityCoreEcosystemService:
     NAME = "GLOBAL SECURITY CORE ECOSYSTEM"
-    def __init__(self): self.orchestrator = SecurityCoreOrchestrator()
+
+    def __init__(self):
+        self.orchestrator = SecurityCoreOrchestrator()
+
     def status(self) -> dict[str, Any]:
-        catalog = get_catalog()
         health = self.orchestrator.health()
-        manager = self.manager_status()
-        return {
-            "success": True, "ecosystem_id": catalog["ecosystem_id"], "name": self.NAME,
-            "status": catalog["status"], "registry_status": manager["registered"],
-            "domain_count": health["domain_count"], "provider_count": health["provider_count"],
-            "jurisdiction_profile_count": health["jurisdiction_profile_count"],
-            "live_service_connections_verified": False, "health": health,
-            "manager_registration": manager,
-        }
-    def catalog(self): return get_catalog()
-    def list_modules(self, enabled_only=False): return self.orchestrator.list_modules(enabled_only)
-    def list_domains(self): return self.orchestrator.list_domains()
-    def list_providers(self): return self.orchestrator.list_providers()
-    def list_jurisdictions(self): return self.orchestrator.list_jurisdictions()
-    def get_jurisdiction(self, jurisdiction_id): return self.orchestrator.get_jurisdiction(jurisdiction_id)
-    def content_safety(self): return self.orchestrator.content_safety()
-    def health(self): return self.orchestrator.health()
-    def dependency_map(self): return self.orchestrator.dependency_map()
-    def manager_status(self):
         try:
             from backend.core.global_ecosystem.global_core_ecosystem.manager import GlobalEcosystemManager
             record = GlobalEcosystemManager().get("GLOBAL-SECURITY-CORE-ECOSYSTEM")
+            registered = record is not None
+            registration = {"success": registered, "registered": registered, "ecosystem": record}
         except Exception as exc:
-            return {"success": False, "registered": False, "ecosystem": None, "error": type(exc).__name__}
-        return {"success": record is not None, "registered": record is not None, "ecosystem": record, "live_service_connections_verified": False}
+            registration = {"success": False, "registered": False, "ecosystem": None, "error": type(exc).__name__}
+        return {
+            "success": True,
+            "ecosystem_id": health["ecosystem_id"],
+            "name": self.NAME,
+            "status": health["status"],
+            "domain_count": health["domain_count"],
+            "provider_count": health["provider_count"],
+            "jurisdiction_profile_count": health["jurisdiction_profile_count"],
+            "live_service_connections_verified": False,
+            "health": health,
+            "manager_registration": registration,
+        }
+
+    def catalog(self): return self.orchestrator.catalog()
+    def list_modules(self, enabled_only=False): return self.orchestrator.list_modules(enabled_only)
+    def list_domains(self): return self.orchestrator.list_domains()
+    def get_domain(self, domain_id): return self.orchestrator.get_domain(domain_id)
+    def list_providers(self): return self.orchestrator.list_providers()
+    def get_provider(self, provider_id): return self.orchestrator.get_provider(provider_id)
+    def list_jurisdictions(self): return self.orchestrator.list_jurisdictions()
+    def get_jurisdiction(self, jurisdiction_id): return self.orchestrator.get_jurisdiction(jurisdiction_id)
+    def list_offerings(self): return self.orchestrator.list_offerings()
+    def get_offering(self, domain_id): return self.orchestrator.get_offering(domain_id)
+    def service_tiers(self): return self.orchestrator.service_tiers()
+    def content_safety(self): return self.orchestrator.content_safety()
+    def protected_group_safety(self, group_id=None): return self.orchestrator.protected_group_safety(group_id)
+    def health(self): return self.orchestrator.health()
+    def dependency_map(self): return self.orchestrator.dependency_map()
