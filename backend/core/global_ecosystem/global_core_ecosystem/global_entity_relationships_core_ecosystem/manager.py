@@ -27,6 +27,8 @@ class GlobalEntityRelationshipsCoreManager:
 
     def __init__(self) -> None:
         self._registry = EntityRelationshipRegistry(get_catalog())
+        # Compatibility alias retained for existing tests and integrations.
+        self.registry = self._registry
 
     def status(self) -> dict[str, Any]:
         return {
@@ -123,7 +125,7 @@ class GlobalEntityRelationshipsCoreManager:
             "remaining_unique_entries": MASTER_CATALOG_REMAINING_UNIQUE_ENTRIES,
             "source_path": MASTER_CATALOG_PATH,
             "owner_layer": "GLOBAL_ENGINE_ECOSYSTEM",
-            "access_mode": "READ_ONLY_REFERENCE",
+            "access_mode": "READ_ONLY_ON_DEMAND",
             "catalog_loaded": False,
             "catalog_copied": False,
             "catalog_mutated": False,
