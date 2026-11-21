@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "profile_id": "SERVER-WORKLOAD-GOVERNMENT_PUBLIC_SERVICES",
   "domain_id": "GOVERNMENT_PUBLIC_SERVICES",
   "label": "Government and Public Services",
@@ -30,5 +30,33 @@
     "storage": "files, objects, backups and artifacts"
   },
   "operational_status": "NON_EXECUTING_PROFILE",
-  "note": "No provisioning, legal approval or production operation is performed by this profile."
+  "note": "No provisioning, legal approval or production operation is performed by this profile.",
+  "workload_areas": [
+    {
+      "area_id": "GOVERNMENT_PUBLIC_SERVICES_WORKLOAD_01",
+      "name": "Digital public service portals",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "GOVERNMENT_PUBLIC_SERVICES_WORKLOAD_02",
+      "name": "Civil registration and identity records",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "GOVERNMENT_PUBLIC_SERVICES_WORKLOAD_03",
+      "name": "Taxation, benefits and welfare systems",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "GOVERNMENT_PUBLIC_SERVICES_WORKLOAD_04",
+      "name": "Courts, justice and case administration",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "GOVERNMENT_PUBLIC_SERVICES_WORKLOAD_05",
+      "name": "Emergency response and public safety systems",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    }
+  ],
+  "workload_area_count": 5
 }
