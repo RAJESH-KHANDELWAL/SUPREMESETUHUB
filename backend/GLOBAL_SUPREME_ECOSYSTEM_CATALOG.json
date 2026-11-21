@@ -1828,6 +1828,24 @@
         "product_family_count": 25,
         "domain_count": 17,
         "live_connections_verified": false
+      },
+      {
+        "ecosystem_id": "GLOBAL-SYSTEM-CORE-ECOSYSTEM",
+        "name": "GLOBAL SYSTEM CORE ECOSYSTEM",
+        "layer": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem",
+        "catalog_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/catalog.py",
+        "product_index_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/product_ecosystem_index.json",
+        "manager_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/manager.py",
+        "domain_catalog_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/domain_catalog.py",
+        "shared_runtime_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/domain_runtime.py",
+        "status": "CORE_CATALOG_ONLY",
+        "provider_count": 21,
+        "product_family_count": 54,
+        "domain_count": 18,
+        "live_connections_verified": false,
+        "api_transport_in_core": false,
+        "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+        "taxonomy_entries_counted_in_global_2468_target": false
       }
     ]
   },
@@ -3948,6 +3966,266 @@
       "live_connections_verified": false,
       "api_transport_in_core": false,
       "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
+    },
+    "global_system_core_ecosystem": {
+      "ecosystem_id": "GLOBAL-SYSTEM-CORE-ECOSYSTEM",
+      "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem",
+      "classification": "CORE_IMPLEMENTATION_REGISTRY",
+      "taxonomy_entries_counted_in_global_2468_target": false,
+      "reason": "System provider, product and domain metadata are implementation architecture references and do not add or duplicate master taxonomy topics.",
+      "provider_count": 21,
+      "product_family_count": 54,
+      "domain_count": 18,
+      "providers": [
+        {
+          "provider_id": "apple",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/apple_system_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/apple_system_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "microsoft",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/microsoft_system_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/microsoft_system_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "google",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/google_system_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/google_system_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "canonical",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/canonical_system_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/canonical_system_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "redhat",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/redhat_system_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/redhat_system_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "debian",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/debian_system_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/debian_system_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "suse",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/suse_system_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/suse_system_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "oracle",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/oracle_system_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/oracle_system_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "amazon",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/amazon_system_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/amazon_system_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "ibm",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/ibm_system_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/ibm_system_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "freebsd",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/freebsd_system_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/freebsd_system_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "openbsd",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/openbsd_system_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/openbsd_system_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "netbsd",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/netbsd_system_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/netbsd_system_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "vmware",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/vmware_system_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/vmware_system_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "proxmox",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/proxmox_system_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/proxmox_system_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "qnx",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/qnx_system_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/qnx_system_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "zephyr",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/zephyr_system_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/zephyr_system_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "freertos",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/freertos_system_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/freertos_system_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "linux_foundation",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/linux_foundation_system_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/linux_foundation_system_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "community_linux",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/community_linux_system_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/community_linux_system_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "illumos",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/illumos_system_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/illumos_system_core_ecosystem/manager.py"
+        }
+      ],
+      "domains": [
+        {
+          "domain_id": "SYSTEM_GOVERNANCE",
+          "name": "System Governance",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_system_governance_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_system_governance_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "DESKTOP_OPERATING_SYSTEMS",
+          "name": "Desktop Operating Systems",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_desktop_operating_systems_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_desktop_operating_systems_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "SERVER_OPERATING_SYSTEMS",
+          "name": "Server Operating Systems",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_server_operating_systems_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_server_operating_systems_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "MOBILE_OPERATING_SYSTEMS",
+          "name": "Mobile Operating Systems",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_mobile_operating_systems_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_mobile_operating_systems_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "LINUX_DISTRIBUTIONS",
+          "name": "Linux Distributions",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_linux_distributions_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_linux_distributions_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "UNIX_AND_BSD_SYSTEMS",
+          "name": "UNIX and BSD Systems",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_unix_and_bsd_systems_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_unix_and_bsd_systems_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "REAL_TIME_AND_EMBEDDED_SYSTEMS",
+          "name": "Real-time and Embedded Systems",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_real_time_and_embedded_systems_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_real_time_and_embedded_systems_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "KERNELS_AND_BOOT",
+          "name": "Kernels and Boot",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_kernels_and_boot_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_kernels_and_boot_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "FIRMWARE_AND_DRIVERS",
+          "name": "Firmware and Drivers",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_firmware_and_drivers_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_firmware_and_drivers_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "VIRTUALIZATION_AND_HYPERVISORS",
+          "name": "Virtualization and Hypervisors",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_virtualization_and_hypervisors_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_virtualization_and_hypervisors_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "CONTAINERS_AND_SYSTEM_RUNTIME",
+          "name": "Containers and System Runtime",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_containers_and_system_runtime_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_containers_and_system_runtime_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "SYSTEM_SECURITY_AND_HARDENING",
+          "name": "System Security and Hardening",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_system_security_and_hardening_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_system_security_and_hardening_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "NETWORKING_AND_SYSTEM_SERVICES",
+          "name": "Networking and System Services",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_networking_and_system_services_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_networking_and_system_services_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "FILESYSTEMS_AND_STORAGE",
+          "name": "Filesystems and Storage",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_filesystems_and_storage_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_filesystems_and_storage_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "UPDATES_AND_LIFECYCLE",
+          "name": "Updates and Lifecycle",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_updates_and_lifecycle_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_updates_and_lifecycle_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "OBSERVABILITY_AND_DIAGNOSTICS",
+          "name": "Observability and Diagnostics",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_observability_and_diagnostics_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_observability_and_diagnostics_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "BACKUP_AND_RECOVERY",
+          "name": "Backup and Recovery",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_backup_and_recovery_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_backup_and_recovery_core_ecosystem/manager.py"
+        },
+        {
+          "domain_id": "LICENSING_AND_INTEROPERABILITY",
+          "name": "Licensing and Interoperability",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_licensing_and_interoperability_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/global_licensing_and_interoperability_core_ecosystem/manager.py"
+        }
+      ],
+      "shared_files": [
+        "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/product_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/product_ecosystem_index.json",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/domain_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/domain_runtime.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/contracts.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/policy.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/module_service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/orchestrator.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/manager.php",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/integrations/registry.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/services/system_inventory_service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/tools/validate_system_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/README.md",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/SYSTEM_CORE_IMPLEMENTATION_STATUS.md",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/ecosystem_manifest.json",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/test_system_core_domains.py"
+      ],
+      "product_index_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/product_ecosystem_index.json",
+      "manifest_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/ecosystem_manifest.json",
+      "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/manager.py",
+      "php_facade_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/manager.php",
+      "test_path": "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/test_system_core_domains.py",
+      "workflow_path": ".github/workflows/global-system-core-ecosystem-tests.yml",
+      "live_connections_verified": false,
+      "api_transport_in_core": false,
+      "host_operations_performed": 0,
+      "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+      "master_catalog_access_mode": "READ_ONLY_VALIDATED_REFERENCES"
     }
   }
 }

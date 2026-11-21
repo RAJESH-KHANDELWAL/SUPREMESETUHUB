@@ -1,0 +1,36 @@
+name: Global System Core Ecosystem Tests
+
+on:
+  push:
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/**"
+      - "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+      - ".github/workflows/global-system-core-ecosystem-tests.yml"
+  pull_request:
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/**"
+      - "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+      - ".github/workflows/global-system-core-ecosystem-tests.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile Python
+        run: python -m compileall -q backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem
+      - name: Validate system catalog
+        run: python -m backend.core.global_ecosystem.global_core_ecosystem.global_system_core_ecosystem.tools.validate_system_catalog
+      - name: Run System Core tests
+        run: python -m pytest -q backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/test_system_core_domains.py
+      - name: Validate JSON
+        run: python -c "import json,pathlib; [json.loads(p.read_text()) for p in pathlib.Path('backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem').rglob('*.json')]; json.loads(pathlib.Path('backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json').read_text())"
+      - name: PHP syntax
+        run: |
+          if command -v php >/dev/null 2>&1; then php -l backend/core/global_ecosystem/global_core_ecosystem/global_system_core_ecosystem/manager.php; else echo "PHP not installed; PHP lint skipped"; fi
