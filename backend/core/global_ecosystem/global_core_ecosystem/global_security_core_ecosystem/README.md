@@ -27,7 +27,7 @@ The master catalog now registers this ecosystem in both `ecosystem_module_index`
 
 Canonical source: `backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json`.
 
-That source currently records **246 unique entries** against a planned target of **2468** (2222 remaining). This security CORE does not copy the entire master list or create folders for each planning entry. Instead, each of its 33 security-domain records carries explicit `master_catalog_refs` linking relevant entries in sections 7, 9, 10, 11 and 12. These are reference mappings, not implementation claims.
+That source currently records **246 unique entries** against a planned target of **2468** (2222 remaining). This security CORE does not copy the entire master list or create folders for each planning entry. Instead, each of its 33 security-domain records carries explicit `master_catalog_refs` linking relevant entries across the human, adult-health and safety, business, technology, infrastructure, governance and research sections. These are reference mappings, not implementation claims.
 
 The catalog source states that expansion must be meaningful, individually defined and non-duplicate; entries must not be manufactured simply to reach the 2468 target.
 
