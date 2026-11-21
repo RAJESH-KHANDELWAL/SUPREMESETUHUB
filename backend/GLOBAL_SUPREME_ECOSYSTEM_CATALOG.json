@@ -1776,7 +1776,9 @@
         "php_contract_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/php/GlobalServerCoreContract.php",
         "scope_contract_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/php/GlobalServerCoreScopeContract.php",
         "test_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/test_core.py",
-        "dependency_inventory_available": true
+        "dependency_inventory_available": true,
+        "workflow_ref": ".github/workflows/global-server-core-ecosystem-tests.yml",
+        "php_facade_included": true
       }
     ]
   },
@@ -3581,7 +3583,9 @@
       ],
       "control_areas_per_domain": 6,
       "php_contract_runtime_verified": false,
-      "python_test_execution_verified": false
+      "python_test_execution_verified": false,
+      "php_facade_included": true,
+      "workflow_path": ".github/workflows/global-server-core-ecosystem-tests.yml"
     }
   }
 }
