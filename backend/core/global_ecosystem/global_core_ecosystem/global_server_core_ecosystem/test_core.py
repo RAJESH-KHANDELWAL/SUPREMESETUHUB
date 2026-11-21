@@ -55,6 +55,7 @@ class ServerCoreTests(unittest.TestCase):
         self.assertEqual(status["domain_manifest_count"], 16)
         self.assertEqual(status["control_area_count"], 96)
         self.assertEqual(status["workload_profile_count"], 20)
+        self.assertEqual(status["workload_area_count"], 100)
         self.assertEqual(status["service_tier_count"], 7)
         self.assertFalse(status["remote_operations_enabled"])
 
