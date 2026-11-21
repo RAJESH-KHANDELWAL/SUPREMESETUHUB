@@ -20,6 +20,10 @@ def test_security_taxonomy_provider_inventory_and_master_catalog_refs():
     assert len(domains) == 33
     assert len(domain_ids) == len(set(domain_ids))
     assert len({item["folder"] for item in domains}) == len(domains)
+    area_ids = [area["area_id"] for domain in domains for area in domain["coverage_areas"]]
+    assert len(area_ids) == 198
+    assert len(area_ids) == len(set(area_ids))
+    assert all(len(domain["coverage_areas"]) == 6 for domain in domains)
     assert len(get_provider_catalog()) == 6
 
     master = _master_catalog()
@@ -51,6 +55,7 @@ def test_manager_google_core_style_discovery_contract():
     assert status["success"] is True
     assert status["ecosystem_id"] == "GLOBAL-SECURITY-CORE-ECOSYSTEM"
     assert status["domain_count"] == 33
+    assert status["coverage_area_count"] == 198
     assert status["provider_count"] == 6
     assert manager.health()["security_enforcement_verified"] is False
     assert len(manager.list_domain_inventory()) == 33
@@ -58,6 +63,7 @@ def test_manager_google_core_style_discovery_contract():
     assert manager.get_domain("not_a_domain") is None
     assert len(manager.list_modules()) == 6
     assert manager.catalog()["master_catalog_counts"]["target_unique_entries"] == 2468
+    assert manager.catalog()["taxonomy"]["coverage_status"] == "DEFINED_CORE_TAXONOMY_NON_EXHAUSTIVE"
     assert manager.dependency_map()["success"] is True
 
 
