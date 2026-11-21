@@ -4226,6 +4226,198 @@
       "host_operations_performed": 0,
       "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
       "master_catalog_access_mode": "READ_ONLY_VALIDATED_REFERENCES"
+    },
+    "global_tools_core_ecosystem": {
+      "ecosystem_id": "GLOBAL-TOOLS-CORE-ECOSYSTEM",
+      "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem",
+      "classification": "CORE_IMPLEMENTATION_REGISTRY",
+      "taxonomy_entries_counted_in_global_2468_target": false,
+      "reason": "Provider, product-family and domain metadata are implementation references and do not add or duplicate master taxonomy topics.",
+      "provider_count": 11,
+      "product_family_count": 56,
+      "domain_count": 20,
+      "providers": [
+        {
+          "provider_id": "atlassian",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/atlassian_tools_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/atlassian_tools_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "aws",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/aws_tools_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/aws_tools_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "crakrevenue",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/crakrevenue_tools_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/crakrevenue_tools_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "exoclick",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/exoclick_tools_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/exoclick_tools_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "github",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/github_tools_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/github_tools_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "google",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/google_tools_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/google_tools_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "microsoft",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/microsoft_tools_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/microsoft_tools_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "openai",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/openai_tools_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/openai_tools_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "salesforce",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/salesforce_tools_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/salesforce_tools_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "trafficjunky",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/trafficjunky_tools_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/trafficjunky_tools_core_ecosystem/manager.py"
+        },
+        {
+          "provider_id": "twilio",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/twilio_tools_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/twilio_tools_core_ecosystem/manager.py"
+        }
+      ],
+      "domains": [
+        {
+          "domain_id": "PROVIDER_GOVERNANCE",
+          "name": "Provider Governance"
+        },
+        {
+          "domain_id": "DEVELOPER_SOURCE_CONTROL",
+          "name": "Developer Tools and Source Control"
+        },
+        {
+          "domain_id": "CLOUD_INFRASTRUCTURE",
+          "name": "Cloud and Infrastructure Tools"
+        },
+        {
+          "domain_id": "PRODUCTIVITY_COLLABORATION",
+          "name": "Productivity and Collaboration"
+        },
+        {
+          "domain_id": "AI_DEVELOPER_TOOLS",
+          "name": "AI and Developer Intelligence"
+        },
+        {
+          "domain_id": "CRM_BUSINESS_APPLICATIONS",
+          "name": "CRM and Business Applications"
+        },
+        {
+          "domain_id": "ADVERTISING_MONETIZATION",
+          "name": "Advertising and Monetization"
+        },
+        {
+          "domain_id": "MARKETING_SEO",
+          "name": "Marketing and SEO"
+        },
+        {
+          "domain_id": "COMMUNICATION_CUSTOMER_ENGAGEMENT",
+          "name": "Communications and Customer Engagement"
+        },
+        {
+          "domain_id": "DATA_ANALYTICS",
+          "name": "Data and Analytics"
+        },
+        {
+          "domain_id": "OBSERVABILITY_ANALYTICS",
+          "name": "Observability and Monitoring"
+        },
+        {
+          "domain_id": "AUTOMATION_WORKFLOW",
+          "name": "Automation and Workflow"
+        },
+        {
+          "domain_id": "DESIGN_CREATIVE_MEDIA",
+          "name": "Design, Creative and Media"
+        },
+        {
+          "domain_id": "SECURITY_IDENTITY",
+          "name": "Security, Identity and Compliance"
+        },
+        {
+          "domain_id": "PAYMENTS_COMMERCE_BILLING",
+          "name": "Payments, Commerce and Billing"
+        },
+        {
+          "domain_id": "HOSTING_WEB_DEPLOYMENT",
+          "name": "Hosting, Web and Deployment"
+        },
+        {
+          "domain_id": "IT_SERVICE_MANAGEMENT",
+          "name": "IT Service Management and Support"
+        },
+        {
+          "domain_id": "TESTING_QUALITY",
+          "name": "Testing, Quality and Release"
+        },
+        {
+          "domain_id": "INTEGRATION_API",
+          "name": "Integration, API and iPaaS"
+        },
+        {
+          "domain_id": "DOCUMENTATION_KNOWLEDGE",
+          "name": "Documentation and Knowledge"
+        }
+      ],
+      "shared_files": [
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/product_ecosystem_index.json",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/product_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/domain_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/contracts.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/policy.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/module_service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/domain_runtime.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/orchestrator.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/manager.php",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/integrations/registry.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/services/inventory_service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/tools/validate_tools_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/test_global_tools_core.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/ecosystem_manifest.json",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/README.md",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/GLOBAL_TOOLS_CORE_IMPLEMENTATION_STATUS.md",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/atlassian_tools_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/aws_tools_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/crakrevenue_tools_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/exoclick_tools_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/github_tools_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/google_tools_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/microsoft_tools_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/openai_tools_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/salesforce_tools_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/trafficjunky_tools_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/twilio_tools_core_ecosystem/manager.py"
+      ],
+      "product_index_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/product_ecosystem_index.json",
+      "manifest_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/ecosystem_manifest.json",
+      "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/manager.py",
+      "php_facade_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/manager.php",
+      "test_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/test_global_tools_core.py",
+      "live_connections_verified": false,
+      "api_transport_in_core": false,
+      "host_operations_performed": 0,
+      "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+      "master_catalog_access_mode": "READ_ONLY_IMPLEMENTATION_REGISTRY"
     }
   }
 }

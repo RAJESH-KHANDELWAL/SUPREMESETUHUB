@@ -1,0 +1,513 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL-TOOLS-CORE-ECOSYSTEM",
+  "source_of_record": "curated provider/product inventory",
+  "provider_count": 11,
+  "product_family_count": 56,
+  "product_ecosystems": [
+    {
+      "product_id": "jira",
+      "product_name": "Jira",
+      "provider_id": "atlassian",
+      "category": "PROJECT_MANAGEMENT",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/atlassian_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "confluence",
+      "product_name": "Confluence",
+      "provider_id": "atlassian",
+      "category": "DOCUMENTATION_KNOWLEDGE",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/atlassian_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "trello",
+      "product_name": "Trello",
+      "provider_id": "atlassian",
+      "category": "PROJECT_MANAGEMENT",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/atlassian_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "bitbucket",
+      "product_name": "Bitbucket",
+      "provider_id": "atlassian",
+      "category": "DEVELOPER_SOURCE_CONTROL",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/atlassian_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "jira_service_management",
+      "product_name": "Jira Service Management",
+      "provider_id": "atlassian",
+      "category": "IT_SERVICE_MANAGEMENT",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/atlassian_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "loom",
+      "product_name": "Loom",
+      "provider_id": "atlassian",
+      "category": "COMMUNICATION_COLLABORATION",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/atlassian_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "aws_cli",
+      "product_name": "AWS CLI",
+      "provider_id": "aws",
+      "category": "DEVELOPER_CLOUD_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/aws_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "aws_sdks",
+      "product_name": "AWS SDKs",
+      "provider_id": "aws",
+      "category": "DEVELOPER_CLOUD_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/aws_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "cloudformation",
+      "product_name": "AWS CloudFormation",
+      "provider_id": "aws",
+      "category": "INFRASTRUCTURE_AUTOMATION",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/aws_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "aws_cdk",
+      "product_name": "AWS CDK",
+      "provider_id": "aws",
+      "category": "INFRASTRUCTURE_AUTOMATION",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/aws_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "systems_manager",
+      "product_name": "AWS Systems Manager",
+      "provider_id": "aws",
+      "category": "IT_SERVICE_MANAGEMENT",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/aws_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "cloudwatch",
+      "product_name": "Amazon CloudWatch",
+      "provider_id": "aws",
+      "category": "OBSERVABILITY_ANALYTICS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/aws_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "codebuild",
+      "product_name": "AWS CodeBuild",
+      "provider_id": "aws",
+      "category": "CI_CD_RELEASE",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/aws_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "codepipeline",
+      "product_name": "AWS CodePipeline",
+      "provider_id": "aws",
+      "category": "CI_CD_RELEASE",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/aws_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "crakrevenue_campaigns",
+      "product_name": "CrakRevenue campaign tools",
+      "provider_id": "crakrevenue",
+      "category": "ADVERTISING_MONETIZATION",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/crakrevenue_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "crakrevenue_affiliate",
+      "product_name": "CrakRevenue affiliate tools",
+      "provider_id": "crakrevenue",
+      "category": "ADVERTISING_MONETIZATION",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/crakrevenue_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "exoclick_advertiser",
+      "product_name": "ExoClick advertiser tools",
+      "provider_id": "exoclick",
+      "category": "ADVERTISING_MONETIZATION",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/exoclick_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "exoclick_publisher",
+      "product_name": "ExoClick publisher tools",
+      "provider_id": "exoclick",
+      "category": "ADVERTISING_MONETIZATION",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/exoclick_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "exoclick_reporting",
+      "product_name": "ExoClick reporting tools",
+      "provider_id": "exoclick",
+      "category": "DATA_ANALYTICS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/exoclick_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "github_cli",
+      "product_name": "GitHub CLI",
+      "provider_id": "github",
+      "category": "DEVELOPER_SOURCE_CONTROL",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/github_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "github_actions",
+      "product_name": "GitHub Actions",
+      "provider_id": "github",
+      "category": "CI_CD_RELEASE",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/github_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "github_codespaces",
+      "product_name": "GitHub Codespaces",
+      "provider_id": "github",
+      "category": "DEVELOPER_CLOUD_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/github_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "github_copilot",
+      "product_name": "GitHub Copilot",
+      "provider_id": "github",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/github_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "github_packages",
+      "product_name": "GitHub Packages",
+      "provider_id": "github",
+      "category": "DEVELOPER_SOURCE_CONTROL",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/github_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "github_security",
+      "product_name": "GitHub security tools",
+      "provider_id": "github",
+      "category": "SECURITY_IDENTITY",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/github_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "google_workspace",
+      "product_name": "Google Workspace tools",
+      "provider_id": "google",
+      "category": "PRODUCTIVITY_COLLABORATION",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/google_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "google_cloud_sdk",
+      "product_name": "Google Cloud SDK",
+      "provider_id": "google",
+      "category": "DEVELOPER_CLOUD_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/google_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "apps_script",
+      "product_name": "Google Apps Script",
+      "provider_id": "google",
+      "category": "AUTOMATION_WORKFLOW",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/google_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "google_analytics",
+      "product_name": "Google Analytics tools",
+      "provider_id": "google",
+      "category": "DATA_ANALYTICS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/google_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "google_ads",
+      "product_name": "Google Ads tools",
+      "provider_id": "google",
+      "category": "ADVERTISING_MONETIZATION",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/google_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "search_console",
+      "product_name": "Google Search Console tools",
+      "provider_id": "google",
+      "category": "MARKETING_SEO",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/google_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "microsoft_365",
+      "product_name": "Microsoft 365 tools",
+      "provider_id": "microsoft",
+      "category": "PRODUCTIVITY_COLLABORATION",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/microsoft_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "azure_cli",
+      "product_name": "Azure CLI",
+      "provider_id": "microsoft",
+      "category": "DEVELOPER_CLOUD_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/microsoft_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "power_platform",
+      "product_name": "Microsoft Power Platform",
+      "provider_id": "microsoft",
+      "category": "AUTOMATION_WORKFLOW",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/microsoft_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "power_bi",
+      "product_name": "Power BI",
+      "provider_id": "microsoft",
+      "category": "DATA_ANALYTICS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/microsoft_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "visual_studio",
+      "product_name": "Visual Studio",
+      "provider_id": "microsoft",
+      "category": "DEVELOPER_SOURCE_CONTROL",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/microsoft_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "vscode",
+      "product_name": "Visual Studio Code",
+      "provider_id": "microsoft",
+      "category": "DEVELOPER_SOURCE_CONTROL",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/microsoft_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "intune",
+      "product_name": "Microsoft Intune",
+      "provider_id": "microsoft",
+      "category": "SECURITY_IDENTITY",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/microsoft_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "defender",
+      "product_name": "Microsoft Defender tools",
+      "provider_id": "microsoft",
+      "category": "SECURITY_IDENTITY",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/microsoft_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "chatgpt",
+      "product_name": "ChatGPT",
+      "provider_id": "openai",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/openai_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "openai_api",
+      "product_name": "OpenAI API tooling",
+      "provider_id": "openai",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/openai_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "openai_agents",
+      "product_name": "OpenAI agent and tool workflows",
+      "provider_id": "openai",
+      "category": "AI_DEVELOPER_TOOLS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/openai_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "openai_evals",
+      "product_name": "OpenAI evaluation tooling",
+      "provider_id": "openai",
+      "category": "TESTING_QUALITY",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/openai_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "salesforce_crm",
+      "product_name": "Salesforce CRM",
+      "provider_id": "salesforce",
+      "category": "CRM_BUSINESS_APPLICATIONS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/salesforce_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "salesforce_platform",
+      "product_name": "Salesforce Platform",
+      "provider_id": "salesforce",
+      "category": "CRM_BUSINESS_APPLICATIONS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/salesforce_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "salesforce_flow",
+      "product_name": "Salesforce Flow",
+      "provider_id": "salesforce",
+      "category": "AUTOMATION_WORKFLOW",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/salesforce_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "marketing_cloud",
+      "product_name": "Marketing Cloud",
+      "provider_id": "salesforce",
+      "category": "MARKETING_SEO",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/salesforce_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "data_cloud",
+      "product_name": "Salesforce Data Cloud",
+      "provider_id": "salesforce",
+      "category": "DATA_ANALYTICS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/salesforce_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "tableau",
+      "product_name": "Tableau",
+      "provider_id": "salesforce",
+      "category": "DATA_ANALYTICS",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/salesforce_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "mulesoft",
+      "product_name": "MuleSoft",
+      "provider_id": "salesforce",
+      "category": "INTEGRATION_API",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/salesforce_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "trafficjunky_campaigns",
+      "product_name": "TrafficJunky campaign tools",
+      "provider_id": "trafficjunky",
+      "category": "ADVERTISING_MONETIZATION",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/trafficjunky_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "trafficjunky_reporting",
+      "product_name": "TrafficJunky reporting tools",
+      "provider_id": "trafficjunky",
+      "category": "ADVERTISING_MONETIZATION",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/trafficjunky_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "twilio_messaging",
+      "product_name": "Twilio Messaging",
+      "provider_id": "twilio",
+      "category": "COMMUNICATION_COLLABORATION",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/twilio_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "twilio_voice",
+      "product_name": "Twilio Voice",
+      "provider_id": "twilio",
+      "category": "COMMUNICATION_COLLABORATION",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/twilio_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "twilio_verify",
+      "product_name": "Twilio Verify",
+      "provider_id": "twilio",
+      "category": "SECURITY_IDENTITY",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/twilio_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    },
+    {
+      "product_id": "sendgrid",
+      "product_name": "Twilio SendGrid",
+      "provider_id": "twilio",
+      "category": "COMMUNICATION_COLLABORATION",
+      "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_tools_core_ecosystem/twilio_tools_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "live_connection": false
+    }
+  ]
+}
