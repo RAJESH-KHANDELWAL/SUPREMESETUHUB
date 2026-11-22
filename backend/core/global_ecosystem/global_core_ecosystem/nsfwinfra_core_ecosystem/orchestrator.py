@@ -1,7 +1,7 @@
 """Read-only NSFWinfra Core discovery, health and dependency mapping."""
 from __future__ import annotations
 from typing import Any
-from .catalog import get_nsfwinfra_core_catalog
+from .manager import get_nsfwinfra_core_catalog
 from .domain_catalog import get_domain_catalog
 class NSFWinfraCoreOrchestrator:
  def products(self,enabled_only:bool=False)->dict[str,Any]:
