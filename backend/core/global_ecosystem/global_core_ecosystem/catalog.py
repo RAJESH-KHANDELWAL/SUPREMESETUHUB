@@ -76,6 +76,17 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "capabilities": ["SERVER_MANAGEMENT", "DEPLOYMENT", "MONITORING"],
     },
     {
+        "ecosystem_id": "BACKEND-SERVER-ECOSYSTEM",
+        "name": "BACKEND SERVER",
+        "ecosystem_type": "BACKEND_SYSTEM",
+        "capabilities": ["BACKEND_RUNTIME", "SERVER_LIFECYCLE", "HEALTH_MONITORING", "APPLICATION_HOSTING"],
+        "metadata": {
+            "backend_module": "backend/server",
+            "registration_scope": "BACKEND_SYSTEM_IDENTITY",
+            "remote_server_provisioning_verified": False,
+        },
+    },
+    {
         "ecosystem_id": "GLOBAL-WEB-HOSTING-ECOSYSTEM",
         "name": "GLOBAL WEB & HOSTING ECOSYSTEM",
         "ecosystem_type": "FUNCTIONAL",
