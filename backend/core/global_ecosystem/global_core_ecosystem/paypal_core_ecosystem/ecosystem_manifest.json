@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "PAYPAL-CORE-ECOSYSTEM",
+  "provider": "paypal",
+  "layer": "CORE",
+  "product_count": 13,
+  "domain_count": 6,
+  "master_catalog": {
+    "path": "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json",
+    "target": 2468,
+    "access": "READ_ONLY_ON_DEMAND",
+    "taxonomy_entries_added": 0
+  },
+  "live_connection_verified": false,
+  "api_transport_in_core": false,
+  "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+  "products": [
+    {
+      "ecosystem_id": "PAYPAL-BILLING-PLANS-CORE-ECOSYSTEM",
+      "package": "paypal_billing_plans_core_ecosystem",
+      "manager_class": "PayPalBillingPlansCoreManager",
+      "domain_id": "BILLING_SUBSCRIPTIONS_AND_INVOICING",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "ecosystem_id": "PAYPAL-CHECKOUT-CORE-ECOSYSTEM",
+      "package": "paypal_checkout_core_ecosystem",
+      "manager_class": "PayPalCheckoutCoreManager",
+      "domain_id": "CHECKOUT_ORDERS_AND_PAYMENT_ACCEPTANCE",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "ecosystem_id": "PAYPAL-DISPUTES-CORE-ECOSYSTEM",
+      "package": "paypal_disputes_core_ecosystem",
+      "manager_class": "PayPalDisputesCoreManager",
+      "domain_id": "DISPUTES_AND_RISK",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "ecosystem_id": "PAYPAL-IDENTITY-OAUTH-CORE-ECOSYSTEM",
+      "package": "paypal_identity_oauth_core_ecosystem",
+      "manager_class": "PayPalIdentityOAuthCoreManager",
+      "domain_id": "IDENTITY_AND_MERCHANT_GOVERNANCE",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "ecosystem_id": "PAYPAL-INVOICING-CORE-ECOSYSTEM",
+      "package": "paypal_invoicing_core_ecosystem",
+      "manager_class": "PayPalInvoicingCoreManager",
+      "domain_id": "BILLING_SUBSCRIPTIONS_AND_INVOICING",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "ecosystem_id": "PAYPAL-MERCHANT-ONBOARDING-CORE-ECOSYSTEM",
+      "package": "paypal_merchant_onboarding_core_ecosystem",
+      "manager_class": "PayPalMerchantOnboardingCoreManager",
+      "domain_id": "IDENTITY_AND_MERCHANT_GOVERNANCE",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "ecosystem_id": "PAYPAL-ORDERS-CORE-ECOSYSTEM",
+      "package": "paypal_orders_core_ecosystem",
+      "manager_class": "PayPalOrdersCoreManager",
+      "domain_id": "CHECKOUT_ORDERS_AND_PAYMENT_ACCEPTANCE",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "ecosystem_id": "PAYPAL-PAYMENTS-CORE-ECOSYSTEM",
+      "package": "paypal_payments_core_ecosystem",
+      "manager_class": "PayPalPaymentsCoreManager",
+      "domain_id": "CHECKOUT_ORDERS_AND_PAYMENT_ACCEPTANCE",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "ecosystem_id": "PAYPAL-PAYOUTS-CORE-ECOSYSTEM",
+      "package": "paypal_payouts_core_ecosystem",
+      "manager_class": "PayPalPayoutsCoreManager",
+      "domain_id": "PAYOUTS_AND_SETTLEMENT",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "ecosystem_id": "PAYPAL-SUBSCRIPTIONS-CORE-ECOSYSTEM",
+      "package": "paypal_subscriptions_core_ecosystem",
+      "manager_class": "PayPalSubscriptionsCoreManager",
+      "domain_id": "BILLING_SUBSCRIPTIONS_AND_INVOICING",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "ecosystem_id": "PAYPAL-TRANSACTION-SEARCH-CORE-ECOSYSTEM",
+      "package": "paypal_transaction_search_core_ecosystem",
+      "manager_class": "PayPalTransactionSearchCoreManager",
+      "domain_id": "PAYOUTS_AND_SETTLEMENT",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "ecosystem_id": "PAYPAL-VAULT-PAYMENT-METHODS-CORE-ECOSYSTEM",
+      "package": "paypal_vault_payment_methods_core_ecosystem",
+      "manager_class": "PayPalVaultPaymentMethodsCoreManager",
+      "domain_id": "VAULT_AND_WEBHOOKS",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "ecosystem_id": "PAYPAL-WEBHOOKS-CORE-ECOSYSTEM",
+      "package": "paypal_webhooks_core_ecosystem",
+      "manager_class": "PayPalWebhooksCoreManager",
+      "domain_id": "VAULT_AND_WEBHOOKS",
+      "status": "CORE_CATALOG_ONLY"
+    }
+  ]
+}
