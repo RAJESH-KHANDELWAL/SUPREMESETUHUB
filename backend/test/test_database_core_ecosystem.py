@@ -16,12 +16,8 @@ class DatabaseCoreContractTests(unittest.TestCase):
         providers = list_providers()
         self.assertEqual(len(providers), 7)
         self.assertEqual(len({provider["provider_id"] for provider in providers}), 7)
-        self.assertTrue(
-            all(provider["implementation_status"] == "CATALOG_ONLY" for provider in providers)
-        )
-        self.assertTrue(
-            all(provider["live_connection_verified"] is False for provider in providers)
-        )
+        self.assertTrue(all(p["implementation_status"] == "CATALOG_ONLY" for p in providers))
+        self.assertTrue(all(p["live_connection_verified"] is False for p in providers))
 
     def test_canonical_provider_packages_have_manifests(self):
         result = validate_catalog()

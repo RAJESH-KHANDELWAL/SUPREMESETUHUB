@@ -3,11 +3,13 @@ on:
   pull_request:
     paths:
       - "backend/core/global_ecosystem/global_core_ecosystem/global_database_core_ecosystem/**"
+      - "backend/test/test_database_core_ecosystem.py"
       - ".github/workflows/database-core-ecosystem-tests.yml"
   push:
     branches: [main]
     paths:
       - "backend/core/global_ecosystem/global_core_ecosystem/global_database_core_ecosystem/**"
+      - "backend/test/test_database_core_ecosystem.py"
       - ".github/workflows/database-core-ecosystem-tests.yml"
 jobs:
   database-core-contracts:
@@ -18,4 +20,4 @@ jobs:
         with:
           python-version: "3.12"
       - name: Run Database Core contract tests
-        run: python -m unittest backend.core.global_ecosystem.global_core_ecosystem.global_database_core_ecosystem.tests.test_database_core_ecosystem -v
+        run: python -m unittest backend.test.test_database_core_ecosystem -v
