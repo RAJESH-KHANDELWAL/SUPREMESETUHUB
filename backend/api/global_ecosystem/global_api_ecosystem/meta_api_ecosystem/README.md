@@ -20,8 +20,9 @@ Canonical provider root for Meta-owned developer APIs and platform integrations 
 - **Login and Identity API** — `meta_login_identity_api_ecosystem/`: Facebook Login, OAuth, callback security and identity permissions.
 - **Business Management API** — `meta_business_management_api_ecosystem/`: Business Portfolio assets, system users, partner access and assignments.
 - **Webhooks API** — `meta_webhooks_api_ecosystem/`: subscriptions, callback verification, event validation, retries and signatures.
-- **SDK and Developer Tools** — `meta_sdk_developer_tools_ecosystem/`: official SDKs, app configuration and developer tooling references.
 - **Meta AI** — `meta_ai_ecosystem/`: discovery/reference only; no generally available public Meta AI API is claimed.
+
+The canonical API registry currently contains 11 implemented/catalogued families. SDK and developer-tooling references remain documentation-only until a matching API package is added.
 
 ## End-user connection target
 The platform owns OAuth routes, callback validation, provider adapters, webhook endpoints, health checks and encrypted tenant-scoped credential storage. End users select a service, complete the official Meta authorization flow, grant required permissions, select eligible assets and connect.
