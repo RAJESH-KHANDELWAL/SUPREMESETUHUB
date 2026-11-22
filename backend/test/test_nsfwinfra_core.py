@@ -16,7 +16,7 @@ class NSFWinfraCoreTests(unittest.TestCase):
    self.assertTrue((repo/item["api_catalog_ref"]).is_dir(),item["api_catalog_ref"])
  def test_ai_layer_refs_resolve(self):
   repo=Path(__file__).resolve().parents[2];c=get_nsfwinfra_core_catalog()
-  for k in ("ai_api_ref","ai_core_ref","ai_provider_ref"):self.assertTrue((repo/c[k]).is_dir(),c[k])
+  for k in ("ai_api_ref","ai_core_ref"):self.assertTrue((repo/c[k]).is_dir(),c[k])\n  self.assertIsNone(c["ai_provider_ref"])
  def test_unique_product_ids_and_coverage(self):
   items=get_nsfwinfra_core_catalog()["children"];ids=[x["ecosystem_id"] for x in items]
   self.assertEqual(len(ids),len(set(ids)))

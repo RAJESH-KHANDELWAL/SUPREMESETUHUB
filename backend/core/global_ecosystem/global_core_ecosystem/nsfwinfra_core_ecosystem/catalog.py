@@ -7,7 +7,7 @@ ROOT_PATH="backend/core/global_ecosystem/global_core_ecosystem/nsfwinfra_core_ec
 API_ROOT="backend/api/global_ecosystem/global_api_ecosystem/nsfwinfra_api_ecosystem"
 AI_API_REF="backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem/nsfwinfra_ai_api_ecosystem"
 AI_CORE_REF="backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem/nsfwinfra_ai_core_ecosystem"
-AI_PROVIDER_REF="backend/ai/global_ecosystem/global_ai_ecosystem/global_ai_providers/nsfwinfra_ai_ecosystem"
+AI_PROVIDER_REF=None
 _PRODUCTS=[
   {
     "key": "account_limits",

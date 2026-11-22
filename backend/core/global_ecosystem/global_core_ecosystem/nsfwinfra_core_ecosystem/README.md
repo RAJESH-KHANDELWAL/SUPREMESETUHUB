@@ -36,7 +36,7 @@ No boilerplate product subfolders or duplicate clients are added. Existing ten f
 - API catalog: `backend/api/global_ecosystem/global_api_ecosystem/nsfwinfra_api_ecosystem/`
 - AI API package: `backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem/nsfwinfra_ai_api_ecosystem/`
 - AI Core facade: `backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem/nsfwinfra_ai_core_ecosystem/`
-- AI provider package: `backend/ai/global_ecosystem/global_ai_ecosystem/global_ai_providers/nsfwinfra_ai_ecosystem/`
+- NSFWinfra AI provider package under `backend/ai/.../global_ai_providers/`: **not registered/found in current repository tree**. No placeholder provider package is created.
 - No duplicate API clients, AI facade, database or storage are created.
 
 ## Master ecosystem catalog (2468)
