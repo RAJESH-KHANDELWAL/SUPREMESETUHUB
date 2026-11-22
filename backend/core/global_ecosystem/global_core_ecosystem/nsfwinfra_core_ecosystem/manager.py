@@ -9,7 +9,7 @@ from .domain_runtime import NSFWinfraCoreDomainManager
 from .orchestrator import NSFWinfraCoreOrchestrator
 from .service import NSFWinfraCoreEcosystemService
 
-MASTER_CATALOG_PATH = Path(__file__).resolve().parents[4] / "GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+MASTER_CATALOG_PATH = Path(__file__).resolve().parents[3] / "GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
 CANONICAL_ENTRY_IDS = (
     "S09_cloud_computing",
     "S10_global_infrastructure",
