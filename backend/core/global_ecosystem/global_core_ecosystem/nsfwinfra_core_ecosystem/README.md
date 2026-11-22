@@ -15,7 +15,7 @@ Provider Core metadata/control plane for the existing ten NSFWinfra product fami
 10. Webhooks
 
 ## Root responsibilities
-- `catalog.py`: provider and product-family inventory with existing package/API references.
+- `manager.py`: canonical manager, provider/product catalog, product lookup and `get_manager()` entry point.
 - `product_catalog.py`: canonical product lookup.
 - `domain_catalog.py`: 21 cross-product domains and coverage mapping.
 - `contracts.py`: tenant context, opaque secret reference and result contract.
@@ -24,12 +24,12 @@ Provider Core metadata/control plane for the existing ten NSFWinfra product fami
 - `domain_runtime.py`: read-only domain manager.
 - `orchestrator.py`: products, domains, health, offerings and dependencies.
 - `service.py`: provider status service.
-- `manager.py`: canonical manager/get_manager(), including the read-only master catalog mapping/counts.
+- `manager.py`: includes the read-only master catalog mapping/counts and is the sole catalog/manager entry point.
 - `manager.php`: thin metadata interoperability facade; Python is canonical.
 - `product_ecosystem_index.json`: machine-readable inventory.
 - `backend/test/test_nsfwinfra_core_ecosystem.py`: canonical test suite.
 
-No boilerplate product subfolders or duplicate clients are added. Existing ten folders remain as product boundaries until meaningful product-specific Core implementation is required.
+The former standalone `catalog.py` and `product_catalog.py` modules are consolidated into `manager.py`; no duplicate catalog modules remain. No boilerplate product subfolders or duplicate clients are added. Existing ten folders remain as product boundaries until meaningful product-specific Core implementation is required.
 
 ## Existing dependencies verified in repository
 - API catalog: `backend/api/global_ecosystem/global_api_ecosystem/nsfwinfra_api_ecosystem/`
