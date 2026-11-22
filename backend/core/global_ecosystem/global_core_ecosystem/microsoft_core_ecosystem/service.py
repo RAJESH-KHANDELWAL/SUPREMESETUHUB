@@ -1,7 +1,7 @@
 """Read-only public service for Microsoft Core metadata."""
 from __future__ import annotations
 from typing import Any
-from .catalog import get_microsoft_core_catalog
+from .manager import get_microsoft_core_catalog
 from .orchestrator import MicrosoftCoreOrchestrator
 
 class MicrosoftCoreEcosystemService:
