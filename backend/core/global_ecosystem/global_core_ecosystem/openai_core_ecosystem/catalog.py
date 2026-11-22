@@ -255,7 +255,12 @@ PRODUCTS: tuple[dict[str, Any], ...] = (
     },
 )
 
-OPENAI_API_CAPABILITIES: tuple[str, ...] = ["platform","models","responses","chat_completions","embeddings","images","audio","realtime","files","batch","vector_stores","fine_tuning","moderation","evaluations","webhooks","developer_tools","assistants_migration"]
+OPENAI_API_CAPABILITIES: tuple[str, ...] = (
+    "platform", "models", "responses", "chat_completions", "embeddings",
+    "images", "audio", "realtime", "files", "batch", "vector_stores",
+    "fine_tuning", "moderation", "evaluations", "webhooks",
+    "developer_tools", "assistants_migration",
+)
 
 OPENAI_CORE_ECOSYSTEM: dict[str, Any] = {
     "ecosystem_id": ECOSYSTEM_ID,
