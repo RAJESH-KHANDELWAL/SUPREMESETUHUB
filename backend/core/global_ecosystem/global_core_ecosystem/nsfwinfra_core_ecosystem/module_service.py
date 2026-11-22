@@ -1,7 +1,7 @@
 """Shared read-only product module service."""
 from __future__ import annotations
 from typing import Any
-from .product_catalog import get_product
+from .manager import get_product
 class NSFWinfraProductCoreService:
  def __init__(self,product_id:str):
   self.product=get_product(product_id)
