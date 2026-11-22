@@ -11,11 +11,9 @@ from backend.core.global_ecosystem.global_core_ecosystem.nsfwinfra_core_ecosyste
     TenantContext,
 )
 from backend.core.global_ecosystem.global_core_ecosystem.nsfwinfra_core_ecosystem.manager import (
-    get_manager,
-)
-from backend.core.global_ecosystem.global_core_ecosystem.nsfwinfra_core_ecosystem.master_catalog import (
     CANONICAL_ENTRY_IDS,
     MASTER_CATALOG_PATH,
+    get_manager,
     master_catalog_reference,
 )
 from backend.core.global_ecosystem.global_core_ecosystem.nsfwinfra_core_ecosystem.module_service import (
