@@ -1,7 +1,6 @@
 """Tests for GLOBAL DOMAIN CORE ECOSYSTEM naming, catalog and inventory."""
-from .catalog import PROVIDER_DIRECTORIES, DOMAIN_DEFINITIONS, SECTOR_ECOSYSTEMS, ECOSYSTEM_ID, ECOSYSTEM_NAME
+from .manager import PROVIDER_DIRECTORIES, DOMAIN_DEFINITIONS, SECTOR_ECOSYSTEMS, ECOSYSTEM_ID, ECOSYSTEM_NAME, SECTORS, list_sectors
 from .manager import get_manager
-from .sector_catalog import SECTORS, list_sectors
 from .provider_registry import list_expanded_provider_registry
 
 def test_global_domain_root_name_and_id_standard():
