@@ -2,7 +2,7 @@
 from __future__ import annotations
 from collections import Counter
 from typing import Any
-from .catalog import get_nsfwinfra_core_catalog
+from .manager import get_nsfwinfra_core_catalog
 DOMAIN_DEFINITIONS={
   "PROVIDER_GOVERNANCE": [
     "Provider Governance",
