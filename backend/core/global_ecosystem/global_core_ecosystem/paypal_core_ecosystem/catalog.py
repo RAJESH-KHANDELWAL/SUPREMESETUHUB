@@ -10,7 +10,7 @@ PAYPAL_CORE_ECOSYSTEM: dict[str, Any] = {
     "ecosystem_type": "PROVIDER_CORE",
     "parent_id": "GLOBAL-CORE-ECOSYSTEM",
     "status": "REGISTERED",
-    "enabled": true,
+    "enabled": True,
     "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/paypal_api_ecosystem",
     "master_catalog_ref": "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json",
     "master_catalog_access_mode": "READ_ONLY_ON_DEMAND",
@@ -36,8 +36,8 @@ PAYPAL_CORE_ECOSYSTEM: dict[str, Any] = {
                 "BILLING_PLAN_METADATA"
             ],
             "status": "CORE_CATALOG_ONLY",
-            "enabled": true,
-            "connected": false,
+            "enabled": True,
+            "connected": False,
             "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/paypal_api_ecosystem/paypal_billing_plans_api_ecosystem",
             "core_module": "backend/core/global_ecosystem/global_core_ecosystem/paypal_core_ecosystem/paypal_billing_plans_core_ecosystem"
         },
@@ -53,8 +53,8 @@ PAYPAL_CORE_ECOSYSTEM: dict[str, Any] = {
                 "BUYER_APPROVAL_BOUNDARY"
             ],
             "status": "CORE_CATALOG_ONLY",
-            "enabled": true,
-            "connected": false,
+            "enabled": True,
+            "connected": False,
             "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/paypal_api_ecosystem/paypal_checkout_api_ecosystem",
             "core_module": "backend/core/global_ecosystem/global_core_ecosystem/paypal_core_ecosystem/paypal_checkout_core_ecosystem"
         },
@@ -70,8 +70,8 @@ PAYPAL_CORE_ECOSYSTEM: dict[str, Any] = {
                 "EVIDENCE_SUBMISSION_BOUNDARY"
             ],
             "status": "CORE_CATALOG_ONLY",
-            "enabled": true,
-            "connected": false,
+            "enabled": True,
+            "connected": False,
             "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/paypal_api_ecosystem/paypal_disputes_api_ecosystem",
             "core_module": "backend/core/global_ecosystem/global_core_ecosystem/paypal_core_ecosystem/paypal_disputes_core_ecosystem"
         },
@@ -87,8 +87,8 @@ PAYPAL_CORE_ECOSYSTEM: dict[str, Any] = {
                 "IDENTITY_CONNECTION_STATUS"
             ],
             "status": "CORE_CATALOG_ONLY",
-            "enabled": true,
-            "connected": false,
+            "enabled": True,
+            "connected": False,
             "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/paypal_api_ecosystem/paypal_identity_oauth_api_ecosystem",
             "core_module": "backend/core/global_ecosystem/global_core_ecosystem/paypal_core_ecosystem/paypal_identity_oauth_core_ecosystem"
         },
@@ -104,8 +104,8 @@ PAYPAL_CORE_ECOSYSTEM: dict[str, Any] = {
                 "INVOICE_STATUS_DISCOVERY"
             ],
             "status": "CORE_CATALOG_ONLY",
-            "enabled": true,
-            "connected": false,
+            "enabled": True,
+            "connected": False,
             "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/paypal_api_ecosystem/paypal_invoicing_api_ecosystem",
             "core_module": "backend/core/global_ecosystem/global_core_ecosystem/paypal_core_ecosystem/paypal_invoicing_core_ecosystem"
         },
@@ -121,8 +121,8 @@ PAYPAL_CORE_ECOSYSTEM: dict[str, Any] = {
                 "MERCHANT_ELIGIBILITY_METADATA"
             ],
             "status": "CORE_CATALOG_ONLY",
-            "enabled": true,
-            "connected": false,
+            "enabled": True,
+            "connected": False,
             "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/paypal_api_ecosystem/paypal_merchant_onboarding_api_ecosystem",
             "core_module": "backend/core/global_ecosystem/global_core_ecosystem/paypal_core_ecosystem/paypal_merchant_onboarding_core_ecosystem"
         },
@@ -138,8 +138,8 @@ PAYPAL_CORE_ECOSYSTEM: dict[str, Any] = {
                 "ORDER_LIFECYCLE_DISCOVERY"
             ],
             "status": "CORE_CATALOG_ONLY",
-            "enabled": true,
-            "connected": false,
+            "enabled": True,
+            "connected": False,
             "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/paypal_api_ecosystem/paypal_orders_api_ecosystem",
             "core_module": "backend/core/global_ecosystem/global_core_ecosystem/paypal_core_ecosystem/paypal_orders_core_ecosystem"
         },
@@ -156,8 +156,8 @@ PAYPAL_CORE_ECOSYSTEM: dict[str, Any] = {
                 "REFUND_BOUNDARY"
             ],
             "status": "CORE_CATALOG_ONLY",
-            "enabled": true,
-            "connected": false,
+            "enabled": True,
+            "connected": False,
             "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/paypal_api_ecosystem/paypal_payments_api_ecosystem",
             "core_module": "backend/core/global_ecosystem/global_core_ecosystem/paypal_core_ecosystem/paypal_payments_core_ecosystem"
         },
@@ -173,8 +173,8 @@ PAYPAL_CORE_ECOSYSTEM: dict[str, Any] = {
                 "PAYOUT_RECIPIENT_METADATA"
             ],
             "status": "CORE_CATALOG_ONLY",
-            "enabled": true,
-            "connected": false,
+            "enabled": True,
+            "connected": False,
             "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/paypal_api_ecosystem/paypal_payouts_api_ecosystem",
             "core_module": "backend/core/global_ecosystem/global_core_ecosystem/paypal_core_ecosystem/paypal_payouts_core_ecosystem"
         },
@@ -190,8 +190,8 @@ PAYPAL_CORE_ECOSYSTEM: dict[str, Any] = {
                 "SUBSCRIPTION_LIFECYCLE"
             ],
             "status": "CORE_CATALOG_ONLY",
-            "enabled": true,
-            "connected": false,
+            "enabled": True,
+            "connected": False,
             "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/paypal_api_ecosystem/paypal_subscriptions_api_ecosystem",
             "core_module": "backend/core/global_ecosystem/global_core_ecosystem/paypal_core_ecosystem/paypal_subscriptions_core_ecosystem"
         },
@@ -207,8 +207,8 @@ PAYPAL_CORE_ECOSYSTEM: dict[str, Any] = {
                 "RECONCILIATION_REFERENCE"
             ],
             "status": "CORE_CATALOG_ONLY",
-            "enabled": true,
-            "connected": false,
+            "enabled": True,
+            "connected": False,
             "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/paypal_api_ecosystem/paypal_transaction_search_api_ecosystem",
             "core_module": "backend/core/global_ecosystem/global_core_ecosystem/paypal_core_ecosystem/paypal_transaction_search_core_ecosystem"
         },
@@ -224,8 +224,8 @@ PAYPAL_CORE_ECOSYSTEM: dict[str, Any] = {
                 "PAYMENT_METHOD_LIFECYCLE"
             ],
             "status": "CORE_CATALOG_ONLY",
-            "enabled": true,
-            "connected": false,
+            "enabled": True,
+            "connected": False,
             "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/paypal_api_ecosystem/paypal_vault_payment_methods_api_ecosystem",
             "core_module": "backend/core/global_ecosystem/global_core_ecosystem/paypal_core_ecosystem/paypal_vault_payment_methods_core_ecosystem"
         },
@@ -241,8 +241,8 @@ PAYPAL_CORE_ECOSYSTEM: dict[str, Any] = {
                 "WEBHOOK_VERIFICATION_BOUNDARY"
             ],
             "status": "CORE_CATALOG_ONLY",
-            "enabled": true,
-            "connected": false,
+            "enabled": True,
+            "connected": False,
             "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/paypal_api_ecosystem/paypal_webhooks_api_ecosystem",
             "core_module": "backend/core/global_ecosystem/global_core_ecosystem/paypal_core_ecosystem/paypal_webhooks_core_ecosystem"
         }
