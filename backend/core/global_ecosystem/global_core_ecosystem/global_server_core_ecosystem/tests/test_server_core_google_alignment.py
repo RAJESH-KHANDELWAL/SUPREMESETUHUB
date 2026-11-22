@@ -94,3 +94,21 @@ def test_tenant_and_secret_contracts_reject_invalid_types():
         SecretReference(provider=None, reference="secret/path")
     with pytest.raises(ValueError, match="SECRET_REFERENCE_REQUIRED"):
         SecretReference(provider="vault", reference=" ")
+
+
+
+def test_backend_server_and_global_server_are_separate_main_registrations():
+    from backend.core.global_ecosystem.global_core_ecosystem.manager import GlobalEcosystemManager
+
+    manager = GlobalEcosystemManager()
+    backend_server = manager.get("BACKEND-SERVER-ECOSYSTEM")
+    global_server = manager.get("GLOBAL-SERVER-ECOSYSTEM")
+    server_core = manager.get("GLOBAL-SERVER-CORE-ECOSYSTEM")
+
+    assert backend_server is not None
+    assert global_server is not None
+    assert server_core is not None
+    assert len({backend_server["ecosystem_id"], global_server["ecosystem_id"], server_core["ecosystem_id"]}) == 3
+    assert backend_server["parent_id"] == manager.ROOT_ID
+    assert global_server["parent_id"] == manager.ROOT_ID
+    assert server_core["parent_id"] == manager.CORE_ID
