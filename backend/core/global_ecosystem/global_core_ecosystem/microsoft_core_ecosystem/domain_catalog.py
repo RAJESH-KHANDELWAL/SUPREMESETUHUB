@@ -2,7 +2,7 @@
 from __future__ import annotations
 from collections import Counter
 from typing import Any
-from .catalog import get_microsoft_core_catalog
+from .manager import get_microsoft_core_catalog
 
 DOMAIN_DEFINITIONS: dict[str, dict[str, str]] = {
 "PROVIDER_GOVERNANCE": {"name":"Provider Governance and Product Lifecycle","purpose":"Microsoft provider identity, product registration, lifecycle, readiness and governance."},
