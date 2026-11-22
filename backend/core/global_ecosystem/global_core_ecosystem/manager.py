@@ -1589,6 +1589,52 @@ def get_catalog() -> list[dict[str, Any]]:
         },
     }
 
+    from backend.core.global_ecosystem.global_core_ecosystem.openai_core_ecosystem.catalog import get_openai_core_catalog
+
+    openai_catalog = get_openai_core_catalog()
+    openai_core = {
+        "ecosystem_id": openai_catalog["ecosystem_id"],
+        "name": openai_catalog["name"],
+        "ecosystem_type": "PROVIDER_CORE",
+        "capabilities": list(openai_catalog["capabilities"]),
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_module": "backend/core/global_ecosystem/global_core_ecosystem/openai_core_ecosystem",
+            "api_module": "backend/api/global_ecosystem/global_api_ecosystem/openai_api_ecosystem",
+            "status": "CORE_CATALOG_ONLY",
+            "product_count": len(openai_catalog["children"]),
+            "domain_count": 11,
+            "api_capability_count": openai_catalog["api_capability_count"],
+            "canonical_master_entry_ids": list(openai_catalog["master_catalog"]["canonical_entry_ids"]),
+            "master_catalog_path": openai_catalog["master_catalog"]["path"],
+            "master_catalog_target_unique_entries": 2468,
+            "master_catalog_entries_added": 0,
+            "live_connection_verified": False,
+            "api_transport_in_core": False,
+            "engine_execution_in_core": False,
+            "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+        },
+    }
+    openai_product_records = [
+        {
+            "ecosystem_id": product["ecosystem_id"],
+            "name": product["name"],
+            "ecosystem_type": "PROVIDER_CORE_SERVICE",
+            "capabilities": list(product["capabilities"]),
+            "parent_id": "OPENAI-CORE-ECOSYSTEM",
+            "metadata": {
+                "core_module": product["core_module"],
+                "api_catalog_ref": product["api_catalog_ref"],
+                "product_id": product["id"],
+                "status": product["status"],
+                "live_connection_verified": False,
+                "api_transport_in_core": False,
+                "engine_execution_in_core": False,
+            },
+        }
+        for product in openai_catalog["children"]
+    ]
+
     records = [
         ROOT,
         *CATEGORIES,
@@ -1597,6 +1643,8 @@ def get_catalog() -> list[dict[str, Any]]:
         huggingface_core,
         ibm_core,
         meta_core,
+        openai_core,
+        *openai_product_records,
         human_language_core,
         programming_language_core,
         server_core,
