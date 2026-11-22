@@ -19,16 +19,15 @@ Provider Core metadata/control plane for the existing ten NSFWinfra product fami
 - `product_catalog.py`: canonical product lookup.
 - `domain_catalog.py`: 21 cross-product domains and coverage mapping.
 - `contracts.py`: tenant context, opaque secret reference and result contract.
-- `master_catalog.py`: read-only mapping/counts to master 2468 catalog.
 - `policy.py`: tenant/capability policy classification and adult-content default-deny boundary.
 - `module_service.py`: shared product metadata service.
 - `domain_runtime.py`: read-only domain manager.
 - `orchestrator.py`: products, domains, health, offerings and dependencies.
 - `service.py`: provider status service.
-- `manager.py`: canonical manager/get_manager().
+- `manager.py`: canonical manager/get_manager(), including the read-only master catalog mapping/counts.
 - `manager.php`: thin metadata interoperability facade; Python is canonical.
 - `product_ecosystem_index.json`: machine-readable inventory.
-- `backend/test/test_nsfwinfra_core.py`: test suite.
+- `backend/test/test_nsfwinfra_core_ecosystem.py`: canonical test suite.
 
 No boilerplate product subfolders or duplicate clients are added. Existing ten folders remain as product boundaries until meaningful product-specific Core implementation is required.
 
