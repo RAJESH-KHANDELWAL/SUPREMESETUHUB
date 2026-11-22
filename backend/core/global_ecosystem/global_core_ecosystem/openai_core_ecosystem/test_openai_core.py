@@ -15,7 +15,6 @@ from backend.core.global_ecosystem.global_core_ecosystem.openai_core_ecosystem.d
     validate_openai_domain_catalog,
 )
 from backend.core.global_ecosystem.global_core_ecosystem.openai_core_ecosystem.domain_runtime import (
-    OpenAICoreDomainManager,
 )
 from backend.core.global_ecosystem.global_core_ecosystem.openai_core_ecosystem.manager import get_manager
 from backend.core.global_ecosystem.global_core_ecosystem.openai_core_ecosystem.policy import (
@@ -72,7 +71,7 @@ def test_all_product_packages_export_a_shared_service():
         assert manager.status()["live_connection_verified"] is False
 
 
-def test_all_twelve_domain_packages_are_registered_and_working():
+def test_all_eleven_domain_packages_are_registered_and_working():
     assert len(DOMAIN_DEFINITIONS) == 11
     assert set(DOMAIN_PACKAGES) == set(DOMAIN_DEFINITIONS)
     package_root = "backend.core.global_ecosystem.global_core_ecosystem.openai_core_ecosystem"
@@ -87,12 +86,11 @@ def test_all_twelve_domain_packages_are_registered_and_working():
 def test_domain_inventory_covers_all_products_without_unknown_ids():
     assert validate_openai_domain_catalog() == ()
     summary = openai_domain_summary()
-    assert summary["domain_count"] == 12
+    assert summary["domain_count"] == 11
     assert summary["product_count"] == 14
 
 
 def test_tenant_policy_requires_authenticated_context():
-    product = next(item for item in list_openai_core_modules() if item["id"] == "agents_api")
     try:
         OpenAICorePolicy.require_tenant_context(None)
     except PermissionError:
@@ -134,7 +132,7 @@ def test_manager_health_reports_catalog_not_live_connectivity():
     manager = get_manager()
     health = manager.health()
     assert health["product_family_count"] == 14
-    assert health["domain_count"] == 12
+    assert health["domain_count"] == 11
     assert health["live_connections_verified"] == 0
     assert manager.status()["live_connection_verified"] is False
 
