@@ -23,13 +23,13 @@ Metadata-only control plane for infrastructure domains, aligned with the Google 
 ## Root modules
 
 - `manager.py`: canonical manager and `get_manager()` entry point.
-- `catalog.py`: stable identities, descriptions and capability registry.
+- `manager.py`: single canonical source for provider identity, product-family catalog, inventory helpers and `get_manager()`.
 - `contracts.py`: shared result envelope.
 - `policy.py`: security, privacy, authorization and execution boundaries.
 - `master_catalog.py`: on-demand, read-only reference to the canonical 2468-target catalog.
 - `orchestrator.py`: inventory, health and dependency mapping.
 - `service.py`: root status facade.
-- `tests/test_nsfwinfra_core.py`: root contract tests.
+- `backend/test/test_nsfwinfra_core_ecosystem.py`: canonical root and product-manager regression suite.
 
 Each package has a manager, package README and package initializer. Add files only when a concrete package responsibility requires them.
 
