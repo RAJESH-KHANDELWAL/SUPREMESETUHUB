@@ -2,8 +2,8 @@
 
 import unittest
 
-from backend.foundation.android import AndroidFoundationManager
-from backend.foundation.android.global_ecosystem.global_android_ecosystem import (
+from backend.foundation.global_ecosystem.global_foundation_ecosystem.android import AndroidFoundationManager
+from backend.foundation.global_ecosystem.global_foundation_ecosystem.android.global_ecosystem.global_android_ecosystem import (
     GlobalAndroidEcosystemManager,
 )
 
