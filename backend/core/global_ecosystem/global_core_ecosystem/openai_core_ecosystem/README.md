@@ -15,7 +15,7 @@ The canonical Core catalog contains the 14 named product/service families alread
 
 - `catalog.py`: provider identity and the 14 curated product-family records.
 - `product_catalog.py`: product inventory and separate API capability inventory.
-- `domain_catalog.py`: 12 meaningful cross-product Core domains.
+- `domain_catalog.py`: 11 meaningful cross-product Core domains.
 - `domain_runtime.py`: shared read-only domain manager.
 - `contracts.py`: tenant context, secret references, readiness and result contracts.
 - `policy.py`: capability classification, tenant-context validation and metadata sanitization.
