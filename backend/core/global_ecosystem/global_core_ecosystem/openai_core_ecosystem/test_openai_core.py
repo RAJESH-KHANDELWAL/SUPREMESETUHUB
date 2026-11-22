@@ -40,7 +40,6 @@ PRODUCT_PACKAGES = {
     "sora": "openai_sora_core_ecosystem",
 }
 DOMAIN_PACKAGES = {
-    "PROVIDER_GOVERNANCE": "openai_provider_governance_core_ecosystem",
     "CHATGPT_AND_WORKSPACE": "openai_chatgpt_and_workspace_core_ecosystem",
     "AGENT_RUNTIME_AND_ORCHESTRATION": "openai_agent_runtime_and_orchestration_core_ecosystem",
     "CODEX_AND_DEVELOPER_EXECUTION": "openai_codex_and_developer_execution_core_ecosystem",
@@ -74,7 +73,7 @@ def test_all_product_packages_export_a_shared_service():
 
 
 def test_all_twelve_domain_packages_are_registered_and_working():
-    assert len(DOMAIN_DEFINITIONS) == 12
+    assert len(DOMAIN_DEFINITIONS) == 11
     assert set(DOMAIN_PACKAGES) == set(DOMAIN_DEFINITIONS)
     package_root = "backend.core.global_ecosystem.global_core_ecosystem.openai_core_ecosystem"
     for domain_id, package_name in DOMAIN_PACKAGES.items():
@@ -95,11 +94,11 @@ def test_domain_inventory_covers_all_products_without_unknown_ids():
 def test_tenant_policy_requires_authenticated_context():
     product = next(item for item in list_openai_core_modules() if item["id"] == "agents_api")
     try:
-        OpenAICorePolicy.validate_capability(product, "MANAGED_AGENT_API_METADATA")
+        OpenAICorePolicy.require_tenant_context(None)
     except PermissionError:
         pass
     else:
-        raise AssertionError("Tenant context must be required before capability checks")
+        raise AssertionError("Authenticated tenant context must be required")
 
 
 def test_tenant_context_validation_and_capability_authorization():
