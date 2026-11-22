@@ -3,7 +3,6 @@ from __future__ import annotations
 from typing import Any
 from .catalog import get_nsfwinfra_core_catalog
 from .domain_catalog import get_domain_catalog
-from .master_catalog import master_catalog_reference
 class NSFWinfraCoreOrchestrator:
  def products(self,enabled_only:bool=False)->dict[str,Any]:
   rows=get_nsfwinfra_core_catalog()["children"]
