@@ -4,7 +4,7 @@ from __future__ import annotations
 import unittest
 from pathlib import Path
 
-from backend.core.global_ecosystem.global_core_ecosystem.nsfwinfra_core_ecosystem.catalog import (
+from backend.core.global_ecosystem.global_core_ecosystem.nsfwinfra_core_ecosystem.manager import (
     get_nsfwinfra_core_catalog,
 )
 from backend.core.global_ecosystem.global_core_ecosystem.nsfwinfra_core_ecosystem.contracts import (
