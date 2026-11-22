@@ -1,5 +1,5 @@
 """Canonical Atlassian Core Ecosystem manager, modeled on Google Core manager APIs."""
-from __future__
+from __future__ import annotations
 from typing import Any
 from .orchestrator import AtlassianCoreOrchestrator
 from .domain_runtime import AtlassianCoreDomainManager
