@@ -44,4 +44,6 @@ def test_master_catalog_reference_is_read_only_and_correct_target():
     assert reference["catalog_id"] == "GLOBAL_TO_SUPREME_MASTER_ECOSYSTEM"
     assert reference["target_unique_entries"] == 2468
     assert reference["access_mode"] == "READ_ONLY_ON_DEMAND"
-    assert reference["loaded"] is True\n    assert reference["catalog_id_verified"] is True\n    assert reference["current_unique_entries"] == 246
+    assert reference["loaded"] is True
+    assert reference["catalog_id_verified"] is True
+    assert reference["current_unique_entries"] == 246
