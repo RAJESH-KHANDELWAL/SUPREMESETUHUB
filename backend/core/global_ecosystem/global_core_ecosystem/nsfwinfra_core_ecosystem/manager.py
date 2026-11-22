@@ -195,7 +195,7 @@ def get_nsfwinfra_core_catalog()->dict[str,Any]:
 __all__=["ROOT_ID","ROOT_PATH","API_ROOT","AI_API_REF","AI_CORE_REF","AI_PROVIDER_REF","get_nsfwinfra_core_catalog"]
 
 
-MASTER_CATALOG_PATH = Path(__file__).resolve().parents[3] / "GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+MASTER_CATALOG_PATH = Path(__file__).resolve().parents[4] / "GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
 CANONICAL_ENTRY_IDS = (
     "S09_cloud_computing",
     "S10_global_infrastructure",
