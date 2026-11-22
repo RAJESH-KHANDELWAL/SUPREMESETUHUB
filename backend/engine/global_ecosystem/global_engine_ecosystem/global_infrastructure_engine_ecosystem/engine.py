@@ -24,7 +24,7 @@ class GlobalInfrastructureEngine(BaseEngine):
             "layer": "ENGINE",
             "ecosystem_id": "global-infrastructure-engine-ecosystem",
             "catalog_status": self.ecosystem.get_overview()["status"],
-            "module_count": self.ecosystem.get_overview()["module_count"],
+            "module_count": self.ecosystem.get_overview()["domain_count"],
             "core_validation": self.core.describe()["status"],
             "provider_operations_enabled": False,
         }
