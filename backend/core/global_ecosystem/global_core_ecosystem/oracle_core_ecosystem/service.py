@@ -9,7 +9,7 @@ class OracleCoreEcosystemService:
         self._orchestrator = OracleCoreOrchestrator()
 
     def master_catalog_reference(self) -> dict:
-        path = Path(__file__).resolve().parents[5] / "GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+        path = Path(__file__).resolve().parents[4] / "GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
         result = {"path": MASTER_CATALOG_PATH, "target_unique_entries": MASTER_CATALOG_TARGET,
                   "access_mode": "READ_ONLY_ON_DEMAND", "available": path.is_file()}
         if path.is_file():
