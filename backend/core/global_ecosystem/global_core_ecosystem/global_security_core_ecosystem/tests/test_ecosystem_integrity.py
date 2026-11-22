@@ -186,7 +186,7 @@ def test_service_exposes_jurisdiction_and_content_safety_metadata():
     )
     service = SecurityCoreEcosystemService()
     assert service.get_jurisdiction("IN")["jurisdiction_id"] == "IN"
-    assert {x["jurisdiction_id"] for x in service.list_jurisdictions()} == {"IN", "GLOBAL"}
+    assert {x["jurisdiction_id"] for x in service.list_jurisdictions()["jurisdictions"]} == {"IN", "GLOBAL"}
     baseline = service.content_safety()
     assert baseline["media_storage_or_generation_in_core"] is False
     assert baseline["production_enforcement_verified"] is False

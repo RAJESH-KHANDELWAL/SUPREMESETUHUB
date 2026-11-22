@@ -54,4 +54,3 @@ class DigitalOceanCoreOrchestrator:
                 for capability, metadata in catalog["capabilities"].items()
             ],
         }
-}
