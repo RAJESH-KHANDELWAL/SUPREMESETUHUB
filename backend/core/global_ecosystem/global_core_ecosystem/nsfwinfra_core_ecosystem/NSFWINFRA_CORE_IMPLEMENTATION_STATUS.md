@@ -9,5 +9,5 @@
 - Master catalog: read-only reference to `backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json`; target 2468/current 246/remaining 2222; four existing topic mappings; no entries added.
 - Adult-category access: default-deny policy metadata only. Age verification, consent capture and moderation enforcement are not implemented by this Core.
 - Provider network calls, generation/edit/upload, OAuth, jobs, persistence and billing: not performed.
-- Tests: canonical `backend/test/test_nsfwinfra_core.py` path.
+- Tests: canonical `backend/test/test_nsfwinfra_core_ecosystem.py` path (9 test cases defined; execution not yet verified).
 - Live provider connectivity: not verified; no live connection is claimed.
