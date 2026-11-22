@@ -2,7 +2,7 @@
 from __future__ import annotations
 from typing import Any
 from .catalog import get_catalog
-from .constants import ECOSYSTEM_ID, ECOSYSTEM_NAME
+from .constants import CAPABILITIES, ECOSYSTEM_ID, ECOSYSTEM_NAME
 from .models import ServerIdentity
 from .orchestrator import ServerCoreOrchestrator
 from .policy import ServerCorePolicy
@@ -15,6 +15,29 @@ class ServerCoreService:
     def __init__(self, registry: ServerCoreRegistry | None=None) -> None:
         self.registry=registry or ServerCoreRegistry()
         self.orchestrator=ServerCoreOrchestrator()
+    def describe(self) -> dict[str, Any]:
+        """Return the stable CORE boundary description without live operations."""
+        catalog = get_catalog()
+        from .policy import SUPPORTED_ENVIRONMENTS, SUPPORTED_SERVER_TYPES
+
+        return {
+            "layer": "CORE",
+            "ecosystem_id": ECOSYSTEM_ID,
+            "ecosystem": ECOSYSTEM_NAME,
+            "status": "CORE_CATALOG_ONLY",
+            "capabilities": list(CAPABILITIES),
+            "provider_domains": [
+                str(item["provider_id"]).lower()
+                for item in catalog["providers"]
+            ],
+            "provider_count": catalog["provider_count"],
+            "supported_server_types": list(SUPPORTED_SERVER_TYPES),
+            "supported_environments": list(SUPPORTED_ENVIRONMENTS),
+            "registered_identities": self.registry.count(),
+            "remote_operations_enabled": False,
+            "registry_persistence": "PROCESS_LOCAL_ONLY",
+        }
+
     def status(self) -> dict[str, Any]:
         catalog=get_catalog()
         health=self.orchestrator.health()
