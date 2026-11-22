@@ -2,9 +2,6 @@
 from __future__ import annotations
 from copy import deepcopy
 from typing import Any
-from .orchestrator import DomainCoreOrchestrator
-from .module_service import DomainModuleService
-from .service import GlobalDomainCoreService
 
 # Sector taxonomy consolidated from the former sector_catalog.py.
 """Expanded domain ecosystem sector taxonomy (classification, not integrations)."""
@@ -109,13 +106,12 @@ def list_sector_ecosystems() -> list[dict[str, Any]]:
 
 # Canonical manager.
 """Canonical manager for GLOBAL DOMAIN CORE ECOSYSTEM."""
-from .orchestrator import DomainCoreOrchestrator
-from .module_service import DomainModuleService
-from .service import GlobalDomainCoreService
 class GlobalDomainCoreManager:
     NAME=ECOSYSTEM_NAME
     ECOSYSTEM_ID=ECOSYSTEM_ID
     def __init__(self):
+        from .orchestrator import DomainCoreOrchestrator
+        from .service import GlobalDomainCoreService
         self.orchestrator=DomainCoreOrchestrator()
         self.service=GlobalDomainCoreService()
     def status(self):
@@ -130,7 +126,9 @@ class GlobalDomainCoreManager:
     def list_sector_ecosystems(self): return list_sector_ecosystems()
     def get_sector_ecosystem(self,ecosystem_id:str):
         return next((row for row in list_sector_ecosystems() if row["ecosystem_id"]==ecosystem_id),None)
-    def get_domain_manager(self, domain_id:str): return DomainModuleService(domain_id)
+    def get_domain_manager(self, domain_id:str):
+        from .module_service import DomainModuleService
+        return DomainModuleService(domain_id)
 def get_manager() -> GlobalDomainCoreManager:
     return GlobalDomainCoreManager()
 __all__=["GlobalDomainCoreManager","get_manager"]
