@@ -14,7 +14,6 @@ from backend.core.global_ecosystem.global_core_ecosystem.nsfwinfra_core_ecosyste
     CANONICAL_ENTRY_IDS,
     MASTER_CATALOG_PATH,
     get_manager,
-    master_catalog_reference,
 )
 from backend.core.global_ecosystem.global_core_ecosystem.nsfwinfra_core_ecosystem.module_service import (
     NSFWinfraProductCoreService,
@@ -49,7 +48,7 @@ class NSFWinfraCoreEcosystemTests(unittest.TestCase):
         )
 
     def test_master_catalog_is_read_only_and_topics_exist(self):
-        reference = master_catalog_reference()
+        reference = get_manager().master_catalog()
         self.assertTrue(reference["available"])
         self.assertEqual(reference["target_unique_entries"], 2468)
         self.assertEqual(reference["current_unique_entries"], 246)
@@ -62,6 +61,7 @@ class NSFWinfraCoreEcosystemTests(unittest.TestCase):
     def test_catalog_status_is_not_live(self):
         status = get_manager().status()
         self.assertEqual(status["product_count"], 10)
+        self.assertTrue(status["master_catalog"]["available"])
         self.assertFalse(status["live_connection_verified"])
         self.assertEqual(status["api_calls_performed"], 0)
 
