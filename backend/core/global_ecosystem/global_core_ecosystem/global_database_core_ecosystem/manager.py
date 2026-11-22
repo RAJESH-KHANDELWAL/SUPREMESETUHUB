@@ -1,4 +1,4 @@
-"""Canonical, read-only database provider catalog; mirrors the API catalog contract."""
+"""Canonical, read-only database provider manager; mirrors the API catalog contract."""
 from __future__ import annotations
 
 from copy import deepcopy
