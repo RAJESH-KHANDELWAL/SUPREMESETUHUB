@@ -1,5 +1,8 @@
 """Product entry point backed by the shared PayPal Core service."""
 from ..module_service import PayPalProductCoreService
-class PaypalBillingPlansCoreManager(PayPalProductCoreService):
-    ECOSYSTEM_ID = "PAYPAL-BILLING-PLANS-CORE-ECOSYSTEM-CORE-ECOSYSTEM"
-    def __init__(self) -> None: super().__init__(self.ECOSYSTEM_ID)
+
+class PayPalBillingPlansCoreManager(PayPalProductCoreService):
+    ECOSYSTEM_ID = "PAYPAL-BILLING-PLANS-CORE-ECOSYSTEM"
+
+    def __init__(self) -> None:
+        super().__init__(self.ECOSYSTEM_ID)

@@ -1,3 +1,4 @@
-"""Invoice lifecycle and payment status metadata."""
+"""PayPal PAYPAL INVOICING product Core package."""
 from .manager import PayPalInvoicingCoreManager
+
 __all__ = ["PayPalInvoicingCoreManager"]

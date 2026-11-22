@@ -1,3 +1,4 @@
-"""Subscription lifecycle and plan linkage metadata."""
+"""PayPal PAYPAL SUBSCRIPTIONS product Core package."""
 from .manager import PayPalSubscriptionsCoreManager
+
 __all__ = ["PayPalSubscriptionsCoreManager"]

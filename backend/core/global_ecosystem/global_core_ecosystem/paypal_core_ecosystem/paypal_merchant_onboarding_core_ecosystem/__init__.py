@@ -1,3 +1,4 @@
-"""Merchant eligibility and onboarding readiness metadata."""
+"""PayPal PAYPAL MERCHANT ONBOARDING product Core package."""
 from .manager import PayPalMerchantOnboardingCoreManager
+
 __all__ = ["PayPalMerchantOnboardingCoreManager"]
