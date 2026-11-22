@@ -1,7 +1,7 @@
 """Developer Core read-only control-plane service."""
 from __future__ import annotations
 from typing import Any
-from .catalog import get_global_developer_core_catalog
+from .manager import get_global_developer_core_catalog
 from .orchestrator import DeveloperCoreOrchestrator
 
 class DeveloperCoreEcosystemService:
