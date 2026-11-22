@@ -40,8 +40,8 @@ def test_all_ten_package_managers_have_capabilities_and_non_live_status():
         assert capability_inventory["live_connection_verified"] is False
         assert capability_inventory["execution_performed"] is False
 def test_master_catalog_reference_is_read_only_and_correct_target():
-    reference = get_manager().master_catalog_reference()
+    reference = get_manager().master_catalog_reference(load_summary=True)
     assert reference["catalog_id"] == "GLOBAL_TO_SUPREME_MASTER_ECOSYSTEM"
     assert reference["target_unique_entries"] == 2468
     assert reference["access_mode"] == "READ_ONLY_ON_DEMAND"
-    assert reference["loaded"] is False
+    assert reference["loaded"] is True\n    assert reference["catalog_id_verified"] is True\n    assert reference["current_unique_entries"] == 246
