@@ -1,7 +1,7 @@
 """Stable product/provider inventory facade."""
 from __future__ import annotations
 from typing import Any
-from .catalog import get_global_developer_core_catalog
+from .manager import get_global_developer_core_catalog
 
 def list_developer_modules() -> list[dict[str,Any]]:
     return get_global_developer_core_catalog()["children"]
