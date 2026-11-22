@@ -1,18 +1,11 @@
 """OpenAI Core domains mapped to existing products and API capability families."""
 from __future__ import annotations
 
-from collections import Counter
 from typing import Any
 
 from .catalog import OPENAI_API_CAPABILITIES, list_openai_core_modules
 
 DOMAIN_DEFINITIONS: dict[str, dict[str, Any]] = {
-    "PROVIDER_GOVERNANCE": {
-        "name": "Provider Governance",
-        "purpose": "Provider identity, product registration, lifecycle, catalog integrity and provider-level readiness.",
-        "product_ids": [],
-        "api_capabilities": [],
-    },
     "CHATGPT_AND_WORKSPACE": {
         "name": "ChatGPT and Workspace",
         "purpose": "ChatGPT product surfaces, workspace editions, institutional and health-product availability boundaries.",
