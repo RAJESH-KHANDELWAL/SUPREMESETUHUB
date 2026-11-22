@@ -1603,7 +1603,7 @@ def get_catalog() -> list[dict[str, Any]]:
             "api_module": "backend/api/global_ecosystem/global_api_ecosystem/openai_api_ecosystem",
             "status": "CORE_CATALOG_ONLY",
             "product_count": len(openai_catalog["children"]),
-            "domain_count": 12,
+            "domain_count": 11,
             "api_capability_count": openai_catalog["api_capability_count"],
             "canonical_master_entry_ids": list(openai_catalog["master_catalog"]["canonical_entry_ids"]),
             "master_catalog_path": openai_catalog["master_catalog"]["path"],
