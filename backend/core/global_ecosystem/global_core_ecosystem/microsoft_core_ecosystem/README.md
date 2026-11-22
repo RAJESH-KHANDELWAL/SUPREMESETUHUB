@@ -13,7 +13,7 @@ Provider-level, read-only control plane for Microsoft product-family metadata. I
 - `manager.py`: canonical Python entry point (`get_manager()`).
 - `manager.php`: PHP metadata interoperability facade only.
 - `product_ecosystem_index.json`: machine-readable inventory contract.
-- `backend/test/test_microsoft_core_domains.py`: regression tests in canonical `backend/test/`.
+- `backend/test/test_microsoft_core_ecosystem.py`: canonical regression test suite (4 focused tests).
 
 ## Integration boundaries
 Microsoft Entra OAuth and token lifecycle belong in the API/auth integration layer. Microsoft Graph and Azure SDK transport belong in dedicated API adapters. Secrets must be supplied by secure runtime configuration, never catalog metadata. Database and persistence remain shared-layer ownership. This Core package does not create or connect to databases.
