@@ -4,7 +4,7 @@
 - Parent: `GLOBAL-CORE-ECOSYSTEM`
 - Provider root ID: `OPENAI-CORE-ECOSYSTEM`
 - Product/service families: 14, aligned with the existing OpenAI API product catalog.
-- Core domains: 12, each with a shared read-only manager.
+- Core domains: 11, each with a shared read-only manager.
 - API capability families: 17, kept separate from named products.
 - Product packages use thin services backed by the shared root implementation.
 - PHP interoperability: root `manager.php` plus result and domain contracts.
