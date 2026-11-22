@@ -1,5 +1,6 @@
 """Root NSF Winfra Core and package manager contract tests."""
 from backend.core.global_ecosystem.global_core_ecosystem.nsfwinfra_core_ecosystem import NSFWinfraCoreManager, get_manager
+from backend.core.global_ecosystem.global_core_ecosystem.nsfwinfra_core_ecosystem.manager import get_ecosystem, list_ecosystems
 from backend.core.global_ecosystem.global_core_ecosystem.nsfwinfra_core_ecosystem.nsfwinfra_account_limits_core_ecosystem import get_manager as account_limits_manager
 from backend.core.global_ecosystem.global_core_ecosystem.nsfwinfra_core_ecosystem.nsfwinfra_anime_generation_core_ecosystem import get_manager as anime_manager
 from backend.core.global_ecosystem.global_core_ecosystem.nsfwinfra_core_ecosystem.nsfwinfra_async_jobs_core_ecosystem import get_manager as async_jobs_manager
@@ -47,3 +48,11 @@ def test_master_catalog_reference_is_read_only_and_correct_target():
     assert reference["loaded"] is True
     assert reference["catalog_id_verified"] is True
     assert reference["current_unique_entries"] == 246
+
+def test_catalog_helpers_are_owned_by_manager_and_return_defensive_copies():
+    first = list_ecosystems()
+    assert len(first) == 10
+    first[0]["capabilities"].append("MUTATION_SENTINEL")
+    assert "MUTATION_SENTINEL" not in list_ecosystems()[0]["capabilities"]
+    assert get_ecosystem("NSFW-INFRA-ASYNC-JOBS-CORE") is not None
+    assert get_ecosystem("not-registered") is None

@@ -1,7 +1,7 @@
 """Read-only inventory, health and dependency metadata orchestration."""
 from __future__ import annotations
 from typing import Any
-from .catalog import ROOT_ID, list_ecosystems, get_ecosystem
+from .manager import ROOT_ID, list_ecosystems, get_ecosystem
 from .master_catalog import reference as master_catalog_reference
 class NSFWinfraCoreOrchestrator:
     def health(self) -> dict[str, Any]:
