@@ -14,8 +14,6 @@ from backend.core.global_ecosystem.global_core_ecosystem.openai_core_ecosystem.d
     openai_domain_summary,
     validate_openai_domain_catalog,
 )
-from backend.core.global_ecosystem.global_core_ecosystem.openai_core_ecosystem.domain_runtime import (
-)
 from backend.core.global_ecosystem.global_core_ecosystem.openai_core_ecosystem.manager import get_manager
 from backend.core.global_ecosystem.global_core_ecosystem.openai_core_ecosystem.policy import (
     OpenAICorePolicy,
