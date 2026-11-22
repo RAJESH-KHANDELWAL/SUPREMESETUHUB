@@ -1,7 +1,7 @@
 """Microsoft Core product discovery and metadata orchestration."""
 from __future__ import annotations
 from typing import Any
-from .catalog import get_microsoft_core_catalog
+from .manager import get_microsoft_core_catalog
 from .domain_catalog import list_microsoft_domain_inventory, microsoft_domain_summary
 from .policy import MicrosoftCorePolicy
 
