@@ -22,7 +22,7 @@ class NSFWinfraCoreTests(unittest.TestCase):
   self.assertEqual(len(ids),len(set(ids)))
   inventory=get_manager().list_domain_inventory()
   self.assertGreaterEqual(len(inventory),20)
-  self.assertTrue(all(x["product_count"]>0 for x in inventory))
+  self.assertTrue(all(x["product_count"]>0 for x in inventory),[x["domain_id"] for x in inventory if not x["product_count"]])
  def test_master_catalog_is_read_only_and_topics_exist(self):
   ref=master_catalog_reference()
   self.assertEqual(ref["target_unique_entries"],2468);self.assertEqual(ref["current_unique_entries"],246);self.assertEqual(ref["remaining_unique_entries"],2222)
