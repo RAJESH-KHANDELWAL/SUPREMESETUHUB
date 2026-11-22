@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "ecosystem_id": "MICROSOFT-CORE-ECOSYSTEM",
   "provider": "microsoft",
-  "catalog_source": "catalog.py",
+  "catalog_source": "manager.py",
   "domain_source": "domain_catalog.py",
   "product_packages": [
     "microsoft_azure_ai_core_ecosystem",
@@ -43,5 +43,6 @@
     "LANGUAGE_ACCESSIBILITY_AND_PRODUCTIVITY",
     "SPECIALTY_AND_CROSS_PRODUCT"
   ],
-  "live_connections_verified": 0
+  "live_connections_verified": 0,
+  "api_calls_performed": 0
 }
