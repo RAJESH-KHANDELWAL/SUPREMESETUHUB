@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "NSFWINFRA-CORE-ECOSYSTEM",
+  "provider": "nsfwinfra",
+  "product_families": [
+    "nsfwinfra_account_limits_core_ecosystem",
+    "nsfwinfra_anime_generation_core_ecosystem",
+    "nsfwinfra_async_jobs_core_ecosystem",
+    "nsfwinfra_image_editing_core_ecosystem",
+    "nsfwinfra_image_generation_core_ecosystem",
+    "nsfwinfra_image_to_video_core_ecosystem",
+    "nsfwinfra_image_video_effects_core_ecosystem",
+    "nsfwinfra_signed_uploads_core_ecosystem",
+    "nsfwinfra_text_to_video_core_ecosystem",
+    "nsfwinfra_webhooks_core_ecosystem"
+  ],
+  "product_count": 10,
+  "domain_count": 21,
+  "master_catalog": {
+    "source_path": "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json",
+    "target_unique_entries": 2468,
+    "current_unique_entries": 246,
+    "remaining_unique_entries": 2222,
+    "canonical_entry_ids": [
+      "S09_cloud_computing",
+      "S10_global_infrastructure",
+      "S10_global_ai_core",
+      "S12_ai_research"
+    ],
+    "access_mode": "READ_ONLY",
+    "entries_added": 0
+  },
+  "scope": "CORE_METADATA_CONTROL_PLANE_ONLY",
+  "live_connection_verified": false
+}
