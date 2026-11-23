@@ -1,5 +1,0 @@
-"""Independent Legal Consulting freelance specialization package."""
-SPECIALIZATION_ID = "legal_consulting"
-SPECIALIZATION_NAME = "Legal Consulting"
-DOMAIN_ID = "freelance_gig_independent_work"
-DESCRIPTION = "Legal information and professional support tasks; legal advice and reserved activities require authorized counsel in the relevant jurisdiction."

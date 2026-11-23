@@ -1,1 +1,0 @@
-"""MD designation package."""

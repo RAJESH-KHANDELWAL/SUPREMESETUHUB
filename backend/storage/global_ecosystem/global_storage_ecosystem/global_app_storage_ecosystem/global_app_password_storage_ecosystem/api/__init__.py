@@ -1,1 +1,0 @@
-"""API namespace for GLOBAL_APP_PASSWORD_STORAGE_ECOSYSTEM."""

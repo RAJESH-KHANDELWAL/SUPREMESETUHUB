@@ -1,1 +1,0 @@
-"""API namespace for GLOBAL_APP_BIGTABLE_STORAGE_ECOSYSTEM."""

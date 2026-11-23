@@ -1,1 +1,0 @@
-"""Offline catalog tests."""

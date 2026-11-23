@@ -1,0 +1,105 @@
+{
+  "ecosystem_id": "GLOBAL-HOSPITALITY-HOTELS-RESORTS-RESTAURANTS-CORE-ECOSYSTEM",
+  "name": "Global Hospitality Hotels Resorts Restaurants Core Ecosystem",
+  "parent": "GLOBAL CORE ECOSYSTEM",
+  "version": "1.0.0",
+  "status": "CORE_CATALOG_READY",
+  "mode": "READ_ONLY_CATALOG",
+  "domains": {
+    "lodging": [
+      "Hotels",
+      "Resorts",
+      "Motels",
+      "Hostels",
+      "Serviced apartments",
+      "Homestays",
+      "Vacation rentals",
+      "Guest houses"
+    ],
+    "dining": [
+      "Fine dining",
+      "Casual dining",
+      "Quick service",
+      "Cafes",
+      "Bakeries",
+      "Cloud kitchens",
+      "Catering",
+      "Food trucks"
+    ],
+    "food_beverage": [
+      "Menu engineering",
+      "Kitchen operations",
+      "Food sourcing",
+      "Inventory",
+      "Allergen information",
+      "Food safety",
+      "Beverage programs"
+    ],
+    "guest_experience": [
+      "Reservations",
+      "Check-in",
+      "Concierge",
+      "Housekeeping",
+      "Accessibility",
+      "Guest feedback",
+      "Loyalty",
+      "Service recovery"
+    ],
+    "events_venues": [
+      "Banquets",
+      "Meetings",
+      "Conferences",
+      "Weddings",
+      "Exhibitions",
+      "Event catering"
+    ],
+    "workforce": [
+      "Front office",
+      "Housekeeping teams",
+      "Kitchen teams",
+      "Maintenance",
+      "Security",
+      "Scheduling",
+      "Training"
+    ],
+    "safety_compliance": [
+      "Fire safety",
+      "Food hygiene",
+      "Guest privacy",
+      "Licensing checks",
+      "Incident management",
+      "Emergency readiness"
+    ],
+    "sustainability": [
+      "Energy",
+      "Water",
+      "Waste",
+      "Responsible sourcing",
+      "Local community",
+      "Biodiversity"
+    ],
+    "geography": [
+      "Country",
+      "State or province",
+      "District or county",
+      "City",
+      "Locality",
+      "Tourism region"
+    ]
+  },
+  "geography": [
+    "country",
+    "state_or_province",
+    "district_or_county",
+    "city",
+    "locality"
+  ],
+  "boundaries": {
+    "live_operations": false,
+    "booking_transactions": false,
+    "payments": false,
+    "external_api_clients": false,
+    "provider_verification": "external_process_required",
+    "legal_certification": false
+  }
+}

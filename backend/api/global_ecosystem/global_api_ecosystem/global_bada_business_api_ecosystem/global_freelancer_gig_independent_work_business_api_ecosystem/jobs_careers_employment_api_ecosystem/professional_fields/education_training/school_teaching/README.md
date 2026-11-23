@@ -1,9 +1,0 @@
-# School Teaching
-
-School Teaching is a professional subcategory within **Education & Training**.
-
-- Parent field: `education_training`
-- Subcategory ID: `school_teaching`
-- API Ecosystem: `EDUCATION_TRAINING_SCHOOL_TEACHING_PROFESSIONAL_SUBCATEGORY_API_ECOSYSTEM`
-
-Taxonomy only. This record does not verify active vacancies, employer legitimacy, qualifications, professional registration or legal eligibility. Work context is classified separately by the existing Work & Careers categories.
