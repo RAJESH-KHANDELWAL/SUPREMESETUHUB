@@ -1,93 +1,160 @@
-"""Hospitality service-work business capability taxonomy."""
+"""Canonical hospitality service, work and business taxonomy."""
+from copy import deepcopy
 DOMAINS = {
   "business_strategy": [
     "Business model design",
     "Feasibility studies",
     "Market research",
-    "Business planning",
-    "Business setup coordination",
-    "Operating model",
-    "Business continuity"
+    "Business plans",
+    "Operating model design",
+    "Continuity planning",
+    "Growth strategy"
+  ],
+  "setup_licensing": [
+    "Business setup guidance",
+    "Registration coordination",
+    "Local licensing checklists",
+    "Food business license coordination",
+    "Fire safety approval checklists",
+    "Tourism registration guidance",
+    "Permit renewal tracking",
+    "Professional referrals"
   ],
   "operations": [
     "Standard operating procedures",
     "Service quality systems",
-    "Process improvement",
+    "Process mapping",
     "Capacity planning",
-    "Cost controls",
-    "Performance management"
+    "Cost optimization",
+    "Performance dashboards",
+    "Customer experience improvement"
   ],
-  "revenue_marketing": [
-    "Revenue management",
+  "revenue_sales": [
+    "Revenue management advisory",
     "Pricing strategy",
+    "Occupancy improvement",
+    "Sales pipeline design",
+    "Corporate sales",
+    "Group sales",
+    "Upselling",
+    "Customer retention"
+  ],
+  "marketing_branding": [
     "Brand positioning",
     "Digital marketing",
-    "Sales enablement",
-    "Customer retention",
-    "Reputation management"
+    "Search visibility",
+    "Local business profiles",
+    "Content strategy",
+    "Social media",
+    "Reputation management",
+    "Campaign analytics"
   ],
-  "distribution_technology": [
+  "technology_distribution": [
     "Direct booking strategy",
-    "Online travel agency channel strategy",
-    "Channel management",
-    "Property management systems",
-    "Point of sale systems",
-    "CRM",
-    "Analytics"
+    "OTA channel strategy",
+    "Channel management advisory",
+    "PMS selection",
+    "POS selection",
+    "CRM selection",
+    "Booking engine selection",
+    "Integration planning"
+  ],
+  "finance_commercial": [
+    "Budgeting support",
+    "Unit economics",
+    "Cash flow planning",
+    "Financial modelling",
+    "Cost controls",
+    "Tax professional coordination",
+    "Insurance coordination",
+    "Audit readiness"
   ],
   "procurement_supply": [
     "Supplier discovery",
-    "Vendor qualification",
-    "Food and beverage sourcing",
-    "Linen and amenities",
+    "Vendor due diligence coordination",
+    "Food sourcing",
+    "Linen and amenities sourcing",
     "Equipment procurement",
-    "Contract management",
+    "Contract administration support",
     "Inventory systems"
   ],
   "staffing_training": [
     "Recruitment support",
-    "Staffing partners",
+    "Staffing partner discovery",
+    "Workforce planning",
+    "Role design",
     "Hospitality training",
     "Leadership development",
-    "Workforce planning",
-    "Service standards"
-  ],
-  "finance_compliance": [
-    "Budgeting",
-    "Unit economics",
-    "Cash flow planning",
-    "Tax coordination",
-    "Licensing checklist",
-    "Insurance coordination",
-    "Audit readiness"
+    "Service standards",
+    "Workplace wellbeing"
   ],
   "property_assets": [
-    "Site selection",
+    "Site selection support",
     "Property feasibility",
-    "Asset management",
+    "Lease comparison support",
+    "Asset management planning",
     "Renovation planning",
-    "Facilities management",
-    "Lease review"
+    "Facilities management advisory"
   ],
   "franchise_investment": [
-    "Franchise models",
+    "Franchise model design",
     "Franchisor readiness",
     "Franchisee support",
     "Investor readiness",
     "Partnership models",
-    "Expansion planning"
+    "Expansion planning",
+    "Due diligence coordination"
+  ],
+  "tourism_destination": [
+    "Destination research",
+    "Tourism circuit development",
+    "Local experience design",
+    "Tour operator partnerships",
+    "Destination marketing",
+    "Community tourism"
+  ],
+  "digital_services": [
+    "Website planning",
+    "Booking funnel design",
+    "CRM implementation planning",
+    "Data analytics",
+    "Automation discovery",
+    "Cybersecurity assessment referrals"
   ],
   "india_global_market": [
     "India market mapping",
-    "State and city market mapping",
-    "Tourism circuits",
+    "State and city opportunity mapping",
     "International market entry",
     "Localization",
-    "Cross-border partnerships"
+    "Cross-border partnerships",
+    "Regional expansion"
+  ],
+  "professional_advisory": [
+    "Business consulting",
+    "Management advisory",
+    "Hospitality coaching",
+    "Operations consulting",
+    "Marketing advisory",
+    "Technology advisory"
+  ],
+  "service_work": [
+    "Hospitality service providers",
+    "Independent consultants",
+    "Freelance specialists",
+    "Maintenance services",
+    "Cleaning services",
+    "Catering services",
+    "Event service providers",
+    "Training providers"
   ]
 }
 def list_domains():
-    return [{"id": key, "capabilities": list(values)} for key, values in DOMAINS.items()]
+    return [{"id": k, "capabilities": list(v)} for k, v in DOMAINS.items()]
 def get_domain(domain_id):
-    values = DOMAINS.get(str(domain_id or "").strip().lower())
-    return {"id": str(domain_id).strip().lower(), "capabilities": list(values)} if values is not None else None
+    key = str(domain_id or "").strip().lower(); values = DOMAINS.get(key)
+    return {"id": key, "capabilities": list(values)} if values is not None else None
+def search_domains(query=""):
+    term = str(query or "").strip().casefold()
+    return [item for item in list_domains() if not term or term in item["id"].casefold() or any(term in x.casefold() for x in item["capabilities"])]
+def catalog_snapshot():
+    return {"domains": deepcopy(DOMAINS), "domain_count": len(DOMAINS), "capability_count": sum(len(v) for v in DOMAINS.values())}
