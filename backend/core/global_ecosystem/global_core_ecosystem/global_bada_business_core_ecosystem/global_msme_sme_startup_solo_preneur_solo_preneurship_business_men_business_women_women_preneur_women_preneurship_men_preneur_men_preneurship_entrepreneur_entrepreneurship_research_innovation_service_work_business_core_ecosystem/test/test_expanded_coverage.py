@@ -16,3 +16,8 @@ class ExpandedBusinessCoverageTests(unittest.TestCase):
   self.assertEqual({x["scope_id"] for x in scoped},{"bharat","global_world"})
   self.assertIsNotNone(next((x for x in scoped if x["scoped_service_id"]=="bharat_msme_development"),None))
   self.assertIsNotNone(next((x for x in scoped if x["scoped_service_id"]=="global_world_sme_growth_advisory"),None))
+
+ def test_bada_business_core_uses_shared_geographic_registry(self):
+  result=get_manager().geography()
+  self.assertTrue(result["validation"]["valid"])
+  self.assertEqual(result["coverage"]["state_union_territory_seed_count"],36)
