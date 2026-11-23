@@ -16,7 +16,7 @@ This CORE package does not itself provide farming, food, veterinary, human, fina
 
 ## Business layer
 Commercial service, work and business capabilities are maintained separately at:
-`../global_bada_business_core_ecosystem/global_agriculture_food_natural_resources_human_animal_core_ecosystem/`
+`../global_bada_business_core_ecosystem/global_agriculture_food_natural_resources_human_animal_service_work_business_core_ecosystem/`
 
 The business layer consumes this canonical taxonomy; it must not fork or redefine the domain identifiers.
 
