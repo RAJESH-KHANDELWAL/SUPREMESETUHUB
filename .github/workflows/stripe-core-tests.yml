@@ -6,7 +6,7 @@ on:
       - "backend/core/global_ecosystem/global_core_ecosystem/stripe_core_ecosystem/**"
       - ".github/workflows/stripe-core-tests.yml"
   push:
-    branches: [main]
+    branches: ['**']
     paths:
       - "backend/core/global_ecosystem/global_core_ecosystem/stripe_core_ecosystem/**"
       - ".github/workflows/stripe-core-tests.yml"
