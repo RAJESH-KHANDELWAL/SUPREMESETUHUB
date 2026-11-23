@@ -1,26 +1,20 @@
-# GLOBAL HOSPITALITY HOTELS RESORTS RESTAURANTS CORE ECOSYSTEM
+# Global Hospitality Hotels Resorts Restaurants Core Ecosystem
 
-**Parent:** GLOBAL CORE ECOSYSTEM  
-**ID:** `GLOBAL-HOSPITALITY-HOTELS-RESORTS-RESTAURANTS-CORE-ECOSYSTEM`
+**Parent:** Global Core Ecosystem  
+**Version:** 2.0.0  
+**Mode:** Read-only industry foundation
 
-Canonical industry core for accommodation, hotels, resorts, restaurants, food and beverage, guest experience, events, workforce, safety, sustainability and geographic coverage.
+## Scope
+Canonical global taxonomy for accommodation, hotels, resorts, restaurants, food and beverage, guest experience, reservation distribution, property operations, events, workforce, revenue, safety, sustainability, technology, supply chains, accessibility and destination geography.
 
 ## Architecture
-- `domain_catalog.py`: controlled industry domains and capabilities.
-- `policy.py`: privacy, safety and authorization guardrails.
-- `service.py`: read-only catalog access, lookup and search.
-- `manager.py`: stable orchestration entry point and `get_manager()`.
-- `manager.php`: PHP read-only facade.
-- `ecosystem_manifest.json`: machine-readable identity and scope.
-- `tests/test_ecosystem.py`: deterministic contract tests.
+- `domain_catalog.py` — canonical domain taxonomy, lookup and search.
+- `contracts.py` — stable identity, version and capability boundaries.
+- `service.py` — read-only catalog service and readiness.
+- `policy.py` — privacy and authorization guardrails.
+- `manager.py` — stable orchestration entry point and singleton factory.
+- `manager.php` — PHP manifest facade.
+- `ecosystem_manifest.json` — machine-readable domain registry.
+- `tests/test_ecosystem.py` — deterministic contract tests.
 
-## Boundary
-This is the industry-wide core, not the Bada Business services layer. API transport, booking/payment execution, external provider connectors and application workflows belong in their respective layers. Catalog entries do not establish provider verification, availability, price, licensing or compliance.
-
-## Geography
-Supports country, state/province, district/county, city and locality dimensions. India and international coverage must be populated and verified by downstream data sources.
-
-## Guardrails
-Minimize guest/employee personal data; never store passwords, access tokens or payment-card data here. Verify local food, fire, employment, accessibility, tax and licensing obligations before operations. High-impact actions require authentication, authorization and explicit consent.
-
-**Readiness:** core taxonomy only; live operations are disabled.
+This is not a live booking engine, payment processor, PMS, OTA connector, verified provider directory or legal-compliance certification. No availability, licensing, quality or provider verification is implied. Never store credentials, payment-card data or unnecessary guest identity data in this package.
