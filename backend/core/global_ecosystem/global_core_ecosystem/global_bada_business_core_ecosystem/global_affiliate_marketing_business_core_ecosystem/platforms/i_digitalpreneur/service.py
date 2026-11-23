@@ -7,7 +7,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from ..service import AffiliateMarketingCoreService
+from ...service import AffiliateMarketingCoreService
 from .policies import PLATFORM_ID, validate_platform_id
 
 class IDigitalPreneurCoreService:

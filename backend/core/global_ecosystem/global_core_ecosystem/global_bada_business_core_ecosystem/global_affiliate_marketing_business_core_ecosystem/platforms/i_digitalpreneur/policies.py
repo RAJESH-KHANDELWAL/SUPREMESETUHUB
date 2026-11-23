@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from ..policies import (
+from ...policies import (
     validate_affiliate_disclosure,
     validate_http_url,
     validate_program_activation,
