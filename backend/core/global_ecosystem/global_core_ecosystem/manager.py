@@ -1502,7 +1502,7 @@ def get_catalog() -> list[dict[str, Any]]:
         "capabilities": ["AGRICULTURE_SERVICES", "FOOD_BUSINESS", "NATURAL_RESOURCE_WORK", "HUMAN_AND_ANIMAL_SERVICES", "SUPPLY_CHAIN", "FINANCE_AND_TRADE", "SERVICE_WORK_BUSINESS_CLASSIFICATION"],
         "parent_id": "GLOBAL-BADA-BUSINESS-CORE-ECOSYSTEM",
         "metadata": {
-            "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_agriculture_food_natural_resources_human_animal_core_ecosystem",
+            "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_agriculture_food_natural_resources_human_animal_service_work_business_core_ecosystem",
             "status": "CORE_CATALOG_ONLY",
             "business_domain_count": 23,
             "global_core_dependency": "GLOBAL-AGRICULTURE-FOOD-NATURAL-RESOURCES-HUMAN-ANIMAL-CORE-ECOSYSTEM",

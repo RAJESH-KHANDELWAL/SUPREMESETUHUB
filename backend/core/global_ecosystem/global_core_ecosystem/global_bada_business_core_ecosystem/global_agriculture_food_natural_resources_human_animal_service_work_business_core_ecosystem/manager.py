@@ -3,7 +3,7 @@ from .catalog import get_catalog
 from .service import AgricultureBusinessService
 from .orchestrator import AgricultureBusinessOrchestrator
 class AgricultureFoodNaturalResourcesBusinessManager:
-    NAME = "GLOBAL BADA BUSINESS AGRICULTURE FOOD & NATURAL RESOURCES HUMAN ANIMAL CORE ECOSYSTEM"
+    NAME = "GLOBAL BADA BUSINESS AGRICULTURE FOOD & NATURAL RESOURCES HUMAN ANIMAL SERVICE WORK BUSINESS CORE ECOSYSTEM"
     ECOSYSTEM_ID = "GLOBAL-BADA-BUSINESS-AGRICULTURE-FOOD-NATURAL-RESOURCES-HUMAN-ANIMAL-CORE-ECOSYSTEM"
     def __init__(self):
         self._service = AgricultureBusinessService()
