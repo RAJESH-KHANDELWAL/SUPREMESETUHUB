@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "SHOPIFY-CORE-ECOSYSTEM",
+  "provider": "shopify",
+  "layer": "CORE",
+  "product_count": 15,
+  "products": [
+    {
+      "product_id": "SHOPIFY_ADMIN",
+      "package_name": "shopify_admin_core_ecosystem",
+      "domain_id": "Administration",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "SHOPIFY_BILLING",
+      "package_name": "shopify_billing_core_ecosystem",
+      "domain_id": "Billing",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "SHOPIFY_CUSTOMERS",
+      "package_name": "shopify_customers_core_ecosystem",
+      "domain_id": "Customers",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "SHOPIFY_DISCOUNTS",
+      "package_name": "shopify_discounts_core_ecosystem",
+      "domain_id": "Commerce",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "SHOPIFY_FULFILLMENT",
+      "package_name": "shopify_fulfillment_core_ecosystem",
+      "domain_id": "Fulfillment",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "SHOPIFY_INVENTORY",
+      "package_name": "shopify_inventory_core_ecosystem",
+      "domain_id": "Inventory",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "SHOPIFY_LOCALIZATION",
+      "package_name": "shopify_localization_core_ecosystem",
+      "domain_id": "Localization",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "SHOPIFY_METAOBJECTS",
+      "package_name": "shopify_metaobjects_core_ecosystem",
+      "domain_id": "Content",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "SHOPIFY_ORDERS",
+      "package_name": "shopify_orders_core_ecosystem",
+      "domain_id": "Orders",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "SHOPIFY_PAYMENTS",
+      "package_name": "shopify_payments_core_ecosystem",
+      "domain_id": "Payments",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "SHOPIFY_PRODUCTS",
+      "package_name": "shopify_products_core_ecosystem",
+      "domain_id": "Catalog",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "SHOPIFY_SHIPPING",
+      "package_name": "shopify_shipping_core_ecosystem",
+      "domain_id": "Fulfillment",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "SHOPIFY_STOREFRONT",
+      "package_name": "shopify_storefront_core_ecosystem",
+      "domain_id": "Storefront",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "SHOPIFY_STOREFRONT_GRAPHQL",
+      "package_name": "shopify_storefront_graphql_core_ecosystem",
+      "domain_id": "Storefront",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "SHOPIFY_WEBHOOKS",
+      "package_name": "shopify_webhooks_core_ecosystem",
+      "domain_id": "Events",
+      "status": "CORE_CATALOG_ONLY"
+    }
+  ],
+  "boundaries": {
+    "api_transport_in_core": false,
+    "oauth_exchange_in_core": false,
+    "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+    "live_connections_verified": false
+  }
+}

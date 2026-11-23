@@ -5002,6 +5002,191 @@
       "api_transport_in_core": false,
       "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
       "master_catalog_access_mode": "IMPLEMENTATION_REGISTRY_ONLY"
+    },
+    "shopify_core_ecosystem": {
+      "ecosystem_id": "SHOPIFY-CORE-ECOSYSTEM",
+      "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem",
+      "classification": "CORE_IMPLEMENTATION_REGISTRY",
+      "taxonomy_entries_counted_in_global_2468_target": false,
+      "reason": "Registers Shopify Core implementation without adding or duplicating master taxonomy topics.",
+      "registered_package_count": 15,
+      "domain_count": 13,
+      "products": [
+        {
+          "product_id": "SHOPIFY_ADMIN",
+          "package_name": "shopify_admin_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_admin_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_admin_core_ecosystem/manager.py",
+          "domain_id": "Administration",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_BILLING",
+          "package_name": "shopify_billing_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_billing_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_billing_core_ecosystem/manager.py",
+          "domain_id": "Billing",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_CUSTOMERS",
+          "package_name": "shopify_customers_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_customers_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_customers_core_ecosystem/manager.py",
+          "domain_id": "Customers",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_DISCOUNTS",
+          "package_name": "shopify_discounts_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_discounts_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_discounts_core_ecosystem/manager.py",
+          "domain_id": "Commerce",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_FULFILLMENT",
+          "package_name": "shopify_fulfillment_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_fulfillment_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_fulfillment_core_ecosystem/manager.py",
+          "domain_id": "Fulfillment",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_INVENTORY",
+          "package_name": "shopify_inventory_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_inventory_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_inventory_core_ecosystem/manager.py",
+          "domain_id": "Inventory",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_LOCALIZATION",
+          "package_name": "shopify_localization_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_localization_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_localization_core_ecosystem/manager.py",
+          "domain_id": "Localization",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_METAOBJECTS",
+          "package_name": "shopify_metaobjects_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_metaobjects_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_metaobjects_core_ecosystem/manager.py",
+          "domain_id": "Content",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_ORDERS",
+          "package_name": "shopify_orders_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_orders_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_orders_core_ecosystem/manager.py",
+          "domain_id": "Orders",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_PAYMENTS",
+          "package_name": "shopify_payments_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_payments_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_payments_core_ecosystem/manager.py",
+          "domain_id": "Payments",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_PRODUCTS",
+          "package_name": "shopify_products_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_products_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_products_core_ecosystem/manager.py",
+          "domain_id": "Catalog",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_SHIPPING",
+          "package_name": "shopify_shipping_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_shipping_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_shipping_core_ecosystem/manager.py",
+          "domain_id": "Fulfillment",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_STOREFRONT",
+          "package_name": "shopify_storefront_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_storefront_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_storefront_core_ecosystem/manager.py",
+          "domain_id": "Storefront",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_STOREFRONT_GRAPHQL",
+          "package_name": "shopify_storefront_graphql_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_storefront_graphql_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_storefront_graphql_core_ecosystem/manager.py",
+          "domain_id": "Storefront",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_WEBHOOKS",
+          "package_name": "shopify_webhooks_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_webhooks_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_webhooks_core_ecosystem/manager.py",
+          "domain_id": "Events",
+          "status": "CORE_CATALOG_ONLY"
+        }
+      ],
+      "shared_files": [
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/constants.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/contracts.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/product_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/domain_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/policy.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/module_service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/orchestrator.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/manager.php",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_php_core_ecosystem/ShopifyCoreContract.php",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/ecosystem_manifest.json",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/README.md",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/tests/test_shopify_core.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/tools/validate_shopify_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_admin_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_admin_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_billing_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_billing_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_customers_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_customers_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_discounts_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_discounts_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_fulfillment_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_fulfillment_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_inventory_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_inventory_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_localization_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_localization_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_metaobjects_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_metaobjects_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_orders_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_orders_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_payments_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_payments_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_products_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_products_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_shipping_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_shipping_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_storefront_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_storefront_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_storefront_graphql_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_storefront_graphql_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_webhooks_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_webhooks_core_ecosystem/manager.py"
+      ],
+      "php_facade_included": true,
+      "live_connections_verified": false,
+      "api_transport_in_core": false,
+      "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+      "master_catalog_access_mode": "IMPLEMENTATION_REGISTRY_ONLY"
     }
   }
 }
