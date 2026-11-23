@@ -22,3 +22,8 @@ class GlobalMSMESMEStartupEntrepreneurshipBusinessCoreManager:
   if data["catalogue_id"]!=self.MASTER_CATALOG_ID or t!=2468 or n!=c["unique_catalogue_entries"] or e["remaining_unique_entries"]!=t-n: raise ValueError("MASTER_CATALOG_INTEGRITY_ERROR")
   return {"success":True,"target_unique_entries":t,"current_unique_entries":n,"remaining_unique_entries":t-n,"access_mode":"READ_ONLY"}
 def get_manager(): return GlobalMSMESMEStartupEntrepreneurshipBusinessCoreManager()
+
+ def geography(self):
+  from ..global_msme_sme_startup_solo_preneur_solo_preneurship_business_men_business_women_women_preneur_women_preneurship_men_men_preneur_men_preneurship_entrepreneur_entrepreneurship_research_innovation_core_ecosystem.domain_catalog import get_geographic_registry
+  registry=get_geographic_registry()
+  return {"coverage":registry.coverage(),"validation":registry.validate()}
