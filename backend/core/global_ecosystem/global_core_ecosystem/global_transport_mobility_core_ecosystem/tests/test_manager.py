@@ -1,5 +1,6 @@
 import unittest
-from ..manager import get_manager, TransportMobilityCoreOrchestrator
+from ..manager import get_manager
+from ..orchestrator import TransportMobilityCoreOrchestrator
 
 class TestTransportMobilityCore(unittest.TestCase):
     def test_status_is_catalog_only(self):
