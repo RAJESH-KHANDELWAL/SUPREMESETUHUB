@@ -1,0 +1,18 @@
+{
+  "ecosystem_id": "GLOBAL-GOVERNMENT-PRIVATE-JOBS-CAREERS-EMPLOYEE-EMPLOYMENT-CORE-ECOSYSTEM",
+  "classification": "CORE_TAXONOMY_AND_DISCOVERY",
+  "version": "1.0.0",
+  "domains": 15,
+  "capabilities": [
+    "EMPLOYMENT_TAXONOMY",
+    "GOVERNMENT_PRIVATE_SECTOR_CLASSIFICATION",
+    "GEOGRAPHIC_CLASSIFICATION",
+    "CAREER_AND_EMPLOYEE_LIFECYCLE",
+    "POLICY_VALIDATION"
+  ],
+  "python_entrypoint": "manager.py:get_manager",
+  "php_entrypoint": "manager.php:GlobalEmploymentCoreManager",
+  "live_data_verified": false,
+  "external_integrations": "NOT_CONFIGURED",
+  "master_catalog_access": "READ_ONLY_REFERENCE"
+}
