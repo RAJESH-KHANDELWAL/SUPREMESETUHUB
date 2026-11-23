@@ -2,7 +2,7 @@
 
 **Collection:** Owner-provided Bada Business Community course links  
 **Captured:** 2026-11-09  
-**Count:** 11 links  
+**Count:** 14 unique links  
 **Purpose:** Central reference directory for the Global Bada Business Ecosystem.
 
 > **Access and content notice:** These URLs were supplied by the repository owner in a message. This directory records the links only. It does not contain course videos, PDFs, lesson content, or credentials, and it does not verify current availability, subscription entitlement, redistribution rights, or whether a link remains active. Use the official Community account and follow the provider's access and copyright terms.
@@ -22,6 +22,9 @@
 | 9 | Personal Finance Progression: Youth to Young Professional | 93 | https://badabusinesscommunity.akamai.net.in/new-courses/93 |
 | 10 | PERSONALITY DEVELOPMENT | 92 | https://badabusinesscommunity.akamai.net.in/new-courses/92 |
 | 11 | Smart, Presentations for Investors, Customers and Employees (SPICE) | 103 | https://badabusinesscommunity.akamai.net.in/new-courses/103 |
+| 12 | LFP DIGITAL by Dr. Vivek Bindra | 135 | https://badabusinesscommunity.akamai.net.in/new-courses/135 |
+| 13 | BUSINESS DOCUMENTS | 136 | https://badabusinesscommunity.akamai.net.in/new-courses/136 |
+| 14 | All Digital Courses (1 Year) | 141 | https://badabusinesscommunity.akamai.net.in/new-courses/141 |
 
 ## Data handling rules
 
