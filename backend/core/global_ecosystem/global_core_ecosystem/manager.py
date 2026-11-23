@@ -1504,7 +1504,7 @@ def get_catalog() -> list[dict[str, Any]]:
         "metadata": {
             "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_agriculture_food_natural_resources_human_animal_core_ecosystem",
             "status": "CORE_CATALOG_ONLY",
-            "business_domain_count": 16,
+            "business_domain_count": 23,
             "global_core_dependency": "GLOBAL-AGRICULTURE-FOOD-NATURAL-RESOURCES-HUMAN-ANIMAL-CORE-ECOSYSTEM",
             "live_providers_verified": False,
             "transactions_performed": 0,
