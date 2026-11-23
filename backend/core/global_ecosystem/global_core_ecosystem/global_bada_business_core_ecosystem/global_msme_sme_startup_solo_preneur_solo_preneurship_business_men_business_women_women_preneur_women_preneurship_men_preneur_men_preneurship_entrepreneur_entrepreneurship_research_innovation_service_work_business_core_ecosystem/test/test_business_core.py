@@ -1,5 +1,5 @@
 import unittest
-from ..manager import get_manager
+from backend.core.global_ecosystem.global_core_ecosystem.global_bada_business_core_ecosystem.global_msme_sme_startup_solo_preneur_solo_preneurship_business_men_business_women_women_preneur_women_preneurship_men_preneur_men_preneurship_entrepreneur_entrepreneurship_research_innovation_service_work_business_core_ecosystem.manager import get_manager
 class BusinessTests(unittest.TestCase):
  def test_all_services_map_to_canonical_domains(self): self.assertTrue(get_manager().validate_mappings()["valid"])
  def test_service_segments(self):
