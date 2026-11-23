@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL-DIGITAL-INFRASTRUCTURE-TELECOMMUNICATIONS-TECHNOLOGY-IT-AI-SERVICE-WORK-BUSINESS-CORE",
+  "parent_id": "GLOBAL-BADA-BUSINESS-CORE-ECOSYSTEM",
+  "version": "1.0.0",
+  "domains": [
+    "DIGITAL_INFRASTRUCTURE",
+    "TELECOMMUNICATIONS_NETWORK_SERVICES",
+    "CLOUD_HOSTING_DATA_CENTRES",
+    "SOFTWARE_APPLICATION_ENGINEERING",
+    "IT_OPERATIONS_MANAGED_SERVICES",
+    "AI_DATA_AUTOMATION_SERVICES",
+    "CYBERSECURITY_PRIVACY_TRUST",
+    "PROFESSIONAL_TECHNICAL_WORK",
+    "BUSINESS_OPERATIONS_COMMERCIAL_SERVICES",
+    "SERVICE_DELIVERY_LIFECYCLE"
+  ],
+  "provider_ids": [
+    "APPLE",
+    "AWS",
+    "GOOGLE",
+    "IBM",
+    "MICROSOFT",
+    "ORACLE"
+  ],
+  "master_catalog": {
+    "path": "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json",
+    "target_unique_entries": 2468,
+    "access_mode": "READ_ONLY"
+  },
+  "external_integrations": {
+    "configured": false,
+    "verified": false
+  },
+  "persistence_enabled": false,
+  "execution_enabled": false
+}
