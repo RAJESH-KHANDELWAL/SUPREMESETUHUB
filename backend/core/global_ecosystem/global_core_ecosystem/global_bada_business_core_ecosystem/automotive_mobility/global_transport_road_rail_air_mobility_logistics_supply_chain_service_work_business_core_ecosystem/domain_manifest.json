@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL-TRANSPORT-ROAD-RAIL-AIR-MOBILITY-LOGISTICS-SUPPLY-CHAIN-SERVICE-WORK-BUSINESS-CORE-ECOSYSTEM",
+  "name": "Global Transport, Mobility, Logistics & Supply Chain Service Work Business Core Ecosystem",
+  "layer": "CORE",
+  "scope": "SERVICE_WORK_BUSINESS_CLASSIFICATION",
+  "parent_id": "GLOBAL-BADA-BUSINESS-CORE-ECOSYSTEM",
+  "catalog_module": "catalog.py",
+  "manager_module": "manager.py",
+  "business_domain_count": 10,
+  "business_domains": [
+    "road_transport_mobility",
+    "rail_metro_transport",
+    "aviation_airport_transport",
+    "maritime_shipping_ports",
+    "freight_logistics_supply_chain",
+    "courier_parcel_last_mile",
+    "warehousing_distribution_cold_chain",
+    "fleet_vehicle_services",
+    "passenger_transport_public_transit",
+    "global_aviation_aerospace_space_technology_core_ecosystem"
+  ],
+  "api_catalog_reference": "backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/automotive_mobility/catalog.py",
+  "transport_business_api_reference": "backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/automotive_mobility/global_transport_mobility_logistics_supply_chain_business_api_ecosystem",
+  "boundaries": {
+    "api_transport": false,
+    "live_provider_operations": false,
+    "booking": false,
+    "dispatch": false,
+    "shipment_tracking": false,
+    "payments": false
+  },
+  "master_catalog_entry_ids": [
+    "S14_freight_logistics",
+    "S14_supply_chain_management",
+    "S14_courier_last_mile_delivery",
+    "S14_warehousing_distribution"
+  ],
+  "status": "CORE_CATALOG_ONLY"
+}

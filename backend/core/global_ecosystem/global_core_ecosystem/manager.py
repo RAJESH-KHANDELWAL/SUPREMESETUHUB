@@ -952,6 +952,22 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "metadata": {"module_path": "global_bada_business_core_ecosystem", "implementation_state": "FOUNDATION_READY"},
     },
     {
+        "ecosystem_id": "GLOBAL-TRANSPORT-ROAD-RAIL-AIR-MOBILITY-CORE-ECOSYSTEM",
+        "name": "GLOBAL TRANSPORT ROAD RAIL AIR MOBILITY CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["TRANSPORT_MODE_REGISTRY", "ROAD_RAIL_AIR_WATER_TRANSPORT_CLASSIFICATION", "PASSENGER_MOBILITY_CLASSIFICATION", "TRANSPORT_INFRASTRUCTURE_METADATA", "ACCESSIBILITY_METADATA"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_transport_road_rail_air_mobility_core_ecosystem", "status": "CORE_CATALOG_ONLY", "transport_mode_count": 5, "live_transport_operations_verified": False, "api_transport_in_core": False, "master_catalog_entry_ids": ["S14_global_transport", "S14_road_transport", "S14_rail_transport", "S14_air_transport", "S14_water_maritime_transport", "S14_passenger_mobility"]},
+    },
+    {
+        "ecosystem_id": "GLOBAL-TRANSPORT-ROAD-RAIL-AIR-MOBILITY-LOGISTICS-SUPPLY-CHAIN-SERVICE-WORK-BUSINESS-CORE-ECOSYSTEM",
+        "name": "GLOBAL TRANSPORT ROAD RAIL AIR MOBILITY LOGISTICS SUPPLY CHAIN SERVICE WORK BUSINESS CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["TRANSPORT_BUSINESS_DOMAIN_REGISTRY", "LOGISTICS_AND_SUPPLY_CHAIN_CLASSIFICATION", "SERVICE_WORK_BUSINESS_GOVERNANCE", "FLEET_AND_COURIER_DOMAIN_DISCOVERY", "BUSINESS_CAPABILITY_METADATA"],
+        "parent_id": "GLOBAL-BADA-BUSINESS-CORE-ECOSYSTEM",
+        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/automotive_mobility/global_transport_road_rail_air_mobility_logistics_supply_chain_service_work_business_core_ecosystem", "api_module": "backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/automotive_mobility/global_transport_mobility_logistics_supply_chain_business_api_ecosystem", "status": "CORE_CATALOG_ONLY", "business_domain_count": 10, "live_business_services_verified": False, "api_execution_in_core": False, "master_catalog_entry_ids": ["S14_freight_logistics", "S14_supply_chain_management", "S14_courier_last_mile_delivery", "S14_warehousing_distribution"]},
+    },
+    {
         "ecosystem_id": "GLOBAL-BADA-BUSINESS-VASUDHAIVA-KUTUMBAKAM-SANATAN-DHARMA-BHARAT-WORLD-CULTURE-SERVICE-WORK-BUSINESS-CORE-ECOSYSTEM",
         "name": "GLOBAL BADA BUSINESS | VASUDHAIVA KUTUMBAKAM | SANATAN DHARMA | BHARAT SANSKRITI | WORLD CULTURE SERVICE WORK BUSINESS CORE ECOSYSTEM",
         "ecosystem_type": "CORE_SERVICE",
