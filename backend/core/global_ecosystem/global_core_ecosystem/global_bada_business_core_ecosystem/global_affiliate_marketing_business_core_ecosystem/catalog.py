@@ -23,7 +23,7 @@ _INDIA_NETWORKS = (
 )
 
 def _display_name(slug: str) -> str:
-    return slug.replace("_", " ").replace("com", "com").title()
+    return slug.replace("_", " ").title()
 
 AFFILIATE_NETWORK_CATALOG: tuple[dict[str, Any], ...] = tuple(
     {

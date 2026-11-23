@@ -27,7 +27,7 @@ The former empty `global/`, `india/`, `affiliate_models/`, `compliance_disclosur
 
 ## Platform inventory and evidence
 
-The catalog preserves 39 previously named Global/India affiliate-network candidates as `DISCOVERY_ONLY`. Their inclusion records a discoverable identity only; it does not assert that a program is currently open, available in a region, approved, connected, or commercially verified.
+The catalog preserves 40 previously named Global/India affiliate-network candidates as `DISCOVERY_ONLY`. Their inclusion records a discoverable identity only; it does not assert that a program is currently open, available in a region, approved, connected, or commercially verified.
 
 The three separately named program namespaces are retained:
 - `I-DIGITALPRENEUR`
