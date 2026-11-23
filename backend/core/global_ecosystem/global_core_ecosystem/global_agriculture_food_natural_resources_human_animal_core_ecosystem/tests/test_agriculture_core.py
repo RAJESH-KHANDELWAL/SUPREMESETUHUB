@@ -4,6 +4,7 @@ from ..catalog import get_catalog
 from ..domain_catalog import list_domains, get_domain
 from ..manager import get_manager
 from ..policy import classify_capability, safe_metadata
+from backend.core.global_ecosystem.global_core_ecosystem.manager import get_catalog as get_global_catalog
 
 class AgricultureCoreTests(unittest.TestCase):
     def test_catalog_identity_and_parent(self):
