@@ -55,18 +55,43 @@ class GeographicRegistry:
             self._rows["in-"+slug]={"location_id":"in-"+slug,"name":name,"level":"state_province_territory","parent_id":"india","scope_id":"bharat","country_code":"IN"}
         if records: self.import_records(records)
     def add(self, row):
-        item=dict(row); key=item.get("location_id"); parent=self._rows.get(item.get("parent_id"))
-        if not key or key in self._rows: raise ValueError("LOCATION_ID_MISSING_OR_DUPLICATE")
-        if not parent: raise ValueError("LOCATION_PARENT_NOT_FOUND")
-        if item.get("level") not in GEOGRAPHY_LEVELS[1:]: raise ValueError("INVALID_LOCATION_LEVEL")
-        if item.get("scope_id") != parent["scope_id"]: raise ValueError("LOCATION_SCOPE_MISMATCH")
-        if not item.get("name"): raise ValueError("LOCATION_NAME_REQUIRED")
-        self._rows[key]=item
+        item = dict(row)
+        key = item.get("location_id")
+        parent = self._rows.get(item.get("parent_id"))
+        level = item.get("level")
+        if not key or key in self._rows:
+            raise ValueError("LOCATION_ID_MISSING_OR_DUPLICATE")
+        if not parent:
+            raise ValueError("LOCATION_PARENT_NOT_FOUND")
+        if level not in GEOGRAPHY_LEVELS[1:]:
+            raise ValueError("INVALID_LOCATION_LEVEL")
+        allowed_parents = {
+            "country": {"world"},
+            "state_province_territory": {"country"},
+            "district_county": {"state_province_territory"},
+            "subdistrict_tehsil_taluka": {"district_county"},
+            "city_town_municipality": {"district_county", "subdistrict_tehsil_taluka"},
+            "village_panchayat_locality": {"district_county", "subdistrict_tehsil_taluka", "city_town_municipality"},
+        }
+        if parent.get("level") not in allowed_parents[level]:
+            raise ValueError("INVALID_GEOGRAPHIC_PARENT_LEVEL")
+        if item.get("scope_id") != parent["scope_id"]:
+            raise ValueError("LOCATION_SCOPE_MISMATCH")
+        if not item.get("name"):
+            raise ValueError("LOCATION_NAME_REQUIRED")
+        self._rows[key] = item
         return deepcopy(item)
     def import_records(self, records):
-        pending={r.get("location_id"):dict(r) for r in records}
-        if None in pending: raise ValueError("LOCATION_ID_REQUIRED")
-        count=len(pending)
+        pending = {}
+        for record in records:
+            row = dict(record)
+            key = row.get("location_id")
+            if not key:
+                raise ValueError("LOCATION_ID_REQUIRED")
+            if key in pending or key in self._rows:
+                raise ValueError("LOCATION_ID_MISSING_OR_DUPLICATE")
+            pending[key] = row
+        count = len(pending)
         while pending:
             ready=[(k,v) for k,v in pending.items() if v.get("parent_id") in self._rows]
             if not ready: raise ValueError("LOCATION_PARENT_MISSING_OR_CYCLIC")
@@ -92,7 +117,6 @@ class GeographicRegistry:
         location=self.get(location_id)
         if not location:
             raise KeyError("LOCATION_NOT_FOUND")
-        from .domain_catalog import list_domains
         from ..global_bada_business_core_ecosystem.global_msme_sme_startup_solo_preneur_solo_preneurship_business_men_business_women_women_preneur_women_preneurship_men_preneur_men_preneurship_entrepreneur_entrepreneurship_research_innovation_service_work_business_core_ecosystem.service_catalog import list_services
         return {
             "location": location,
