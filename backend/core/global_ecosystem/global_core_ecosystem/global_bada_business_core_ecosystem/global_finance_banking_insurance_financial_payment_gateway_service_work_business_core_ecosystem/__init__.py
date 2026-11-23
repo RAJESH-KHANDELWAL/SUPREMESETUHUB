@@ -1,4 +1,5 @@
-"""Finance service/work/business layer paired with the canonical Global Finance CORE."""
+"""Finance, banking, insurance and payment service/work/business CORE."""
 from .manager import FinanceServiceWorkBusinessManager, get_manager
+from .service import FinanceServiceWorkBusinessService
 
-__all__ = ["FinanceServiceWorkBusinessManager", "get_manager"]
+__all__ = ["FinanceServiceWorkBusinessManager", "FinanceServiceWorkBusinessService", "get_manager"]
