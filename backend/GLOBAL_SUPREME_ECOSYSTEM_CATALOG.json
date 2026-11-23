@@ -5187,6 +5187,195 @@
       "api_transport_in_core": false,
       "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
       "master_catalog_access_mode": "IMPLEMENTATION_REGISTRY_ONLY"
+    },
+    "slack_core_ecosystem": {
+      "ecosystem_id": "SLACK-CORE-ECOSYSTEM",
+      "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem",
+      "classification": "CORE_IMPLEMENTATION_REGISTRY",
+      "taxonomy_entries_counted_in_global_2468_target": false,
+      "reason": "Registers Slack Core implementation without adding or duplicating master taxonomy topics.",
+      "registered_package_count": 14,
+      "domain_count": 8,
+      "products": [
+        {
+          "product_id": "SLACK_ADMIN",
+          "ecosystem_id": "SLACK-ADMIN-CORE-ECOSYSTEM",
+          "package_name": "slack_admin_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_admin_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_admin_core_ecosystem/manager.py",
+          "domain_id": "ADMINISTRATION",
+          "purpose": "Workspace administration and policy metadata",
+          "capability_count": 2,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_BOOKMARKS",
+          "ecosystem_id": "SLACK-BOOKMARKS-CORE-ECOSYSTEM",
+          "package_name": "slack_bookmarks_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_bookmarks_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_bookmarks_core_ecosystem/manager.py",
+          "domain_id": "CONTENT",
+          "purpose": "Bookmark discovery and lifecycle metadata",
+          "capability_count": 3,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_CANVASES",
+          "ecosystem_id": "SLACK-CANVASES-CORE-ECOSYSTEM",
+          "package_name": "slack_canvases_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_canvases_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_canvases_core_ecosystem/manager.py",
+          "domain_id": "CONTENT",
+          "purpose": "Canvas collaboration content metadata",
+          "capability_count": 3,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_CONVERSATIONS",
+          "ecosystem_id": "SLACK-CONVERSATIONS-CORE-ECOSYSTEM",
+          "package_name": "slack_conversations_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_conversations_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_conversations_core_ecosystem/manager.py",
+          "domain_id": "COLLABORATION",
+          "purpose": "Channels, direct messages and membership metadata",
+          "capability_count": 4,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_EVENTS",
+          "ecosystem_id": "SLACK-EVENTS-CORE-ECOSYSTEM",
+          "package_name": "slack_events_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_events_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_events_core_ecosystem/manager.py",
+          "domain_id": "EVENTS",
+          "purpose": "Event subscription and delivery lifecycle metadata",
+          "capability_count": 2,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_FILES",
+          "ecosystem_id": "SLACK-FILES-CORE-ECOSYSTEM",
+          "package_name": "slack_files_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_files_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_files_core_ecosystem/manager.py",
+          "domain_id": "CONTENT",
+          "purpose": "File discovery, sharing and lifecycle metadata",
+          "capability_count": 4,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_LISTS",
+          "ecosystem_id": "SLACK-LISTS-CORE-ECOSYSTEM",
+          "package_name": "slack_lists_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_lists_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_lists_core_ecosystem/manager.py",
+          "domain_id": "COLLABORATION",
+          "purpose": "Lists, records and fields metadata",
+          "capability_count": 3,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_MESSAGES",
+          "ecosystem_id": "SLACK-MESSAGES-CORE-ECOSYSTEM",
+          "package_name": "slack_messages_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_messages_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_messages_core_ecosystem/manager.py",
+          "domain_id": "MESSAGING",
+          "purpose": "Messages, threads and lifecycle metadata",
+          "capability_count": 4,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_OAUTH",
+          "ecosystem_id": "SLACK-OAUTH-CORE-ECOSYSTEM",
+          "package_name": "slack_oauth_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_oauth_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_oauth_core_ecosystem/manager.py",
+          "domain_id": "IDENTITY",
+          "purpose": "OAuth installation and scope metadata only",
+          "capability_count": 2,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_REACTIONS",
+          "ecosystem_id": "SLACK-REACTIONS-CORE-ECOSYSTEM",
+          "package_name": "slack_reactions_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_reactions_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_reactions_core_ecosystem/manager.py",
+          "domain_id": "MESSAGING",
+          "purpose": "Emoji reaction lifecycle metadata",
+          "capability_count": 3,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_SEARCH",
+          "ecosystem_id": "SLACK-SEARCH-CORE-ECOSYSTEM",
+          "package_name": "slack_search_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_search_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_search_core_ecosystem/manager.py",
+          "domain_id": "DISCOVERY",
+          "purpose": "Search capability and query classification metadata",
+          "capability_count": 3,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_USERS",
+          "ecosystem_id": "SLACK-USERS-CORE-ECOSYSTEM",
+          "package_name": "slack_users_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_users_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_users_core_ecosystem/manager.py",
+          "domain_id": "IDENTITY",
+          "purpose": "User, profile and presence metadata",
+          "capability_count": 3,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_WEBHOOKS",
+          "ecosystem_id": "SLACK-WEBHOOKS-CORE-ECOSYSTEM",
+          "package_name": "slack_webhooks_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_webhooks_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_webhooks_core_ecosystem/manager.py",
+          "domain_id": "EVENTS",
+          "purpose": "Webhook subscription and delivery metadata",
+          "capability_count": 2,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_WORKFLOW",
+          "ecosystem_id": "SLACK-WORKFLOW-CORE-ECOSYSTEM",
+          "package_name": "slack_workflow_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_workflow_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_workflow_core_ecosystem/manager.py",
+          "domain_id": "AUTOMATION",
+          "purpose": "Workflow, trigger and automation lifecycle metadata",
+          "capability_count": 4,
+          "status": "CORE_CATALOG_ONLY"
+        }
+      ],
+      "shared_files": [
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/constants.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/contracts.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/product_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/domain_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/policy.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/module_service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/orchestrator.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/manager.php",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_php_core_ecosystem/SlackCoreContract.php",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/ecosystem_manifest.json",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/README.md",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/tests/test_slack_core.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/tools/validate_slack_catalog.py"
+      ],
+      "php_facade_included": true,
+      "live_connections_verified": false,
+      "api_transport_in_core": false,
+      "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+      "master_catalog_access_mode": "IMPLEMENTATION_REGISTRY_ONLY"
     }
   }
 }
