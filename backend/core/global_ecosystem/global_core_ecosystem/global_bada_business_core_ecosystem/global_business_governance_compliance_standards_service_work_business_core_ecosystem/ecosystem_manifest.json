@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL-BUSINESS-GOVERNANCE-COMPLIANCE-STANDARDS-SERVICE-WORK-BUSINESS-CORE-ECOSYSTEM",
+  "name": "GLOBAL BUSINESS GOVERNANCE COMPLIANCE STANDARDS SERVICE WORK BUSINESS CORE ECOSYSTEM",
+  "parent_id": "GLOBAL-BADA-BUSINESS-CORE-ECOSYSTEM",
+  "layer": "CORE",
+  "status": "CORE_CATALOG_READY",
+  "live_connection_verified": false,
+  "master_catalog": {"catalogue_id":"GLOBAL_TO_SUPREME_MASTER_ECOSYSTEM","path":"backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json","access_mode":"READ_ONLY_ON_DEMAND","target_unique_entries":2468},
+  "domains": ["BUSINESS_GOVERNANCE","BUSINESS_COMPLIANCE","CLASSIFICATION_AND_STANDARDS","GOVERNMENT_PUBLIC_SERVICES_AND_SOCIAL_IMPACT","BUSINESS_SERVICES_AND_OPERATIONS","PROFESSIONAL_WORK_AND_ENGAGEMENTS"],
+  "layer_boundaries": {"api_transport":false,"persistence":false,"workflow_execution":false,"legal_certification":false}
+}
