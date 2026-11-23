@@ -1,13 +1,8 @@
-"""Read-only service over the hospitality industry catalog."""
-from .domain_catalog import DOMAINS, list_domains, get_domain
+"""Read-only catalog service for hospitality industry domains."""
+from .contracts import ECOSYSTEM_ID, ECOSYSTEM_VERSION
+from .domain_catalog import catalog_snapshot, get_domain, search_domains
 class HospitalityCoreService:
-    ECOSYSTEM_ID = "GLOBAL-HOSPITALITY-HOTELS-RESORTS-RESTAURANTS-CORE-ECOSYSTEM"
-    def catalog(self):
-        return {"ecosystem_id": self.ECOSYSTEM_ID, "domains": list_domains(), "domain_count": len(DOMAINS), "mode": "READ_ONLY_CATALOG"}
-    def get_domain(self, domain_id):
-        return get_domain(domain_id)
-    def search(self, query=""):
-        term = str(query or "").casefold().strip()
-        return [item for item in list_domains() if not term or term in item["id"] or any(term in c.casefold() for c in item["capabilities"])]
-    def readiness(self):
-        return {"catalog_ready": True, "live_operations_enabled": False, "provider_verification": "EXTERNAL_PROCESS_REQUIRED", "status": "CORE_CATALOG_READY"}
+    def catalog(self): return {"ecosystem_id": ECOSYSTEM_ID, "version": ECOSYSTEM_VERSION, "mode": "READ_ONLY_INDUSTRY_FOUNDATION", **catalog_snapshot()}
+    def get_domain(self, domain_id): return get_domain(domain_id)
+    def search(self, query=""): return search_domains(query)
+    def readiness(self): return {"catalog_ready": True, "live_booking_enabled": False, "payments_enabled": False, "external_integrations_enabled": False}
