@@ -32,7 +32,7 @@ jobs:
       - name: Run Affiliate Marketing CORE tests
         env:
           PYTHONPATH: .
-        run: python -m unittest backend.test.test_global_affiliate_marketing_core -v
+        run: python -m unittest backend.test.test_global_affiliate_marketing_core backend.test.test_i_digitalpreneur_core_ecosystem -v
 
       - name: Validate PHP facade syntax
         run: php -l backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_affiliate_marketing_business_core_ecosystem/manager.php
