@@ -1,45 +1,57 @@
 # STRIPE CORE ECOSYSTEM
 
-Provider-specific Core registry and orchestration boundary for Stripe.
+**Parent:** GLOBAL CORE ECOSYSTEM  
+**Root:** `backend/core/global_ecosystem/global_core_ecosystem/stripe_core_ecosystem/`
 
-## Responsibility
+## Mission
+Stripe Core is Stripe's provider control plane for product identity, capability registration, domain classification, tenant contracts, policy metadata, readiness and dependency discovery. It retains all 22 existing Stripe product families and adds a product-specific manager entry point for each, backed by shared code.
 
-This package belongs under `backend/core`. It owns the Stripe Core identity,
-capability registry, service-family discovery, readiness metadata and policy
-boundaries. It does not implement payment HTTP transport or store Stripe secrets.
+## Canonical shared files
+- `manager.py`: stable Python entry point (`get_manager()`) for status, products, domains, offerings and dependency metadata.
+- `manager.php`: PHP interoperability facade; no provider calls.
+- `catalog.py`: existing canonical Stripe family registry; retained as source of truth.
+- `product_catalog.py` and `domain_catalog.py`: product and 10-domain inventories.
+- `contracts.py`: tenant context, opaque secret reference and result contracts.
+- `policy.py`: sensitive capability classification and secret/payment-data sanitization.
+- `module_service.py`: shared read-only implementation used by all product managers.
+- `orchestrator.py`: product/domain discovery, health and dependency metadata.
+- `stripe_php_core_ecosystem/StripeCoreContract.php`: sanitized PHP result contract.
+- `tests/`, `tools/`: behavioral regression tests and structural validator.
 
-The Stripe API implementation remains separate under:
+## Product packages
+- `stripe_accounts_core_ecosystem` — accounts (ACCOUNTS_AND_IDENTITY)
+- `stripe_billing_core_ecosystem` — billing (BILLING_AND_SUBSCRIPTIONS)
+- `stripe_checkout_core_ecosystem` — checkout (PAYMENTS_AND_CHECKOUT)
+- `stripe_customers_core_ecosystem` — customers (ACCOUNTS_AND_IDENTITY)
+- `stripe_disputes_core_ecosystem` — disputes (RISK_AND_DISPUTES)
+- `stripe_events_core_ecosystem` — events (EVENTS_AND_WEBHOOKS)
+- `stripe_fraud_core_ecosystem` — fraud (RISK_AND_DISPUTES)
+- `stripe_issuing_core_ecosystem` — issuing (ISSUING_AND_CARDS)
+- `stripe_payment_intents_core_ecosystem` — payment_intents (PAYMENTS_AND_CHECKOUT)
+- `stripe_payment_links_core_ecosystem` — payment_links (PAYMENTS_AND_CHECKOUT)
+- `stripe_payment_methods_core_ecosystem` — payment_methods (PAYMENTS_AND_CHECKOUT)
+- `stripe_payouts_core_ecosystem` — payouts (FINANCIAL_OPERATIONS)
+- `stripe_products_prices_core_ecosystem` — products_prices (PRODUCT_CATALOG)
+- `stripe_refunds_core_ecosystem` — refunds (RISK_AND_DISPUTES)
+- `stripe_reporting_core_ecosystem` — reporting (FINANCIAL_OPERATIONS)
+- `stripe_subscriptions_core_ecosystem` — subscriptions (BILLING_AND_SUBSCRIPTIONS)
+- `stripe_tax_core_ecosystem` — tax (BILLING_AND_SUBSCRIPTIONS)
+- `stripe_terminal_core_ecosystem` — terminal (IN_PERSON_COMMERCE)
+- `stripe_treasury_core_ecosystem` — treasury (FINANCIAL_OPERATIONS)
+- `stripe_webhooks_core_ecosystem` — webhooks (EVENTS_AND_WEBHOOKS)
+- `stripe_climate_core_ecosystem` — climate (CLIMATE_AND_EMERGING_RAILS)
+- `stripe_crypto_onramp_core_ecosystem` — crypto_onramp (CLIMATE_AND_EMERGING_RAILS)
 
-`backend/api/global_ecosystem/global_api_ecosystem/stripe_api_ecosystem`
+Each retains its existing `catalog.py`, `__init__.py` and README and adds one product-specific `manager.py`. No empty template folders are generated.
 
-## Structure
+## Layer boundaries and security
+- Stripe API Ecosystem owns HTTP transport, SDK clients, authentication, webhook signature verification and response normalization.
+- Stripe Core owns metadata, capability classification, tenant contracts, policy and orchestration descriptors only.
+- Storage/Database own durable records, tenant isolation, retention and transactions; Runtime/Engine own queues, retries and scheduling.
+- Never store Stripe secret keys, OAuth tokens, PAN, CVC or raw payment credentials in Core catalogs or logs.
+- Payment writes require API-layer authorization, idempotency keys, audit correlation and merchant eligibility checks.
+- Verify webhook signatures in the API adapter before Core event routing.
+- Catalog registration does not prove account activation, country/currency eligibility, entitlement, authorization or live connectivity.
 
-- `catalog.py` — provider Core catalog and 22 child Core registrations
-- `service.py` — read-only status, module discovery and health surface
-- `stripe_core_ecosystem.py` — public Core entry point
-- `stripe_*_core_ecosystem/` — 22 dedicated child Core packages, each with
-  `catalog.py` and `__init__.py`
-- `tests/` — structural catalog tests
-
-## API-to-Core mapping
-
-All 22 family folders in the Stripe API ecosystem have corresponding Core
-family packages. Core packages reference their API family; they do not copy
-API transport, authentication, HTTP clients, webhook signature handlers or
-credential configuration into the Core layer.
-
-## Security and operational boundaries
-
-- API keys belong in environment variables or a managed secret store in the API/runtime layer.
-- Core stores no secret key, PAN, CVC, refresh token or raw payment credentials.
-- Payment writes require idempotency and auditable request correlation.
-- Webhook signatures must be verified in the API adapter before Core event routing.
-- Tenant/account context must be isolated.
-- Do not treat registry status as a successful Stripe connection.
-- Stripe account, country, currency and product eligibility must be verified per merchant.
-
-## Connectivity
-
-All child modules start as `CORE_CATALOG_ONLY`. A provider's API access is not
-claimed as live until the adapter, credentials, webhook flow and applicable tests
-have been verified.
+## 2468 master catalog
+This implementation is registered only under `implementation_registry` in `backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json`; it is excluded from the 2,468 taxonomy-topic count.

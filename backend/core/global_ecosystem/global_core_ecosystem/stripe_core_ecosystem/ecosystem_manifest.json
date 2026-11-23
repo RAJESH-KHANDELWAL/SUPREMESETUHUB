@@ -1,0 +1,175 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "STRIPE-CORE-ECOSYSTEM",
+  "provider": "stripe",
+  "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+  "classification": "PROVIDER_CORE_CONTROL_PLANE",
+  "status": "CORE_CATALOG_ONLY",
+  "product_family_count": 22,
+  "domain_count": 10,
+  "products": [
+    {
+      "product_id": "STRIPE_ACCOUNTS",
+      "api_family": "accounts",
+      "package_name": "stripe_accounts_core_ecosystem",
+      "domain_id": "ACCOUNTS_AND_IDENTITY",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "STRIPE_BILLING",
+      "api_family": "billing",
+      "package_name": "stripe_billing_core_ecosystem",
+      "domain_id": "BILLING_AND_SUBSCRIPTIONS",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "STRIPE_CHECKOUT",
+      "api_family": "checkout",
+      "package_name": "stripe_checkout_core_ecosystem",
+      "domain_id": "PAYMENTS_AND_CHECKOUT",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "STRIPE_CUSTOMERS",
+      "api_family": "customers",
+      "package_name": "stripe_customers_core_ecosystem",
+      "domain_id": "ACCOUNTS_AND_IDENTITY",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "STRIPE_DISPUTES",
+      "api_family": "disputes",
+      "package_name": "stripe_disputes_core_ecosystem",
+      "domain_id": "RISK_AND_DISPUTES",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "STRIPE_EVENTS",
+      "api_family": "events",
+      "package_name": "stripe_events_core_ecosystem",
+      "domain_id": "EVENTS_AND_WEBHOOKS",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "STRIPE_FRAUD",
+      "api_family": "fraud",
+      "package_name": "stripe_fraud_core_ecosystem",
+      "domain_id": "RISK_AND_DISPUTES",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "STRIPE_ISSUING",
+      "api_family": "issuing",
+      "package_name": "stripe_issuing_core_ecosystem",
+      "domain_id": "ISSUING_AND_CARDS",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "STRIPE_PAYMENT_INTENTS",
+      "api_family": "payment_intents",
+      "package_name": "stripe_payment_intents_core_ecosystem",
+      "domain_id": "PAYMENTS_AND_CHECKOUT",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "STRIPE_PAYMENT_LINKS",
+      "api_family": "payment_links",
+      "package_name": "stripe_payment_links_core_ecosystem",
+      "domain_id": "PAYMENTS_AND_CHECKOUT",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "STRIPE_PAYMENT_METHODS",
+      "api_family": "payment_methods",
+      "package_name": "stripe_payment_methods_core_ecosystem",
+      "domain_id": "PAYMENTS_AND_CHECKOUT",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "STRIPE_PAYOUTS",
+      "api_family": "payouts",
+      "package_name": "stripe_payouts_core_ecosystem",
+      "domain_id": "FINANCIAL_OPERATIONS",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "STRIPE_PRODUCTS_PRICES",
+      "api_family": "products_prices",
+      "package_name": "stripe_products_prices_core_ecosystem",
+      "domain_id": "PRODUCT_CATALOG",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "STRIPE_REFUNDS",
+      "api_family": "refunds",
+      "package_name": "stripe_refunds_core_ecosystem",
+      "domain_id": "RISK_AND_DISPUTES",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "STRIPE_REPORTING",
+      "api_family": "reporting",
+      "package_name": "stripe_reporting_core_ecosystem",
+      "domain_id": "FINANCIAL_OPERATIONS",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "STRIPE_SUBSCRIPTIONS",
+      "api_family": "subscriptions",
+      "package_name": "stripe_subscriptions_core_ecosystem",
+      "domain_id": "BILLING_AND_SUBSCRIPTIONS",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "STRIPE_TAX",
+      "api_family": "tax",
+      "package_name": "stripe_tax_core_ecosystem",
+      "domain_id": "BILLING_AND_SUBSCRIPTIONS",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "STRIPE_TERMINAL",
+      "api_family": "terminal",
+      "package_name": "stripe_terminal_core_ecosystem",
+      "domain_id": "IN_PERSON_COMMERCE",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "STRIPE_TREASURY",
+      "api_family": "treasury",
+      "package_name": "stripe_treasury_core_ecosystem",
+      "domain_id": "FINANCIAL_OPERATIONS",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "STRIPE_WEBHOOKS",
+      "api_family": "webhooks",
+      "package_name": "stripe_webhooks_core_ecosystem",
+      "domain_id": "EVENTS_AND_WEBHOOKS",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "STRIPE_CLIMATE",
+      "api_family": "climate",
+      "package_name": "stripe_climate_core_ecosystem",
+      "domain_id": "CLIMATE_AND_EMERGING_RAILS",
+      "status": "CORE_CATALOG_ONLY"
+    },
+    {
+      "product_id": "STRIPE_CRYPTO_ONRAMP",
+      "api_family": "crypto_onramp",
+      "package_name": "stripe_crypto_onramp_core_ecosystem",
+      "domain_id": "CLIMATE_AND_EMERGING_RAILS",
+      "status": "CORE_CATALOG_ONLY"
+    }
+  ],
+  "security": {
+    "live_connection_verified": false,
+    "api_transport_in_core": false,
+    "credential_storage": "EXTERNAL_SECRET_MANAGER_ONLY",
+    "payment_card_data_in_core": false,
+    "webhook_signature_verification_required_in_api_layer": true,
+    "idempotency_required_for_payment_writes": true,
+    "tenant_isolation_required": true
+  }
+}
