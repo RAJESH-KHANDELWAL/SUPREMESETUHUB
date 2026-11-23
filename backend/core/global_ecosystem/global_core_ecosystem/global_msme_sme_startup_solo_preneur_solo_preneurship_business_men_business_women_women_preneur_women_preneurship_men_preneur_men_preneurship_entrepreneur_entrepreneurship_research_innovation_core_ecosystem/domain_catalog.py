@@ -25,3 +25,72 @@ def get_scoped_domain(key):
     return next((item for item in list_scoped_domains() if item["scoped_domain_id"] == normalized), None)
 def list_geographic_scopes():
     return [dict(scope) for scope in GEOGRAPHIC_SCOPES]
+
+
+# Hierarchical geographic coverage. Administrative records below state level are
+# loaded from authoritative country gazetteers; this seed never claims completeness.
+GEOGRAPHY_LEVELS = ("world", "country", "state_province_territory", "district_county",
+                    "subdistrict_tehsil_taluka", "city_town_municipality",
+                    "village_panchayat_locality")
+INDIA_STATES_AND_UTS = (
+    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh",
+    "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka",
+    "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya",
+    "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim",
+    "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand",
+    "West Bengal", "Andaman and Nicobar Islands", "Chandigarh",
+    "Dadra and Nagar Haveli and Daman and Diu", "Delhi", "Jammu and Kashmir",
+    "Ladakh", "Lakshadweep", "Puducherry",
+)
+class GeographicRegistry:
+    """Validated parent-child location registry for Bharat and all world markets."""
+    def __init__(self, records=()):
+        self._rows = {
+            "bharat": {"location_id":"bharat","name":"Bharat","level":"world","parent_id":None,"scope_id":"bharat"},
+            "global_world": {"location_id":"global_world","name":"Global World","level":"world","parent_id":None,"scope_id":"global_world"},
+            "india": {"location_id":"india","name":"India","level":"country","parent_id":"bharat","scope_id":"bharat","country_code":"IN"},
+        }
+        for name in INDIA_STATES_AND_UTS:
+            slug=name.casefold().replace(" ","-").replace("&","and")
+            self._rows["in-"+slug]={"location_id":"in-"+slug,"name":name,"level":"state_province_territory","parent_id":"india","scope_id":"bharat","country_code":"IN"}
+        if records: self.import_records(records)
+    def add(self, row):
+        item=dict(row); key=item.get("location_id"); parent=self._rows.get(item.get("parent_id"))
+        if not key or key in self._rows: raise ValueError("LOCATION_ID_MISSING_OR_DUPLICATE")
+        if not parent: raise ValueError("LOCATION_PARENT_NOT_FOUND")
+        if item.get("level") not in GEOGRAPHY_LEVELS[1:]: raise ValueError("INVALID_LOCATION_LEVEL")
+        if item.get("scope_id") != parent["scope_id"]: raise ValueError("LOCATION_SCOPE_MISMATCH")
+        if not item.get("name"): raise ValueError("LOCATION_NAME_REQUIRED")
+        self._rows[key]=item
+        return deepcopy(item)
+    def import_records(self, records):
+        pending={r.get("location_id"):dict(r) for r in records}
+        if None in pending: raise ValueError("LOCATION_ID_REQUIRED")
+        count=len(pending)
+        while pending:
+            ready=[(k,v) for k,v in pending.items() if v.get("parent_id") in self._rows]
+            if not ready: raise ValueError("LOCATION_PARENT_MISSING_OR_CYCLIC")
+            for key,row in ready:
+                self.add(row); del pending[key]
+        return {"imported_count":count,"total_count":len(self._rows)}
+    def get(self, location_id):
+        row=self._rows.get(location_id); return deepcopy(row) if row else None
+    def children(self, parent_id):
+        return [deepcopy(x) for x in self._rows.values() if x.get("parent_id")==parent_id]
+    def by_scope(self, scope_id):
+        return [deepcopy(x) for x in self._rows.values() if x.get("scope_id")==scope_id]
+    def validate(self):
+        errors=[]
+        for key,row in self._rows.items():
+            parent=row.get("parent_id")
+            if parent is not None and parent not in self._rows: errors.append(key+": missing parent")
+            elif parent is not None and self._rows[parent]["scope_id"]!=row["scope_id"]: errors.append(key+": scope mismatch")
+        return {"valid":not errors,"location_count":len(self._rows),"errors":errors}
+    def coverage(self):
+        counts={level:0 for level in GEOGRAPHY_LEVELS}
+        for row in self._rows.values(): counts[row["level"]]+=1
+        return {"by_level":counts,"location_count":len(self._rows),
+                "state_union_territory_seed_count":len(INDIA_STATES_AND_UTS),
+                "district_city_village_and_world_country_data":"REQUIRES_AUTHORITATIVE_GAZETTEER_IMPORT"}
+def get_geographic_registry(records=()):
+    return GeographicRegistry(records)
