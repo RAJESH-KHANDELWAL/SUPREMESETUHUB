@@ -20,3 +20,11 @@ class GlobalMSMESMEStartupEntrepreneurshipCoreManager:
   if data["catalogue_id"]!=self.MASTER_CATALOG_ID or t!=2468 or n!=c["unique_catalogue_entries"] or e["remaining_unique_entries"]!=t-n: raise ValueError("MASTER_CATALOG_INTEGRITY_ERROR")
   return {"success":True,"target_unique_entries":t,"current_unique_entries":n,"remaining_unique_entries":t-n,"access_mode":"READ_ONLY"}
 def get_manager(): return GlobalMSMESMEStartupEntrepreneurshipCoreManager()
+
+ def geography(self):
+  from .domain_catalog import get_geographic_registry
+  registry=get_geographic_registry()
+  return {"coverage":registry.coverage(),"validation":registry.validate()}
+ def list_geographic_locations(self,parent_id):
+  from .domain_catalog import get_geographic_registry
+  return get_geographic_registry().children(parent_id)
