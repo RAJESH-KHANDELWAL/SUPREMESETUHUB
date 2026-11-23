@@ -35,3 +35,15 @@ class ExpandedCoreCoverageTests(unittest.TestCase):
   result=get_geographic_registry().enterprise_coverage("in-rajasthan")
   self.assertEqual(len(result["domains"]),len(list_domains()))
   self.assertEqual(len(result["services_work_business"]),len(list_services()))
+
+ def test_geography_registry_rejects_invalid_parent_level(self):
+  from backend.core.global_ecosystem.global_core_ecosystem.global_msme_sme_startup_solo_preneur_solo_preneurship_business_men_business_women_women_preneur_women_preneurship_men_preneur_men_preneurship_entrepreneur_entrepreneurship_research_innovation_core_ecosystem.domain_catalog import get_geographic_registry
+  registry=get_geographic_registry()
+  with self.assertRaisesRegex(ValueError,"INVALID_GEOGRAPHIC_PARENT_LEVEL"):
+   registry.add({"location_id":"invalid-city","name":"Invalid City","level":"city_town_municipality","parent_id":"india","scope_id":"bharat"})
+
+ def test_geography_registry_rejects_duplicate_import_ids(self):
+  from backend.core.global_ecosystem.global_core_ecosystem.global_msme_sme_startup_solo_preneur_solo_preneurship_business_men_business_women_women_preneur_women_preneurship_men_preneur_men_preneurship_entrepreneur_entrepreneurship_research_innovation_core_ecosystem.domain_catalog import get_geographic_registry
+  row={"location_id":"in-duplicate-demo","name":"Demo District","level":"district_county","parent_id":"in-rajasthan","scope_id":"bharat"}
+  with self.assertRaisesRegex(ValueError,"LOCATION_ID_MISSING_OR_DUPLICATE"):
+   get_geographic_registry([row,row])
