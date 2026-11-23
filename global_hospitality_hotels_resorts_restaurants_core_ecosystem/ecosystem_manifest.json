@@ -1,105 +1,52 @@
 {
-  "ecosystem_id": "GLOBAL-HOSPITALITY-HOTELS-RESORTS-RESTAURANTS-CORE-ECOSYSTEM",
+  "ecosystem_id": "GLOBAL-HOSPITALITY-HOTELS-RESORTS-RESTAURANTS-CORE",
   "name": "Global Hospitality Hotels Resorts Restaurants Core Ecosystem",
-  "parent": "GLOBAL CORE ECOSYSTEM",
-  "version": "1.0.0",
-  "status": "CORE_CATALOG_READY",
-  "mode": "READ_ONLY_CATALOG",
-  "domains": {
-    "lodging": [
-      "Hotels",
-      "Resorts",
-      "Motels",
-      "Hostels",
-      "Serviced apartments",
-      "Homestays",
-      "Vacation rentals",
-      "Guest houses"
-    ],
-    "dining": [
-      "Fine dining",
-      "Casual dining",
-      "Quick service",
-      "Cafes",
-      "Bakeries",
-      "Cloud kitchens",
-      "Catering",
-      "Food trucks"
-    ],
-    "food_beverage": [
-      "Menu engineering",
-      "Kitchen operations",
-      "Food sourcing",
-      "Inventory",
-      "Allergen information",
-      "Food safety",
-      "Beverage programs"
-    ],
-    "guest_experience": [
-      "Reservations",
-      "Check-in",
-      "Concierge",
-      "Housekeeping",
-      "Accessibility",
-      "Guest feedback",
-      "Loyalty",
-      "Service recovery"
-    ],
-    "events_venues": [
-      "Banquets",
-      "Meetings",
-      "Conferences",
-      "Weddings",
-      "Exhibitions",
-      "Event catering"
-    ],
-    "workforce": [
-      "Front office",
-      "Housekeeping teams",
-      "Kitchen teams",
-      "Maintenance",
-      "Security",
-      "Scheduling",
-      "Training"
-    ],
-    "safety_compliance": [
-      "Fire safety",
-      "Food hygiene",
-      "Guest privacy",
-      "Licensing checks",
-      "Incident management",
-      "Emergency readiness"
-    ],
-    "sustainability": [
-      "Energy",
-      "Water",
-      "Waste",
-      "Responsible sourcing",
-      "Local community",
-      "Biodiversity"
-    ],
-    "geography": [
-      "Country",
-      "State or province",
-      "District or county",
-      "City",
-      "Locality",
-      "Tourism region"
-    ]
-  },
-  "geography": [
+  "parent": "GLOBAL-CORE-ECOSYSTEM",
+  "version": "2.0.0",
+  "status": "CATALOG_READY",
+  "mode": "READ_ONLY_INDUSTRY_FOUNDATION",
+  "domains": [
+    "accommodation",
+    "food_beverage",
+    "guest_experience",
+    "distribution",
+    "property_operations",
+    "events",
+    "workforce",
+    "revenue",
+    "safety_compliance",
+    "sustainability",
+    "technology_data",
+    "supply_chain",
+    "accessibility",
+    "geography"
+  ],
+  "geography_levels": [
     "country",
     "state_or_province",
     "district_or_county",
     "city",
-    "locality"
+    "town",
+    "locality",
+    "tourism_region"
   ],
-  "boundaries": {
-    "live_operations": false,
-    "booking_transactions": false,
+  "capabilities": {
+    "domain_catalog": true,
+    "domain_search": true,
+    "live_booking": false,
     "payments": false,
-    "external_api_clients": false,
-    "provider_verification": "external_process_required",
-    "legal_certification": false
-  }
+    "guest_identity_storage": false,
+    "external_integrations": false,
+    "provider_verification": false
+  },
+  "security": {
+    "secrets_storage": false,
+    "payment_card_storage": false,
+    "data_minimization": true,
+    "application_auth_required": true
+  },
+  "boundaries": [
+    "Catalog inclusion does not verify a property, availability, licensing, quality or provider identity.",
+    "Booking, PMS execution, payments and integrations belong in separately authorized application/API layers."
+  ]
 }
