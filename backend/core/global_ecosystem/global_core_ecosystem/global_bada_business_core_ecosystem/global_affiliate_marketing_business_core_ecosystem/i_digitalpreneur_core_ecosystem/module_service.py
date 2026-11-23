@@ -5,6 +5,7 @@ from typing import Any
 
 from .manager import IDigitalPreneurCoreManager
 
+
 class IDigitalPreneurModuleService:
     def __init__(self) -> None:
         self.manager = IDigitalPreneurCoreManager()
@@ -24,5 +25,6 @@ class IDigitalPreneurModuleService:
             "program_terms_verified": identity.program_terms_verified,
             "live_connection_verified": identity.live_connection_verified,
         }
+
 
 __all__ = ["IDigitalPreneurModuleService"]

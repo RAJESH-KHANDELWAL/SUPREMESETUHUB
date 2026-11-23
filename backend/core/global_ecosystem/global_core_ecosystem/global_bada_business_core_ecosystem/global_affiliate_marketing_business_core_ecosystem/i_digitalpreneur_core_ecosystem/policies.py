@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from ...policies import (
+from ..policies import (
     validate_affiliate_disclosure,
     validate_http_url,
     validate_program_activation,
@@ -11,10 +11,12 @@ from ...policies import (
 
 PLATFORM_ID = "I-DIGITALPRENEUR"
 
+
 def validate_platform_id(platform_id: str) -> str:
     if not isinstance(platform_id, str) or platform_id.strip().upper() != PLATFORM_ID:
         raise ValueError("IDIGITALPRENEUR_PLATFORM_ID_MISMATCH")
     return PLATFORM_ID
+
 
 def validate_platform_program(
     *,
@@ -33,6 +35,7 @@ def validate_platform_program(
         "verification_status": verification_status.strip().upper(),
         "terms_url": normalized_url,
     }
+
 
 __all__ = [
     "PLATFORM_ID", "validate_platform_id", "validate_platform_program",

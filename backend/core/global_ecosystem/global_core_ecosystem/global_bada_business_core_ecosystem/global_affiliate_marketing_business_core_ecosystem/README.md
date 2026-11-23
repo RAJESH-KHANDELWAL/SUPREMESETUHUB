@@ -21,7 +21,8 @@ It does not perform provider authentication, API transport, click redirect hosti
 - `orchestrator.py`: CORE status, discovery and workflow composition.
 - `manager.py`: canonical manager and read-only 2,468 master-catalog bridge.
 - `manager.php`: PHP 8+ structural and read-only master-catalog facade.
-- `platforms/`: separately identified program namespaces for iDigitalPreneur, LeadsGuru and Millionaire Track.
+- `i_digitalpreneur_core_ecosystem/`: dedicated iDigitalPreneur CORE package, outside `platforms/`.
+- `platforms/`: LeadsGuru and Millionaire Track platform-specific namespaces.
 
 The former empty `global/`, `india/`, `affiliate_models/`, `compliance_disclosures/`, `integrations/`, `schemas/` and `tracking_analytics/` placeholder trees are represented by real catalog, model, contract and policy code rather than empty directories.
 
@@ -29,10 +30,10 @@ The former empty `global/`, `india/`, `affiliate_models/`, `compliance_disclosur
 
 The catalog preserves 40 previously named Global/India affiliate-network candidates as `DISCOVERY_ONLY`. Their inclusion records a discoverable identity only; it does not assert that a program is currently open, available in a region, approved, connected, or commercially verified.
 
-The three separately named program namespaces are retained:
-- `I-DIGITALPRENEUR`
-- `LEADSGURU`
-- `MILLIONAIRE-TRACK`
+Platform CORE namespaces are retained separately:
+- `I-DIGITALPRENEUR` — dedicated `i_digitalpreneur_core_ecosystem/` package.
+- `LEADSGURU` — under `platforms/`.
+- `MILLIONAIRE-TRACK` — under `platforms/`.
 
 No ownership, commission, fee, eligibility, attribution, payout or contractual relationship is inferred between platforms. Program terms must be sourced from the relevant platform and verified before activation. Unknown commission rates remain unspecified.
 

@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+
 @dataclass(frozen=True, slots=True)
 class IDigitalPreneurIdentity:
     platform_id: str = "I-DIGITALPRENEUR"
@@ -14,5 +15,6 @@ class IDigitalPreneurIdentity:
     program_terms_verified: bool = False
     live_connection_verified: bool = False
     payout_execution_enabled: bool = False
+
 
 __all__ = ["IDigitalPreneurIdentity"]
