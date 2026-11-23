@@ -52,11 +52,12 @@ BUSINESS_DOMAINS = tuple({
 
 BUSINESS_DOMAIN_BY_ID = {item["domain_id"]: item for item in BUSINESS_DOMAINS}
 BUSINESS_DOMAIN_BY_CORE_ID = {item["core_domain_id"]: item for item in BUSINESS_DOMAINS}
-PACKAGE_TO_BUSINESS_DOMAIN = {
-    package: item["domain_id"]
+PACKAGE_ASSIGNMENTS = tuple(
+    (package, item["domain_id"])
     for item in BUSINESS_DOMAINS
     for package in item["package_names"]
-}
+)
+PACKAGE_TO_BUSINESS_DOMAIN = dict(PACKAGE_ASSIGNMENTS)
 
 def list_domains() -> list[dict]:
     return deepcopy(list(BUSINESS_DOMAINS))
@@ -93,7 +94,7 @@ def validate_mappings() -> dict:
     all_canonical_packages = {
         package for package_names in CANONICAL_DOMAIN_PACKAGES.values() for package in package_names
     }
-    mapped_packages = list(PACKAGE_TO_BUSINESS_DOMAIN)
+    mapped_packages = [package for package, _domain_id in PACKAGE_ASSIGNMENTS]
     missing_core_ids = sorted(set(CANONICAL_DOMAIN_DEFINITIONS) - set(core_ids))
     unknown_core_ids = sorted(set(core_ids) - set(CANONICAL_DOMAIN_DEFINITIONS))
     missing_packages = sorted(all_canonical_packages - set(mapped_packages))
@@ -123,7 +124,7 @@ def validate_mappings() -> dict:
 
 __all__ = [
     "BUSINESS_DOMAINS", "BUSINESS_DOMAIN_BY_ID", "BUSINESS_DOMAIN_BY_CORE_ID",
-    "PACKAGE_TO_BUSINESS_DOMAIN", "CLASSIFICATION_TYPES", "SERVICE_WORK_BUSINESS_LAYERS",
+    "PACKAGE_TO_BUSINESS_DOMAIN", "PACKAGE_ASSIGNMENTS", "CLASSIFICATION_TYPES", "SERVICE_WORK_BUSINESS_LAYERS",
     "DELIVERY_MODELS", "list_domains", "get_domain", "search_domains",
     "business_domain_summary", "validate_mappings",
 ]
