@@ -1,27 +1,65 @@
 # Global Finance, Banking, Insurance & Financial Payment Gateway — Service, Work & Business CORE
 
-This is the commercial/service-work-business layer corresponding to the canonical Global CORE package:
+## Purpose and placement
+
+This is the commercial classification layer under **Global Bada Business CORE**. It mirrors the control-plane architecture used by Google CORE while consuming the existing finance taxonomy as a read-only canonical dependency.
+
+- **This module:** services, professional work, business lines, delivery models, package discovery, classification contracts, policy boundaries and health.
+- **Canonical Global Finance CORE:** owns the finance domain definitions and canonical package inventory.
+- **Global Supreme master catalogue:** remains the master topic taxonomy and implementation-registry reference.
+
+The original Global Finance CORE folder remains at:
 
 `backend/core/global_ecosystem/global_core_ecosystem/global_finance_banking_insurance_financial_payment_gateway_core_ecosystem`
 
-The canonical Global CORE folder remains in its original location and is not moved, renamed, or modified by this module.
+The master file remains unchanged by this module:
 
-## Responsibilities
+`backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json`
 
-- Classify finance, banking, insurance, fintech and payment-gateway services, professional work and business models.
-- Reuse canonical domain IDs and package names from the Global Finance CORE catalogue.
-- Expose a read-only catalogue and mapping validation.
-- Keep service classification separate from regulated financial execution, payment processing, underwriting, lending, investment advice and money movement.
+## Architecture
 
-## Safety boundary
+| File | Responsibility |
+|---|---|
+| `catalog.py` | Ecosystem identity, parent, canonical dependency, master registry reference and package index |
+| `domain_catalog.py` | 15 commercial domains, service/work/business types, delivery models and exhaustive mapping validation |
+| `product_catalog.py` | Package inventory derived from canonical Global Finance CORE packages |
+| `contracts.py` | Typed tenant, classification-request and result contracts |
+| `policy.py` | Sensitive-data exclusions and financial-operation guardrails |
+| `domain_runtime.py` | Read-only manager for an individual business domain |
+| `module_service.py` | Package-scoped discovery service |
+| `service.py` | Application-facing status, classification, search and validation |
+| `orchestrator.py` | Catalogue, domain, package, search, health and dependency orchestration |
+| `manager.py` | Stable public Python manager API |
+| `manager.php` | PHP interoperability facade; Python remains canonical |
+| `php/` | PHP value contracts for safe result/domain metadata |
+| `test/` | Contract, catalogue, policy, package and mapping tests |
 
-This module is a taxonomy and discovery layer only. It does not connect to banks or payment providers, execute transactions, hold funds, issue insurance, approve credit, or provide regulated financial advice. Provider integrations and jurisdiction-specific authorization must be implemented and verified separately.
+## Classification model
 
-## Main modules
+Each canonical finance domain is mapped to a corresponding commercial domain. The module classifies:
 
-- `domain_catalog.py`: commercial service/work/business mappings to canonical Global CORE domains.
-- `catalog.py`: ecosystem identity and canonical dependency.
-- `service.py`: classification and validation.
-- `orchestrator.py`: read-only discovery and health.
-- `manager.py`: stable public manager API.
-- `test/`: focused mapping and classification tests.
+- **SERVICE:** a deliverable offered to a customer, organization or institution.
+- **WORK:** a task, role, profession, project, operation or engagement performed by people or systems.
+- **BUSINESS:** an enterprise, practice, platform, marketplace or commercial model.
+
+It also exposes delivery-model labels such as B2B, B2C, B2G, D2C, marketplace, platform, agency, consultancy, freelance, subscription and cooperative. These are taxonomy labels, not proof that a provider or business is operational.
+
+## Safety and regulatory boundary
+
+This is a metadata and classification control plane only. It does not connect to a bank, payment gateway, insurer, broker or lender; store credentials; move funds; initiate refunds or payouts; approve credit; underwrite insurance; execute trades; or provide regulated financial advice.
+
+Jurisdiction-specific legal review and required licenses/authorizations remain mandatory wherever applicable. Live execution belongs in separately secured, tested and authorized API/provider layers.
+
+## Stable Python entry point
+
+`from ...manager import get_manager`
+
+Supported operations include `status()`, `health()`, `catalog()`, `list_domains()`, `list_domain_inventory()`, `get_domain_manager()`, `list_packages()`, `get_package()`, `list_offerings()`, `get_offering()`, `search()`, `classify()`, `validate()` and `dependency_map()`.
+
+## Integrity guarantees
+
+- Canonical domain and package definitions are imported; they are not copied or independently redefined.
+- Every canonical package must map to exactly one commercial domain.
+- Missing, unknown and duplicate domain/package mappings fail validation.
+- Public summaries exclude credential-like and account-secret fields.
+- The master catalogue is referenced, not silently rewritten.
