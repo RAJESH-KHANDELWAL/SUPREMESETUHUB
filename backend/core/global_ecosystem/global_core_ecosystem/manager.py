@@ -1475,6 +1475,44 @@ def get_catalog() -> list[dict[str, Any]]:
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
         "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_integrations_core_ecosystem", "status": "CORE_CATALOG_ONLY", "integration_domain_count": 31, "api_available": None, "live_connection_verified": False, "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"},
     }
+    agriculture_food_natural_resources_core = {
+        "ecosystem_id": "GLOBAL-AGRICULTURE-FOOD-NATURAL-RESOURCES-HUMAN-ANIMAL-CORE-ECOSYSTEM",
+        "name": "GLOBAL AGRICULTURE FOOD & NATURAL RESOURCES HUMAN ANIMAL CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["AGRICULTURE_DOMAIN_TAXONOMY", "FOOD_SYSTEMS_METADATA", "NATURAL_RESOURCES_GOVERNANCE", "HUMAN_AND_COMMUNITY_DOMAIN_METADATA", "ANIMAL_AND_LIVESTOCK_DOMAIN_METADATA", "WATER_AND_CLIMATE_METADATA", "RESEARCH_AND_TECHNOLOGY_DISCOVERY"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_agriculture_food_natural_resources_human_animal_core_ecosystem",
+            "status": "CORE_CATALOG_ONLY",
+            "domain_count": 12,
+            "business_layer_id": "GLOBAL-BADA-BUSINESS-AGRICULTURE-FOOD-NATURAL-RESOURCES-HUMAN-ANIMAL-CORE-ECOSYSTEM",
+            "master_catalog_path": "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json",
+            "master_catalog_access_mode": "READ_ONLY",
+            "master_catalog_entries_added": 0,
+            "live_data_verified": False,
+            "provider_connections_verified": False,
+            "api_transport_in_core": False,
+            "engine_execution_in_core": False,
+        },
+    }
+    agriculture_food_natural_resources_business_core = {
+        "ecosystem_id": "GLOBAL-BADA-BUSINESS-AGRICULTURE-FOOD-NATURAL-RESOURCES-HUMAN-ANIMAL-CORE-ECOSYSTEM",
+        "name": "GLOBAL BADA BUSINESS AGRICULTURE FOOD & NATURAL RESOURCES HUMAN ANIMAL CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["AGRICULTURE_SERVICES", "FOOD_BUSINESS", "NATURAL_RESOURCE_WORK", "HUMAN_AND_ANIMAL_SERVICES", "SUPPLY_CHAIN", "FINANCE_AND_TRADE", "SERVICE_WORK_BUSINESS_CLASSIFICATION"],
+        "parent_id": "GLOBAL-BADA-BUSINESS-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_agriculture_food_natural_resources_human_animal_core_ecosystem",
+            "status": "CORE_CATALOG_ONLY",
+            "business_domain_count": 16,
+            "global_core_dependency": "GLOBAL-AGRICULTURE-FOOD-NATURAL-RESOURCES-HUMAN-ANIMAL-CORE-ECOSYSTEM",
+            "live_providers_verified": False,
+            "transactions_performed": 0,
+            "api_transport_in_core": False,
+            "engine_execution_in_core": False,
+        },
+    }
+
     human_language_core = {
         "ecosystem_id": "GLOBAL-HUMAN-LANGUAGE-CORE-ECOSYSTEM",
         "name": "GLOBAL HUMAN LANGUAGE CORE ECOSYSTEM",
@@ -1709,6 +1747,8 @@ def get_catalog() -> list[dict[str, Any]]:
         *CATEGORIES,
         infrastructure_core,
         integrations_core,
+        agriculture_food_natural_resources_core,
+        agriculture_food_natural_resources_business_core,
         huggingface_core,
         ibm_core,
         meta_core,
