@@ -958,6 +958,50 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "capabilities": ["CULTURAL_SERVICE_TAXONOMY", "CULTURAL_WORK_CLASSIFICATION", "BUSINESS_CAPABILITY_GOVERNANCE", "RECORD_VALIDATION", "CANONICAL_CULTURAL_CORE_REUSE"],
         "parent_id": "GLOBAL-BADA-BUSINESS-CORE-ECOSYSTEM",
         "metadata": {"module_path": "global_bada_business_core_ecosystem.global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_core_ecosystem", "implementation_state": "IMPLEMENTED_FOUNDATION", "canonical_source_core": "GLOBAL-VASUDHAIVA-KUTUMBAKAM-SANATAN-DHARMA-BHARAT-WORLD-CULTURE-SERVICE-WORK-BUSINESS-CORE-ECOSYSTEM"},
+    },
+    {
+        "ecosystem_id": "GLOBAL-TRANSPORT-ROAD-RAIL-AIR-MOBILITY-CORE-ECOSYSTEM",
+        "name": "GLOBAL TRANSPORT ROAD RAIL AIR MOBILITY CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": [
+            "ROAD_TRANSPORT_DOMAIN_REGISTRY",
+            "RAIL_TRANSPORT_DOMAIN_REGISTRY",
+            "AIR_TRANSPORT_DOMAIN_REGISTRY",
+            "MOBILITY_DOMAIN_REGISTRY",
+            "TRANSPORT_CAPABILITY_CLASSIFICATION",
+            "TRANSPORT_POLICY_AND_READINESS_METADATA",
+        ],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_transport_road_rail_air_mobility_core_ecosystem",
+            "status": "CORE_CATALOG_ONLY",
+            "domain_count": 4,
+            "live_connections_verified": False,
+            "api_transport_in_core": False,
+            "operational_dispatch_enabled": False,
+        },
+    },
+    {
+        "ecosystem_id": "GLOBAL-BADA-BUSINESS-TRANSPORT-LOGISTICS-SUPPLY-CHAIN-SERVICE-WORK-BUSINESS-CORE-ECOSYSTEM",
+        "name": "GLOBAL BADA BUSINESS TRANSPORT LOGISTICS SUPPLY CHAIN SERVICE WORK BUSINESS CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": [
+            "TRANSPORT_LOGISTICS_CAPABILITY_CLASSIFICATION",
+            "SUPPLY_CHAIN_CAPABILITY_CLASSIFICATION",
+            "TRANSPORT_SERVICE_CLASSIFICATION",
+            "TRANSPORT_WORKFORCE_ROLE_CLASSIFICATION",
+            "TRANSPORT_BUSINESS_MODEL_CLASSIFICATION",
+            "TRANSPORT_CORE_TAXONOMY_REUSE",
+        ],
+        "parent_id": "GLOBAL-BADA-BUSINESS-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_transport_logistics_supply_chain_service_work_business_core_ecosystem",
+            "transport_core_id": "GLOBAL-TRANSPORT-ROAD-RAIL-AIR-MOBILITY-CORE-ECOSYSTEM",
+            "status": "CORE_CATALOG_ONLY",
+            "capability_group_count": 5,
+            "live_jobs_verified": False,
+            "live_transactions_verified": False,
+        },
     }
 )
 
