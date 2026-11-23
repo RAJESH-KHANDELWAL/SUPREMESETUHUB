@@ -16,7 +16,9 @@ class StripeCoreOrchestrator:
         return get_stripe_core_catalog()
 
     def list_products(self, *, enabled_only: bool = False) -> dict[str, Any]:
-        modules = list_stripe_core_modules(include_disabled=not enabled_only)
+        modules = list_stripe_core_modules()
+        if enabled_only:
+            modules = [item for item in modules if item.get("enabled", True)]
         safe = [StripeCorePolicy.safe_metadata(item) for item in modules]
         return {"success": True, "count": len(safe), "products": safe}
 
