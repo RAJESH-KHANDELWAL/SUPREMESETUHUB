@@ -6,6 +6,7 @@ from typing import Any
 from .models import IDigitalPreneurIdentity
 from .policies import PLATFORM_ID, validate_platform_id
 
+
 class IDigitalPreneurCoreManager:
     ECOSYSTEM_ID = "I-DIGITALPRENEUR-CORE-ECOSYSTEM"
     PARENT_ECOSYSTEM_ID = "GLOBAL-AFFILIATE-MARKETING-BUSINESS-CORE-ECOSYSTEM"
@@ -39,7 +40,9 @@ class IDigitalPreneurCoreManager:
             return False
         return True
 
+
 def get_manager() -> IDigitalPreneurCoreManager:
     return IDigitalPreneurCoreManager()
+
 
 __all__ = ["IDigitalPreneurCoreManager", "get_manager"]

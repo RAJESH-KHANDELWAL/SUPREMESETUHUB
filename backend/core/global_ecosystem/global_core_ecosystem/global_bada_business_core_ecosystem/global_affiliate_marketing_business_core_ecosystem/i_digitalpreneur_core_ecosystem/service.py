@@ -7,8 +7,9 @@ from __future__ import annotations
 
 from typing import Any
 
-from ...service import AffiliateMarketingCoreService
+from ..service import AffiliateMarketingCoreService
 from .policies import PLATFORM_ID, validate_platform_id
+
 
 class IDigitalPreneurCoreService:
     def __init__(self, repository: Any) -> None:
@@ -42,5 +43,6 @@ class IDigitalPreneurCoreService:
             raise ValueError("AFFILIATE_REFERRAL_NOT_FOUND")
         self._require_platform_program(referral.get("program_id", ""))
         return self._service.record_event(**record)
+
 
 __all__ = ["IDigitalPreneurCoreService"]
