@@ -1,0 +1,4 @@
+"""Bharat and Global overlays; verify jurisdiction-specific labour and tax rules."""
+REGIONS={"bharat":{"region_id":"BHARAT","country_code":"IN","coverage":["national","state","union_territory","district","city","town","village","rural","urban","community"],"work_contexts":["on_site","remote","hybrid","work_from_home","field_work","platform_gig","contract"]},"global":{"region_id":"GLOBAL","coverage":["country","state_or_province","territory","city","rural","urban","cross_border","multinational"],"work_contexts":["on_site","remote","hybrid","work_from_home","field_work","platform_gig","contract"]}}
+def list_regions(): return {k:{**v,"coverage":list(v["coverage"]),"work_contexts":list(v["work_contexts"])} for k,v in REGIONS.items()}
+def get_region(region_id): return list_regions().get(region_id.strip().casefold())
