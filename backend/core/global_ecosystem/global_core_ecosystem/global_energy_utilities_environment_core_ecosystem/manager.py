@@ -7,7 +7,7 @@ from .region_catalog import list_regional_frameworks,get_regional_framework
 from .orchestrator import EnergyEnvironmentCoreOrchestrator
 class GlobalEnergyUtilitiesEnvironmentCoreManager:
  NAME="GLOBAL ENERGY UTILITIES & ENVIRONMENT CORE ECOSYSTEM"
- MASTER_CATALOG_PATH=Path(__file__).resolve().parents[5]/"GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+ MASTER_CATALOG_PATH=Path(__file__).resolve().parents[4]/"GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
  MASTER_CATALOG_ID="GLOBAL_TO_SUPREME_MASTER_ECOSYSTEM"
  MASTER_CATALOG_TARGET=2468
  def __init__(self): self._orchestrator=EnergyEnvironmentCoreOrchestrator()
