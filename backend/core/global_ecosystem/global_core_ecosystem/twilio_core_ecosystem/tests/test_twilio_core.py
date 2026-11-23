@@ -1,10 +1,10 @@
 from pathlib import Path
 import unittest
 
-from twilio_core_ecosystem.catalog import get_catalog, list_products
-from twilio_core_ecosystem.contracts import TenantContext
-from twilio_core_ecosystem.manager import get_manager
-from twilio_core_ecosystem.policy import TwilioCorePolicy
+from backend.core.global_ecosystem.global_core_ecosystem.twilio_core_ecosystem.catalog import get_catalog, list_products
+from backend.core.global_ecosystem.global_core_ecosystem.twilio_core_ecosystem.contracts import TenantContext
+from backend.core.global_ecosystem.global_core_ecosystem.twilio_core_ecosystem.manager import get_manager
+from backend.core.global_ecosystem.global_core_ecosystem.twilio_core_ecosystem.policy import TwilioCorePolicy
 
 class TwilioCoreTests(unittest.TestCase):
     def test_catalog_identity_and_product_families(self):
