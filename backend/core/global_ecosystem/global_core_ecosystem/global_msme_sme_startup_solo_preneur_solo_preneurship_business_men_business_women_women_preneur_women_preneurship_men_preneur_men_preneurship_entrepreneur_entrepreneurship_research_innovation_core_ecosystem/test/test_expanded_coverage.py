@@ -28,3 +28,10 @@ class ExpandedCoreCoverageTests(unittest.TestCase):
   from backend.core.global_ecosystem.global_core_ecosystem.global_msme_sme_startup_solo_preneur_solo_preneurship_business_men_business_women_women_preneur_women_preneurship_men_preneur_men_preneurship_entrepreneur_entrepreneurship_research_innovation_core_ecosystem.domain_catalog import get_geographic_registry
   registry=get_geographic_registry([{"location_id":"in-rj-district-demo","name":"Demo District","level":"district_county","parent_id":"in-rajasthan","scope_id":"bharat"},{"location_id":"in-rj-city-demo","name":"Demo City","level":"city_town_municipality","parent_id":"in-rj-district-demo","scope_id":"bharat"}])
   self.assertEqual(registry.get("in-rj-city-demo")["parent_id"],"in-rj-district-demo")
+
+ def test_each_location_exposes_all_domains_and_services(self):
+  from backend.core.global_ecosystem.global_core_ecosystem.global_msme_sme_startup_solo_preneur_solo_preneurship_business_men_business_women_women_preneur_women_preneurship_men_men_preneur_men_preneurship_entrepreneur_entrepreneurship_research_innovation_core_ecosystem.domain_catalog import get_geographic_registry, list_domains
+  from backend.core.global_ecosystem.global_core_ecosystem.global_bada_business_core_ecosystem.global_msme_sme_startup_solo_preneur_solo_preneurship_business_men_business_women_women_preneur_women_preneurship_men_preneur_men_preneurship_entrepreneur_entrepreneurship_research_innovation_service_work_business_core_ecosystem.service_catalog import list_services
+  result=get_geographic_registry().enterprise_coverage("in-rajasthan")
+  self.assertEqual(len(result["domains"]),len(list_domains()))
+  self.assertEqual(len(result["services_work_business"]),len(list_services()))
