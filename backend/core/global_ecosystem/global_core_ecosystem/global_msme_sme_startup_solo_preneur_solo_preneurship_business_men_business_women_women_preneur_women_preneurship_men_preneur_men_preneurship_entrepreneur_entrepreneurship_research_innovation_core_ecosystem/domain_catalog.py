@@ -86,6 +86,20 @@ class GeographicRegistry:
             if parent is not None and parent not in self._rows: errors.append(key+": missing parent")
             elif parent is not None and self._rows[parent]["scope_id"]!=row["scope_id"]: errors.append(key+": scope mismatch")
         return {"valid":not errors,"location_count":len(self._rows),"errors":errors}
+
+    def enterprise_coverage(self, location_id):
+        """Expose the full domain and service taxonomy at a selected place."""
+        location=self.get(location_id)
+        if not location:
+            raise KeyError("LOCATION_NOT_FOUND")
+        from .domain_catalog import list_domains
+        from ..global_bada_business_core_ecosystem.global_msme_sme_startup_solo_preneur_solo_preneurship_business_men_business_women_women_preneur_women_preneurship_men_preneur_men_preneurship_entrepreneur_entrepreneurship_research_innovation_service_work_business_core_ecosystem.service_catalog import list_services
+        return {
+            "location": location,
+            "domains": list_domains(),
+            "services_work_business": list_services(),
+            "coverage_mode": "ALL_CANONICAL_DOMAINS_AND_SERVICE_CLASSIFICATIONS",
+        }
     def coverage(self):
         counts={level:0 for level in GEOGRAPHY_LEVELS}
         for row in self._rows.values(): counts[row["level"]]+=1
