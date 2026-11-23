@@ -1,26 +1,9 @@
-# GLOBAL HOSPITALITY HOTELS RESORTS RESTAURANTS SERVICE WORK BUSINESS CORE ECOSYSTEM
+# Global Hospitality Hotels Resorts Restaurants Service Work Business Core Ecosystem
 
-**Parent:** GLOBAL BADA BUSINESS CORE ECOSYSTEM  
-**ID:** `GLOBAL-HOSPITALITY-HOTELS-RESORTS-RESTAURANTS-SERVICE-WORK-BUSINESS-CORE-ECOSYSTEM`
+**Parent:** Global Bada Business Core Ecosystem | **Version:** 2.0.0 | **Mode:** Read-only service/work catalog.
 
-Commercial services and work-business foundation for hotels, resorts, restaurants, accommodation operators, hospitality owners, suppliers and professional service providers.
+Coverage: hospitality business setup, consulting, operations, revenue, marketing, technology, finance coordination, procurement, staffing, training, property, franchise, tourism, digital services, India/global expansion and independent service-work opportunities.
 
-## Architecture
-- `domain_catalog.py`: service, work and commercial capability taxonomy.
-- `policy.py`: provider, claims, privacy and authorization guardrails.
-- `service.py`: read-only service catalog, filtering and readiness.
-- `manager.py`: stable orchestration entry point and `get_manager()`.
-- `manager.php`: PHP read-only facade.
-- `ecosystem_manifest.json`: machine-readable scope and domain map.
-- `tests/test_ecosystem.py`: deterministic contract tests.
+Architecture: `domain_catalog.py` taxonomy and search; `contracts.py` stable identity; `service.py` read-only service; `policy.py` provider evidence and privacy; `manager.py` stable manager; `manager.php` PHP facade; `ecosystem_manifest.json` machine contract; `tests/test_ecosystem.py` tests.
 
-## Service scope
-Business strategy, operational improvement, revenue and marketing, distribution technology, procurement, staffing and training, finance/compliance coordination, property/asset support, franchise/investment readiness and India/global market expansion.
-
-## Boundary
-This module classifies and coordinates service capabilities. It does not itself provide licensed legal/accounting advice, issue permits, verify vendors, hire workers, process payroll, accept payments, execute bookings or guarantee investment outcomes. External integrations belong in the API/integration layer. Provider credentials and guest payment data must never be stored here.
-
-## Coverage
-Supports India and international market dimensions, including country, state/province, district/county, city and locality. Coverage is a model, not proof that every market/provider is onboarded.
-
-**Readiness:** service taxonomy only; external service delivery and transactions remain disabled until separately implemented and verified.
+Boundaries: catalog metadata is not service delivery. This module does not verify providers, issue permits, hire workers, execute payroll, process payments, execute bookings, or provide licensed legal/tax/investment advice. Certification, license, approval, insurance and guarantee claims require independent evidence review.
