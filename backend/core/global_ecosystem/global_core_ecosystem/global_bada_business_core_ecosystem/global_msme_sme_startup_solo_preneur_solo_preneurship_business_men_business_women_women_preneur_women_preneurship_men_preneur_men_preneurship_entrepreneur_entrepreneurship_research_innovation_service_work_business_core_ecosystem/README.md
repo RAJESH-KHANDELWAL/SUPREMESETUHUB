@@ -1,3 +1,5 @@
-# Global MSME SME Startup Solo-preneur Business Men Business Women Women-preneur Men-preneur Entrepreneur Entrepreneurship Research Innovation Service Work Business CORE Ecosystem
+# Expanded Global Bada Business Service, Work and Business CORE
 
-Owns commercial service, work and business classifications for all requested enterprise segments. Every service maps to a canonical domain ID in the sibling Global CORE taxonomy. Includes enterprise development, founder coaching, business planning, market research, innovation, formation readiness, digital/AI services, R&D, IP commercialization, funding readiness, incubation, family business and export expansion. Classification is not registration, legal/tax advice, funding approval, verified live listing or service execution. The 2468 master catalog is read-only.
+Classifies service, work and business offerings against canonical Global CORE domain IDs. Coverage includes venture formation, governance, finance, accounting, tax readiness, working capital, procurement, operations, HR, sales, marketing, customer experience, commerce, trade, franchise, cooperative and sector-specific enterprise support; product/R&D/IP; ESG; continuity; M&A; valuation; succession; market entry; PPP; social enterprise; inclusion; education; analytics; automation; open innovation; and venture portfolio support.
+
+All entries are classifications, not proof of delivery, legal authorization, funding, registration, professional qualification or guaranteed outcomes. The 2468 master catalogue remains read-only.
