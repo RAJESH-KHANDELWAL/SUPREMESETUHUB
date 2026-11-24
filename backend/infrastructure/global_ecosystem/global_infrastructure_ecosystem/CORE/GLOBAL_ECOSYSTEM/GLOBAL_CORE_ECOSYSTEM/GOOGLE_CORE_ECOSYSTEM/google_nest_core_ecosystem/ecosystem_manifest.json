@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "provider": "google",
+  "product_id": "google_nest",
+  "product_name": "Google Nest",
+  "category": "SMART_HOME",
+  "api": "Google Home APIs (eligible device/project use cases)",
+  "integration_mode": "OAUTH_OR_DEVICE_API",
+  "availability": "API_AVAILABLE",
+  "live_connection": false
+}

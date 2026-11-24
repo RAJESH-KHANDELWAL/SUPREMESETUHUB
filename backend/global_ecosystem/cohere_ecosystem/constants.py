@@ -1,0 +1,13 @@
+"""Stable Cohere domain identifiers and safety policy."""
+PROVIDER_ID = "cohere"
+PROVIDER_NAME = "Cohere"
+DOMAIN_VERSION = "1.0.0"
+STATUS_CATALOG_ONLY = "CATALOG_ONLY"
+STATUS_CONFIGURATION_REQUIRED = "CONFIGURATION_REQUIRED"
+PRODUCT_COMMAND = "command"
+PRODUCT_EMBED = "embed"
+PRODUCT_RERANK = "rerank"
+PRODUCT_CLASSIFY = "classify"
+PRODUCT_TOKENIZE = "tokenize"
+PRODUCT_MODEL_METADATA = "model_metadata"
+SENSITIVE_OPERATIONS = frozenset({"delete", "purge", "revoke", "disable"})

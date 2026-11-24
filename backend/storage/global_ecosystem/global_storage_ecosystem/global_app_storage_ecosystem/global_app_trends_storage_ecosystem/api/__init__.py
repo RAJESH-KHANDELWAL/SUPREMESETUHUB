@@ -1,0 +1,1 @@
+"""API namespace for GLOBAL_APP_TRENDS_STORAGE_ECOSYSTEM."""

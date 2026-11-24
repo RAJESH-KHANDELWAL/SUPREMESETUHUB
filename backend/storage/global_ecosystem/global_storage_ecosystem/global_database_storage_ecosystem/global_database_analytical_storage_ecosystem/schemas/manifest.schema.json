@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "global_database_analytical_storage_ecosystem Manifest",
+  "type": "object",
+  "required": [
+    "ecosystem_name",
+    "namespace",
+    "category",
+    "package",
+    "foundation_status",
+    "provider_product_verified",
+    "external_connections_verified",
+    "storage_operations_enabled"
+  ],
+  "properties": {
+    "ecosystem_name": {
+      "const": "GLOBAL_DATABASE"
+    },
+    "namespace": {
+      "const": "database"
+    },
+    "category": {
+      "const": "global_database_analytical_storage_ecosystem"
+    },
+    "package": {
+      "const": "global_database_analytical_storage_ecosystem"
+    },
+    "foundation_status": {
+      "type": "string"
+    },
+    "provider_product_verified": {
+      "type": "boolean"
+    },
+    "external_connections_verified": {
+      "type": "boolean"
+    },
+    "storage_operations_enabled": {
+      "type": "boolean"
+    },
+    "readiness_note": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

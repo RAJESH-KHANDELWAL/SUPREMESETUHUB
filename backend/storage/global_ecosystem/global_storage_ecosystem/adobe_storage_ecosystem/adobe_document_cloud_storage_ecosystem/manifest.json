@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "provider_id": "adobe",
+  "ecosystem_id": "document_cloud",
+  "name": "Adobe Document Cloud Storage",
+  "related_api_family": "PDF Services API; Acrobat Sign API",
+  "storage_scope": "Document Cloud file metadata, ownership, sharing, starred/shared state and document lifecycle references.",
+  "api_boundary": "PDF Services processing and Acrobat Sign agreements are not automatically generic Document Cloud file storage CRUD.",
+  "implementation_state": "FOUNDATION_INITIALIZED",
+  "external_connection_state": "NOT_CONFIGURED",
+  "live_connection_verified": false,
+  "production_persistence": "CENTRAL_DATABASE",
+  "capabilities": [
+    "IDENTITY",
+    "METADATA_MODEL",
+    "IN_MEMORY_METADATA_REGISTRY"
+  ]
+}

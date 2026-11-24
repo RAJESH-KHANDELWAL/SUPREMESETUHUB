@@ -1,0 +1,1 @@
+"""Offline tests for GLOBAL_APP_AUTOMATION_STORAGE_ECOSYSTEM."""

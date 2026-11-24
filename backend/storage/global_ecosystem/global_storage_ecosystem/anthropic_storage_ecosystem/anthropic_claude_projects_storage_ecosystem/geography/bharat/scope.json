@@ -1,0 +1,14 @@
+{
+  "scope_id": "BHARAT",
+  "levels": [
+    "COUNTRY",
+    "STATE",
+    "UNION_TERRITORY",
+    "DISTRICT",
+    "CITY",
+    "TOWN",
+    "VILLAGE",
+    "LOCAL_BODY"
+  ],
+  "status": "TAXONOMY_ONLY"
+}

@@ -1,0 +1,12 @@
+"""Category configuration."""
+ECOSYSTEM_CONFIG = {
+    "ecosystem_name": "GLOBAL_DATABASE",
+    "namespace": "database",
+    "category": "global_database_graph_storage_ecosystem",
+    "package": "global_database_graph_storage_ecosystem",
+    "foundation_status": "NOT_CONFIGURED",
+    "provider_product_verified": false,
+    "external_connections_verified": false,
+    "storage_operations_enabled": false,
+    "readiness_note": "Foundation only. Require authorized credentials, product and plan verification, live health checks, schema validation, backup/recovery checks, and end-to-end database tests before activation."
+}

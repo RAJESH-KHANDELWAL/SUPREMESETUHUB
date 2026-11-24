@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GLOBAL_INDIVIDUAL_PERSONAL_ENCRYPTION_AND_KEY_REFERENCES_STORAGE_ECOSYSTEM Category Record",
+  "type": "object",
+  "required": [
+    "record_id",
+    "name",
+    "record_type",
+    "owner_ref",
+    "jurisdiction",
+    "status",
+    "metadata",
+    "created_at"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "record_type": {
+      "const": "PERSONAL_ENCRYPTION_AND_KEY_REFERENCES"
+    },
+    "owner_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "jurisdiction": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "minLength": 1
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "consent_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}

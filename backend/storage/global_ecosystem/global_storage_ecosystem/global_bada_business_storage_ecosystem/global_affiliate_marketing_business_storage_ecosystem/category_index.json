@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_AFFILIATE_MARKETING_BUSINESS_STORAGE_ECOSYSTEM",
+  "platform_count": 3,
+  "platforms": [
+    {
+      "id": "I_DIGITALPRENEUR",
+      "folder": "i_digitalpreneur"
+    },
+    {
+      "id": "LEADSGURU",
+      "folder": "leadsguru"
+    },
+    {
+      "id": "MILLIONAIRE_TRACK",
+      "folder": "millionaire_track"
+    }
+  ]
+}

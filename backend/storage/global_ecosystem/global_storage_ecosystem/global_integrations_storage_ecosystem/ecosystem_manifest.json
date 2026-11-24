@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_INTEGRATIONS_STORAGE_ECOSYSTEM",
+  "package_name": "global_integrations_storage_ecosystem",
+  "provider": "GLOBAL INTEGRATIONS",
+  "owner_layer": "STORAGE",
+  "package_type": "API_ALIGNED_STORAGE_TAXONOMY_AND_METADATA_FOUNDATION",
+  "taxonomy_file": "taxonomy/global_integrations_storage_taxonomy.json",
+  "category_index_file": "category_index.json",
+  "category_folder_count": 30,
+  "source_api_ecosystem": "GLOBAL_INTEGRATIONS_API_ECOSYSTEM",
+  "source_api_path": "backend/api/global_ecosystem/global_api_ecosystem/global_integrations_api_ecosystem/",
+  "interfaces": [
+    "PYTHON",
+    "PHP_JSON_INTEROPERABILITY"
+  ],
+  "geographic_scope": [
+    "BHARAT",
+    "SOUTH_ASIA",
+    "ASIA_PACIFIC",
+    "MIDDLE_EAST",
+    "EUROPE",
+    "AFRICA",
+    "NORTH_AMERICA",
+    "SOUTH_AMERICA",
+    "OCEANIA",
+    "ANTARCTICA",
+    "GLOBAL"
+  ],
+  "coverage_levels": [
+    "LOCAL",
+    "DISTRICT",
+    "STATE",
+    "NATIONAL",
+    "REGIONAL",
+    "INTERNATIONAL",
+    "GLOBAL",
+    "SUPREME"
+  ],
+  "implementation_state": "TAXONOMY_AND_CATALOG_FOUNDATION",
+  "external_connection_state": "NOT_CONFIGURED",
+  "taxonomy_only": true,
+  "provider_product_verification_required": true,
+  "requires_authorized_credentials": true,
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true,
+  "storage_operations_enabled": false,
+  "governance": [
+    "PRIVACY",
+    "SECURITY",
+    "AUDIT",
+    "RETENTION",
+    "CONSENT_WHERE_REQUIRED",
+    "AGE_ACCESS_CONTROLS_WHERE_REQUIRED",
+    "JURISDICTIONAL_COMPLIANCE"
+  ]
+}

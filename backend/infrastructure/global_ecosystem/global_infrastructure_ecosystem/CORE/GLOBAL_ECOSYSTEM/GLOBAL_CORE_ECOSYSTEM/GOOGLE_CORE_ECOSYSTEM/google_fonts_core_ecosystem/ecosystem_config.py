@@ -1,0 +1,9 @@
+PRODUCT_ID="google_fonts"
+PRODUCT_NAME="Google Fonts"
+CATEGORY="WEB_DEVELOPMENT"
+API_NAME="Google Fonts Developer API"
+INTEGRATION_MODE="USER_OAUTH"
+AVAILABILITY="API_AVAILABLE"
+AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
+REQUIRED_SCOPES=[]
+LIVE_CONNECTION_ENABLED=False

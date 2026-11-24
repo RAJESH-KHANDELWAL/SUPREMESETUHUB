@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "YOUTAG_WELLNESS_APP",
+  "app_name": "YOUTAG WELLNESS APP",
+  "business_parent": "GLOBAL_YOUTAG_BUSINESS_STORAGE_ECOSYSTEM",
+  "connection_state": "NOT_CONFIGURED",
+  "external_connections_verified": false,
+  "storage_operations_enabled": false,
+  "app_data_partitioning": "ISOLATED_FROM_SIBLING_APP",
+  "referral_source": "PARENT_BUSINESS_CANONICAL_PROFILE"
+}

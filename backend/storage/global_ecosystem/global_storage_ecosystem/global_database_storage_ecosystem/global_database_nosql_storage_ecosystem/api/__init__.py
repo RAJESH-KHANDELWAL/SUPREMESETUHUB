@@ -1,0 +1,1 @@
+"""Database category API boundary."""

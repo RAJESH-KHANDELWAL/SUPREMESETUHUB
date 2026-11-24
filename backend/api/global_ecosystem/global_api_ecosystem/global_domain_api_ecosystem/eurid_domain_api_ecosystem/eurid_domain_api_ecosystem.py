@@ -1,0 +1,10 @@
+"""EURid domain ecosystem reference; no live adapter is implied."""
+
+PROVIDER_ID = "eurid"
+PROVIDER_NAME = "EURid"
+CATEGORY_NAME = "GLOBAL DOMAIN API ECOSYSTEM"
+CAPABILITY_SCOPE = ".eu domain registry"
+OFFICIAL_DOCUMENTATION_URL = "https://eurid.eu/"
+IMPLEMENTATION_STATUS = "REFERENCE_ONLY"
+OFFICIAL_API_VERIFIED = False
+LIVE_CONNECTION_VERIFIED = False

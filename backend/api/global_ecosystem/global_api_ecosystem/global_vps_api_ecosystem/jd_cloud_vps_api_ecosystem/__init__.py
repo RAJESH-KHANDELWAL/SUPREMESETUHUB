@@ -1,0 +1,7 @@
+"""JD Cloud VPS API ecosystem catalog scaffold."""
+
+PROVIDER_ID = "jd_cloud"
+PROVIDER_NAME = "JD Cloud"
+CATEGORY = "VPS"
+IMPLEMENTATION_STATUS = "CATALOG_ONLY"
+LIVE_CONNECTION_VERIFIED = False
