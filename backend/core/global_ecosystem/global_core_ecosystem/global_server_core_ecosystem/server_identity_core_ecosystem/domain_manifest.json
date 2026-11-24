@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "domain_id": "IDENTITY",
+  "name": "Identity",
+  "parent_id": "GLOBAL-SERVER-CORE-ECOSYSTEM",
+  "canonical_path": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/server_identity_core_ecosystem/",
+  "layer": "CORE",
+  "status": "CORE_CONTRACT_METADATA",
+  "description": "Canonical server identity, provider identity and resource ownership references.",
+  "master_catalog_refs": [
+    "S10_global_identity",
+    "S09_digital_identity",
+    "S02_human_identity",
+    "S11_governance"
+  ],
+  "control_areas": [
+    {
+      "area_id": "IDENTITY_01",
+      "name": "Canonical server and provider identifiers",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "IDENTITY_02",
+      "name": "Tenant, owner and environment attribution",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "IDENTITY_03",
+      "name": "Machine identity and workload identity references",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "IDENTITY_04",
+      "name": "Certificate and trust-anchor metadata",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "IDENTITY_05",
+      "name": "Ownership transfer and identity reconciliation",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "IDENTITY_06",
+      "name": "Identity lifecycle and revocation requirements",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    }
+  ],
+  "ownership": {
+    "core": "Catalogs, identifiers, contracts, policies and discovery metadata only",
+    "api": "Authentication, authorization, transport and request handling",
+    "engine": "Provider adapters, SDK execution and remote operations",
+    "database": "Durable persistence, schemas and migrations",
+    "storage": "Object, file, backup and artifact persistence"
+  },
+  "operational_boundaries": {
+    "remote_operations_enabled": false,
+    "live_provider_connections_verified": false,
+    "production_readiness_claimed": false,
+    "credentials_stored_in_repository": false
+  }
+}
