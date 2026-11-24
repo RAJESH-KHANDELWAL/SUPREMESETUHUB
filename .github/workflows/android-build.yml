@@ -76,7 +76,7 @@ jobs:
           gradle-version: "9.6.0"
 
       - name: Build Android Release AAB
-        working-directory: backend/mobile/android
+        working-directory: backend/backend/mobile/android
         run: |
           gradle :app:bundleRelease \
             --stacktrace \
@@ -84,7 +84,7 @@ jobs:
 
       - name: Verify Release AAB
         run: |
-          AAB="backend/mobile/android/app/build/outputs/bundle/release/app-release.aab"
+          AAB="backend/backend/mobile/android/app/build/outputs/bundle/release/app-release.aab"
           test -f "$AAB"
           ls -lh "$AAB"
 
@@ -92,5 +92,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: supreme-setu-hub-release-aab
-          path: backend/mobile/android/app/build/outputs/bundle/release/app-release.aab
+          path: backend/backend/mobile/android/app/build/outputs/bundle/release/app-release.aab
           if-no-files-found: error
