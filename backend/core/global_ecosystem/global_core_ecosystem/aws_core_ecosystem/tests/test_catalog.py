@@ -7,6 +7,7 @@ from backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.cont
 from backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.product_catalog import list_aws_offerings
 from backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.domain_catalog import aws_domain_summary
 from backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.service import AwsCoreEcosystemService
+from backend.core.global_ecosystem.global_core_ecosystem.aws_core_ecosystem.policy import AwsCorePolicy, AwsCorePolicyError
 
 ROOT = Path(__file__).resolve().parents[1]
 FAMILIES = ["aws_api_gateway_core_ecosystem","aws_bedrock_sagemaker_core_ecosystem","aws_billing_cost_core_ecosystem","aws_cloudformation_core_ecosystem","aws_cloudtrail_core_ecosystem","aws_cloudwatch_core_ecosystem","aws_containers_core_ecosystem","aws_database_core_ecosystem","aws_ec2_compute_core_ecosystem","aws_iam_sts_core_ecosystem","aws_kms_secrets_core_ecosystem","aws_lambda_core_ecosystem","aws_lightsail_core_ecosystem","aws_route53_dns_core_ecosystem","aws_s3_storage_core_ecosystem","aws_vpc_networking_core_ecosystem"]
@@ -46,6 +47,30 @@ class TestAwsCoreCatalog(unittest.TestCase):
         AwsAccountContext("123456789012", "ap-south-1", "tenant-1", "actor-1").validate()
         with self.assertRaises(ValueError):
             AwsAccountContext("123", "ap-south-1", "tenant-1", "actor-1").validate()
+
+    def test_account_context_rejects_invalid_region_and_mismatched_principal(self):
+        with self.assertRaisesRegex(ValueError, "AWS_REGION_FORMAT_INVALID"):
+            AwsAccountContext("123456789012", "not-a-region", "tenant-1", "actor-1").validate()
+        with self.assertRaisesRegex(ValueError, "AWS_PRINCIPAL_ACCOUNT_MISMATCH"):
+            AwsAccountContext("123456789012", "ap-south-1", "tenant-1", "actor-1",
+                              "arn:aws:iam::210987654321:role/example").validate()
+
+    def test_policy_rejects_disabled_modules_and_unknown_capabilities(self):
+        module = {"enabled": False, "capabilities": ["READ_METADATA"]}
+        with self.assertRaisesRegex(AwsCorePolicyError, "AWS_CORE_MODULE_DISABLED"):
+            AwsCorePolicy.validate_capability(module, "READ_METADATA")
+        with self.assertRaisesRegex(AwsCorePolicyError, "AWS_CAPABILITY_NOT_REGISTERED"):
+            AwsCorePolicy.validate_capability({"enabled": True, "capabilities": []}, "READ_METADATA")
+
+    def test_safe_summary_is_allow_list_only(self):
+        summary = AwsCorePolicy.safe_module_summary({
+            "ecosystem_id": "AWS-TEST", "name": "test",
+            "access_key": "must-not-leak", "secret": "must-not-leak",
+            "metadata": {"token": "must-not-leak"},
+        })
+        self.assertNotIn("access_key", summary)
+        self.assertNotIn("secret", summary)
+        self.assertNotIn("metadata", summary)
 
     def test_credential_reference_never_accepts_raw_secret_value_as_provider(self):
         with self.assertRaises(ValueError):

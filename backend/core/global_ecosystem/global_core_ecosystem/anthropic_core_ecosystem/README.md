@@ -34,8 +34,12 @@ Core does not store API keys, exchange tokens, call Anthropic endpoints, persist
 - `catalog.py`: canonical nine-family Anthropic Core inventory.
 - `product_catalog.py`: unified registered product-family inventory with Core routing metadata.
 - `domain_catalog.py`: nine-domain taxonomy, product assignment and coverage summary.
-- `orchestrator.py`: product discovery, health and Core-to-API dependency map.
-- `service.py`: public ecosystem status and registry integration.
+- `orchestrator.py`: product discovery, health, offerings, domains and Core-to-API dependency map.
+- `domain_runtime.py`: shared read-only runtime for the nine Anthropic domain managers.
+- `manager.py`: canonical provider-level manager (`get_manager`) mirroring Google Core.
+- Each product-family package `manager.py`: Google Core-style `get_manager()` domain entry point.
+- `service.py`: public ecosystem status, registry and registered-module integration.
+- `test_anthropic_core_domains.py`: structural, inventory and manager parity tests.
 
 ## PHP interoperability
 

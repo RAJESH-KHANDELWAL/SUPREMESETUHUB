@@ -1,8 +1,0 @@
-"""Employment classification vocabularies and catalog view."""
-from .domain_catalog import DOMAINS, list_domains, list_topics
-SECTORS=("GOVERNMENT","PUBLIC_SECTOR","PRIVATE_SECTOR","NONPROFIT","COOPERATIVE","INTERNATIONAL_ORGANIZATION")
-EMPLOYMENT_TYPES=("FULL_TIME","PART_TIME","PERMANENT","FIXED_TERM","TEMPORARY","SEASONAL","APPRENTICESHIP","INTERNSHIP","RETURNSHIP","JOB_SHARING")
-WORK_MODES=("ON_SITE","REMOTE","HYBRID","WORK_FROM_HOME","FIELD","DISTRIBUTED")
-ROLES=("CANDIDATE","APPLICANT","EMPLOYEE","WORKER","EMPLOYER","HIRING_MANAGER","RECRUITER","PUBLIC_SERVICE_AUTHORITY","CAREER_ADVISOR","WORKFORCE_ANALYST")
-def get_catalog():
-    return {"ecosystem_id":"GLOBAL-GOVERNMENT-PRIVATE-JOBS-CAREERS-EMPLOYEE-EMPLOYMENT-CORE-ECOSYSTEM","domain_count":len(DOMAINS),"topic_count":len(list_topics()),"domains":list_domains(),"sectors":list(SECTORS),"employment_types":list(EMPLOYMENT_TYPES),"work_modes":list(WORK_MODES),"roles":list(ROLES),"live_data_verified":False}

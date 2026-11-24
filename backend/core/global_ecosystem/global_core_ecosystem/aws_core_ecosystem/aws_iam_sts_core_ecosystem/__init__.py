@@ -1,3 +1,4 @@
-"""AWS IAM and STS product-family Core package."""
+"""Public exports for aws_iam_sts_core_ecosystem."""
 from .service import AwsIamStsCoreService
-__all__ = ["AwsIamStsCoreService"]
+from .manager import AwsIamStsCoreManager,get_manager
+__all__=["AwsIamStsCoreService","AwsIamStsCoreManager","get_manager"]

@@ -1,3 +1,4 @@
-"""Apple StoreKit product-family Core package."""
+"""APPLE_STOREKIT_CORE_ECOSYSTEM product-family Core package."""
 from .service import AppleStorekitCoreService
-__all__=["AppleStorekitCoreService"]
+from .manager import AppleStorekitCoreManager, get_manager
+__all__=["AppleStorekitCoreService","AppleStorekitCoreManager","get_manager"]

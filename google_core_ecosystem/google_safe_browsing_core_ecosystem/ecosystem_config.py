@@ -1,9 +1,0 @@
-PRODUCT_ID="google_safe_browsing"
-PRODUCT_NAME="Google Safe Browsing"
-CATEGORY="SECURITY"
-API_NAME="Safe Browsing API"
-INTEGRATION_MODE="API_KEY"
-AVAILABILITY="API_AVAILABLE"
-AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
-REQUIRED_SCOPES=[]
-LIVE_CONNECTION_ENABLED=False

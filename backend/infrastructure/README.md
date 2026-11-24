@@ -1,27 +1,33 @@
-# SUPREMESETUHUB Infrastructure
+# SUPREMESETUHUB Backend Infrastructure
 
-The canonical infrastructure control plane and its root-level integration modules remain in this package. All 21 infrastructure domain implementations are physically organized under:
+## Canonical ownership
+The canonical Infrastructure control-plane implementation is owned by the Global Infrastructure Ecosystem:
 
-`backend/infrastructure/global_ecosystem/global_infrastructure_ecosystem/`
+`backend/infrastructure/global_ecosystem/global_infrastructure_ecosystem/modules/`
 
-## Domain ownership
+Canonical modules:
+- `controller.py` — resource controller
+- `repository.py` — database-backed infrastructure resource repository
+- `service.py` — validation and resource service layer
+- `hostinger_catalog.py` — Hostinger service catalog/readiness metadata
 
-The ecosystem root directly contains: Backup, Billing, CDN, Containers, Database adapters, DNS, Domains, Email, Firewall, FTP, Hosting, IPAM, Load Balancer, Infrastructure Models, Monitoring, Network, Object Storage, Security, Server inventory, SSL and Storage inventory.
+`controller.py`, `repository.py` and `service.py` at this package root are thin compatibility shims. `hostinger_catalog.py` has one canonical implementation under `global_ecosystem/global_infrastructure_ecosystem/modules/` and no root-level shim. No duplicate implementation is maintained at the package root.
 
-Root-level infrastructure modules include controller, repository, service, Hostinger API/catalog and NSFWinfra.
+## Other ecosystem modules
+- `backend/global_ecosystem/global_hosting_ecosystem/hostinger_api.py`: read-only Hostinger inventory API client.
+- `backend/global_ecosystem/nsfwinfra_ecosystem/nsfwinfra.py`: NSFWInfra API helper; connection is not verified.
+- `global_ecosystem/global_infrastructure_ecosystem/`: 21 domain packages, their ecosystem support modules, integrations, catalog, managers and structure metadata.
 
-## Compatibility
-
-The `backend.infrastructure` package exposes the ecosystem domain directory on its package search path. Existing imports such as `backend.infrastructure.server` and `backend.infrastructure.model` remain compatible while their implementation files live only in the GLOBAL INFRASTRUCTURE ECOSYSTEM.
+## Managers
+The Python and PHP root managers verify canonical module presence, package compatibility entry point, Backend Global Ecosystem Hostinger API and NSFWinfra helper files, and the Global Infrastructure Ecosystem manager. Structural health is not proof of runtime tests or provider connectivity.
 
 ## Cross-layer ownership
+- CORE and identity/policy: `backend.core`
+- Global Ecosystem root: `backend.global_ecosystem`
+- Database persistence: `backend.database`
+- Storage runtime: `backend.storage`
+- Server ecosystem: `backend.server.global_ecosystem.global_server_ecosystem`
+- HTTP orchestration: `backend.api`
+- Executable provider operations: `backend.engine`
 
-- CORE: `backend.core` — platform identity, policy and shared foundation.
-- GLOBAL CORE ECOSYSTEM: `backend.core.global_ecosystem.global_core_ecosystem`.
-- GLOBAL ECOSYSTEM: `backend.global_ecosystem`.
-- Database persistence remains owned by `backend.database/`.
-- Storage runtime remains owned by `backend.storage/`.
-- Canonical server ecosystem remains in `backend.server/global_ecosystem/global_server_ecosystem/`.
-- CORE validates identity and policy; ENGINE owns executable operations; API owns HTTP orchestration.
-
-Catalog entries do not prove provider connectivity. Live operations require explicit adapters, configured credentials, scoped authorization, tests and verified connectivity. Never commit credentials, tokens, private keys or customer data.
+Catalog entries do not prove provider connectivity. Live provider operations require supported APIs, configured credentials, scoped authorization, audit logging, tests and verified connectivity. Never commit credentials, tokens, private keys or customer data.

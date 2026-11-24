@@ -1,3 +1,4 @@
-"""AWS KMS and Secrets Manager product-family Core package."""
+"""Public exports for aws_kms_secrets_core_ecosystem."""
 from .service import AwsKmsSecretsCoreService
-__all__ = ["AwsKmsSecretsCoreService"]
+from .manager import AwsKmsSecretsCoreManager,get_manager
+__all__=["AwsKmsSecretsCoreService","AwsKmsSecretsCoreManager","get_manager"]

@@ -1,3 +1,4 @@
-"""Jira product-family Core package."""
+"""Public exports for atlassian_jira_core_ecosystem."""
 from .service import JiraCoreService
-__all__ = ["JiraCoreService"]
+from .manager import JiraCoreManager,get_manager
+__all__=["JiraCoreService","JiraCoreManager","get_manager"]
