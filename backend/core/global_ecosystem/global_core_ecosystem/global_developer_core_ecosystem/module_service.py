@@ -1,7 +1,7 @@
 """Read-only metadata service for a registered developer platform."""
 from __future__ import annotations
 from typing import Any
-from .catalog import get_global_developer_core_catalog
+from .manager import get_global_developer_core_catalog
 from .contracts import CoreResult, TenantContext
 from .policy import DeveloperCorePolicy
 

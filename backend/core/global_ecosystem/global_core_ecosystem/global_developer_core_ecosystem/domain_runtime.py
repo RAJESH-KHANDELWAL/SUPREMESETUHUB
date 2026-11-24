@@ -11,6 +11,6 @@ class DeveloperCoreDomainManager:
     def status(self) -> dict[str,Any]:
         return {"success":True,"domain_id":self.domain_id,"name":self.definition["name"],"purpose":self.definition["purpose"],"status":"CORE_DOMAIN_AVAILABLE","live_connections_verified":0,"api_calls_performed":0}
     def list_modules(self) -> dict[str,Any]:
-        from .catalog import get_global_developer_core_catalog
+        from .manager import get_global_developer_core_catalog
         items=[x for x in get_global_developer_core_catalog()["children"] if x["domain_id"]==self.domain_id]
         return {"success":True,"domain_id":self.domain_id,"count":len(items),"modules":items}

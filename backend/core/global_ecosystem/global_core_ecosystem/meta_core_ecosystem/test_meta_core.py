@@ -45,7 +45,8 @@ class MetaCoreTests(unittest.TestCase):
         for slug in product_packages:
             module=importlib.import_module(f"{__package__}.meta_{slug}_core_ecosystem")
             cls=getattr(module,module.__all__[0])
-            self.assertEqual(cls.PRODUCT_ID,"meta_"+("graph_core" if slug=="graph" else "meta_ai" if slug=="ai" else slug))
+            expected_product_id = "meta_ai" if slug == "ai" else "meta_graph_core" if slug == "graph" else f"meta_{slug}"
+            self.assertEqual(cls.PRODUCT_ID, expected_product_id)
         for slug in domain_packages:
             module=importlib.import_module(f"{__package__}.meta_{slug}_domain_core_ecosystem")
             cls=getattr(module,module.__all__[0])

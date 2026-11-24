@@ -1,7 +1,7 @@
 """Developer Core discovery and lifecycle metadata orchestration."""
 from __future__ import annotations
 from typing import Any
-from .catalog import get_global_developer_core_catalog
+from .manager import get_global_developer_core_catalog
 from .domain_catalog import developer_domain_summary, list_developer_domain_inventory
 from .policy import DeveloperCorePolicy
 

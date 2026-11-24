@@ -24,7 +24,7 @@ Core does not perform OAuth code exchange, hold access tokens, call Graph API, d
 - **META Webhooks** — `meta_webhooks_core_ecosystem/`; API: `backend/api/global_ecosystem/global_api_ecosystem/meta_api_ecosystem/meta_webhooks_api_ecosystem/`; ENGINE: `backend/engine/global_ecosystem/global_engine_ecosystem/meta_engine_ecosystem/meta_webhooks_engine_ecosystem/`.
 - **META AI Discovery** — `meta_ai_core_ecosystem/`; API: `backend/api/global_ecosystem/global_api_ecosystem/meta_api_ecosystem/meta_ai_ecosystem/`; ENGINE: `backend/engine/global_ecosystem/global_engine_ecosystem/meta_engine_ecosystem/meta_ai_ecosystem/`.
 
-The API registry currently declares 11 children and the Core tree contains the matching 11 product packages. Meta AI is discovery/reference only; no generally available public Meta AI API is asserted. The API README mentions an SDK/Developer Tools family, but no corresponding API or Core directory exists in the inspected repository tree, so it is intentionally not invented here.
+The API registry and Core tree each contain the same 11 product families. Meta AI is discovery/reference only; no generally available public Meta AI API is asserted. SDK and Developer Tools remain outside the canonical family registry until matching API and Core packages are implemented.
 
 ## Domain coverage
 1. **Provider Governance** — Provider identity, product-family registration, lifecycle, readiness and ownership.
