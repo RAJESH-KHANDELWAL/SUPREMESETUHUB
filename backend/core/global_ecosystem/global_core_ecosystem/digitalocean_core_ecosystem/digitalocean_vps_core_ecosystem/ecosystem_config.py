@@ -1,0 +1,5 @@
+PROVIDER_ID="digitalocean"
+CAPABILITY_ID="vps"
+API_CATALOG_REF="backend/api/global_ecosystem/global_api_ecosystem/digitalocean_api_ecosystem/digitalocean_vps_api_ecosystem"
+STATUS="CONTRACT_ONLY"
+LIVE_PROVIDER_CALLS_ENABLED=False

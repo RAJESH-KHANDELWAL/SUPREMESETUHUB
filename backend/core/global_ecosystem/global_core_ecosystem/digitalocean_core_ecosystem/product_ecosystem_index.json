@@ -1,0 +1,16 @@
+{
+  "provider": "digitalocean",
+  "ecosystem_id": "DIGITALOCEAN-CORE-ECOSYSTEM",
+  "layer": "CORE",
+  "capability_count": 5,
+  "packages": [
+    "digitalocean_cloud_core_ecosystem",
+    "digitalocean_hosting_core_ecosystem",
+    "digitalocean_server_core_ecosystem",
+    "digitalocean_storage_core_ecosystem",
+    "digitalocean_vps_core_ecosystem"
+  ],
+  "shared_package_count": 11,
+  "shared_package_suffix": "_core_ecosystem",
+  "live_provider_calls_enabled": false
+}

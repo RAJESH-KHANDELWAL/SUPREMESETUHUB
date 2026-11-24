@@ -1,0 +1,64 @@
+"""Stable contracts shared by DigitalOcean capability Core packages."""
+from __future__ import annotations
+
+from dataclasses import asdict, dataclass, field
+from datetime import datetime, timezone
+from enum import Enum
+from typing import Any
+
+
+def utc_now() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+class Readiness(str, Enum):
+    CATALOG_ONLY = "CORE_CATALOG_ONLY"
+    CONTRACT_ONLY = "CONTRACT_ONLY"
+    CONFIGURATION_REQUIRED = "READY_FOR_CONFIGURATION"
+    READY = "READY"
+    DISABLED = "DISABLED"
+    ERROR = "ERROR"
+
+
+@dataclass(frozen=True)
+class TenantContext:
+    """Caller identity supplied by the authenticated application layer."""
+
+    tenant_id: str
+    actor_id: str
+    actor_type: str = "user"
+    roles: tuple[str, ...] = ()
+    request_id: str | None = None
+
+    def validate(self) -> None:
+        if not self.tenant_id.strip():
+            raise ValueError("TENANT_ID_REQUIRED")
+        if not self.actor_id.strip():
+            raise ValueError("ACTOR_ID_REQUIRED")
+
+
+@dataclass(frozen=True)
+class SecretReference:
+    """Opaque pointer to a secret manager entry; never contains secret bytes."""
+
+    provider: str
+    reference: str
+    version: str | None = None
+
+    def __post_init__(self) -> None:
+        if not self.provider.strip() or not self.reference.strip():
+            raise ValueError("SECRET_REFERENCE_REQUIRED")
+
+
+@dataclass
+class CoreResult:
+    success: bool
+    ecosystem_id: str = "DIGITALOCEAN-CORE-ECOSYSTEM"
+    status: str = "INTERFACE_ONLY"
+    data: dict[str, Any] = field(default_factory=dict)
+    errors: list[str] = field(default_factory=list)
+    request_id: str | None = None
+    timestamp: str = field(default_factory=utc_now)
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
