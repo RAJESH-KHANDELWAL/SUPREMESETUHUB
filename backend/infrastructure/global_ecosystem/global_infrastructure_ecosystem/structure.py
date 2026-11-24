@@ -1,47 +1,33 @@
 """Canonical paths and ownership for the GLOBAL INFRASTRUCTURE ECOSYSTEM."""
-
 INFRASTRUCTURE_MODULES = (
     "backup", "billing", "cdn", "containers", "database", "dns", "domains",
     "email", "firewall", "ftp", "hosting", "ipam", "load_balancer", "model",
     "monitoring", "network", "object_storage", "security", "server", "ssl", "storage",
 )
-
-INFRASTRUCTURE_ROOT_MODULES = (
-    "controller", "hostinger_api", "hostinger_catalog", "nsfwinfra", "repository", "service",
-)
-
-ECOSYSTEM_ROOT = "backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem"
-
-ECOSYSTEM_DOMAIN_PATHS = {
-    name: f"{ECOSYSTEM_ROOT}.{name}" for name in INFRASTRUCTURE_MODULES
+INFRASTRUCTURE_ROOT_MODULES = ("controller", "hostinger_catalog", "repository", "service")
+PROVIDER_ADAPTER_PATHS = {
+    "hostinger_api": "backend.global_ecosystem.global_hosting_ecosystem.hostinger_api",
+    "nsfwinfra": "backend.global_ecosystem.nsfwinfra_ecosystem.nsfwinfra",
 }
-
-# Compatibility import paths are retained by backend.infrastructure.__path__;
-# the actual packages are physically stored under ECOSYSTEM_ROOT.
+ECOSYSTEM_ROOT = "backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem"
+ECOSYSTEM_DOMAIN_PATHS = {name: f"{ECOSYSTEM_ROOT}.{name}" for name in INFRASTRUCTURE_MODULES}
 CANONICAL_DOMAIN_PATHS = dict(ECOSYSTEM_DOMAIN_PATHS)
-
 ROOT_MODULE_ADAPTER_PATH = f"{ECOSYSTEM_ROOT}.modules"
-
+CANONICAL_ROOT_MODULE_PATHS = {name: f"{ROOT_MODULE_ADAPTER_PATH}.{name}" for name in INFRASTRUCTURE_ROOT_MODULES if name in {"controller","repository","service","hostinger_catalog"}}
 INTEGRATION_PATHS = {
     "core": f"{ECOSYSTEM_ROOT}.integrations.core",
     "global_core_ecosystem": f"{ECOSYSTEM_ROOT}.integrations.global_core_ecosystem",
     "global_infrastructure_core_ecosystem": "backend.core.global_ecosystem.global_core_ecosystem.global_infrastructure_core_ecosystem",
 }
-
-def get_module_paths() -> dict[str, str]:
-    """Return canonical ecosystem package paths for all infrastructure domains."""
-    return dict(CANONICAL_DOMAIN_PATHS)
-
-def get_ecosystem_domain_paths() -> dict[str, str]:
-    """Return direct root-level ecosystem package paths for all domains."""
-    return dict(ECOSYSTEM_DOMAIN_PATHS)
-
+def get_module_paths() -> dict[str, str]: return dict(CANONICAL_DOMAIN_PATHS)
+def get_ecosystem_domain_paths() -> dict[str, str]: return dict(ECOSYSTEM_DOMAIN_PATHS)
 def get_root_module_paths() -> dict[str, str]:
-    return {name: f"backend.infrastructure.{name}" for name in INFRASTRUCTURE_ROOT_MODULES}
-
+    paths = {name: f"backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem.modules.{name}" for name in ("controller","repository","service","hostinger_catalog")}
+    paths.update(PROVIDER_ADAPTER_PATHS)
+    return paths
 def get_canonical_ownership() -> dict[str, str]:
     return {
-        "infrastructure_control_plane": "backend.infrastructure",
+        "infrastructure_control_plane": ECOSYSTEM_ROOT,
         "infrastructure_global_hub": ECOSYSTEM_ROOT,
         "infrastructure_domain_sources": f"{ECOSYSTEM_ROOT}/<domain>",
         "infrastructure_domain_adapters": f"{ECOSYSTEM_ROOT}/<domain>",

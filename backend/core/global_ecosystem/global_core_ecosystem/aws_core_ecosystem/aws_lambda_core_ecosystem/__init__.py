@@ -1,3 +1,4 @@
-"""AWS Lambda product-family Core package."""
+"""Public exports for aws_lambda_core_ecosystem."""
 from .service import AwsLambdaCoreService
-__all__ = ["AwsLambdaCoreService"]
+from .manager import AwsLambdaCoreManager,get_manager
+__all__=["AwsLambdaCoreService","AwsLambdaCoreManager","get_manager"]

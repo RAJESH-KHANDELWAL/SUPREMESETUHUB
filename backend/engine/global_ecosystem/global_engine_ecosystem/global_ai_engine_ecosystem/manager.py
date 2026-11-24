@@ -3,11 +3,79 @@ from __future__ import annotations
 
 from typing import Any
 
-from .catalog import list_engines
+from .models import EngineDescriptor
 from .openai_provider import OpenAITextEngine
 from .registry import EngineRegistry
 from .provider_adapter_engine import ProviderChatEngine
 from backend.global_ecosystem.global_ai_ecosystem.adapters import list_chat_adapter_provider_ids
+
+
+# Provider catalogue is owned by this manager; catalog.py is a compatibility shim.
+PROVIDER = "GLOBAL AI"
+CHILD_ECOSYSTEMS = [
+    "ABELOHOST AI",
+    "ADOBE AI",
+    "ANTHROPIC AI",
+    "APPLE AI",
+    "AWS AI",
+    "BANGBROS AI",
+    "BRAZZERS AI",
+    "CCBILL AI",
+    "CLIPS4SALE AI",
+    "CLOUDFLARE AI",
+    "COHERE AI",
+    "CRAKREVENUE AI",
+    "DEEPSEEK AI",
+    "EPOCH AI",
+    "EVILANGEL AI",
+    "EXOCLICK AI",
+    "FANSLY AI",
+    "FAPHOUSE AI",
+    "HUGGINGFACE AI",
+    "IBM AI",
+    "INTEGRATIONS",
+    "LOYALFANS AI",
+    "MANYVIDS AI",
+    "META AI",
+    "MICROSOFT AI",
+    "MISTRAL AI",
+    "NAUGHTYAMERICA AI",
+    "NSFWINFRA AI",
+    "NVIDIA AI",
+    "ONLYFANS AI",
+    "OPENAI AI",
+    "ORACLE AI",
+    "PAXUM AI",
+    "PORNHUB AI",
+    "REALITYKINGS AI",
+    "SEGPAY AI",
+    "SERVICES",
+    "TOOLS",
+    "TRAFFICJUNKY AI",
+    "VEROTEL AI",
+    "VICETEMPLE AI",
+    "XHAMSTER AI",
+    "XVIDEOS AI",
+]
+CATALOG = (
+    EngineDescriptor(
+        "ENGINE-GLOBAL_AI", PROVIDER, PROVIDER,
+        ("LIFECYCLE", "EXECUTION_BOUNDARY"),
+    ),
+)
+
+
+def list_engines() -> list[dict[str, Any]]:
+    return [
+        {
+            "engine_id": item.engine_id,
+            "name": item.name,
+            "provider": item.provider,
+            "capabilities": list(item.capabilities),
+            "metadata": dict(item.metadata),
+        }
+        for item in CATALOG
+    ]
 
 
 class EcosystemEngineManager:

@@ -1,3 +1,4 @@
-"""Apple iCloud CloudKit product-family Core package."""
+"""APPLE_ICLOUD_CLOUDKIT_CORE_ECOSYSTEM product-family Core package."""
 from .service import AppleIcloudCloudkitCoreService
-__all__=["AppleIcloudCloudkitCoreService"]
+from .manager import AppleIcloudCloudkitCoreManager, get_manager
+__all__=["AppleIcloudCloudkitCoreService","AppleIcloudCloudkitCoreManager","get_manager"]

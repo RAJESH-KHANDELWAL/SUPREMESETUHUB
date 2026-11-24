@@ -1,11 +1,8 @@
-"""VIDEO CORE ECOSYSTEM package.
+"""Global Video Core Ecosystem package."""
+from .catalog import ECOSYSTEM_ID, ECOSYSTEM_NAME, get_catalog
+from .manager import VideoCoreManager, get_manager
 
-This package is an independent layer-owned namespace. It contains no imports
-from API, CORE, or ENGINE sibling layers.
-"""
 LAYER = "CORE"
 CATEGORY = "VIDEO"
-ECOSYSTEM_NAME = f"GLOBAL {CATEGORY.replace('_', ' ')} {LAYER} ECOSYSTEM"
-ECOSYSTEM_ID = f"GLOBAL-{CATEGORY.replace('_', '-')}-{LAYER.upper()}-ECOSYSTEM"
 
-__all__ = ["LAYER", "CATEGORY", "ECOSYSTEM_NAME", "ECOSYSTEM_ID"]
+__all__ = ["LAYER", "CATEGORY", "ECOSYSTEM_ID", "ECOSYSTEM_NAME", "get_catalog", "VideoCoreManager", "get_manager"]

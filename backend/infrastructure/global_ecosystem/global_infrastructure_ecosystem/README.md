@@ -1,31 +1,29 @@
 # GLOBAL INFRASTRUCTURE ECOSYSTEM
 
-Canonical home for the 21 infrastructure domain implementations and their domain-specific ecosystem packages.
+Canonical ownership for Infrastructure control-plane modules and 21 infrastructure domain implementations.
 
-## Direct root-level domain structure
+## Canonical modules
+The canonical implementations are stored under `modules/`:
+- `controller.py`
+- `repository.py`
+- `service.py`
+- `hostinger_catalog.py`
 
+`backend/infrastructure/controller.py`, `repository.py` and `service.py` are thin compatibility shims that preserve legacy imports. `hostinger_catalog.py` has one canonical implementation in `modules/`; there is deliberately no root-level compatibility shim. The module registry in `modules/__init__.py` points directly to canonical implementations and separately registered provider adapters.
+
+## Domain structure
 All 21 domain folders live directly inside this ecosystem root. There is no intermediate `domains/` wrapper:
-
 - `backup/`, `billing/`, `cdn/`, `containers/`, `database/`, `dns/`, `domains/`
 - `email/`, `firewall/`, `ftp/`, `hosting/`, `ipam/`, `load_balancer/`, `model/`
 - `monitoring/`, `network/`, `object_storage/`, `security/`, `server/`, `ssl/`, `storage/`
 
-Each folder contains its actual implementation files and its own `global_ecosystem/` substructure where present.
+## Supporting structure
+- `integrations/`: CORE and Global CORE integration entry points.
+- `structure.py`: canonical ownership and package path registry.
+- `manager.py` / `manager.php`: structural domain health checks.
+- Hostinger API and NSFWinfra provider adapters are owned by `backend/global_ecosystem/` in `global_hosting_ecosystem/` and `nsfwinfra_ecosystem/`; this infrastructure ecosystem references them through the provider module registry.
 
-## Supporting ecosystem structure
+## Cross-layer boundaries
+CORE stays in `backend/core/`; database persistence in `backend/database/`; storage runtime in `backend/storage/`; server ecosystem in `backend/server/`; provider execution in ENGINE; HTTP orchestration in API.
 
-- `modules/` exposes adapters for six infrastructure root modules: controller, Hostinger API, Hostinger catalog, NSFWinfra, repository and service.
-- `integrations/` contains explicit CORE and GLOBAL CORE integration entry points.
-- `structure.py` records canonical package paths and ownership.
-
-## Ownership and compatibility
-
-The 21 domain implementations are physically owned here. The parent `backend.infrastructure` package exposes this directory as a compatibility import path, so existing imports such as `backend.infrastructure.server` continue to resolve without retaining duplicate domain folders at the parent level.
-
-Root-level infrastructure modules remain under `backend/infrastructure/`. CORE remains canonical in `backend/core/`; database persistence remains in `backend/database/`; storage runtime remains in `backend/storage/`; server ecosystem remains in `backend/server/`; executable operations remain in ENGINE; HTTP orchestration remains in API.
-
-## Safety
-
-A registered adapter is not proof of a live provider connection. Provider actions require configured credentials, scoped authorization, audit logging, tests and verified connectivity. No credentials or destructive provider operations are enabled by this catalog.
-
-Status: 21 domain implementation packages consolidated under the ecosystem root. Runtime/provider connectivity is not asserted.
+A catalog or manager result is not evidence of live provider connectivity. Live provider operations require documented APIs, credentials managed outside source, scoped authorization, audit logging, tests and verified connectivity.
