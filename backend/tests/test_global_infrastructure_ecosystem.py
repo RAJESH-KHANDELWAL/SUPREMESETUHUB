@@ -39,7 +39,7 @@ def test_core_owns_resource_contract_validation():
     assert result["validated_by"] == "GLOBAL_INFRASTRUCTURE_CORE"
 
 def test_engine_delegates_validation_to_core_only_when_running():
-    engine = get_infrastructure_engine()
+    engine = get_infrastructure_engine(core=GlobalInfrastructureCoreService())
     engine.start()
     try:
         result = engine.validate_resource({"resource_id": "srv-002", "resource_type": "server", "category": "compute"})
