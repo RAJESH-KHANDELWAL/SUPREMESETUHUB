@@ -15,7 +15,7 @@ final class ResourceValidator
         }
 
         $categories = ResourceCategories::all();
-        $knownCategories = [];
+        $knownCategories = array_keys($categories);
         foreach ($categories as $items) {
             $knownCategories = array_merge($knownCategories, $items);
         }
