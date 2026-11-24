@@ -6,15 +6,15 @@
   "source_file": "backend/GLOBAL_SUPREME_ECOSYSTEM_MASTER_LIST.md",
   "expansion": {
     "target_unique_entries": 2468,
-    "current_unique_entries": 246,
-    "remaining_unique_entries": 2222,
+    "current_unique_entries": 266,
+    "remaining_unique_entries": 2202,
     "status": "FOUNDATION_CATALOG_WITH_IMPLEMENTATION_REGISTRY",
     "policy": "Expand only with meaningful, individually defined, non-duplicate entries. Do not manufacture entries merely to reach the target."
   },
   "counts": {
-    "section_count": 13,
-    "source_numbered_entries": 248,
-    "unique_catalogue_entries": 246,
+    "section_count": 14,
+    "source_numbered_entries": 268,
+    "unique_catalogue_entries": 266,
     "cross_reference_entries": 2,
     "capability_levels": 13
   },
@@ -1597,6 +1597,133 @@
           "name": "Supreme",
           "entry_id": "S13_supreme",
           "entry_kind": "capability_level"
+        }
+      ]
+    },
+    {
+      "section_number": 14,
+      "title": "Transport, Mobility & Logistics Ecosystem",
+      "section_id": "transport_mobility_logistics_ecosystem",
+      "entries": [
+        {
+          "position": 1,
+          "name": "Global Transport",
+          "entry_id": "S14_global_transport",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 2,
+          "name": "Road Transport",
+          "entry_id": "S14_road_transport",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 3,
+          "name": "Rail Transport",
+          "entry_id": "S14_rail_transport",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 4,
+          "name": "Air Transport",
+          "entry_id": "S14_air_transport",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 5,
+          "name": "Water & Maritime Transport",
+          "entry_id": "S14_water_maritime_transport",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 6,
+          "name": "Passenger Mobility",
+          "entry_id": "S14_passenger_mobility",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 7,
+          "name": "Public Transit",
+          "entry_id": "S14_public_transit",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 8,
+          "name": "Private Mobility",
+          "entry_id": "S14_private_mobility",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 9,
+          "name": "Urban Mobility",
+          "entry_id": "S14_urban_mobility",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 10,
+          "name": "Intercity Transport",
+          "entry_id": "S14_intercity_transport",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 11,
+          "name": "International Transport",
+          "entry_id": "S14_international_transport",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 12,
+          "name": "Transport Infrastructure",
+          "entry_id": "S14_transport_infrastructure",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 13,
+          "name": "Aviation & Airports",
+          "entry_id": "S14_aviation_airports",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 14,
+          "name": "Railway & Metro Infrastructure",
+          "entry_id": "S14_railway_metro_infrastructure",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 15,
+          "name": "Road Networks & Highways",
+          "entry_id": "S14_road_networks_highways",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 16,
+          "name": "Maritime Ports & Waterways",
+          "entry_id": "S14_maritime_ports_waterways",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 17,
+          "name": "Freight & Logistics",
+          "entry_id": "S14_freight_logistics",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 18,
+          "name": "Supply Chain Management",
+          "entry_id": "S14_supply_chain_management",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 19,
+          "name": "Courier & Last-Mile Delivery",
+          "entry_id": "S14_courier_last_mile_delivery",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 20,
+          "name": "Warehousing & Distribution",
+          "entry_id": "S14_warehousing_distribution",
+          "entry_kind": "ecosystem_topic"
         }
       ]
     }

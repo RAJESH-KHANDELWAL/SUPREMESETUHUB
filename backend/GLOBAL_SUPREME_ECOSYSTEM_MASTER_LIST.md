@@ -278,6 +278,28 @@
 12. Universal
 13. Supreme
 
+## 14. Transport, Mobility & Logistics Ecosystem
+1. Global Transport
+2. Road Transport
+3. Rail Transport
+4. Air Transport
+5. Water & Maritime Transport
+6. Passenger Mobility
+7. Public Transit
+8. Private Mobility
+9. Urban Mobility
+10. Intercity Transport
+11. International Transport
+12. Transport Infrastructure
+13. Aviation & Airports
+14. Railway & Metro Infrastructure
+15. Road Networks & Highways
+16. Maritime Ports & Waterways
+17. Freight & Logistics
+18. Supply Chain Management
+19. Courier & Last-Mile Delivery
+20. Warehousing & Distribution
+
 ## Master Direction
 
 **Geographic progression:**

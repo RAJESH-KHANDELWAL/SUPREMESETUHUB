@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL-TRANSPORT-ROAD-RAIL-AIR-MOBILITY-CORE-ECOSYSTEM",
+  "name": "Global Transport, Road, Rail, Air & Mobility Core Ecosystem",
+  "layer": "CORE",
+  "scope": "NORMAL_TRANSPORT_AND_MOBILITY_CLASSIFICATION",
+  "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+  "catalog_module": "catalog.py",
+  "manager_module": "manager.py",
+  "mode_count": 5,
+  "modes": [
+    "road_transport",
+    "rail_transport",
+    "air_transport",
+    "water_maritime_transport",
+    "passenger_mobility"
+  ],
+  "boundaries": {
+    "api_transport": false,
+    "live_operations": false,
+    "booking": false,
+    "dispatch": false,
+    "tracking": false,
+    "payments": false
+  },
+  "master_catalog_entry_ids": [
+    "S14_global_transport",
+    "S14_road_transport",
+    "S14_rail_transport",
+    "S14_air_transport",
+    "S14_water_maritime_transport",
+    "S14_passenger_mobility",
+    "S14_public_transit",
+    "S14_private_mobility",
+    "S14_urban_mobility",
+    "S14_intercity_transport",
+    "S14_international_transport",
+    "S14_transport_infrastructure",
+    "S14_aviation_airports",
+    "S14_railway_metro_infrastructure",
+    "S14_road_networks_highways",
+    "S14_maritime_ports_waterways"
+  ],
+  "status": "CORE_CATALOG_ONLY"
+}
