@@ -260,6 +260,30 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
             "live_connection_verified": False,
         },
     },
+    {
+        "ecosystem_id": "GLOBAL-VIDEO-CORE-ECOSYSTEM",
+        "name": "GLOBAL VIDEO CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["VIDEO_PROVIDER_CATALOG", "VIDEO_DOMAIN_TAXONOMY", "RIGHTS_AND_CONSENT_METADATA"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_catalog": "backend/core/global_ecosystem/global_core_ecosystem/global_video_core_ecosystem",
+            "status": "CORE_CATALOG_ONLY",
+            "live_connection_verified": False,
+        },
+    },
+    {
+        "ecosystem_id": "GLOBAL-PHOTO-CORE-ECOSYSTEM",
+        "name": "GLOBAL PHOTO CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["PHOTO_PROVIDER_CATALOG", "PHOTO_DOMAIN_TAXONOMY", "RIGHTS_AND_CONSENT_METADATA"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_catalog": "backend/core/global_ecosystem/global_core_ecosystem/global_photo_core_ecosystem",
+            "status": "CORE_CATALOG_ONLY",
+            "live_connection_verified": False,
+        },
+    },
 
     {
         "ecosystem_id": "STRIPE-CORE-ECOSYSTEM",
