@@ -1,0 +1,25 @@
+name: NSF Winfra Core Ecosystem Tests
+on:
+  push:
+    paths:
+      - 'backend/core/global_ecosystem/global_core_ecosystem/nsfwinfra_core_ecosystem/**'
+      - 'backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json'
+      - '.github/workflows/nsfwinfra-core-tests.yml'
+  pull_request:
+    paths:
+      - 'backend/core/global_ecosystem/global_core_ecosystem/nsfwinfra_core_ecosystem/**'
+      - 'backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json'
+      - '.github/workflows/nsfwinfra-core-tests.yml'
+  workflow_dispatch:
+jobs:
+  nsfwinfra-core-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install test runner
+        run: python -m pip install --upgrade pytest
+      - name: Run NSF Winfra Core tests
+        run: python -m pytest -q backend/test/test_nsfwinfra_core_ecosystem.py
