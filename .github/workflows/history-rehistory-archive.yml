@@ -1,0 +1,33 @@
+name: History and Rehistory Archive
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: history-rehistory-archive
+  cancel-in-progress: false
+
+jobs:
+  archive-integrated-main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main with full commit history
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Advance History archive without rewriting history
+        run: |
+          git fetch origin history/main:refs/remotes/origin/history/main || true
+          git push origin main:history/main
+
+      - name: Advance Rehistory mirror without rewriting history
+        run: |
+          git fetch origin rehistory/main:refs/remotes/origin/rehistory/main || true
+          git push origin history/main:rehistory/main
