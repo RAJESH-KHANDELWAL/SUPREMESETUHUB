@@ -24,7 +24,7 @@ class TestAtlassianCoreCatalog(unittest.TestCase):
 
     def test_domain_inventory(self):
         summary = atlassian_domain_summary()
-        self.assertEqual(summary["domain_count"], 6)
+        self.assertEqual(summary["domain_count"], 8)
         self.assertEqual(summary["offering_count"], 5)
         self.assertEqual(summary["live_connections_verified"], 0)
 
