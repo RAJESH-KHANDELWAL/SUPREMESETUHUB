@@ -82,8 +82,8 @@ PHP namespace separators must be single backslash characters. The inspected PHP 
 ### BE-004 — API/ENGINE hierarchy test has stale or unverified hard-coded counts
 
 **Severity:** High  
-**File:** `backend/tests/test_global_engine_provider_hierarchy.py`  
-**Source:** [Open hierarchy test](https://github.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/blob/main/backend/tests/test_global_engine_provider_hierarchy.py)  
+**File:** `backend/test/test_global_engine_provider_hierarchy.py`  
+**Source:** [Open hierarchy test](https://github.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/blob/main/backend/test/test_global_engine_provider_hierarchy.py)  
 **CI evidence:** [Python Core Database Tests run](https://github.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/actions/runs/44217506532)
 
 The test hard-codes:
@@ -118,7 +118,7 @@ The ENGINE manager continues to depend on the shared `CulturalKnowledgeSearch` c
 **Severity:** Medium  
 **File:** `backend/engine/global_ecosystem/global_engine_ecosystem/global_infrastructure_engine_ecosystem/engine.py`  
 **Source:** [Open infrastructure engine.py](https://github.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/blob/main/backend/engine/global_ecosystem/global_engine_ecosystem/global_infrastructure_engine_ecosystem/engine.py)  
-**Related tests:** [Open infrastructure tests](https://github.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/blob/main/backend/tests/test_global_infrastructure_ecosystem.py)
+**Related tests:** [Open infrastructure tests](https://github.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/blob/main/backend/test/test_global_infrastructure_ecosystem.py)
 
 The `status()` method reads `self.ecosystem.get_overview()["module_count"]`. The inspected CI output reported that the returned overview did not contain `module_count`.
 
