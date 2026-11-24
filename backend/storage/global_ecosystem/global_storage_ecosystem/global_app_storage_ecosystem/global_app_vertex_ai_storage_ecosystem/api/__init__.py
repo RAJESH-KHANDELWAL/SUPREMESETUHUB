@@ -1,0 +1,1 @@
+"""API namespace for GLOBAL_APP_VERTEX_AI_STORAGE_ECOSYSTEM."""

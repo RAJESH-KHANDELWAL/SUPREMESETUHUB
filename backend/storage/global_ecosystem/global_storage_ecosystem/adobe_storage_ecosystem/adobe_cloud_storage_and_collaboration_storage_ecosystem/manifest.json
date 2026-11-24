@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "provider_id": "adobe",
+  "ecosystem_id": "cloud_storage_and_collaboration",
+  "name": "Adobe Cloud Storage and Collaboration",
+  "related_api_family": "Creative Cloud and Assets APIs",
+  "storage_scope": "Shared cloud-storage and collaboration metadata, projects, folders, supported cloud documents, ownership and permissions.",
+  "api_boundary": "No universal Adobe Drive or generic file CRUD API is implied.",
+  "implementation_state": "FOUNDATION_INITIALIZED",
+  "external_connection_state": "NOT_CONFIGURED",
+  "live_connection_verified": false,
+  "production_persistence": "CENTRAL_DATABASE",
+  "capabilities": [
+    "IDENTITY",
+    "METADATA_MODEL",
+    "IN_MEMORY_METADATA_REGISTRY"
+  ]
+}

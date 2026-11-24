@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_INDIVIDUAL_STORAGE_OWNERSHIP_REFERENCES_STORAGE_ECOSYSTEM",
+  "package_name": "global_individual_storage_ownership_references_storage_ecosystem",
+  "provider": "GLOBAL_INDIVIDUAL",
+  "category": "STORAGE_OWNERSHIP_REFERENCES",
+  "category_group": "IDENTITY_AND_OWNERSHIP",
+  "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+  "connection_state": "NOT_CONFIGURED",
+  "provider_product_verified": false,
+  "storage_operations_enabled": false,
+  "requires_authorized_integration": true,
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true,
+  "geographic_scope": [
+    "BHARAT",
+    "GLOBAL"
+  ],
+  "security_baseline": [
+    "DATA_MINIMIZATION",
+    "OPAQUE_IDENTIFIERS",
+    "LEAST_PRIVILEGE",
+    "ENCRYPTION",
+    "AUDIT_LOGGING",
+    "RETENTION_CONTROLS",
+    "CONSENT_REFERENCE_VALIDATION",
+    "JURISDICTIONAL_COMPLIANCE"
+  ],
+  "notes": "Category-specific individual storage metadata foundation. No live provider integration or personal content operations are enabled."
+}

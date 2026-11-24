@@ -1,0 +1,9 @@
+PRODUCT_ID="calendar"
+PRODUCT_NAME="Google Calendar"
+CATEGORY="SCHEDULING"
+API_NAME="Google Calendar API"
+INTEGRATION_MODE="USER_OAUTH"
+AVAILABILITY="API_AVAILABLE"
+AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
+REQUIRED_SCOPES=["https://www.googleapis.com/auth/calendar.events"]
+LIVE_CONNECTION_ENABLED=False

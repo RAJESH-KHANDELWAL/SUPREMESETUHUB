@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GLOBAL_CLOUD_VOLUME_SNAPSHOT_STORAGE_ECOSYSTEM manifest",
+  "type": "object",
+  "required": [
+    "ecosystem_id",
+    "connection_state",
+    "storage_operations_enabled"
+  ],
+  "properties": {
+    "ecosystem_id": {
+      "const": "GLOBAL_CLOUD_VOLUME_SNAPSHOT_STORAGE_ECOSYSTEM"
+    },
+    "category": {
+      "const": "VOLUME_SNAPSHOT_STORAGE"
+    },
+    "connection_state": {
+      "enum": [
+        "NOT_CONFIGURED",
+        "CONNECTED",
+        "DEGRADED",
+        "DISCONNECTED"
+      ]
+    },
+    "provider_product_verified": {
+      "type": "boolean"
+    },
+    "storage_operations_enabled": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "provider": "apple",
+  "product_id": "icloud_cloudkit",
+  "product_name": "iCloud CloudKit",
+  "category": "CLOUD_DATA",
+  "api": "iCloud CloudKit",
+  "integration_mode": "ICLOUD_CONTAINER_AND_APP_ENTITLEMENTS",
+  "availability": "VERIFY_APPLE_ACCOUNT_ENTITLEMENT_AND_API_ACCESS",
+  "authentication": {
+    "method": "ICLOUD_CONTAINER_AND_APP_ENTITLEMENTS",
+    "secret_storage": "EXTERNAL_SECRET_MANAGER_ONLY"
+  },
+  "capabilities": [
+    "CLOUDKIT_CONTAINER_METADATA",
+    "RECORD_SCHEMA_METADATA",
+    "CLOUDKIT_SUBSCRIPTION_BOUNDARY"
+  ],
+  "live_connection": false,
+  "layer_boundaries": {
+    "core": "identity, capability metadata, lifecycle, policy and readiness",
+    "api": "Apple authentication/signing, SDK and HTTP transport",
+    "storage": "durable files and records",
+    "database": "persistence and migrations",
+    "runtime": "jobs and queues",
+    "application": "sessions, consent and product UI"
+  }
+}

@@ -1,0 +1,301 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GOOGLE_STORAGE_ECOSYSTEM",
+  "provider": "GOOGLE",
+  "naming_rule": "GOOGLE_<CATEGORY>_STORAGE_ECOSYSTEM",
+  "classification_note": "Storage taxonomy only; entries do not imply Google provides each category.",
+  "groups": [
+    {
+      "group": "GENERAL_AND_SEARCH",
+      "categories": [
+        "GENERAL",
+        "SEARCH",
+        "WEB_SEARCH",
+        "IMAGE_SEARCH",
+        "VIDEO_SEARCH",
+        "NEWS",
+        "BOOKS",
+        "SCHOLAR",
+        "TRENDS",
+        "DISCOVERY",
+        "KNOWLEDGE_GRAPH",
+        "PUBLIC_INFORMATION"
+      ]
+    },
+    {
+      "group": "COMMUNICATION",
+      "categories": [
+        "GMAIL",
+        "EMAIL",
+        "CONTACTS",
+        "CHAT",
+        "MEET",
+        "MESSAGING",
+        "VIDEO_CONFERENCING",
+        "CALENDAR"
+      ]
+    },
+    {
+      "group": "DOCUMENTS_AND_PRODUCTIVITY",
+      "categories": [
+        "DOCS",
+        "SHEETS",
+        "SLIDES",
+        "FORMS",
+        "SITES",
+        "KEEP",
+        "TASKS",
+        "WORKSPACE",
+        "OFFICE_FILES",
+        "PDF"
+      ]
+    },
+    {
+      "group": "PERSONAL_AND_CLOUD_STORAGE",
+      "categories": [
+        "PERSONAL",
+        "DRIVE",
+        "ONE",
+        "PERSONAL_CLOUD",
+        "FILES",
+        "FOLDERS",
+        "BACKUP",
+        "SYNC",
+        "ARCHIVE",
+        "DATA"
+      ]
+    },
+    {
+      "group": "PHOTO_VIDEO_AND_MEDIA",
+      "categories": [
+        "PHOTOS",
+        "PHOTO",
+        "VIDEO",
+        "AUDIO",
+        "MUSIC",
+        "YOUTUBE",
+        "YOUTUBE_MUSIC",
+        "MEDIA",
+        "DIGITAL_ASSETS",
+        "MULTIMEDIA"
+      ]
+    },
+    {
+      "group": "AI_AND_INTELLIGENCE",
+      "categories": [
+        "GEMINI",
+        "AI",
+        "NOTEBOOKLM",
+        "AI_STUDIO",
+        "VERTEX_AI",
+        "DEEPMIND",
+        "MACHINE_LEARNING",
+        "DEEP_LEARNING",
+        "GENERATIVE_AI",
+        "AI_AGENTS",
+        "MULTIMODAL_AI",
+        "INTELLIGENCE"
+      ]
+    },
+    {
+      "group": "BUSINESS_AND_ENTERPRISE",
+      "categories": [
+        "BUSINESS",
+        "BUSINESS_PROFILE",
+        "WORKSPACE_BUSINESS",
+        "ENTERPRISE",
+        "ADS",
+        "ADSENSE",
+        "ADMOB",
+        "ANALYTICS",
+        "SEARCH_CONSOLE",
+        "TAG_MANAGER",
+        "MERCHANT_CENTER",
+        "MARKETING"
+      ]
+    },
+    {
+      "group": "DEVELOPER_AND_INFRASTRUCTURE",
+      "categories": [
+        "DEVELOPER",
+        "CLOUD",
+        "FIREBASE",
+        "DATABASE",
+        "CLOUD_SQL",
+        "FIRESTORE",
+        "BIGTABLE",
+        "SERVER",
+        "COMPUTE",
+        "NETWORK",
+        "API",
+        "DEVOPS",
+        "CONTAINER",
+        "KUBERNETES"
+      ]
+    },
+    {
+      "group": "EDUCATION_AND_KNOWLEDGE",
+      "categories": [
+        "EDUCATION",
+        "CLASSROOM",
+        "LEARNING",
+        "RESEARCH",
+        "LIBRARY",
+        "DIGITAL_BOOKS",
+        "ACADEMIC",
+        "KNOWLEDGE"
+      ]
+    },
+    {
+      "group": "HEALTH_AND_WELLNESS",
+      "categories": [
+        "HEALTH",
+        "HEALTHCARE",
+        "MEDICAL",
+        "FITNESS",
+        "WELLNESS",
+        "MENTAL_WELLNESS",
+        "REPRODUCTIVE_HEALTH",
+        "SEXUAL_HEALTH",
+        "SEXUAL_EDUCATION",
+        "HUMAN_ANATOMY",
+        "FAMILY_PLANNING"
+      ]
+    },
+    {
+      "group": "RELATIONSHIP_AND_ADULT_CLASSIFICATION",
+      "categories": [
+        "RELATIONSHIP",
+        "DATING",
+        "MATCHMAKING",
+        "MARRIAGE",
+        "COUPLE",
+        "ROMANCE",
+        "INTIMACY",
+        "ADULT_LIFESTYLE",
+        "ADULT_EDUCATION",
+        "SEXUAL_WELLNESS",
+        "SEXUAL_HYGIENE",
+        "CONSENSUAL_ADULT_ENTERTAINMENT",
+        "ADULT_PHOTOGRAPHY",
+        "EROTIC_LITERATURE",
+        "ADULT_ANIMATION",
+        "PORNOGRAPHIC_CONTENT"
+      ]
+    },
+    {
+      "group": "ENTERTAINMENT_AND_GAMING",
+      "categories": [
+        "ENTERTAINMENT",
+        "GAMING",
+        "PLAY_STORE",
+        "PLAY_GAMES",
+        "PLAY_BOOKS",
+        "PLAY_MOVIES",
+        "DIGITAL_MEDIA",
+        "STREAMING",
+        "CREATOR_CONTENT"
+      ]
+    },
+    {
+      "group": "SECURITY_AND_PRIVACY",
+      "categories": [
+        "SECURITY",
+        "PRIVACY",
+        "IDENTITY",
+        "AUTHENTICATION",
+        "ENCRYPTION",
+        "PASSWORD",
+        "ACCOUNT",
+        "DEVICE_SECURITY",
+        "CYBERSECURITY",
+        "DATA_PROTECTION"
+      ]
+    },
+    {
+      "group": "DEVICES_AND_OPERATING_SYSTEM",
+      "categories": [
+        "ANDROID",
+        "CHROMEOS",
+        "CHROME",
+        "PIXEL",
+        "WEAR_OS",
+        "SMART_HOME",
+        "IOT",
+        "DEVICE_BACKUP"
+      ]
+    },
+    {
+      "group": "MAPS_LOCATION_AND_TRAVEL",
+      "categories": [
+        "MAPS",
+        "EARTH",
+        "STREET_VIEW",
+        "LOCATION",
+        "GEOSPATIAL",
+        "TRAVEL",
+        "FLIGHTS",
+        "NAVIGATION",
+        "LOCAL_BUSINESS"
+      ]
+    },
+    {
+      "group": "FINANCE_AND_PAYMENTS",
+      "categories": [
+        "PAYMENTS",
+        "PAY",
+        "WALLET",
+        "TRANSACTION",
+        "DIGITAL_PAYMENT",
+        "FINANCIAL_INFORMATION"
+      ]
+    },
+    {
+      "group": "ADVANCED_AND_SUPREME_TECHNOLOGY",
+      "categories": [
+        "QUANTUM_COMPUTING",
+        "ROBOTICS",
+        "AUTOMATION",
+        "BIG_DATA",
+        "DISTRIBUTED_COMPUTING",
+        "DATA_ANALYTICS",
+        "NEURAL_NETWORK",
+        "RESEARCH_DEVELOPMENT",
+        "ADVANCED_TECHNOLOGY",
+        "SUPREME_TECHNOLOGY"
+      ]
+    },
+    {
+      "group": "BHARAT_AND_GLOBAL",
+      "categories": [
+        "BHARAT",
+        "INDIA",
+        "REGIONAL",
+        "INTERNATIONAL",
+        "GLOBAL",
+        "WORLDWIDE",
+        "MULTILINGUAL",
+        "MULTICULTURAL",
+        "GLOBAL_DIGITAL_KNOWLEDGE"
+      ]
+    }
+  ],
+  "entry_status": "CATALOG_ONLY",
+  "provider_product_verified": false,
+  "governance": {
+    "adult_content": "Lawful classification only; apply age/access controls, consent, privacy, retention and applicable jurisdictional rules.",
+    "prohibited_content": [
+      "child sexual abuse material",
+      "non-consensual intimate imagery",
+      "sexual exploitation",
+      "trafficking-related content",
+      "other unlawful content"
+    ],
+    "security": [
+      "least_privilege",
+      "encryption_in_transit_and_at_rest",
+      "audit_logging",
+      "secret_manager_only"
+    ]
+  }
+}

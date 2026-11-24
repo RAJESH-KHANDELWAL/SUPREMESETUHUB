@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.1.0",
+  "ecosystem_id": "ADOBE_STORAGE_ECOSYSTEM",
+  "provider": "ADOBE",
+  "package_type": "STORAGE_TAXONOMY_AND_METADATA_FOUNDATION",
+  "taxonomy_file": "taxonomy/adobe_storage_taxonomy.json",
+  "category_index_file": "category_index.json",
+  "capability_matrix_file": "adobe_storage_capability_matrix.json",
+  "child_ecosystems": [
+    "adobe_cloud_storage_and_collaboration_storage_ecosystem",
+    "adobe_creative_cloud_storage_ecosystem",
+    "adobe_creative_cloud_assets_storage_ecosystem",
+    "adobe_lightroom_storage_ecosystem",
+    "adobe_express_storage_ecosystem",
+    "adobe_frameio_storage_ecosystem",
+    "adobe_experience_manager_assets_storage_ecosystem",
+    "adobe_workfront_storage_ecosystem",
+    "adobe_document_cloud_storage_ecosystem"
+  ],
+  "child_ecosystem_count": 9,
+  "interfaces": [
+    "PYTHON",
+    "PHP_JSON_INTEROPERABILITY"
+  ],
+  "geographic_scope": [
+    "BHARAT",
+    "SOUTH_ASIA",
+    "ASIA_PACIFIC",
+    "MIDDLE_EAST",
+    "EUROPE",
+    "AFRICA",
+    "NORTH_AMERICA",
+    "SOUTH_AMERICA",
+    "OCEANIA",
+    "GLOBAL"
+  ],
+  "coverage_levels": [
+    "LOCAL",
+    "DISTRICT",
+    "STATE",
+    "NATIONAL",
+    "REGIONAL",
+    "INTERNATIONAL",
+    "GLOBAL",
+    "SUPREME"
+  ],
+  "implementation_state": "TAXONOMY_AND_CATALOG_FOUNDATION",
+  "external_connection_state": "NOT_CONFIGURED",
+  "taxonomy_only": true,
+  "provider_product_verification_required": true,
+  "requires_authorized_credentials": true,
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true,
+  "storage_operations_enabled": false,
+  "governance": [
+    "PRIVACY",
+    "SECURITY",
+    "AUDIT",
+    "RETENTION",
+    "CONSENT_WHERE_REQUIRED",
+    "JURISDICTIONAL_COMPLIANCE"
+  ]
+}

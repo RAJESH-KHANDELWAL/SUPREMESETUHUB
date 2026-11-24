@@ -1,0 +1,145 @@
+# GOOGLE ECOSYSTEM
+
+Canonical global hierarchy: `backend/global_ecosystem/google_ecosystem/`
+
+Each Google product is represented by an independent `google_*_ecosystem/` namespace. The directory names are derived from the existing 129-entry Google product catalog in `backend/global_ecosystem/google_ecosystem/runtime/service.py`.
+
+## Architecture boundaries
+
+- This directory owns global product ecosystem namespaces and the product index.
+- Google CORE remains under `backend/core/global_ecosystem/global_core_ecosystem/google_core_ecosystem/`.
+- Google API remains under `backend/api/global_ecosystem/global_api_ecosystem/google_api_ecosystem/`.
+- Google provider catalog and runtime metadata now live under `runtime/` in this canonical global ecosystem namespace.
+- Namespace creation does not mean a product has a working API integration or live credentials.
+
+## Product namespaces
+
+- `google_gmail_ecosystem/`
+- `google_chat_ecosystem/`
+- `meet_ecosystem/`
+- `google_calendar_ecosystem/`
+- `google_contacts_ecosystem/`
+- `google_voice_ecosystem/`
+- `google_groups_ecosystem/`
+- `google_drive_ecosystem/`
+- `docs_ecosystem/`
+- `sheets_ecosystem/`
+- `google_slides_ecosystem/`
+- `google_forms_ecosystem/`
+- `google_sites_ecosystem/`
+- `google_keep_ecosystem/`
+- `tasks_ecosystem/`
+- `google_jamboard_ecosystem/`
+- `google_workspace_admin_ecosystem/`
+- `google_one_ecosystem/`
+- `cloud_ecosystem/`
+- `firebase_ecosystem/`
+- `maps_ecosystem/`
+- `google_places_ecosystem/`
+- `google_routes_ecosystem/`
+- `google_geocoding_ecosystem/`
+- `google_earth_ecosystem/`
+- `google_search_ecosystem/`
+- `google_search_console_ecosystem/`
+- `analytics_ecosystem/`
+- `google_tag_manager_ecosystem/`
+- `google_ads_ecosystem/`
+- `google_ad_manager_ecosystem/`
+- `google_play_console_ecosystem/`
+- `google_play_services_ecosystem/`
+- `google_gemini_ecosystem/`
+- `vertex_ai_ecosystem/`
+- `google_ai_studio_ecosystem/`
+- `google_colab_ecosystem/`
+- `bigquery_ecosystem/`
+- `look_studio_ecosystem/`
+- `looker_ecosystem/`
+- `google_cloud_storage_ecosystem/`
+- `google_cloud_dns_ecosystem/`
+- `google_compute_engine_ecosystem/`
+- `google_kubernetes_engine_ecosystem/`
+- `cloud_run_ecosystem/`
+- `cloud_functions_ecosystem/`
+- `cloud_sql_ecosystem/`
+- `pub_sub_ecosystem/`
+- `google_workspace_marketplace_ecosystem/`
+- `youtube_ecosystem/`
+- `youtube_analytics_ecosystem/`
+- `photos_ecosystem/`
+- `google_play_books_ecosystem/`
+- `google_news_ecosystem/`
+- `google_shopping_ecosystem/`
+- `google_business_profile_ecosystem/`
+- `google_translate_ecosystem/`
+- `google_speech_ecosystem/`
+- `google_text_to_speech_ecosystem/`
+- `google_vision_ecosystem/`
+- `google_document_ai_ecosystem/`
+- `google_recaptcha_ecosystem/`
+- `google_safe_browsing_ecosystem/`
+- `google_identity_ecosystem/`
+- `google_authenticator_ecosystem/`
+- `google_wallet_ecosystem/`
+- `google_pay_ecosystem/`
+- `google_flights_ecosystem/`
+- `google_travel_ecosystem/`
+- `google_classroom_ecosystem/`
+- `google_assignments_ecosystem/`
+- `google_appsheet_ecosystem/`
+- `google_apps_script_ecosystem/`
+- `google_blogger_ecosystem/`
+- `google_books_ecosystem/`
+- `google_fonts_ecosystem/`
+- `google_developers_ecosystem/`
+- `google_play_console_reporting_ecosystem/`
+- `google_android_management_ecosystem/`
+- `google_play_integrity_ecosystem/`
+- `google_cloud_identity_ecosystem/`
+- `google_vault_ecosystem/`
+- `google_endpoint_management_ecosystem/`
+- `google_workspace_migrate_ecosystem/`
+- `firebase_authentication_ecosystem/`
+- `cloud_firestore_ecosystem/`
+- `firebase_realtime_database_ecosystem/`
+- `firebase_hosting_ecosystem/`
+- `firebase_app_distribution_ecosystem/`
+- `firebase_crashlytics_ecosystem/`
+- `firebase_remote_config_ecosystem/`
+- `firebase_performance_ecosystem/`
+- `firebase_cloud_messaging_ecosystem/`
+- `firebase_app_check_ecosystem/`
+- `google_cloud_iam_ecosystem/`
+- `google_secret_manager_ecosystem/`
+- `google_cloud_kms_ecosystem/`
+- `google_cloud_logging_ecosystem/`
+- `google_cloud_monitoring_ecosystem/`
+- `google_cloud_build_ecosystem/`
+- `google_artifact_registry_ecosystem/`
+- `google_cloud_armor_ecosystem/`
+- `google_cloud_cdn_ecosystem/`
+- `google_cloud_load_balancing_ecosystem/`
+- `google_cloud_vpc_ecosystem/`
+- `google_dataflow_ecosystem/`
+- `google_dataproc_ecosystem/`
+- `google_cloud_composer_ecosystem/`
+- `google_app_engine_ecosystem/`
+- `google_vertex_ai_search_ecosystem/`
+- `google_dialogflow_ecosystem/`
+- `google_natural_language_ecosystem/`
+- `google_video_intelligence_ecosystem/`
+- `google_recommendations_ai_ecosystem/`
+- `google_adsense_ecosystem/`
+- `google_admob_ecosystem/`
+- `google_merchant_center_ecosystem/`
+- `google_street_view_ecosystem/`
+- `google_maps_elevation_ecosystem/`
+- `google_maps_time_zone_ecosystem/`
+- `google_maps_directions_legacy_ecosystem/`
+- `google_art_and_culture_ecosystem/`
+- `google_podcasts_ecosystem/`
+- `google_duo_ecosystem/`
+- `google_play_games_ecosystem/`
+- `google_family_link_ecosystem/`
+- `google_store_ecosystem/`
+- `google_pixel_ecosystem/`
+- `google_nest_ecosystem/`

@@ -1,0 +1,21 @@
+{
+  "provider": "atlassian",
+  "core_layer": "ATLASSIAN_CORE",
+  "ecosystem_id": "ATLASSIAN-JIRA-CORE-ECOSYSTEM",
+  "display_name": "Jira",
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/atlassian_api_ecosystem/atlassian_jira_api_ecosystem",
+  "capabilities": [
+    "PROJECT_METADATA",
+    "ISSUE_LIFECYCLE_BOUNDARY",
+    "WORKFLOW_CONFIGURATION_METADATA",
+    "BOARD_AND_SPRINT_METADATA"
+  ],
+  "domains": [
+    "WORK_MANAGEMENT_AND_PLANNING",
+    "DEVELOPER_AND_SOURCE_CONTROL"
+  ],
+  "readiness": "CORE_CATALOG_ONLY",
+  "api_available": null,
+  "live_connection_verified": false,
+  "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
+}

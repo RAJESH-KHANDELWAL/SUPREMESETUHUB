@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_DEVELOPER_STORAGE_CATEGORY",
+  "implementation_state": "FOUNDATION_SCAFFOLD",
+  "provider_product_verified": false,
+  "external_connection_state": "NOT_CONFIGURED",
+  "external_connections_verified": false,
+  "storage_operations_enabled": false,
+  "requires_authorized_credentials": true,
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true
+}

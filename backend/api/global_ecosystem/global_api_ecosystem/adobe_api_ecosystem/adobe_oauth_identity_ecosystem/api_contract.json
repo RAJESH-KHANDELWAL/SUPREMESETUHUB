@@ -1,0 +1,18 @@
+{
+  "provider": "adobe",
+  "family_id": "oauth_identity",
+  "display_name": "Adobe OAuth and Developer Console",
+  "status": "ADAPTER_SCAFFOLD",
+  "base_url_environment_variable": null,
+  "base_url_status": "MUST_BE_SET_FROM_CURRENT_OFFICIAL_PRODUCT_DOCUMENTATION",
+  "authentication": "Adobe OAuth; grant and scopes are product/account dependent",
+  "endpoint_catalog": [],
+  "endpoint_catalog_status": "NOT_POPULATED",
+  "live_connection_verified": false,
+  "entitlement_verified": false,
+  "notes": [
+    "Do not infer endpoint availability from the product name.",
+    "Use only documented endpoints enabled for the Adobe organization.",
+    "No credentials, tokens, or customer data belong in this file."
+  ]
+}

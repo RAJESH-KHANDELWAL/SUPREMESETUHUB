@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_NETWORK_MARKETING_DIRECT_SELLING_BUSINESS_STORAGE_ECOSYSTEM",
+  "provider": "GLOBAL_BADA_BUSINESS",
+  "category": "NETWORK_MARKETING_AND_DIRECT_SELLING",
+  "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+  "connection_state": "NOT_CONFIGURED",
+  "external_connections_verified": false,
+  "storage_operations_enabled": false,
+  "children": [
+    "GLOBAL_YOUTAG_BUSINESS_STORAGE_ECOSYSTEM",
+    "GLOBAL_AFFILIATE_MARKETING_BUSINESS_STORAGE_ECOSYSTEM"
+  ],
+  "platform_data_partitioning": "REQUIRED",
+  "requires_authorized_integrations": true,
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true
+}

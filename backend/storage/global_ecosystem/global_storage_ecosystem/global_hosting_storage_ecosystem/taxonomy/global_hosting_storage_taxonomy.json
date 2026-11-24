@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_HOSTING_STORAGE_ECOSYSTEM",
+  "provider": "GLOBAL_HOSTING",
+  "naming_rule": "GLOBAL_<CATEGORY>_HOSTING_STORAGE_ECOSYSTEM",
+  "classification_note": "Provider-neutral hosting storage taxonomy only. Entries do not imply provider products, service availability, account entitlement, authorized connectivity or operational integrations.",
+  "groups": [
+    {
+      "group": "HOSTING_PLATFORMS",
+      "categories": [
+        "SHARED_HOSTING",
+        "WORDPRESS_HOSTING",
+        "RESELLER_HOSTING"
+      ]
+    },
+    {
+      "group": "COMPUTE_AND_SERVER_HOSTING",
+      "categories": [
+        "VPS_HOSTING",
+        "DEDICATED_SERVER_HOSTING",
+        "CLOUD_HOSTING",
+        "SERVERLESS_HOSTING",
+        "CONTAINER_HOSTING"
+      ]
+    },
+    {
+      "group": "APPLICATION_AND_DEPLOYMENT",
+      "categories": [
+        "APPLICATION_HOSTING",
+        "WEBSITE_HOSTING",
+        "DEPLOYMENT_AND_RELEASE"
+      ]
+    },
+    {
+      "group": "DOMAIN_AND_NETWORK_ASSOCIATIONS",
+      "categories": [
+        "DOMAIN_AND_DNS_ASSOCIATIONS",
+        "SSL_AND_CERTIFICATE_ASSOCIATIONS",
+        "CDN_AND_EDGE_HOSTING",
+        "NETWORK_AND_LOAD_BALANCING"
+      ]
+    },
+    {
+      "group": "DATA_AND_STORAGE_SERVICES",
+      "categories": [
+        "DATABASE_HOSTING",
+        "OBJECT_AND_FILE_STORAGE_HOSTING"
+      ]
+    },
+    {
+      "group": "RESILIENCE_AND_OPERATIONS",
+      "categories": [
+        "BACKUP_AND_DISASTER_RECOVERY",
+        "MONITORING_AND_OBSERVABILITY",
+        "SECURITY_AND_ACCESS"
+      ]
+    },
+    {
+      "group": "GOVERNANCE_AND_MANAGEMENT",
+      "categories": [
+        "BILLING_AND_RESOURCE_USAGE",
+        "CONTROL_PANELS_AND_MANAGEMENT",
+        "GEOGRAPHICAL_AND_REGIONAL_HOSTING"
+      ]
+    }
+  ],
+  "entry_status": "CATALOG_ONLY",
+  "provider_product_verified": false,
+  "governance": {
+    "security": [
+      "least_privilege",
+      "encryption_in_transit_and_at_rest",
+      "secret_manager_only",
+      "audit_logging",
+      "network_segmentation"
+    ],
+    "privacy": [
+      "consent_where_required",
+      "data_minimization",
+      "retention_and_deletion",
+      "data_residency_and_jurisdictional_controls"
+    ],
+    "operations": [
+      "authorized_health_checks",
+      "end_to_end_tests_before_enablement",
+      "disaster_recovery_validation"
+    ]
+  }
+}

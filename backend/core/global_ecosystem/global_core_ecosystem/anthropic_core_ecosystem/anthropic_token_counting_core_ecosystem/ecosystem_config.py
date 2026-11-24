@@ -1,0 +1,9 @@
+PRODUCT_ID="anthropic_token_counting"
+PRODUCT_NAME="Anthropic Token Counting"
+CATEGORY="AI_PLATFORM"
+API_NAME="POST /v1/messages/count_tokens"
+INTEGRATION_MODE="SERVER_SIDE_ANTHROPIC_API"
+AVAILABILITY="ACCOUNT_AND_MODEL_ELIGIBILITY_REQUIRED"
+AUTHENTICATION_METHOD="Anthropic API authentication is owned by the API layer; verify current supported method before enabling"
+REQUIRED_SCOPES=[]
+LIVE_CONNECTION_ENABLED=False

@@ -1,0 +1,4 @@
+STATES=("DISCOVERED","CATALOGED","ELIGIBILITY_REVIEW","ADAPTER_PENDING","CONNECTED","SUSPENDED","DEPRECATED","DISCONTINUED")
+def transition(current,target):
+ if current not in STATES or target not in STATES:raise ValueError("unknown lifecycle state")
+ return {"from":current,"to":target,"requires_external_verification":target=="CONNECTED"}

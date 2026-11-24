@@ -1,0 +1,33 @@
+"""DNS SERVICES DOMAIN ECOSYSTEM reference catalog."""
+
+DNS_SERVICES_DOMAIN_ECOSYSTEM = {
+    "category": "dns_and_authoritative_services",
+    "status": "CATALOG_ONLY",
+    "live_connection_verified": False,
+    "providers": [
+        {"id": "aws", "name": "Amazon Route 53", "scope": "DNS hosting and domain registration transfer support", "official_docs_url": "https://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.html", "status": "REFERENCE_ONLY"},
+        {"id": "cloudflare", "name": "Cloudflare", "scope": "DNS zones, registrar domains, DNS records", "official_docs_url": "https://developers.cloudflare.com/api/", "status": "REFERENCE_ONLY"},
+        {"id": "hetzner", "name": "Hetzner", "scope": "DNS and infrastructure services", "official_docs_url": "https://dns.hetzner.com/", "status": "REFERENCE_ONLY"},
+        {"id": "digitalocean", "name": "DigitalOcean", "scope": "DNS records and domain zones", "official_docs_url": "https://docs.digitalocean.com/reference/api/", "status": "REFERENCE_ONLY"},
+        {"id": "google_cloud", "name": "Google Cloud DNS", "scope": "Managed DNS zones and records", "official_docs_url": "https://cloud.google.com/dns/docs/reference/v1", "status": "REFERENCE_ONLY"},
+        {"id": "azure", "name": "Microsoft Azure DNS", "scope": "DNS zones and records", "official_docs_url": "https://learn.microsoft.com/en-us/rest/api/dns/", "status": "REFERENCE_ONLY"},
+        {"id": "akamai", "name": "Akamai", "scope": "Edge DNS and domain services", "official_docs_url": "https://techdocs.akamai.com/", "status": "REFERENCE_ONLY"},
+        {"id": "gcore", "name": "Gcore", "scope": "DNS and edge network services", "official_docs_url": "https://api.gcore.com/docs/", "status": "REFERENCE_ONLY"},
+        {"id": "dnsmadeeasy", "name": "DNS Made Easy", "scope": "Managed DNS API", "official_docs_url": "https://docs.dnsmadeeasy.com/", "status": "REFERENCE_ONLY"},
+        {"id": "constellix", "name": "Constellix", "scope": "Managed DNS API", "official_docs_url": "https://constellix.com/api-documentation", "status": "REFERENCE_ONLY"},
+        {"id": "ns1", "name": "IBM NS1 Connect", "scope": "DNS traffic steering API", "official_docs_url": "https://ns1.com/api", "status": "REFERENCE_ONLY"},
+        {"id": "he", "name": "Hurricane Electric DNS", "scope": "Authoritative DNS service", "official_docs_url": "https://dns.he.net/", "status": "REFERENCE_ONLY"},
+        {"id": "desec", "name": "deSEC", "scope": "DNS hosting API", "official_docs_url": "https://desec.readthedocs.io/", "status": "REFERENCE_ONLY"},
+        {"id": "octodns", "name": "octoDNS", "scope": "DNS management automation tool", "official_docs_url": "https://github.com/octodns/octodns", "status": "REFERENCE_ONLY"},
+        {"id": "powerdns", "name": "PowerDNS", "scope": "Authoritative DNS API/software", "official_docs_url": "https://doc.powerdns.com/authoritative/http-api/", "status": "REFERENCE_ONLY"},
+        {"id": "bind", "name": "ISC BIND", "scope": "DNS server software and management", "official_docs_url": "https://bind9.readthedocs.io/", "status": "REFERENCE_ONLY"},
+        {"id": "technitium", "name": "Technitium DNS Server", "scope": "DNS server API", "official_docs_url": "https://technitium.com/dns/", "status": "REFERENCE_ONLY"},
+        {"id": "afraid", "name": "FreeDNS afraid.org", "scope": "Dynamic DNS and DNS hosting", "official_docs_url": "https://freedns.afraid.org/", "status": "REFERENCE_ONLY"},
+        {"id": "duckdns", "name": "DuckDNS", "scope": "Dynamic DNS service", "official_docs_url": "https://www.duckdns.org/", "status": "REFERENCE_ONLY"},
+        {"id": "noip", "name": "No-IP", "scope": "Dynamic DNS and hostname management", "official_docs_url": "https://www.noip.com/", "status": "REFERENCE_ONLY"},
+        {"id": "dynu", "name": "Dynu", "scope": "Dynamic DNS and domain services", "official_docs_url": "https://www.dynu.com/", "status": "REFERENCE_ONLY"},
+        {"id": "easydns", "name": "easyDNS", "scope": "Domain and DNS API", "official_docs_url": "https://www.easydns.com/", "status": "REFERENCE_ONLY"},
+        {"id": "dnsexit", "name": "DNSExit", "scope": "DNS and dynamic DNS", "official_docs_url": "https://dnsexit.com/", "status": "REFERENCE_ONLY"},
+        {"id": "desec", "name": "deSEC DNS", "scope": "DNS hosting service", "official_docs_url": "https://desec.readthedocs.io/", "status": "REFERENCE_ONLY"},
+    ],
+}

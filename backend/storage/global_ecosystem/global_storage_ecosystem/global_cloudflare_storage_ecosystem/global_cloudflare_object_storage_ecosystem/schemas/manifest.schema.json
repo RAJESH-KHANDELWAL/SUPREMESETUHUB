@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OBJECT manifest",
+  "type": "object",
+  "required": [
+    "ecosystem_id",
+    "provider_id",
+    "connection_state",
+    "storage_operations_enabled"
+  ],
+  "properties": {
+    "ecosystem_id": {
+      "const": "GLOBAL_CLOUDFLARE_OBJECT_STORAGE_ECOSYSTEM"
+    },
+    "provider_id": {
+      "const": "CLOUDFLARE"
+    },
+    "connection_state": {
+      "const": "NOT_CONFIGURED"
+    },
+    "storage_operations_enabled": {
+      "const": false
+    }
+  },
+  "additionalProperties": true
+}

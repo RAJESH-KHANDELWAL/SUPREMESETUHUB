@@ -1,0 +1,218 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GITHUB_STORAGE_ECOSYSTEM",
+  "category_folder_count": 30,
+  "folder_naming": "github_<category>_storage_ecosystem",
+  "folders": [
+    {
+      "category": "REPOSITORIES",
+      "group": "REPOSITORY_AND_SOURCE_STORAGE",
+      "folder": "github_repositories_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_repositories_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "GIT_OBJECTS",
+      "group": "REPOSITORY_AND_SOURCE_STORAGE",
+      "folder": "github_git_objects_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_git_objects_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "COMMITS",
+      "group": "REPOSITORY_AND_SOURCE_STORAGE",
+      "folder": "github_commits_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_commits_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BRANCHES",
+      "group": "REPOSITORY_AND_SOURCE_STORAGE",
+      "folder": "github_branches_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_branches_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "TAGS",
+      "group": "REPOSITORY_AND_SOURCE_STORAGE",
+      "folder": "github_tags_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_tags_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "RELEASES",
+      "group": "REPOSITORY_AND_SOURCE_STORAGE",
+      "folder": "github_releases_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_releases_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SOURCE_CODE",
+      "group": "REPOSITORY_AND_SOURCE_STORAGE",
+      "folder": "github_source_code_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_source_code_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "LARGE_FILE_STORAGE",
+      "group": "REPOSITORY_AND_SOURCE_STORAGE",
+      "folder": "github_large_file_storage_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_large_file_storage_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PULL_REQUESTS",
+      "group": "COLLABORATION_AND_REVIEW_STORAGE",
+      "folder": "github_pull_requests_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_pull_requests_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ISSUES",
+      "group": "COLLABORATION_AND_REVIEW_STORAGE",
+      "folder": "github_issues_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_issues_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DISCUSSIONS",
+      "group": "COLLABORATION_AND_REVIEW_STORAGE",
+      "folder": "github_discussions_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_discussions_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CODE_REVIEWS",
+      "group": "COLLABORATION_AND_REVIEW_STORAGE",
+      "folder": "github_code_reviews_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_code_reviews_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "COMMENTS",
+      "group": "COLLABORATION_AND_REVIEW_STORAGE",
+      "folder": "github_comments_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_comments_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PROJECTS_AND_METADATA",
+      "group": "COLLABORATION_AND_REVIEW_STORAGE",
+      "folder": "github_projects_and_metadata_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_projects_and_metadata_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "GITHUB_ACTIONS_ARTIFACTS",
+      "group": "BUILD_AND_DELIVERY_STORAGE",
+      "folder": "github_github_actions_artifacts_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_github_actions_artifacts_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "WORKFLOW_LOGS",
+      "group": "BUILD_AND_DELIVERY_STORAGE",
+      "folder": "github_workflow_logs_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_workflow_logs_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PACKAGES_AND_REGISTRY",
+      "group": "BUILD_AND_DELIVERY_STORAGE",
+      "folder": "github_packages_and_registry_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_packages_and_registry_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CONTAINER_IMAGES",
+      "group": "BUILD_AND_DELIVERY_STORAGE",
+      "folder": "github_container_images_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_container_images_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "RELEASE_ASSETS",
+      "group": "BUILD_AND_DELIVERY_STORAGE",
+      "folder": "github_release_assets_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_release_assets_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CODESPACES_METADATA",
+      "group": "DEVELOPMENT_AND_SECURITY_METADATA",
+      "folder": "github_codespaces_metadata_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_codespaces_metadata_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "WEBHOOK_DELIVERY_METADATA",
+      "group": "DEVELOPMENT_AND_SECURITY_METADATA",
+      "folder": "github_webhook_delivery_metadata_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_webhook_delivery_metadata_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SECURITY_ADVISORIES",
+      "group": "DEVELOPMENT_AND_SECURITY_METADATA",
+      "folder": "github_security_advisories_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_security_advisories_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DEPENDABOT_ALERTS",
+      "group": "DEVELOPMENT_AND_SECURITY_METADATA",
+      "folder": "github_dependabot_alerts_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_dependabot_alerts_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CODE_SCANNING_RESULTS",
+      "group": "DEVELOPMENT_AND_SECURITY_METADATA",
+      "folder": "github_code_scanning_results_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_code_scanning_results_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SECRET_SCANNING_METADATA",
+      "group": "DEVELOPMENT_AND_SECURITY_METADATA",
+      "folder": "github_secret_scanning_metadata_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_secret_scanning_metadata_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ORGANIZATIONS_AND_TEAMS",
+      "group": "IDENTITY_AND_GOVERNANCE_METADATA",
+      "folder": "github_organizations_and_teams_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_organizations_and_teams_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ACCESS_CONTROL_AND_PERMISSIONS",
+      "group": "IDENTITY_AND_GOVERNANCE_METADATA",
+      "folder": "github_access_control_and_permissions_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_access_control_and_permissions_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "AUDIT_LOGS",
+      "group": "IDENTITY_AND_GOVERNANCE_METADATA",
+      "folder": "github_audit_logs_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_audit_logs_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "REPOSITORY_SETTINGS",
+      "group": "IDENTITY_AND_GOVERNANCE_METADATA",
+      "folder": "github_repository_settings_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_repository_settings_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BACKUP_AND_RETENTION_METADATA",
+      "group": "IDENTITY_AND_GOVERNANCE_METADATA",
+      "folder": "github_backup_and_retention_metadata_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/github_storage_ecosystem/github_backup_and_retention_metadata_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    }
+  ]
+}

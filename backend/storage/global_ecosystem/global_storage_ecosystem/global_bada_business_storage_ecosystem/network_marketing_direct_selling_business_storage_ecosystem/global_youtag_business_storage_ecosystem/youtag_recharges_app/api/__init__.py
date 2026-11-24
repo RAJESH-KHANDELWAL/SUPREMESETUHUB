@@ -1,0 +1,1 @@
+"""App status API namespace."""

@@ -1,0 +1,23 @@
+{
+  "ecosystem_id": "ADOBE-ADOBE-EXPRESS-CORE-ECOSYSTEM",
+  "provider": "adobe",
+  "product_key": "adobe_express",
+  "name": "Adobe Express",
+  "description": "Template-based design, social content, quick video and document creation.",
+  "layer": "core",
+  "package_status": "SCAFFOLDED",
+  "directories": [
+    "authentication",
+    "capabilities",
+    "docs",
+    "events",
+    "lifecycle",
+    "models",
+    "schemas",
+    "security",
+    "services",
+    "tests"
+  ],
+  "live_connection_verified": false,
+  "credentials_configured": false
+}

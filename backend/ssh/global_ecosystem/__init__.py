@@ -1,0 +1,1 @@
+"""Global SSH ecosystem namespace."""

@@ -1,0 +1,23 @@
+"""Independent ENGINE catalog for HUGGINGFACE."""
+from .models import EngineDescriptor
+PROVIDER = "HUGGINGFACE"
+CHILD_ECOSYSTEMS = [
+    "HUGGINGFACE AUTHENTICATION",
+    "HUGGINGFACE BILLING",
+    "HUGGINGFACE DATASETS",
+    "HUGGINGFACE DISCUSSIONS",
+    "HUGGINGFACE DOWNLOADS",
+    "HUGGINGFACE EVALUATION",
+    "HUGGINGFACE HUB",
+    "HUGGINGFACE INFERENCE",
+    "HUGGINGFACE INFERENCE ENDPOINTS",
+    "HUGGINGFACE MODELS",
+    "HUGGINGFACE ORGANIZATIONS",
+    "HUGGINGFACE SPACES",
+    "HUGGINGFACE STORAGE",
+    "HUGGINGFACE TASKS",
+    "HUGGINGFACE WEBHOOKS"
+]
+CATALOG = (EngineDescriptor("ENGINE-HUGGINGFACE", PROVIDER, PROVIDER, ("LIFECYCLE","EXECUTION_BOUNDARY")),)
+def list_engines():
+    return [dict(engine_id=x.engine_id,name=x.name,provider=x.provider,capabilities=list(x.capabilities),metadata=dict(x.metadata)) for x in CATALOG]
