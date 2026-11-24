@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "domain_id": "SECURITY",
+  "name": "Security",
+  "parent_id": "GLOBAL-SERVER-CORE-ECOSYSTEM",
+  "canonical_path": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/server_security_core_ecosystem/",
+  "layer": "CORE",
+  "status": "CORE_CONTRACT_METADATA",
+  "description": "Security posture metadata, least-privilege requirements and secret-handling boundaries.",
+  "master_catalog_refs": [
+    "S10_global_security",
+    "S09_cybersecurity",
+    "S11_cyber_law",
+    "S11_digital_security",
+    "S11_risk_management"
+  ],
+  "control_areas": [
+    {
+      "area_id": "SECURITY_01",
+      "name": "Baseline hardening and configuration posture",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "SECURITY_02",
+      "name": "Least privilege and privileged access requirements",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "SECURITY_03",
+      "name": "Encryption in transit and at rest metadata",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "SECURITY_04",
+      "name": "Vulnerability and patch exposure tracking",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "SECURITY_05",
+      "name": "Security logging, incident response and evidence",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "SECURITY_06",
+      "name": "Secret references and external secret-store boundaries",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    }
+  ],
+  "ownership": {
+    "core": "Catalogs, identifiers, contracts, policies and discovery metadata only",
+    "api": "Authentication, authorization, transport and request handling",
+    "engine": "Provider adapters, SDK execution and remote operations",
+    "database": "Durable persistence, schemas and migrations",
+    "storage": "Object, file, backup and artifact persistence"
+  },
+  "operational_boundaries": {
+    "remote_operations_enabled": false,
+    "live_provider_connections_verified": false,
+    "production_readiness_claimed": false,
+    "credentials_stored_in_repository": false
+  }
+}

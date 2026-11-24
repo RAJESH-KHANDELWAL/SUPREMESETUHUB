@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "domain_id": "OBSERVABILITY",
+  "name": "Observability",
+  "parent_id": "GLOBAL-SERVER-CORE-ECOSYSTEM",
+  "canonical_path": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/server_observability_core_ecosystem/",
+  "layer": "CORE",
+  "status": "CORE_CONTRACT_METADATA",
+  "description": "Health, telemetry and event schema metadata; no live monitoring guarantee.",
+  "master_catalog_refs": [
+    "S10_global_infrastructure",
+    "S10_global_server",
+    "S12_technical_knowledge",
+    "S11_audit"
+  ],
+  "control_areas": [
+    {
+      "area_id": "OBSERVABILITY_01",
+      "name": "Metrics, logs, traces and event schemas",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "OBSERVABILITY_02",
+      "name": "Health, readiness and liveness signal definitions",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "OBSERVABILITY_03",
+      "name": "Alert routing and escalation metadata",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "OBSERVABILITY_04",
+      "name": "Telemetry retention and data minimization",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "OBSERVABILITY_05",
+      "name": "Service dependency and topology visibility",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "OBSERVABILITY_06",
+      "name": "Observability coverage and blind-spot reporting",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    }
+  ],
+  "ownership": {
+    "core": "Catalogs, identifiers, contracts, policies and discovery metadata only",
+    "api": "Authentication, authorization, transport and request handling",
+    "engine": "Provider adapters, SDK execution and remote operations",
+    "database": "Durable persistence, schemas and migrations",
+    "storage": "Object, file, backup and artifact persistence"
+  },
+  "operational_boundaries": {
+    "remote_operations_enabled": false,
+    "live_provider_connections_verified": false,
+    "production_readiness_claimed": false,
+    "credentials_stored_in_repository": false
+  }
+}

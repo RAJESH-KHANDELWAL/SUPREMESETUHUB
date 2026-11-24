@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "domain_id": "DISCOVERY_REGISTRY",
+  "name": "Discovery Registry",
+  "parent_id": "GLOBAL-SERVER-CORE-ECOSYSTEM",
+  "canonical_path": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/server_discovery_registry_core_ecosystem/",
+  "layer": "CORE",
+  "status": "CORE_CONTRACT_METADATA",
+  "description": "Capability discovery, canonical registration, lookup and versioned registry metadata.",
+  "master_catalog_refs": [
+    "S10_global_infrastructure",
+    "S10_global_integration_core",
+    "S12_technical_knowledge",
+    "S11_governance"
+  ],
+  "control_areas": [
+    {
+      "area_id": "DISCOVERY_REGISTRY_01",
+      "name": "Provider and capability discovery metadata",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "DISCOVERY_REGISTRY_02",
+      "name": "Canonical registration and uniqueness constraints",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "DISCOVERY_REGISTRY_03",
+      "name": "Versioned registry schema and compatibility",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "DISCOVERY_REGISTRY_04",
+      "name": "Lookup, filtering and deterministic identifiers",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "DISCOVERY_REGISTRY_05",
+      "name": "Registry health, freshness and provenance",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "DISCOVERY_REGISTRY_06",
+      "name": "Duplicate detection and reconciliation policy",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    }
+  ],
+  "ownership": {
+    "core": "Catalogs, identifiers, contracts, policies and discovery metadata only",
+    "api": "Authentication, authorization, transport and request handling",
+    "engine": "Provider adapters, SDK execution and remote operations",
+    "database": "Durable persistence, schemas and migrations",
+    "storage": "Object, file, backup and artifact persistence"
+  },
+  "operational_boundaries": {
+    "remote_operations_enabled": false,
+    "live_provider_connections_verified": false,
+    "production_readiness_claimed": false,
+    "credentials_stored_in_repository": false
+  }
+}
