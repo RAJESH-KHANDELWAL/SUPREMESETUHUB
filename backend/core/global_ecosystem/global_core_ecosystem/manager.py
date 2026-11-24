@@ -16,6 +16,13 @@ class GlobalEcosystemManager:
     ROOT_NAME = "GLOBAL ECOSYSTEM"
     VERSION = "1.0.0"
     CORE_ID = "GLOBAL-CORE-ECOSYSTEM"
+    REQUIRED_CORE_CATEGORIES = (
+        "HUGGINGFACE-CORE-ECOSYSTEM",
+        "GLOBAL-ENTITY-RELATIONSHIPS-CORE-ECOSYSTEM",
+        "GLOBAL-WEBSITE-CORE-ECOSYSTEM",
+        "GLOBAL-VIDEO-CORE-ECOSYSTEM",
+        "GLOBAL-PHOTO-CORE-ECOSYSTEM",
+    )
 
     def __init__(self) -> None:
         self.registry = GlobalEcosystemRegistry()
@@ -70,6 +77,11 @@ class GlobalEcosystemManager:
 
         if self.ROOT_ID not in registered_ids:
             raise RuntimeError("GLOBAL ECOSYSTEM root is missing")
+
+        missing_core_categories = set(self.REQUIRED_CORE_CATEGORIES).difference(registered_ids)
+        if missing_core_categories:
+            missing = ", ".join(sorted(missing_core_categories))
+            raise RuntimeError(f"Required CORE categories are missing: {missing}")
 
     def status(self) -> dict[str, Any]:
         root = self.registry.get(self.ROOT_ID)
