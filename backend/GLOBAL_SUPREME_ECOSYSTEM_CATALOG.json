@@ -6,15 +6,15 @@
   "source_file": "backend/GLOBAL_SUPREME_ECOSYSTEM_MASTER_LIST.md",
   "expansion": {
     "target_unique_entries": 2468,
-    "current_unique_entries": 246,
-    "remaining_unique_entries": 2222,
+    "current_unique_entries": 278,
+    "remaining_unique_entries": 2190,
     "status": "FOUNDATION_CATALOG_WITH_IMPLEMENTATION_REGISTRY",
     "policy": "Expand only with meaningful, individually defined, non-duplicate entries. Do not manufacture entries merely to reach the target."
   },
   "counts": {
-    "section_count": 13,
-    "source_numbered_entries": 248,
-    "unique_catalogue_entries": 246,
+    "section_count": 15,
+    "source_numbered_entries": 280,
+    "unique_catalogue_entries": 278,
     "cross_reference_entries": 2,
     "capability_levels": 13
   },
@@ -1597,6 +1597,212 @@
           "name": "Supreme",
           "entry_id": "S13_supreme",
           "entry_kind": "capability_level"
+        }
+      ]
+    },
+    {
+      "section_number": 14,
+      "title": "Global Transport, Road, Rail, Air & Mobility Ecosystem",
+      "section_id": "global_transport_road_rail_air_mobility_ecosystem",
+      "entries": [
+        {
+          "position": 1,
+          "name": "Road Transport",
+          "entry_id": "S14_road_transport",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 2,
+          "name": "Rail Transport",
+          "entry_id": "S14_rail_transport",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 3,
+          "name": "Air Transport",
+          "entry_id": "S14_air_transport",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 4,
+          "name": "Water Transport",
+          "entry_id": "S14_water_transport",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 5,
+          "name": "Public Transit",
+          "entry_id": "S14_public_transit",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 6,
+          "name": "Personal Mobility",
+          "entry_id": "S14_personal_mobility",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 7,
+          "name": "Shared Mobility",
+          "entry_id": "S14_shared_mobility",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 8,
+          "name": "Active Mobility",
+          "entry_id": "S14_active_mobility",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 9,
+          "name": "Intermodal Transport",
+          "entry_id": "S14_intermodal_transport",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 10,
+          "name": "Transport Infrastructure",
+          "entry_id": "S14_transport_infrastructure",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 11,
+          "name": "Traffic and Transit Systems",
+          "entry_id": "S14_traffic_transit_systems",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 12,
+          "name": "Accessible Mobility",
+          "entry_id": "S14_accessible_mobility",
+          "entry_kind": "ecosystem_topic"
+        }
+      ]
+    },
+    {
+      "section_number": 15,
+      "title": "Global Transport, Logistics, Supply Chain Service, Work & Business Ecosystem",
+      "section_id": "global_transport_logistics_supply_chain_service_work_business_ecosystem",
+      "entries": [
+        {
+          "position": 1,
+          "name": "Passenger Transport Business",
+          "entry_id": "S15_passenger_transport_business",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 2,
+          "name": "Road Transport Business",
+          "entry_id": "S15_road_transport_business",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 3,
+          "name": "Rail Transport Business",
+          "entry_id": "S15_rail_transport_business",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 4,
+          "name": "Air Transport Business",
+          "entry_id": "S15_air_transport_business",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 5,
+          "name": "Water Transport and Shipping Business",
+          "entry_id": "S15_water_shipping_business",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 6,
+          "name": "Freight and Logistics Business",
+          "entry_id": "S15_freight_logistics_business",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 7,
+          "name": "Supply Chain Business",
+          "entry_id": "S15_supply_chain_business",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 8,
+          "name": "Courier and Last-Mile Business",
+          "entry_id": "S15_courier_last_mile_business",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 9,
+          "name": "Warehousing and Distribution Business",
+          "entry_id": "S15_warehousing_distribution_business",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 10,
+          "name": "Cold Chain Business",
+          "entry_id": "S15_cold_chain_business",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 11,
+          "name": "Fleet and Vehicle Services Business",
+          "entry_id": "S15_fleet_vehicle_services_business",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 12,
+          "name": "Mobility Services Business",
+          "entry_id": "S15_mobility_services_business",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 13,
+          "name": "Transport Booking and Ticketing Business",
+          "entry_id": "S15_booking_ticketing_business",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 14,
+          "name": "Ports and Terminal Services Business",
+          "entry_id": "S15_port_terminal_services_business",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 15,
+          "name": "Transport Infrastructure Services Business",
+          "entry_id": "S15_transport_infrastructure_services_business",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 16,
+          "name": "Vehicle Rental and Leasing Business",
+          "entry_id": "S15_vehicle_rental_leasing_business",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 17,
+          "name": "Transport Maintenance and Repair Business",
+          "entry_id": "S15_transport_maintenance_repair_business",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 18,
+          "name": "Transport Finance and Insurance Business",
+          "entry_id": "S15_transport_finance_insurance_business",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 19,
+          "name": "Transport Technology Business",
+          "entry_id": "S15_transport_technology_business",
+          "entry_kind": "ecosystem_topic"
+        },
+        {
+          "position": 20,
+          "name": "Transport Consulting and Compliance Business",
+          "entry_id": "S15_transport_consulting_compliance_business",
+          "entry_kind": "ecosystem_topic"
         }
       ]
     }
