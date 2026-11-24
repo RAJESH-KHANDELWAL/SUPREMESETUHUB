@@ -1,9 +1,9 @@
-# Global Containers Ecosystem
+# Containers Global Ecosystem
 
-Reserved ecosystem package for the containers infrastructure domain.
+Reserved Global Ecosystem package for the containers infrastructure domain.
 
-- Parent module: `backend/infrastructure/containers/`
-- Ecosystem path: `backend/infrastructure/containers/global_ecosystem/global_containers_ecosystem/`
+- Parent module: `backend/infrastructure/global_ecosystem/global_infrastructure_ecosystem/containers/`
+- Ecosystem path: `backend/infrastructure/global_ecosystem/global_infrastructure_ecosystem/containers/global_ecosystem/global_containers_ecosystem/`
 - Status: structure scaffold only
 
-This README establishes the module boundary and folder structure. It does not duplicate existing services, enable provider operations, or claim a live integration. Add domain-specific implementation here only after reviewing the existing module and its canonical backend dependencies.
+This package validates its structural boundary only. It does not duplicate domain services, execute infrastructure changes, connect to providers, or claim live integrations. Domain operations remain owned by canonical infrastructure modules and require separately reviewed, authorized, tested integrations.
