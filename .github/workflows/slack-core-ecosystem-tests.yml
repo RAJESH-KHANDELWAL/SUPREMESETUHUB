@@ -1,0 +1,17 @@
+name: Slack Core Ecosystem Tests
+on:
+  push:
+    paths: ['backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/**', '.github/workflows/slack-core-ecosystem-tests.yml']
+  pull_request:
+    paths: ['backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/**', '.github/workflows/slack-core-ecosystem-tests.yml']
+jobs:
+  slack-core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m compileall -q backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem
+      - run: python -m unittest backend.core.global_ecosystem.global_core_ecosystem.slack_core_ecosystem.tests.test_slack_core -v
+      - run: python backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/tools/validate_slack_catalog.py
+      - run: php -l backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/manager.php && php -l backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_php_core_ecosystem/SlackCoreContract.php
