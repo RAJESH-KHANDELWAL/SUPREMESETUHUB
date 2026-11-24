@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0.0",
+  "domain_id": "COMPLIANCE",
+  "name": "Compliance",
+  "parent_id": "GLOBAL-SERVER-CORE-ECOSYSTEM",
+  "canonical_path": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/server_compliance_core_ecosystem/",
+  "layer": "CORE",
+  "status": "CORE_CONTRACT_METADATA",
+  "description": "Compliance control references, jurisdiction gates and evidence metadata; no certification claim.",
+  "master_catalog_refs": [
+    "S01_bharat_india",
+    "S01_global_international",
+    "S11_indian_law",
+    "S11_international_law",
+    "S11_compliance",
+    "S11_global_standards"
+  ],
+  "control_areas": [
+    {
+      "area_id": "COMPLIANCE_01",
+      "name": "Jurisdiction and regulatory applicability",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "COMPLIANCE_02",
+      "name": "Data residency and sovereignty controls",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "COMPLIANCE_03",
+      "name": "Control framework mapping and evidence references",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "COMPLIANCE_04",
+      "name": "Audit scope, ownership and review cadence",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "COMPLIANCE_05",
+      "name": "Certification status and non-claim boundaries",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "COMPLIANCE_06",
+      "name": "Retention, deletion and legal-hold requirements",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    }
+  ],
+  "ownership": {
+    "core": "Catalogs, identifiers, contracts, policies and discovery metadata only",
+    "api": "Authentication, authorization, transport and request handling",
+    "engine": "Provider adapters, SDK execution and remote operations",
+    "database": "Durable persistence, schemas and migrations",
+    "storage": "Object, file, backup and artifact persistence"
+  },
+  "operational_boundaries": {
+    "remote_operations_enabled": false,
+    "live_provider_connections_verified": false,
+    "production_readiness_claimed": false,
+    "credentials_stored_in_repository": false
+  }
+}

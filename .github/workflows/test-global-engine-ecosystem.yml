@@ -1,0 +1,42 @@
+name: GLOBAL ENGINE Ecosystem Test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "backend/engine/global_ecosystem/**"
+      - "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+      - "backend/test/test_global_engine_provider_hierarchy.py"
+      - "backend/test/test_global_supreme_ecosystem_catalog.py"
+      - ".github/workflows/test-global-engine-ecosystem.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "backend/engine/global_ecosystem/**"
+      - "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+      - "backend/test/test_global_engine_provider_hierarchy.py"
+      - "backend/test/test_global_supreme_ecosystem_catalog.py"
+      - ".github/workflows/test-global-engine-ecosystem.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-global-engine:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install test dependencies
+        run: python -m pip install pytest
+      - name: Run ENGINE hierarchy and master catalog tests
+        run: >-
+          python -m pytest
+          backend/test/test_global_engine_provider_hierarchy.py
+          backend/test/test_global_supreme_ecosystem_catalog.py
+          -q

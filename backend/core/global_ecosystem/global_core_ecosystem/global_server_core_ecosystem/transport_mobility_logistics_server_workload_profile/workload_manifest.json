@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.1.0",
+  "profile_id": "SERVER-WORKLOAD-TRANSPORT_MOBILITY_LOGISTICS",
+  "domain_id": "TRANSPORT_MOBILITY_LOGISTICS",
+  "label": "Transport, Mobility and Logistics",
+  "risk_profile": "INFRASTRUCTURE_CRITICAL",
+  "scope": "SERVER_REQUIREMENTS_METADATA_ONLY",
+  "geography_catalog": "../geographic_scope_catalog.json",
+  "service_tier_catalog": "../service_tier_catalog.json",
+  "service_tiers": [
+    "NORMAL",
+    "BASIC",
+    "STANDARD",
+    "PREMIUM",
+    "PROFESSIONAL",
+    "ENTERPRISE",
+    "SUPREME"
+  ],
+  "required_control_areas": [
+    "telemetry_integrity",
+    "service_availability",
+    "location_data_privacy",
+    "disaster_recovery"
+  ],
+  "layer_boundary": {
+    "core": "classification and provider-neutral requirements metadata only",
+    "api": "authentication, authorization, transport and request handling",
+    "engine": "provider adapters and execution",
+    "database": "durable persistence and migrations",
+    "storage": "files, objects, backups and artifacts"
+  },
+  "operational_status": "NON_EXECUTING_PROFILE",
+  "note": "No provisioning, legal approval or production operation is performed by this profile.",
+  "workload_areas": [
+    {
+      "area_id": "TRANSPORT_MOBILITY_LOGISTICS_WORKLOAD_01",
+      "name": "Fleet and vehicle management",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "TRANSPORT_MOBILITY_LOGISTICS_WORKLOAD_02",
+      "name": "Freight, logistics and shipment tracking",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "TRANSPORT_MOBILITY_LOGISTICS_WORKLOAD_03",
+      "name": "Public transport and ticketing",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "TRANSPORT_MOBILITY_LOGISTICS_WORKLOAD_04",
+      "name": "Traffic, tolling and mobility platforms",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    },
+    {
+      "area_id": "TRANSPORT_MOBILITY_LOGISTICS_WORKLOAD_05",
+      "name": "Warehouse and route optimization",
+      "scope": "Industry-specific server workload classification and infrastructure requirement metadata; not an application implementation or deployment authorization."
+    }
+  ],
+  "workload_area_count": 5
+}

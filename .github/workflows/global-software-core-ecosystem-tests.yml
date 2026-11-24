@@ -1,0 +1,32 @@
+name: Global Software Core Ecosystem Tests
+on:
+  push:
+    paths:
+      - 'backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/**'
+      - 'backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json'
+      - '.github/workflows/global-software-core-ecosystem-tests.yml'
+  pull_request:
+    paths:
+      - 'backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/**'
+      - 'backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json'
+      - '.github/workflows/global-software-core-ecosystem-tests.yml'
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install test runner
+        run: python -m pip install pytest
+      - name: Compile Python
+        run: python -m compileall -q backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem
+      - name: Run software Core tests
+        run: python -m pytest -q backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/test_software_core_domains.py
+      - name: Validate master catalog JSON
+        run: python -m json.tool backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json > /dev/null
+      - name: Validate product index JSON
+        run: python -m json.tool backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/product_ecosystem_index.json > /dev/null
+      - name: PHP syntax
+        run: php -l backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/manager.php && php -l backend/core/global_ecosystem/global_core_ecosystem/global_software_core_ecosystem/php/GlobalSoftwareCoreContract.php
