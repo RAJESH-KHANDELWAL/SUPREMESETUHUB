@@ -33,7 +33,7 @@ def test_engine_packages_do_not_import_sibling_layers():
 
 
 def test_engine_catalog_includes_full_provider_hierarchy():
-    from backend.engine.global_ecosystem.catalog import PROVIDER_ECOSYSTEMS, get_provider_catalog, get_catalog
+    from backend.engine.global_ecosystem.catalog import CATEGORIES, PROVIDER_ECOSYSTEMS, get_provider_catalog, get_catalog
     assert len(PROVIDER_ECOSYSTEMS) == 58
     provider_records = get_provider_catalog()
     assert len(provider_records) == 3382
