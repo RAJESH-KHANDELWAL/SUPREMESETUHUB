@@ -1,0 +1,16 @@
+{
+  "provider": "microsoft",
+  "ecosystem_id": "MICROSOFT-STORAGE-CORE-ECOSYSTEM",
+  "status": "STORAGE_CORE_CATALOG_ONLY",
+  "capabilities": [
+    "OBJECT_STORAGE_METADATA",
+    "FILE_STORAGE_METADATA",
+    "RETENTION_POLICY_METADATA"
+  ],
+  "adapter_ref": null,
+  "live_connection_verified": false,
+  "security": {
+    "secrets_committed": false,
+    "destructive_operations_enabled": false
+  }
+}

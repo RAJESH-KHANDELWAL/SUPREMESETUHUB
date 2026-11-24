@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0.0",
+  "domain_id": "SERVICE_TIER",
+  "name": "Service Tier",
+  "parent_id": "GLOBAL-SERVER-CORE-ECOSYSTEM",
+  "canonical_path": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/server_service_tier_core_ecosystem/",
+  "layer": "CORE",
+  "status": "CORE_CONTRACT_METADATA",
+  "description": "NORMAL-to-SUPREME tier taxonomy and product-defined entitlement references.",
+  "master_catalog_refs": [
+    "S13_normal",
+    "S13_basic",
+    "S13_standard",
+    "S13_professional",
+    "S13_advanced",
+    "S13_expert",
+    "S13_enterprise",
+    "S13_global",
+    "S13_supreme"
+  ],
+  "control_areas": [
+    {
+      "area_id": "SERVICE_TIER_01",
+      "name": "NORMAL-to-SUPREME canonical tier order",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "SERVICE_TIER_02",
+      "name": "Tier-to-capability reference mapping",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "SERVICE_TIER_03",
+      "name": "Product-owned quota and entitlement boundaries",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "SERVICE_TIER_04",
+      "name": "SLA, support and availability contract references",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "SERVICE_TIER_05",
+      "name": "Tier upgrade, downgrade and migration constraints",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "SERVICE_TIER_06",
+      "name": "Tier audit and commercial-contract provenance",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    }
+  ],
+  "ownership": {
+    "core": "Catalogs, identifiers, contracts, policies and discovery metadata only",
+    "api": "Authentication, authorization, transport and request handling",
+    "engine": "Provider adapters, SDK execution and remote operations",
+    "database": "Durable persistence, schemas and migrations",
+    "storage": "Object, file, backup and artifact persistence"
+  },
+  "operational_boundaries": {
+    "remote_operations_enabled": false,
+    "live_provider_connections_verified": false,
+    "production_readiness_claimed": false,
+    "credentials_stored_in_repository": false
+  }
+}

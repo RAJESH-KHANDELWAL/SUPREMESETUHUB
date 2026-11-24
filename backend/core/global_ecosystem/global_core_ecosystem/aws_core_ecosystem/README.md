@@ -5,54 +5,84 @@
 **API catalog:** `backend/api/global_ecosystem/global_api_ecosystem/aws_api_ecosystem/`
 
 ## Purpose
-The AWS Core is the provider-owned, metadata-first control plane for the 16 AWS service families already defined by the repository's AWS API Ecosystem. It provides canonical service identity, family/domain classification, capability metadata, tenant and account context contracts, policy boundaries, lifecycle/readiness metadata and cross-family discovery.
+AWS Core is the provider-owned, metadata-first control plane for the 16 AWS service families already registered in this repository. It owns canonical service identity, account/tenant context contracts, domain classification, capability metadata, policy boundaries, readiness and cross-family discovery.
 
-## Product-family coverage
-- **API Gateway** — `aws_api_gateway_core_ecosystem/` → `aws_api_gateway_ecosystem/`
-- **Bedrock and SageMaker AI** — `aws_bedrock_sagemaker_core_ecosystem/` → `aws_bedrock_sagemaker_api_ecosystem/`
-- **Billing and Cost Management** — `aws_billing_cost_core_ecosystem/` → `aws_billing_cost_api_ecosystem/`
-- **CloudFormation** — `aws_cloudformation_core_ecosystem/` → `aws_cloudformation_api_ecosystem/`
-- **CloudTrail** — `aws_cloudtrail_core_ecosystem/` → `aws_cloudtrail_api_ecosystem/`
-- **CloudWatch** — `aws_cloudwatch_core_ecosystem/` → `aws_cloudwatch_api_ecosystem/`
-- **Containers (ECS, EKS and ECR)** — `aws_containers_core_ecosystem/` → `aws_containers_api_ecosystem/`
-- **Database (RDS, Aurora and DynamoDB)** — `aws_database_core_ecosystem/` → `aws_database_api_ecosystem/`
-- **EC2 Compute** — `aws_ec2_compute_core_ecosystem/` → `aws_ec2_compute_api_ecosystem/`
-- **IAM and STS** — `aws_iam_sts_core_ecosystem/` → `aws_iam_sts_api_ecosystem/`
-- **KMS and Secrets Manager** — `aws_kms_secrets_core_ecosystem/` → `aws_kms_secrets_api_ecosystem/`
-- **Lambda** — `aws_lambda_core_ecosystem/` → `aws_lambda_api_ecosystem/`
-- **Lightsail** — `aws_lightsail_core_ecosystem/` → `aws_lightsail_api_ecosystem/`
-- **Route 53 DNS** — `aws_route53_dns_core_ecosystem/` → `aws_route53_dns_api_ecosystem/`
-- **S3 Storage** — `aws_s3_storage_core_ecosystem/` → `aws_s3_storage_api_ecosystem/`
-- **VPC Networking** — `aws_vpc_networking_core_ecosystem/` → `aws_vpc_networking_api_ecosystem/`
+## Canonical root architecture (Google Core aligned)
+- `manager.py`: canonical `AwsCoreManager` and `get_manager()`.
+- `manager.php`: PHP interoperability facade over the AWS Core contract.
+- `catalog.py`: provider and 16-family registry.
+- `contracts.py`: AWS account context, credential references, readiness and result contracts.
+- `policy.py`: capability classification, account-context validation and safe summaries.
+- `module_service.py`: shared read-only service-family manager.
+- `product_catalog.py`: 16 service-family offering inventory.
+- `domain_catalog.py`: 13 AWS-specific domains and family mapping.
+- `domain_runtime.py`: shared read-only domain manager.
+- `orchestrator.py`: health, product, domain, offering and dependency discovery.
+- `service.py`: provider-level status facade.
+- `product_ecosystem_index.json`: machine-readable family/domain package map.
+- `test_google_core_alignment.py`: structural and behavior tests.
+
+## Service-family packages
+- `aws_api_gateway_core_ecosystem` — `AwsApiGatewayCoreService`
+- `aws_bedrock_sagemaker_core_ecosystem` — `AwsBedrockSagemakerCoreService`
+- `aws_billing_cost_core_ecosystem` — `AwsBillingCostCoreService`
+- `aws_cloudformation_core_ecosystem` — `AwsCloudformationCoreService`
+- `aws_cloudtrail_core_ecosystem` — `AwsCloudtrailCoreService`
+- `aws_cloudwatch_core_ecosystem` — `AwsCloudwatchCoreService`
+- `aws_containers_core_ecosystem` — `AwsContainersCoreService`
+- `aws_database_core_ecosystem` — `AwsDatabaseCoreService`
+- `aws_ec2_compute_core_ecosystem` — `AwsEc2ComputeCoreService`
+- `aws_iam_sts_core_ecosystem` — `AwsIamStsCoreService`
+- `aws_kms_secrets_core_ecosystem` — `AwsKmsSecretsCoreService`
+- `aws_lambda_core_ecosystem` — `AwsLambdaCoreService`
+- `aws_lightsail_core_ecosystem` — `AwsLightsailCoreService`
+- `aws_route53_dns_core_ecosystem` — `AwsRoute53DnsCoreService`
+- `aws_s3_storage_core_ecosystem` — `AwsS3StorageCoreService`
+- `aws_vpc_networking_core_ecosystem` — `AwsVpcNetworkingCoreService`
+
+Each family keeps its AWS-specific manifest, config, service, contracts, capabilities, lifecycle, security and ten standard subfolders. Family managers delegate to the existing family service; no duplicate API implementation is introduced.
+
+## Domain packages
+- `aws_application_integration_and_api_management_core_ecosystem` — Application Integration and API Management
+- `aws_ai_ml_and_intelligence_core_ecosystem` — AI, Machine Learning and Intelligence
+- `aws_billing_cost_and_governance_core_ecosystem` — Billing, Cost and Governance
+- `aws_compute_and_containers_core_ecosystem` — Compute and Containers
+- `aws_database_and_data_services_core_ecosystem` — Database and Data Services
+- `aws_domain_and_name_services_core_ecosystem` — Domain and Name Services
+- `aws_infrastructure_provisioning_and_automation_core_ecosystem` — Infrastructure Provisioning and Automation
+- `aws_networking_and_edge_core_ecosystem` — Networking and Edge
+- `aws_observability_and_audit_core_ecosystem` — Observability and Audit
+- `aws_organization_and_governance_core_ecosystem` — Organization and Governance
+- `aws_security_and_identity_core_ecosystem` — Security and Identity
+- `aws_storage_and_data_management_core_ecosystem` — Storage and Data Management
+- `aws_developer_and_application_platform_core_ecosystem` — Developer and Application Platform
+
+## Shared packages
+- `aws_shared_compatibility_core_ecosystem`
+- `aws_shared_configuration_core_ecosystem`
+- `aws_shared_contracts_core_ecosystem`
+- `aws_shared_documentation_core_ecosystem`
+- `aws_shared_events_core_ecosystem`
+- `aws_shared_exceptions_core_ecosystem`
+- `aws_shared_orchestration_core_ecosystem`
+- `aws_shared_security_core_ecosystem`
+- `aws_shared_testing_core_ecosystem`
+- `aws_shared_utilities_core_ecosystem`
+- `aws_shared_validation_core_ecosystem`
 
 ## Layer boundaries
 | Layer | Owns |
 |---|---|
-| AWS Core | Catalogs, service identity, capability taxonomy, policy metadata, lifecycle and discovery |
-| AWS API Ecosystem | AWS SDK clients, SigV4 signing, IAM role/web identity resolution, API transport and response normalization |
+| AWS Core | Provider/service identity, taxonomy, capability metadata, policy, lifecycle, readiness and discovery |
+| AWS API Ecosystem | SDK clients, SigV4 signing, IAM role/web identity resolution, API transport and response normalization |
 | Integrations | Provider adapter registration and environment readiness |
 | Storage / Database | Durable state, resource snapshots, schemas, transactions and retention |
-| Runtime / Engine | Jobs, retries, queues, scheduling and orchestration execution |
-| Application / UI | User sessions, tenant authorization, consent, approval and workflows |
+| Runtime / Engine | Jobs, retries, queues, scheduling and execution |
+| Application / UI | User sessions, tenant authorization, consent, approvals and workflows |
 
-Core does not authenticate to AWS, resolve credentials, sign requests, call AWS endpoints, persist cloud state, launch jobs or perform infrastructure mutations.
+Core does not authenticate to AWS, resolve credentials, sign requests, call AWS endpoints, persist cloud state, launch jobs or mutate infrastructure.
 
-## Security model
-- Prefer IAM roles, workload identity federation and short-lived credentials.
-- Never store AWS access keys, secret keys, session tokens or private keys in Core.
-- Core accepts opaque references and trusted tenant/account context; the API layer resolves credentials.
-- Apply least-privilege IAM policies and tenant/resource ownership checks in the API/application layers.
-- Classify IAM, KMS, Secrets Manager, networking, destructive infrastructure and billing actions as elevated operations.
-- Require explicit approval and audit for create, update, delete, deploy, rotate, revoke and spend-affecting operations.
-- Do not treat a Core capability declaration as an AWS IAM permission grant.
+## Security and readiness
+Prefer IAM roles, workload identity federation and short-lived credentials. Never store raw AWS keys, session tokens or private keys in Core. Opaque credential references and trusted tenant/account context only. Least-privilege IAM and resource ownership checks remain mandatory in the API/application layers. Elevated, destructive, write, deploy, rotation, revocation and spend-affecting operations require explicit approval and audit. Core capability metadata is not an IAM grant.
 
-## Readiness semantics
-All 16 families are registered as `CORE_CATALOG_ONLY`. API availability is unverified (`null`) and live AWS connections verified by this Core implementation are zero. The repository's AWS API README describes provider adapters and some scaffold statuses; this Core registration does not upgrade those statuses or prove that credentials, account access, regions, service entitlements or operations work.
-
-## Google Core alignment
-The package follows the shared Google Core architecture: provider catalog, contracts, policy, module service, product and domain catalogs, orchestrator, facade service, PHP contract, tests, product-family packages and shared support directories. AWS capabilities remain AWS-specific; Google product counts or product semantics are not copied.
-
-
-## AWS account context contract
-
-Every service-family operation must be evaluated against the 12-digit AWS account ID, AWS region, tenant ID, actor ID, effective IAM principal and resource-level policy. The Core context validator only checks required metadata shape; the API layer must independently validate the real caller identity and AWS authorization before invoking an SDK operation.
+All 16 families remain `CORE_CATALOG_ONLY`; API availability is unverified (`null`), live connections verified: 0, credentials stored: 0, AWS API calls performed by Core: 0. These are metadata/control-plane claims only, not proof of account authorization or production connectivity.

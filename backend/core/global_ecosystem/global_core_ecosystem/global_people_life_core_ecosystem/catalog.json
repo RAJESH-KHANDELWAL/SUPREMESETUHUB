@@ -1,0 +1,407 @@
+{
+  "schema_version": "2.0.0",
+  "division": "PEOPLE_LIFE",
+  "module_count": 28,
+  "domains": [
+    {
+      "id": "ADULT_AGE_VERIFICATION_SAFETY_18_PLUS",
+      "name": "ADULT AGE VERIFICATION SAFETY 18 PLUS",
+      "folder": "adult_age_verification_safety_18_plus",
+      "scope": "Adult age assurance, age-gating controls and age-appropriate access safeguards for legally restricted services.",
+      "age_restricted": true,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "ADULT_CONSENT_AGE_SAFETY_PRIVACY_AND_RIGHTS_18_PLUS"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+      "canonical_ecosystem_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/"
+    },
+    {
+      "id": "ADULT_CONTENT_DISTRIBUTION_LICENSING_18_PLUS",
+      "name": "ADULT CONTENT DISTRIBUTION LICENSING 18 PLUS",
+      "folder": "adult_content_distribution_licensing_18_plus",
+      "scope": "Rights, licensing, distribution permissions, territory restrictions and takedown metadata for lawful adult-only content.",
+      "age_restricted": true,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "ADULT_MEDIA_PORNOGRAPHY_AND_CONTENT_GOVERNANCE_18_PLUS"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+      "canonical_ecosystem_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/"
+    },
+    {
+      "id": "ADULT_COUPLE_INTIMACY_EDUCATION_18_PLUS",
+      "name": "ADULT COUPLE INTIMACY EDUCATION 18 PLUS",
+      "folder": "adult_couple_intimacy_education_18_plus",
+      "scope": "Evidence-informed intimacy education and relationship information for consenting adults, with privacy and safety boundaries.",
+      "age_restricted": true,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "ADULT_INTIMACY_KAMASUTRA_AND_SEXUAL_WELLNESS_18_PLUS"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+      "canonical_ecosystem_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/"
+    },
+    {
+      "id": "ADULT_CREATOR_ECONOMY_18_PLUS",
+      "name": "ADULT CREATOR ECONOMY 18 PLUS",
+      "folder": "adult_creator_economy_18_plus",
+      "scope": "Business, monetization, platform and creator-economy metadata for lawful adult creators.",
+      "age_restricted": true,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "ADULT_CREATOR_ECONOMY_PRODUCTION_AND_WORK_18_PLUS"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+      "canonical_ecosystem_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/"
+    },
+    {
+      "id": "ADULT_INDUSTRY_WORK_BUSINESS_18_PLUS",
+      "name": "ADULT INDUSTRY WORK BUSINESS 18 PLUS",
+      "folder": "adult_industry_work_business_18_plus",
+      "scope": "Workplace, business operations and professional services metadata for lawful adult-industry organizations.",
+      "age_restricted": true,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "ADULT_CREATOR_ECONOMY_PRODUCTION_AND_WORK_18_PLUS"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+      "canonical_ecosystem_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/"
+    },
+    {
+      "id": "ADULT_LIVE_STREAMING_18_PLUS",
+      "name": "ADULT LIVE STREAMING 18 PLUS",
+      "folder": "adult_live_streaming_18_plus",
+      "scope": "Age-restricted live-streaming platform governance, moderation, safety and consent metadata.",
+      "age_restricted": true,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "ADULT_MEDIA_PORNOGRAPHY_AND_CONTENT_GOVERNANCE_18_PLUS"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+      "canonical_ecosystem_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/"
+    },
+    {
+      "id": "ADULT_MEDIA_PORNOGRAPHY_18_PLUS",
+      "name": "ADULT MEDIA PORNOGRAPHY 18 PLUS",
+      "folder": "adult_media_pornography_18_plus",
+      "scope": "Legal and policy metadata for lawful adult media categories; excludes exploitative and non-consensual material.",
+      "age_restricted": true,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "ADULT_MEDIA_PORNOGRAPHY_AND_CONTENT_GOVERNANCE_18_PLUS"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+      "canonical_ecosystem_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/"
+    },
+    {
+      "id": "ADULT_PERFORMER_RIGHTS_CONSENT_18_PLUS",
+      "name": "ADULT PERFORMER RIGHTS CONSENT 18 PLUS",
+      "folder": "adult_performer_rights_consent_18_plus",
+      "scope": "Performer autonomy, informed consent, contracts, withdrawal, safety and rights-management metadata.",
+      "age_restricted": true,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "ADULT_CONSENT_AGE_SAFETY_PRIVACY_AND_RIGHTS_18_PLUS"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+      "canonical_ecosystem_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/"
+    },
+    {
+      "id": "ADULT_PRIVACY_SECURITY_COMPLIANCE_18_PLUS",
+      "name": "ADULT PRIVACY SECURITY COMPLIANCE 18 PLUS",
+      "folder": "adult_privacy_security_compliance_18_plus",
+      "scope": "Privacy, security, data minimization, access controls and regulatory compliance for adult-only services.",
+      "age_restricted": true,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "ADULT_CONSENT_AGE_SAFETY_PRIVACY_AND_RIGHTS_18_PLUS"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+      "canonical_ecosystem_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/"
+    },
+    {
+      "id": "ADULT_PRODUCTION_STUDIOS_18_PLUS",
+      "name": "ADULT PRODUCTION STUDIOS 18 PLUS",
+      "folder": "adult_production_studios_18_plus",
+      "scope": "Studio operations, production governance, safety protocols and lawful production metadata.",
+      "age_restricted": true,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "ADULT_CREATOR_ECONOMY_PRODUCTION_AND_WORK_18_PLUS"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+      "canonical_ecosystem_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/"
+    },
+    {
+      "id": "ADULT_SUBSCRIPTIONS_MEMBERSHIPS_18_PLUS",
+      "name": "ADULT SUBSCRIPTIONS MEMBERSHIPS 18 PLUS",
+      "folder": "adult_subscriptions_memberships_18_plus",
+      "scope": "Age-gated subscription, membership, billing disclosure and cancellation policy metadata.",
+      "age_restricted": true,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "ADULT_COMMERCE_SUBSCRIPTIONS_AND_BILLING_18_PLUS"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "CROSS_ECOSYSTEM_REFERENCE",
+      "canonical_ecosystem_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_kamasutra_relationship_intimacy_sex_chudai_porn_adult_health_wellness_core_ecosystem/"
+    },
+    {
+      "id": "ADVANCED",
+      "name": "ADVANCED",
+      "folder": "advanced",
+      "scope": "Advanced life-stage, personal-development and specialist support categories beyond foundational coverage.",
+      "age_restricted": false,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "LIFE_STAGES_AND_HUMAN_DEVELOPMENT",
+        "EDUCATION_LEARNING_AND_SKILLS"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "LOCAL_MODULE_METADATA"
+    },
+    {
+      "id": "DATING_MATCHMAKING_RELATIONSHIPS",
+      "name": "DATING MATCHMAKING RELATIONSHIPS",
+      "folder": "dating_matchmaking_relationships",
+      "scope": "Dating, matchmaking, relationship discovery, communication, safety and consent-centered interactions.",
+      "age_restricted": false,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "DATING_RELATIONSHIPS_MARRIAGE_AND_COMPATIBILITY"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "LOCAL_MODULE_METADATA"
+    },
+    {
+      "id": "ENTERPRISE",
+      "name": "ENTERPRISE",
+      "folder": "enterprise",
+      "scope": "Enterprise-scale people, workforce, family-benefit and organizational life-support services.",
+      "age_restricted": false,
+      "module_type": "SERVICE_TIER",
+      "domain_ids": [],
+      "service_tier_id": "ENTERPRISE",
+      "implementation_mode": "LOCAL_MODULE_METADATA"
+    },
+    {
+      "id": "FAMILY_PARENTING_CARE",
+      "name": "FAMILY PARENTING CARE",
+      "folder": "family_parenting_care",
+      "scope": "Family life, parenting, caregiving, child development and household support information.",
+      "age_restricted": false,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "FAMILY_PARENTING_AND_CAREGIVING",
+        "DATING_RELATIONSHIPS_MARRIAGE_AND_COMPATIBILITY"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "LOCAL_MODULE_METADATA"
+    },
+    {
+      "id": "FAMILY_SAFETY_SURVIVOR_SUPPORT",
+      "name": "FAMILY SAFETY SURVIVOR SUPPORT",
+      "folder": "family_safety_survivor_support",
+      "scope": "Family safety, crisis-aware support, survivor resources and safeguarding pathways.",
+      "age_restricted": false,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "PERSONAL_SAFETY_CRISIS_AND_SURVIVOR_SUPPORT",
+        "MENTAL_EMOTIONAL_AND_SOCIAL_WELLBEING"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "LOCAL_MODULE_METADATA"
+    },
+    {
+      "id": "GLOBAL_DIGITAL_SERVICES",
+      "name": "GLOBAL DIGITAL SERVICES",
+      "folder": "global_digital_services",
+      "scope": "Cross-border digital services supporting everyday personal, family and professional life.",
+      "age_restricted": false,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "DIGITAL_LIFE_AND_GLOBAL_DIGITAL_SERVICES"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "LOCAL_MODULE_METADATA"
+    },
+    {
+      "id": "GLOBAL_PEOPLE_WORK_LIFE",
+      "name": "GLOBAL PEOPLE WORK LIFE",
+      "folder": "global_people_work_life",
+      "scope": "Global people, work, career, wellbeing and everyday-life service taxonomy.",
+      "age_restricted": false,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "LIFE_STAGES_AND_HUMAN_DEVELOPMENT",
+        "IDENTITY_CITIZENSHIP_AND_PERSONAL_ADMIN",
+        "PERSONAL_FINANCE_AND_LIFE_PLANNING",
+        "HOME_HOUSEHOLD_AND_DAILY_LIVING",
+        "PHYSICAL_HEALTH_WELLBEING_AND_ACCESSIBILITY",
+        "MENTAL_EMOTIONAL_AND_SOCIAL_WELLBEING",
+        "COMMUNITY_CULTURE_SPIRITUALITY_AND_BELONGING",
+        "TRAVEL_MOBILITY_LEISURE_AND_RECREATION",
+        "AGEING_RETIREMENT_AND_LIFE_TRANSITIONS",
+        "GLOBAL_INDIA_AND_CROSS_BORDER_PEOPLE_LIFE"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "LOCAL_MODULE_METADATA"
+    },
+    {
+      "id": "INDIA_DIGITAL_PUBLIC_SERVICES",
+      "name": "INDIA DIGITAL PUBLIC SERVICES",
+      "folder": "india_digital_public_services",
+      "scope": "India-focused digital public-service discovery, access information and citizen-service navigation.",
+      "age_restricted": false,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "IDENTITY_CITIZENSHIP_AND_PERSONAL_ADMIN",
+        "CIVIC_LEGAL_AND_PUBLIC_SERVICES"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "LOCAL_MODULE_METADATA"
+    },
+    {
+      "id": "INDIA_PEOPLE_WORK_LIFE",
+      "name": "INDIA PEOPLE WORK LIFE",
+      "folder": "india_people_work_life",
+      "scope": "India-specific people, employment, family, education and daily-life support domains.",
+      "age_restricted": false,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "LIFE_STAGES_AND_HUMAN_DEVELOPMENT",
+        "CAREER_EMPLOYMENT_AND_WORKFORCE",
+        "HOME_HOUSEHOLD_AND_DAILY_LIVING",
+        "GLOBAL_INDIA_AND_CROSS_BORDER_PEOPLE_LIFE"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "LOCAL_MODULE_METADATA"
+    },
+    {
+      "id": "NORMAL",
+      "name": "NORMAL",
+      "folder": "normal",
+      "scope": "Foundational service tier for essential discovery, information and basic workflows.",
+      "age_restricted": false,
+      "module_type": "SERVICE_TIER",
+      "domain_ids": [],
+      "service_tier_id": "NORMAL",
+      "implementation_mode": "LOCAL_MODULE_METADATA"
+    },
+    {
+      "id": "PREMIUM",
+      "name": "PREMIUM",
+      "folder": "premium",
+      "scope": "Enhanced service tier for expanded features, specialist workflows and additional support.",
+      "age_restricted": false,
+      "module_type": "SERVICE_TIER",
+      "domain_ids": [],
+      "service_tier_id": "PREMIUM",
+      "implementation_mode": "LOCAL_MODULE_METADATA"
+    },
+    {
+      "id": "SEXUAL_HEALTH_REPRODUCTIVE_EDUCATION",
+      "name": "SEXUAL HEALTH REPRODUCTIVE EDUCATION",
+      "folder": "sexual_health_reproductive_education",
+      "scope": "Health education and reproductive information with age-appropriate, evidence-informed and privacy-conscious safeguards.",
+      "age_restricted": false,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "PHYSICAL_HEALTH_WELLBEING_AND_ACCESSIBILITY",
+        "SEXUAL_REPRODUCTIVE_HEALTH_AND_EDUCATION"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "LOCAL_MODULE_METADATA"
+    },
+    {
+      "id": "SMALL_BUSINESS_MSME_SUPPORT",
+      "name": "SMALL BUSINESS MSME SUPPORT",
+      "folder": "small_business_msme_support",
+      "scope": "Small-business, MSME, entrepreneurship, compliance and livelihood-support information.",
+      "age_restricted": false,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "ENTREPRENEURSHIP_LIVELIHOOD_AND_SMALL_BUSINESS",
+        "PERSONAL_FINANCE_AND_LIFE_PLANNING"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "LOCAL_MODULE_METADATA"
+    },
+    {
+      "id": "STANDARD",
+      "name": "STANDARD",
+      "folder": "standard",
+      "scope": "Standard service tier for routine personal, family and professional workflows.",
+      "age_restricted": false,
+      "module_type": "SERVICE_TIER",
+      "domain_ids": [],
+      "service_tier_id": "STANDARD",
+      "implementation_mode": "LOCAL_MODULE_METADATA"
+    },
+    {
+      "id": "STUDENT_YOUTH_DEVELOPMENT",
+      "name": "STUDENT YOUTH DEVELOPMENT",
+      "folder": "student_youth_development",
+      "scope": "Student and youth education, skills, career readiness and age-appropriate development support.",
+      "age_restricted": false,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "LIFE_STAGES_AND_HUMAN_DEVELOPMENT",
+        "EDUCATION_LEARNING_AND_SKILLS"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "LOCAL_MODULE_METADATA"
+    },
+    {
+      "id": "SUPREME",
+      "name": "SUPREME",
+      "folder": "supreme",
+      "scope": "Highest defined service tier, subject to actual implementation, eligibility, law and safety controls.",
+      "age_restricted": false,
+      "module_type": "SERVICE_TIER",
+      "domain_ids": [],
+      "service_tier_id": "SUPREME",
+      "implementation_mode": "LOCAL_MODULE_METADATA"
+    },
+    {
+      "id": "WORKFORCE_PROFESSIONAL_SERVICES",
+      "name": "WORKFORCE PROFESSIONAL SERVICES",
+      "folder": "workforce_professional_services",
+      "scope": "Employment, workforce development, professional services, skills and career-transition support.",
+      "age_restricted": false,
+      "module_type": "CAPABILITY_MODULE",
+      "domain_ids": [
+        "EDUCATION_LEARNING_AND_SKILLS",
+        "CAREER_EMPLOYMENT_AND_WORKFORCE",
+        "ENTREPRENEURSHIP_LIVELIHOOD_AND_SMALL_BUSINESS"
+      ],
+      "service_tier_id": null,
+      "implementation_mode": "LOCAL_MODULE_METADATA"
+    }
+  ],
+  "service_tiers": [
+    "NORMAL",
+    "BASIC",
+    "STANDARD",
+    "PREMIUM",
+    "PROFESSIONAL",
+    "ENTERPRISE",
+    "SUPREME"
+  ],
+  "notes": [
+    "The domains array is retained as a backward-compatible module-directory registry.",
+    "Adult-specific implementation is canonical in the Kamasutra ecosystem and referenced here without duplicating its implementation.",
+    "Service tiers are access/governance levels, not separate business or life domains."
+  ]
+}

@@ -1,0 +1,2354 @@
+{
+  "schema_version": "1.4.0",
+  "ecosystem_id": "GLOBAL-SECURITY-CORE-ECOSYSTEM",
+  "domains": [
+    {
+      "id": "IDENTITY_ACCESS",
+      "name": "Identity and access management",
+      "scope": "Authentication and authorization metadata, identity lifecycle, access governance, digital identity, account security and access review.",
+      "folder": "identity_access_security_core_ecosystem",
+      "package_path": "identity_access_security_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "technology_digital_ecosystem",
+      "master_catalog_refs": [
+        "S02_human_identity",
+        "S09_digital_identity",
+        "S10_global_identity"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "IDENTITY_ACCESS_01_IDENTITY_PROOFING_AND_ENROLLMENT",
+          "name": "Identity proofing and enrollment",
+          "scope": "Identity proofing and enrollment within identity and access management; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "IDENTITY_ACCESS_02_AUTHENTICATION_FACTORS_AND_MFA",
+          "name": "Authentication factors and MFA",
+          "scope": "Authentication factors and MFA within identity and access management; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "IDENTITY_ACCESS_03_FEDERATION_AND_SINGLE_SIGN_ON",
+          "name": "Federation and single sign-on",
+          "scope": "Federation and single sign-on within identity and access management; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "IDENTITY_ACCESS_04_AUTHORIZATION_AND_POLICY_DECISIONING",
+          "name": "Authorization and policy decisioning",
+          "scope": "Authorization and policy decisioning within identity and access management; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "IDENTITY_ACCESS_05_PRIVILEGED_ACCESS_AND_JUST_IN_TIME_ELEVATION",
+          "name": "Privileged access and just-in-time elevation",
+          "scope": "Privileged access and just-in-time elevation within identity and access management; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "IDENTITY_ACCESS_06_IDENTITY_LIFECYCLE_AND_ACCESS_CERTIFICATION",
+          "name": "Identity lifecycle and access certification",
+          "scope": "Identity lifecycle and access certification within identity and access management; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "IDENTITY_ACCESS_07_PASSWORDLESS_AND_PHISHING_RESISTANT_AUTHENTICATION",
+          "name": "Passwordless and phishing-resistant authentication",
+          "scope": "Passwordless and phishing-resistant authentication within Identity and access management; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "IDENTITY_ACCESS_08_ACCOUNT_RECOVERY_AND_RE_CREDENTIALING",
+          "name": "Account recovery and re-credentialing",
+          "scope": "Account recovery and re-credentialing within Identity and access management; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "IDENTITY_ACCESS_09_MACHINE_IDENTITY_AND_CERTIFICATE_BINDING",
+          "name": "Machine identity and certificate binding",
+          "scope": "Machine identity and certificate binding within Identity and access management; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "IDENTITY_ACCESS_10_IDENTITY_FRAUD_AND_PROOFING_ASSURANCE",
+          "name": "Identity fraud and proofing assurance",
+          "scope": "Identity fraud and proofing assurance within Identity and access management; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "human_individual_ecosystem",
+        "technology_digital_ecosystem",
+        "infrastructure_server_core_ecosystem"
+      ]
+    },
+    {
+      "id": "ZERO_TRUST",
+      "name": "Zero trust architecture",
+      "scope": "Zero-trust design principles, continuous/contextual verification, trust boundaries, least privilege and security posture metadata.",
+      "folder": "zero_trust_security_core_ecosystem",
+      "package_path": "zero_trust_security_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "technology_digital_ecosystem",
+      "master_catalog_refs": [
+        "S09_cybersecurity",
+        "S11_digital_security",
+        "S10_global_security"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "ZERO_TRUST_01_TRUST_BOUNDARIES_AND_SEGMENTATION",
+          "name": "Trust boundaries and segmentation",
+          "scope": "Trust boundaries and segmentation within zero trust architecture; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "ZERO_TRUST_02_CONTINUOUS_IDENTITY_AND_DEVICE_VERIFICATION",
+          "name": "Continuous identity and device verification",
+          "scope": "Continuous identity and device verification within zero trust architecture; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "ZERO_TRUST_03_CONTEXTUAL_ACCESS_EVALUATION",
+          "name": "Contextual access evaluation",
+          "scope": "Contextual access evaluation within zero trust architecture; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "ZERO_TRUST_04_LEAST_PRIVILEGE_POLICY_DESIGN",
+          "name": "Least-privilege policy design",
+          "scope": "Least-privilege policy design within zero trust architecture; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "ZERO_TRUST_05_SERVICE_TO_SERVICE_TRUST_AND_WORKLOAD_IDENTITY",
+          "name": "Service-to-service trust and workload identity",
+          "scope": "Service-to-service trust and workload identity within zero trust architecture; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "ZERO_TRUST_06_ZERO_TRUST_POSTURE_ASSESSMENT",
+          "name": "Zero-trust posture assessment",
+          "scope": "Zero-trust posture assessment within zero trust architecture; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "ZERO_TRUST_07_POLICY_ENFORCEMENT_POINTS_AND_DECISION_LOGS",
+          "name": "Policy enforcement points and decision logs",
+          "scope": "Policy enforcement points and decision logs within Zero trust architecture; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "ZERO_TRUST_08_NETWORK_AND_APPLICATION_MICRO_SEGMENTATION",
+          "name": "Network and application micro-segmentation",
+          "scope": "Network and application micro-segmentation within Zero trust architecture; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "ZERO_TRUST_09_CONTINUOUS_POSTURE_AND_RISK_SIGNALS",
+          "name": "Continuous posture and risk signals",
+          "scope": "Continuous posture and risk signals within Zero trust architecture; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "ZERO_TRUST_10_EXCEPTION_EXPIRY_AND_TRUST_REASSESSMENT",
+          "name": "Exception expiry and trust reassessment",
+          "scope": "Exception expiry and trust reassessment within Zero trust architecture; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem",
+        "infrastructure_server_core_ecosystem",
+        "governance_law_security"
+      ]
+    },
+    {
+      "id": "ENDPOINT_DEVICE",
+      "name": "Endpoint and device security",
+      "scope": "Computer, mobile, hardware, endpoint posture, device lifecycle, patching and fleet protection metadata.",
+      "folder": "endpoint_device_security_core_ecosystem",
+      "package_path": "endpoint_device_security_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "technology_digital_ecosystem",
+      "master_catalog_refs": [
+        "S09_computer",
+        "S09_mobile",
+        "S09_hardware",
+        "S11_digital_security"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "ENDPOINT_DEVICE_01_ENDPOINT_INVENTORY_AND_OWNERSHIP",
+          "name": "Endpoint inventory and ownership",
+          "scope": "Endpoint inventory and ownership within endpoint and device security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "ENDPOINT_DEVICE_02_OPERATING_SYSTEM_HARDENING_AND_BASELINES",
+          "name": "Operating-system hardening and baselines",
+          "scope": "Operating-system hardening and baselines within endpoint and device security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "ENDPOINT_DEVICE_03_PATCH_AND_CONFIGURATION_COMPLIANCE",
+          "name": "Patch and configuration compliance",
+          "scope": "Patch and configuration compliance within endpoint and device security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "ENDPOINT_DEVICE_04_ENDPOINT_DETECTION_AND_RESPONSE_READINESS",
+          "name": "Endpoint detection and response readiness",
+          "scope": "Endpoint detection and response readiness within endpoint and device security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "ENDPOINT_DEVICE_05_MOBILE_DEVICE_MANAGEMENT_AND_APP_PROTECTION",
+          "name": "Mobile-device management and app protection",
+          "scope": "Mobile-device management and app protection within endpoint and device security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "ENDPOINT_DEVICE_06_DEVICE_ENCRYPTION_AND_SECURE_DISPOSAL",
+          "name": "Device encryption and secure disposal",
+          "scope": "Device encryption and secure disposal within endpoint and device security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "ENDPOINT_DEVICE_07_MOBILE_APPLICATION_THREAT_DEFENCE",
+          "name": "Mobile application threat defence",
+          "scope": "Mobile application threat defence within Endpoint and device security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "ENDPOINT_DEVICE_08_EDR_TELEMETRY_AND_TAMPER_PROTECTION",
+          "name": "EDR telemetry and tamper protection",
+          "scope": "EDR telemetry and tamper protection within Endpoint and device security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "ENDPOINT_DEVICE_09_USB_PERIPHERAL_AND_REMOVABLE_MEDIA_CONTROL",
+          "name": "USB, peripheral and removable-media control",
+          "scope": "USB, peripheral and removable-media control within Endpoint and device security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "ENDPOINT_DEVICE_10_SECURE_BOOT_FIRMWARE_AND_DEVICE_ATTESTATION",
+          "name": "Secure boot, firmware and device attestation",
+          "scope": "Secure boot, firmware and device attestation within Endpoint and device security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem",
+        "governance_law_security"
+      ]
+    },
+    {
+      "id": "NETWORK_SECURITY",
+      "name": "Network security",
+      "scope": "Internet and global-network security, segmentation, secure connectivity, traffic policy, firewall and network posture metadata.",
+      "folder": "network_security_core_ecosystem",
+      "package_path": "network_security_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "technology_digital_ecosystem",
+      "master_catalog_refs": [
+        "S09_global_networks",
+        "S10_global_network",
+        "S09_cybersecurity"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "NETWORK_SECURITY_01_NETWORK_ASSET_DISCOVERY_AND_TOPOLOGY",
+          "name": "Network asset discovery and topology",
+          "scope": "Network asset discovery and topology within network security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "NETWORK_SECURITY_02_SEGMENTATION_AND_MICRO_SEGMENTATION",
+          "name": "Segmentation and micro-segmentation",
+          "scope": "Segmentation and micro-segmentation within network security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "NETWORK_SECURITY_03_FIREWALL_AND_ACCESS_CONTROL_POLICY",
+          "name": "Firewall and access-control policy",
+          "scope": "Firewall and access-control policy within network security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "NETWORK_SECURITY_04_DNS_ROUTING_AND_PROTOCOL_SECURITY",
+          "name": "DNS, routing and protocol security",
+          "scope": "DNS, routing and protocol security within network security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "NETWORK_SECURITY_05_WIRELESS_AND_REMOTE_ACCESS_SECURITY",
+          "name": "Wireless and remote-access security",
+          "scope": "Wireless and remote-access security within network security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "NETWORK_SECURITY_06_NETWORK_TELEMETRY_AND_ANOMALY_DETECTION",
+          "name": "Network telemetry and anomaly detection",
+          "scope": "Network telemetry and anomaly detection within network security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "NETWORK_SECURITY_07_INTRUSION_PREVENTION_AND_DDOS_RESILIENCE",
+          "name": "Intrusion prevention and DDoS resilience",
+          "scope": "Intrusion prevention and DDoS resilience within Network security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "NETWORK_SECURITY_08_TLS_CERTIFICATE_AND_ENCRYPTED_TRAFFIC_GOVERNANCE",
+          "name": "TLS, certificate and encrypted-traffic governance",
+          "scope": "TLS, certificate and encrypted-traffic governance within Network security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "NETWORK_SECURITY_09_SD_WAN_SASE_AND_EDGE_SECURITY",
+          "name": "SD-WAN, SASE and edge security",
+          "scope": "SD-WAN, SASE and edge security within Network security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "NETWORK_SECURITY_10_NETWORK_ACCESS_CONTROL_AND_DEVICE_ADMISSION",
+          "name": "Network access control and device admission",
+          "scope": "Network access control and device admission within Network security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem",
+        "infrastructure_server_core_ecosystem"
+      ]
+    },
+    {
+      "id": "CLOUD_INFRASTRUCTURE",
+      "name": "Cloud and infrastructure security",
+      "scope": "Cloud computing, global infrastructure and server security, workload posture, configuration hardening and resilience metadata.",
+      "folder": "cloud_infrastructure_security_core_ecosystem",
+      "package_path": "cloud_infrastructure_security_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "infrastructure_server_core_ecosystem",
+      "master_catalog_refs": [
+        "S09_cloud_computing",
+        "S10_global_infrastructure",
+        "S10_global_server"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "CLOUD_INFRASTRUCTURE_01_CLOUD_IDENTITY_AND_CONTROL_PLANE_SECURITY",
+          "name": "Cloud identity and control-plane security",
+          "scope": "Cloud identity and control-plane security within cloud and infrastructure security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CLOUD_INFRASTRUCTURE_02_SECURE_CONFIGURATION_AND_POSTURE_MANAGEMENT",
+          "name": "Secure configuration and posture management",
+          "scope": "Secure configuration and posture management within cloud and infrastructure security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CLOUD_INFRASTRUCTURE_03_WORKLOAD_AND_CONTAINER_ISOLATION",
+          "name": "Workload and container isolation",
+          "scope": "Workload and container isolation within cloud and infrastructure security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CLOUD_INFRASTRUCTURE_04_INFRASTRUCTURE_AS_CODE_POLICY_CHECKS",
+          "name": "Infrastructure-as-code policy checks",
+          "scope": "Infrastructure-as-code policy checks within cloud and infrastructure security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CLOUD_INFRASTRUCTURE_05_SERVER_AND_HOST_HARDENING",
+          "name": "Server and host hardening",
+          "scope": "Server and host hardening within cloud and infrastructure security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CLOUD_INFRASTRUCTURE_06_CLOUD_LOGGING_RESILIENCE_AND_RECOVERY",
+          "name": "Cloud logging, resilience and recovery",
+          "scope": "Cloud logging, resilience and recovery within cloud and infrastructure security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CLOUD_INFRASTRUCTURE_07_CLOUD_NATIVE_AND_KUBERNETES_SECURITY",
+          "name": "Cloud-native and Kubernetes security",
+          "scope": "Cloud-native and Kubernetes security within Cloud and infrastructure security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "CLOUD_INFRASTRUCTURE_08_CLOUD_CONFIGURATION_DRIFT_AND_REMEDIATION",
+          "name": "Cloud configuration drift and remediation",
+          "scope": "Cloud configuration drift and remediation within Cloud and infrastructure security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "CLOUD_INFRASTRUCTURE_09_SERVERLESS_AND_FUNCTION_SECURITY",
+          "name": "Serverless and function security",
+          "scope": "Serverless and function security within Cloud and infrastructure security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "CLOUD_INFRASTRUCTURE_10_MULTI_CLOUD_AND_HYBRID_CONTROL_CONSISTENCY",
+          "name": "Multi-cloud and hybrid control consistency",
+          "scope": "Multi-cloud and hybrid control consistency within Cloud and infrastructure security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem",
+        "infrastructure_server_core_ecosystem"
+      ]
+    },
+    {
+      "id": "APPLICATION_PRODUCT",
+      "name": "Application and product security",
+      "scope": "Websites, applications and software security, secure development lifecycle, product testing, dependency review and release assurance metadata.",
+      "folder": "application_product_security_core_ecosystem",
+      "package_path": "application_product_security_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "technology_digital_ecosystem",
+      "master_catalog_refs": [
+        "S09_applications",
+        "S09_software",
+        "S09_websites",
+        "S09_cybersecurity"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "APPLICATION_PRODUCT_01_SECURE_SOFTWARE_DEVELOPMENT_LIFECYCLE",
+          "name": "Secure software development lifecycle",
+          "scope": "Secure software development lifecycle within application and product security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "APPLICATION_PRODUCT_02_THREAT_MODELLING_AND_DESIGN_REVIEW",
+          "name": "Threat modelling and design review",
+          "scope": "Threat modelling and design review within application and product security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "APPLICATION_PRODUCT_03_SECURE_CODING_AND_CODE_REVIEW",
+          "name": "Secure coding and code review",
+          "scope": "Secure coding and code review within application and product security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "APPLICATION_PRODUCT_04_WEB_AND_API_SECURITY_TESTING",
+          "name": "Web and API security testing",
+          "scope": "Web and API security testing within application and product security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "APPLICATION_PRODUCT_05_DEPENDENCY_AND_SOFTWARE_COMPOSITION_ANALYSIS",
+          "name": "Dependency and software composition analysis",
+          "scope": "Dependency and software composition analysis within application and product security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "APPLICATION_PRODUCT_06_RELEASE_INTEGRITY_AND_PRODUCT_SECURITY_RESPONSE",
+          "name": "Release integrity and product security response",
+          "scope": "Release integrity and product security response within application and product security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "APPLICATION_PRODUCT_07_APPLICATION_AUTHENTICATION_SESSION_AND_ACCOUNT_SECURITY",
+          "name": "Application authentication, session and account security",
+          "scope": "Application authentication, session and account security within Application and product security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "APPLICATION_PRODUCT_08_SAST_DAST_AND_IAST_TESTING_GOVERNANCE",
+          "name": "SAST, DAST and IAST testing governance",
+          "scope": "SAST, DAST and IAST testing governance within Application and product security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "APPLICATION_PRODUCT_09_API_GATEWAY_GRAPHQL_AND_WEBHOOK_SECURITY",
+          "name": "API gateway, GraphQL and webhook security",
+          "scope": "API gateway, GraphQL and webhook security within Application and product security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "APPLICATION_PRODUCT_10_SECURE_RELEASE_SIGNING_AND_ATTESTATION",
+          "name": "Secure release signing and attestation",
+          "scope": "Secure release signing and attestation within Application and product security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem"
+      ]
+    },
+    {
+      "id": "DATA_PRIVACY",
+      "name": "Data security and privacy",
+      "scope": "Data classification, privacy law/data-protection references, retention, minimization, access and processing safeguards metadata.",
+      "folder": "data_privacy_security_core_ecosystem",
+      "package_path": "data_privacy_security_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "governance_law_security",
+      "master_catalog_refs": [
+        "S07_privacy_and_data_protection",
+        "S11_privacy_law",
+        "S11_data_protection"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "DATA_PRIVACY_01_DATA_CLASSIFICATION_AND_OWNERSHIP",
+          "name": "Data classification and ownership",
+          "scope": "Data classification and ownership within data security and privacy; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "DATA_PRIVACY_02_DATA_MINIMIZATION_AND_PURPOSE_LIMITATION",
+          "name": "Data minimization and purpose limitation",
+          "scope": "Data minimization and purpose limitation within data security and privacy; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "DATA_PRIVACY_03_PRIVACY_IMPACT_AND_RISK_ASSESSMENT",
+          "name": "Privacy impact and risk assessment",
+          "scope": "Privacy impact and risk assessment within data security and privacy; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "DATA_PRIVACY_04_RETENTION_DELETION_AND_LIFECYCLE_CONTROLS",
+          "name": "Retention, deletion and lifecycle controls",
+          "scope": "Retention, deletion and lifecycle controls within data security and privacy; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "DATA_PRIVACY_05_DATA_ACCESS_GOVERNANCE_AND_MONITORING",
+          "name": "Data access governance and monitoring",
+          "scope": "Data access governance and monitoring within data security and privacy; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "DATA_PRIVACY_06_CROSS_BORDER_TRANSFER_AND_DATA_SUBJECT_RIGHTS",
+          "name": "Cross-border transfer and data-subject rights",
+          "scope": "Cross-border transfer and data-subject rights within data security and privacy; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "DATA_PRIVACY_07_DATA_DISCOVERY_AND_SHADOW_DATA_GOVERNANCE",
+          "name": "Data discovery and shadow-data governance",
+          "scope": "Data discovery and shadow-data governance within Data security and privacy; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "DATA_PRIVACY_08_DATABASE_AND_STORAGE_ACCESS_SECURITY",
+          "name": "Database and storage access security",
+          "scope": "Database and storage access security within Data security and privacy; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "DATA_PRIVACY_09_DATA_LOSS_PREVENTION_AND_EXFILTRATION_CONTROLS",
+          "name": "Data loss prevention and exfiltration controls",
+          "scope": "Data loss prevention and exfiltration controls within Data security and privacy; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "DATA_PRIVACY_10_PRIVACY_ENGINEERING_PSEUDONYMIZATION_AND_ANONYMIZATION",
+          "name": "Privacy engineering, pseudonymization and anonymization",
+          "scope": "Privacy engineering, pseudonymization and anonymization within Data security and privacy; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "adult_content_media_ecosystem",
+        "governance_law_security"
+      ]
+    },
+    {
+      "id": "CRYPTOGRAPHY_KEY_MANAGEMENT",
+      "name": "Cryptography and key management",
+      "scope": "Cryptographic standards, encryption, key/certificate lifecycle, secure storage and cryptographic readiness metadata.",
+      "folder": "cryptography_key_management_core_ecosystem",
+      "package_path": "cryptography_key_management_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "governance_law_security",
+      "master_catalog_refs": [
+        "S11_data_protection",
+        "S11_digital_security",
+        "S11_global_standards"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "CRYPTOGRAPHY_KEY_MANAGEMENT_01_ENCRYPTION_IN_TRANSIT_AND_AT_REST",
+          "name": "Encryption in transit and at rest",
+          "scope": "Encryption in transit and at rest within cryptography and key management; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CRYPTOGRAPHY_KEY_MANAGEMENT_02_KEY_GENERATION_AND_CUSTODY",
+          "name": "Key generation and custody",
+          "scope": "Key generation and custody within cryptography and key management; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CRYPTOGRAPHY_KEY_MANAGEMENT_03_KEY_ROTATION_AND_REVOCATION",
+          "name": "Key rotation and revocation",
+          "scope": "Key rotation and revocation within cryptography and key management; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CRYPTOGRAPHY_KEY_MANAGEMENT_04_CERTIFICATE_AND_PKI_LIFECYCLE",
+          "name": "Certificate and PKI lifecycle",
+          "scope": "Certificate and PKI lifecycle within cryptography and key management; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CRYPTOGRAPHY_KEY_MANAGEMENT_05_SECRETS_MANAGEMENT_AND_WORKLOAD_CREDENTIALS",
+          "name": "Secrets management and workload credentials",
+          "scope": "Secrets management and workload credentials within cryptography and key management; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CRYPTOGRAPHY_KEY_MANAGEMENT_06_CRYPTOGRAPHIC_AGILITY_AND_POST_QUANTUM_READINESS",
+          "name": "Cryptographic agility and post-quantum readiness",
+          "scope": "Cryptographic agility and post-quantum readiness within cryptography and key management; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CRYPTOGRAPHY_KEY_MANAGEMENT_07_HARDWARE_SECURITY_MODULE_AND_KMS_GOVERNANCE",
+          "name": "Hardware security module and KMS governance",
+          "scope": "Hardware security module and KMS governance within Cryptography and key management; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "CRYPTOGRAPHY_KEY_MANAGEMENT_08_DIGITAL_SIGNATURES_AND_CODE_SIGNING",
+          "name": "Digital signatures and code signing",
+          "scope": "Digital signatures and code signing within Cryptography and key management; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "CRYPTOGRAPHY_KEY_MANAGEMENT_09_CRYPTOGRAPHIC_PROTOCOL_REVIEW",
+          "name": "Cryptographic protocol review",
+          "scope": "Cryptographic protocol review within Cryptography and key management; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "CRYPTOGRAPHY_KEY_MANAGEMENT_10_KEY_COMPROMISE_RESPONSE_AND_RECOVERY",
+          "name": "Key compromise response and recovery",
+          "scope": "Key compromise response and recovery within Cryptography and key management; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "governance_law_security"
+      ]
+    },
+    {
+      "id": "THREAT_INTELLIGENCE",
+      "name": "Threat intelligence",
+      "scope": "Threat actor and indicator taxonomy, threat-source provenance, intelligence lifecycle, risk context and analysis metadata.",
+      "folder": "threat_intelligence_core_ecosystem",
+      "package_path": "threat_intelligence_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "technology_digital_ecosystem",
+      "master_catalog_refs": [
+        "S09_cybersecurity",
+        "S11_risk_management",
+        "S12_technical_knowledge"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "THREAT_INTELLIGENCE_01_THREAT_ACTOR_AND_CAMPAIGN_TAXONOMY",
+          "name": "Threat actor and campaign taxonomy",
+          "scope": "Threat actor and campaign taxonomy within threat intelligence; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "THREAT_INTELLIGENCE_02_INDICATORS_OF_COMPROMISE_PROVENANCE",
+          "name": "Indicators of compromise provenance",
+          "scope": "Indicators of compromise provenance within threat intelligence; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "THREAT_INTELLIGENCE_03_THREAT_COLLECTION_AND_SOURCE_VALIDATION",
+          "name": "Threat collection and source validation",
+          "scope": "Threat collection and source validation within threat intelligence; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "THREAT_INTELLIGENCE_04_STRATEGIC_OPERATIONAL_AND_TACTICAL_ANALYSIS",
+          "name": "Strategic, operational and tactical analysis",
+          "scope": "Strategic, operational and tactical analysis within threat intelligence; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "THREAT_INTELLIGENCE_05_INTELLIGENCE_SHARING_AND_HANDLING_CONTROLS",
+          "name": "Intelligence sharing and handling controls",
+          "scope": "Intelligence sharing and handling controls within threat intelligence; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "THREAT_INTELLIGENCE_06_THREAT_INFORMED_RISK_PRIORITIZATION",
+          "name": "Threat-informed risk prioritization",
+          "scope": "Threat-informed risk prioritization within threat intelligence; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "THREAT_INTELLIGENCE_07_ATTACK_FRAMEWORK_AND_TTP_MAPPING",
+          "name": "Attack framework and TTP mapping",
+          "scope": "Attack framework and TTP mapping within Threat intelligence; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "THREAT_INTELLIGENCE_08_EXTERNAL_ATTACK_SURFACE_INTELLIGENCE",
+          "name": "External attack-surface intelligence",
+          "scope": "External attack-surface intelligence within Threat intelligence; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "THREAT_INTELLIGENCE_09_DARK_WEB_AND_CREDENTIAL_EXPOSURE_MONITORING",
+          "name": "Dark-web and credential-exposure monitoring",
+          "scope": "Dark-web and credential-exposure monitoring within Threat intelligence; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "THREAT_INTELLIGENCE_10_INTELLIGENCE_CONFIDENCE_AND_DECEPTION_HANDLING",
+          "name": "Intelligence confidence and deception handling",
+          "scope": "Intelligence confidence and deception handling within Threat intelligence; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem",
+        "governance_law_security",
+        "knowledge_research_innovation"
+      ]
+    },
+    {
+      "id": "DETECTION_RESPONSE",
+      "name": "Detection and incident response",
+      "scope": "Security detection, alert triage, incident handling, escalation, containment and response lifecycle metadata; no live detection claims.",
+      "folder": "detection_response_core_ecosystem",
+      "package_path": "detection_response_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "technology_digital_ecosystem",
+      "master_catalog_refs": [
+        "S09_cybersecurity",
+        "S11_digital_security",
+        "S11_audit"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "DETECTION_RESPONSE_01_SECURITY_EVENT_COLLECTION_AND_NORMALIZATION",
+          "name": "Security event collection and normalization",
+          "scope": "Security event collection and normalization within detection and incident response; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "DETECTION_RESPONSE_02_DETECTION_ENGINEERING_AND_RULE_LIFECYCLE",
+          "name": "Detection engineering and rule lifecycle",
+          "scope": "Detection engineering and rule lifecycle within detection and incident response; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "DETECTION_RESPONSE_03_ALERT_TRIAGE_AND_CASE_MANAGEMENT",
+          "name": "Alert triage and case management",
+          "scope": "Alert triage and case management within detection and incident response; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "DETECTION_RESPONSE_04_INCIDENT_CLASSIFICATION_AND_ESCALATION",
+          "name": "Incident classification and escalation",
+          "scope": "Incident classification and escalation within detection and incident response; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "DETECTION_RESPONSE_05_CONTAINMENT_ERADICATION_AND_RECOVERY_COORDINATION",
+          "name": "Containment, eradication and recovery coordination",
+          "scope": "Containment, eradication and recovery coordination within detection and incident response; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "DETECTION_RESPONSE_06_POST_INCIDENT_REVIEW_AND_LESSONS_LEARNED",
+          "name": "Post-incident review and lessons learned",
+          "scope": "Post-incident review and lessons learned within detection and incident response; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "DETECTION_RESPONSE_07_SIEM_SOAR_AND_SECURITY_DATA_PIPELINES",
+          "name": "SIEM, SOAR and security data pipelines",
+          "scope": "SIEM, SOAR and security data pipelines within Detection and incident response; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "DETECTION_RESPONSE_08_ENDPOINT_NETWORK_AND_CLOUD_DETECTION_COVERAGE",
+          "name": "Endpoint, network and cloud detection coverage",
+          "scope": "Endpoint, network and cloud detection coverage within Detection and incident response; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "DETECTION_RESPONSE_09_FORENSIC_TRIAGE_AND_MALWARE_CONTAINMENT",
+          "name": "Forensic triage and malware containment",
+          "scope": "Forensic triage and malware containment within Detection and incident response; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "DETECTION_RESPONSE_10_BREACH_NOTIFICATION_AND_REGULATORY_ESCALATION",
+          "name": "Breach notification and regulatory escalation",
+          "scope": "Breach notification and regulatory escalation within Detection and incident response; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem",
+        "governance_law_security"
+      ]
+    },
+    {
+      "id": "VULNERABILITY_EXPOSURE",
+      "name": "Vulnerability and exposure management",
+      "scope": "Asset exposure, vulnerability inventory, risk prioritization, remediation tracking and disclosure metadata.",
+      "folder": "vulnerability_exposure_core_ecosystem",
+      "package_path": "vulnerability_exposure_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "technology_digital_ecosystem",
+      "master_catalog_refs": [
+        "S09_cybersecurity",
+        "S11_risk_management",
+        "S11_compliance"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "VULNERABILITY_EXPOSURE_01_ASSET_AND_ATTACK_SURFACE_INVENTORY",
+          "name": "Asset and attack-surface inventory",
+          "scope": "Asset and attack-surface inventory within vulnerability and exposure management; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "VULNERABILITY_EXPOSURE_02_VULNERABILITY_IDENTIFICATION_AND_VALIDATION",
+          "name": "Vulnerability identification and validation",
+          "scope": "Vulnerability identification and validation within vulnerability and exposure management; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "VULNERABILITY_EXPOSURE_03_RISK_BASED_PRIORITIZATION_AND_EXPLOITABILITY",
+          "name": "Risk-based prioritization and exploitability",
+          "scope": "Risk-based prioritization and exploitability within vulnerability and exposure management; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "VULNERABILITY_EXPOSURE_04_PATCH_AND_MITIGATION_TRACKING",
+          "name": "Patch and mitigation tracking",
+          "scope": "Patch and mitigation tracking within vulnerability and exposure management; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "VULNERABILITY_EXPOSURE_05_COORDINATED_DISCLOSURE_AND_EXCEPTION_HANDLING",
+          "name": "Coordinated disclosure and exception handling",
+          "scope": "Coordinated disclosure and exception handling within vulnerability and exposure management; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "VULNERABILITY_EXPOSURE_06_EXPOSURE_METRICS_AND_REMEDIATION_ASSURANCE",
+          "name": "Exposure metrics and remediation assurance",
+          "scope": "Exposure metrics and remediation assurance within vulnerability and exposure management; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "VULNERABILITY_EXPOSURE_07_PENETRATION_TESTING_AND_RED_TEAM_GOVERNANCE",
+          "name": "Penetration testing and red-team governance",
+          "scope": "Penetration testing and red-team governance within Vulnerability and exposure management; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "VULNERABILITY_EXPOSURE_08_BUG_BOUNTY_AND_VULNERABILITY_DISCLOSURE",
+          "name": "Bug bounty and vulnerability disclosure",
+          "scope": "Bug bounty and vulnerability disclosure within Vulnerability and exposure management; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "VULNERABILITY_EXPOSURE_09_CVE_CVSS_KEV_AND_EXPLOIT_INTELLIGENCE",
+          "name": "CVE, CVSS, KEV and exploit intelligence",
+          "scope": "CVE, CVSS, KEV and exploit intelligence within Vulnerability and exposure management; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "VULNERABILITY_EXPOSURE_10_EXTERNAL_ASSET_AND_CLOUD_EXPOSURE_REVIEW",
+          "name": "External asset and cloud-exposure review",
+          "scope": "External asset and cloud-exposure review within Vulnerability and exposure management; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem",
+        "governance_law_security"
+      ]
+    },
+    {
+      "id": "GOVERNANCE_RISK_COMPLIANCE",
+      "name": "Governance, risk and compliance",
+      "scope": "Governance, risk management, compliance mappings, audit evidence, ethics, global standards and control ownership metadata.",
+      "folder": "governance_risk_compliance_core_ecosystem",
+      "package_path": "governance_risk_compliance_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "governance_law_security",
+      "master_catalog_refs": [
+        "S11_governance",
+        "S11_compliance",
+        "S11_audit",
+        "S11_global_standards"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "GOVERNANCE_RISK_COMPLIANCE_01_SECURITY_GOVERNANCE_AND_ACCOUNTABILITY",
+          "name": "Security governance and accountability",
+          "scope": "Security governance and accountability within governance, risk and compliance; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "GOVERNANCE_RISK_COMPLIANCE_02_RISK_REGISTER_AND_TREATMENT_PLANNING",
+          "name": "Risk register and treatment planning",
+          "scope": "Risk register and treatment planning within governance, risk and compliance; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "GOVERNANCE_RISK_COMPLIANCE_03_CONTROL_FRAMEWORK_MAPPING",
+          "name": "Control framework mapping",
+          "scope": "Control framework mapping within governance, risk and compliance; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "GOVERNANCE_RISK_COMPLIANCE_04_AUDIT_EVIDENCE_AND_ASSURANCE",
+          "name": "Audit evidence and assurance",
+          "scope": "Audit evidence and assurance within governance, risk and compliance; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "GOVERNANCE_RISK_COMPLIANCE_05_POLICY_LIFECYCLE_AND_EXCEPTION_APPROVAL",
+          "name": "Policy lifecycle and exception approval",
+          "scope": "Policy lifecycle and exception approval within governance, risk and compliance; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "GOVERNANCE_RISK_COMPLIANCE_06_THIRD_PARTY_AND_ENTERPRISE_COMPLIANCE_OVERSIGHT",
+          "name": "Third-party and enterprise compliance oversight",
+          "scope": "Third-party and enterprise compliance oversight within governance, risk and compliance; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "GOVERNANCE_RISK_COMPLIANCE_07_SECURITY_CONTROL_OWNERSHIP_AND_ATTESTATION",
+          "name": "Security control ownership and attestation",
+          "scope": "Security control ownership and attestation within Governance, risk and compliance; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "GOVERNANCE_RISK_COMPLIANCE_08_THIRD_PARTY_DUE_DILIGENCE_AND_CONTRACT_CONTROLS",
+          "name": "Third-party due diligence and contract controls",
+          "scope": "Third-party due diligence and contract controls within Governance, risk and compliance; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "GOVERNANCE_RISK_COMPLIANCE_09_SECURITY_METRICS_KRIS_KPIS_AND_BOARD_REPORTING",
+          "name": "Security metrics, KRIs, KPIs and board reporting",
+          "scope": "Security metrics, KRIs, KPIs and board reporting within Governance, risk and compliance; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "GOVERNANCE_RISK_COMPLIANCE_10_REGULATORY_CHANGE_AND_CONTROL_CROSSWALK",
+          "name": "Regulatory change and control crosswalk",
+          "scope": "Regulatory change and control crosswalk within Governance, risk and compliance; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "governance_law_security"
+      ]
+    },
+    {
+      "id": "BACKUP_RECOVERY_RESILIENCE",
+      "name": "Backup, recovery and resilience",
+      "scope": "Backup integrity, recovery objectives, restore readiness, continuity and cyber-resilience planning metadata.",
+      "folder": "backup_recovery_resilience_core_ecosystem",
+      "package_path": "backup_recovery_resilience_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "infrastructure_server_core_ecosystem",
+      "master_catalog_refs": [
+        "S10_global_infrastructure",
+        "S10_global_storage",
+        "S11_risk_management"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "BACKUP_RECOVERY_RESILIENCE_01_BACKUP_POLICY_AND_COVERAGE_INVENTORY",
+          "name": "Backup policy and coverage inventory",
+          "scope": "Backup policy and coverage inventory within backup, recovery and resilience; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "BACKUP_RECOVERY_RESILIENCE_02_BACKUP_IMMUTABILITY_AND_ACCESS_CONTROLS",
+          "name": "Backup immutability and access controls",
+          "scope": "Backup immutability and access controls within backup, recovery and resilience; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "BACKUP_RECOVERY_RESILIENCE_03_RESTORE_TESTING_AND_INTEGRITY_VALIDATION",
+          "name": "Restore testing and integrity validation",
+          "scope": "Restore testing and integrity validation within backup, recovery and resilience; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "BACKUP_RECOVERY_RESILIENCE_04_RECOVERY_TIME_AND_RECOVERY_POINT_OBJECTIVES",
+          "name": "Recovery time and recovery point objectives",
+          "scope": "Recovery time and recovery point objectives within backup, recovery and resilience; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "BACKUP_RECOVERY_RESILIENCE_05_BUSINESS_CONTINUITY_AND_DISASTER_RECOVERY",
+          "name": "Business continuity and disaster recovery",
+          "scope": "Business continuity and disaster recovery within backup, recovery and resilience; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "BACKUP_RECOVERY_RESILIENCE_06_RANSOMWARE_RECOVERY_AND_CYBER_RESILIENCE",
+          "name": "Ransomware recovery and cyber resilience",
+          "scope": "Ransomware recovery and cyber resilience within backup, recovery and resilience; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "BACKUP_RECOVERY_RESILIENCE_07_BACKUP_ACCESS_SEPARATION_AND_CREDENTIAL_ISOLATION",
+          "name": "Backup access separation and credential isolation",
+          "scope": "Backup access separation and credential isolation within Backup, recovery and resilience; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "BACKUP_RECOVERY_RESILIENCE_08_CLEAN_ROOM_AND_RECOVERY_ENVIRONMENT_SECURITY",
+          "name": "Clean-room and recovery-environment security",
+          "scope": "Clean-room and recovery-environment security within Backup, recovery and resilience; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "BACKUP_RECOVERY_RESILIENCE_09_RESTORE_AUTHORIZATION_AND_RECOVERY_DRILLS",
+          "name": "Restore authorization and recovery drills",
+          "scope": "Restore authorization and recovery drills within Backup, recovery and resilience; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "BACKUP_RECOVERY_RESILIENCE_10_DEPENDENCY_FAILURE_AND_SUPPLY_CHAIN_CONTINUITY",
+          "name": "Dependency failure and supply-chain continuity",
+          "scope": "Dependency failure and supply-chain continuity within Backup, recovery and resilience; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "infrastructure_server_core_ecosystem",
+        "governance_law_security"
+      ]
+    },
+    {
+      "id": "SUPPLY_CHAIN_SECURITY",
+      "name": "Software and supply-chain security",
+      "scope": "Software/dependency provenance, artifact integrity, supplier risk, procurement and supply-chain assurance metadata.",
+      "folder": "supply_chain_security_core_ecosystem",
+      "package_path": "supply_chain_security_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "technology_digital_ecosystem",
+      "master_catalog_refs": [
+        "S09_software",
+        "S11_business_law",
+        "S11_risk_management"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "SUPPLY_CHAIN_SECURITY_01_SUPPLIER_AND_SERVICE_PROVIDER_RISK",
+          "name": "Supplier and service-provider risk",
+          "scope": "Supplier and service-provider risk within software and supply-chain security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SUPPLY_CHAIN_SECURITY_02_SOFTWARE_BILL_OF_MATERIALS_AND_PROVENANCE",
+          "name": "Software bill of materials and provenance",
+          "scope": "Software bill of materials and provenance within software and supply-chain security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SUPPLY_CHAIN_SECURITY_03_BUILD_PIPELINE_AND_ARTIFACT_INTEGRITY",
+          "name": "Build pipeline and artifact integrity",
+          "scope": "Build pipeline and artifact integrity within software and supply-chain security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SUPPLY_CHAIN_SECURITY_04_DEPENDENCY_AND_PACKAGE_TRUST",
+          "name": "Dependency and package trust",
+          "scope": "Dependency and package trust within software and supply-chain security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SUPPLY_CHAIN_SECURITY_05_PROCUREMENT_SECURITY_REQUIREMENTS",
+          "name": "Procurement security requirements",
+          "scope": "Procurement security requirements within software and supply-chain security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SUPPLY_CHAIN_SECURITY_06_THIRD_PARTY_MONITORING_AND_OFFBOARDING",
+          "name": "Third-party monitoring and offboarding",
+          "scope": "Third-party monitoring and offboarding within software and supply-chain security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SUPPLY_CHAIN_SECURITY_07_SUPPLIER_IDENTITY_AND_FEDERATED_ACCESS",
+          "name": "Supplier identity and federated access",
+          "scope": "Supplier identity and federated access within Software and supply-chain security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "SUPPLY_CHAIN_SECURITY_08_OPEN_SOURCE_MAINTAINER_AND_REPOSITORY_RISK",
+          "name": "Open-source maintainer and repository risk",
+          "scope": "Open-source maintainer and repository risk within Software and supply-chain security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "SUPPLY_CHAIN_SECURITY_09_CI_CD_SECRET_AND_RUNNER_HARDENING",
+          "name": "CI/CD secret and runner hardening",
+          "scope": "CI/CD secret and runner hardening within Software and supply-chain security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "SUPPLY_CHAIN_SECURITY_10_SBOM_VEX_AND_COMPONENT_VULNERABILITY_LIFECYCLE",
+          "name": "SBOM, VEX and component-vulnerability lifecycle",
+          "scope": "SBOM, VEX and component-vulnerability lifecycle within Software and supply-chain security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem",
+        "governance_law_security"
+      ]
+    },
+    {
+      "id": "EMAIL_COLLABORATION_SECURITY",
+      "name": "Email and collaboration security",
+      "scope": "Email, messaging and collaboration security, phishing risk, identity-aware content protection and policy metadata.",
+      "folder": "email_collaboration_security_core_ecosystem",
+      "package_path": "email_collaboration_security_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "technology_digital_ecosystem",
+      "master_catalog_refs": [
+        "S09_applications",
+        "S09_internet",
+        "S11_digital_security"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "EMAIL_COLLABORATION_SECURITY_01_EMAIL_AUTHENTICATION_AND_DOMAIN_PROTECTION",
+          "name": "Email authentication and domain protection",
+          "scope": "Email authentication and domain protection within email and collaboration security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "EMAIL_COLLABORATION_SECURITY_02_PHISHING_AND_BUSINESS_EMAIL_COMPROMISE_DEFENCE",
+          "name": "Phishing and business-email-compromise defence",
+          "scope": "Phishing and business-email-compromise defence within email and collaboration security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "EMAIL_COLLABORATION_SECURITY_03_MALICIOUS_ATTACHMENT_AND_LINK_CONTROLS",
+          "name": "Malicious attachment and link controls",
+          "scope": "Malicious attachment and link controls within email and collaboration security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "EMAIL_COLLABORATION_SECURITY_04_MESSAGING_AND_COLLABORATION_ACCESS_SECURITY",
+          "name": "Messaging and collaboration access security",
+          "scope": "Messaging and collaboration access security within email and collaboration security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "EMAIL_COLLABORATION_SECURITY_05_ANTI_SPAM_ABUSE_AND_IMPERSONATION_REPORTING",
+          "name": "Anti-spam, abuse and impersonation reporting",
+          "scope": "Anti-spam, abuse and impersonation reporting within email and collaboration security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "EMAIL_COLLABORATION_SECURITY_06_SECURE_FILE_SHARING_AND_RETENTION",
+          "name": "Secure file sharing and retention",
+          "scope": "Secure file sharing and retention within email and collaboration security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "EMAIL_COLLABORATION_SECURITY_07_DOMAIN_SPOOFING_AND_DMARC_DKIM_SPF_GOVERNANCE",
+          "name": "Domain spoofing and DMARC, DKIM, SPF governance",
+          "scope": "Domain spoofing and DMARC, DKIM, SPF governance within Email and collaboration security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "EMAIL_COLLABORATION_SECURITY_08_BUSINESS_MESSAGING_AND_ENTERPRISE_CHAT_SECURITY",
+          "name": "Business messaging and enterprise-chat security",
+          "scope": "Business messaging and enterprise-chat security within Email and collaboration security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "EMAIL_COLLABORATION_SECURITY_09_COLLABORATION_GUEST_AND_EXTERNAL_SHARING_RISK",
+          "name": "Collaboration guest and external-sharing risk",
+          "scope": "Collaboration guest and external-sharing risk within Email and collaboration security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "EMAIL_COLLABORATION_SECURITY_10_ACCOUNT_COMPROMISE_AND_SESSION_REVOCATION",
+          "name": "Account compromise and session revocation",
+          "scope": "Account compromise and session revocation within Email and collaboration security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem",
+        "governance_law_security"
+      ]
+    },
+    {
+      "id": "SECURITY_AWARENESS",
+      "name": "Security awareness and education",
+      "scope": "Security awareness, education, professional/technical knowledge, training and human-risk reduction metadata.",
+      "folder": "security_awareness_core_ecosystem",
+      "package_path": "security_awareness_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "human_individual_ecosystem",
+      "master_catalog_refs": [
+        "S02_education",
+        "S12_technical_knowledge",
+        "S12_professional_knowledge"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "SECURITY_AWARENESS_01_ROLE_BASED_SECURITY_EDUCATION",
+          "name": "Role-based security education",
+          "scope": "Role-based security education within security awareness and education; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SECURITY_AWARENESS_02_PHISHING_SIMULATION_GOVERNANCE",
+          "name": "Phishing simulation governance",
+          "scope": "Phishing simulation governance within security awareness and education; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SECURITY_AWARENESS_03_SECURE_REMOTE_WORK_PRACTICES",
+          "name": "Secure remote-work practices",
+          "scope": "Secure remote-work practices within security awareness and education; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SECURITY_AWARENESS_04_SOCIAL_ENGINEERING_AND_FRAUD_AWARENESS",
+          "name": "Social engineering and fraud awareness",
+          "scope": "Social engineering and fraud awareness within security awareness and education; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SECURITY_AWARENESS_05_INCIDENT_REPORTING_LITERACY",
+          "name": "Incident reporting literacy",
+          "scope": "Incident reporting literacy within security awareness and education; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SECURITY_AWARENESS_06_TRAINING_EFFECTIVENESS_AND_ACCESSIBILITY",
+          "name": "Training effectiveness and accessibility",
+          "scope": "Training effectiveness and accessibility within security awareness and education; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SECURITY_AWARENESS_07_SECURITY_ROLE_COMPETENCY_AND_SKILL_ASSESSMENT",
+          "name": "Security-role competency and skill assessment",
+          "scope": "Security-role competency and skill assessment within Security awareness and education; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "SECURITY_AWARENESS_08_EXECUTIVE_AND_BOARD_SECURITY_BRIEFINGS",
+          "name": "Executive and board security briefings",
+          "scope": "Executive and board security briefings within Security awareness and education; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "SECURITY_AWARENESS_09_DEVELOPER_AND_ADMINISTRATOR_SECURE_PRACTICES",
+          "name": "Developer and administrator secure practices",
+          "scope": "Developer and administrator secure practices within Security awareness and education; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "SECURITY_AWARENESS_10_ACCESSIBLE_AND_MULTILINGUAL_SECURITY_CONTENT",
+          "name": "Accessible and multilingual security content",
+          "scope": "Accessible and multilingual security content within Security awareness and education; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "human_individual_ecosystem",
+        "knowledge_research_innovation"
+      ]
+    },
+    {
+      "id": "FRAUD_ABUSE_PROTECTION",
+      "name": "Fraud and abuse protection",
+      "scope": "Fraud, scams, abuse signals, extortion, consumer-protection risks and reporting/escalation metadata.",
+      "folder": "fraud_abuse_protection_core_ecosystem",
+      "package_path": "fraud_abuse_protection_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "business_economic_ecosystem",
+      "master_catalog_refs": [
+        "S08_services",
+        "S11_consumer_protection",
+        "S11_risk_management"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "FRAUD_ABUSE_PROTECTION_01_ACCOUNT_AND_TRANSACTION_FRAUD_SIGNALS",
+          "name": "Account and transaction fraud signals",
+          "scope": "Account and transaction fraud signals within fraud and abuse protection; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "FRAUD_ABUSE_PROTECTION_02_ABUSE_PATTERNS_AND_BEHAVIOURAL_ANALYTICS",
+          "name": "Abuse patterns and behavioural analytics",
+          "scope": "Abuse patterns and behavioural analytics within fraud and abuse protection; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "FRAUD_ABUSE_PROTECTION_03_BOT_AND_AUTOMATED_ABUSE_CONTROLS",
+          "name": "Bot and automated abuse controls",
+          "scope": "Bot and automated abuse controls within fraud and abuse protection; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "FRAUD_ABUSE_PROTECTION_04_SCAM_EXTORTION_AND_IMPERSONATION_REPORTING",
+          "name": "Scam, extortion and impersonation reporting",
+          "scope": "Scam, extortion and impersonation reporting within fraud and abuse protection; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "FRAUD_ABUSE_PROTECTION_05_CASE_INVESTIGATION_AND_EVIDENCE_HANDLING",
+          "name": "Case investigation and evidence handling",
+          "scope": "Case investigation and evidence handling within fraud and abuse protection; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "FRAUD_ABUSE_PROTECTION_06_VICTIM_SUPPORT_AND_RECOVERY_WORKFLOWS",
+          "name": "Victim support and recovery workflows",
+          "scope": "Victim support and recovery workflows within fraud and abuse protection; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "FRAUD_ABUSE_PROTECTION_07_PAYMENT_FRAUD_AND_MERCHANT_ABUSE_PATTERNS",
+          "name": "Payment fraud and merchant-abuse patterns",
+          "scope": "Payment fraud and merchant-abuse patterns within Fraud and abuse protection; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "FRAUD_ABUSE_PROTECTION_08_SOCIAL_ENGINEERING_AND_ACCOUNT_RECOVERY_FRAUD",
+          "name": "Social engineering and account-recovery fraud",
+          "scope": "Social engineering and account-recovery fraud within Fraud and abuse protection; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "FRAUD_ABUSE_PROTECTION_09_PROMOTION_REFERRAL_AND_MARKETPLACE_ABUSE",
+          "name": "Promotion, referral and marketplace abuse",
+          "scope": "Promotion, referral and marketplace abuse within Fraud and abuse protection; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "FRAUD_ABUSE_PROTECTION_10_FINANCIAL_CRIME_ESCALATION_AND_DISPUTE_EVIDENCE",
+          "name": "Financial-crime escalation and dispute evidence",
+          "scope": "Financial-crime escalation and dispute evidence within Fraud and abuse protection; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "business_economic_ecosystem",
+        "governance_law_security"
+      ]
+    },
+    {
+      "id": "PHYSICAL_IOT_OT_SECURITY",
+      "name": "Physical, IoT and OT security",
+      "scope": "Physical security, hardware, connected IoT devices, robotics and operational technology security metadata.",
+      "folder": "physical_iot_ot_security_core_ecosystem",
+      "package_path": "physical_iot_ot_security_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "technology_digital_ecosystem",
+      "master_catalog_refs": [
+        "S09_hardware",
+        "S09_robotics",
+        "S10_global_infrastructure"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "PHYSICAL_IOT_OT_SECURITY_01_PHYSICAL_ACCESS_AND_FACILITY_CONTROLS",
+          "name": "Physical access and facility controls",
+          "scope": "Physical access and facility controls within physical, iot and ot security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "PHYSICAL_IOT_OT_SECURITY_02_IOT_DEVICE_IDENTITY_AND_LIFECYCLE",
+          "name": "IoT device identity and lifecycle",
+          "scope": "IoT device identity and lifecycle within physical, iot and ot security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "PHYSICAL_IOT_OT_SECURITY_03_OPERATIONAL_TECHNOLOGY_SEGMENTATION",
+          "name": "Operational technology segmentation",
+          "scope": "Operational technology segmentation within physical, iot and ot security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "PHYSICAL_IOT_OT_SECURITY_04_INDUSTRIAL_CONTROL_SYSTEM_SAFETY_BOUNDARIES",
+          "name": "Industrial control system safety boundaries",
+          "scope": "Industrial control system safety boundaries within physical, iot and ot security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "PHYSICAL_IOT_OT_SECURITY_05_FIRMWARE_AND_HARDWARE_INTEGRITY",
+          "name": "Firmware and hardware integrity",
+          "scope": "Firmware and hardware integrity within physical, iot and ot security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "PHYSICAL_IOT_OT_SECURITY_06_PHYSICAL_INCIDENT_RESPONSE_AND_CONTINUITY",
+          "name": "Physical incident response and continuity",
+          "scope": "Physical incident response and continuity within physical, iot and ot security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "PHYSICAL_IOT_OT_SECURITY_07_BUILDING_ACCESS_VISITOR_AND_BADGE_GOVERNANCE",
+          "name": "Building access, visitor and badge governance",
+          "scope": "Building access, visitor and badge governance within Physical, IoT and OT security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "PHYSICAL_IOT_OT_SECURITY_08_OT_ASSET_DISCOVERY_AND_SAFETY_CASES",
+          "name": "OT asset discovery and safety cases",
+          "scope": "OT asset discovery and safety cases within Physical, IoT and OT security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "PHYSICAL_IOT_OT_SECURITY_09_REMOTE_VENDOR_ACCESS_AND_SESSION_RECORDING",
+          "name": "Remote vendor access and session recording",
+          "scope": "Remote vendor access and session recording within Physical, IoT and OT security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "PHYSICAL_IOT_OT_SECURITY_10_IOT_CLOUD_BACKEND_AND_DEVICE_UPDATE_SECURITY",
+          "name": "IoT cloud backend and device-update security",
+          "scope": "IoT cloud backend and device-update security within Physical, IoT and OT security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem",
+        "infrastructure_server_core_ecosystem"
+      ]
+    },
+    {
+      "id": "AGE_ASSURANCE",
+      "name": "Age assurance and age-appropriate access",
+      "scope": "Privacy-conscious age assurance, age verification/gating, age-appropriate access, review and safety metadata.",
+      "folder": "age_assurance_core_ecosystem",
+      "package_path": "age_assurance_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "adult_content_media_ecosystem",
+      "master_catalog_refs": [
+        "S07_age_verification",
+        "S07_adult_content_moderation",
+        "S07_legal_compliance"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "AGE_ASSURANCE_01_AGE_ASSURANCE_METHOD_GOVERNANCE",
+          "name": "Age assurance method governance",
+          "scope": "Age assurance method governance within age assurance and age-appropriate access; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "AGE_ASSURANCE_02_AGE_ESTIMATION_AND_VERIFICATION_SAFEGUARDS",
+          "name": "Age estimation and verification safeguards",
+          "scope": "Age estimation and verification safeguards within age assurance and age-appropriate access; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "AGE_ASSURANCE_03_PRIVACY_PRESERVING_AGE_SIGNALS",
+          "name": "Privacy-preserving age signals",
+          "scope": "Privacy-preserving age signals within age assurance and age-appropriate access; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "AGE_ASSURANCE_04_AGE_APPROPRIATE_ACCESS_POLICY",
+          "name": "Age-appropriate access policy",
+          "scope": "Age-appropriate access policy within age assurance and age-appropriate access; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "AGE_ASSURANCE_05_APPEALS_ERROR_CORRECTION_AND_REDRESS",
+          "name": "Appeals, error correction and redress",
+          "scope": "Appeals, error correction and redress within age assurance and age-appropriate access; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "AGE_ASSURANCE_06_AUDITABILITY_AND_JURISDICTIONAL_REQUIREMENTS",
+          "name": "Auditability and jurisdictional requirements",
+          "scope": "Auditability and jurisdictional requirements within age assurance and age-appropriate access; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "AGE_ASSURANCE_07_AGE_ASSURANCE_VENDOR_AND_METHOD_DUE_DILIGENCE",
+          "name": "Age-assurance vendor and method due diligence",
+          "scope": "Age-assurance vendor and method due diligence within Age assurance and age-appropriate access; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "AGE_ASSURANCE_08_RETENTION_AND_DELETION_FOR_AGE_ASSURANCE_SIGNALS",
+          "name": "Retention and deletion for age-assurance signals",
+          "scope": "Retention and deletion for age-assurance signals within Age assurance and age-appropriate access; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "AGE_ASSURANCE_09_PARENT_GUARDIAN_AND_MINOR_ACCOUNT_BOUNDARIES",
+          "name": "Parent, guardian and minor-account boundaries",
+          "scope": "Parent, guardian and minor-account boundaries within Age assurance and age-appropriate access; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "AGE_ASSURANCE_10_AGE_ASSURANCE_BYPASS_AND_EVASION_RISK",
+          "name": "Age-assurance bypass and evasion risk",
+          "scope": "Age-assurance bypass and evasion risk within Age assurance and age-appropriate access; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "adult_content_media_ecosystem"
+      ]
+    },
+    {
+      "id": "CHILD_SAFETY_CSEA_PREVENTION",
+      "name": "Child safety and exploitation prevention",
+      "scope": "Child safety, grooming/exploitation prevention, age-appropriate controls, lawful escalation and reporting workflows; prohibited abusive material is never stored or reproduced.",
+      "folder": "child_safety_csea_prevention_core_ecosystem",
+      "package_path": "child_safety_csea_prevention_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "adult_content_media_ecosystem",
+      "master_catalog_refs": [
+        "S07_child_sexual_abuse_material_prevention",
+        "S07_non_consensual_content_prevention",
+        "S07_age_verification"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "CHILD_SAFETY_CSEA_PREVENTION_01_CHILD_ACCOUNT_AND_AGE_PROTECTION_CONTROLS",
+          "name": "Child account and age-protection controls",
+          "scope": "Child account and age-protection controls within child safety and exploitation prevention; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CHILD_SAFETY_CSEA_PREVENTION_02_GROOMING_AND_COERCIVE_CONTACT_PREVENTION",
+          "name": "Grooming and coercive-contact prevention",
+          "scope": "Grooming and coercive-contact prevention within child safety and exploitation prevention; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CHILD_SAFETY_CSEA_PREVENTION_03_CHILD_SEXUAL_EXPLOITATION_REPORTING_PATHWAYS",
+          "name": "Child sexual exploitation reporting pathways",
+          "scope": "Child sexual exploitation reporting pathways within child safety and exploitation prevention; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CHILD_SAFETY_CSEA_PREVENTION_04_DETECTION_METADATA_AND_LAWFUL_ESCALATION",
+          "name": "Detection metadata and lawful escalation",
+          "scope": "Detection metadata and lawful escalation within child safety and exploitation prevention; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CHILD_SAFETY_CSEA_PREVENTION_05_TRUSTED_ADULT_AND_VICTIM_CENTRED_SUPPORT",
+          "name": "Trusted-adult and victim-centred support",
+          "scope": "Trusted-adult and victim-centred support within child safety and exploitation prevention; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CHILD_SAFETY_CSEA_PREVENTION_06_EVIDENCE_PRESERVATION_WITHOUT_PROHIBITED_CONTENT_STORAGE",
+          "name": "Evidence preservation without prohibited-content storage",
+          "scope": "Evidence preservation without prohibited-content storage within child safety and exploitation prevention; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CHILD_SAFETY_CSEA_PREVENTION_07_CHILD_GROOMING_CONTACT_AND_LIVE_STREAM_RISK",
+          "name": "Child grooming, contact and live-stream risk",
+          "scope": "Child grooming, contact and live-stream risk within Child safety and exploitation prevention; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "CHILD_SAFETY_CSEA_PREVENTION_08_CHILD_PRIVACY_DEFAULTS_AND_DATA_MINIMIZATION",
+          "name": "Child privacy defaults and data minimization",
+          "scope": "Child privacy defaults and data minimization within Child safety and exploitation prevention; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "CHILD_SAFETY_CSEA_PREVENTION_09_CHILD_SAFETY_REPORTING_TRIAGE_AND_ESCALATION",
+          "name": "Child-safety reporting triage and escalation",
+          "scope": "Child-safety reporting triage and escalation within Child safety and exploitation prevention; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "CHILD_SAFETY_CSEA_PREVENTION_10_LAWFUL_EVIDENCE_HANDLING_AND_AUTHORITY_REQUESTS",
+          "name": "Lawful evidence handling and authority requests",
+          "scope": "Lawful evidence handling and authority requests within Child safety and exploitation prevention; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "adult_content_media_ecosystem"
+      ]
+    },
+    {
+      "id": "ADULT_CONTENT_PLATFORM_SAFETY",
+      "name": "Adult-content platform safety",
+      "scope": "Lawful adult-only platform safety, age assurance, content classification, moderation, access restriction, privacy and compliance metadata; not an adult-media library.",
+      "folder": "adult_content_platform_safety_core_ecosystem",
+      "package_path": "adult_content_platform_safety_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "adult_content_media_ecosystem",
+      "master_catalog_refs": [
+        "S07_adult_content_platforms",
+        "S07_adult_content_moderation",
+        "S07_age_verification",
+        "S07_legal_compliance"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "ADULT_CONTENT_PLATFORM_SAFETY_01_ADULT_ONLY_SERVICE_ACCESS_BOUNDARIES",
+          "name": "Adult-only service access boundaries",
+          "scope": "Adult-only service access boundaries within adult-content platform safety; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "ADULT_CONTENT_PLATFORM_SAFETY_02_CREATOR_AND_PUBLISHER_ACCOUNT_INTEGRITY",
+          "name": "Creator and publisher account integrity",
+          "scope": "Creator and publisher account integrity within adult-content platform safety; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "ADULT_CONTENT_PLATFORM_SAFETY_03_PLATFORM_RISK_AND_SAFETY_GOVERNANCE",
+          "name": "Platform risk and safety governance",
+          "scope": "Platform risk and safety governance within adult-content platform safety; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "ADULT_CONTENT_PLATFORM_SAFETY_04_MODERATION_AND_COMPLAINT_OPERATIONS",
+          "name": "Moderation and complaint operations",
+          "scope": "Moderation and complaint operations within adult-content platform safety; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "ADULT_CONTENT_PLATFORM_SAFETY_05_COPYRIGHT_LICENSING_AND_PROVENANCE_CONTROLS",
+          "name": "Copyright, licensing and provenance controls",
+          "scope": "Copyright, licensing and provenance controls within adult-content platform safety; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "ADULT_CONTENT_PLATFORM_SAFETY_06_REGULATORY_REPORTING_AND_PLATFORM_ACCOUNTABILITY",
+          "name": "Regulatory reporting and platform accountability",
+          "scope": "Regulatory reporting and platform accountability within adult-content platform safety; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "ADULT_CONTENT_PLATFORM_SAFETY_07_PERFORMER_AGE_IDENTITY_AND_RIGHTS_VERIFICATION",
+          "name": "Performer age, identity and rights verification",
+          "scope": "Performer age, identity and rights verification within Adult-content platform safety; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "ADULT_CONTENT_PLATFORM_SAFETY_08_CONTENT_ORIGIN_RELEASE_AND_DISTRIBUTION_RIGHTS",
+          "name": "Content origin, release and distribution rights",
+          "scope": "Content origin, release and distribution rights within Adult-content platform safety; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "ADULT_CONTENT_PLATFORM_SAFETY_09_REPEAT_OFFENDER_AND_POLICY_EVASION_CONTROLS",
+          "name": "Repeat-offender and policy-evasion controls",
+          "scope": "Repeat-offender and policy-evasion controls within Adult-content platform safety; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "ADULT_CONTENT_PLATFORM_SAFETY_10_PAYMENT_ADVERTISING_AND_AFFILIATE_SAFETY",
+          "name": "Payment, advertising and affiliate safety",
+          "scope": "Payment, advertising and affiliate safety within Adult-content platform safety; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "adult_content_media_ecosystem"
+      ]
+    },
+    {
+      "id": "CONSENT_INTIMATE_IMAGE_PROTECTION",
+      "name": "Consent and intimate-image protection",
+      "scope": "Consent safeguards, non-consensual intimate imagery prevention, reporting, takedown, privacy and victim-support workflow metadata.",
+      "folder": "consent_intimate_image_protection_core_ecosystem",
+      "package_path": "consent_intimate_image_protection_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "adult_content_media_ecosystem",
+      "master_catalog_refs": [
+        "S07_consent_verification",
+        "S07_non_consensual_content_prevention",
+        "S07_privacy_and_data_protection"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "CONSENT_INTIMATE_IMAGE_PROTECTION_01_CONSENT_CAPTURE_AND_SCOPE_RECORDS",
+          "name": "Consent capture and scope records",
+          "scope": "Consent capture and scope records within consent and intimate-image protection; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CONSENT_INTIMATE_IMAGE_PROTECTION_02_CONSENT_WITHDRAWAL_AND_REVOCATION_WORKFLOWS",
+          "name": "Consent withdrawal and revocation workflows",
+          "scope": "Consent withdrawal and revocation workflows within consent and intimate-image protection; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CONSENT_INTIMATE_IMAGE_PROTECTION_03_INTIMATE_IMAGE_PROVENANCE_AND_ACCESS_CONTROLS",
+          "name": "Intimate-image provenance and access controls",
+          "scope": "Intimate-image provenance and access controls within consent and intimate-image protection; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CONSENT_INTIMATE_IMAGE_PROTECTION_04_NON_CONSENSUAL_IMAGE_REPORTING_AND_TAKEDOWN",
+          "name": "Non-consensual image reporting and takedown",
+          "scope": "Non-consensual image reporting and takedown within consent and intimate-image protection; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CONSENT_INTIMATE_IMAGE_PROTECTION_05_RE_UPLOAD_AND_HASH_MATCHING_SAFEGUARDS",
+          "name": "Re-upload and hash-matching safeguards",
+          "scope": "Re-upload and hash-matching safeguards within consent and intimate-image protection; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CONSENT_INTIMATE_IMAGE_PROTECTION_06_VICTIM_PRIVACY_AND_EVIDENCE_MINIMIZATION",
+          "name": "Victim privacy and evidence minimization",
+          "scope": "Victim privacy and evidence minimization within consent and intimate-image protection; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CONSENT_INTIMATE_IMAGE_PROTECTION_07_CONSENT_SCOPE_CONTEXT_AND_EXPIRATION",
+          "name": "Consent scope, context and expiration",
+          "scope": "Consent scope, context and expiration within Consent and intimate-image protection; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "CONSENT_INTIMATE_IMAGE_PROTECTION_08_IMAGE_HASHING_MATCHING_AND_FALSE_POSITIVE_REVIEW",
+          "name": "Image hashing, matching and false-positive review",
+          "scope": "Image hashing, matching and false-positive review within Consent and intimate-image protection; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "CONSENT_INTIMATE_IMAGE_PROTECTION_09_PRIVATE_REPORTING_AND_SURVIVOR_CENTRED_TAKEDOWN",
+          "name": "Private reporting and survivor-centred takedown",
+          "scope": "Private reporting and survivor-centred takedown within Consent and intimate-image protection; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "CONSENT_INTIMATE_IMAGE_PROTECTION_10_RE_UPLOAD_PREVENTION_AND_PLATFORM_COORDINATION",
+          "name": "Re-upload prevention and platform coordination",
+          "scope": "Re-upload prevention and platform coordination within Consent and intimate-image protection; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "adult_content_media_ecosystem"
+      ]
+    },
+    {
+      "id": "SEXUAL_EXPLOITATION_TRAFFICKING_PREVENTION",
+      "name": "Sexual exploitation and trafficking prevention",
+      "scope": "Prevention signals, safeguards, victim-centred escalation and lawful reporting for sexual exploitation and trafficking; no exploitation content storage.",
+      "folder": "sexual_exploitation_trafficking_prevention_core_ecosystem",
+      "package_path": "sexual_exploitation_trafficking_prevention_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "adult_content_media_ecosystem",
+      "master_catalog_refs": [
+        "S07_child_sexual_abuse_material_prevention",
+        "S07_non_consensual_content_prevention",
+        "S07_legal_compliance"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "SEXUAL_EXPLOITATION_TRAFFICKING_PREVENTION_01_COERCION_AND_EXPLOITATION_RISK_INDICATORS",
+          "name": "Coercion and exploitation risk indicators",
+          "scope": "Coercion and exploitation risk indicators within sexual exploitation and trafficking prevention; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SEXUAL_EXPLOITATION_TRAFFICKING_PREVENTION_02_TRAFFICKING_RELATED_REPORTING_AND_ESCALATION",
+          "name": "Trafficking-related reporting and escalation",
+          "scope": "Trafficking-related reporting and escalation within sexual exploitation and trafficking prevention; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SEXUAL_EXPLOITATION_TRAFFICKING_PREVENTION_03_VICTIM_CENTRED_SAFEGUARDING_AND_REFERRALS",
+          "name": "Victim-centred safeguarding and referrals",
+          "scope": "Victim-centred safeguarding and referrals within sexual exploitation and trafficking prevention; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SEXUAL_EXPLOITATION_TRAFFICKING_PREVENTION_04_PLATFORM_AND_PAYMENT_ABUSE_SIGNALS",
+          "name": "Platform and payment abuse signals",
+          "scope": "Platform and payment abuse signals within sexual exploitation and trafficking prevention; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SEXUAL_EXPLOITATION_TRAFFICKING_PREVENTION_05_CROSS_BORDER_COOPERATION_AND_LAWFUL_DISCLOSURE",
+          "name": "Cross-border cooperation and lawful disclosure",
+          "scope": "Cross-border cooperation and lawful disclosure within sexual exploitation and trafficking prevention; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SEXUAL_EXPLOITATION_TRAFFICKING_PREVENTION_06_EVIDENCE_INTEGRITY_AND_CONFIDENTIALITY",
+          "name": "Evidence integrity and confidentiality",
+          "scope": "Evidence integrity and confidentiality within sexual exploitation and trafficking prevention; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SEXUAL_EXPLOITATION_TRAFFICKING_PREVENTION_07_COERCION_DEBT_BONDAGE_AND_CONTROL_SIGNAL_REVIEW",
+          "name": "Coercion, debt bondage and control-signal review",
+          "scope": "Coercion, debt bondage and control-signal review within Sexual exploitation and trafficking prevention; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "SEXUAL_EXPLOITATION_TRAFFICKING_PREVENTION_08_SUSPECTED_TRAFFICKING_CASE_ESCALATION",
+          "name": "Suspected trafficking case escalation",
+          "scope": "Suspected trafficking case escalation within Sexual exploitation and trafficking prevention; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "SEXUAL_EXPLOITATION_TRAFFICKING_PREVENTION_09_PAYMENT_ADVERTISING_AND_RECRUITMENT_ABUSE_PATTERNS",
+          "name": "Payment, advertising and recruitment abuse patterns",
+          "scope": "Payment, advertising and recruitment abuse patterns within Sexual exploitation and trafficking prevention; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "SEXUAL_EXPLOITATION_TRAFFICKING_PREVENTION_10_SURVIVOR_PRIVACY_AND_SAFE_REFERRAL_CONTROLS",
+          "name": "Survivor privacy and safe-referral controls",
+          "scope": "Survivor privacy and safe-referral controls within Sexual exploitation and trafficking prevention; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "adult_content_media_ecosystem"
+      ]
+    },
+    {
+      "id": "SENSITIVE_INTIMATE_DATA_PRIVACY",
+      "name": "Sensitive intimate-data privacy",
+      "scope": "Protection and minimization of relationship, identity, sexual/reproductive-health and other sensitive intimate data; access/retention policy metadata.",
+      "folder": "sensitive_intimate_data_privacy_core_ecosystem",
+      "package_path": "sensitive_intimate_data_privacy_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "governance_law_security",
+      "master_catalog_refs": [
+        "S07_privacy_and_data_protection",
+        "S11_privacy_law",
+        "S11_data_protection"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "SENSITIVE_INTIMATE_DATA_PRIVACY_01_SPECIAL_CATEGORY_DATA_CLASSIFICATION",
+          "name": "Special-category data classification",
+          "scope": "Special-category data classification within sensitive intimate-data privacy; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SENSITIVE_INTIMATE_DATA_PRIVACY_02_INTIMATE_DATA_COLLECTION_MINIMIZATION",
+          "name": "Intimate-data collection minimization",
+          "scope": "Intimate-data collection minimization within sensitive intimate-data privacy; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SENSITIVE_INTIMATE_DATA_PRIVACY_03_PURPOSE_LIMITATION_AND_EXPLICIT_CONSENT_RECORDS",
+          "name": "Purpose limitation and explicit consent records",
+          "scope": "Purpose limitation and explicit consent records within sensitive intimate-data privacy; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SENSITIVE_INTIMATE_DATA_PRIVACY_04_STRICT_ACCESS_CONTROL_AND_AUDIT_TRAILS",
+          "name": "Strict access control and audit trails",
+          "scope": "Strict access control and audit trails within sensitive intimate-data privacy; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SENSITIVE_INTIMATE_DATA_PRIVACY_05_RETENTION_DELETION_AND_BREACH_RESPONSE",
+          "name": "Retention, deletion and breach response",
+          "scope": "Retention, deletion and breach response within sensitive intimate-data privacy; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SENSITIVE_INTIMATE_DATA_PRIVACY_06_SENSITIVE_DATA_SHARING_AND_TRANSFER_SAFEGUARDS",
+          "name": "Sensitive-data sharing and transfer safeguards",
+          "scope": "Sensitive-data sharing and transfer safeguards within sensitive intimate-data privacy; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SENSITIVE_INTIMATE_DATA_PRIVACY_07_SEXUAL_ORIENTATION_AND_HEALTH_DATA_ACCESS_GOVERNANCE",
+          "name": "Sexual-orientation and health-data access governance",
+          "scope": "Sexual-orientation and health-data access governance within Sensitive intimate-data privacy; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "SENSITIVE_INTIMATE_DATA_PRIVACY_08_PRIVATE_SEARCH_BROWSING_AND_ACCOUNT_DISCOVERY_SAFEGUARDS",
+          "name": "Private search, browsing and account-discovery safeguards",
+          "scope": "Private search, browsing and account-discovery safeguards within Sensitive intimate-data privacy; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "SENSITIVE_INTIMATE_DATA_PRIVACY_09_BREACH_RESPONSE_FOR_INTIMATE_OR_REPRODUCTIVE_DATA",
+          "name": "Breach response for intimate or reproductive data",
+          "scope": "Breach response for intimate or reproductive data within Sensitive intimate-data privacy; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "SENSITIVE_INTIMATE_DATA_PRIVACY_10_DE_IDENTIFICATION_AND_RE_IDENTIFICATION_RISK",
+          "name": "De-identification and re-identification risk",
+          "scope": "De-identification and re-identification risk within Sensitive intimate-data privacy; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "adult_content_media_ecosystem",
+        "governance_law_security"
+      ]
+    },
+    {
+      "id": "SEXUAL_HEALTH_INFORMATION_INTEGRITY",
+      "name": "Sexual-health information integrity",
+      "scope": "Source quality, misinformation review, privacy safeguards and integrity metadata for sexual/reproductive-health information; not medical diagnosis.",
+      "folder": "sexual_health_information_integrity_core_ecosystem",
+      "package_path": "sexual_health_information_integrity_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "adult_sexuality_sex_education_ecosystem",
+      "master_catalog_refs": [
+        "S05_sexual_health",
+        "S07_privacy_and_data_protection",
+        "S12_sexual_health_research"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "SEXUAL_HEALTH_INFORMATION_INTEGRITY_01_SOURCE_PROVENANCE_AND_CLINICAL_REVIEW_METADATA",
+          "name": "Source provenance and clinical review metadata",
+          "scope": "Source provenance and clinical review metadata within sexual-health information integrity; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SEXUAL_HEALTH_INFORMATION_INTEGRITY_02_MISINFORMATION_AND_DECEPTIVE_CLAIM_CONTROLS",
+          "name": "Misinformation and deceptive-claim controls",
+          "scope": "Misinformation and deceptive-claim controls within sexual-health information integrity; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SEXUAL_HEALTH_INFORMATION_INTEGRITY_03_HEALTH_CONTENT_PRIVACY_SAFEGUARDS",
+          "name": "Health-content privacy safeguards",
+          "scope": "Health-content privacy safeguards within sexual-health information integrity; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SEXUAL_HEALTH_INFORMATION_INTEGRITY_04_EDITORIAL_REVIEW_AND_CORRECTION_WORKFLOWS",
+          "name": "Editorial review and correction workflows",
+          "scope": "Editorial review and correction workflows within sexual-health information integrity; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SEXUAL_HEALTH_INFORMATION_INTEGRITY_05_RESEARCH_EVIDENCE_QUALITY_AND_CURRENCY",
+          "name": "Research evidence quality and currency",
+          "scope": "Research evidence quality and currency within sexual-health information integrity; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SEXUAL_HEALTH_INFORMATION_INTEGRITY_06_CLEAR_SEPARATION_FROM_DIAGNOSIS_AND_TREATMENT",
+          "name": "Clear separation from diagnosis and treatment",
+          "scope": "Clear separation from diagnosis and treatment within sexual-health information integrity; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "SEXUAL_HEALTH_INFORMATION_INTEGRITY_07_CLINICAL_SOURCE_CREDENTIALS_AND_CONFLICT_DISCLOSURE",
+          "name": "Clinical source credentials and conflict disclosure",
+          "scope": "Clinical source credentials and conflict disclosure within Sexual-health information integrity; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "SEXUAL_HEALTH_INFORMATION_INTEGRITY_08_EVIDENCE_GRADING_AND_GUIDELINE_VERSIONING",
+          "name": "Evidence grading and guideline versioning",
+          "scope": "Evidence grading and guideline versioning within Sexual-health information integrity; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "SEXUAL_HEALTH_INFORMATION_INTEGRITY_09_MEDICAL_MISINFORMATION_CORRECTION_AND_RECALL",
+          "name": "Medical misinformation correction and recall",
+          "scope": "Medical misinformation correction and recall within Sexual-health information integrity; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "SEXUAL_HEALTH_INFORMATION_INTEGRITY_10_PRIVACY_SAFE_HEALTH_COMMUNITY_MODERATION",
+          "name": "Privacy-safe health-community moderation",
+          "scope": "Privacy-safe health-community moderation within Sexual-health information integrity; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "adult_sexuality_sex_education_ecosystem",
+        "adult_content_media_ecosystem",
+        "knowledge_research_innovation"
+      ]
+    },
+    {
+      "id": "CONTENT_MODERATION_CLASSIFICATION",
+      "name": "Content moderation and classification",
+      "scope": "Content labels, age classification, policy metadata, moderation review, appeals and lawful adult-platform safeguard controls.",
+      "folder": "content_moderation_classification_core_ecosystem",
+      "package_path": "content_moderation_classification_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "adult_content_media_ecosystem",
+      "master_catalog_refs": [
+        "S07_adult_content_moderation",
+        "S07_adult_content_platforms",
+        "S07_legal_compliance"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "CONTENT_MODERATION_CLASSIFICATION_01_CONTENT_TAXONOMY_AND_RISK_LABELS",
+          "name": "Content taxonomy and risk labels",
+          "scope": "Content taxonomy and risk labels within content moderation and classification; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CONTENT_MODERATION_CLASSIFICATION_02_AGE_RATING_AND_ACCESS_POLICY_MAPPING",
+          "name": "Age rating and access policy mapping",
+          "scope": "Age rating and access policy mapping within content moderation and classification; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CONTENT_MODERATION_CLASSIFICATION_03_HUMAN_REVIEW_AND_ESCALATION",
+          "name": "Human review and escalation",
+          "scope": "Human review and escalation within content moderation and classification; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CONTENT_MODERATION_CLASSIFICATION_04_APPEALS_AND_MODERATION_TRANSPARENCY",
+          "name": "Appeals and moderation transparency",
+          "scope": "Appeals and moderation transparency within content moderation and classification; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CONTENT_MODERATION_CLASSIFICATION_05_POLICY_CONSISTENCY_AND_QUALITY_SAMPLING",
+          "name": "Policy consistency and quality sampling",
+          "scope": "Policy consistency and quality sampling within content moderation and classification; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CONTENT_MODERATION_CLASSIFICATION_06_MODERATOR_WELLBEING_AND_EXPOSURE_CONTROLS",
+          "name": "Moderator wellbeing and exposure controls",
+          "scope": "Moderator wellbeing and exposure controls within content moderation and classification; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "CONTENT_MODERATION_CLASSIFICATION_07_MULTIMODAL_TEXT_IMAGE_AUDIO_AND_VIDEO_CLASSIFICATION",
+          "name": "Multimodal text, image, audio and video classification",
+          "scope": "Multimodal text, image, audio and video classification within Content moderation and classification; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "CONTENT_MODERATION_CLASSIFICATION_08_MODERATION_MODEL_EVALUATION_AND_BIAS_REVIEW",
+          "name": "Moderation-model evaluation and bias review",
+          "scope": "Moderation-model evaluation and bias review within Content moderation and classification; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "CONTENT_MODERATION_CLASSIFICATION_09_REGION_LANGUAGE_AND_CULTURAL_CONTEXT_REVIEW",
+          "name": "Region, language and cultural-context review",
+          "scope": "Region, language and cultural-context review within Content moderation and classification; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "CONTENT_MODERATION_CLASSIFICATION_10_POLICY_VERSIONING_AND_ENFORCEMENT_AUDIT",
+          "name": "Policy versioning and enforcement audit",
+          "scope": "Policy versioning and enforcement audit within Content moderation and classification; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "adult_content_media_ecosystem"
+      ]
+    },
+    {
+      "id": "AI_SYNTHETIC_MEDIA_ABUSE",
+      "name": "AI and synthetic-media abuse prevention",
+      "scope": "Deepfake, impersonation, synthetic-media and AI-enabled abuse risk controls, provenance and reporting metadata.",
+      "folder": "ai_synthetic_media_abuse_core_ecosystem",
+      "package_path": "ai_synthetic_media_abuse_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "technology_digital_ecosystem",
+      "master_catalog_refs": [
+        "S09_artificial_intelligence",
+        "S07_deepfake_abuse_prevention",
+        "S07_non_consensual_content_prevention"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "AI_SYNTHETIC_MEDIA_ABUSE_01_SYNTHETIC_MEDIA_PROVENANCE_AND_DISCLOSURE",
+          "name": "Synthetic-media provenance and disclosure",
+          "scope": "Synthetic-media provenance and disclosure within ai and synthetic-media abuse prevention; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "AI_SYNTHETIC_MEDIA_ABUSE_02_DEEPFAKE_IMPERSONATION_RISK_CONTROLS",
+          "name": "Deepfake impersonation risk controls",
+          "scope": "Deepfake impersonation risk controls within ai and synthetic-media abuse prevention; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "AI_SYNTHETIC_MEDIA_ABUSE_03_NON_CONSENSUAL_SYNTHETIC_IMAGERY_PREVENTION",
+          "name": "Non-consensual synthetic imagery prevention",
+          "scope": "Non-consensual synthetic imagery prevention within ai and synthetic-media abuse prevention; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "AI_SYNTHETIC_MEDIA_ABUSE_04_MODEL_AND_DATASET_ABUSE_RISK_ASSESSMENT",
+          "name": "Model and dataset abuse-risk assessment",
+          "scope": "Model and dataset abuse-risk assessment within ai and synthetic-media abuse prevention; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "AI_SYNTHETIC_MEDIA_ABUSE_05_AI_RED_TEAM_AND_SAFETY_EVALUATION_METADATA",
+          "name": "AI red-team and safety evaluation metadata",
+          "scope": "AI red-team and safety evaluation metadata within ai and synthetic-media abuse prevention; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "AI_SYNTHETIC_MEDIA_ABUSE_06_INCIDENT_REPORTING_AND_TAKEDOWN_COORDINATION",
+          "name": "Incident reporting and takedown coordination",
+          "scope": "Incident reporting and takedown coordination within ai and synthetic-media abuse prevention; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "AI_SYNTHETIC_MEDIA_ABUSE_07_MODEL_ACCESS_AND_ABUSE_RATE_LIMIT_GOVERNANCE",
+          "name": "Model access and abuse rate-limit governance",
+          "scope": "Model access and abuse rate-limit governance within AI and synthetic-media abuse prevention; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "AI_SYNTHETIC_MEDIA_ABUSE_08_TRAINING_DATA_RIGHTS_AND_PROVENANCE",
+          "name": "Training-data rights and provenance",
+          "scope": "Training-data rights and provenance within AI and synthetic-media abuse prevention; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "AI_SYNTHETIC_MEDIA_ABUSE_09_DEEPFAKE_DETECTION_LIMITATIONS_AND_HUMAN_REVIEW",
+          "name": "Deepfake-detection limitations and human review",
+          "scope": "Deepfake-detection limitations and human review within AI and synthetic-media abuse prevention; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "AI_SYNTHETIC_MEDIA_ABUSE_10_PROMPT_INJECTION_AND_AGENT_TOOL_ABUSE_RISK",
+          "name": "Prompt injection and agent-tool abuse risk",
+          "scope": "Prompt injection and agent-tool abuse risk within AI and synthetic-media abuse prevention; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "adult_content_media_ecosystem",
+        "technology_digital_ecosystem"
+      ]
+    },
+    {
+      "id": "JURISDICTIONAL_LEGAL_COMPLIANCE",
+      "name": "Jurisdictional legal compliance",
+      "scope": "India and global legal/regulatory mapping, jurisdictional applicability, lawful-request governance and review metadata; legal verification remains external.",
+      "folder": "jurisdictional_legal_compliance_core_ecosystem",
+      "package_path": "jurisdictional_legal_compliance_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "governance_law_security",
+      "master_catalog_refs": [
+        "S11_indian_law",
+        "S11_international_law",
+        "S11_cyber_law",
+        "S11_privacy_law",
+        "S11_global_standards"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "JURISDICTIONAL_LEGAL_COMPLIANCE_01_COUNTRY_AND_REGIONAL_LEGAL_OBLIGATIONS_REGISTRY",
+          "name": "Country and regional legal obligations registry",
+          "scope": "Country and regional legal obligations registry within jurisdictional legal compliance; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "JURISDICTIONAL_LEGAL_COMPLIANCE_02_CYBERCRIME_AND_INCIDENT_REPORTING_REFERENCES",
+          "name": "Cybercrime and incident reporting references",
+          "scope": "Cybercrime and incident reporting references within jurisdictional legal compliance; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "JURISDICTIONAL_LEGAL_COMPLIANCE_03_PRIVACY_AND_DATA_PROTECTION_OBLIGATIONS",
+          "name": "Privacy and data-protection obligations",
+          "scope": "Privacy and data-protection obligations within jurisdictional legal compliance; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "JURISDICTIONAL_LEGAL_COMPLIANCE_04_ADULT_INDUSTRY_AND_AGE_ASSURANCE_OBLIGATIONS",
+          "name": "Adult-industry and age-assurance obligations",
+          "scope": "Adult-industry and age-assurance obligations within jurisdictional legal compliance; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "JURISDICTIONAL_LEGAL_COMPLIANCE_05_CROSS_BORDER_TRANSFER_AND_LAWFUL_DISCLOSURE",
+          "name": "Cross-border transfer and lawful disclosure",
+          "scope": "Cross-border transfer and lawful disclosure within jurisdictional legal compliance; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "JURISDICTIONAL_LEGAL_COMPLIANCE_06_EFFECTIVE_DATES_LEGAL_REVIEW_AND_CHANGE_MONITORING",
+          "name": "Effective dates, legal review and change monitoring",
+          "scope": "Effective dates, legal review and change monitoring within jurisdictional legal compliance; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "JURISDICTIONAL_LEGAL_COMPLIANCE_07_STATUTORY_REGISTER_AND_REGULATORY_AUTHORITY_MAPPING",
+          "name": "Statutory register and regulatory-authority mapping",
+          "scope": "Statutory register and regulatory-authority mapping within Jurisdictional legal compliance; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "JURISDICTIONAL_LEGAL_COMPLIANCE_08_CROSS_BORDER_DISCLOSURE_AND_CONFLICT_OF_LAWS",
+          "name": "Cross-border disclosure and conflict of laws",
+          "scope": "Cross-border disclosure and conflict of laws within Jurisdictional legal compliance; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "JURISDICTIONAL_LEGAL_COMPLIANCE_09_DATA_BREACH_NOTICE_DEADLINES_AND_RECORDS",
+          "name": "Data-breach notice deadlines and records",
+          "scope": "Data-breach notice deadlines and records within Jurisdictional legal compliance; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "JURISDICTIONAL_LEGAL_COMPLIANCE_10_LEGAL_HOLD_RETENTION_AND_EVIDENCE_REQUESTS",
+          "name": "Legal hold, retention and evidence requests",
+          "scope": "Legal hold, retention and evidence requests within Jurisdictional legal compliance; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "governance_law_security"
+      ]
+    },
+    {
+      "id": "DIGITAL_WELLBEING_HARM_REDUCTION",
+      "name": "Digital wellbeing and harm reduction",
+      "scope": "Digital wellbeing, blocking/reporting, exposure controls, harm reduction and user safety referral metadata.",
+      "folder": "digital_wellbeing_harm_reduction_core_ecosystem",
+      "package_path": "digital_wellbeing_harm_reduction_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "human_individual_ecosystem",
+      "master_catalog_refs": [
+        "S02_human_development",
+        "S02_human_psychology",
+        "S09_applications"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "DIGITAL_WELLBEING_HARM_REDUCTION_01_HARASSMENT_AND_CYBERBULLYING_SAFETY_CONTROLS",
+          "name": "Harassment and cyberbullying safety controls",
+          "scope": "Harassment and cyberbullying safety controls within digital wellbeing and harm reduction; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "DIGITAL_WELLBEING_HARM_REDUCTION_02_STALKING_AND_UNWANTED_CONTACT_PROTECTIONS",
+          "name": "Stalking and unwanted-contact protections",
+          "scope": "Stalking and unwanted-contact protections within digital wellbeing and harm reduction; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "DIGITAL_WELLBEING_HARM_REDUCTION_03_EXPOSURE_BLOCKING_AND_REPORTING_TOOLS",
+          "name": "Exposure, blocking and reporting tools",
+          "scope": "Exposure, blocking and reporting tools within digital wellbeing and harm reduction; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "DIGITAL_WELLBEING_HARM_REDUCTION_04_DIGITAL_WELLBEING_RISK_SIGNALS",
+          "name": "Digital wellbeing risk signals",
+          "scope": "Digital wellbeing risk signals within digital wellbeing and harm reduction; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "DIGITAL_WELLBEING_HARM_REDUCTION_05_CRISIS_ESCALATION_AND_SUPPORT_REFERRALS",
+          "name": "Crisis escalation and support referrals",
+          "scope": "Crisis escalation and support referrals within digital wellbeing and harm reduction; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "DIGITAL_WELLBEING_HARM_REDUCTION_06_ACCESSIBILITY_AND_VULNERABLE_USER_SAFEGUARDS",
+          "name": "Accessibility and vulnerable-user safeguards",
+          "scope": "Accessibility and vulnerable-user safeguards within digital wellbeing and harm reduction; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "DIGITAL_WELLBEING_HARM_REDUCTION_07_BLOCK_MUTE_RESTRICT_AND_CONTACT_CONTROLS",
+          "name": "Block, mute, restrict and contact controls",
+          "scope": "Block, mute, restrict and contact controls within Digital wellbeing and harm reduction; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "DIGITAL_WELLBEING_HARM_REDUCTION_08_CRISIS_CONTENT_ESCALATION_AND_SUPPORT_BOUNDARIES",
+          "name": "Crisis-content escalation and support boundaries",
+          "scope": "Crisis-content escalation and support boundaries within Digital wellbeing and harm reduction; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "DIGITAL_WELLBEING_HARM_REDUCTION_09_RECOMMENDATION_SYSTEM_HARM_AND_EXPOSURE_CONTROLS",
+          "name": "Recommendation-system harm and exposure controls",
+          "scope": "Recommendation-system harm and exposure controls within Digital wellbeing and harm reduction; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "DIGITAL_WELLBEING_HARM_REDUCTION_10_REPEAT_ABUSE_AND_CROSS_ACCOUNT_CONTACT_CONTROLS",
+          "name": "Repeat abuse and cross-account contact controls",
+          "scope": "Repeat abuse and cross-account contact controls within Digital wellbeing and harm reduction; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "human_individual_ecosystem",
+        "technology_digital_ecosystem"
+      ]
+    },
+    {
+      "id": "IDENTITY_IMPERSONATION_PROTECTION",
+      "name": "Identity and impersonation protection",
+      "scope": "Account takeover, impersonation, identity fraud, recovery, verification and privacy safeguards metadata.",
+      "folder": "identity_impersonation_protection_core_ecosystem",
+      "package_path": "identity_impersonation_protection_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "technology_digital_ecosystem",
+      "master_catalog_refs": [
+        "S02_human_identity",
+        "S09_digital_identity",
+        "S07_non_consensual_content_prevention"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "IDENTITY_IMPERSONATION_PROTECTION_01_IMPERSONATION_AND_ACCOUNT_TAKEOVER_SIGNALS",
+          "name": "Impersonation and account-takeover signals",
+          "scope": "Impersonation and account-takeover signals within identity and impersonation protection; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "IDENTITY_IMPERSONATION_PROTECTION_02_VERIFIED_IDENTITY_AND_AUTHENTICITY_CLAIMS",
+          "name": "Verified identity and authenticity claims",
+          "scope": "Verified identity and authenticity claims within identity and impersonation protection; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "IDENTITY_IMPERSONATION_PROTECTION_03_RECOVERY_AND_RE_VERIFICATION_SAFEGUARDS",
+          "name": "Recovery and re-verification safeguards",
+          "scope": "Recovery and re-verification safeguards within identity and impersonation protection; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "IDENTITY_IMPERSONATION_PROTECTION_04_SYNTHETIC_IDENTITY_AND_DEEPFAKE_ABUSE",
+          "name": "Synthetic identity and deepfake abuse",
+          "scope": "Synthetic identity and deepfake abuse within identity and impersonation protection; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "IDENTITY_IMPERSONATION_PROTECTION_05_BRAND_EXECUTIVE_AND_PERSONAL_IMPERSONATION",
+          "name": "Brand, executive and personal impersonation",
+          "scope": "Brand, executive and personal impersonation within identity and impersonation protection; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "IDENTITY_IMPERSONATION_PROTECTION_06_REPORTING_EVIDENCE_AND_REMEDIATION_WORKFLOWS",
+          "name": "Reporting, evidence and remediation workflows",
+          "scope": "Reporting, evidence and remediation workflows within identity and impersonation protection; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "IDENTITY_IMPERSONATION_PROTECTION_07_BRAND_DOMAIN_AND_SOCIAL_HANDLE_IMPERSONATION",
+          "name": "Brand, domain and social-handle impersonation",
+          "scope": "Brand, domain and social-handle impersonation within Identity and impersonation protection; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "IDENTITY_IMPERSONATION_PROTECTION_08_SYNTHETIC_IDENTITY_AND_DOCUMENT_FRAUD_REVIEW",
+          "name": "Synthetic identity and document-fraud review",
+          "scope": "Synthetic identity and document-fraud review within Identity and impersonation protection; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "IDENTITY_IMPERSONATION_PROTECTION_09_EXECUTIVE_PROTECTION_AND_TARGETED_PHISHING",
+          "name": "Executive protection and targeted phishing",
+          "scope": "Executive protection and targeted phishing within Identity and impersonation protection; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "IDENTITY_IMPERSONATION_PROTECTION_10_ACCOUNT_RECOVERY_PROOF_AND_TAKEOVER_REVERSAL",
+          "name": "Account-recovery proof and takeover reversal",
+          "scope": "Account-recovery proof and takeover reversal within Identity and impersonation protection; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "human_individual_ecosystem",
+        "adult_content_media_ecosystem",
+        "technology_digital_ecosystem"
+      ]
+    },
+    {
+      "id": "PAYMENT_TRANSACTION_SECURITY",
+      "name": "Payment and transaction security",
+      "scope": "Digital payments, transaction fraud, billing integrity, consumer protection, chargeback and payment-risk controls metadata.",
+      "folder": "payment_transaction_security_core_ecosystem",
+      "package_path": "payment_transaction_security_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "technology_digital_ecosystem",
+      "master_catalog_refs": [
+        "S09_digital_payments",
+        "S11_consumer_protection",
+        "S11_risk_management"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "PAYMENT_TRANSACTION_SECURITY_01_PAYMENT_ACCOUNT_AND_INSTRUMENT_PROTECTION",
+          "name": "Payment account and instrument protection",
+          "scope": "Payment account and instrument protection within payment and transaction security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "PAYMENT_TRANSACTION_SECURITY_02_TRANSACTION_AUTHENTICATION_AND_AUTHORIZATION",
+          "name": "Transaction authentication and authorization",
+          "scope": "Transaction authentication and authorization within payment and transaction security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "PAYMENT_TRANSACTION_SECURITY_03_FRAUD_MONITORING_AND_ANOMALY_REVIEW",
+          "name": "Fraud monitoring and anomaly review",
+          "scope": "Fraud monitoring and anomaly review within payment and transaction security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "PAYMENT_TRANSACTION_SECURITY_04_PAYMENT_DATA_PROTECTION_AND_TOKENIZATION",
+          "name": "Payment data protection and tokenization",
+          "scope": "Payment data protection and tokenization within payment and transaction security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "PAYMENT_TRANSACTION_SECURITY_05_DISPUTE_CHARGEBACK_AND_CONSUMER_REDRESS",
+          "name": "Dispute, chargeback and consumer redress",
+          "scope": "Dispute, chargeback and consumer redress within payment and transaction security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "PAYMENT_TRANSACTION_SECURITY_06_MERCHANT_AND_PAYMENT_PROVIDER_RISK_OVERSIGHT",
+          "name": "Merchant and payment-provider risk oversight",
+          "scope": "Merchant and payment-provider risk oversight within payment and transaction security; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "PAYMENT_TRANSACTION_SECURITY_07_PCI_SCOPE_AND_CARDHOLDER_DATA_BOUNDARIES",
+          "name": "PCI scope and cardholder-data boundaries",
+          "scope": "PCI scope and cardholder-data boundaries within Payment and transaction security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "PAYMENT_TRANSACTION_SECURITY_08_STRONG_CUSTOMER_AUTHENTICATION_AND_STEP_UP_VERIFICATION",
+          "name": "Strong customer authentication and step-up verification",
+          "scope": "Strong customer authentication and step-up verification within Payment and transaction security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "PAYMENT_TRANSACTION_SECURITY_09_PAYMENT_TOKENIZATION_AND_KEY_CUSTODY",
+          "name": "Payment tokenization and key custody",
+          "scope": "Payment tokenization and key custody within Payment and transaction security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "PAYMENT_TRANSACTION_SECURITY_10_REFUND_CHARGEBACK_AND_MERCHANT_COLLUSION_RISK",
+          "name": "Refund, chargeback and merchant-collusion risk",
+          "scope": "Refund, chargeback and merchant-collusion risk within Payment and transaction security; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "technology_digital_ecosystem",
+        "governance_law_security"
+      ]
+    },
+    {
+      "id": "PLATFORM_TRUST_SAFETY",
+      "name": "Platform trust and safety operations",
+      "scope": "Platform integrity, abuse reporting, moderation operations, appeals, escalations and trust-and-safety governance metadata.",
+      "folder": "platform_trust_safety_core_ecosystem",
+      "package_path": "platform_trust_safety_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "governance_law_security",
+      "master_catalog_refs": [
+        "S07_adult_content_moderation",
+        "S07_legal_compliance",
+        "S11_consumer_protection"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "PLATFORM_TRUST_SAFETY_01_PLATFORM_POLICY_GOVERNANCE_AND_ENFORCEMENT_RECORDS",
+          "name": "Platform policy governance and enforcement records",
+          "scope": "Platform policy governance and enforcement records within platform trust and safety operations; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "PLATFORM_TRUST_SAFETY_02_USER_REPORTS_COMPLAINTS_AND_APPEALS",
+          "name": "User reports, complaints and appeals",
+          "scope": "User reports, complaints and appeals within platform trust and safety operations; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "PLATFORM_TRUST_SAFETY_03_ABUSE_OPERATIONS_AND_CASE_WORKFLOWS",
+          "name": "Abuse operations and case workflows",
+          "scope": "Abuse operations and case workflows within platform trust and safety operations; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "PLATFORM_TRUST_SAFETY_04_TRANSPARENCY_METRICS_AND_ACCOUNTABILITY",
+          "name": "Transparency, metrics and accountability",
+          "scope": "Transparency, metrics and accountability within platform trust and safety operations; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "PLATFORM_TRUST_SAFETY_05_SAFETY_BY_DESIGN_AND_PRODUCT_RISK_REVIEWS",
+          "name": "Safety-by-design and product risk reviews",
+          "scope": "Safety-by-design and product risk reviews within platform trust and safety operations; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "PLATFORM_TRUST_SAFETY_06_TRUSTED_FLAGGER_AND_EXTERNAL_ESCALATION_GOVERNANCE",
+          "name": "Trusted flagger and external escalation governance",
+          "scope": "Trusted flagger and external escalation governance within platform trust and safety operations; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "PLATFORM_TRUST_SAFETY_07_TRUST_AND_SAFETY_POLICY_OPERATIONS_AND_QUALITY",
+          "name": "Trust and safety policy operations and quality",
+          "scope": "Trust and safety policy operations and quality within Platform trust and safety operations; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "PLATFORM_TRUST_SAFETY_08_USER_APPEAL_REVIEW_AND_ENFORCEMENT_CONSISTENCY",
+          "name": "User appeal review and enforcement consistency",
+          "scope": "User appeal review and enforcement consistency within Platform trust and safety operations; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "PLATFORM_TRUST_SAFETY_09_SAFETY_INCIDENT_COMMAND_AND_CROSS_TEAM_HANDOFF",
+          "name": "Safety incident command and cross-team handoff",
+          "scope": "Safety incident command and cross-team handoff within Platform trust and safety operations; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "PLATFORM_TRUST_SAFETY_10_TRANSPARENCY_REPORTING_AND_EXTERNAL_ASSURANCE",
+          "name": "Transparency reporting and external assurance",
+          "scope": "Transparency reporting and external assurance within Platform trust and safety operations; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "adult_content_media_ecosystem",
+        "governance_law_security"
+      ]
+    },
+    {
+      "id": "RESEARCH_EVIDENCE_ASSURANCE",
+      "name": "Research and evidence assurance",
+      "scope": "Research provenance, evidence quality, audit trails, source review and reproducibility metadata for security decisions.",
+      "folder": "research_evidence_assurance_core_ecosystem",
+      "package_path": "research_evidence_assurance_core_ecosystem",
+      "status": "CORE_CATALOG_ONLY",
+      "master_catalog_section": "knowledge_research_innovation",
+      "master_catalog_refs": [
+        "S12_scientific_research",
+        "S12_technical_knowledge",
+        "S11_audit",
+        "S11_global_standards"
+      ],
+      "coverage_areas": [
+        {
+          "area_id": "RESEARCH_EVIDENCE_ASSURANCE_01_SECURITY_RESEARCH_PROVENANCE_AND_REPRODUCIBILITY",
+          "name": "Security research provenance and reproducibility",
+          "scope": "Security research provenance and reproducibility within research and evidence assurance; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "RESEARCH_EVIDENCE_ASSURANCE_02_EVIDENCE_INTEGRITY_AND_CHAIN_OF_CUSTODY",
+          "name": "Evidence integrity and chain of custody",
+          "scope": "Evidence integrity and chain of custody within research and evidence assurance; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "RESEARCH_EVIDENCE_ASSURANCE_03_RESPONSIBLE_DISCLOSURE_COORDINATION",
+          "name": "Responsible disclosure coordination",
+          "scope": "Responsible disclosure coordination within research and evidence assurance; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "RESEARCH_EVIDENCE_ASSURANCE_04_RESEARCH_ETHICS_AND_HUMAN_SUBJECT_SAFEGUARDS",
+          "name": "Research ethics and human-subject safeguards",
+          "scope": "Research ethics and human-subject safeguards within research and evidence assurance; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "RESEARCH_EVIDENCE_ASSURANCE_05_INDEPENDENT_CONTROL_ASSESSMENT",
+          "name": "Independent control assessment",
+          "scope": "Independent control assessment within research and evidence assurance; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "RESEARCH_EVIDENCE_ASSURANCE_06_STANDARDS_MAPPING_AND_ASSURANCE_REPORTING",
+          "name": "Standards mapping and assurance reporting",
+          "scope": "Standards mapping and assurance reporting within research and evidence assurance; catalog and control-design scope only, not proof of deployed enforcement."
+        },
+        {
+          "area_id": "RESEARCH_EVIDENCE_ASSURANCE_07_FORENSIC_ACQUISITION_AND_EVIDENCE_PRESERVATION",
+          "name": "Forensic acquisition and evidence preservation",
+          "scope": "Forensic acquisition and evidence preservation within Research and evidence assurance; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "RESEARCH_EVIDENCE_ASSURANCE_08_CHAIN_OF_CUSTODY_AND_ACCESS_LOG_VALIDATION",
+          "name": "Chain of custody and access-log validation",
+          "scope": "Chain of custody and access-log validation within Research and evidence assurance; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "RESEARCH_EVIDENCE_ASSURANCE_09_RESEARCH_DISCLOSURE_TIMELINES_AND_COORDINATION",
+          "name": "Research disclosure timelines and coordination",
+          "scope": "Research disclosure timelines and coordination within Research and evidence assurance; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        },
+        {
+          "area_id": "RESEARCH_EVIDENCE_ASSURANCE_10_ASSESSMENT_METHOD_REPRODUCIBILITY_AND_LIMITATIONS",
+          "name": "Assessment-method reproducibility and limitations",
+          "scope": "Assessment-method reproducibility and limitations within Research and evidence assurance; catalog and control-design metadata only. Production protection requires separately implemented, authorized and tested controls."
+        }
+      ],
+      "master_catalog_sections": [
+        "governance_law_security",
+        "knowledge_research_innovation"
+      ]
+    }
+  ],
+  "domain_coverage_exhaustive": false,
+  "domain_package_location": "ECOSYSTEM_ROOT",
+  "domain_folder_suffix": "_core_ecosystem",
+  "master_catalog_source": "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json",
+  "master_catalog_counts": {
+    "target_unique_entries": 2468,
+    "current_unique_entries": 246,
+    "remaining_unique_entries": 2222,
+    "status": "FOUNDATION_CATALOG_WITH_IMPLEMENTATION_REGISTRY",
+    "policy": "Expand only with meaningful, individually defined, non-duplicate entries. Do not manufacture entries merely to reach the target."
+  },
+  "master_catalog_alignment": "REFERENCE_MAPPING_ONLY_VALIDATED_AT_RUNTIME",
+  "capability_levels": [
+    "BASIC",
+    "NORMAL",
+    "STANDARD",
+    "PROFESSIONAL",
+    "ADVANCED",
+    "EXPERT",
+    "SPECIALIZED",
+    "ENTERPRISE",
+    "NATIONAL",
+    "INTERNATIONAL",
+    "GLOBAL",
+    "UNIVERSAL",
+    "SUPREME"
+  ],
+  "taxonomy": {
+    "coverage_model": "DOMAIN_WITH_CONTROL_AREAS",
+    "domain_count": 33,
+    "control_area_count": 330,
+    "coverage_status": "DEFINED_CORE_TAXONOMY_NON_EXHAUSTIVE",
+    "policy": "Add a new area only when its scope is distinct, traceable and non-duplicative. Do not create folders for individual control areas.",
+    "coverage_area_count": 330,
+    "coverage_areas_per_domain": 10
+  }
+}

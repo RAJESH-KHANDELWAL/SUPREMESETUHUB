@@ -1,11 +1,5 @@
-# Atlassian Product Ecosystem Standard
+# Atlassian Product Core Package Standard
 
-Every Atlassian product-family Core package follows the Google Core package boundary and naming convention while keeping Atlassian-specific capabilities.
+Family package: `atlassian_<family>_core_ecosystem`. Domain package: `atlassian_<domain>_core_ecosystem`. Shared package: `atlassian_shared_<capability>_core_ecosystem`.
 
-Required package files: README.md, __init__.py, ecosystem_config.py, ecosystem_manifest.json and service.py.
-
-Required subfolders: authentication, capabilities, docs, events, lifecycle, models, schemas, security, services and tests.
-
-The Core layer is metadata-first and read-only. Authentication folders define contracts only; API token/OAuth handling and HTTP calls belong to the Atlassian API layer. Persistence, database operations, background execution and UI belong to their respective layers.
-
-A family may be marked live only after independent deployment-level authorization and smoke tests. A registry entry alone is not proof of an integration.
+Each product family package contains only justified product-specific Core metadata, contracts, capability definitions, lifecycle/readiness, security boundaries, service facade, documentation and tests. Avoid empty boilerplate and duplicate provider managers. API transport, OAuth/token handling and SDK implementation belong to Atlassian API Ecosystem.

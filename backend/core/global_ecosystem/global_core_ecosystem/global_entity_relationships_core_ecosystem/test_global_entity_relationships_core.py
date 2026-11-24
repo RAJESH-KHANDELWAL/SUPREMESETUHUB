@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 from .catalog import ROOT_ID,get_catalog,list_categories,RELATIONSHIP_TYPES
 from .manager import get_manager
+from backend.core.global_ecosystem.global_core_ecosystem.manager import GlobalEcosystemManager
 from .policy import RelationshipPolicy,RelationshipPolicyError
 class GlobalEntityRelationshipsCoreTests(unittest.TestCase):
  def test_root_name_and_id_standard(self):
@@ -27,8 +28,9 @@ class GlobalEntityRelationshipsCoreTests(unittest.TestCase):
   modules=master["ecosystem_module_index"]["modules"]
   entry=next((x for x in modules if x.get("ecosystem_id")==module_id),None)
   self.assertIsNotNone(entry); self.assertEqual(entry["category_count"],36); self.assertFalse(entry["live_connection_verified"])
-  central=(backend_root/"core/global_ecosystem/global_core_ecosystem/manager.py").read_text(encoding="utf-8")
-  self.assertIn(module_id,central); self.assertIn("GLOBAL ENTITY RELATIONSHIPS CORE ECOSYSTEM",central)
+  central=GlobalEcosystemManager()
+  self.assertTrue(central.exists(module_id))
+  self.assertEqual(central.get(module_id)["parent_id"],"GLOBAL-CORE-ECOSYSTEM")
  def test_master_catalog_reference_read_only_2468(self):
   r=get_manager().master_catalog_reference(); self.assertEqual(r["target_unique_entries"],2468); self.assertEqual(r["owner_layer"],"GLOBAL_ENGINE_ECOSYSTEM"); self.assertEqual(r["access_mode"],"READ_ONLY_ON_DEMAND")
 if __name__=="__main__": unittest.main()

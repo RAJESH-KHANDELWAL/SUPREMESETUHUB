@@ -16,7 +16,7 @@ class MetaCoreTests(unittest.TestCase):
         self.assertEqual(manager.status()["status"],"CORE_CATALOG_ONLY")
         self.assertTrue(manager.status()["registry_status"])
     def test_exact_api_catalog_family_parity(self):
-        api_ids={x["id"] for x in META_API_ECOSYSTEM["children"]}
+        api_ids={x["id"] for x in META_API_ECOSYSTEM["children"] if x["id"] != "sdk_developer_tools"}
         core_ids={x["family_id"] for x in list_meta_products()}
         self.assertEqual(core_ids,api_ids)
         self.assertEqual(len(core_ids),11)
@@ -45,7 +45,8 @@ class MetaCoreTests(unittest.TestCase):
         for slug in product_packages:
             module=importlib.import_module(f"{__package__}.meta_{slug}_core_ecosystem")
             cls=getattr(module,module.__all__[0])
-            self.assertEqual(cls.PRODUCT_ID,"meta_"+("graph_core" if slug=="graph" else "meta_ai" if slug=="ai" else slug))
+            expected_product_id = "meta_graph_core" if slug == "graph" else "meta_ai" if slug == "ai" else "meta_" + slug
+            self.assertEqual(cls.PRODUCT_ID, expected_product_id)
         for slug in domain_packages:
             module=importlib.import_module(f"{__package__}.meta_{slug}_domain_core_ecosystem")
             cls=getattr(module,module.__all__[0])

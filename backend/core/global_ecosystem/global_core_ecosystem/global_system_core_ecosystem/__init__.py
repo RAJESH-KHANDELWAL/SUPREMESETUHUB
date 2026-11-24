@@ -1,11 +1,21 @@
-"""SYSTEM CORE ECOSYSTEM package.
+"""Global System Core Ecosystem public interface."""
+from .catalog import SYSTEM_CORE_ECOSYSTEM, get_system_core_catalog, list_system_providers
+from .contracts import SystemCoreResult, SystemReadiness, SystemTenantContext, SystemSecretReference
+from .domain_catalog import DOMAIN_DEFINITIONS, system_domain_summary, list_system_domain_inventory
+from .domain_runtime import SystemCoreDomainManager
+from .manager import SystemCoreManager, get_manager
+from .module_service import SystemProviderCoreService, SystemProductCoreService
+from .orchestrator import SystemCoreOrchestrator
+from .policy import SystemCorePolicy, SystemCorePolicyError
+from .product_catalog import list_system_products, system_products_summary
+from .service import SystemCoreEcosystemService
 
-This package is an independent layer-owned namespace. It contains no imports
-from API, CORE, or ENGINE sibling layers.
-"""
-LAYER = "CORE"
-CATEGORY = "SYSTEM"
-ECOSYSTEM_NAME = f"GLOBAL {CATEGORY.replace('_', ' ')} {LAYER} ECOSYSTEM"
-ECOSYSTEM_ID = f"GLOBAL-{CATEGORY.replace('_', '-')}-{LAYER.upper()}-ECOSYSTEM"
-
-__all__ = ["LAYER", "CATEGORY", "ECOSYSTEM_NAME", "ECOSYSTEM_ID"]
+__all__ = [
+    "SYSTEM_CORE_ECOSYSTEM", "get_system_core_catalog", "list_system_providers",
+    "SystemCoreResult", "SystemReadiness", "SystemTenantContext", "SystemSecretReference",
+    "DOMAIN_DEFINITIONS", "system_domain_summary", "list_system_domain_inventory",
+    "SystemCoreDomainManager", "SystemCoreManager", "get_manager",
+    "SystemProviderCoreService", "SystemProductCoreService", "SystemCoreOrchestrator",
+    "SystemCorePolicy", "SystemCorePolicyError", "list_system_products",
+    "system_products_summary", "SystemCoreEcosystemService",
+]

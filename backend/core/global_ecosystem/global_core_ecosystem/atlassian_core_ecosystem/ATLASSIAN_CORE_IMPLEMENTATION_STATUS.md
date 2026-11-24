@@ -1,14 +1,12 @@
 # Atlassian Core Implementation Status
 
-- Provider root: implemented as metadata-only Core control plane.
-- Product families: 5 registered.
-- Domains: 6.
-- Product-family package structure: Google-style standard folders and contracts.
-- Global registry integration: included in GLOBAL CORE catalog/manager.
-- Automated coverage: catalog, family manifests, package structure and registry integration.
-- API availability: unverified (null).
-- Live connections verified: 0.
-- Credentials stored in Core: 0.
-- API calls performed by Core: 0.
+- Provider control-plane aligned to Google Core manager conventions.
+- Product families: 5.
+- Core domains: 8, with package routing and read-only managers.
+- Shared package naming standardized: `atlassian_shared_<capability>_core_ecosystem`.
+- Python manager and PHP interop facade included.
+- Catalog, contracts, policy, offering inventory, domain runtime, orchestrator, service and index included.
+- Structural/behavior tests added; execution not verified here.
+- API availability unverified; live connections verified: 0; Core API calls performed: 0.
 
-This is a Core foundation completion record, not a claim of live Atlassian API connectivity or production authorization. CI results must be reviewed for the commit that adds this implementation.
+Repository scaffolding/metadata status only; not live connectivity, API authorization or production readiness.

@@ -18,7 +18,7 @@ The catalog currently exposes 9 destination links and 3 program records. These c
 - Connector registry: `backend/integration/connector/registry.py`
 - Provider registry: `backend/integration/registry.py`
 - FastAPI routes: `backend/api/bada_business_integration.py`
-- Tests: `backend/tests/test_bada_business_integration.py`
+- Tests: `backend/test/test_bada_business_integration.py`
 
 ## API routes
 
