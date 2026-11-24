@@ -11,7 +11,7 @@ _ECOSYSTEM_DOMAIN_DIR = (
 # implementation packages physically live under GLOBAL INFRASTRUCTURE ECOSYSTEM.
 # The package directory remains second so global_ecosystem and root modules
 # continue to resolve normally.
-__path__ = [str(_ECOSYSTEM_DOMAIN_DIR), str(_PACKAGE_DIR)]
+__path__ = [str(_PACKAGE_DIR), str(_ECOSYSTEM_DOMAIN_DIR)]
 
 from .model import (
     InfrastructureCategory,
