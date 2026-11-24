@@ -1,7 +1,7 @@
 """Public Python entry point for GLOBAL CORE ECOSYSTEM.
 
-This module lives inside the canonical package and delegates domain behavior
-to the package manager. It does not own a second registry or catalog.
+This module delegates hierarchy ownership to the shared GLOBAL ECOSYSTEM
+manager and exposes only the GLOBAL CORE ECOSYSTEM subtree.
 """
 from __future__ import annotations
 
@@ -28,10 +28,16 @@ def status() -> dict[str, Any]:
 
 def list_modules() -> dict[str, Any]:
     result = get_manager().list()
+    records = result.get("ecosystems", [])
+    core_records = [
+        item for item in records
+        if item.get("ecosystem_id") == ECOSYSTEM_ID
+        or item.get("parent_id") == ECOSYSTEM_ID
+    ]
     return {
         "success": bool(result.get("success")),
-        "count": result.get("count", 0),
-        "items": result.get("ecosystems", []),
+        "count": len(core_records),
+        "items": core_records,
     }
 
 
@@ -48,11 +54,25 @@ def get_module(module_id: str) -> dict[str, Any]:
 
 def tree() -> dict[str, Any]:
     result = get_manager().tree()
+    master_root = result.get("tree") if isinstance(result, dict) else None
+    core_node = None
+    if isinstance(master_root, dict):
+        core_node = next(
+            (
+                child
+                for child in master_root.get("children", [])
+                if child.get("ecosystem_id") == ECOSYSTEM_ID
+            ),
+            None,
+        )
     return {
-        "success": bool(result.get("success")),
+        "success": bool(result.get("success")) and core_node is not None
+        if isinstance(result, dict)
+        else False,
         "name": ECOSYSTEM_NAME,
         "id": ECOSYSTEM_ID,
-        "children": [result.get("tree")] if result.get("tree") else [],
+        "children": core_node.get("children", []) if core_node else [],
+        "tree": core_node,
     }
 
 
