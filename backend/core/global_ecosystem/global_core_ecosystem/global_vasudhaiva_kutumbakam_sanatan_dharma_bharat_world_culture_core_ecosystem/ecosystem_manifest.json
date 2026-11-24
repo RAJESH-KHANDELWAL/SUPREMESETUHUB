@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL-VASUDHAIVA-KUTUMBAKAM-SANATAN-DHARMA-BHARAT-WORLD-CULTURE-CORE-ECOSYSTEM",
+  "name": "GLOBAL VASUDHAIVA KUTUMBAKAM | SANATAN DHARMA | BHARAT SANSKRITI | WORLD CULTURE CORE ECOSYSTEM",
+  "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+  "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/",
+  "status": "REGISTERED_CORE_METADATA",
+  "pillar_count": 4,
+  "domain_count": 13,
+  "domain_package_count": 13,
+  "resource_count": null,
+  "source_of_record": "backend/global_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem",
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/",
+  "business_expression_ref": "backend/global_ecosystem/global_bada_business_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_business_ecosystem",
+  "live_connections_verified": false,
+  "api_transport_in_core": false,
+  "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+  "domains": [
+    {
+      "domain_id": "SANATAN_DHARMA",
+      "package_name": "sanatan_dharma_cultural_core_ecosystem",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/sanatan_dharma_cultural_core_ecosystem",
+      "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/sanatan_dharma"
+    },
+    {
+      "domain_id": "BHARAT_SANSKRITI",
+      "package_name": "bharat_sanskriti_core_ecosystem",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/bharat_sanskriti_core_ecosystem",
+      "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/bharat_sanskriti"
+    },
+    {
+      "domain_id": "BHARAT_CIVILIZATION",
+      "package_name": "bharat_civilization_core_ecosystem",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/bharat_civilization_core_ecosystem",
+      "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/bharat_civilization"
+    },
+    {
+      "domain_id": "WORLD_CULTURES",
+      "package_name": "world_cultures_core_ecosystem",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/world_cultures_core_ecosystem",
+      "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/world_cultures"
+    },
+    {
+      "domain_id": "WORLD_CIVILIZATIONS",
+      "package_name": "world_civilizations_core_ecosystem",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/world_civilizations_core_ecosystem",
+      "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/world_civilizations"
+    },
+    {
+      "domain_id": "LANGUAGES_AND_LITERATURE",
+      "package_name": "languages_literature_core_ecosystem",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/languages_literature_core_ecosystem",
+      "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/languages"
+    },
+    {
+      "domain_id": "HERITAGE_AND_ARCHIVES",
+      "package_name": "heritage_archives_core_ecosystem",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/heritage_archives_core_ecosystem",
+      "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/heritage"
+    },
+    {
+      "domain_id": "FESTIVALS_AND_LIVING_TRADITIONS",
+      "package_name": "festivals_living_traditions_core_ecosystem",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/festivals_living_traditions_core_ecosystem",
+      "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/festivals"
+    },
+    {
+      "domain_id": "ARTS_AND_TRADITIONS",
+      "package_name": "arts_traditions_core_ecosystem",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/arts_traditions_core_ecosystem",
+      "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/arts_and_traditions"
+    },
+    {
+      "domain_id": "KNOWLEDGE_AND_EDUCATION",
+      "package_name": "knowledge_education_core_ecosystem",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/knowledge_education_core_ecosystem",
+      "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/knowledge_and_education"
+    },
+    {
+      "domain_id": "ORAL_HISTORY",
+      "package_name": "oral_history_core_ecosystem",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/oral_history_core_ecosystem",
+      "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/oral_history"
+    },
+    {
+      "domain_id": "CULTURAL_TIMELINE",
+      "package_name": "cultural_timeline_core_ecosystem",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/cultural_timeline_core_ecosystem",
+      "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/timeline"
+    },
+    {
+      "domain_id": "EVIDENCE_AND_VERIFICATION",
+      "package_name": "cultural_evidence_verification_core_ecosystem",
+      "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/cultural_evidence_verification_core_ecosystem",
+      "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/verification"
+    }
+  ]
+}
