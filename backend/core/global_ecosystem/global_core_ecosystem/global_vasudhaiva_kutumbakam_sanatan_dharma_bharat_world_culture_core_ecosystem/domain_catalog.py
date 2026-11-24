@@ -9,7 +9,7 @@ DOMAIN_DEFINITIONS: dict[str, dict[str, Any]] = {
         "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/sanatan_dharma_cultural_core_ecosystem",
         "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/sanatan_dharma",
         "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
-        "live_connection_verified": false
+        "live_connection_verified": False
     },
     "BHARAT_SANSKRITI": {
         "name": "Bharat Sanskriti",
