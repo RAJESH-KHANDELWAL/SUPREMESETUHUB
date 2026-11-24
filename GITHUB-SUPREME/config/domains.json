@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "note": "Add verified public domain records only. Do not place credentials or private endpoints in this file.",
+  "domains": []
+}
