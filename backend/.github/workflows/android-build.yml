@@ -62,11 +62,11 @@ jobs:
           gradle-version: "9.6.0"
 
       - name: Check Gradle
-        working-directory: mobile/android
+        working-directory: backend/mobile/android
         run: gradle --version
 
       - name: Build Release AAB
-        working-directory: mobile/android
+        working-directory: backend/mobile/android
         run: |
           gradle :app:bundleRelease \
             --stacktrace \
@@ -74,7 +74,7 @@ jobs:
 
       - name: Verify AAB
         run: |
-          AAB="mobile/android/app/build/outputs/bundle/release/app-release.aab"
+          AAB="backend/mobile/android/app/build/outputs/bundle/release/app-release.aab"
           test -f "$AAB"
           ls -lh "$AAB"
 
@@ -82,5 +82,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: main-base-foundation-release-aab
-          path: mobile/android/app/build/outputs/bundle/release/app-release.aab
+          path: backend/mobile/android/app/build/outputs/bundle/release/app-release.aab
           if-no-files-found: error
