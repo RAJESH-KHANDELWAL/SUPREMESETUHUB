@@ -1,0 +1,520 @@
+{
+  "schema_version": "2.0.0",
+  "ecosystem_id": "GLOBAL-INTEGRATIONS-CORE-ECOSYSTEM",
+  "name": "GLOBAL INTEGRATIONS CORE ECOSYSTEM",
+  "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+  "layer": "CORE",
+  "status": "CORE_CATALOG_ONLY",
+  "master_catalog_ref": "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json",
+  "master_catalog_relationship": "REFERENCE_ONLY_NO_ENTRY_COPYING",
+  "integration_domain_count": 31,
+  "provider_family_count": 9,
+  "provider_catalog_only": true,
+  "live_connections_verified": 0,
+  "api_calls_performed": 0,
+  "execution_enabled": false,
+  "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+  "age_restricted_domains_require_age_assurance": true,
+  "consent_and_regional_compliance_required": true,
+  "domains": [
+    {
+      "id": "ADULT_AGE_VERIFICATION_CONSENT",
+      "name": "Adult Age Verification & Consent",
+      "folder": "adult_age_verification_consent_integrations_core_ecosystem",
+      "category": "TRUST_AND_SAFETY",
+      "sensitivity": "RESTRICTED",
+      "age_restricted": true,
+      "consent_required": true,
+      "capabilities": [
+        "SECURITY_CAPABILITY_DISCOVERY",
+        "CONSENT_POLICY_METADATA",
+        "REGIONAL_COMPLIANCE_METADATA"
+      ]
+    },
+    {
+      "id": "ADULT_CONTENT_DISTRIBUTION_LICENSING",
+      "name": "Adult Content Distribution & Licensing",
+      "folder": "adult_content_distribution_licensing_integrations_core_ecosystem",
+      "category": "TRUST_AND_SAFETY",
+      "sensitivity": "RESTRICTED",
+      "age_restricted": true,
+      "consent_required": true,
+      "capabilities": [
+        "SECURITY_CAPABILITY_DISCOVERY",
+        "CONSENT_POLICY_METADATA",
+        "REGIONAL_COMPLIANCE_METADATA"
+      ]
+    },
+    {
+      "id": "ADULT_CONTENT_PRODUCTION_STUDIO",
+      "name": "Adult Content Production Studio",
+      "folder": "adult_content_production_studio_integrations_core_ecosystem",
+      "category": "CREATOR_AND_MEDIA",
+      "sensitivity": "RESTRICTED",
+      "age_restricted": true,
+      "consent_required": true,
+      "capabilities": [
+        "CREATOR_PLATFORM_DISCOVERY",
+        "CONTENT_RIGHTS_METADATA",
+        "MODERATION_POLICY_METADATA"
+      ]
+    },
+    {
+      "id": "ADULT_CREATOR_BUSINESS",
+      "name": "Adult Creator Business",
+      "folder": "adult_creator_business_integrations_core_ecosystem",
+      "category": "CREATOR_AND_MEDIA",
+      "sensitivity": "RESTRICTED",
+      "age_restricted": true,
+      "consent_required": true,
+      "capabilities": [
+        "CREATOR_PLATFORM_DISCOVERY",
+        "CONTENT_RIGHTS_METADATA",
+        "MODERATION_POLICY_METADATA"
+      ]
+    },
+    {
+      "id": "ADULT_ENTERTAINMENT_PLATFORM",
+      "name": "Adult Entertainment Platform",
+      "folder": "adult_entertainment_platform_integrations_core_ecosystem",
+      "category": "CREATOR_AND_MEDIA",
+      "sensitivity": "RESTRICTED",
+      "age_restricted": true,
+      "consent_required": true,
+      "capabilities": [
+        "CREATOR_PLATFORM_DISCOVERY",
+        "CONTENT_RIGHTS_METADATA",
+        "MODERATION_POLICY_METADATA"
+      ]
+    },
+    {
+      "id": "ADULT_LEGAL_REGIONAL_COMPLIANCE",
+      "name": "Adult Legal & Regional Compliance",
+      "folder": "adult_legal_regional_compliance_integrations_core_ecosystem",
+      "category": "TRUST_AND_SAFETY",
+      "sensitivity": "RESTRICTED",
+      "age_restricted": true,
+      "consent_required": true,
+      "capabilities": [
+        "SECURITY_CAPABILITY_DISCOVERY",
+        "CONSENT_POLICY_METADATA",
+        "REGIONAL_COMPLIANCE_METADATA"
+      ]
+    },
+    {
+      "id": "ADULT_LIVE_STREAMING",
+      "name": "Adult Live Streaming",
+      "folder": "adult_live_streaming_integrations_core_ecosystem",
+      "category": "CREATOR_AND_MEDIA",
+      "sensitivity": "RESTRICTED",
+      "age_restricted": true,
+      "consent_required": true,
+      "capabilities": [
+        "CREATOR_PLATFORM_DISCOVERY",
+        "CONTENT_RIGHTS_METADATA",
+        "MODERATION_POLICY_METADATA"
+      ]
+    },
+    {
+      "id": "ADULT_MODERATION_SAFETY_TAKEDOWN",
+      "name": "Adult Moderation, Safety & Takedown",
+      "folder": "adult_moderation_safety_takedown_integrations_core_ecosystem",
+      "category": "TRUST_AND_SAFETY",
+      "sensitivity": "RESTRICTED",
+      "age_restricted": true,
+      "consent_required": true,
+      "capabilities": [
+        "SECURITY_CAPABILITY_DISCOVERY",
+        "CONSENT_POLICY_METADATA",
+        "REGIONAL_COMPLIANCE_METADATA"
+      ]
+    },
+    {
+      "id": "ADULT_PAYMENTS_PAYOUTS",
+      "name": "Adult Payments & Payouts",
+      "folder": "adult_payments_payouts_integrations_core_ecosystem",
+      "category": "PAYMENTS_AND_COMMERCE",
+      "sensitivity": "RESTRICTED",
+      "age_restricted": true,
+      "consent_required": true,
+      "capabilities": [
+        "PAYMENT_PROVIDER_DISCOVERY",
+        "TRANSACTION_CAPABILITY_METADATA",
+        "FINANCIAL_POLICY_METADATA"
+      ]
+    },
+    {
+      "id": "ADULT_PRIVACY_SECURITY",
+      "name": "Adult Privacy & Security",
+      "folder": "adult_privacy_security_integrations_core_ecosystem",
+      "category": "TRUST_AND_SAFETY",
+      "sensitivity": "RESTRICTED",
+      "age_restricted": true,
+      "consent_required": true,
+      "capabilities": [
+        "SECURITY_CAPABILITY_DISCOVERY",
+        "CONSENT_POLICY_METADATA",
+        "REGIONAL_COMPLIANCE_METADATA"
+      ]
+    },
+    {
+      "id": "AI_ML_DATA",
+      "name": "AI, Machine Learning & Data",
+      "folder": "ai_ml_data_integrations_core_ecosystem",
+      "category": "AI_AND_DATA",
+      "sensitivity": "STANDARD",
+      "age_restricted": false,
+      "consent_required": false,
+      "capabilities": [
+        "AI_PROVIDER_DISCOVERY",
+        "MODEL_CAPABILITY_METADATA",
+        "DATA_PLATFORM_METADATA"
+      ]
+    },
+    {
+      "id": "APPLE",
+      "name": "Apple Provider Integrations",
+      "folder": "apple_integrations_core_ecosystem",
+      "category": "PROVIDER_ECOSYSTEMS",
+      "sensitivity": "STANDARD",
+      "age_restricted": false,
+      "consent_required": false,
+      "capabilities": [
+        "PROVIDER_DISCOVERY",
+        "PRODUCT_CAPABILITY_METADATA",
+        "AUTHORIZATION_REQUIREMENTS"
+      ]
+    },
+    {
+      "id": "AUTOMATION_WORKFLOW",
+      "name": "Automation & Workflow",
+      "folder": "automation_workflow_integrations_core_ecosystem",
+      "category": "WORKFLOW_AND_PRODUCTIVITY",
+      "sensitivity": "STANDARD",
+      "age_restricted": false,
+      "consent_required": false,
+      "capabilities": [
+        "WORKFLOW_PROVIDER_DISCOVERY",
+        "TRIGGER_ACTION_METADATA",
+        "AUTOMATION_POLICY_METADATA"
+      ]
+    },
+    {
+      "id": "AWS",
+      "name": "Amazon Web Services Provider Integrations",
+      "folder": "aws_integrations_core_ecosystem",
+      "category": "PROVIDER_ECOSYSTEMS",
+      "sensitivity": "STANDARD",
+      "age_restricted": false,
+      "consent_required": false,
+      "capabilities": [
+        "PROVIDER_DISCOVERY",
+        "PRODUCT_CAPABILITY_METADATA",
+        "AUTHORIZATION_REQUIREMENTS"
+      ]
+    },
+    {
+      "id": "BUSINESS_ENTERPRISE",
+      "name": "Business & Enterprise",
+      "folder": "business_enterprise_integrations_core_ecosystem",
+      "category": "BUSINESS_AND_OPERATIONS",
+      "sensitivity": "STANDARD",
+      "age_restricted": false,
+      "consent_required": false,
+      "capabilities": [
+        "ENTERPRISE_PROVIDER_DISCOVERY",
+        "BUSINESS_SYSTEM_METADATA",
+        "TENANT_CAPABILITY_METADATA"
+      ]
+    },
+    {
+      "id": "COMMERCE_MARKETPLACE",
+      "name": "Commerce & Marketplace",
+      "folder": "commerce_marketplace_integrations_core_ecosystem",
+      "category": "PAYMENTS_AND_COMMERCE",
+      "sensitivity": "STANDARD",
+      "age_restricted": false,
+      "consent_required": false,
+      "capabilities": [
+        "PAYMENT_PROVIDER_DISCOVERY",
+        "TRANSACTION_CAPABILITY_METADATA",
+        "FINANCIAL_POLICY_METADATA"
+      ]
+    },
+    {
+      "id": "COMMUNICATION_SOCIAL_MEDIA",
+      "name": "Communication & Social Media",
+      "folder": "communication_social_media_integrations_core_ecosystem",
+      "category": "COMMUNICATION_AND_IDENTITY",
+      "sensitivity": "STANDARD",
+      "age_restricted": false,
+      "consent_required": false,
+      "capabilities": [
+        "IDENTITY_PROVIDER_DISCOVERY",
+        "COMMUNICATION_CAPABILITY_METADATA",
+        "CONSENT_POLICY_METADATA"
+      ]
+    },
+    {
+      "id": "DATABASE_STORAGE",
+      "name": "Database & Storage",
+      "folder": "database_storage_integrations_core_ecosystem",
+      "category": "DATA_AND_INFRASTRUCTURE",
+      "sensitivity": "STANDARD",
+      "age_restricted": false,
+      "consent_required": false,
+      "capabilities": [
+        "INFRASTRUCTURE_PROVIDER_DISCOVERY",
+        "DATA_CAPABILITY_METADATA",
+        "REGION_METADATA"
+      ]
+    },
+    {
+      "id": "DATING_RELATIONSHIPS",
+      "name": "Dating & Relationships",
+      "folder": "dating_relationships_integrations_core_ecosystem",
+      "category": "PERSONAL_AND_COMMUNITY",
+      "sensitivity": "RESTRICTED",
+      "age_restricted": false,
+      "consent_required": true,
+      "capabilities": [
+        "PERSONAL_SERVICE_DISCOVERY",
+        "PERSONAL_DATA_SAFEGUARDS",
+        "CONSENT_POLICY_METADATA"
+      ]
+    },
+    {
+      "id": "DEVELOPER_API",
+      "name": "Developer & API Platforms",
+      "folder": "developer_api_integrations_core_ecosystem",
+      "category": "DEVELOPER_AND_INFRASTRUCTURE",
+      "sensitivity": "STANDARD",
+      "age_restricted": false,
+      "consent_required": false,
+      "capabilities": [
+        "DEVELOPER_PROVIDER_DISCOVERY",
+        "API_CAPABILITY_METADATA",
+        "WEBHOOK_REQUIREMENTS"
+      ]
+    },
+    {
+      "id": "GLOBAL_CLOUD",
+      "name": "Global Cloud",
+      "folder": "global_cloud_integrations_core_ecosystem",
+      "category": "DATA_AND_INFRASTRUCTURE",
+      "sensitivity": "STANDARD",
+      "age_restricted": false,
+      "consent_required": false,
+      "capabilities": [
+        "INFRASTRUCTURE_PROVIDER_DISCOVERY",
+        "DATA_CAPABILITY_METADATA",
+        "REGION_METADATA"
+      ]
+    },
+    {
+      "id": "GLOBAL_INTEGRATIONS",
+      "name": "Global Integration Governance",
+      "folder": "global_integrations_core_ecosystem",
+      "category": "GOVERNANCE_AND_CATALOG",
+      "sensitivity": "STANDARD",
+      "age_restricted": false,
+      "consent_required": false,
+      "capabilities": [
+        "REGISTRY_GOVERNANCE",
+        "DOMAIN_TAXONOMY_METADATA",
+        "SERVICE_TIER_METADATA"
+      ]
+    },
+    {
+      "id": "GOOGLE",
+      "name": "Google Provider Integrations",
+      "folder": "google_integrations_core_ecosystem",
+      "category": "PROVIDER_ECOSYSTEMS",
+      "sensitivity": "STANDARD",
+      "age_restricted": false,
+      "consent_required": false,
+      "capabilities": [
+        "PROVIDER_DISCOVERY",
+        "PRODUCT_CAPABILITY_METADATA",
+        "AUTHORIZATION_REQUIREMENTS"
+      ]
+    },
+    {
+      "id": "IDENTITY_AUTHENTICATION",
+      "name": "Identity & Authentication",
+      "folder": "identity_authentication_integrations_core_ecosystem",
+      "category": "COMMUNICATION_AND_IDENTITY",
+      "sensitivity": "RESTRICTED",
+      "age_restricted": false,
+      "consent_required": true,
+      "capabilities": [
+        "IDENTITY_PROVIDER_DISCOVERY",
+        "COMMUNICATION_CAPABILITY_METADATA",
+        "CONSENT_POLICY_METADATA"
+      ]
+    },
+    {
+      "id": "INDIA",
+      "name": "India Regional Integrations",
+      "folder": "india_integrations_core_ecosystem",
+      "category": "REGIONAL_ECOSYSTEMS",
+      "sensitivity": "STANDARD",
+      "age_restricted": false,
+      "consent_required": false,
+      "capabilities": [
+        "REGIONAL_PROVIDER_DISCOVERY",
+        "LOCAL_SERVICE_METADATA",
+        "REGIONAL_COMPLIANCE_METADATA"
+      ]
+    },
+    {
+      "id": "INDIVIDUAL_PERSONAL",
+      "name": "Individual & Personal Integrations",
+      "folder": "individual_personal_integrations_core_ecosystem",
+      "category": "PERSONAL_AND_COMMUNITY",
+      "sensitivity": "RESTRICTED",
+      "age_restricted": false,
+      "consent_required": true,
+      "capabilities": [
+        "PERSONAL_SERVICE_DISCOVERY",
+        "PERSONAL_DATA_SAFEGUARDS",
+        "CONSENT_POLICY_METADATA"
+      ]
+    },
+    {
+      "id": "INTEGRATION_TIERS_NORMAL_TO_SUPREME",
+      "name": "Integration Service Tiers: Normal to Supreme",
+      "folder": "integration_tiers_normal_to_supreme_core_ecosystem",
+      "category": "GOVERNANCE_AND_CATALOG",
+      "sensitivity": "STANDARD",
+      "age_restricted": false,
+      "consent_required": false,
+      "capabilities": [
+        "REGISTRY_GOVERNANCE",
+        "DOMAIN_TAXONOMY_METADATA",
+        "SERVICE_TIER_METADATA"
+      ]
+    },
+    {
+      "id": "MICROSOFT",
+      "name": "Microsoft Provider Integrations",
+      "folder": "microsoft_integrations_core_ecosystem",
+      "category": "PROVIDER_ECOSYSTEMS",
+      "sensitivity": "STANDARD",
+      "age_restricted": false,
+      "consent_required": false,
+      "capabilities": [
+        "PROVIDER_DISCOVERY",
+        "PRODUCT_CAPABILITY_METADATA",
+        "AUTHORIZATION_REQUIREMENTS"
+      ]
+    },
+    {
+      "id": "PAYMENTS_BANKING_FINANCE",
+      "name": "Payments, Banking & Finance",
+      "folder": "payments_banking_finance_integrations_core_ecosystem",
+      "category": "PAYMENTS_AND_COMMERCE",
+      "sensitivity": "RESTRICTED",
+      "age_restricted": false,
+      "consent_required": true,
+      "capabilities": [
+        "PAYMENT_PROVIDER_DISCOVERY",
+        "TRANSACTION_CAPABILITY_METADATA",
+        "FINANCIAL_POLICY_METADATA"
+      ]
+    },
+    {
+      "id": "SECURITY_PRIVACY_COMPLIANCE",
+      "name": "Security, Privacy & Compliance",
+      "folder": "security_privacy_compliance_integrations_core_ecosystem",
+      "category": "TRUST_AND_SAFETY",
+      "sensitivity": "RESTRICTED",
+      "age_restricted": false,
+      "consent_required": true,
+      "capabilities": [
+        "SECURITY_CAPABILITY_DISCOVERY",
+        "CONSENT_POLICY_METADATA",
+        "REGIONAL_COMPLIANCE_METADATA"
+      ]
+    },
+    {
+      "id": "SEXUAL_WELLNESS_EDUCATION",
+      "name": "Sexual Wellness Education",
+      "folder": "sexual_wellness_education_integrations_core_ecosystem",
+      "category": "PERSONAL_AND_COMMUNITY",
+      "sensitivity": "RESTRICTED",
+      "age_restricted": true,
+      "consent_required": true,
+      "capabilities": [
+        "PERSONAL_SERVICE_DISCOVERY",
+        "PERSONAL_DATA_SAFEGUARDS",
+        "CONSENT_POLICY_METADATA"
+      ]
+    }
+  ],
+  "provider_families": [
+    {
+      "id": "aws",
+      "name": "Amazon Web Services",
+      "category": "CLOUD_INFRASTRUCTURE",
+      "status": "CATALOG_ONLY",
+      "live_connection_verified": false
+    },
+    {
+      "id": "google",
+      "name": "Google",
+      "category": "CLOUD_AND_PRODUCTIVITY",
+      "status": "CATALOG_ONLY",
+      "live_connection_verified": false
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "category": "CLOUD_AND_PRODUCTIVITY",
+      "status": "CATALOG_ONLY",
+      "live_connection_verified": false
+    },
+    {
+      "id": "apple",
+      "name": "Apple",
+      "category": "DEVICE_AND_PRODUCTIVITY",
+      "status": "CATALOG_ONLY",
+      "live_connection_verified": false
+    },
+    {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "category": "NETWORK_AND_SECURITY",
+      "status": "CATALOG_ONLY",
+      "live_connection_verified": false
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "category": "DEVELOPER_PLATFORM",
+      "status": "CATALOG_ONLY",
+      "live_connection_verified": false
+    },
+    {
+      "id": "stripe",
+      "name": "Stripe",
+      "category": "PAYMENTS",
+      "status": "CATALOG_ONLY",
+      "live_connection_verified": false
+    },
+    {
+      "id": "india_digital_services",
+      "name": "India Digital Services",
+      "category": "REGIONAL_SERVICES",
+      "status": "CATALOG_ONLY",
+      "live_connection_verified": false
+    },
+    {
+      "id": "self_hosted",
+      "name": "Self-hosted / Custom Provider",
+      "category": "GENERAL",
+      "status": "CATALOG_ONLY",
+      "live_connection_verified": false
+    }
+  ]
+}
