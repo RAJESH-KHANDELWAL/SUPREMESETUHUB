@@ -284,6 +284,45 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
             "live_connection_verified": False,
         },
     },
+    {
+        "ecosystem_id": "IBM-CORE-ECOSYSTEM",
+        "name": "IBM CORE ECOSYSTEM",
+        "ecosystem_type": "PROVIDER_CORE",
+        "capabilities": ["IBM_PRODUCT_CATALOG", "IBM_DOMAIN_TAXONOMY", "TENANT_SCOPED_DISCOVERY"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_catalog": "backend/core/global_ecosystem/global_core_ecosystem/ibm_core_ecosystem",
+            "product_count": 16,
+            "status": "CORE_CATALOG_ONLY",
+            "live_connection_verified": False,
+        },
+    },
+    {
+        "ecosystem_id": "GLOBAL-WEBSITE-CORE-ECOSYSTEM",
+        "name": "GLOBAL WEBSITE CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": ["WEBSITE_PROVIDER_CATALOG", "WEBSITE_DOMAIN_TAXONOMY", "READINESS_METADATA"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_website_core_ecosystem",
+            "core_catalog": "backend/core/global_ecosystem/global_core_ecosystem/global_website_core_ecosystem",
+            "status": "CORE_CATALOG_ONLY",
+            "live_connection_verified": False,
+        },
+    },
+    {
+        "ecosystem_id": "META-CORE-ECOSYSTEM",
+        "name": "META CORE ECOSYSTEM",
+        "ecosystem_type": "PROVIDER_CORE",
+        "capabilities": ["META_PRODUCT_CATALOG", "META_DOMAIN_TAXONOMY", "TENANT_SCOPED_DISCOVERY"],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_catalog": "backend/core/global_ecosystem/global_core_ecosystem/meta_core_ecosystem",
+            "product_count": 11,
+            "status": "CORE_CATALOG_ONLY",
+            "live_connection_verified": False,
+        },
+    },
 
     {
         "ecosystem_id": "STRIPE-CORE-ECOSYSTEM",
