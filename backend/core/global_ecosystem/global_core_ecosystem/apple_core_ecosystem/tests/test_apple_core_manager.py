@@ -39,7 +39,7 @@ class AppleCoreManagerTests(unittest.TestCase):
 
     def test_apple_package_directories_follow_name_pattern(self):
         for directory in PACKAGE_ROOT.iterdir():
-            if not directory.is_dir() or directory.name in {"php", "tests", "__pycache__"}:
+            if not directory.is_dir() or directory.name in {"php", "tests"}:
                 continue
             self.assertRegex(
                 directory.name,
