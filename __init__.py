@@ -30,15 +30,27 @@ def status():
 
 
 def tree():
-    """Return the GLOBAL ECOSYSTEM root with CORE as a child."""
+    """Return the CORE subtree, not the enclosing GLOBAL ECOSYSTEM root."""
     result = _get_manager().tree()
-    root = result.get("tree") if isinstance(result, dict) else None
+    master_root = result.get("tree") if isinstance(result, dict) else None
+    core_node = None
+    if isinstance(master_root, dict):
+        core_node = next(
+            (
+                child
+                for child in master_root.get("children", [])
+                if child.get("ecosystem_id") == ECOSYSTEM_ID
+            ),
+            None,
+        )
     return {
-        "success": bool(result.get("success")) if isinstance(result, dict) else False,
+        "success": bool(result.get("success")) and core_node is not None
+        if isinstance(result, dict)
+        else False,
         "id": ECOSYSTEM_ID,
         "name": ECOSYSTEM_NAME,
-        "children": [root] if root else [],
-        "tree": root,
+        "children": core_node.get("children", []) if core_node else [],
+        "tree": core_node,
     }
 
 
