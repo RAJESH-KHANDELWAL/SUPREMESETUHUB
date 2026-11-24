@@ -242,6 +242,24 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "capabilities": ["SERVER_LIFECYCLE", "HEALTH_CHECKS", "DEPLOYMENT_COORDINATION"],
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
     },
+    {
+        "ecosystem_id": "GLOBAL-ENTITY-RELATIONSHIPS-CORE-ECOSYSTEM",
+        "name": "GLOBAL ENTITY RELATIONSHIPS CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": [
+            "ENTITY_REFERENCE",
+            "RELATIONSHIP_TAXONOMY",
+            "PROVENANCE",
+            "VERIFICATION_POLICY",
+            "OWNERSHIP_AND_AFFILIATION_METADATA",
+        ],
+        "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+        "metadata": {
+            "core_catalog": "backend/core/global_ecosystem/global_core_ecosystem/global_entity_relationships_core_ecosystem",
+            "status": "CORE_CATALOG_ONLY",
+            "live_connection_verified": False,
+        },
+    },
 
     {
         "ecosystem_id": "STRIPE-CORE-ECOSYSTEM",
