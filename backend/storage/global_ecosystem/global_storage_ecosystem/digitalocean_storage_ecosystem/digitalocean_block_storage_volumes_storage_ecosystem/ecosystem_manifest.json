@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "DIGITALOCEAN_BLOCK_STORAGE_VOLUMES_STORAGE_ECOSYSTEM",
+  "provider": "DIGITALOCEAN",
+  "category": "BLOCK_STORAGE_VOLUMES",
+  "parent_ecosystem": "DIGITALOCEAN_STORAGE_ECOSYSTEM",
+  "package_type": "STORAGE_CATEGORY_METADATA_SCAFFOLD",
+  "implementation_state": "SCAFFOLD_CREATED",
+  "external_connection_state": "NOT_CONFIGURED",
+  "taxonomy_only": true,
+  "provider_product_verified": false,
+  "requires_authorized_credentials": true,
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true,
+  "storage_operations_enabled": false
+}

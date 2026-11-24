@@ -1,0 +1,8 @@
+{
+  "provider": "cohere",
+  "layer": "CORE",
+  "status": "interface_only",
+  "live_provider_calls_enabled": false,
+  "capabilities": ["classify", "command", "embed", "rerank", "tokenize"],
+  "security": {"secrets_in_repository": false, "provider_writes_from_core": false}
+}

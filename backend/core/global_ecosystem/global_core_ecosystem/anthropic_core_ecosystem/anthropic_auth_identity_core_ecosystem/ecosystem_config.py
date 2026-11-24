@@ -1,0 +1,9 @@
+PRODUCT_ID="anthropic_auth_identity"
+PRODUCT_NAME="Anthropic Authentication and Identity"
+CATEGORY="RESTRICTED_OR_ADMIN"
+API_NAME="Credential readiness and Workload Identity Federation boundary"
+INTEGRATION_MODE="SERVER_SIDE_CREDENTIAL_OR_WORKLOAD_IDENTITY"
+AVAILABILITY="EXPLICIT_PERMISSION_AND_ORGANIZATION_ELIGIBILITY_REQUIRED"
+AUTHENTICATION_METHOD="Anthropic API authentication is owned by the API layer; verify current supported method before enabling"
+REQUIRED_SCOPES=[]
+LIVE_CONNECTION_ENABLED=False

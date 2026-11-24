@@ -1,0 +1,1 @@
+"""Contract Jobs taxonomy package."""

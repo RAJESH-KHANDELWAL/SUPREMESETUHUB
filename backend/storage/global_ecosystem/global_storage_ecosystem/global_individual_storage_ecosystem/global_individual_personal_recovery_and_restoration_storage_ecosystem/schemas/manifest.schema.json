@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GLOBAL_INDIVIDUAL_PERSONAL_RECOVERY_AND_RESTORATION_STORAGE_ECOSYSTEM manifest",
+  "type": "object",
+  "required": [
+    "ecosystem_id",
+    "package_name",
+    "provider",
+    "category",
+    "category_group",
+    "connection_state",
+    "provider_product_verified",
+    "storage_operations_enabled"
+  ],
+  "properties": {
+    "ecosystem_id": {
+      "const": "GLOBAL_INDIVIDUAL_PERSONAL_RECOVERY_AND_RESTORATION_STORAGE_ECOSYSTEM"
+    },
+    "package_name": {
+      "const": "global_individual_personal_recovery_and_restoration_storage_ecosystem"
+    },
+    "provider": {
+      "const": "GLOBAL_INDIVIDUAL"
+    },
+    "category": {
+      "const": "PERSONAL_RECOVERY_AND_RESTORATION"
+    },
+    "category_group": {
+      "const": "DATA_RIGHTS_AND_LIFECYCLE"
+    },
+    "connection_state": {
+      "const": "NOT_CONFIGURED"
+    },
+    "provider_product_verified": {
+      "const": false
+    },
+    "storage_operations_enabled": {
+      "const": false
+    }
+  }
+}

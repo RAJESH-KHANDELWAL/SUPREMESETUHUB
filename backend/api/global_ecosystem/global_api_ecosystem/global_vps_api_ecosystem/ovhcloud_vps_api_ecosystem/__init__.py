@@ -1,0 +1,7 @@
+"""OVHcloud VPS API ecosystem catalog scaffold."""
+
+PROVIDER_ID = "ovhcloud"
+PROVIDER_NAME = "OVHcloud"
+CATEGORY = "VPS"
+IMPLEMENTATION_STATUS = "CATALOG_ONLY"
+LIVE_CONNECTION_VERIFIED = False

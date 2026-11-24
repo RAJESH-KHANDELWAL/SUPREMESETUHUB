@@ -1,0 +1,1 @@
+"""API namespace for GLOBAL_APP_ACADEMIC_STORAGE_ECOSYSTEM."""

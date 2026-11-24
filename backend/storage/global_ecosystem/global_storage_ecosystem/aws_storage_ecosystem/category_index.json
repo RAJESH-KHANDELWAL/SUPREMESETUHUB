@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "AWS_STORAGE_ECOSYSTEM",
+  "category_folder_count": 11,
+  "folder_naming": "aws_<category>_storage_ecosystem",
+  "groups": [
+    "OBJECT_AND_ARCHIVE_STORAGE",
+    "BLOCK_STORAGE",
+    "FILE_STORAGE",
+    "BACKUP_AND_RECOVERY",
+    "HYBRID_AND_EDGE_STORAGE",
+    "DATA_MOVEMENT_AND_TRANSFER"
+  ],
+  "categories": [
+    {
+      "category": "S3",
+      "group": "OBJECT_AND_ARCHIVE_STORAGE",
+      "name": "Amazon S3",
+      "folder": "aws_s3_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/aws_storage_ecosystem/aws_s3_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "EBS",
+      "group": "BLOCK_STORAGE",
+      "name": "Amazon EBS",
+      "folder": "aws_ebs_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/aws_storage_ecosystem/aws_ebs_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "EFS",
+      "group": "FILE_STORAGE",
+      "name": "Amazon EFS",
+      "folder": "aws_efs_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/aws_storage_ecosystem/aws_efs_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "FSX",
+      "group": "FILE_STORAGE",
+      "name": "Amazon FSx",
+      "folder": "aws_fsx_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/aws_storage_ecosystem/aws_fsx_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BACKUP",
+      "group": "BACKUP_AND_RECOVERY",
+      "name": "AWS Backup",
+      "folder": "aws_backup_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/aws_storage_ecosystem/aws_backup_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "STORAGE_GATEWAY",
+      "group": "HYBRID_AND_EDGE_STORAGE",
+      "name": "AWS Storage Gateway",
+      "folder": "aws_storage_gateway_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/aws_storage_ecosystem/aws_storage_gateway_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DATASYNC",
+      "group": "DATA_MOVEMENT_AND_TRANSFER",
+      "name": "AWS DataSync",
+      "folder": "aws_datasync_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/aws_storage_ecosystem/aws_datasync_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "TRANSFER_FAMILY",
+      "group": "DATA_MOVEMENT_AND_TRANSFER",
+      "name": "AWS Transfer Family",
+      "folder": "aws_transfer_family_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/aws_storage_ecosystem/aws_transfer_family_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SNOW_FAMILY",
+      "group": "HYBRID_AND_EDGE_STORAGE",
+      "name": "AWS Snow Family",
+      "folder": "aws_snow_family_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/aws_storage_ecosystem/aws_snow_family_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ELASTIC_DISASTER_RECOVERY",
+      "group": "BACKUP_AND_RECOVERY",
+      "name": "AWS Elastic Disaster Recovery",
+      "folder": "aws_elastic_disaster_recovery_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/aws_storage_ecosystem/aws_elastic_disaster_recovery_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "OUTPOSTS",
+      "group": "HYBRID_AND_EDGE_STORAGE",
+      "name": "AWS Outposts",
+      "folder": "aws_outposts_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/aws_storage_ecosystem/aws_outposts_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    }
+  ]
+}

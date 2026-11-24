@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "provider": "google",
+  "product_id": "google_recommendations_ai",
+  "product_name": "Recommendations AI",
+  "category": "PERSONALIZATION",
+  "api": "Recommendations AI API",
+  "integration_mode": "CLOUD_PROJECT_CREDENTIALS",
+  "availability": "API_AVAILABLE",
+  "authentication": {
+    "method": "Product-specific authentication; verify before enabling",
+    "scopes": []
+  },
+  "live_connection": false,
+  "layer_boundaries": {
+    "core": "identity, capability metadata, lifecycle, policy and readiness",
+    "api": "OAuth, SDK and HTTP transport",
+    "storage": "durable files and records",
+    "database": "persistence and migrations",
+    "runtime": "jobs and queues",
+    "application": "sessions, consent and UI"
+  }
+}

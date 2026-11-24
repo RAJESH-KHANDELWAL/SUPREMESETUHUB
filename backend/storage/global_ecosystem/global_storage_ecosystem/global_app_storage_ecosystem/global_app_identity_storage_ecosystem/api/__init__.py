@@ -1,0 +1,1 @@
+"""API namespace for GLOBAL_APP_IDENTITY_STORAGE_ECOSYSTEM."""

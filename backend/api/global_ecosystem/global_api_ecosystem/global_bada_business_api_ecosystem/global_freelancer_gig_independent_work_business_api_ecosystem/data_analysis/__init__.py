@@ -1,0 +1,5 @@
+"""Independent Data Analysis freelance specialization package."""
+SPECIALIZATION_ID = "data_analysis"
+SPECIALIZATION_NAME = "Data Analysis"
+DOMAIN_ID = "freelance_gig_independent_work"
+DESCRIPTION = "Data preparation, analysis, reporting, dashboards and decision-support deliverables."

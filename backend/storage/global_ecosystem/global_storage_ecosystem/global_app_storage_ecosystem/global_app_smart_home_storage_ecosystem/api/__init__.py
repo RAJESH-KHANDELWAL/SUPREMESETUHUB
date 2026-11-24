@@ -1,0 +1,1 @@
+"""API namespace for GLOBAL_APP_SMART_HOME_STORAGE_ECOSYSTEM."""

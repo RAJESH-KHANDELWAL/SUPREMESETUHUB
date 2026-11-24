@@ -1,0 +1,1 @@
+"""Offline tests for GLOBAL_APP_WALLET_STORAGE_ECOSYSTEM."""

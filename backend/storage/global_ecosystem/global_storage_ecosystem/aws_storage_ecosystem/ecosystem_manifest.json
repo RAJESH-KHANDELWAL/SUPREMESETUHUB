@@ -1,0 +1,163 @@
+{
+  "schema_version": "1.1.0",
+  "ecosystem_id": "AWS_STORAGE_ECOSYSTEM",
+  "provider": "AWS",
+  "package_type": "STORAGE_TAXONOMY_AND_METADATA_FOUNDATION",
+  "taxonomy_file": "taxonomy/aws_storage_taxonomy.json",
+  "category_index_file": "category_index.json",
+  "category_folder_count": 11,
+  "folder_naming": "aws_<category>_storage_ecosystem",
+  "interfaces": [
+    "PYTHON",
+    "PHP_JSON_INTEROPERABILITY"
+  ],
+  "implementation_state": "TAXONOMY_AND_CATALOG_FOUNDATION",
+  "external_connection_state": "NOT_CONFIGURED",
+  "external_connections_verified": false,
+  "provider_product_verification_required": true,
+  "requires_authorized_credentials": true,
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true,
+  "storage_operations_enabled": false,
+  "taxonomy_only": true,
+  "geographic_scope": [
+    "BHARAT",
+    "SOUTH_ASIA",
+    "ASIA_PACIFIC",
+    "MIDDLE_EAST",
+    "EUROPE",
+    "AFRICA",
+    "NORTH_AMERICA",
+    "SOUTH_AMERICA",
+    "OCEANIA",
+    "GLOBAL"
+  ],
+  "coverage_levels": [
+    "LOCAL",
+    "DISTRICT",
+    "STATE",
+    "NATIONAL",
+    "REGIONAL",
+    "INTERNATIONAL",
+    "GLOBAL",
+    "SUPREME"
+  ],
+  "maturity_levels": [
+    "NORMAL",
+    "PROFESSIONAL",
+    "ADVANCED",
+    "ENTERPRISE",
+    "SUPREME"
+  ],
+  "governance": [
+    "PRIVACY",
+    "SECURITY",
+    "LEAST_PRIVILEGE",
+    "AUDIT",
+    "RETENTION",
+    "ENCRYPTION",
+    "JURISDICTIONAL_COMPLIANCE"
+  ],
+  "categories": [
+    {
+      "category": "S3",
+      "group": "OBJECT_AND_ARCHIVE_STORAGE",
+      "folder": "aws_s3_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/aws_storage_ecosystem/aws_s3_storage_ecosystem/",
+      "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "storage_operations_enabled": false
+    },
+    {
+      "category": "EBS",
+      "group": "BLOCK_STORAGE",
+      "folder": "aws_ebs_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/aws_storage_ecosystem/aws_ebs_storage_ecosystem/",
+      "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "storage_operations_enabled": false
+    },
+    {
+      "category": "EFS",
+      "group": "FILE_STORAGE",
+      "folder": "aws_efs_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/aws_storage_ecosystem/aws_efs_storage_ecosystem/",
+      "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "storage_operations_enabled": false
+    },
+    {
+      "category": "FSX",
+      "group": "FILE_STORAGE",
+      "folder": "aws_fsx_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/aws_storage_ecosystem/aws_fsx_storage_ecosystem/",
+      "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "storage_operations_enabled": false
+    },
+    {
+      "category": "BACKUP",
+      "group": "BACKUP_AND_RECOVERY",
+      "folder": "aws_backup_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/aws_storage_ecosystem/aws_backup_storage_ecosystem/",
+      "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "storage_operations_enabled": false
+    },
+    {
+      "category": "STORAGE_GATEWAY",
+      "group": "HYBRID_AND_EDGE_STORAGE",
+      "folder": "aws_storage_gateway_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/aws_storage_ecosystem/aws_storage_gateway_storage_ecosystem/",
+      "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "storage_operations_enabled": false
+    },
+    {
+      "category": "DATASYNC",
+      "group": "DATA_MOVEMENT_AND_TRANSFER",
+      "folder": "aws_datasync_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/aws_storage_ecosystem/aws_datasync_storage_ecosystem/",
+      "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "storage_operations_enabled": false
+    },
+    {
+      "category": "TRANSFER_FAMILY",
+      "group": "DATA_MOVEMENT_AND_TRANSFER",
+      "folder": "aws_transfer_family_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/aws_storage_ecosystem/aws_transfer_family_storage_ecosystem/",
+      "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "storage_operations_enabled": false
+    },
+    {
+      "category": "SNOW_FAMILY",
+      "group": "HYBRID_AND_EDGE_STORAGE",
+      "folder": "aws_snow_family_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/aws_storage_ecosystem/aws_snow_family_storage_ecosystem/",
+      "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "storage_operations_enabled": false
+    },
+    {
+      "category": "ELASTIC_DISASTER_RECOVERY",
+      "group": "BACKUP_AND_RECOVERY",
+      "folder": "aws_elastic_disaster_recovery_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/aws_storage_ecosystem/aws_elastic_disaster_recovery_storage_ecosystem/",
+      "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "storage_operations_enabled": false
+    },
+    {
+      "category": "OUTPOSTS",
+      "group": "HYBRID_AND_EDGE_STORAGE",
+      "folder": "aws_outposts_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/aws_storage_ecosystem/aws_outposts_storage_ecosystem/",
+      "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "storage_operations_enabled": false
+    }
+  ],
+  "notes": "Service-oriented category scaffolds. Namespaces do not assert product entitlement, live API support or connected storage."
+}

@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "DIGITALOCEAN_STORAGE_ECOSYSTEM",
+  "category_folder_count": 21,
+  "folder_naming": "digitalocean_<category>_storage_ecosystem",
+  "folders": [
+    {
+      "category": "SPACES_OBJECT_STORAGE",
+      "group": "OBJECT_AND_FILE_STORAGE",
+      "folder": "digitalocean_spaces_object_storage_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/digitalocean_storage_ecosystem/digitalocean_spaces_object_storage_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SPACES_CDN",
+      "group": "OBJECT_AND_FILE_STORAGE",
+      "folder": "digitalocean_spaces_cdn_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/digitalocean_storage_ecosystem/digitalocean_spaces_cdn_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "OBJECT_LIFECYCLE",
+      "group": "OBJECT_AND_FILE_STORAGE",
+      "folder": "digitalocean_object_lifecycle_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/digitalocean_storage_ecosystem/digitalocean_object_lifecycle_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "OBJECT_VERSIONING",
+      "group": "OBJECT_AND_FILE_STORAGE",
+      "folder": "digitalocean_object_versioning_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/digitalocean_storage_ecosystem/digitalocean_object_versioning_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "OBJECT_METADATA",
+      "group": "OBJECT_AND_FILE_STORAGE",
+      "folder": "digitalocean_object_metadata_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/digitalocean_storage_ecosystem/digitalocean_object_metadata_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BLOCK_STORAGE_VOLUMES",
+      "group": "BLOCK_AND_COMPUTE_STORAGE",
+      "folder": "digitalocean_block_storage_volumes_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/digitalocean_storage_ecosystem/digitalocean_block_storage_volumes_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DROPLET_LOCAL_STORAGE",
+      "group": "BLOCK_AND_COMPUTE_STORAGE",
+      "folder": "digitalocean_droplet_local_storage_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/digitalocean_storage_ecosystem/digitalocean_droplet_local_storage_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SNAPSHOTS",
+      "group": "BLOCK_AND_COMPUTE_STORAGE",
+      "folder": "digitalocean_snapshots_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/digitalocean_storage_ecosystem/digitalocean_snapshots_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BACKUPS",
+      "group": "BLOCK_AND_COMPUTE_STORAGE",
+      "folder": "digitalocean_backups_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/digitalocean_storage_ecosystem/digitalocean_backups_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MANAGED_DATABASE_STORAGE",
+      "group": "MANAGED_DATA_AND_DATABASE_STORAGE",
+      "folder": "digitalocean_managed_database_storage_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/digitalocean_storage_ecosystem/digitalocean_managed_database_storage_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DATABASE_BACKUPS",
+      "group": "MANAGED_DATA_AND_DATABASE_STORAGE",
+      "folder": "digitalocean_database_backups_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/digitalocean_storage_ecosystem/digitalocean_database_backups_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DATABASE_SNAPSHOTS",
+      "group": "MANAGED_DATA_AND_DATABASE_STORAGE",
+      "folder": "digitalocean_database_snapshots_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/digitalocean_storage_ecosystem/digitalocean_database_snapshots_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CONTAINER_REGISTRY",
+      "group": "CONTAINER_AND_APPLICATION_ARTIFACT_STORAGE",
+      "folder": "digitalocean_container_registry_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/digitalocean_storage_ecosystem/digitalocean_container_registry_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "KUBERNETES_PERSISTENT_STORAGE",
+      "group": "CONTAINER_AND_APPLICATION_ARTIFACT_STORAGE",
+      "folder": "digitalocean_kubernetes_persistent_storage_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/digitalocean_storage_ecosystem/digitalocean_kubernetes_persistent_storage_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "APP_PLATFORM_ARTIFACTS",
+      "group": "CONTAINER_AND_APPLICATION_ARTIFACT_STORAGE",
+      "folder": "digitalocean_app_platform_artifacts_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/digitalocean_storage_ecosystem/digitalocean_app_platform_artifacts_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "STORAGE_SECURITY",
+      "group": "PLATFORM_AND_GOVERNANCE",
+      "folder": "digitalocean_storage_security_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/digitalocean_storage_ecosystem/digitalocean_storage_security_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ACCESS_CONTROL",
+      "group": "PLATFORM_AND_GOVERNANCE",
+      "folder": "digitalocean_access_control_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/digitalocean_storage_ecosystem/digitalocean_access_control_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ENCRYPTION",
+      "group": "PLATFORM_AND_GOVERNANCE",
+      "folder": "digitalocean_encryption_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/digitalocean_storage_ecosystem/digitalocean_encryption_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "REGIONAL_STORAGE",
+      "group": "PLATFORM_AND_GOVERNANCE",
+      "folder": "digitalocean_regional_storage_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/digitalocean_storage_ecosystem/digitalocean_regional_storage_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BILLING_AND_USAGE_METADATA",
+      "group": "PLATFORM_AND_GOVERNANCE",
+      "folder": "digitalocean_billing_and_usage_metadata_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/digitalocean_storage_ecosystem/digitalocean_billing_and_usage_metadata_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "AUDIT_AND_RETENTION",
+      "group": "PLATFORM_AND_GOVERNANCE",
+      "folder": "digitalocean_audit_and_retention_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/digitalocean_storage_ecosystem/digitalocean_audit_and_retention_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+"""MANAGED_DATABASE_STORAGE storage taxonomy package; no live provider integration."""
+CATEGORY_ID = "MANAGED_DATABASE_STORAGE"
+PROVIDER = "DIGITALOCEAN"
+STATUS = "NOT_CONFIGURED"

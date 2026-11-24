@@ -1,0 +1,2 @@
+# Global
+Country- and region-aware catalogue for digital infrastructure and telecommunications businesses, jobs, services and infrastructure. Keep country rules, currencies, terminology, sources and verification status separate.

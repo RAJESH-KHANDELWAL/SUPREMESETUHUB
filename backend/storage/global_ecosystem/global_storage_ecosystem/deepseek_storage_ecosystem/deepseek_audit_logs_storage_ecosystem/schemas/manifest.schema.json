@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DEEPSEEK_AUDIT_LOGS_STORAGE_ECOSYSTEM",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "ecosystem_id",
+    "provider",
+    "category",
+    "category_group",
+    "connection_state"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "ecosystem_id": {
+      "const": "DEEPSEEK_AUDIT_LOGS_STORAGE_ECOSYSTEM"
+    },
+    "provider": {
+      "const": "DEEPSEEK"
+    },
+    "category": {
+      "const": "AUDIT_LOGS"
+    },
+    "category_group": {
+      "const": "SECURITY_AND_GOVERNANCE"
+    },
+    "connection_state": {
+      "enum": [
+        "NOT_CONFIGURED",
+        "CONNECTED"
+      ]
+    },
+    "provider_product_verified": {
+      "type": "boolean"
+    },
+    "storage_operations_enabled": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}

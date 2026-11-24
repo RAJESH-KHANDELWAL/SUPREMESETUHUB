@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.1.0",
+  "ecosystem_id": "ATLASSIAN_STORAGE_ECOSYSTEM",
+  "provider": "ATLASSIAN",
+  "package_type": "PROVIDER_STORAGE_CATALOG",
+  "implementation_state": "FOUNDATION_CATALOG_SCAFFOLD",
+  "external_connection_state": "NOT_CONFIGURED",
+  "external_connections_verified": false,
+  "provider_product_verified": false,
+  "storage_operations_enabled": false,
+  "taxonomy_only": true,
+  "product_catalog": [
+    {
+      "id": "ATLASSIAN_BAMBOO",
+      "package": "atlassian_bamboo_storage_ecosystem",
+      "name": "Bamboo",
+      "category_group": "CONTINUOUS_INTEGRATION_BUILD",
+      "status": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "storage_operations_enabled": false
+    },
+    {
+      "id": "ATLASSIAN_BITBUCKET",
+      "package": "atlassian_bitbucket_storage_ecosystem",
+      "name": "Bitbucket",
+      "category_group": "SOURCE_CODE_REPOSITORY",
+      "status": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "storage_operations_enabled": false
+    },
+    {
+      "id": "ATLASSIAN_COMPASS",
+      "package": "atlassian_compass_storage_ecosystem",
+      "name": "Compass",
+      "category_group": "DEVELOPER_CATALOG_COMPONENTS",
+      "status": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "storage_operations_enabled": false
+    },
+    {
+      "id": "ATLASSIAN_CONFLUENCE",
+      "package": "atlassian_confluence_storage_ecosystem",
+      "name": "Confluence",
+      "category_group": "KNOWLEDGE_CONTENT_DOCUMENTATION",
+      "status": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "storage_operations_enabled": false
+    },
+    {
+      "id": "ATLASSIAN_JIRA_PRODUCT_DISCOVERY",
+      "package": "atlassian_jira_product_discovery_storage_ecosystem",
+      "name": "Jira Product Discovery",
+      "category_group": "PRODUCT_IDEATION_PRIORITIZATION",
+      "status": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "storage_operations_enabled": false
+    },
+    {
+      "id": "ATLASSIAN_JIRA_SERVICE_MANAGEMENT",
+      "package": "atlassian_jira_service_management_storage_ecosystem",
+      "name": "Jira Service Management",
+      "category_group": "ITSM_SERVICE_OPERATIONS",
+      "status": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "storage_operations_enabled": false
+    },
+    {
+      "id": "ATLASSIAN_JIRA",
+      "package": "atlassian_jira_storage_ecosystem",
+      "name": "Jira",
+      "category_group": "PROJECT_ISSUE_WORKFLOW",
+      "status": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "storage_operations_enabled": false
+    },
+    {
+      "id": "ATLASSIAN_TRELLO",
+      "package": "atlassian_trello_storage_ecosystem",
+      "name": "Trello",
+      "category_group": "KANBAN_BOARD_WORKSPACE",
+      "status": "CATEGORY_FOUNDATION_SCAFFOLD",
+      "connection_state": "NOT_CONFIGURED",
+      "storage_operations_enabled": false
+    }
+  ],
+  "geographic_scope": [
+    "BHARAT",
+    "SOUTH_ASIA",
+    "ASIA_PACIFIC",
+    "MIDDLE_EAST",
+    "EUROPE",
+    "AFRICA",
+    "NORTH_AMERICA",
+    "SOUTH_AMERICA",
+    "OCEANIA",
+    "GLOBAL"
+  ],
+  "coverage_levels": [
+    "LOCAL",
+    "DISTRICT",
+    "STATE",
+    "NATIONAL",
+    "REGIONAL",
+    "INTERNATIONAL",
+    "GLOBAL",
+    "SUPREME"
+  ],
+  "maturity_levels": [
+    "NORMAL",
+    "PROFESSIONAL",
+    "ADVANCED",
+    "ENTERPRISE",
+    "SUPREME"
+  ],
+  "integration_prerequisites": [
+    "DOCUMENTED_PRODUCT_API_SUPPORT",
+    "TENANT_AND_PLAN_ENTITLEMENT_VERIFICATION",
+    "AUTHORIZED_OAUTH_OR_SUPPORTED_AUTHENTICATION",
+    "LEAST_PRIVILEGE_SCOPES",
+    "LIVE_HEALTH_CHECK",
+    "END_TO_END_TESTS"
+  ],
+  "architecture_boundaries": {
+    "storage_catalog": "PRODUCT_IDENTITY_METADATA_LIFECYCLE_READINESS",
+    "authentication_and_api_clients": "DEDICATED_API_AND_INTEGRATION_LAYERS",
+    "production_persistence": "CENTRAL_DATABASE_AND_OBJECT_STORAGE_INFRASTRUCTURE"
+  },
+  "governance": [
+    "LEAST_PRIVILEGE",
+    "PRIVACY",
+    "ENCRYPTION",
+    "AUDIT",
+    "RETENTION",
+    "DATA_MINIMIZATION",
+    "CONSENT_WHERE_REQUIRED",
+    "JURISDICTIONAL_COMPLIANCE"
+  ],
+  "security_baseline": [
+    "NO_COMMITTED_SECRETS_OR_PRIVATE_CUSTOMER_CONTENT",
+    "LEAST_PRIVILEGE",
+    "ENCRYPTION_IN_TRANSIT_AND_AT_REST",
+    "AUDIT_LOGGING",
+    "RETENTION_AND_DELETION_CONTROLS"
+  ],
+  "notes": [
+    "Catalog entries do not establish Atlassian API support or tenant entitlement.",
+    "Do not treat Atlassian product workspaces as generic object storage.",
+    "Do not enable read, write, export, delete or workflow actions until separately authorized and tested."
+  ]
+}

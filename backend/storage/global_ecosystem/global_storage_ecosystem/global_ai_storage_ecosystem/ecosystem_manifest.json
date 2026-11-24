@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.1.0",
+  "ecosystem_id": "GLOBAL_AI_STORAGE_ECOSYSTEM",
+  "provider": "GLOBAL_AI",
+  "package_type": "STORAGE_TAXONOMY_AND_METADATA_FOUNDATION",
+  "taxonomy_file": "taxonomy/global_ai_storage_taxonomy.json",
+  "interfaces": [
+    "PYTHON",
+    "PHP_JSON_INTEROPERABILITY"
+  ],
+  "geographic_scope": [
+    "BHARAT",
+    "SOUTH_ASIA",
+    "ASIA_PACIFIC",
+    "MIDDLE_EAST",
+    "EUROPE",
+    "AFRICA",
+    "NORTH_AMERICA",
+    "SOUTH_AMERICA",
+    "OCEANIA",
+    "GLOBAL"
+  ],
+  "coverage_levels": [
+    "LOCAL",
+    "DISTRICT",
+    "STATE",
+    "NATIONAL",
+    "REGIONAL",
+    "INTERNATIONAL",
+    "GLOBAL",
+    "SUPREME"
+  ],
+  "implementation_state": "TAXONOMY_AND_CATALOG_FOUNDATION",
+  "external_connection_state": "NOT_CONFIGURED",
+  "taxonomy_only": true,
+  "provider_product_verification_required": true,
+  "requires_authorized_credentials": true,
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true,
+  "storage_operations_enabled": false,
+  "persistence_owner": "CENTRAL_DATABASE_LAYER",
+  "governance": [
+    "PRIVACY",
+    "SECURITY",
+    "AUDIT",
+    "RETENTION",
+    "CONSENT_WHERE_REQUIRED",
+    "JURISDICTIONAL_COMPLIANCE"
+  ]
+}

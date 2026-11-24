@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "provider_id": "adobe",
+  "ecosystem_id": "experience_manager_assets",
+  "name": "Adobe Experience Manager Assets Storage",
+  "related_api_family": "Requires a separately validated Experience Manager Assets API",
+  "storage_scope": "Enterprise DAM assets, metadata schemas, renditions, collections, permissions and delivery references.",
+  "api_boundary": "Experience Platform APIs are not assumed to be interchangeable with Experience Manager Assets APIs. Deployment and authorization matter.",
+  "implementation_state": "FOUNDATION_INITIALIZED",
+  "external_connection_state": "NOT_CONFIGURED",
+  "live_connection_verified": false,
+  "production_persistence": "CENTRAL_DATABASE",
+  "capabilities": [
+    "IDENTITY",
+    "METADATA_MODEL",
+    "IN_MEMORY_METADATA_REGISTRY"
+  ]
+}

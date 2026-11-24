@@ -1,0 +1,5 @@
+"""Independent Microtasks freelance specialization package."""
+SPECIALIZATION_ID = "microtasks"
+SPECIALIZATION_NAME = "Microtasks"
+DOMAIN_ID = "freelance_gig_independent_work"
+DESCRIPTION = "Small, clearly scoped digital tasks with measurable acceptance and quality criteria."

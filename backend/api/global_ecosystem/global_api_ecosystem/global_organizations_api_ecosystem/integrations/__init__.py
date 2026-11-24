@@ -1,0 +1,1 @@
+"""Cross-ecosystem integration contracts."""
