@@ -1,5 +1,0 @@
-PROVIDER_ID="digitalocean"
-CAPABILITY_ID="storage"
-API_CATALOG_REF="backend/api/global_ecosystem/global_api_ecosystem/digitalocean_api_ecosystem/digitalocean_storage_api_ecosystem"
-STATUS="CONTRACT_ONLY"
-LIVE_PROVIDER_CALLS_ENABLED=False
