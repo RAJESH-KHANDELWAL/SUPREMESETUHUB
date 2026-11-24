@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "provider_id": "AWS_LANGUAGE",
+  "provider_key": "aws",
+  "provider_name": "AWS LANGUAGE",
+  "ecosystem_id": "GLOBAL-AWS-LANGUAGE-PROVIDER-CORE-ECOSYSTEM",
+  "parent_id": "GLOBAL-HUMAN-LANGUAGE-CORE-ECOSYSTEM",
+  "category": "HUMAN_LANGUAGE_PROVIDER",
+  "status": "CORE_CATALOG_ONLY",
+  "integration_mode": "METADATA_ONLY",
+  "api_availability": "NOT_VERIFIED",
+  "authentication": {
+    "method": "Provider-specific; verify official documentation before implementation",
+    "scopes": []
+  },
+  "live_connection": false,
+  "api_calls_performed": 0,
+  "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+  "layer_boundaries": {
+    "core": "provider identity, capability metadata, lifecycle, policy and readiness",
+    "api": "authentication, SDK and HTTP transport",
+    "storage": "durable files and records",
+    "database": "persistence and migrations",
+    "runtime": "jobs and queues",
+    "application": "sessions, consent and user workflows"
+  }
+}
