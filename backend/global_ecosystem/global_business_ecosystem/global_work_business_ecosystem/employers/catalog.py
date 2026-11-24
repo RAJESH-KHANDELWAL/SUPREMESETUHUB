@@ -1,0 +1,1 @@
+CATEGORY={"id":"employers","name":"Employers","role_names":["Employer","Hiring Organization","Business Employer","Household Employer"],"responsibilities":["Engage and organize workers","Set work terms and meet applicable employer duties"]}

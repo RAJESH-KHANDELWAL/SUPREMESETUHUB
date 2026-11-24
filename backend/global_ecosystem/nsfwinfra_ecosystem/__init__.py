@@ -1,0 +1,1 @@
+"""Global ecosystem catalog namespace."""

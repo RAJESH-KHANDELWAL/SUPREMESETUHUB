@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "provider": "google",
+  "product_id": "cloud",
+  "product_name": "Google Cloud",
+  "category": "CLOUD_INFRASTRUCTURE",
+  "api": "Google Cloud APIs",
+  "integration_mode": "CLOUD_PROJECT_CREDENTIALS",
+  "availability": "API_AVAILABLE",
+  "authentication": {
+    "method": "Workload Identity Federation or least-privilege service account",
+    "scopes": []
+  },
+  "live_connection": false,
+  "layer_boundaries": {
+    "core": "identity, capability metadata, lifecycle, policy and readiness",
+    "api": "OAuth, SDK and HTTP transport",
+    "storage": "durable files and records",
+    "database": "persistence and migrations",
+    "runtime": "jobs and queues",
+    "application": "sessions, consent and UI"
+  }
+}

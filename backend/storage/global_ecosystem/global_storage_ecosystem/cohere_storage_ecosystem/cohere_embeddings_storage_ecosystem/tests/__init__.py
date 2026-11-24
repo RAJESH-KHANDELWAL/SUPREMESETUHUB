@@ -1,0 +1,1 @@
+"""Offline tests for COHERE_EMBEDDINGS_STORAGE_ECOSYSTEM."""

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_BADA_BUSINESS_STORAGE_ECOSYSTEM",
+  "provider": "GLOBAL_BADA_BUSINESS",
+  "groups": [
+    {
+      "group": "AFFILIATE_MARKETING",
+      "ecosystem_id": "GLOBAL_AFFILIATE_MARKETING_BUSINESS_STORAGE_ECOSYSTEM",
+      "folder": "global_affiliate_marketing_business_storage_ecosystem",
+      "children": [
+        "I_DIGITALPRENEUR",
+        "LEADSGURU",
+        "MILLIONAIRE_TRACK"
+      ]
+    },
+    {
+      "group": "NETWORK_MARKETING_AND_DIRECT_SELLING",
+      "ecosystem_id": "GLOBAL_NETWORK_MARKETING_DIRECT_SELLING_BUSINESS_STORAGE_ECOSYSTEM",
+      "folder": "network_marketing_direct_selling_business_storage_ecosystem",
+      "children": [
+        "GLOBAL_YOUTAG_BUSINESS_STORAGE_ECOSYSTEM",
+        "GLOBAL_AFFILIATE_MARKETING_BUSINESS_STORAGE_ECOSYSTEM"
+      ]
+    }
+  ],
+  "taxonomy_only": true,
+  "external_connections_verified": false,
+  "governance": {
+    "account_partitioning": "Separate platform accounts, leads, referrals, commissions and payouts by platform identity.",
+    "financial_data": "Never infer or fabricate commissions, income, payout or business performance.",
+    "privacy": [
+      "DATA_MINIMIZATION",
+      "CONSENT_WHERE_REQUIRED",
+      "PURPOSE_LIMITATION",
+      "RETENTION_CONTROLS"
+    ],
+    "security": [
+      "LEAST_PRIVILEGE",
+      "ENCRYPTION",
+      "AUDIT_LOGGING",
+      "SECRET_MANAGER_ONLY"
+    ],
+    "compliance": [
+      "CONSUMER_PROTECTION",
+      "DIRECT_SELLING_RULES",
+      "ADVERTISING_DISCLOSURE",
+      "JURISDICTIONAL_COMPLIANCE"
+    ]
+  }
+}

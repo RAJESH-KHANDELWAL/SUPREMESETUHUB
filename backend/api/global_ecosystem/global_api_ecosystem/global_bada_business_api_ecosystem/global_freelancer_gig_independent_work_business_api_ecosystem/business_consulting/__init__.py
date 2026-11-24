@@ -1,0 +1,5 @@
+"""Independent Business Consulting freelance specialization package."""
+SPECIALIZATION_ID = "business_consulting"
+SPECIALIZATION_NAME = "Business Consulting"
+DOMAIN_ID = "freelance_gig_independent_work"
+DESCRIPTION = "Business planning, research, operations improvement and management advisory deliverables."

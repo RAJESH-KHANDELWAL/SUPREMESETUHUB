@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Cultural Business Listing",
+  "description": "Proposed directory record contract, not a production API or database schema.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["record_id", "record_type", "display_name", "domain_id", "status", "owner", "description"],
+  "properties": {
+    "record_id": {"type": "string", "minLength": 1, "maxLength": 128},
+    "record_type": {"type": "string", "enum": ["provider", "creator", "product", "service", "course", "event", "resource", "partnership"]},
+    "display_name": {"type": "string", "minLength": 1, "maxLength": 240},
+    "domain_id": {"type": "string", "minLength": 1, "maxLength": 160},
+    "status": {"type": "string", "enum": ["proposed", "under_review", "verified", "published", "paused", "rejected", "archived"]},
+    "owner": {"type": "object", "required": ["owner_type", "display_name"], "properties": {
+      "owner_type": {"type": "string", "enum": ["individual", "business", "community_group", "institution", "nonprofit"]},
+      "display_name": {"type": "string", "minLength": 1, "maxLength": 240}
+    }},
+    "description": {"type": "string", "minLength": 1, "maxLength": 5000},
+    "languages": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "service_regions": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "evidence_references": {"type": "array", "items": {"type": "string"}},
+    "rights_and_consent_reference": {"type": ["string", "null"]},
+    "reviewed_at": {"type": ["string", "null"], "format": "date-time"},
+    "review_expires_at": {"type": ["string", "null"], "format": "date-time"}
+  }
+}

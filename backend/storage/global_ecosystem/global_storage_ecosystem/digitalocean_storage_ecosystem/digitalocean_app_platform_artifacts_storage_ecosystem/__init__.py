@@ -1,0 +1,4 @@
+"""APP_PLATFORM_ARTIFACTS storage taxonomy package; no live provider integration."""
+CATEGORY_ID = "APP_PLATFORM_ARTIFACTS"
+PROVIDER = "DIGITALOCEAN"
+STATUS = "NOT_CONFIGURED"

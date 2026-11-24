@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GOOGLE_YOUTUBE_STORAGE_ECOSYSTEM",
+  "package_name": "google_youtube_storage_ecosystem",
+  "provider": "GOOGLE",
+  "category": "YOUTUBE",
+  "category_group": "PHOTO_VIDEO_AND_MEDIA",
+  "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+  "connection_state": "NOT_CONFIGURED",
+  "provider_product_verified": false,
+  "storage_operations_enabled": false,
+  "requires_authorized_integration": true,
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true,
+  "geographic_scope": [
+    "BHARAT",
+    "GLOBAL"
+  ],
+  "security_baseline": [
+    "LEAST_PRIVILEGE",
+    "ENCRYPTION",
+    "AUDIT_LOGGING",
+    "RETENTION_CONTROLS"
+  ],
+  "notes": "Category-specific foundation scaffold. No live Google integration is implied."
+}

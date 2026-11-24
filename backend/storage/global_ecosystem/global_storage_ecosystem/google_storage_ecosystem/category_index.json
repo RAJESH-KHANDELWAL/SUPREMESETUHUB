@@ -1,0 +1,1296 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GOOGLE_STORAGE_ECOSYSTEM",
+  "category_folder_count": 184,
+  "folder_naming": "google_<category>_storage_ecosystem",
+  "folders": [
+    {
+      "category": "GENERAL",
+      "group": "GENERAL_AND_SEARCH",
+      "folder": "google_general_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_general_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SEARCH",
+      "group": "GENERAL_AND_SEARCH",
+      "folder": "google_search_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_search_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "WEB_SEARCH",
+      "group": "GENERAL_AND_SEARCH",
+      "folder": "google_web_search_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_web_search_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "IMAGE_SEARCH",
+      "group": "GENERAL_AND_SEARCH",
+      "folder": "google_image_search_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_image_search_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "VIDEO_SEARCH",
+      "group": "GENERAL_AND_SEARCH",
+      "folder": "google_video_search_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_video_search_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "NEWS",
+      "group": "GENERAL_AND_SEARCH",
+      "folder": "google_news_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_news_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BOOKS",
+      "group": "GENERAL_AND_SEARCH",
+      "folder": "google_books_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_books_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SCHOLAR",
+      "group": "GENERAL_AND_SEARCH",
+      "folder": "google_scholar_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_scholar_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "TRENDS",
+      "group": "GENERAL_AND_SEARCH",
+      "folder": "google_trends_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_trends_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DISCOVERY",
+      "group": "GENERAL_AND_SEARCH",
+      "folder": "google_discovery_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_discovery_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "KNOWLEDGE_GRAPH",
+      "group": "GENERAL_AND_SEARCH",
+      "folder": "google_knowledge_graph_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_knowledge_graph_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PUBLIC_INFORMATION",
+      "group": "GENERAL_AND_SEARCH",
+      "folder": "google_public_information_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_public_information_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "GMAIL",
+      "group": "COMMUNICATION",
+      "folder": "google_gmail_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_gmail_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "EMAIL",
+      "group": "COMMUNICATION",
+      "folder": "google_email_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_email_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CONTACTS",
+      "group": "COMMUNICATION",
+      "folder": "google_contacts_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_contacts_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CHAT",
+      "group": "COMMUNICATION",
+      "folder": "google_chat_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_chat_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MEET",
+      "group": "COMMUNICATION",
+      "folder": "google_meet_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_meet_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MESSAGING",
+      "group": "COMMUNICATION",
+      "folder": "google_messaging_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_messaging_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "VIDEO_CONFERENCING",
+      "group": "COMMUNICATION",
+      "folder": "google_video_conferencing_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_video_conferencing_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CALENDAR",
+      "group": "COMMUNICATION",
+      "folder": "google_calendar_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_calendar_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DOCS",
+      "group": "DOCUMENTS_AND_PRODUCTIVITY",
+      "folder": "google_docs_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_docs_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SHEETS",
+      "group": "DOCUMENTS_AND_PRODUCTIVITY",
+      "folder": "google_sheets_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_sheets_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SLIDES",
+      "group": "DOCUMENTS_AND_PRODUCTIVITY",
+      "folder": "google_slides_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_slides_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "FORMS",
+      "group": "DOCUMENTS_AND_PRODUCTIVITY",
+      "folder": "google_forms_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_forms_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SITES",
+      "group": "DOCUMENTS_AND_PRODUCTIVITY",
+      "folder": "google_sites_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_sites_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "KEEP",
+      "group": "DOCUMENTS_AND_PRODUCTIVITY",
+      "folder": "google_keep_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_keep_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "TASKS",
+      "group": "DOCUMENTS_AND_PRODUCTIVITY",
+      "folder": "google_tasks_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_tasks_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "WORKSPACE",
+      "group": "DOCUMENTS_AND_PRODUCTIVITY",
+      "folder": "google_workspace_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_workspace_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "OFFICE_FILES",
+      "group": "DOCUMENTS_AND_PRODUCTIVITY",
+      "folder": "google_office_files_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_office_files_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PDF",
+      "group": "DOCUMENTS_AND_PRODUCTIVITY",
+      "folder": "google_pdf_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_pdf_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PERSONAL",
+      "group": "PERSONAL_AND_CLOUD_STORAGE",
+      "folder": "google_personal_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_personal_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DRIVE",
+      "group": "PERSONAL_AND_CLOUD_STORAGE",
+      "folder": "google_drive_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_drive_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ONE",
+      "group": "PERSONAL_AND_CLOUD_STORAGE",
+      "folder": "google_one_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_one_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PERSONAL_CLOUD",
+      "group": "PERSONAL_AND_CLOUD_STORAGE",
+      "folder": "google_personal_cloud_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_personal_cloud_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "FILES",
+      "group": "PERSONAL_AND_CLOUD_STORAGE",
+      "folder": "google_files_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_files_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "FOLDERS",
+      "group": "PERSONAL_AND_CLOUD_STORAGE",
+      "folder": "google_folders_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_folders_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BACKUP",
+      "group": "PERSONAL_AND_CLOUD_STORAGE",
+      "folder": "google_backup_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_backup_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SYNC",
+      "group": "PERSONAL_AND_CLOUD_STORAGE",
+      "folder": "google_sync_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_sync_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ARCHIVE",
+      "group": "PERSONAL_AND_CLOUD_STORAGE",
+      "folder": "google_archive_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_archive_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DATA",
+      "group": "PERSONAL_AND_CLOUD_STORAGE",
+      "folder": "google_data_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_data_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PHOTOS",
+      "group": "PHOTO_VIDEO_AND_MEDIA",
+      "folder": "google_photos_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_photos_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PHOTO",
+      "group": "PHOTO_VIDEO_AND_MEDIA",
+      "folder": "google_photo_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_photo_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "VIDEO",
+      "group": "PHOTO_VIDEO_AND_MEDIA",
+      "folder": "google_video_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_video_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "AUDIO",
+      "group": "PHOTO_VIDEO_AND_MEDIA",
+      "folder": "google_audio_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_audio_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MUSIC",
+      "group": "PHOTO_VIDEO_AND_MEDIA",
+      "folder": "google_music_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_music_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "YOUTUBE",
+      "group": "PHOTO_VIDEO_AND_MEDIA",
+      "folder": "google_youtube_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_youtube_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "YOUTUBE_MUSIC",
+      "group": "PHOTO_VIDEO_AND_MEDIA",
+      "folder": "google_youtube_music_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_youtube_music_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MEDIA",
+      "group": "PHOTO_VIDEO_AND_MEDIA",
+      "folder": "google_media_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_media_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DIGITAL_ASSETS",
+      "group": "PHOTO_VIDEO_AND_MEDIA",
+      "folder": "google_digital_assets_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_digital_assets_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MULTIMEDIA",
+      "group": "PHOTO_VIDEO_AND_MEDIA",
+      "folder": "google_multimedia_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_multimedia_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "GEMINI",
+      "group": "AI_AND_INTELLIGENCE",
+      "folder": "google_gemini_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_gemini_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "AI",
+      "group": "AI_AND_INTELLIGENCE",
+      "folder": "google_ai_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_ai_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "NOTEBOOKLM",
+      "group": "AI_AND_INTELLIGENCE",
+      "folder": "google_notebooklm_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_notebooklm_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "AI_STUDIO",
+      "group": "AI_AND_INTELLIGENCE",
+      "folder": "google_ai_studio_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_ai_studio_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "VERTEX_AI",
+      "group": "AI_AND_INTELLIGENCE",
+      "folder": "google_vertex_ai_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_vertex_ai_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DEEPMIND",
+      "group": "AI_AND_INTELLIGENCE",
+      "folder": "google_deepmind_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_deepmind_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MACHINE_LEARNING",
+      "group": "AI_AND_INTELLIGENCE",
+      "folder": "google_machine_learning_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_machine_learning_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DEEP_LEARNING",
+      "group": "AI_AND_INTELLIGENCE",
+      "folder": "google_deep_learning_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_deep_learning_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "GENERATIVE_AI",
+      "group": "AI_AND_INTELLIGENCE",
+      "folder": "google_generative_ai_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_generative_ai_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "AI_AGENTS",
+      "group": "AI_AND_INTELLIGENCE",
+      "folder": "google_ai_agents_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_ai_agents_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MULTIMODAL_AI",
+      "group": "AI_AND_INTELLIGENCE",
+      "folder": "google_multimodal_ai_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_multimodal_ai_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "INTELLIGENCE",
+      "group": "AI_AND_INTELLIGENCE",
+      "folder": "google_intelligence_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_intelligence_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BUSINESS",
+      "group": "BUSINESS_AND_ENTERPRISE",
+      "folder": "google_business_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_business_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BUSINESS_PROFILE",
+      "group": "BUSINESS_AND_ENTERPRISE",
+      "folder": "google_business_profile_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_business_profile_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "WORKSPACE_BUSINESS",
+      "group": "BUSINESS_AND_ENTERPRISE",
+      "folder": "google_workspace_business_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_workspace_business_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ENTERPRISE",
+      "group": "BUSINESS_AND_ENTERPRISE",
+      "folder": "google_enterprise_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_enterprise_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ADS",
+      "group": "BUSINESS_AND_ENTERPRISE",
+      "folder": "google_ads_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_ads_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ADSENSE",
+      "group": "BUSINESS_AND_ENTERPRISE",
+      "folder": "google_adsense_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_adsense_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ADMOB",
+      "group": "BUSINESS_AND_ENTERPRISE",
+      "folder": "google_admob_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_admob_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ANALYTICS",
+      "group": "BUSINESS_AND_ENTERPRISE",
+      "folder": "google_analytics_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_analytics_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SEARCH_CONSOLE",
+      "group": "BUSINESS_AND_ENTERPRISE",
+      "folder": "google_search_console_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_search_console_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "TAG_MANAGER",
+      "group": "BUSINESS_AND_ENTERPRISE",
+      "folder": "google_tag_manager_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_tag_manager_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MERCHANT_CENTER",
+      "group": "BUSINESS_AND_ENTERPRISE",
+      "folder": "google_merchant_center_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_merchant_center_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MARKETING",
+      "group": "BUSINESS_AND_ENTERPRISE",
+      "folder": "google_marketing_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_marketing_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DEVELOPER",
+      "group": "DEVELOPER_AND_INFRASTRUCTURE",
+      "folder": "google_developer_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_developer_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CLOUD",
+      "group": "DEVELOPER_AND_INFRASTRUCTURE",
+      "folder": "google_cloud_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_cloud_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "FIREBASE",
+      "group": "DEVELOPER_AND_INFRASTRUCTURE",
+      "folder": "google_firebase_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_firebase_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DATABASE",
+      "group": "DEVELOPER_AND_INFRASTRUCTURE",
+      "folder": "google_database_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_database_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CLOUD_SQL",
+      "group": "DEVELOPER_AND_INFRASTRUCTURE",
+      "folder": "google_cloud_sql_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_cloud_sql_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "FIRESTORE",
+      "group": "DEVELOPER_AND_INFRASTRUCTURE",
+      "folder": "google_firestore_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_firestore_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BIGTABLE",
+      "group": "DEVELOPER_AND_INFRASTRUCTURE",
+      "folder": "google_bigtable_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_bigtable_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SERVER",
+      "group": "DEVELOPER_AND_INFRASTRUCTURE",
+      "folder": "google_server_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_server_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "COMPUTE",
+      "group": "DEVELOPER_AND_INFRASTRUCTURE",
+      "folder": "google_compute_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_compute_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "NETWORK",
+      "group": "DEVELOPER_AND_INFRASTRUCTURE",
+      "folder": "google_network_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_network_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "API",
+      "group": "DEVELOPER_AND_INFRASTRUCTURE",
+      "folder": "google_api_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_api_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DEVOPS",
+      "group": "DEVELOPER_AND_INFRASTRUCTURE",
+      "folder": "google_devops_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_devops_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CONTAINER",
+      "group": "DEVELOPER_AND_INFRASTRUCTURE",
+      "folder": "google_container_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_container_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "KUBERNETES",
+      "group": "DEVELOPER_AND_INFRASTRUCTURE",
+      "folder": "google_kubernetes_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_kubernetes_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "EDUCATION",
+      "group": "EDUCATION_AND_KNOWLEDGE",
+      "folder": "google_education_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_education_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CLASSROOM",
+      "group": "EDUCATION_AND_KNOWLEDGE",
+      "folder": "google_classroom_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_classroom_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "LEARNING",
+      "group": "EDUCATION_AND_KNOWLEDGE",
+      "folder": "google_learning_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_learning_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "RESEARCH",
+      "group": "EDUCATION_AND_KNOWLEDGE",
+      "folder": "google_research_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_research_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "LIBRARY",
+      "group": "EDUCATION_AND_KNOWLEDGE",
+      "folder": "google_library_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_library_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DIGITAL_BOOKS",
+      "group": "EDUCATION_AND_KNOWLEDGE",
+      "folder": "google_digital_books_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_digital_books_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ACADEMIC",
+      "group": "EDUCATION_AND_KNOWLEDGE",
+      "folder": "google_academic_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_academic_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "KNOWLEDGE",
+      "group": "EDUCATION_AND_KNOWLEDGE",
+      "folder": "google_knowledge_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_knowledge_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "HEALTH",
+      "group": "HEALTH_AND_WELLNESS",
+      "folder": "google_health_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_health_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "HEALTHCARE",
+      "group": "HEALTH_AND_WELLNESS",
+      "folder": "google_healthcare_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_healthcare_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MEDICAL",
+      "group": "HEALTH_AND_WELLNESS",
+      "folder": "google_medical_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_medical_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "FITNESS",
+      "group": "HEALTH_AND_WELLNESS",
+      "folder": "google_fitness_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_fitness_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "WELLNESS",
+      "group": "HEALTH_AND_WELLNESS",
+      "folder": "google_wellness_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_wellness_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MENTAL_WELLNESS",
+      "group": "HEALTH_AND_WELLNESS",
+      "folder": "google_mental_wellness_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_mental_wellness_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "REPRODUCTIVE_HEALTH",
+      "group": "HEALTH_AND_WELLNESS",
+      "folder": "google_reproductive_health_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_reproductive_health_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SEXUAL_HEALTH",
+      "group": "HEALTH_AND_WELLNESS",
+      "folder": "google_sexual_health_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_sexual_health_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SEXUAL_EDUCATION",
+      "group": "HEALTH_AND_WELLNESS",
+      "folder": "google_sexual_education_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_sexual_education_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "HUMAN_ANATOMY",
+      "group": "HEALTH_AND_WELLNESS",
+      "folder": "google_human_anatomy_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_human_anatomy_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "FAMILY_PLANNING",
+      "group": "HEALTH_AND_WELLNESS",
+      "folder": "google_family_planning_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_family_planning_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "RELATIONSHIP",
+      "group": "RELATIONSHIP_AND_ADULT_CLASSIFICATION",
+      "folder": "google_relationship_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_relationship_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DATING",
+      "group": "RELATIONSHIP_AND_ADULT_CLASSIFICATION",
+      "folder": "google_dating_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_dating_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MATCHMAKING",
+      "group": "RELATIONSHIP_AND_ADULT_CLASSIFICATION",
+      "folder": "google_matchmaking_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_matchmaking_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MARRIAGE",
+      "group": "RELATIONSHIP_AND_ADULT_CLASSIFICATION",
+      "folder": "google_marriage_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_marriage_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "COUPLE",
+      "group": "RELATIONSHIP_AND_ADULT_CLASSIFICATION",
+      "folder": "google_couple_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_couple_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ROMANCE",
+      "group": "RELATIONSHIP_AND_ADULT_CLASSIFICATION",
+      "folder": "google_romance_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_romance_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "INTIMACY",
+      "group": "RELATIONSHIP_AND_ADULT_CLASSIFICATION",
+      "folder": "google_intimacy_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_intimacy_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ADULT_LIFESTYLE",
+      "group": "RELATIONSHIP_AND_ADULT_CLASSIFICATION",
+      "folder": "google_adult_lifestyle_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_adult_lifestyle_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ADULT_EDUCATION",
+      "group": "RELATIONSHIP_AND_ADULT_CLASSIFICATION",
+      "folder": "google_adult_education_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_adult_education_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SEXUAL_WELLNESS",
+      "group": "RELATIONSHIP_AND_ADULT_CLASSIFICATION",
+      "folder": "google_sexual_wellness_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_sexual_wellness_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SEXUAL_HYGIENE",
+      "group": "RELATIONSHIP_AND_ADULT_CLASSIFICATION",
+      "folder": "google_sexual_hygiene_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_sexual_hygiene_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CONSENSUAL_ADULT_ENTERTAINMENT",
+      "group": "RELATIONSHIP_AND_ADULT_CLASSIFICATION",
+      "folder": "google_consensual_adult_entertainment_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_consensual_adult_entertainment_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ADULT_PHOTOGRAPHY",
+      "group": "RELATIONSHIP_AND_ADULT_CLASSIFICATION",
+      "folder": "google_adult_photography_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_adult_photography_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "EROTIC_LITERATURE",
+      "group": "RELATIONSHIP_AND_ADULT_CLASSIFICATION",
+      "folder": "google_erotic_literature_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_erotic_literature_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ADULT_ANIMATION",
+      "group": "RELATIONSHIP_AND_ADULT_CLASSIFICATION",
+      "folder": "google_adult_animation_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_adult_animation_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PORNOGRAPHIC_CONTENT",
+      "group": "RELATIONSHIP_AND_ADULT_CLASSIFICATION",
+      "folder": "google_pornographic_content_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_pornographic_content_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ENTERTAINMENT",
+      "group": "ENTERTAINMENT_AND_GAMING",
+      "folder": "google_entertainment_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_entertainment_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "GAMING",
+      "group": "ENTERTAINMENT_AND_GAMING",
+      "folder": "google_gaming_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_gaming_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PLAY_STORE",
+      "group": "ENTERTAINMENT_AND_GAMING",
+      "folder": "google_play_store_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_play_store_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PLAY_GAMES",
+      "group": "ENTERTAINMENT_AND_GAMING",
+      "folder": "google_play_games_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_play_games_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PLAY_BOOKS",
+      "group": "ENTERTAINMENT_AND_GAMING",
+      "folder": "google_play_books_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_play_books_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PLAY_MOVIES",
+      "group": "ENTERTAINMENT_AND_GAMING",
+      "folder": "google_play_movies_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_play_movies_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DIGITAL_MEDIA",
+      "group": "ENTERTAINMENT_AND_GAMING",
+      "folder": "google_digital_media_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_digital_media_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "STREAMING",
+      "group": "ENTERTAINMENT_AND_GAMING",
+      "folder": "google_streaming_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_streaming_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CREATOR_CONTENT",
+      "group": "ENTERTAINMENT_AND_GAMING",
+      "folder": "google_creator_content_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_creator_content_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SECURITY",
+      "group": "SECURITY_AND_PRIVACY",
+      "folder": "google_security_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_security_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PRIVACY",
+      "group": "SECURITY_AND_PRIVACY",
+      "folder": "google_privacy_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_privacy_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "IDENTITY",
+      "group": "SECURITY_AND_PRIVACY",
+      "folder": "google_identity_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_identity_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "AUTHENTICATION",
+      "group": "SECURITY_AND_PRIVACY",
+      "folder": "google_authentication_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_authentication_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ENCRYPTION",
+      "group": "SECURITY_AND_PRIVACY",
+      "folder": "google_encryption_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_encryption_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PASSWORD",
+      "group": "SECURITY_AND_PRIVACY",
+      "folder": "google_password_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_password_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ACCOUNT",
+      "group": "SECURITY_AND_PRIVACY",
+      "folder": "google_account_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_account_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DEVICE_SECURITY",
+      "group": "SECURITY_AND_PRIVACY",
+      "folder": "google_device_security_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_device_security_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CYBERSECURITY",
+      "group": "SECURITY_AND_PRIVACY",
+      "folder": "google_cybersecurity_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_cybersecurity_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DATA_PROTECTION",
+      "group": "SECURITY_AND_PRIVACY",
+      "folder": "google_data_protection_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_data_protection_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ANDROID",
+      "group": "DEVICES_AND_OPERATING_SYSTEM",
+      "folder": "google_android_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_android_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CHROMEOS",
+      "group": "DEVICES_AND_OPERATING_SYSTEM",
+      "folder": "google_chromeos_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_chromeos_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "CHROME",
+      "group": "DEVICES_AND_OPERATING_SYSTEM",
+      "folder": "google_chrome_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_chrome_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PIXEL",
+      "group": "DEVICES_AND_OPERATING_SYSTEM",
+      "folder": "google_pixel_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_pixel_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "WEAR_OS",
+      "group": "DEVICES_AND_OPERATING_SYSTEM",
+      "folder": "google_wear_os_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_wear_os_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SMART_HOME",
+      "group": "DEVICES_AND_OPERATING_SYSTEM",
+      "folder": "google_smart_home_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_smart_home_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "IOT",
+      "group": "DEVICES_AND_OPERATING_SYSTEM",
+      "folder": "google_iot_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_iot_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DEVICE_BACKUP",
+      "group": "DEVICES_AND_OPERATING_SYSTEM",
+      "folder": "google_device_backup_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_device_backup_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MAPS",
+      "group": "MAPS_LOCATION_AND_TRAVEL",
+      "folder": "google_maps_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_maps_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "EARTH",
+      "group": "MAPS_LOCATION_AND_TRAVEL",
+      "folder": "google_earth_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_earth_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "STREET_VIEW",
+      "group": "MAPS_LOCATION_AND_TRAVEL",
+      "folder": "google_street_view_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_street_view_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "LOCATION",
+      "group": "MAPS_LOCATION_AND_TRAVEL",
+      "folder": "google_location_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_location_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "GEOSPATIAL",
+      "group": "MAPS_LOCATION_AND_TRAVEL",
+      "folder": "google_geospatial_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_geospatial_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "TRAVEL",
+      "group": "MAPS_LOCATION_AND_TRAVEL",
+      "folder": "google_travel_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_travel_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "FLIGHTS",
+      "group": "MAPS_LOCATION_AND_TRAVEL",
+      "folder": "google_flights_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_flights_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "NAVIGATION",
+      "group": "MAPS_LOCATION_AND_TRAVEL",
+      "folder": "google_navigation_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_navigation_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "LOCAL_BUSINESS",
+      "group": "MAPS_LOCATION_AND_TRAVEL",
+      "folder": "google_local_business_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_local_business_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PAYMENTS",
+      "group": "FINANCE_AND_PAYMENTS",
+      "folder": "google_payments_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_payments_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "PAY",
+      "group": "FINANCE_AND_PAYMENTS",
+      "folder": "google_pay_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_pay_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "WALLET",
+      "group": "FINANCE_AND_PAYMENTS",
+      "folder": "google_wallet_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_wallet_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "TRANSACTION",
+      "group": "FINANCE_AND_PAYMENTS",
+      "folder": "google_transaction_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_transaction_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DIGITAL_PAYMENT",
+      "group": "FINANCE_AND_PAYMENTS",
+      "folder": "google_digital_payment_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_digital_payment_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "FINANCIAL_INFORMATION",
+      "group": "FINANCE_AND_PAYMENTS",
+      "folder": "google_financial_information_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_financial_information_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "QUANTUM_COMPUTING",
+      "group": "ADVANCED_AND_SUPREME_TECHNOLOGY",
+      "folder": "google_quantum_computing_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_quantum_computing_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ROBOTICS",
+      "group": "ADVANCED_AND_SUPREME_TECHNOLOGY",
+      "folder": "google_robotics_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_robotics_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "AUTOMATION",
+      "group": "ADVANCED_AND_SUPREME_TECHNOLOGY",
+      "folder": "google_automation_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_automation_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BIG_DATA",
+      "group": "ADVANCED_AND_SUPREME_TECHNOLOGY",
+      "folder": "google_big_data_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_big_data_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DISTRIBUTED_COMPUTING",
+      "group": "ADVANCED_AND_SUPREME_TECHNOLOGY",
+      "folder": "google_distributed_computing_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_distributed_computing_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "DATA_ANALYTICS",
+      "group": "ADVANCED_AND_SUPREME_TECHNOLOGY",
+      "folder": "google_data_analytics_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_data_analytics_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "NEURAL_NETWORK",
+      "group": "ADVANCED_AND_SUPREME_TECHNOLOGY",
+      "folder": "google_neural_network_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_neural_network_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "RESEARCH_DEVELOPMENT",
+      "group": "ADVANCED_AND_SUPREME_TECHNOLOGY",
+      "folder": "google_research_development_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_research_development_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "ADVANCED_TECHNOLOGY",
+      "group": "ADVANCED_AND_SUPREME_TECHNOLOGY",
+      "folder": "google_advanced_technology_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_advanced_technology_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "SUPREME_TECHNOLOGY",
+      "group": "ADVANCED_AND_SUPREME_TECHNOLOGY",
+      "folder": "google_supreme_technology_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_supreme_technology_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "BHARAT",
+      "group": "BHARAT_AND_GLOBAL",
+      "folder": "google_bharat_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_bharat_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "INDIA",
+      "group": "BHARAT_AND_GLOBAL",
+      "folder": "google_india_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_india_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "REGIONAL",
+      "group": "BHARAT_AND_GLOBAL",
+      "folder": "google_regional_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_regional_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "INTERNATIONAL",
+      "group": "BHARAT_AND_GLOBAL",
+      "folder": "google_international_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_international_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "GLOBAL",
+      "group": "BHARAT_AND_GLOBAL",
+      "folder": "google_global_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_global_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "WORLDWIDE",
+      "group": "BHARAT_AND_GLOBAL",
+      "folder": "google_worldwide_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_worldwide_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MULTILINGUAL",
+      "group": "BHARAT_AND_GLOBAL",
+      "folder": "google_multilingual_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_multilingual_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "MULTICULTURAL",
+      "group": "BHARAT_AND_GLOBAL",
+      "folder": "google_multicultural_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_multicultural_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    },
+    {
+      "category": "GLOBAL_DIGITAL_KNOWLEDGE",
+      "group": "BHARAT_AND_GLOBAL",
+      "folder": "google_global_digital_knowledge_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/google_storage_ecosystem/google_global_digital_knowledge_storage_ecosystem/",
+      "status": "SCAFFOLD_CREATED"
+    }
+  ]
+}

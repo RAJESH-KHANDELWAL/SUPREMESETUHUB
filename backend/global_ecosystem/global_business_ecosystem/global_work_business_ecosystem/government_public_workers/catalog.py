@@ -1,0 +1,1 @@
+CATEGORY={"id":"government_public_workers","name":"Government and Public Workers","role_names":["Government Employee","Public Servant","Civil Servant","Public-sector Worker","Municipal Worker"],"responsibilities":["Deliver public administration or public services","Work within applicable public-service rules"]}

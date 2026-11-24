@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "GLOBAL_DOMAIN_STORAGE_ECOSYSTEM",
+  "category_folder_count": 17,
+  "folder_naming": "global_domain_<category>_storage_ecosystem for canonical core packages; descriptive taxonomy folder names retained for existing capability packages",
+  "folders": [
+    {
+      "category": "DOMAIN_REGISTRATION",
+      "group": "CORE_DOMAIN_SERVICES",
+      "folder": "global_domain_registration_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_domain_storage_ecosystem/global_domain_registration_storage_ecosystem/",
+      "status": "EXISTING_FOLDER"
+    },
+    {
+      "category": "DNS_AND_NAMESERVERS",
+      "group": "CORE_DOMAIN_SERVICES",
+      "folder": "global_dns_and_nameserver_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_domain_storage_ecosystem/global_dns_and_nameserver_storage_ecosystem/",
+      "status": "EXISTING_FOLDER"
+    },
+    {
+      "category": "DOMAIN_PORTFOLIO",
+      "group": "CORE_DOMAIN_SERVICES",
+      "folder": "global_domain_portfolio_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_domain_storage_ecosystem/global_domain_portfolio_storage_ecosystem/",
+      "status": "EXISTING_FOLDER"
+    },
+    {
+      "category": "DOMAIN_HOSTING",
+      "group": "CORE_DOMAIN_SERVICES",
+      "folder": "global_domain_hosting_storage_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_domain_storage_ecosystem/global_domain_hosting_storage_ecosystem/",
+      "status": "EXISTING_FOLDER"
+    },
+    {
+      "category": "BUSINESS_AND_ENTERPRISE_DOMAINS",
+      "group": "BUSINESS_AND_ENTERPRISE",
+      "folder": "business_and_enterprise_domains",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_domain_storage_ecosystem/business_and_enterprise_domains/",
+      "status": "EXISTING_FOLDER"
+    },
+    {
+      "category": "CONTENT_CLASSIFICATION_AND_POLICY",
+      "group": "CONTENT_CLASSIFICATION_AND_POLICY",
+      "folder": "content_classification_and_policy",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_domain_storage_ecosystem/content_classification_and_policy/",
+      "status": "EXISTING_FOLDER"
+    },
+    {
+      "category": "DEVELOPER_AND_PLATFORM_DOMAINS",
+      "group": "DEVELOPER_AND_PLATFORM",
+      "folder": "developer_and_platform_domains",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_domain_storage_ecosystem/developer_and_platform_domains/",
+      "status": "EXISTING_FOLDER"
+    },
+    {
+      "category": "DNS_AND_NAMESERVER_MANAGEMENT",
+      "group": "DNS_MANAGEMENT",
+      "folder": "dns_and_nameserver_management",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_domain_storage_ecosystem/dns_and_nameserver_management/",
+      "status": "EXISTING_FOLDER"
+    },
+    {
+      "category": "DOMAIN_BACKUP_AND_RECOVERY",
+      "group": "BACKUP_AND_RECOVERY",
+      "folder": "domain_backup_and_recovery",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_domain_storage_ecosystem/domain_backup_and_recovery/",
+      "status": "EXISTING_FOLDER"
+    },
+    {
+      "category": "DOMAIN_HOSTING_AND_INFRASTRUCTURE",
+      "group": "HOSTING_AND_INFRASTRUCTURE",
+      "folder": "domain_hosting_and_infrastructure",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_domain_storage_ecosystem/domain_hosting_and_infrastructure/",
+      "status": "EXISTING_FOLDER"
+    },
+    {
+      "category": "DOMAIN_LEVELS",
+      "group": "DOMAIN_LEVELS",
+      "folder": "domain_levels",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_domain_storage_ecosystem/domain_levels/",
+      "status": "EXISTING_FOLDER"
+    },
+    {
+      "category": "DOMAIN_LIFECYCLE_MANAGEMENT",
+      "group": "LIFECYCLE_MANAGEMENT",
+      "folder": "domain_lifecycle_management",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_domain_storage_ecosystem/domain_lifecycle_management/",
+      "status": "EXISTING_FOLDER"
+    },
+    {
+      "category": "DOMAIN_PORTFOLIO_AND_IDENTITY",
+      "group": "PORTFOLIO_AND_IDENTITY",
+      "folder": "domain_portfolio_and_identity",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_domain_storage_ecosystem/domain_portfolio_and_identity/",
+      "status": "EXISTING_FOLDER"
+    },
+    {
+      "category": "DOMAIN_REGISTRATION_AND_ACQUISITION",
+      "group": "REGISTRATION_AND_ACQUISITION",
+      "folder": "domain_registration_and_acquisition",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_domain_storage_ecosystem/domain_registration_and_acquisition/",
+      "status": "EXISTING_FOLDER"
+    },
+    {
+      "category": "DOMAIN_SECURITY_AND_CERTIFICATES",
+      "group": "SECURITY_AND_CERTIFICATES",
+      "folder": "domain_security_and_certificates",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_domain_storage_ecosystem/domain_security_and_certificates/",
+      "status": "EXISTING_FOLDER"
+    },
+    {
+      "category": "DOMAIN_TRANSFER_AND_MIGRATION",
+      "group": "TRANSFER_AND_MIGRATION",
+      "folder": "domain_transfer_and_migration",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_domain_storage_ecosystem/domain_transfer_and_migration/",
+      "status": "EXISTING_FOLDER"
+    },
+    {
+      "category": "GEOGRAPHICAL_DOMAIN",
+      "group": "GEOGRAPHICAL_SCOPE",
+      "folder": "geographical_domain_ecosystem",
+      "path": "backend/storage/global_ecosystem/global_storage_ecosystem/global_domain_storage_ecosystem/geographical_domain_ecosystem/",
+      "status": "EXISTING_FOLDER"
+    }
+  ]
+}

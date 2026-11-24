@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "provider": "google",
+  "product_id": "google_family_link",
+  "product_name": "Google Family Link",
+  "category": "FAMILY_AND_DEVICE_CONTROLS",
+  "api": null,
+  "integration_mode": "PRODUCT_INFORMATION_ONLY",
+  "availability": "API_AVAILABLE",
+  "live_connection": false
+}

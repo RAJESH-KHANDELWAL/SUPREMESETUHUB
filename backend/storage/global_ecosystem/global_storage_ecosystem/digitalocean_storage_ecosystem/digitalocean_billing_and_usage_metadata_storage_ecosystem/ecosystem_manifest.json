@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "DIGITALOCEAN_BILLING_AND_USAGE_METADATA_STORAGE_ECOSYSTEM",
+  "provider": "DIGITALOCEAN",
+  "category": "BILLING_AND_USAGE_METADATA",
+  "parent_ecosystem": "DIGITALOCEAN_STORAGE_ECOSYSTEM",
+  "implementation_state": "SCAFFOLD_CREATED",
+  "external_connection_state": "NOT_CONFIGURED",
+  "taxonomy_only": true,
+  "provider_product_verified": false,
+  "storage_operations_enabled": false
+}

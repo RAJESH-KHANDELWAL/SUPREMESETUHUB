@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "AWS_S3_STORAGE_ECOSYSTEM",
+  "package_name": "aws_s3_storage_ecosystem",
+  "provider": "AWS",
+  "category": "S3",
+  "category_group": "OBJECT_AND_ARCHIVE_STORAGE",
+  "display_name": "Amazon S3",
+  "implementation_state": "CATEGORY_FOUNDATION_SCAFFOLD",
+  "connection_state": "NOT_CONFIGURED",
+  "provider_product_verified": false,
+  "storage_operations_enabled": false,
+  "requires_authorized_integration": true,
+  "requires_live_health_check": true,
+  "requires_end_to_end_tests": true,
+  "geographic_scope": [
+    "BHARAT",
+    "GLOBAL"
+  ],
+  "security_baseline": [
+    "LEAST_PRIVILEGE",
+    "ENCRYPTION",
+    "AUDIT_LOGGING",
+    "RETENTION_CONTROLS"
+  ],
+  "purpose": "Object storage namespace covering buckets, objects, versioning, lifecycle, replication and S3 storage classes.",
+  "notes": "Category-specific foundation scaffold. No live AWS integration is implied."
+}
