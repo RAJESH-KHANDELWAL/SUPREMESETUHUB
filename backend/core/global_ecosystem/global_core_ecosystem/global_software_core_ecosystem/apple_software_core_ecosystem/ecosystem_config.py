@@ -1,0 +1,9 @@
+"""Apple provider metadata; no credentials or live connection are stored here."""
+
+PROVIDER_ID = "apple"
+PROVIDER_NAME = "Apple"
+STATUS = "CATALOG_ONLY"
+LIVE_CONNECTION_VERIFIED = False
+DOMAINS = ["OPERATING_SYSTEMS", "DEVELOPMENT", "PRODUCTIVITY"]
+CAPABILITIES = ["PLATFORM_SERVICES", "APP_DISTRIBUTION", "DEVICE_ECOSYSTEM"]
+API_AVAILABLE = None
