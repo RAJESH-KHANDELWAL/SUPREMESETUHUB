@@ -1,0 +1,68 @@
+name: Global APP CORE Ecosystem Tests
+on:
+  push:
+    branches: [main]
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_app_core_ecosystem/**"
+      - "backend/global_ecosystem/global_app_ecosystem/**"
+      - "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+      - ".github/workflows/global-app-core-ecosystem-tests.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_app_core_ecosystem/**"
+      - "backend/global_ecosystem/global_app_ecosystem/**"
+      - "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+      - ".github/workflows/global-app-core-ecosystem-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: global-app-core-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  contract-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+      - name: Compile Global APP CORE
+        run: python -m compileall -q backend/core/global_ecosystem/global_core_ecosystem/global_app_core_ecosystem
+      - name: Verify provider registry and master catalog
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from backend.global_ecosystem.global_app_ecosystem.providers import list_app_providers, validate_app_provider_registry
+          from backend.core.global_ecosystem.global_core_ecosystem.global_app_core_ecosystem import get_manager
+          providers=list_app_providers()
+          assert providers
+          assert validate_app_provider_registry()==(), validate_app_provider_registry()
+          manager=get_manager()
+          assert manager.status()["provider_count"]==len(providers)
+          assert manager.status()["domain_count"]>0
+          master=json.loads(Path("backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json").read_text(encoding="utf-8"))
+          counts, expansion=master["counts"], master["expansion"]
+          assert master["catalogue_id"]=="GLOBAL_TO_SUPREME_MASTER_ECOSYSTEM"
+          assert expansion["target_unique_entries"]==2468
+          assert expansion["current_unique_entries"]==counts["unique_catalogue_entries"]
+          assert expansion["remaining_unique_entries"]==2468-expansion["current_unique_entries"]
+          inventory=manager.master_catalog_inventory()
+          assert inventory["source_numbered_entries"]==counts["source_numbered_entries"]
+          assert inventory["current_unique_entries"]==counts["unique_catalogue_entries"]
+          assert inventory["cross_reference_entries"]==counts["cross_reference_entries"]
+          assert len(inventory["entries"])==counts["source_numbered_entries"]
+          assert len(inventory["sections"])==counts["section_count"]
+          assert manager.master_catalog_reference()["owner_layer"]=="GLOBAL_ENGINE_ECOSYSTEM"
+          PY
+      - name: Validate PHP catalog parity
+        run: |
+          php -l backend/core/global_ecosystem/global_core_ecosystem/global_app_core_ecosystem/manager.php
+          php -r 'require "backend/core/global_ecosystem/global_core_ecosystem/global_app_core_ecosystem/manager.php"; $c=GlobalAppCoreManager::masterCatalogInventory(); if ($c["target_unique_entries"] !== 2468 || count($c["entries"]) !== $c["source_numbered_entries"]) { fwrite(STDERR, "PHP_MASTER_CATALOG_CONTRACT_FAILED\n"); exit(1); }'
+      - name: Run Global APP CORE tests
+        run: python -m unittest discover -s backend/core/global_ecosystem/global_core_ecosystem/global_app_core_ecosystem -t backend/core/global_ecosystem/global_core_ecosystem -p "test*.py" -v
