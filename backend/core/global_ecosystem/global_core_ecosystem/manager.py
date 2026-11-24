@@ -1752,6 +1752,11 @@ def get_catalog() -> list[dict[str, Any]]:
         huggingface_core,
         ibm_core,
         meta_core,
+        *GOOGLE_CORE_ECOSYSTEMS,
+        *ANTHROPIC_CORE_ECOSYSTEMS,
+        *APPLE_CORE_ECOSYSTEMS,
+        *ATLASSIAN_CORE_ECOSYSTEMS,
+        *AWS_CORE_ECOSYSTEMS,
         {
             "ecosystem_id": "TWILIO-CORE-ECOSYSTEM",
             "name": "TWILIO CORE ECOSYSTEM",
