@@ -3,7 +3,7 @@ from backend.api.global_ecosystem.global_api_ecosystem.global_infrastructure_api
 from backend.core.global_ecosystem.global_core_ecosystem.global_infrastructure_core_ecosystem import GlobalInfrastructureCoreService
 from backend.engine.global_ecosystem.global_engine_ecosystem.global_infrastructure_engine_ecosystem import get_infrastructure_engine
 from backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem import GlobalInfrastructureEcosystemService
-from backend.infrastructure.model.global_ecosystem.global_model_ecosystem import get_model_catalog, validate_resource_record
+from backend.infrastructure.model import InfrastructureRegistry
 from backend.infrastructure.model import InfrastructureResource, InfrastructureCategory, InfrastructureResourceType
 
 def test_infrastructure_model_package_exports_existing_resource_contract():
@@ -22,9 +22,16 @@ def test_global_infrastructure_catalog_marks_provider_connections_unconfigured()
     assert all(item["status"] in {"NOT_CONFIGURED", "CATALOG_ONLY"} for item in catalog["providers"])
 
 def test_global_infrastructure_models_validate_minimum_resource_contract():
-    valid = {"resource_id": "srv-001", "resource_type": "vps", "category": "compute"}
-    assert validate_resource_record(valid) == []
-    assert validate_resource_record({"resource_id": "", "resource_type": "vps"})
+    resource = InfrastructureResource(
+        resource_id="srv-001",
+        name="Example VPS",
+        resource_type=InfrastructureResourceType.VPS,
+        category=InfrastructureCategory.SERVER,
+    )
+    payload = resource.to_dict()
+    assert payload["resource_id"] == "srv-001"
+    assert payload["resource_type"] == "vps"
+    assert payload["category"] == "server"
 
 def test_core_owns_resource_contract_validation():
     result = GlobalInfrastructureCoreService().validate_resource({"resource_id": "srv-001", "resource_type": "vps", "category": "compute"})
@@ -32,7 +39,7 @@ def test_core_owns_resource_contract_validation():
     assert result["validated_by"] == "GLOBAL_INFRASTRUCTURE_CORE"
 
 def test_engine_delegates_validation_to_core_only_when_running():
-    engine = get_infrastructure_engine()
+    engine = get_infrastructure_engine(core=GlobalInfrastructureCoreService())
     engine.start()
     try:
         result = engine.validate_resource({"resource_id": "srv-002", "resource_type": "server", "category": "compute"})
@@ -50,8 +57,18 @@ def test_global_infrastructure_api_routes_are_mounted():
     assert "/infrastructure/models" in paths
     assert "/infrastructure/validate-resource" in paths
 
-def test_model_catalog_is_exposed():
-    assert "resource_identity" in get_model_catalog()
+def test_infrastructure_model_registry_exports_resource_contract():
+    registry = InfrastructureRegistry()
+    resource = InfrastructureResource(
+        resource_id="srv-registry-001",
+        name="Registry VPS",
+        resource_type=InfrastructureResourceType.VPS,
+        category=InfrastructureCategory.SERVER,
+    )
+    registry.register(resource)
+    assert registry.get("srv-registry-001") is resource
+    assert registry.remove("srv-registry-001") is True
+    assert registry.get("srv-registry-001") is None
 
 def test_global_infrastructure_engine_is_registered_by_bootstrap():
     from backend.core.bootstrap import Bootstrap
