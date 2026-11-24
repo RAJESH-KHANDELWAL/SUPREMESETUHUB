@@ -24,10 +24,9 @@ jobs:
 
       - name: Advance History archive without rewriting history
         run: |
-          git fetch origin history/main:refs/remotes/origin/history/main || true
           git push origin main:history/main
 
       - name: Advance Rehistory mirror without rewriting history
         run: |
-          git fetch origin rehistory/main:refs/remotes/origin/rehistory/main || true
-          git push origin history/main:rehistory/main
+          git fetch origin history/main
+          git push origin refs/remotes/origin/history/main:rehistory/main
