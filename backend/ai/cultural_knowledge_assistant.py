@@ -1,15 +1,20 @@
 """Evidence-aware AI context builder for cultural knowledge.
 
 This module prepares grounded context; it does not claim to call an LLM provider.
-The platform AI engine can consume the returned context through its own adapter.
+Its ENGINE dependency is supplied by the application composition root.
 """
 from __future__ import annotations
+
 from typing import Any
+
 from backend.engine.global_ecosystem.global_engine_ecosystem.cultural_knowledge_engine_ecosystem.manager import CulturalKnowledgeEngineManager
 
+
 class CulturalKnowledgeAssistant:
-    def __init__(self, engine: CulturalKnowledgeEngineManager | None = None) -> None:
-        self.engine = engine or CulturalKnowledgeEngineManager()
+    def __init__(self, engine: CulturalKnowledgeEngineManager) -> None:
+        if engine is None:
+            raise ValueError("CULTURAL_KNOWLEDGE_ENGINE_REQUIRED")
+        self.engine = engine
 
     def build_context(self, question: str, domain: str | None = None) -> dict[str, Any]:
         result = self.engine.search(question, domain=domain)
