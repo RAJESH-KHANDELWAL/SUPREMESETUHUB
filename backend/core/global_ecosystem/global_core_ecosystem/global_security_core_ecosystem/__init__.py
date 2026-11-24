@@ -1,11 +1,18 @@
-"""SECURITY CORE ECOSYSTEM package.
+"""GLOBAL SECURITY CORE ECOSYSTEM public package."""
+from .constants import CATEGORY, ECOSYSTEM_ID, ECOSYSTEM_NAME, LAYER, STATUS
+from .manager import (
+    GlobalSecurityCoreManager,
+    get_manager,
+    get_domains,
+    get_domain,
+    get_service_tiers,
+    get_protected_group_safety,
+    get_domain_manager,
+)
+from .service import SecurityCoreEcosystemService
 
-This package is an independent layer-owned namespace. It contains no imports
-from API, CORE, or ENGINE sibling layers.
-"""
-LAYER = "CORE"
-CATEGORY = "SECURITY"
-ECOSYSTEM_NAME = f"GLOBAL {CATEGORY.replace('_', ' ')} {LAYER} ECOSYSTEM"
-ECOSYSTEM_ID = f"GLOBAL-{CATEGORY.replace('_', '-')}-{LAYER.upper()}-ECOSYSTEM"
-
-__all__ = ["LAYER", "CATEGORY", "ECOSYSTEM_NAME", "ECOSYSTEM_ID"]
+__all__ = [
+    "LAYER", "CATEGORY", "ECOSYSTEM_NAME", "ECOSYSTEM_ID", "STATUS",
+    "GlobalSecurityCoreManager", "get_manager", "get_domains", "get_domain",
+    "get_service_tiers", "get_protected_group_safety", "get_domain_manager", "SecurityCoreEcosystemService",
+]

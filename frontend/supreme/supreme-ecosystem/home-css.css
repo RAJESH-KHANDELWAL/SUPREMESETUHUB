@@ -1,0 +1,4114 @@
+section .DR-RAJESH-KHANDELWAL-IBC,
+.DRRAJESHKHANDELWALIBC,
+.DR-RAJESH-KHANDELWAL-IBC-OFFICIAL,
+.DRRAJESHKHANDELWALIBCOFFICIAL,
+.RAJESH-KHANDELWAL,
+.RAJESHKHANDELWAL,
+.RAJESH-KHANDELWAL-OFFICIAL,
+.RAJESHKHANDELWALOFFICIAL,
+.KHANDELWAL-GROUP-AND-COMPANY,
+.KHANDELWALGROUPANDCOMPANY,
+.KHANDELWAL-GROUP-AND-COMPANIES,
+.KHANDELWALGROUPANDCOMPANIES,
+.HOME {
+
+     
+    background: #ffffff !important;
+    color: #000000 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    font-family: 'Century Schoolbook', 'Libre Baskerville', serif !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    border: 4px solid #D4AF37 !important;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1) !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+    scroll-behavior: smooth !important;
+
+    
+}
+
+
+
+
+ .HOME-MOST-WELCOME {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    width: 100%  !important;
+    margin: 8px auto !important;
+    padding: 8px !important;
+    gap: 8px !important;
+    border: none !important;
+    border-radius: 28px !important;
+    background: transparent !important;
+    text-align: center !important;
+    color: #D4AF37 !important;
+}
+
+
+ .HOME-MOST-WELCOME-TITLE {
+    display: block !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #D4AF37 !important;
+    font-family: "Century Schoolbook", "Libre Baskerville", Georgia, serif !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+}
+
+/* ULTRA-WIDE MONITOR — 2560px+ */
+@media screen and (min-width: 2560px) {
+
+ .HOME-MOST-WELCOME {
+        padding:  28px !important;
+        margin: 28px auto !important;
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+    }
+
+     
+     .HOME-MOST-WELCOME-TITLE {
+         font-size: 57px !important;
+         font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
+    }
+
+}
+
+/* LARGE DESKTOP — 1920px to 2559px */
+@media screen and (min-width: 1920px) and (max-width: 2559px) {
+ .HOME-MOST-WELCOME {
+        padding:  28px !important;
+        margin: 28px auto !important;
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+
+    }
+
+     
+     .HOME-MOST-WELCOME-TITLE {
+         font-size: 57px !important;
+         font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
+    }
+}
+
+/* DESKTOP / PC — 1440px to 1919px */
+@media screen and (min-width: 1440px) and (max-width: 1919px) {
+ .HOME-MOST-WELCOME {
+        padding:  28px !important;
+        margin: 28px auto !important;
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+
+    }
+
+     
+     .HOME-MOST-WELCOME-TITLE {
+         font-size: 57px !important;
+         font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
+    }
+}
+
+/* LAPTOP — 1200px to 1439px */
+@media screen and (min-width: 1200px) and (max-width: 1439px) {
+ .HOME-MOST-WELCOME {
+        padding:  28px !important;
+        margin: 28px auto !important;
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+
+    }
+
+     
+     .HOME-MOST-WELCOME-TITLE {
+         font-size: 57px !important;
+         font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
+    }
+}
+
+/* SMALL LAPTOP — 1025px to 1199px */
+@media screen and (min-width: 1025px) and (max-width: 1199px) {
+ .HOME-MOST-WELCOME {
+        padding:  28px !important;
+        margin: 28px auto !important;
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+
+    }
+
+     
+     .HOME-MOST-WELCOME-TITLE {
+         font-size: 57px !important;
+         font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
+    }
+}
+
+/* TABLET — 769px to 1024px */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+ .HOME-MOST-WELCOME {
+        padding:  18px !important;
+        margin: 18px auto !important;
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+
+    }
+
+     
+     .HOME-MOST-WELCOME-TITLE {
+         font-size: 28px !important;
+         font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
+    }
+}
+
+/* MOBILE / SMALL TABLET — 481px to 768px */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+ .HOME-MOST-WELCOME {
+        padding:  8px !important;
+        margin: 8px auto !important;
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+
+    }
+
+     
+     .HOME-MOST-WELCOME-TITLE {
+         font-size: 18px !important;
+         font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
+    }
+}
+
+/* MOBILE — 361px to 480px */
+@media screen and (min-width: 361px) and (max-width: 480px) {
+ .HOME-MOST-WELCOME {
+        padding:  8px !important;
+        margin: 8px auto !important;
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+
+    }
+
+     
+     .HOME-MOST-WELCOME-TITLE {
+         font-size: 18px !important;
+         font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
+    }
+}
+
+/* SMALL MOBILE — 360px and below */
+@media screen and (max-width: 360px) {
+ .HOME-MOST-WELCOME {
+        padding:  8px !important;
+        margin: 8px auto !important;
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+
+    }
+
+     
+     .HOME-MOST-WELCOME-TITLE {
+         font-size: 18px !important;
+         font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
+    }
+}
+
+
+
+
+
+
+.HOME-DR-RAJESH-KHANDELWAL-IBC {
+    display: block !important;
+
+    width: 100%  !important;
+    margin: 8px auto !important;
+    padding: 8px !important;
+    gap: 8px !important;
+
+    box-sizing: border-box !important;
+
+    color: #D4AF37 !important;
+
+    font-family:
+        "Century Schoolbook",
+        "Libre Baskerville",
+        serif !important;
+
+    font-weight: 800 !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+}
+
+/* BIG SCREEN / ULTRAWIDE
+   1920px and above */
+
+@media screen and (min-width: 1920px) {
+    .HOME-DR-RAJESH-KHANDELWAL-IBC {
+        max-width: 100% !important;
+        font-size: 68px !important;
+        font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
+       
+    }
+}
+
+/* DESKTOP / PC
+   1200px to 1919px */
+
+@media screen and (min-width: 1200px)
+       and (max-width: 1919px) {
+    .HOME-DR-RAJESH-KHANDELWAL-IBC {
+        max-width: 100% !important;
+        font-size: 68px !important;
+        font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
+    }
+}
+
+/* LAPTOP
+   1025px to 1199px */
+
+@media screen and (min-width: 1025px)
+       and (max-width: 1199px) {
+    .HOME-DR-RAJESH-KHANDELWAL-IBC {
+        max-width: 100% !important;
+        font-size: 68px !important;
+        font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
+    }
+}
+
+/* TABLET
+   768px to 1024px */
+
+@media screen and (min-width: 768px)
+       and (max-width: 1024px) {
+    .HOME-DR-RAJESH-KHANDELWAL-IBC {
+        max-width: 100% !important;
+        font-size: 28px !important;
+        font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
+    }
+}
+
+/* MOBILE
+   481px to 767px */
+
+@media screen and (min-width: 481px)
+       and (max-width: 767px) {
+    .HOME-DR-RAJESH-KHANDELWAL-IBC {
+        max-width: 100% !important;
+        font-size: 28px !important;
+        font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
+    }
+}
+
+/* SMALL MOBILE
+   480px and below */
+
+@media screen and (max-width: 480px) {
+    .HOME-DR-RAJESH-KHANDELWAL-IBC {
+        max-width: 100% !important;
+        font-size: 18px !important;
+        font-weight: 800 !important;
+         line-height: 1.8 !important;
+         letter-spacing: 1.8px !important;
+    }
+}
+
+
+
+    
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-TITLE {
+
+
+display: flex !important;                           
+flex-direction: row !important;                     
+align-items: center !important;                     
+justify-content: center !important;                 
+text-align: center !important;                      
+width: 100% !important;                             
+box-sizing: border-box !important;                  
+-webkit-font-smoothing: antialiased !important;     
+text-rendering: optimizeLegibility !important;      
+background-color: none !important;                  
+border: none !important;                            
+color: #D4AF37 !important;                          
+font-weight: 800 !important;                        
+text-transform: uppercase !important;               
+}
+
+
+@media (min-width:1025px){
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-TITLE{
+
+
+font-size:60px !important;                          
+line-height:1.8 !important;                         
+letter-spacing:1.8px !important;                    
+padding:28px !important;                            
+width:100% !important;                               
+margin-left:0px !important;                         
+margin-right:0px !important;                        
+margin-top:18px !important;                         
+margin-bottom:18px !important;                      
+border-radius:18px !important;                      
+
+
+}
+
+}
+
+
+@media (max-width:1024px){
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-TITLE{
+
+
+font-size:20px !important;                         
+font-weight:800 !important;                        
+line-height:1.8 !important;                        
+letter-spacing:1.8px !important;                   
+text-align:center !important;                      
+display:flex !important;                           
+width:100% !important;                             
+flex-direction:column !important;                  
+align-items:center !important;                     
+padding:18px 18px !important;                      
+box-sizing:border-box !important;                  
+white-space:normal !important;                     
+word-break:break-word !important;                  
+justify-content:center !important;                 
+
+
+}
+
+}
+
+
+/* =========================================================
+    GLOBAL BUSINESS COACH & CONSULTANT & ADVISOR
+    BRAND CARD BOX
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD {
+
+
+ width:100% !important;                      
+margin:0px auto !important;               
+display:flex !important;                  
+flex-direction:column !important;         
+align-items:center !important;            
+box-sizing:border-box !important;         
+will-change:transform !important;                 
+transform:translateZ(0) !important;               
+backface-visibility:hidden !important;            
+-webkit-backface-visibility:hidden !important;    
+background:#ffffff !important;                   
+color:#000000 !important;                        
+-webkit-font-smoothing:antialiased !important;   
+-moz-osx-font-smoothing:grayscale !important;    
+text-rendering:optimizeLegibility !important;    
+scroll-behavior:smooth !important;               
+    background: #ffffff !important;
+    color: #111111 !important;
+
+    border: 4px solid #D4AF37 !important;
+    border-radius: 30px !important;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.08) !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+
+    text-align: center !important;
+
+    
+}
+
+
+/* =========================================================
+    BRAND NAME
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-NAME {
+
+    width: 100% !important;
+
+    
+    box-sizing: border-box !important;
+
+    color: #AA820A !important;
+
+    font-size: 32px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+    letter-spacing: 1.8px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+    white-space: normal !important;
+
+    display: block !important;
+
+}
+
+
+/* =========================================================
+    GLOBAL BUSINESS COACH
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-GLOBAL-BUSINESS-COACH {
+
+    width: 100% !important;
+
+
+    box-sizing: border-box !important;
+
+    color: #111111 !important;
+
+    font-size: 24px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+    letter-spacing: 1.8px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+}
+
+
+/* =========================================================
+    INDEPENDENT BUSINESS CONSULTANT
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-INDEPENDENT-BUSINESS-CONSULTANT {
+
+    width: 100% !important;
+
+
+    box-sizing: border-box !important;
+
+    color: #111111 !important;
+
+    font-size: 24px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+    letter-spacing: 1.8px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+}
+
+
+/* =========================================================
+    FOUNDER & CEO
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-FOUNDER-CEO {
+
+    width: 100% !important;
+
+
+    box-sizing: border-box !important;
+
+    color: #111111 !important;
+
+    font-size: 24px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+    letter-spacing: 1.8px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+}
+
+
+/* =========================================================
+    REAL ESTATE COACH
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-REAL-ESTATE-COACH {
+
+    width: 100% !important;
+
+
+    box-sizing: border-box !important;
+
+    color: #111111 !important;
+
+    font-size: 24px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+    letter-spacing: 1.8px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+}
+
+
+/* =========================================================
+    RELATIONSHIP & INTIMACY COACH
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-INTIMACY-COACH {
+
+    width: 100% !important;
+
+
+    box-sizing: border-box !important;
+
+    color: #111111 !important;
+
+    font-size: 24px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+    letter-spacing: 1.8px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+}
+
+
+/* =========================================================
+    GLOBAL BUSINESS ECOSYSTEM
+    MAIN DESCRIPTION
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-DESCRIPTION {
+
+    width: 100% !important;
+    max-width: 1100px !important;
+
+
+    box-sizing: border-box !important;
+
+    color: #333333 !important;
+
+    font-size: 16px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+    letter-spacing: 1.8px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+    border-top: 4px solid #D4AF37 !important;
+
+    border-radius: 18px !important;
+
+    background: #fffdf5 !important;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.05) !important;
+
+}
+
+
+/* =========================================================
+    DESCRIPTION LINE BREAKS
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-DESCRIPTION br {
+
+    line-height: 1.8 !important;
+
+    letter-spacing: 1.8PX !important;
+
+}
+
+
+/* =========================================================
+    GLOBAL BUSINESS ECOSYSTEM
+    LAST DESCRIPTION LINE
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-DESCRIPTION
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-GLOBAL-LINE {
+
+    color: #AA820A !important;
+
+    font-weight: 800 !important;
+
+}
+
+
+/* =========================================================
+    DESKTOP
+   1025PX+
+   ========================================================= */
+
+@media (min-width:1025px) {
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD {
+
+
+width:88% !important;                           
+padding:28px !important;                        
+border-radius:48px !important;                 
+border:4px solid rgba(0,0,0,.08) !important;   
+box-shadow:0 48px 100px rgba(0,0,0,.1) !important; 
+max-width: 1480px !important;
+border-radius: 35px !important;
+
+        
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-NAME {
+
+
+font-size:55px !important;                     
+line-height:1.8 !important;                   
+letter-spacing:1.8px !important;              
+text-align:center !important;                 
+align-items:center !important;                
+margin-bottom:28px !important;                
+color:#AA820A !important;                     
+        
+
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-GLOBAL-BUSINESS-COACH {
+
+
+font-size:55px !important;                    
+line-height:1.8 !important;                   
+letter-spacing:1.8px !important;              
+text-align:center !important;                 
+align-items:center !important;                
+margin:8px 0 !important;                      
+
+
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-INDEPENDENT-BUSINESS-CONSULTANT {
+
+
+font-size:44px !important;                    
+line-height:1.8 !important;                   
+letter-spacing:1.8px !important;              
+text-align:center !important;                 
+align-items:center !important;                
+margin:8px 0 !important;                      
+
+
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-FOUNDER-CEO {
+
+
+font-size:55px !important;                    
+line-height:1.8 !important;                   
+letter-spacing:1.8px !important;              
+text-align:center !important;                 
+align-items:center !important;                
+margin:8px 0 !important;                      
+
+
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-REAL-ESTATE-COACH {
+
+
+font-size:55px !important;                    
+line-height:1.8 !important;                   
+letter-spacing:1.8px !important;              
+text-align:center !important;                 
+align-items:center !important;                
+margin:8px 0 !important;                      
+
+
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-INTIMACY-COACH {
+
+
+font-size:44px !important;                    
+line-height:1.8 !important;                   
+letter-spacing:1.8px !important;              
+text-align:center !important;                 
+align-items:center !important;                
+margin:8px 0 !important;                      
+
+
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-DESCRIPTION {
+
+
+
+font-size:28px !important;                   
+line-height:1.8 !important;                  
+letter-spacing:1.8px !important;             
+text-align:center !important;                
+align-items:center !important;               
+max-width:800px !important;                  
+margin:28px auto 0 auto !important;          
+padding-top:28px !important;                 
+border-top:2px solid #D4AF37 !important;     
+        max-width: 1240px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+    TABLET
+   769PX — 1024PX
+   ========================================================= */
+
+@media (min-width:769px) and (max-width:1024px) {
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD {
+
+        width: 100% !important;
+
+        padding: 28px 28px !important;
+
+        border-radius: 28px !important;
+
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-NAME {
+
+        font-size: 38px !important;
+
+        font-weight: 800 !important;
+        letter-spacing: 1.8px !important;
+        line-height: 1.8 !important;
+
+        white-space: normal !important;
+
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-GLOBAL-BUSINESS-COACH,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-FOUNDER-CEO,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-REAL-ESTATE-COACH {
+
+        font-size: 30px !important;
+
+        font-weight: 800 !important;
+        letter-spacing: 1.8px !important;
+        line-height: 1.8 !important;
+        
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-INDEPENDENT-BUSINESS-CONSULTANT,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-INTIMACY-COACH {
+
+        font-size: 27px !important;
+
+        font-weight: 800 !important;
+        letter-spacing: 1.8px !important;
+        line-height: 1.8 !important;
+        
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-DESCRIPTION {
+
+        font-size: 18px !important;
+        font-weight: 800 !important;
+        letter-spacing: 1.8px !important;
+        line-height: 1.8 !important;
+        padding: 28px 18px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+    MOBILE
+   768PX AND BELOW
+   ========================================================= */
+
+@media (max-width:768px) {
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD {
+
+        width: 100% !important;
+
+        padding: 28px 8px !important;
+
+        border-width: 4px !important;
+
+        border-radius: 22px !important;
+
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-NAME {
+
+        width: 100% !important;
+
+        font-size: 22px !important;
+
+        font-weight: 800 !important;
+        letter-spacing: 1.8px !important;
+        line-height: 1.8 !important;
+
+        white-space: normal !important;
+
+        margin-bottom: 18px !important;
+
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-GLOBAL-BUSINESS-COACH,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-FOUNDER-CEO,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-REAL-ESTATE-COACH {
+
+        font-size: 20px !important;
+
+        font-weight: 800 !important;
+        letter-spacing: 1.8px !important;
+        line-height: 1.8 !important;
+
+        margin: 8px 0 !important;
+
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-INDEPENDENT-BUSINESS-CONSULTANT,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-INTIMACY-COACH {
+
+        font-size: 18px !important;
+
+        font-weight: 800 !important;
+        letter-spacing: 1.8px !important;
+        line-height: 1.8 !important;
+
+        margin: 8px 0 !important;
+
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-DESCRIPTION {
+
+        width: 100% !important;
+
+        margin-top: 28px !important;
+
+        padding: 18px 8px !important;
+
+        font-size: 15px !important;
+
+        font-weight: 800 !important;
+        letter-spacing: 1.8px !important;
+        line-height: 1.8 !important;
+
+        border-top-width: 4px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+    REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-NAME,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-DESCRIPTION {
+
+        transition: none !important;
+
+    }
+
+    }
+
+
+.HOME-GLOBAL-BUSINESS-ECOSYSTEM-LINK-BUTTON {
+
+    display: inline-flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    text-align: center !important;
+
+    width: auto !important;
+
+    box-sizing: border-box !important;
+
+    padding: 18px 28px !important;
+
+    margin: 18px auto !important;
+
+    background: #ffffff !important;
+
+    color: #D4AF37 !important;
+
+    border: 4px solid #D4AF37 !important;
+
+    border-radius: 18px !important;
+
+    font-family: 'Century Schoolbook', 'Libre Baskerville', serif !important;
+
+    font-size: 24px !important;
+
+    font-weight: 800 !important;
+
+    letter-spacing: 1.8px !important;
+
+    text-transform: uppercase !important;
+
+    text-decoration: none !important;
+
+    cursor: pointer !important;
+
+    transition: all 0.25s ease !important;
+}
+
+
+.HOME-GLOBAL-BUSINESS-ECOSYSTEM-LINK-BUTTON:hover {
+
+    background: #D4AF37 !important;
+
+    color: #ffffff !important;
+
+    transform: translateY(-2px) !important;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+}
+
+
+@media (max-width:1024px) {
+
+    .HOME-GLOBAL-BUSINESS-ECOSYSTEM-LINK-BUTTON {
+
+        width: 90% !important;
+
+        padding: 18px 18px !important;
+
+        font-size: 18px !important;
+
+        line-height: 1.5 !important;
+
+        white-space: normal !important;
+    }
+
+}
+
+
+/* =========================================================
+   DR RAJESH KHANDELWAL IBC GLOBAL BUSINESS ECOSYSTEM IMAGE
+   ADVANCED FULL-WIDTH PREMIUM IMAGE SYSTEM
+   ========================================================= */
+
+
+.HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE {
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    display: block !important;
+
+    margin: 28px 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+
+    position: relative !important;
+
+    float: none !important;
+    clear: none !important;
+
+    text-align: center !important;
+
+    overflow: hidden !important;
+
+    border-radius: 22px !important;
+
+    background: #ffffff !important;
+
+    border: 4px solid rgba(212, 175, 55, 0.30) !important;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(212, 175, 55, 0.08) !important;
+
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease,
+        border-color 0.45s ease !important;
+
+}
+
+
+/* =========================================================
+   IMAGE
+   ========================================================= */
+
+.HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE img {
+
+    display: block !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    height: auto !important;
+
+    margin: 0 auto !important;
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+
+    object-fit: contain !important;
+
+    object-position: center !important;
+
+    border: 0 !important;
+
+    border-radius: 18px !important;
+
+    transition:
+        transform 0.6s ease,
+        filter 0.6s ease !important;
+
+}
+
+
+/* =========================================================
+   PREMIUM HOVER
+   LIGHT GOLD → SLIGHT DARK GOLD
+   ========================================================= */
+
+.HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE:hover {
+
+    transform: translateY(-5px) !important;
+
+    border-color: #D4AF37 !important;
+
+    box-shadow:
+        0 22px 50px rgba(212, 175, 55, 0.18),
+        0 0 0 2px rgba(212, 175, 55, 0.12) !important;
+
+}
+
+
+.HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE:hover img {
+
+    transform: scale(1.015) !important;
+
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 1025px) {
+
+    .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE {
+
+        margin: 28px 0 !important;
+
+        border-radius: 26px !important;
+
+    }
+
+    .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE img {
+
+        border-radius: 22px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE {
+
+        margin: 28px 0 !important;
+
+        border-radius: 20px !important;
+
+    }
+
+    .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE img {
+
+        border-radius: 17px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE {
+
+        width: 100% !important;
+
+        margin: 28px 0 !important;
+
+        border-radius: 15px !important;
+
+    }
+
+    .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE img {
+
+        width: 100% !important;
+
+        border-radius: 12px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY / REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE,
+    .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE img {
+
+        transition: none !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   HOME
+   GLOBAL BUSINESS COACH & CONSULTANT & ADVISOR
+   BRAND CARD
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD {
+
+    width: 88% !important;
+    max-width: 1480px !important;
+
+    margin: 28px auto !important;
+    padding: 28px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    box-sizing: border-box !important;
+
+    background: #ffffff !important;
+    color: #111111 !important;
+
+    border: 4px solid #D4AF37 !important;
+    border-radius: 30px !important;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.08) !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+    font-weight: 800 !important;
+
+    text-align: center !important;
+
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+
+}
+
+
+/* =========================================================
+   BRAND NAME
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-NAME {
+
+    width: 100% !important;
+
+    margin: 0 0 28px 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+
+    color: #AA820A !important;
+
+    font-size: 55px !important;
+
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+
+    letter-spacing: 1.8px !important;
+
+    text-align: center !important;
+
+    text-transform: uppercase !important;
+
+    white-space: normal !important;
+
+}
+
+
+/* =========================================================
+   GLOBAL BUSINESS COACH & CONSULTANT & ADVISOR
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-TITLE {
+
+    width: 100% !important;
+
+    margin: 0 0 28px 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+
+    color: #D4AF37 !important;
+
+    font-size: 55px !important;
+
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+
+    letter-spacing: 1.8px !important;
+
+    text-align: center !important;
+
+    text-transform: uppercase !important;
+
+    white-space: normal !important;
+
+}
+
+
+/* =========================================================
+   GLOBAL BUSINESS COACH
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-GLOBAL-BUSINESS-COACH {
+
+    width: 100% !important;
+
+    margin: 8px 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+
+    color: #111111 !important;
+
+    font-size: 55px !important;
+
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+
+    letter-spacing: 1.8px !important;
+
+    text-align: center !important;
+
+    text-transform: uppercase !important;
+
+}
+
+
+/* =========================================================
+   INDEPENDENT BUSINESS CONSULTANT & BUSINESS ADVISOR
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-INDEPENDENT-BUSINESS-CONSULTANT {
+
+    width: 100% !important;
+
+    margin: 8px 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+
+    color: #111111 !important;
+
+    font-size: 44px !important;
+
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+
+    letter-spacing: 1.8px !important;
+
+    text-align: center !important;
+
+    text-transform: uppercase !important;
+
+}
+
+
+/* =========================================================
+   FOUNDER & CEO
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-FOUNDER-CEO {
+
+    width: 100% !important;
+
+    margin: 8px 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+
+    color: #111111 !important;
+
+    font-size: 55px !important;
+
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+
+    letter-spacing: 1.8px !important;
+
+    text-align: center !important;
+
+    text-transform: uppercase !important;
+
+}
+
+
+/* =========================================================
+   REAL ESTATE COACH
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-REAL-ESTATE-COACH {
+
+    width: 100% !important;
+
+    margin: 8px 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+
+    color: #111111 !important;
+
+    font-size: 55px !important;
+
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+
+    letter-spacing: 1.8px !important;
+
+    text-align: center !important;
+
+    text-transform: uppercase !important;
+
+}
+
+
+/* =========================================================
+   RELATIONSHIP & INTIMACY COACH
+   ========================================================= */
+
+.HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-INTIMACY-COACH {
+
+    width: 100% !important;
+
+    margin: 8px 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box !important;
+
+    color: #111111 !important;
+
+    font-size: 44px !important;
+
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+
+    letter-spacing: 1.8px !important;
+
+    text-align: center !important;
+
+    text-transform: uppercase !important;
+
+}
+
+
+/* =========================================================
+   TABLET
+   769PX — 1024PX
+   ========================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD {
+
+        width: 88% !important;
+
+        margin: 28px auto !important;
+
+        padding: 28px 28px !important;
+
+        border-radius: 28px !important;
+
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-NAME {
+
+        font-size: 38px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+
+    letter-spacing: 1.8px !important;
+
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-TITLE {
+
+        font-size: 38px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+
+    letter-spacing: 1.8px !important;
+
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-GLOBAL-BUSINESS-COACH,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-FOUNDER-CEO,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-REAL-ESTATE-COACH {
+
+        font-size: 30px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+
+    letter-spacing: 1.8px !important;
+
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-INDEPENDENT-BUSINESS-CONSULTANT,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-INTIMACY-COACH {
+
+        font-size: 27px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+
+    letter-spacing: 1.8px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   768PX AND BELOW
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD {
+
+        width: 94% !important;
+
+        margin: 28px auto !important;
+
+        padding: 28px 8px !important;
+
+        border-width: 4px !important;
+
+        border-radius: 22px !important;
+
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-NAME {
+
+        font-size: 22px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+
+    letter-spacing: 1.8px !important;
+
+        margin-bottom: 18px !important;
+
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-TITLE {
+
+        font-size: 22px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+
+    letter-spacing: 1.8px !important;
+
+        margin-bottom: 18px !important;
+
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-GLOBAL-BUSINESS-COACH,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-FOUNDER-CEO,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-REAL-ESTATE-COACH {
+
+        font-size: 20px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+
+    letter-spacing: 1.8px !important;
+
+        margin: 8px 0 !important;
+
+    }
+
+
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-INDEPENDENT-BUSINESS-CONSULTANT,
+    .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-INTIMACY-COACH {
+
+        font-size: 18px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+
+    letter-spacing: 1.8px !important;
+
+        margin: 8px 0 !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   HOME — LFP
+   ========================================================= */
+
+.HOME-LFP-INTRO {
+
+    width: 88% !important;
+    max-width: 1480px !important;
+
+    margin: 28px auto 18px auto !important;
+    padding: 28px 28px !important;
+
+    box-sizing: border-box !important;
+
+    background: #ffffff !important;
+    color: #111111 !important;
+
+    border: 4px solid #D4AF37 !important;
+    border-radius: 25px !important;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.08) !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+    font-size: 28px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+    letter-spacing: 1.2px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+}
+
+
+/* LFP LINK */
+
+.HOME-LFP-LINK {
+
+    display: inline-flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: auto !important;
+
+    margin: 8px auto 28px auto !important;
+    padding: 18px 28px !important;
+
+    box-sizing: border-box !important;
+
+    background: #D4AF37 !important;
+    color: #000000 !important;
+
+    border: 4px solid #AA820A !important;
+    border-radius: 18px !important;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.12) !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+    font-size: 25px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.5 !important;
+    letter-spacing: 1.5px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+    text-decoration: none !important;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease !important;
+}
+
+
+.HOME-LFP-LINK:hover {
+
+    transform: translateY(-3px) !important;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.18) !important;
+
+}
+
+
+/* =========================================================
+   HOME — SOLUTIONS CONSULTANT
+   ========================================================= */
+
+.HOME-SOLUTIONS-CONSULTANT-INTRO {
+
+    width: 88% !important;
+    max-width: 1480px !important;
+
+    margin: 28px auto 18px auto !important;
+    padding: 28px 28px !important;
+
+    box-sizing: border-box !important;
+
+    background: #ffffff !important;
+    color: #111111 !important;
+
+    border: 4px solid #D4AF37 !important;
+    border-radius: 25px !important;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.08) !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+    font-size: 28px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+    letter-spacing: 1.2px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+}
+
+
+/* SOLUTIONS CONSULTANT LINK */
+
+.HOME-SOLUTIONS-CONSULTANT-LINK {
+
+    display: inline-flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: auto !important;
+
+    margin: 8px auto 28px auto !important;
+    padding: 18px 28px !important;
+
+    box-sizing: border-box !important;
+
+    background: #D4AF37 !important;
+    color: #000000 !important;
+
+    border: 4px solid #AA820A !important;
+    border-radius: 18px !important;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.12) !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+    font-size: 25px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.5 !important;
+    letter-spacing: 1.5px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+    text-decoration: none !important;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease !important;
+}
+
+
+.HOME-SOLUTIONS-CONSULTANT-LINK:hover {
+
+    transform: translateY(-3px) !important;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.18) !important;
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .HOME-LFP-INTRO,
+    .HOME-SOLUTIONS-CONSULTANT-INTRO {
+
+        width: 88% !important;
+
+        padding: 28px 18px !important;
+
+        font-size: 22px !important;
+
+        line-height: 1.8 !important;
+
+    }
+
+
+    .HOME-LFP-LINK,
+    .HOME-SOLUTIONS-CONSULTANT-LINK {
+
+        font-size: 21px !important;
+
+        padding: 18px 28px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .HOME-LFP-INTRO,
+    .HOME-SOLUTIONS-CONSULTANT-INTRO {
+
+        width: 94% !important;
+
+        margin: 28px auto 18px auto !important;
+
+        padding: 18px 18px !important;
+
+        font-size: 18px !important;
+
+        line-height: 1.8 !important;
+
+        letter-spacing: 1px !important;
+
+        border-width: 3px !important;
+
+        border-radius: 20px !important;
+
+    }
+
+
+    .HOME-LFP-LINK,
+    .HOME-SOLUTIONS-CONSULTANT-LINK {
+
+        width: 90% !important;
+
+        margin: 8px auto 28px auto !important;
+
+        padding: 18px 18px !important;
+
+        font-size: 17px !important;
+
+        line-height: 1.6 !important;
+
+        letter-spacing: 1px !important;
+
+        border-width: 3px !important;
+
+        border-radius: 16px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   HOME — CASH GROWTH PROFIT
+   ========================================================= */
+
+.HOME-CASH-GROWTH-PROFIT-INTRO {
+
+    width: 88% !important;
+    max-width: 1480px !important;
+
+    margin: 28px auto 18px auto !important;
+    padding: 28px 28px !important;
+
+    box-sizing: border-box !important;
+
+    background: #ffffff !important;
+    color: #111111 !important;
+
+    border: 4px solid #D4AF37 !important;
+    border-radius: 25px !important;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.08) !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+    font-size: 28px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+    letter-spacing: 1.2px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+}
+
+
+/* =========================================================
+   CASH GROWTH PROFIT LINK
+   ========================================================= */
+
+.HOME-CASH-GROWTH-PROFIT-LINK {
+
+    display: inline-flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: auto !important;
+
+    margin: 8px auto 28px auto !important;
+    padding: 18px 28px !important;
+
+    box-sizing: border-box !important;
+
+    background: #D4AF37 !important;
+    color: #000000 !important;
+
+    border: 4px solid #AA820A !important;
+    border-radius: 18px !important;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.12) !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+    font-size: 25px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.5 !important;
+    letter-spacing: 1.5px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+    text-decoration: none !important;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease !important;
+}
+
+
+.HOME-CASH-GROWTH-PROFIT-LINK:hover {
+
+    transform: translateY(-3px) !important;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.18) !important;
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .HOME-CASH-GROWTH-PROFIT-INTRO {
+
+        width: 88% !important;
+
+        padding: 28px 18px !important;
+
+        font-size: 22px !important;
+
+        line-height: 1.8 !important;
+
+    }
+
+
+    .HOME-CASH-GROWTH-PROFIT-LINK {
+
+        font-size: 21px !important;
+
+        padding: 18px 28px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .HOME-CASH-GROWTH-PROFIT-INTRO {
+
+        width: 94% !important;
+
+        margin: 28px auto 18px auto !important;
+
+        padding: 18px 18px !important;
+
+        font-size: 18px !important;
+
+        line-height: 1.8 !important;
+
+        letter-spacing: 1px !important;
+
+        border-width: 3px !important;
+
+        border-radius: 20px !important;
+
+    }
+
+
+    .HOME-CASH-GROWTH-PROFIT-LINK {
+
+        width: 90% !important;
+
+        margin: 8px auto 28px auto !important;
+
+        padding: 18px !important;
+
+        font-size: 17px !important;
+
+        line-height: 1.6 !important;
+
+        letter-spacing: 1px !important;
+
+        border-width: 3px !important;
+
+        border-radius: 16px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   HOME — IDEA TO IPO
+   ========================================================= */
+
+.HOME-IDEA-TO-IPO-INTRO {
+
+    width: 88% !important;
+    max-width: 1480px !important;
+
+    margin: 28px auto 18px auto !important;
+    padding: 28px 28px !important;
+
+    box-sizing: border-box !important;
+
+    background: #ffffff !important;
+    color: #111111 !important;
+
+    border: 4px solid #D4AF37 !important;
+    border-radius: 25px !important;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.08) !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+    font-size: 28px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+    letter-spacing: 1.2px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+}
+
+
+/* =========================================================
+   IDEA TO IPO LINK
+   ========================================================= */
+
+.HOME-IDEA-TO-IPO-LINK {
+
+    display: inline-flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: auto !important;
+
+    margin: 8px auto 28px auto !important;
+    padding: 18px 28px !important;
+
+    box-sizing: border-box !important;
+
+    background: #D4AF37 !important;
+    color: #000000 !important;
+
+    border: 4px solid #AA820A !important;
+    border-radius: 18px !important;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.12) !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+    font-size: 25px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.5 !important;
+    letter-spacing: 1.5px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+    text-decoration: none !important;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease !important;
+}
+
+
+.HOME-IDEA-TO-IPO-LINK:hover {
+
+    transform: translateY(-3px) !important;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.18) !important;
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .HOME-IDEA-TO-IPO-INTRO {
+
+        width: 88% !important;
+
+        padding: 28px 18px !important;
+
+        font-size: 22px !important;
+
+        line-height: 1.8 !important;
+
+    }
+
+
+    .HOME-IDEA-TO-IPO-LINK {
+
+        font-size: 21px !important;
+
+        padding: 18px 28px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .HOME-IDEA-TO-IPO-INTRO {
+
+        width: 94% !important;
+
+        margin: 28px auto 18px auto !important;
+
+        padding: 18px 18px !important;
+
+        font-size: 18px !important;
+
+        line-height: 1.8 !important;
+
+        letter-spacing: 1px !important;
+
+        border-width: 3px !important;
+
+        border-radius: 20px !important;
+
+    }
+
+
+    .HOME-IDEA-TO-IPO-LINK {
+
+        width: 90% !important;
+
+        margin: 8px auto 28px auto !important;
+
+        padding: 18px !important;
+
+        font-size: 17px !important;
+
+        line-height: 1.6 !important;
+
+        letter-spacing: 1px !important;
+
+        border-width: 3px !important;
+
+        border-radius: 16px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   HOME — DIGITAL DUKAN
+   ========================================================= */
+
+.HOME-DIGITAL-DUKAN-INTRO {
+
+    width: 88% !important;
+    max-width: 1480px !important;
+
+    margin: 28px auto 18px auto !important;
+    padding: 28px 28px !important;
+
+    box-sizing: border-box !important;
+
+    background: #ffffff !important;
+    color: #111111 !important;
+
+    border: 4px solid #D4AF37 !important;
+    border-radius: 25px !important;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.08) !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+    font-size: 28px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+    letter-spacing: 1.2px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+}
+
+
+/* =========================================================
+   DIGITAL DUKAN LINK
+   ========================================================= */
+
+.HOME-DIGITAL-DUKAN-LINK {
+
+    display: inline-flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: auto !important;
+
+    margin: 8px auto 28px auto !important;
+    padding: 18px 28px !important;
+
+    box-sizing: border-box !important;
+
+    background: #D4AF37 !important;
+    color: #000000 !important;
+
+    border: 4px solid #AA820A !important;
+    border-radius: 18px !important;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.12) !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+    font-size: 25px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.5 !important;
+    letter-spacing: 1.5px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+    text-decoration: none !important;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease !important;
+}
+
+
+.HOME-DIGITAL-DUKAN-LINK:hover {
+
+    transform: translateY(-3px) !important;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.18) !important;
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .HOME-DIGITAL-DUKAN-INTRO {
+
+        width: 88% !important;
+
+        padding: 28px 18px !important;
+
+        font-size: 22px !important;
+
+        line-height: 1.8 !important;
+
+    }
+
+
+    .HOME-DIGITAL-DUKAN-LINK {
+
+        font-size: 21px !important;
+
+        padding: 18px 28px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .HOME-DIGITAL-DUKAN-INTRO {
+
+        width: 94% !important;
+
+        margin: 28px auto 18px auto !important;
+
+        padding: 18px 18px !important;
+
+        font-size: 18px !important;
+
+        line-height: 1.8 !important;
+
+        letter-spacing: 1px !important;
+
+        border-width: 3px !important;
+
+        border-radius: 20px !important;
+
+    }
+
+
+    .HOME-DIGITAL-DUKAN-LINK {
+
+        width: 90% !important;
+
+        margin: 8px auto 28px auto !important;
+
+        padding: 18px !important;
+
+        font-size: 17px !important;
+
+        line-height: 1.6 !important;
+
+        letter-spacing: 1px !important;
+
+        border-width: 3px !important;
+
+        border-radius: 16px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   HOME — IDIGITALPRENEUR
+   ========================================================= */
+
+.HOME-IDIGITALPRENEUR-INTRO {
+
+    width: 88% !important;
+    max-width: 1480px !important;
+
+    margin: 28px auto 18px auto !important;
+    padding: 28px 28px !important;
+
+    box-sizing: border-box !important;
+
+    background: #ffffff !important;
+    color: #111111 !important;
+
+    border: 4px solid #D4AF37 !important;
+    border-radius: 25px !important;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.08) !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+    font-size: 28px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+    letter-spacing: 1.2px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+
+}
+
+
+/* =========================================================
+   IDIGITALPRENEUR LINK
+   ========================================================= */
+
+.HOME-IDIGITALPRENEUR-LINK {
+
+    display: inline-flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: auto !important;
+
+    margin: 8px auto 28px auto !important;
+    padding: 18px 28px !important;
+
+    box-sizing: border-box !important;
+
+    background: #D4AF37 !important;
+    color: #000000 !important;
+
+    border: 4px solid #AA820A !important;
+    border-radius: 18px !important;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.12) !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+    font-size: 25px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.5 !important;
+    letter-spacing: 1.5px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+    text-decoration: none !important;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease !important;
+
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.HOME-IDIGITALPRENEUR-LINK:hover {
+
+    transform: translateY(-3px) !important;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.18) !important;
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .HOME-IDIGITALPRENEUR-INTRO {
+
+        width: 88% !important;
+
+        padding: 28px 18px !important;
+
+        font-size: 22px !important;
+
+        line-height: 1.8 !important;
+
+    }
+
+
+    .HOME-IDIGITALPRENEUR-LINK {
+
+        font-size: 21px !important;
+
+        padding: 18px 28px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .HOME-IDIGITALPRENEUR-INTRO {
+
+        width: 94% !important;
+
+        margin: 28px auto 18px auto !important;
+
+        padding: 18px 18px !important;
+
+        font-size: 18px !important;
+
+        line-height: 1.8 !important;
+
+        letter-spacing: 1px !important;
+
+        border-width: 3px !important;
+
+        border-radius: 20px !important;
+
+    }
+
+
+    .HOME-IDIGITALPRENEUR-LINK {
+
+        width: 90% !important;
+
+        margin: 8px auto 28px auto !important;
+
+        padding: 18px !important;
+
+        font-size: 17px !important;
+
+        line-height: 1.6 !important;
+
+        letter-spacing: 1px !important;
+
+        border-width: 3px !important;
+
+        border-radius: 16px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   HOME — FOUNDER & CEO
+   ========================================================= */
+
+.HOME-FOUNDER-CEO-INTRO {
+    width: 88% !important;
+    max-width: 1480px !important;
+    margin: 28px auto 18px auto !important;
+    padding: 28px 28px !important;
+    box-sizing: border-box !important;
+
+    background: #ffffff !important;
+    color: #111111 !important;
+
+    border: 4px solid #D4AF37 !important;
+    border-radius: 25px !important;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08) !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+    font-size: 28px !important;
+    font-weight: 800 !important;
+    line-height: 1.8 !important;
+    letter-spacing: 1.2px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+}
+
+
+/* FOUNDER & CEO BUTTON */
+
+.HOME-FOUNDER-CEO-LINK {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: auto !important;
+
+    margin: 8px auto 28px auto !important;
+    padding: 18px 28px !important;
+    box-sizing: border-box !important;
+
+    background: #D4AF37 !important;
+    color: #000000 !important;
+
+    border: 4px solid #AA820A !important;
+    border-radius: 18px !important;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+    font-size: 25px !important;
+    font-weight: 800 !important;
+    line-height: 1.5 !important;
+    letter-spacing: 1.5px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease !important;
+}
+
+.HOME-FOUNDER-CEO-LINK:hover {
+    transform: translateY(-3px) !important;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.18) !important;
+}
+
+
+/* =========================================================
+   HOME — RELATIONSHIP & INTIMACY COACH
+   ========================================================= */
+
+.HOME-RELATIONSHIP-INTIMACY-COACH-INTRO {
+    width: 88% !important;
+    max-width: 1480px !important;
+    margin: 28px auto 18px auto !important;
+    padding: 28px 28px !important;
+    box-sizing: border-box !important;
+
+    background: #ffffff !important;
+    color: #111111 !important;
+
+    border: 4px solid #D4AF37 !important;
+    border-radius: 25px !important;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08) !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+    font-size: 28px !important;
+    font-weight: 800 !important;
+    line-height: 1.8 !important;
+    letter-spacing: 1.2px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+}
+
+
+/* RELATIONSHIP & INTIMACY BUTTON */
+
+.HOME-RELATIONSHIP-INTIMACY-COACH-LINK {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: auto !important;
+
+    margin: 8px auto 28px auto !important;
+    padding: 18px 28px !important;
+    box-sizing: border-box !important;
+
+    background: #D4AF37 !important;
+    color: #000000 !important;
+
+    border: 4px solid #AA820A !important;
+    border-radius: 18px !important;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+    font-size: 25px !important;
+    font-weight: 800 !important;
+    line-height: 1.5 !important;
+    letter-spacing: 1.5px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease !important;
+}
+
+.HOME-RELATIONSHIP-INTIMACY-COACH-LINK:hover {
+    transform: translateY(-3px) !important;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.18) !important;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .HOME-FOUNDER-CEO-INTRO,
+    .HOME-RELATIONSHIP-INTIMACY-COACH-INTRO {
+        width: 88% !important;
+        padding: 28px 18px !important;
+        font-size: 22px !important;
+        line-height: 1.8 !important;
+    }
+
+    .HOME-FOUNDER-CEO-LINK,
+    .HOME-RELATIONSHIP-INTIMACY-COACH-LINK {
+        font-size: 21px !important;
+        padding: 18px 28px !important;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .HOME-FOUNDER-CEO-INTRO,
+    .HOME-RELATIONSHIP-INTIMACY-COACH-INTRO {
+        width: 94% !important;
+
+        margin: 28px auto 18px auto !important;
+        padding: 18px 18px !important;
+
+        font-size: 18px !important;
+        line-height: 1.8 !important;
+        letter-spacing: 1px !important;
+
+        border-width: 3px !important;
+        border-radius: 20px !important;
+    }
+
+    .HOME-FOUNDER-CEO-LINK,
+    .HOME-RELATIONSHIP-INTIMACY-COACH-LINK {
+        width: 90% !important;
+
+        margin: 8px auto 28px auto !important;
+        padding: 18px !important;
+
+        font-size: 17px !important;
+        line-height: 1.6 !important;
+        letter-spacing: 1px !important;
+
+        border-width: 3px !important;
+        border-radius: 16px !important;
+    }
+}
+
+
+/* =========================================================
+   HOME — WHAT I DO
+   ========================================================= */
+
+.HOME-WHAT-I-DO-CARD {
+
+    width: 88% !important;
+    max-width: 1480px !important;
+
+    margin: 28px auto 28px auto !important;
+    padding: 28px 28px !important;
+
+    box-sizing: border-box !important;
+
+    background: #ffffff !important;
+    color: #111111 !important;
+
+    border: 4px solid #D4AF37 !important;
+    border-radius: 28px !important;
+
+    box-shadow:
+        0 14px 40px rgba(0, 0, 0, 0.10) !important;
+
+    text-align: center !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+}
+
+
+/* =========================================================
+   WHAT I DO — TITLE
+   ========================================================= */
+
+.HOME-WHAT-I-DO-TITLE {
+
+    margin: 0 0 28px 0 !important;
+
+    color: #111111 !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+    font-size: 38px !important;
+    font-weight: 900 !important;
+
+    line-height: 1.4 !important;
+    letter-spacing: 1.5px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+}
+
+
+/* =========================================================
+   WHAT I DO — INTRO
+   ========================================================= */
+
+.HOME-WHAT-I-DO-INTRO {
+
+    margin: 0 auto 28px auto !important;
+
+    max-width: 1200px !important;
+
+    color: #222222 !important;
+
+    font-size: 23px !important;
+    font-weight: 700 !important;
+
+    line-height: 1.8 !important;
+    letter-spacing: 0.8px !important;
+
+    text-align: center !important;
+
+}
+
+
+/* =========================================================
+   WHAT I DO — EACH ITEM
+   ========================================================= */
+
+.HOME-WHAT-I-DO-ITEM {
+
+    width: 100% !important;
+
+    margin: 18px auto !important;
+    padding: 28px 28px !important;
+
+    box-sizing: border-box !important;
+
+    background: #fafafa !important;
+
+    border: 2px solid #D4AF37 !important;
+    border-radius: 20px !important;
+
+    text-align: center !important;
+
+}
+
+
+/* =========================================================
+   WHAT I DO — ITEM TITLES
+   ========================================================= */
+
+.HOME-WHAT-I-DO-ITEM h3 {
+
+    margin: 0 0 8px 0 !important;
+
+    color: #111111 !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+    font-size: 25px !important;
+    font-weight: 900 !important;
+
+    line-height: 1.5 !important;
+    letter-spacing: 1px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+}
+
+
+/* =========================================================
+   WHAT I DO — ITEM DESCRIPTION
+   ========================================================= */
+
+.HOME-WHAT-I-DO-ITEM p {
+
+    margin: 0 auto !important;
+
+    max-width: 1100px !important;
+
+    color: #333333 !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+    font-size: 19px !important;
+    font-weight: 600 !important;
+
+    line-height: 1.8 !important;
+    letter-spacing: 0.5px !important;
+
+    text-align: center !important;
+
+}
+
+
+/* =========================================================
+   WHAT I DO — CLOSING
+   ========================================================= */
+
+.HOME-WHAT-I-DO-CLOSING {
+
+    margin: 28px auto 0 auto !important;
+    padding: 28px 28px !important;
+
+    box-sizing: border-box !important;
+
+    background: #f5f5f5 !important;
+
+    border-top: 3px solid #D4AF37 !important;
+    border-bottom: 3px solid #D4AF37 !important;
+
+    color: #111111 !important;
+
+    font-family:
+        'Century Schoolbook',
+        'Libre Baskerville',
+        serif !important;
+
+    font-size: 22px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.8 !important;
+    letter-spacing: 0.8px !important;
+
+    text-align: center !important;
+    text-transform: uppercase !important;
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .HOME-WHAT-I-DO-CARD {
+
+        width: 88% !important;
+
+        padding: 28px 28px !important;
+
+    }
+
+    .HOME-WHAT-I-DO-TITLE {
+
+        font-size: 31px !important;
+
+    }
+
+    .HOME-WHAT-I-DO-INTRO {
+
+        font-size: 20px !important;
+
+    }
+
+    .HOME-WHAT-I-DO-ITEM {
+
+        padding: 18px 18px !important;
+
+    }
+
+    .HOME-WHAT-I-DO-ITEM h3 {
+
+        font-size: 22px !important;
+
+    }
+
+    .HOME-WHAT-I-DO-ITEM p {
+
+        font-size: 17px !important;
+
+    }
+
+    .HOME-WHAT-I-DO-CLOSING {
+
+        font-size: 19px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .HOME-WHAT-I-DO-CARD {
+
+        width: 94% !important;
+
+        margin: 28px auto 28px auto !important;
+
+        padding: 28px 18px !important;
+
+        border-width: 3px !important;
+        border-radius: 22px !important;
+
+    }
+
+
+    .HOME-WHAT-I-DO-TITLE {
+
+        margin-bottom: 18px !important;
+
+        font-size: 25px !important;
+
+        line-height: 1.5 !important;
+
+        letter-spacing: 1px !important;
+
+    }
+
+
+    .HOME-WHAT-I-DO-INTRO {
+
+        margin-bottom: 28px !important;
+
+        font-size: 17px !important;
+
+        line-height: 1.8 !important;
+
+    }
+
+
+    .HOME-WHAT-I-DO-ITEM {
+
+        margin: 18px auto !important;
+
+        padding: 18px 8px !important;
+
+        border-width: 2px !important;
+        border-radius: 17px !important;
+
+    }
+
+
+    .HOME-WHAT-I-DO-ITEM h3 {
+
+        font-size: 18px !important;
+
+        line-height: 1.6 !important;
+
+        letter-spacing: 0.7px !important;
+
+    }
+
+
+    .HOME-WHAT-I-DO-ITEM p {
+
+        font-size: 15px !important;
+
+        line-height: 1.8 !important;
+
+    }
+
+
+    .HOME-WHAT-I-DO-CLOSING {
+
+        margin-top: 28px !important;
+
+        padding: 18px 8px !important;
+
+        font-size: 16px !important;
+
+        line-height: 1.8 !important;
+
+    }
+
+}
+
+
+
+/* =========================================================
+   SUPREME HOME — CONSOLIDATED RESPONSIVE LAYOUT
+   One responsive system for desktop, laptop, tablet and mobile.
+   Keep existing HTML identity/content classes unchanged.
+   ========================================================= */
+
+:root {
+    --HOME-GOLD: #D4AF37;
+    --HOME-NAVY: #0B2C59;
+    --HOME-FONT-FAMILY: "Century Schoolbook", "Libre Baskerville", serif;
+    --HOME-GUTTER: clamp(8px, 2.2vw, 32px);
+    --HOME-CARD-GAP: clamp(10px, 1.8vw, 24px);
+}
+
+/* Scope all layout rules to this page; do not alter host-site body styles. */
+section.HOME,
+section.HOME *,
+section.HOME *::before,
+section.HOME *::after {
+    box-sizing: border-box !important;
+}
+
+section.HOME {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: var(--HOME-CARD-GAP) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    padding: var(--HOME-GUTTER) !important;
+    border: 4px solid var(--HOME-GOLD) !important;
+    overflow-x: clip !important;
+    overflow-wrap: anywhere !important;
+    font-family: var(--HOME-FONT-FAMILY) !important;
+}
+
+section.HOME > .HOME-CONTENT {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: var(--HOME-CARD-GAP) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Flex/grid children must be allowed to shrink below their text's min-content width. */
+section.HOME > *,
+section.HOME .HOME-CONTENT > *,
+section.HOME .HOME-WHAT-I-DO-CARD,
+section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD,
+section.HOME .HOME-WHAT-I-DO-ITEM {
+    min-width: 0 !important;
+    max-width: 100% !important;
+}
+
+section.HOME h1,
+section.HOME h2,
+section.HOME h3,
+section.HOME h4,
+section.HOME p,
+section.HOME li,
+section.HOME a,
+section.HOME span {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+    white-space: normal !important;
+}
+
+section.HOME h1,
+section.HOME h2,
+section.HOME h3,
+section.HOME p {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: center !important;
+}
+
+section.HOME img,
+section.HOME picture,
+section.HOME video,
+section.HOME canvas,
+section.HOME svg {
+    max-width: 100% !important;
+}
+
+section.HOME img,
+section.HOME video {
+    height: auto !important;
+}
+
+section.HOME .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+}
+
+section.HOME .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE img {
+    display: block !important;
+    width: auto !important;
+    max-width: min(100%, 900px) !important;
+    object-fit: contain !important;
+}
+
+section.HOME .HOME-WHAT-I-DO-CARD,
+section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: min(100%, 1480px) !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    padding: clamp(10px, 2vw, 28px) !important;
+    gap: var(--HOME-CARD-GAP) !important;
+    overflow-wrap: anywhere !important;
+}
+
+section.HOME .HOME-WHAT-I-DO-ITEM {
+    width: 100% !important;
+    max-width: 1100px !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    padding: clamp(10px, 1.8vw, 22px) !important;
+}
+
+section.HOME .HOME-PAGE-NAV {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    padding: 8px 0 !important;
+}
+
+section.HOME .HOME-PAGE-NAV a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    padding: 12px 22px !important;
+    border: 2px solid var(--HOME-GOLD) !important;
+    border-radius: 999px !important;
+    background: var(--HOME-NAVY) !important;
+    color: #fff !important;
+    font-size: clamp(13px, 1.1vw, 16px) !important;
+    line-height: 1.4 !important;
+    letter-spacing: .5px !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    overflow-wrap: anywhere !important;
+}
+
+section.HOME .HOME-PAGE-NAV a[aria-current="page"] {
+    background: var(--HOME-GOLD) !important;
+    color: #07152D !important;
+}
+
+/* Desktop / large monitors */
+@media screen and (min-width: 1200px) {
+    section.HOME { --HOME-GUTTER: clamp(24px, 2vw, 36px); }
+    section.HOME h1 { font-size: clamp(30px, 2.6vw, 56px) !important; line-height: 1.35 !important; letter-spacing: clamp(.5px, .12vw, 1.8px) !important; }
+    section.HOME h2 { font-size: clamp(22px, 1.8vw, 36px) !important; line-height: 1.45 !important; letter-spacing: clamp(.4px, .08vw, 1.2px) !important; }
+    section.HOME h3 { font-size: clamp(19px, 1.35vw, 28px) !important; line-height: 1.45 !important; }
+    section.HOME p,
+    section.HOME li { font-size: clamp(15px, .95vw, 18px) !important; line-height: 1.75 !important; letter-spacing: .3px !important; }
+}
+
+/* Laptop / small desktop */
+@media screen and (min-width: 769px) and (max-width: 1199px) {
+    section.HOME { --HOME-GUTTER: 18px; }
+    section.HOME h1 { font-size: clamp(26px, 3vw, 40px) !important; line-height: 1.4 !important; letter-spacing: .8px !important; }
+    section.HOME h2 { font-size: clamp(20px, 2.2vw, 30px) !important; line-height: 1.45 !important; letter-spacing: .6px !important; }
+    section.HOME h3 { font-size: clamp(18px, 1.8vw, 24px) !important; line-height: 1.45 !important; }
+    section.HOME p,
+    section.HOME li { font-size: 16px !important; line-height: 1.7 !important; letter-spacing: .25px !important; }
+    section.HOME .HOME-WHAT-I-DO-CARD,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD { width: 100% !important; }
+}
+
+/* Tablet */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    section.HOME { --HOME-GUTTER: 12px; border-width: 3px !important; }
+    section.HOME h1 { font-size: clamp(23px, 4.2vw, 32px) !important; line-height: 1.4 !important; letter-spacing: .5px !important; }
+    section.HOME h2 { font-size: clamp(19px, 3.2vw, 25px) !important; line-height: 1.45 !important; letter-spacing: .4px !important; }
+    section.HOME h3 { font-size: clamp(17px, 2.8vw, 22px) !important; line-height: 1.45 !important; }
+    section.HOME p,
+    section.HOME li,
+    section.HOME .HOME-PAGE-NAV a { font-size: 15px !important; line-height: 1.65 !important; letter-spacing: .2px !important; }
+    section.HOME .HOME-WHAT-I-DO-CARD,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD { width: 100% !important; }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+    section.HOME { --HOME-GUTTER: 7px; border-width: 2px !important; }
+    section.HOME h1 { font-size: clamp(19px, 6vw, 26px) !important; line-height: 1.35 !important; letter-spacing: .3px !important; }
+    section.HOME h2 { font-size: clamp(16px, 4.8vw, 21px) !important; line-height: 1.4 !important; letter-spacing: .2px !important; }
+    section.HOME h3 { font-size: clamp(15px, 4.2vw, 19px) !important; line-height: 1.4 !important; }
+    section.HOME p,
+    section.HOME li { font-size: 13px !important; line-height: 1.6 !important; letter-spacing: 0 !important; }
+    section.HOME .HOME-WHAT-I-DO-CARD,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD,
+    section.HOME .HOME-WHAT-I-DO-ITEM { width: 100% !important; padding: 9px !important; }
+    section.HOME .HOME-PAGE-NAV { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 7px !important; }
+    section.HOME .HOME-PAGE-NAV a { width: 100% !important; padding: 10px 6px !important; font-size: 12px !important; }
+    section.HOME .HOME-PAGE-NAV a:first-child { grid-column: 1 / -1 !important; }
+}
+
+/* Landscape phones: avoid oversized headings in short viewports. */
+@media screen and (max-width: 900px) and (orientation: landscape) {
+    section.HOME h1 { line-height: 1.3 !important; }
+}
+
+/* Respect reduced-motion preferences. */
+@media (prefers-reduced-motion: reduce) {
+    section.HOME,
+    section.HOME * {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+/* ==========================================================
+   SUPREME HOME — CANONICAL TOP SECTION RESPONSIVE LAYOUT
+   This is the single final layout definition for the upper area.
+   Selectors match home-html.html exactly.
+   ========================================================== */
+
+/* Root identity classes used by the HOME section. */
+section.HOME.DRRAJESHKHANDELWALIBC,
+section.HOME.DRRAJESHKHANDELWALIBCOFFICIAL,
+section.HOME.RAJESHKHANDELWAL,
+section.HOME.RAJESHKHANDELWALOFFICIAL,
+section.HOME.KHANDELWALGROUPANDCOMPANY,
+section.HOME.KHANDELWALGROUPANDCOMPANIES {
+    min-width: 0 !important;
+    max-width: 100% !important;
+}
+
+/* Keep the top group and every direct child inside the available width. */
+section.HOME .HOME-CONTENT > .HOME-TOP-SECTION {
+    display: flex !important;
+    flex: 0 0 auto !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: clamp(12px, 1.5vw, 22px) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+section.HOME .HOME-TOP-SECTION > * {
+    flex: 0 0 auto !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* HOME / ABOUT / CONTACT navigation */
+section.HOME .HOME-TOP-SECTION > .HOME-PAGE-NAV {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 4px 0 !important;
+}
+
+section.HOME .HOME-PAGE-NAV a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 104px !important;
+    max-width: 100% !important;
+    min-height: 44px !important;
+    margin: 0 !important;
+    padding: 10px 18px !important;
+    border: 2px solid var(--HOME-GOLD, #D4AF37) !important;
+    border-radius: 999px !important;
+    background: var(--HOME-NAVY, #0B2C59) !important;
+    color: #ffffff !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    line-height: 1.35 !important;
+    letter-spacing: .3px !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+}
+
+section.HOME .HOME-PAGE-NAV a[aria-current="page"] {
+    background: var(--HOME-GOLD, #D4AF37) !important;
+    color: #07152D !important;
+}
+
+/* Main brand and professional title — never use fixed 60px sizing. */
+section.HOME .HOME-TOP-SECTION > .DR-RAJESH-KHANDELWAL-IBC,
+section.HOME .HOME-TOP-SECTION > .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-TITLE {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: clamp(6px, 1vw, 14px) !important;
+    color: var(--HOME-GOLD, #D4AF37) !important;
+    font-size: clamp(23px, 3.15vw, 46px) !important;
+    font-weight: 900 !important;
+    line-height: 1.3 !important;
+    letter-spacing: clamp(0px, .07vw, 1px) !important;
+    text-align: center !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+}
+
+/* Brand card */
+section.HOME .HOME-TOP-SECTION > .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: clamp(9px, 1.1vw, 16px) !important;
+    width: 100% !important;
+    max-width: 1240px !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    padding: clamp(14px, 2.2vw, 30px) !important;
+    border: 3px solid var(--HOME-GOLD, #D4AF37) !important;
+    border-radius: clamp(14px, 1.8vw, 26px) !important;
+    background: #ffffff !important;
+    color: #111111 !important;
+    box-shadow: 0 12px 34px rgba(0, 0, 0, .08) !important;
+    text-align: center !important;
+    overflow: hidden !important;
+}
+
+section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-NAME {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #AA820A !important;
+    font-size: clamp(24px, 3vw, 42px) !important;
+    font-weight: 900 !important;
+    line-height: 1.3 !important;
+    letter-spacing: clamp(0px, .06vw, .8px) !important;
+    text-align: center !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+}
+
+section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-GLOBAL-BUSINESS-COACH,
+section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-INDEPENDENT-BUSINESS-CONSULTANT,
+section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-FOUNDER-CEO,
+section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-REAL-ESTATE-COACH,
+section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-INTIMACY-COACH {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #111111 !important;
+    font-size: clamp(16px, 1.55vw, 23px) !important;
+    font-weight: 800 !important;
+    line-height: 1.45 !important;
+    letter-spacing: 0 !important;
+    text-align: center !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+}
+
+section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-DESCRIPTION {
+    display: block !important;
+    width: 100% !important;
+    max-width: 1060px !important;
+    margin: 4px auto 0 !important;
+    padding: clamp(12px, 1.6vw, 22px) 0 0 !important;
+    border-top: 2px solid var(--HOME-GOLD, #D4AF37) !important;
+    color: #333333 !important;
+    font-size: clamp(14px, .95vw, 17px) !important;
+    font-weight: 600 !important;
+    line-height: 1.7 !important;
+    letter-spacing: 0 !important;
+    text-align: center !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+}
+
+/* Ecosystem CTA */
+section.HOME .HOME-TOP-SECTION > .HOME-GLOBAL-BUSINESS-ECOSYSTEM-LINK-BUTTON {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    padding: 12px 20px !important;
+    border: 2px solid var(--HOME-GOLD, #D4AF37) !important;
+    border-radius: 14px !important;
+    background: #ffffff !important;
+    color: #8A6800 !important;
+    font-size: clamp(14px, 1.05vw, 17px) !important;
+    font-weight: 900 !important;
+    line-height: 1.4 !important;
+    letter-spacing: .2px !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+}
+
+/* Hero image */
+section.HOME .HOME-TOP-SECTION > .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border-radius: clamp(10px, 1.5vw, 22px) !important;
+}
+
+section.HOME .HOME-TOP-SECTION > .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE img {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: min(100%, 760px) !important;
+    margin: 0 auto !important;
+    object-fit: contain !important;
+}
+
+/* Tablet */
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+    section.HOME .HOME-TOP-SECTION { gap: 14px !important; }
+    section.HOME .HOME-PAGE-NAV { gap: 8px !important; }
+    section.HOME .HOME-PAGE-NAV a { min-width: 96px !important; padding: 9px 14px !important; font-size: 14px !important; }
+    section.HOME .HOME-TOP-SECTION > .DR-RAJESH-KHANDELWAL-IBC,
+    section.HOME .HOME-TOP-SECTION > .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-TITLE { font-size: clamp(23px, 3.5vw, 34px) !important; }
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD { padding: 18px !important; }
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-NAME { font-size: clamp(24px, 3.4vw, 34px) !important; }
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-GLOBAL-BUSINESS-COACH,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-INDEPENDENT-BUSINESS-CONSULTANT,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-FOUNDER-CEO,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-REAL-ESTATE-COACH,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-INTIMACY-COACH { font-size: clamp(16px, 2vw, 20px) !important; }
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-DESCRIPTION { font-size: 15px !important; }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+    section.HOME .HOME-TOP-SECTION { gap: 11px !important; }
+    section.HOME .HOME-PAGE-NAV {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 7px !important;
+    }
+    section.HOME .HOME-PAGE-NAV a {
+        width: 100% !important;
+        min-width: 0 !important;
+        min-height: 40px !important;
+        padding: 9px 5px !important;
+        font-size: 12px !important;
+    }
+    section.HOME .HOME-PAGE-NAV a:first-child { grid-column: 1 / -1 !important; }
+    section.HOME .HOME-MOST-WELCOME-TITLE { font-size: 22px !important; padding: 7px 4px !important; }
+    section.HOME .HOME-TOP-SECTION > .DR-RAJESH-KHANDELWAL-IBC,
+    section.HOME .HOME-TOP-SECTION > .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-TITLE {
+        font-size: clamp(19px, 5.4vw, 25px) !important;
+        line-height: 1.3 !important;
+        padding: 5px 2px !important;
+    }
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-CARD {
+        gap: 10px !important;
+        padding: 12px 9px !important;
+        border-width: 2px !important;
+        border-radius: 14px !important;
+    }
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-NAME {
+        font-size: clamp(20px, 5.8vw, 27px) !important;
+        line-height: 1.3 !important;
+        letter-spacing: 0 !important;
+    }
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-GLOBAL-BUSINESS-COACH,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-INDEPENDENT-BUSINESS-CONSULTANT,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-FOUNDER-CEO,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-REAL-ESTATE-COACH,
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-TAGLINE-RELATIONSHIP-INTIMACY-COACH {
+        font-size: 14px !important;
+        line-height: 1.45 !important;
+    }
+    section.HOME .HOME-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-BRAND-DESCRIPTION {
+        font-size: 12.5px !important;
+        line-height: 1.6 !important;
+        padding-top: 11px !important;
+    }
+    section.HOME .HOME-TOP-SECTION > .HOME-GLOBAL-BUSINESS-ECOSYSTEM-LINK-BUTTON {
+        width: 100% !important;
+        padding: 10px 8px !important;
+        font-size: 13px !important;
+    }
+    section.HOME .HOME-TOP-SECTION > .HOME-DR-RAJESH-KHANDELWAL-IBC-GLOBAL-BUSINESS-COACH-CONSULTANT-ADVISOR-HOME-IMAGE img {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+/* Preserve explicit styling for WHAT I DO heading classes. */
+section.HOME .HOME-WHAT-I-DO-FOUNDER-CEO,
+section.HOME .HOME-WHAT-I-DO-GLOBAL-BUSINESS-COACH,
+section.HOME .HOME-WHAT-I-DO-INDEPENDENT-BUSINESS-CONSULTANT,
+section.HOME .HOME-WHAT-I-DO-REAL-ESTATE-COACH,
+section.HOME .HOME-WHAT-I-DO-RELATIONSHIP-INTIMACY-COACH {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 0 8px !important;
+    color: #111111 !important;
+    font-family: var(--HOME-FONT-FAMILY, "Century Schoolbook", serif) !important;
+    font-weight: 900 !important;
+    line-height: 1.5 !important;
+    text-align: center !important;
+    overflow-wrap: anywhere !important;
+    text-transform: uppercase !important;
+}
+
+
+
+/* =========================================================
+   MOST WELCOME — RESPONSIVE DEVICE SYSTEM
+   Uses the existing GitHub HTML classes only:
+   .HOME-MOST-WELCOME and .HOME-MOST-WELCOME-TITLE
+   Large screen → desktop → laptop → tablet → mobile
+   ========================================================= */
+
+section.HOME .HOME-TOP-SECTION > .HOME-MOST-WELCOME {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    width: calc(100% - 24px) !important;
+    max-width: 1400px !important;
+    min-width: 0 !important;
+    margin: clamp(8px, 1.2vw, 24px) auto !important;
+    padding: clamp(10px, 1.5vw, 28px) clamp(8px, 2vw, 32px) !important;
+    border: none !important;
+    border-radius: clamp(0px, 0.7vw, 18px) !important;
+    background: transparent !important;
+    text-align: center !important;
+    color: #D4AF37 !important;
+}
+
+section.HOME .HOME-MOST-WELCOME-TITLE {
+    display: block !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #D4AF37 !important;
+    font-family: "Century Schoolbook", "Libre Baskerville", Georgia, serif !important;
+    font-size: clamp(20px, 2.5vw, 60px) !important;
+    font-weight: 900 !important;
+    line-height: 1.25 !important;
+    letter-spacing: clamp(0px, 0.12vw, 1.8px) !important;
+    text-align: center !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+}
+
+/* ULTRA-WIDE MONITORS — 2560px and above */
+@media screen and (min-width: 2560px) {
+    section.HOME .HOME-MOST-WELCOME-TITLE {
+        font-size: 72px !important;
+        line-height: 1.2 !important;
+        letter-spacing: 2px !important;
+    }
+    section.HOME .HOME-TOP-SECTION > .HOME-MOST-WELCOME {
+        padding: 32px 48px !important;
+        margin: 28px auto !important;
+    }
+}
+
+/* LARGE PC / DESKTOP — 1920px to 2559px */
+@media screen and (min-width: 1920px) and (max-width: 2559px) {
+    section.HOME .HOME-MOST-WELCOME-TITLE {
+        font-size: 60px !important;
+        line-height: 1.25 !important;
+        letter-spacing: 1.8px !important;
+    }
+}
+
+/* STANDARD DESKTOP / PC — 1440px to 1919px */
+@media screen and (min-width: 1440px) and (max-width: 1919px) {
+    section.HOME .HOME-MOST-WELCOME-TITLE {
+        font-size: 52px !important;
+        line-height: 1.25 !important;
+        letter-spacing: 1.4px !important;
+    }
+}
+
+/* LAPTOP — 1200px to 1439px */
+@media screen and (min-width: 1200px) and (max-width: 1439px) {
+    section.HOME .HOME-MOST-WELCOME-TITLE {
+        font-size: 46px !important;
+        line-height: 1.25 !important;
+        letter-spacing: 1.1px !important;
+    }
+}
+
+/* SMALL LAPTOP — 1025px to 1199px */
+@media screen and (min-width: 1025px) and (max-width: 1199px) {
+    section.HOME .HOME-MOST-WELCOME-TITLE {
+        font-size: 40px !important;
+        line-height: 1.25 !important;
+        letter-spacing: 0.8px !important;
+    }
+    section.HOME .HOME-TOP-SECTION > .HOME-MOST-WELCOME {
+        padding: 14px 16px !important;
+    }
+}
+
+/* TABLET — 769px to 1024px */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    section.HOME .HOME-MOST-WELCOME-TITLE {
+        font-size: 34px !important;
+        line-height: 1.3 !important;
+        letter-spacing: 0.5px !important;
+    }
+    section.HOME .HOME-TOP-SECTION > .HOME-MOST-WELCOME {
+        width: calc(100% - 20px) !important;
+        padding: 14px 12px !important;
+        margin: 12px auto !important;
+    }
+}
+
+/* MOBILE / SMALL TABLET — 481px to 768px */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    section.HOME .HOME-MOST-WELCOME-TITLE {
+        font-size: 28px !important;
+        line-height: 1.3 !important;
+        letter-spacing: 0.3px !important;
+    }
+    section.HOME .HOME-TOP-SECTION > .HOME-MOST-WELCOME {
+        width: calc(100% - 16px) !important;
+        padding: 12px 8px !important;
+        margin: 10px auto !important;
+    }
+}
+
+/* STANDARD MOBILE — 361px to 480px */
+@media screen and (min-width: 361px) and (max-width: 480px) {
+    section.HOME .HOME-MOST-WELCOME-TITLE {
+        font-size: 23px !important;
+        line-height: 1.3 !important;
+        letter-spacing: 0.1px !important;
+    }
+    section.HOME .HOME-TOP-SECTION > .HOME-MOST-WELCOME {
+        width: calc(100% - 12px) !important;
+        padding: 10px 6px !important;
+        margin: 8px auto !important;
+    }
+}
+
+/* SMALL MOBILE — 360px and below */
+@media screen and (max-width: 360px) {
+    section.HOME .HOME-MOST-WELCOME-TITLE {
+        font-size: 20px !important;
+        line-height: 1.3 !important;
+        letter-spacing: 0 !important;
+    }
+    section.HOME .HOME-TOP-SECTION > .HOME-MOST-WELCOME {
+        width: calc(100% - 8px) !important;
+        padding: 8px 4px !important;
+        margin: 6px auto !important;
+    }
+}
+
+/* HOME MOST WELCOME — visible gentle floating animation */
+.HOME .HOME-MOST-WELCOME {
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.HOME .HOME-MOST-WELCOME-TITLE {
+    display: inline-block !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    line-height: 1.25 !important;
+    transform-origin: center center !important;
+    animation: homeMostWelcomeFloat 2.4s ease-in-out infinite,
+               homeMostWelcomeGlow 2.4s ease-in-out infinite !important;
+    will-change: transform, text-shadow;
+}
+
+@keyframes homeMostWelcomeFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-9px); }
+}
+
+@keyframes homeMostWelcomeGlow {
+    0%, 100% {
+        text-shadow: 0 0 0 rgba(212, 175, 55, 0);
+    }
+    50% {
+        text-shadow: 0 0 14px rgba(212, 175, 55, 0.55);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .HOME .HOME-MOST-WELCOME-TITLE {
+        animation: none !important;
+        will-change: auto;
+    }
+}
+
+/* FLUENT SNIPPETS HOME BASE — adapted to the GitHub HOME structure.
+   The Fluent Snippet has a nested .HOME wrapper; GitHub uses .HOME-CONTENT.
+   Port the sizing and normal-flow behavior while retaining GitHub's single outer border.
+   Do not hide, clip, or lock the page scrollbar. */
+
+#dr-rajesh-supreme-home {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+#dr-rajesh-supreme-home *,
+#dr-rajesh-supreme-home *::before,
+#dr-rajesh-supreme-home *::after {
+    box-sizing: border-box !important;
+}
+
+#dr-rajesh-supreme-home > section.HOME {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#dr-rajesh-supreme-home > section.HOME > .HOME-CONTENT {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+#dr-rajesh-supreme-home > section.HOME *,
+#dr-rajesh-supreme-home > section.HOME *::before,
+#dr-rajesh-supreme-home > section.HOME *::after {
+    box-sizing: border-box !important;
+}
+
+#dr-rajesh-supreme-home > section.HOME img,
+#dr-rajesh-supreme-home > section.HOME video,
+#dr-rajesh-supreme-home > section.HOME table {
+    max-width: 100% !important;
+}
+
+#dr-rajesh-supreme-home > section.HOME img,
+#dr-rajesh-supreme-home > section.HOME video {
+    height: auto;
+}
+
+#dr-rajesh-supreme-home > section.HOME .HOME-CONTENT > *,
+#dr-rajesh-supreme-home > section.HOME .HOME-CONTENT * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+
+/* SUPREME OWNER ADMIN — four registered owner identity cards */
+.supreme-owner-admin-overview{width:min(1180px,calc(100% - 32px));margin:48px auto;padding:clamp(22px,4vw,42px);border:1px solid rgba(110,168,255,.35);border-radius:24px;background:linear-gradient(135deg,#07152d,#102b51 65%,#0b3a51);color:#f4f8ff;box-shadow:0 20px 55px rgba(7,21,45,.18);font-family:Inter,Arial,sans-serif}
+.supreme-owner-admin-heading{text-align:center;max-width:820px;margin:0 auto 26px}
+.supreme-owner-admin-eyebrow{font-size:11px;letter-spacing:.18em;font-weight:900;color:#72e2ed;margin:0 0 10px}
+.supreme-owner-admin-heading h2{font-size:clamp(25px,4vw,38px);line-height:1.15;margin:0 0 12px;color:#fff}
+.supreme-owner-admin-heading p:last-child{font-size:14px;line-height:1.7;color:#c1d3ee;margin:0}
+.supreme-owner-profile-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.supreme-owner-profile-card{position:relative;min-width:0;padding:22px 18px;border:1px solid rgba(190,215,255,.2);border-radius:17px;background:rgba(255,255,255,.055);overflow-wrap:anywhere}
+.supreme-owner-profile-number{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:10px;background:rgba(114,226,237,.14);color:#72e2ed;font-size:12px;font-weight:900}
+.supreme-owner-profile-card h3{font-size:15px;line-height:1.45;color:#fff;margin:17px 0 8px}
+.supreme-owner-profile-username{font-size:11px;line-height:1.6;color:#b8ccef;overflow-wrap:anywhere}
+.supreme-owner-profile-card a{display:inline-block;margin-top:7px;color:#9fc7ff;font-size:11px;font-weight:800;line-height:1.6;text-decoration:none}
+.supreme-owner-profile-card a:hover{color:#72e2ed;text-decoration:underline}
+.supreme-owner-admin-access{display:block;width:fit-content;max-width:100%;margin:26px auto 0;padding:13px 18px;border-radius:11px;background:linear-gradient(120deg,#6da7ff,#71e0eb);color:#07152d!important;font-size:12px;font-weight:900;text-align:center;text-decoration:none;overflow-wrap:anywhere}
+.supreme-owner-admin-footnote{text-align:center;color:#a8b7d1;font-size:11px;line-height:1.6;margin:16px 0 0}
+@media(max-width:1000px){.supreme-owner-profile-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.supreme-owner-admin-overview{width:calc(100% - 20px);margin:28px auto;padding:20px 14px}.supreme-owner-profile-grid{grid-template-columns:1fr}.supreme-owner-profile-card{padding:18px}}

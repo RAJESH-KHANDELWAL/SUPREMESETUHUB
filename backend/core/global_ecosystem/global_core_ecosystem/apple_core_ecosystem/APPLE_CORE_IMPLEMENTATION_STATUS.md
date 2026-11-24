@@ -1,10 +1,30 @@
 # Apple Core Implementation Status
 
+## Inventory
 - Product families: 8
-- Standard subfolders per family: 10
-- Shared provider support areas: 11
-- Domain groups: 6
+- Responsibility domains: 6
+- Shared support areas: 11 (directory inventory; contents require separate audit)
+- Apple Core registry package: 1
+- Directory naming audit: all 24 Apple package/domain/shared/registry directories follow `apple_*_core_ecosystem`; `php/` and `tests/` are intentional non-Apple package support directories.
 - API family references: 8
 - Live connections verified: 0
+- API calls performed by Core: 0
 
-The repository contains catalog, contracts, policy, product inventory, domain taxonomy, orchestration, provider service, PHP contract, product manifests/configurations, package services and structural tests. GitHub Actions must pass on the exact commit before test success is claimed. No Apple account, merchant, device enrollment or production API integration is claimed.
+## Implemented structure
+- Provider catalog, contracts, policy, product/domain inventory, orchestrator, service and canonical Python manager.
+- PHP interoperability facade.
+- Eight product-family packages with manager exports and package README files.
+- Six responsibility-domain packages with manager exports; domain README documentation has been added.
+- Shared read-only domain runtime.
+- Structural and behavior tests covering catalog counts, domain/package consistency, domain README presence, product-family manager exports, lookups and dependency-map coverage.
+
+## Validation status
+- GitHub file/commit updates are confirmed.
+- Python tests have **not** been executed in the repository environment; test success is not claimed.
+- CI workflow execution on the current commit remains unverified.
+- No Apple account, merchant, device enrollment, entitlement or production API connection is claimed.
+
+## Remaining audit
+- Inspect all 11 `apple_shared_*` directories for actual files, ownership and missing/duplicate responsibilities.
+- Validate every product-family service and capability contract against the actual API-layer packages.
+- Run Python tests and PHP contract checks in CI and repair any failures before declaring implementation complete.

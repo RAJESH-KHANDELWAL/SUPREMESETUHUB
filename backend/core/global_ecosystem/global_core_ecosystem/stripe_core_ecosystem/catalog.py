@@ -74,6 +74,9 @@ def list_stripe_core_modules(include_disabled: bool = False) -> list[dict[str, A
     modules = deepcopy(STRIPE_CORE_ECOSYSTEM["children"])
     if include_disabled:
         return modules
-    return [module for module in modules if module.get("status") != "DISABLED"]
+    return [
+        module for module in modules
+        if module.get("status") != "DISABLED" and module.get("enabled", True)
+    ]
 
 __all__ = ["STRIPE_CORE_ECOSYSTEM", "get_stripe_core_catalog", "list_stripe_core_modules"]

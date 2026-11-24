@@ -1,11 +1,7 @@
-"""DOMAIN CORE ECOSYSTEM package.
-
-This package is an independent layer-owned namespace. It contains no imports
-from API, CORE, or ENGINE sibling layers.
-"""
+"""GLOBAL DOMAIN CORE ECOSYSTEM package."""
+from .manager import ECOSYSTEM_ID, ECOSYSTEM_NAME, DOMAIN_DEFINITIONS, PROVIDER_DIRECTORIES, SECTOR_ECOSYSTEMS, list_sector_ecosystems, SECTORS, list_sectors
+from .provider_registry import list_expanded_provider_registry
+from .manager import GlobalDomainCoreManager, get_manager
 LAYER = "CORE"
 CATEGORY = "DOMAIN"
-ECOSYSTEM_NAME = f"GLOBAL {CATEGORY.replace('_', ' ')} {LAYER} ECOSYSTEM"
-ECOSYSTEM_ID = f"GLOBAL-{CATEGORY.replace('_', '-')}-{LAYER.upper()}-ECOSYSTEM"
-
-__all__ = ["LAYER", "CATEGORY", "ECOSYSTEM_NAME", "ECOSYSTEM_ID"]
+__all__=["LAYER","CATEGORY","ECOSYSTEM_ID","ECOSYSTEM_NAME","DOMAIN_DEFINITIONS","PROVIDER_DIRECTORIES","SECTORS","SECTOR_ECOSYSTEMS","list_sectors","list_sector_ecosystems","list_expanded_provider_registry","GlobalDomainCoreManager","get_manager"]

@@ -1,13 +1,14 @@
 # Adobe Product Core Ecosystem Standard
 
-Every canonical Core domain is represented by a product-family package scaffold. Each package contains ten responsibility directories: `authentication`, `capabilities`, `docs`, `events`, `lifecycle`, `models`, `schemas`, `security`, `services`, `tests`.
+Adobe Core follows the provider Core pattern used by Google Core while retaining Adobe-specific product-family inventory.
 
-Each package also contains `README.md`, `__init__.py`, `ecosystem_config.py`, `ecosystem_manifest.json` and `service.py`.
+- Root `manager.py` is the canonical Python entry point; `manager.php` is a thin PHP contract facade.
+- `catalog.py` is the source of truth for product-family registration.
+- `domain_catalog.py` derives provider governance and product-family domain inventory from the canonical catalog.
+- `domain_runtime.py` provides shared read-only domain discovery; domain-specific logic belongs in product Core packages.
+- `contracts.py`, `policy.py`, `module_service.py`, `orchestrator.py` and `service.py` are shared Core responsibilities.
+- Product packages contain only files required for that product's responsibilities; do not create empty fixed templates or duplicate shared managers.
 
-## Layer boundaries
+Core owns provider/product identity, capability metadata, lifecycle and policy metadata, readiness and stable contracts. API owns OAuth, SDK clients, HTTP transport, endpoints and webhooks. Storage owns file/object persistence. Database owns durable structured records. Runtime/Engine owns jobs, queues, schedulers and execution. Application/UI owns user workflows and presentation.
 
-Core owns provider/product identity, capability metadata, lifecycle metadata, policy metadata, readiness and stable contracts. API owns OAuth, SDK clients, HTTP transport, endpoints and webhooks. Storage owns file/object persistence. Database owns durable structured records. Runtime/Engine owns jobs, queues, schedulers and execution. Application/UI owns user workflows and presentation.
-
-## Completion criteria
-
-A scaffold is complete only as a directory/template baseline. A production-ready product integration additionally requires verified product-specific capabilities, official API references, entitlement/scope checks, secure configuration, contract tests, error handling, observability and successful integration tests. No package may claim live connectivity without evidence.
+Catalog entries and API-family mappings do not prove entitlement, authorization, live connection or production readiness. Production integrations require verified capabilities, official API references, entitlement/scope checks, secure configuration, contract tests, error handling, observability and successful integration tests.

@@ -1,11 +1,7 @@
-"""SOCIAL MEDIA CORE ECOSYSTEM package.
-
-This package is an independent layer-owned namespace. It contains no imports
-from API, CORE, or ENGINE sibling layers.
-"""
-LAYER = "CORE"
-CATEGORY = "SOCIAL_MEDIA"
-ECOSYSTEM_NAME = f"GLOBAL {CATEGORY.replace('_', ' ')} {LAYER} ECOSYSTEM"
-ECOSYSTEM_ID = f"GLOBAL-{CATEGORY.replace('_', '-')}-{LAYER.upper()}-ECOSYSTEM"
-
-__all__ = ["LAYER", "CATEGORY", "ECOSYSTEM_NAME", "ECOSYSTEM_ID"]
+"""Global Social Media Core package."""
+LAYER="CORE"
+CATEGORY="SOCIAL_MEDIA"
+ECOSYSTEM_ID="GLOBAL-SOCIAL-MEDIA-CORE-ECOSYSTEM"
+ECOSYSTEM_NAME="GLOBAL SOCIAL MEDIA CORE ECOSYSTEM"
+from .manager import SocialMediaCoreManager,get_manager
+__all__=["LAYER","CATEGORY","ECOSYSTEM_ID","ECOSYSTEM_NAME","SocialMediaCoreManager","get_manager"]
