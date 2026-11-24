@@ -1,11 +1,22 @@
-"""AI CORE ECOSYSTEM package.
-
-This package is an independent layer-owned namespace. It contains no imports
-from API, CORE, or ENGINE sibling layers.
-"""
+"""AI CORE ECOSYSTEM package and public manager interface."""
 LAYER = "CORE"
 CATEGORY = "AI"
 ECOSYSTEM_NAME = f"GLOBAL {CATEGORY.replace('_', ' ')} {LAYER} ECOSYSTEM"
 ECOSYSTEM_ID = f"GLOBAL-{CATEGORY.replace('_', '-')}-{LAYER.upper()}-ECOSYSTEM"
 
-__all__ = ["LAYER", "CATEGORY", "ECOSYSTEM_NAME", "ECOSYSTEM_ID"]
+from .domain_runtime import GlobalAICoreDomainManager
+from .ecosystem_service import GlobalAICoreEcosystemService
+from .manager import GlobalAICoreManager, get_manager
+from .service import GlobalAICoreService
+
+__all__ = [
+    "LAYER",
+    "CATEGORY",
+    "ECOSYSTEM_NAME",
+    "ECOSYSTEM_ID",
+    "GlobalAICoreDomainManager",
+    "GlobalAICoreEcosystemService",
+    "GlobalAICoreManager",
+    "GlobalAICoreService",
+    "get_manager",
+]
