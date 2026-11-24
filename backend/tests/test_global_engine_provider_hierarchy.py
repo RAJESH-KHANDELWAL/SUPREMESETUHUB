@@ -23,7 +23,7 @@ def test_engine_mirrors_every_api_provider_directory_without_importing_it():
         assert (engine_dir / "__init__.py").is_file(), f"Missing package initializer: {engine_dir}"
 
 def test_every_provider_leaf_has_an_engine_execution_boundary():
-    api_dirs = [path for path in API_ROOT.rglob("*") if path.is_dir()]
+    api_dirs = _runtime_api_directories()
     api_dir_set = set(api_dirs)
     leaves = [
         path for path in api_dirs
