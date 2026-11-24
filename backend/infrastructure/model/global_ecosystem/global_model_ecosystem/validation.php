@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace SupremeSetuHub\\Infrastructure\\Model\\GlobalEcosystem\\GlobalModelEcosystem;
+namespace SupremeSetuHub\Infrastructure\Model\GlobalEcosystem\GlobalModelEcosystem;
 
 final class ResourceValidator
 {
