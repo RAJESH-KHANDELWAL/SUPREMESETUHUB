@@ -1,4 +1,5 @@
 name: META CORE ECOSYSTEM TESTS
+# Keep this workflow path-filtered to the Meta Core and its canonical API catalogue.
 on:
   push:
     branches: [main]
