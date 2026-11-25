@@ -65,7 +65,7 @@ class AffiliateMarketingCoreTests(unittest.TestCase):
         self.assertEqual(inventory["remaining_unique_entries"], 2190)
         self.assertEqual(inventory["source_numbered_entries"], 280)
         self.assertEqual(inventory["cross_reference_entries"], 2)
-        self.assertEqual(inventory["section_count"], 13)
+        self.assertEqual(inventory["section_count"], 15)
         self.assertEqual(inventory["affiliate_business_entries"][0]["entry_id"], "S08_affiliate_business")
 
     def test_policy_requires_safe_url_and_visible_disclosure(self):
