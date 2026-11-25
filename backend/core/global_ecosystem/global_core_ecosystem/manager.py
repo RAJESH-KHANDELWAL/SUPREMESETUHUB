@@ -958,8 +958,7 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "capabilities": ["CULTURAL_SERVICE_TAXONOMY", "CULTURAL_WORK_CLASSIFICATION", "BUSINESS_CAPABILITY_GOVERNANCE", "RECORD_VALIDATION", "CANONICAL_CULTURAL_CORE_REUSE"],
         "parent_id": "GLOBAL-BADA-BUSINESS-CORE-ECOSYSTEM",
         "metadata": {"module_path": "global_bada_business_core_ecosystem.global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_core_ecosystem", "implementation_state": "IMPLEMENTED_FOUNDATION", "canonical_source_core": "GLOBAL-VASUDHAIVA-KUTUMBAKAM-SANATAN-DHARMA-BHARAT-WORLD-CULTURE-SERVICE-WORK-BUSINESS-CORE-ECOSYSTEM"},
-    }
-
+    },
     {
         "ecosystem_id": "GLOBAL-TRANSPORT-MOBILITY-CORE-ECOSYSTEM",
         "name": "GLOBAL TRANSPORT, ROAD, RAIL, AIR & MOBILITY CORE ECOSYSTEM",
