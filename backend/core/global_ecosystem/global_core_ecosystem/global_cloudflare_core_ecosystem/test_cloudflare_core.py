@@ -36,8 +36,8 @@ class CloudflareCoreTests(unittest.TestCase):
         snapshot = get_manager().master_catalog_snapshot()
         self.assertTrue(snapshot["available"])
         self.assertEqual(snapshot["target_unique_entries"], 2468)
-        self.assertEqual(snapshot["current_unique_entries"], 246)
-        self.assertEqual(snapshot["remaining_unique_entries"], 2222)
+        self.assertEqual(snapshot["current_unique_entries"], 278)
+        self.assertEqual(snapshot["remaining_unique_entries"], 2190)
     def test_global_ecosystem_registry_contains_cloudflare_core(self):
         registry = GlobalEcosystemManager()
         root = registry.get("GLOBAL-CLOUDFLARE-CORE-ECOSYSTEM")
