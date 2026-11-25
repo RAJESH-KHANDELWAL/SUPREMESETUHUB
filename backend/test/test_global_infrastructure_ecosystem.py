@@ -1,9 +1,8 @@
 from fastapi import FastAPI
 from backend.api.global_ecosystem.global_api_ecosystem.global_infrastructure_api_ecosystem import router
-from backend.core.global_ecosystem.global_core_ecosystem.global_infrastructure_core_ecosystem import GlobalInfrastructureCoreService
 from backend.engine.global_ecosystem.global_engine_ecosystem.global_infrastructure_engine_ecosystem import get_infrastructure_engine
 from backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem import GlobalInfrastructureEcosystemService
-from backend.infrastructure.model.global_ecosystem.global_model_ecosystem import get_model_catalog, validate_resource_record
+from backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem.model.global_ecosystem.global_model_ecosystem import get_model_catalog, validate_resource_record
 from backend.infrastructure.model import InfrastructureResource, InfrastructureCategory, InfrastructureResourceType
 
 def test_infrastructure_model_package_exports_existing_resource_contract():
@@ -26,17 +25,14 @@ def test_global_infrastructure_models_validate_minimum_resource_contract():
     assert validate_resource_record(valid) == []
     assert validate_resource_record({"resource_id": "", "resource_type": "vps"})
 
-def test_core_owns_resource_contract_validation():
-    result = GlobalInfrastructureCoreService().validate_resource({"resource_id": "srv-001", "resource_type": "vps", "category": "compute"})
-    assert result["success"] is True
-    assert result["validated_by"] == "GLOBAL_INFRASTRUCTURE_CORE"
+def test_model_contract_owns_resource_validation():
+    assert validate_resource_record({"resource_id": "srv-001", "resource_type": "vps", "category": "compute"}) == []
 
-def test_engine_delegates_validation_to_core_only_when_running():
+def test_engine_exposes_lifecycle_status_without_provider_execution():
     engine = get_infrastructure_engine()
     engine.start()
     try:
-        result = engine.validate_resource({"resource_id": "srv-002", "resource_type": "server", "category": "compute"})
-        assert result["success"] is True
+        assert engine.status()["layer"] == "ENGINE"
         assert engine.status()["provider_operations_enabled"] is False
     finally:
         engine.stop()
