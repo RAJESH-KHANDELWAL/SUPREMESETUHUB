@@ -958,7 +958,7 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "capabilities": ["CULTURAL_SERVICE_TAXONOMY", "CULTURAL_WORK_CLASSIFICATION", "BUSINESS_CAPABILITY_GOVERNANCE", "RECORD_VALIDATION", "CANONICAL_CULTURAL_CORE_REUSE"],
         "parent_id": "GLOBAL-BADA-BUSINESS-CORE-ECOSYSTEM",
         "metadata": {"module_path": "global_bada_business_core_ecosystem.global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_core_ecosystem", "implementation_state": "IMPLEMENTED_FOUNDATION", "canonical_source_core": "GLOBAL-VASUDHAIVA-KUTUMBAKAM-SANATAN-DHARMA-BHARAT-WORLD-CULTURE-SERVICE-WORK-BUSINESS-CORE-ECOSYSTEM"},
-    }
+    },
 
     {
         "ecosystem_id": "GLOBAL-TRANSPORT-MOBILITY-CORE-ECOSYSTEM",
@@ -966,7 +966,7 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "ecosystem_type": "CORE_SERVICE",
         "capabilities": ["TRANSPORT_MODE_TAXONOMY", "ROAD_RAIL_AIR_AND_WATER_MOBILITY_CLASSIFICATION", "PUBLIC_AND_PERSONAL_MOBILITY_METADATA", "TRANSPORT_INFRASTRUCTURE_DISCOVERY", "ACCESSIBILITY_METADATA"],
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
-        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_transport_mobility_core_ecosystem", "status": "CORE_CATALOG_ONLY", "catalogue_section": "S14", "api_transport_in_core": false, "live_connection_verified": false},
+        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_transport_mobility_core_ecosystem", "status": "CORE_CATALOG_ONLY", "catalogue_section": "S14", "api_transport_in_core": False, "live_connection_verified": False},
     },
     {
         "ecosystem_id": "GLOBAL-BADA-BUSINESS-TRANSPORT-LOGISTICS-SUPPLY-CHAIN-SERVICE-WORK-BUSINESS-CORE-ECOSYSTEM",
@@ -974,7 +974,7 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "ecosystem_type": "CORE_SERVICE",
         "capabilities": ["TRANSPORT_SERVICE_TAXONOMY", "LOGISTICS_AND_FREIGHT_CLASSIFICATION", "SUPPLY_CHAIN_CAPABILITY_METADATA", "COURIER_AND_LAST_MILE_SERVICE_DISCOVERY", "WAREHOUSING_AND_COLD_CHAIN_CLASSIFICATION", "TRANSPORT_BUSINESS_LIFECYCLE_METADATA", "WORK_AND_SERVICE_TYPE_CLASSIFICATION"],
         "parent_id": "GLOBAL-BADA-BUSINESS-CORE-ECOSYSTEM",
-        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/automotive_mobility/global_transport_mobility_logistics_supply_chain_business_core_ecosystem", "status": "CORE_CATALOG_ONLY", "catalogue_section": "S15", "api_transport_in_core": false, "live_connection_verified": false},
+        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/automotive_mobility/global_transport_mobility_logistics_supply_chain_business_core_ecosystem", "status": "CORE_CATALOG_ONLY", "catalogue_section": "S15", "api_transport_in_core": False, "live_connection_verified": False},
     },
 )
 
@@ -1593,7 +1593,7 @@ def get_catalog() -> list[dict[str, Any]]:
             "api_module": "backend/api/global_ecosystem/global_api_ecosystem/meta_api_ecosystem",
             "engine_module": "backend/engine/global_ecosystem/global_engine_ecosystem/meta_engine_ecosystem",
             "status": "CORE_CATALOG_ONLY",
-            "product_count": 11,
+            "product_count": 12,
             "domain_count": 18,
             "canonical_master_entry_ids": ["S07_privacy_and_data_protection","S09_artificial_intelligence","S09_cybersecurity","S09_data_analytics","S09_digital_identity","S11_privacy_law","S08_individual_business","S08_small_business","S08_medium_business","S08_digital_business","S08_international_business"],
             "master_catalog_alignment": "EXISTING_RELATED_TOPICS_ONLY_NO_META_SPECIFIC_ENTRY",

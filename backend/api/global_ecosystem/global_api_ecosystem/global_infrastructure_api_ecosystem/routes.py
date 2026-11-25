@@ -3,14 +3,11 @@ from __future__ import annotations
 from typing import Any
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
-from backend.core.global_ecosystem.global_core_ecosystem.global_infrastructure_core_ecosystem import GlobalInfrastructureCoreService
 from backend.engine.global_ecosystem.global_engine_ecosystem.global_infrastructure_engine_ecosystem import get_infrastructure_engine
 from backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem import GlobalInfrastructureEcosystemService
-from backend.infrastructure.model.global_ecosystem.global_model_ecosystem import get_model_catalog
 
 router = APIRouter(prefix="/infrastructure", tags=["GLOBAL INFRASTRUCTURE API ECOSYSTEM"])
 _ecosystem = GlobalInfrastructureEcosystemService()
-_core = GlobalInfrastructureCoreService()
 _engine = get_infrastructure_engine()
 
 class ResourceValidationRequest(BaseModel):
@@ -31,7 +28,7 @@ def infrastructure_status() -> dict[str, Any]:
         "overview": overview,
         "layers": {
             "api": "ROUTES_REGISTERED",
-            "core": _core.describe()["status"],
+            "core": "NOT_REGISTERED; legacy CORE package intentionally absent",
             "engine": _engine.status()["state"],
             "database": "CANONICAL_OWNER_BACKEND_DATABASE_SERVICE; GLOBAL CATALOG IS READ_ONLY",
             "storage": "CANONICAL_OWNER_BACKEND_STORAGE_SERVICE; ARTIFACT ADAPTER NOT ENABLED",
@@ -46,11 +43,16 @@ def infrastructure_catalog() -> dict[str, Any]:
 
 @router.get("/models")
 def infrastructure_models() -> dict[str, Any]:
-    return {"success": True, "models": get_model_catalog()}
+    return {"success": True, "models": [], "status": "MODEL_CATALOG_NOT_REGISTERED"}
 
 @router.post("/validate-resource")
 def validate_infrastructure_resource(payload: ResourceValidationRequest) -> dict[str, Any]:
-    result = _core.validate_resource(payload.dict())
-    if not result.get("success"):
-        raise HTTPException(status_code=422, detail=result)
-    return result
+    raise HTTPException(
+        status_code=503,
+        detail={
+            "success": False,
+            "status": "CORE_VALIDATION_UNAVAILABLE",
+            "message": "The legacy Infrastructure CORE is intentionally absent; resource validation is not enabled in this API.",
+            "resource_id": payload.resource_id,
+        },
+    )

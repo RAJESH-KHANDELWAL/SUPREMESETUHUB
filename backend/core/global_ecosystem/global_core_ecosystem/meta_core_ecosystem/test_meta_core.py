@@ -19,7 +19,7 @@ class MetaCoreTests(unittest.TestCase):
         api_ids={x["id"] for x in META_API_ECOSYSTEM["children"]}
         core_ids={x["family_id"] for x in list_meta_products()}
         self.assertEqual(core_ids,api_ids)
-        self.assertEqual(len(core_ids),11)
+        self.assertEqual(len(core_ids),12)
     def test_api_and_engine_paths_are_real_layer_references(self):
         products=list_meta_products()
         self.assertTrue(all(x["api_path"].startswith("backend/api/") for x in products))
@@ -40,12 +40,12 @@ class MetaCoreTests(unittest.TestCase):
         self.assertEqual(mapped,product_ids)
     def test_product_and_domain_packages_import(self):
         import importlib
-        product_packages=["graph","facebook_pages","instagram","whatsapp_business","messenger","threads","marketing_ads","login_identity","business_management","webhooks","ai"]
+        product_packages=["graph","facebook_pages","instagram","whatsapp_business","messenger","threads","marketing_ads","login_identity","business_management","webhooks","ai","sdk_developer_tools"]
         domain_packages=["provider_governance","graph_platform_and_object_model","facebook_pages_and_publishing","instagram_creator_and_professional","whatsapp_business_messaging","messenger_conversations","threads_social_network","marketing_advertising_campaigns","business_portfolio_assets","login_oauth_identity","webhook_event_delivery","meta_ai_discovery","social_content_publishing","audience_insights_analytics","media_asset_management","privacy_data_protection","app_review_permission_compliance","tenant_account_asset_governance"]
         for slug in product_packages:
             module=importlib.import_module(f"{__package__}.meta_{slug}_core_ecosystem")
             cls=getattr(module,module.__all__[0])
-            self.assertEqual(cls.PRODUCT_ID,"meta_"+("graph_core" if slug=="graph" else "meta_ai" if slug=="ai" else slug))
+            self.assertEqual(cls.PRODUCT_ID,"meta_"+("graph_core" if slug=="graph" else slug))
         for slug in domain_packages:
             module=importlib.import_module(f"{__package__}.meta_{slug}_domain_core_ecosystem")
             cls=getattr(module,module.__all__[0])
@@ -63,13 +63,13 @@ class MetaCoreTests(unittest.TestCase):
         records=[x for x in get_global_catalog() if x["ecosystem_id"]=="META-CORE-ECOSYSTEM"]
         self.assertEqual(len(records),1)
         self.assertEqual(records[0]["parent_id"],"GLOBAL-CORE-ECOSYSTEM")
-        self.assertEqual(records[0]["metadata"]["product_count"],11)
+        self.assertEqual(records[0]["metadata"]["product_count"],12)
     def test_layer_boundaries_and_dependency_map(self):
         manager=get_manager()
         self.assertFalse(manager.catalog()["live_connection_verified"])
         self.assertFalse(manager.catalog()["oauth_exchange_in_core"])
         self.assertEqual(manager.health()["api_calls_performed"],0)
-        self.assertEqual(len(manager.dependency_map()["edges"]),11)
+        self.assertEqual(len(manager.dependency_map()["edges"]),12)
     def test_policy_tenant_and_secret_redaction(self):
         self.assertEqual(MetaCorePolicy.classify_capability("SEND_MESSAGE"),"SENSITIVE_REQUIRES_EXPLICIT_AUTHORIZATION")
         with self.assertRaises(PermissionError): MetaCorePolicy.require_tenant_context(None)

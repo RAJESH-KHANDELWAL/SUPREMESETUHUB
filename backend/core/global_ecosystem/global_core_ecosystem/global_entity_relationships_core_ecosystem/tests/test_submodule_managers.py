@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MODULE_DIRS = sorted(
     folder for folder in ROOT.iterdir()
     if folder.is_dir()
+    and folder.name not in {"data", "tests"}
     and (folder / "manager.py").is_file()
     and (folder / "manager.php").is_file()
     and (folder / "__init__.py").is_file()
