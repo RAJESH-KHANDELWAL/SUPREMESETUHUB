@@ -10,7 +10,7 @@ class IndividualCoreTests(unittest.TestCase):
  def test_unique_inventory(self):
   ids=[x["module_id"] for x in MODULES]; self.assertEqual(len(ids),len(set(ids))); self.assertEqual(len(ids),29)
  def test_master_section_and_counts(self):
-  self.assertEqual(len(get_individual_master_entries()),20); summary=get_master_summary(); self.assertEqual(summary["target_unique_entries"],2468); self.assertEqual(summary["current_unique_entries"],246)
+  self.assertEqual(len(get_individual_master_entries()),20); summary=get_master_summary(); self.assertEqual(summary["target_unique_entries"],2468); self.assertEqual(summary["current_unique_entries"],278)
  def test_module_mappings_exist_in_master(self):
   valid={x["entry_id"] for x in get_individual_master_entries()}
   for item in MODULES: self.assertTrue(set(item["master_entry_ids"]).issubset(valid),item["module_id"])

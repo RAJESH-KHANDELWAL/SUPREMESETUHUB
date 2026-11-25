@@ -18,7 +18,7 @@ META_API_ECOSYSTEM = {
     "api_families": [
         "graph_core", "facebook_pages", "instagram", "whatsapp_business",
         "messenger", "threads", "marketing_ads", "login_identity",
-        "business_management", "webhooks", "sdk_developer_tools", "meta_ai",
+        "business_management", "webhooks", "meta_ai",
     ],
     "children": [
         {"id": "graph_core", "name": "META GRAPH API ECOSYSTEM", "folder": "meta_graph_api_ecosystem", "status": "catalog_only"},
@@ -31,7 +31,6 @@ META_API_ECOSYSTEM = {
         {"id": "login_identity", "name": "META LOGIN AND IDENTITY API ECOSYSTEM", "folder": "meta_login_identity_api_ecosystem", "status": "catalog_only"},
         {"id": "business_management", "name": "META BUSINESS MANAGEMENT API ECOSYSTEM", "folder": "meta_business_management_api_ecosystem", "status": "catalog_only"},
         {"id": "webhooks", "name": "META WEBHOOKS API ECOSYSTEM", "folder": "meta_webhooks_api_ecosystem", "status": "catalog_only"},
-        {"id": "sdk_developer_tools", "name": "META SDK AND DEVELOPER TOOLS ECOSYSTEM", "folder": "meta_sdk_developer_tools_ecosystem", "status": "catalog_only"},
         {"id": "meta_ai", "name": "META AI ECOSYSTEM", "folder": "meta_ai_ecosystem", "status": "discovery_only"},
     ],
     "related_ecosystems": [

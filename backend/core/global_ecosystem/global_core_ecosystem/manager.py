@@ -952,21 +952,39 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "metadata": {"module_path": "global_bada_business_core_ecosystem", "implementation_state": "FOUNDATION_READY"},
     },
     {
+        "ecosystem_id": "GLOBAL-AFFILIATE-MARKETING-BUSINESS-CORE-ECOSYSTEM",
+        "name": "GLOBAL AFFILIATE MARKETING BUSINESS CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": [
+            "AFFILIATE_PLATFORM_IDENTITY",
+            "PROGRAM_REGISTRATION_POLICY",
+            "REFERRAL_WORKFLOW_GOVERNANCE",
+            "DISCLOSURE_VALIDATION",
+            "COMMISSION_EVENT_METADATA",
+        ],
+        "parent_id": "GLOBAL-BADA-BUSINESS-CORE-ECOSYSTEM",
+        "metadata": {
+            "module_path": "global_bada_business_core_ecosystem.global_affiliate_marketing_business_core_ecosystem",
+            "implementation_state": "FOUNDATION_READY",
+            "live_provider_connections_verified": False,
+            "program_terms_verified": False,
+        },
+    },
+    {
         "ecosystem_id": "GLOBAL-BADA-BUSINESS-VASUDHAIVA-KUTUMBAKAM-SANATAN-DHARMA-BHARAT-WORLD-CULTURE-SERVICE-WORK-BUSINESS-CORE-ECOSYSTEM",
         "name": "GLOBAL BADA BUSINESS | VASUDHAIVA KUTUMBAKAM | SANATAN DHARMA | BHARAT SANSKRITI | WORLD CULTURE SERVICE WORK BUSINESS CORE ECOSYSTEM",
         "ecosystem_type": "CORE_SERVICE",
         "capabilities": ["CULTURAL_SERVICE_TAXONOMY", "CULTURAL_WORK_CLASSIFICATION", "BUSINESS_CAPABILITY_GOVERNANCE", "RECORD_VALIDATION", "CANONICAL_CULTURAL_CORE_REUSE"],
         "parent_id": "GLOBAL-BADA-BUSINESS-CORE-ECOSYSTEM",
         "metadata": {"module_path": "global_bada_business_core_ecosystem.global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_core_ecosystem", "implementation_state": "IMPLEMENTED_FOUNDATION", "canonical_source_core": "GLOBAL-VASUDHAIVA-KUTUMBAKAM-SANATAN-DHARMA-BHARAT-WORLD-CULTURE-SERVICE-WORK-BUSINESS-CORE-ECOSYSTEM"},
-    }
-
+    },
     {
         "ecosystem_id": "GLOBAL-TRANSPORT-MOBILITY-CORE-ECOSYSTEM",
         "name": "GLOBAL TRANSPORT, ROAD, RAIL, AIR & MOBILITY CORE ECOSYSTEM",
         "ecosystem_type": "CORE_SERVICE",
         "capabilities": ["TRANSPORT_MODE_TAXONOMY", "ROAD_RAIL_AIR_AND_WATER_MOBILITY_CLASSIFICATION", "PUBLIC_AND_PERSONAL_MOBILITY_METADATA", "TRANSPORT_INFRASTRUCTURE_DISCOVERY", "ACCESSIBILITY_METADATA"],
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
-        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_transport_mobility_core_ecosystem", "status": "CORE_CATALOG_ONLY", "catalogue_section": "S14", "api_transport_in_core": false, "live_connection_verified": false},
+        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_transport_mobility_core_ecosystem", "status": "CORE_CATALOG_ONLY", "catalogue_section": "S14", "api_transport_in_core": False, "live_connection_verified": False},
     },
     {
         "ecosystem_id": "GLOBAL-BADA-BUSINESS-TRANSPORT-LOGISTICS-SUPPLY-CHAIN-SERVICE-WORK-BUSINESS-CORE-ECOSYSTEM",
@@ -974,7 +992,7 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "ecosystem_type": "CORE_SERVICE",
         "capabilities": ["TRANSPORT_SERVICE_TAXONOMY", "LOGISTICS_AND_FREIGHT_CLASSIFICATION", "SUPPLY_CHAIN_CAPABILITY_METADATA", "COURIER_AND_LAST_MILE_SERVICE_DISCOVERY", "WAREHOUSING_AND_COLD_CHAIN_CLASSIFICATION", "TRANSPORT_BUSINESS_LIFECYCLE_METADATA", "WORK_AND_SERVICE_TYPE_CLASSIFICATION"],
         "parent_id": "GLOBAL-BADA-BUSINESS-CORE-ECOSYSTEM",
-        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/automotive_mobility/global_transport_mobility_logistics_supply_chain_business_core_ecosystem", "status": "CORE_CATALOG_ONLY", "catalogue_section": "S15", "api_transport_in_core": false, "live_connection_verified": false},
+        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/automotive_mobility/global_transport_mobility_logistics_supply_chain_business_core_ecosystem", "status": "CORE_CATALOG_ONLY", "catalogue_section": "S15", "api_transport_in_core": False, "live_connection_verified": False},
     },
 )
 

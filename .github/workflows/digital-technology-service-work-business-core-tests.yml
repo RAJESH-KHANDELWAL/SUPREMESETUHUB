@@ -1,0 +1,20 @@
+name: Digital Technology Service Work Business CORE Tests
+on:
+  push:
+    paths:
+      - 'backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_digital_infrastructure_telecommunications_technology_it_ai_service_work_business_core_ecosystem/**'
+      - '.github/workflows/digital-technology-service-work-business-core-tests.yml'
+  pull_request:
+    paths:
+      - 'backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_digital_infrastructure_telecommunications_technology_it_ai_service_work_business_core_ecosystem/**'
+      - '.github/workflows/digital-technology-service-work-business-core-tests.yml'
+jobs:
+  python-core-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run CORE tests
+        run: python -m unittest discover -s backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_digital_infrastructure_telecommunications_technology_it_ai_service_work_business_core_ecosystem/tests -v
