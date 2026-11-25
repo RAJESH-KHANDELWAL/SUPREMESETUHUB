@@ -6,14 +6,16 @@ on:
       - main
     paths:
       - "backend/php/**"
-      - "backend/test/global_test_ecosystem/global_php_ecosystem/**"
+      - "backend/infrastructure/global_ecosystem/global_infrastructure_ecosystem/model/global_ecosystem/global_model_ecosystem/**"
+      - "backend/test/php/**"
       - ".github/workflows/test-global-php-ecosystem.yml"
   pull_request:
     branches:
       - main
     paths:
       - "backend/php/**"
-      - "backend/test/global_test_ecosystem/global_php_ecosystem/**"
+      - "backend/infrastructure/global_ecosystem/global_infrastructure_ecosystem/model/global_ecosystem/global_model_ecosystem/**"
+      - "backend/test/php/**"
       - ".github/workflows/test-global-php-ecosystem.yml"
   workflow_dispatch:
 
@@ -35,12 +37,20 @@ jobs:
 
       - name: Validate GLOBAL PHP ECOSYSTEM syntax
         run: |
-          set -euo pipefail
           php -l backend/php/global_ecosystem/global_php_ecosystem/GlobalAlgorithmKernel.php
           php -l backend/php/global_ecosystem/global_php_ecosystem/bootstrap.php
           php -l backend/php/global_ecosystem/global_php_ecosystem/bada_business_php_ecosystem/BadaBusinessPHPAdapter.php
           php -l backend/php/global_ecosystem/global_php_ecosystem/bada_business_php_ecosystem/bootstrap.php
-          php -l backend/test/global_test_ecosystem/global_php_ecosystem/global_algorithm_kernel_test.php
+          php -l backend/test/php/global_algorithm_kernel_test.php
+          php -l backend/infrastructure/global_ecosystem/global_infrastructure_ecosystem/model/global_ecosystem/global_model_ecosystem/resources.php
+          php -l backend/infrastructure/global_ecosystem/global_infrastructure_ecosystem/model/global_ecosystem/global_model_ecosystem/relationships.php
+          php -l backend/infrastructure/global_ecosystem/global_infrastructure_ecosystem/model/global_ecosystem/global_model_ecosystem/catalog.php
+          php -l backend/infrastructure/global_ecosystem/global_infrastructure_ecosystem/model/global_ecosystem/global_model_ecosystem/schemas.php
+          php -l backend/infrastructure/global_ecosystem/global_infrastructure_ecosystem/model/global_ecosystem/global_model_ecosystem/validation.php
+          php -l backend/test/php/global_model_ecosystem_test.php
 
       - name: Run GLOBAL PHP ECOSYSTEM smoke tests
-        run: php backend/test/global_test_ecosystem/global_php_ecosystem/global_algorithm_kernel_test.php
+        run: php backend/test/php/global_algorithm_kernel_test.php
+
+      - name: Run GLOBAL MODEL ECOSYSTEM tests
+        run: php backend/test/php/global_model_ecosystem_test.php
