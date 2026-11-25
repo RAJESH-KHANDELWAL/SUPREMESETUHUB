@@ -9,9 +9,10 @@ ROOT = Path(__file__).resolve().parents[2]
 FOUNDATION = ROOT / "backend" / "foundation"
 GLOBAL_ECOSYSTEM = FOUNDATION / "global_ecosystem"
 PACKAGE = GLOBAL_ECOSYSTEM / "global_foundation_ecosystem"
+# "sync" is a canonical domain, not a legacy consolidated folder.
 CONSOLIDATED_FOLDERS = (
     "audit", "core", "dependencies", "file_manager",
-    "identity", "registry", "security", "sync",
+    "identity", "registry", "security",
 )
 
 
@@ -38,6 +39,11 @@ class BackendGlobalFoundationEcosystemTests(unittest.TestCase):
         self.assertEqual(present, [], f"Unwanted domain folders/files remain: {present}")
         misplaced = [name for name in CONSOLIDATED_FOLDERS if (FOUNDATION / name).exists()]
         self.assertEqual(misplaced, [], f"Unwanted folders remain at foundation root: {misplaced}")
+
+    def test_sync_remains_a_canonical_foundation_domain(self):
+        sync_package = PACKAGE / "sync" / "global_ecosystem" / "global_sync_ecosystem"
+        self.assertTrue(sync_package.is_dir(), f"Missing canonical sync domain: {sync_package}")
+        self.assertTrue((sync_package / "README.md").is_file())
 
     def test_backend_to_frontend_foundation_connector(self):
         result = load_module(

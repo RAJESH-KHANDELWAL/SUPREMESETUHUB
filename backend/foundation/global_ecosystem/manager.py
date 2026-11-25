@@ -1,15 +1,18 @@
 """Backend Global Ecosystem manager after foundation consolidation."""
 from pathlib import Path
 
+# These are legacy folders that must not be duplicated at the foundation
+# package root. "sync" is intentionally excluded because it is now one of
+# the 12 canonical, independent foundation ecosystem domains.
 CONSOLIDATED_DOMAIN_FOLDERS = (
     "audit", "core", "dependencies", "file_manager",
-    "identity", "registry", "security", "sync",
+    "identity", "registry", "security",
 )
 
 
 class GlobalEcosystemManager:
     NAME = "BACKEND GLOBAL ECOSYSTEM"
-    VERSION = "1.2.0"
+    VERSION = "1.3.0"
 
     def __init__(self):
         self.root = Path(__file__).resolve().parent
