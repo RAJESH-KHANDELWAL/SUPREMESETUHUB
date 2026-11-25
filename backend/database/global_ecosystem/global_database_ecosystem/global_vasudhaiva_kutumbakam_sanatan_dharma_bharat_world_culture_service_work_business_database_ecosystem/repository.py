@@ -19,12 +19,16 @@ class GlobalCultureServiceWorkBusinessRepository:
     def initialize(self) -> None:
         self.database.execute(
             f"""CREATE TABLE IF NOT EXISTS {self.TABLE} (
-            record_id TEXT PRIMARY KEY, capability_id TEXT NOT NULL, record_type TEXT NOT NULL,
-            title TEXT NOT NULL, description TEXT NOT NULL, organization_name TEXT, location TEXT,
-            website_url TEXT, source_url TEXT, status TEXT NOT NULL DEFAULT 'DRAFT',
+            record_id TEXT PRIMARY KEY, capability_id TEXT NOT NULL, domain TEXT NOT NULL DEFAULT 'SERVICE',
+            record_type TEXT NOT NULL, title TEXT NOT NULL, description TEXT NOT NULL,
+            organization_name TEXT, location TEXT, website_url TEXT, source_url TEXT,
+            source_refs_json TEXT NOT NULL DEFAULT '[]', status TEXT NOT NULL DEFAULT 'DRAFT',
             metadata_json TEXT NOT NULL DEFAULT '{{}}', created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
             updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP)"""
         )
+        # Additive migrations preserve rows created by the earlier table shape.
+        self.database.add_column_if_missing(self.TABLE, "domain", "TEXT NOT NULL DEFAULT 'SERVICE'")
+        self.database.add_column_if_missing(self.TABLE, "source_refs_json", "TEXT NOT NULL DEFAULT '[]'")
         self.database.execute(
             f"CREATE INDEX IF NOT EXISTS idx_{self.TABLE}_capability ON {self.TABLE}(capability_id,status)"
         )
@@ -36,31 +40,38 @@ class GlobalCultureServiceWorkBusinessRepository:
         self.initialize()
         self.database.execute(
             f"""INSERT INTO {self.TABLE}
-            (record_id,capability_id,record_type,title,description,organization_name,location,website_url,source_url,status,metadata_json,updated_at)
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP)
-            ON CONFLICT(record_id) DO UPDATE SET capability_id=excluded.capability_id,record_type=excluded.record_type,
-            title=excluded.title,description=excluded.description,organization_name=excluded.organization_name,
+            (record_id,capability_id,domain,record_type,title,description,organization_name,location,
+             website_url,source_url,source_refs_json,status,metadata_json,updated_at)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP)
+            ON CONFLICT(record_id) DO UPDATE SET capability_id=excluded.capability_id,
+            domain=excluded.domain,record_type=excluded.record_type,title=excluded.title,
+            description=excluded.description,organization_name=excluded.organization_name,
             location=excluded.location,website_url=excluded.website_url,source_url=excluded.source_url,
-            status=excluded.status,metadata_json=excluded.metadata_json,updated_at=CURRENT_TIMESTAMP""",
+            source_refs_json=excluded.source_refs_json,status=excluded.status,
+            metadata_json=excluded.metadata_json,updated_at=CURRENT_TIMESTAMP""",
             (
-                record["record_id"], record["capability_id"], record["record_type"],
-                record["title"], record["description"], record.get("organization_name"),
-                record.get("location"), record.get("website_url"), record.get("source_url"),
+                record["record_id"], record["capability_id"], str(record["domain"]).upper(),
+                record["record_type"], record["title"], record["description"],
+                record.get("organization_name"), record.get("location"), record.get("website_url"),
+                record.get("source_url"), json.dumps(record.get("source_refs", []), ensure_ascii=False),
                 str(record.get("status", "DRAFT")).upper(),
                 json.dumps(record.get("metadata", {}), ensure_ascii=False),
             ),
         )
+
+    @staticmethod
+    def _decode_row(row: Any) -> dict[str, Any]:
+        item = dict(row)
+        item["metadata"] = json.loads(item.pop("metadata_json") or "{}")
+        item["source_refs"] = json.loads(item.pop("source_refs_json") or "[]")
+        return item
 
     def get(self, record_id: str) -> dict[str, Any] | None:
         self.initialize()
         row = self.database.fetchone(
             f"SELECT * FROM {self.TABLE} WHERE record_id=?", (record_id,)
         )
-        if row is None:
-            return None
-        item = dict(row)
-        item["metadata"] = json.loads(item.pop("metadata_json") or "{}")
-        return item
+        return self._decode_row(row) if row is not None else None
 
     def search(
         self, query: str = "", capability_id: str | None = None, limit: int = 50
@@ -76,12 +87,10 @@ class GlobalCultureServiceWorkBusinessRepository:
             params.append(capability_id)
         sql += " ORDER BY updated_at DESC LIMIT ?"
         params.append(max(1, min(int(limit), 100)))
-        result = []
-        for row in self.database.fetchall(sql, params):
-            item = dict(row)
-            item["metadata"] = json.loads(item.pop("metadata_json") or "{}")
-            result.append(item)
-        return result
+        return [
+            self._decode_row(row)
+            for row in self.database.fetchall(sql, params)
+        ]
 
     def health(self) -> dict[str, Any]:
         try:
