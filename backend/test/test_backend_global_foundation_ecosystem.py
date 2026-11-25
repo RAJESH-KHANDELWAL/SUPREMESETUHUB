@@ -10,7 +10,7 @@ FOUNDATION = ROOT / "backend" / "foundation"
 GLOBAL_ECOSYSTEM = FOUNDATION / "global_ecosystem"
 PACKAGE = GLOBAL_ECOSYSTEM / "global_foundation_ecosystem"
 CONSOLIDATED_FOLDERS = (
-    "android", "audit", "core", "dependencies", "file_manager",
+    "audit", "core", "dependencies", "file_manager",
     "identity", "registry", "security", "sync",
 )
 

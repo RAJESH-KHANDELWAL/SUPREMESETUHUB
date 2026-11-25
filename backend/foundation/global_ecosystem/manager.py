@@ -2,7 +2,7 @@
 from pathlib import Path
 
 CONSOLIDATED_DOMAIN_FOLDERS = (
-    "android", "audit", "core", "dependencies", "file_manager",
+    "audit", "core", "dependencies", "file_manager",
     "identity", "registry", "security", "sync",
 )
 
