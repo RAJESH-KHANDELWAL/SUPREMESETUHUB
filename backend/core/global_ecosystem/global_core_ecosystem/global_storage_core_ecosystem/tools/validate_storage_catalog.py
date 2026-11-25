@@ -19,4 +19,5 @@ def validate()->list[str]:
 if __name__=="__main__":
  problems=validate()
  if problems: raise SystemExit("\n".join(problems))
- print(f"Storage catalog valid: {len(providers)} providers, {len(product_ids)} products, {len(domains)} domains")
+ catalog = get_storage_core_catalog()
+ print(f"Storage catalog valid: {len(catalog["providers"])} providers, {len(product_ids)} products, {len(domains)} domains")
