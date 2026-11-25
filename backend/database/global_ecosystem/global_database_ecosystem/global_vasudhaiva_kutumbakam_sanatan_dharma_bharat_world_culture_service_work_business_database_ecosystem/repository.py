@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from typing import Any
 from backend.database.service import DatabaseService
-from backend.core.global_ecosystem.global_core_ecosystem.global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_core_ecosystem.governance import validate_record
+from backend.core.global_ecosystem.global_core_ecosystem.global_bada_business_core_ecosystem.global_culture_service_work_business_core_ecosystem.governance import validate_record
 class GlobalCultureServiceWorkBusinessRepository:
     TABLE="culture_service_work_business_records"
     def __init__(self,database:DatabaseService|None=None)->None: self.database=database or DatabaseService()

@@ -3,20 +3,32 @@ declare(strict_types=1);
 
 namespace SupremeSetuHub\Infrastructure\Model\GlobalEcosystem\GlobalModelEcosystem;
 
-final class ModelCatalog
+final class ResourceCategories
 {
-    public const MODEL_FAMILY = 'GLOBAL_MODEL_ECOSYSTEM';
-
     public static function all(): array
     {
         return [
-            'resource_identity' => ['required_fields' => ['resource_id', 'resource_type']],
-            'resource_category' => ['categories' => ResourceCategories::all()],
-            'resource_relationship' => ['relationship_types' => RelationshipTypes::all()],
-            'provider_reference' => ['fields' => ['provider_id', 'external_id']],
-            'lifecycle' => ['states' => ['PLANNED', 'PROVISIONING', 'ACTIVE', 'DEGRADED', 'SUSPENDED', 'FAILED', 'RETIRED']],
-            'location' => ['fields' => ['region', 'zone', 'datacenter', 'location']],
-            'capacity' => ['fields' => ['cpu', 'memory', 'storage', 'bandwidth']],
+            'compute' => ['server', 'virtual_machine', 'container', 'function'],
+            'storage' => ['block_storage', 'object_storage', 'file_storage', 'database'],
+            'network' => ['network', 'load_balancer', 'firewall', 'gateway'],
+            'platform' => ['runtime', 'orchestrator', 'service'],
+        ];
+    }
+}
+
+final class ModelCatalog
+{
+    public static function all(): array
+    {
+        return [
+            'resource_identity' => GlobalResourceIdentity::class,
+            'resource_provider_reference' => GlobalProviderReference::class,
+            'resource_relationship' => GlobalResourceRelationship::class,
+            'resource_lifecycle' => GlobalResourceLifecycle::class,
+            'resource_location' => GlobalResourceLocation::class,
+            'resource_capacity' => GlobalResourceCapacity::class,
+            'resource_category' => ResourceCategories::all(),
+            'relationship_types' => RelationshipTypes::all(),
         ];
     }
 }

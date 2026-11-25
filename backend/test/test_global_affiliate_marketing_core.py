@@ -1,6 +1,8 @@
 """Contract and inventory tests for the Global Affiliate Marketing CORE package."""
 import unittest
 
+from backend.core.global_ecosystem.global_core_ecosystem.manager import GlobalEcosystemManager
+
 from backend.core.global_ecosystem.global_core_ecosystem.global_bada_business_core_ecosystem.global_affiliate_marketing_business_core_ecosystem.catalog import (
     AFFILIATE_NETWORK_CATALOG,
     PLATFORM_CATALOG,
@@ -50,6 +52,11 @@ class AffiliateMarketingCoreTests(unittest.TestCase):
         identity = AffiliatePlatformIdentity.from_record(get_platform("LEADSGURU"))
         self.assertEqual(identity.verification_status, "UNVERIFIED")
         self.assertIsNone(identity.terms_url)
+
+    def test_global_hierarchy_registers_affiliate_core_under_bada_business(self):
+        record = GlobalEcosystemManager().get("GLOBAL-AFFILIATE-MARKETING-BUSINESS-CORE-ECOSYSTEM")
+        self.assertIsNotNone(record)
+        self.assertEqual(record["parent_id"], "GLOBAL-BADA-BUSINESS-CORE-ECOSYSTEM")
 
     def test_master_catalog_bridge_validates_2468_source(self):
         inventory = GlobalAffiliateMarketingCoreManager().master_catalog_inventory()

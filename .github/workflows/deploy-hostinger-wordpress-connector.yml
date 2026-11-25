@@ -1,0 +1,86 @@
+name: Deploy SUPREMESETUHUB WordPress Hub to Hostinger
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "backend/wordpress/wp-content/plugins/supremesetuhub/**"
+      - ".github/workflows/deploy-hostinger-wordpress-connector.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hostinger-wordpress-hub-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy integrated hub files via FTPS
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Check required deployment settings
+        env:
+          FTP_SERVER: ${{ secrets.HOSTINGER_FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.HOSTINGER_FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          WP_PLUGIN_DIR: ${{ vars.HOSTINGER_WP_PLUGIN_DIR }}
+        run: |
+          set -eu
+          missing=""
+          [ -n "$FTP_SERVER" ] || missing="$missing HOSTINGER_FTP_SERVER"
+          [ -n "$FTP_USERNAME" ] || missing="$missing HOSTINGER_FTP_USERNAME"
+          [ -n "$FTP_PASSWORD" ] || missing="$missing HOSTINGER_FTP_PASSWORD"
+          [ -n "$WP_PLUGIN_DIR" ] || missing="$missing HOSTINGER_WP_PLUGIN_DIR"
+          if [ -n "$missing" ]; then
+            echo "::error::Configure these GitHub Actions production secrets/variables first:$missing"
+            exit 1
+          fi
+          case "$WP_PLUGIN_DIR" in
+            */wp-content/plugins/supremesetuhub/) ;;
+            *)
+              echo "::error::HOSTINGER_WP_PLUGIN_DIR must end exactly with /wp-content/plugins/supremesetuhub/"
+              exit 1
+              ;;
+          esac
+
+      - name: Verify SUPREMESETUHUB source and PHP syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "Workspace: $GITHUB_WORKSPACE"
+          echo "Commit: $GITHUB_SHA"
+          SOURCE_DIR="$GITHUB_WORKSPACE/backend/wordpress/wp-content/plugins/supremesetuhub"
+          PLUGIN_FILE="$SOURCE_DIR/supremesetuhub.php"
+          if [ ! -d "$SOURCE_DIR" ]; then
+            echo "::error::SUPREMESETUHUB source directory is missing from the checked-out repository."
+            find "$GITHUB_WORKSPACE" -maxdepth 4 -type d -name 'supremesetuhub' -print
+            exit 1
+          fi
+          if [ ! -f "$PLUGIN_FILE" ]; then
+            echo "::error::SUPREMESETUHUB main PHP file is missing from $SOURCE_DIR"
+            ls -la "$SOURCE_DIR"
+            exit 1
+          fi
+          php -l "$PLUGIN_FILE"
+
+      - name: Deploy integrated SUPREMESETUHUB plugin files to Hostinger over FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.HOSTINGER_FTP_SERVER }}
+          username: ${{ secrets.HOSTINGER_FTP_USERNAME }}
+          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: backend/wordpress/wp-content/plugins/supremesetuhub/
+          server-dir: ${{ vars.HOSTINGER_WP_PLUGIN_DIR }}
+          dangerous-clean-slate: false
+          log-level: standard

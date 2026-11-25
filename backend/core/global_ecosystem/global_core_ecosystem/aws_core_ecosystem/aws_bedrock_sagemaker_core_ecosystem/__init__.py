@@ -1,3 +1,4 @@
-"""AWS Bedrock and SageMaker AI product-family Core package."""
+"""Public exports for aws_bedrock_sagemaker_core_ecosystem."""
 from .service import AwsBedrockSagemakerCoreService
-__all__ = ["AwsBedrockSagemakerCoreService"]
+from .manager import AwsBedrockSagemakerCoreManager,get_manager
+__all__=["AwsBedrockSagemakerCoreService","AwsBedrockSagemakerCoreManager","get_manager"]

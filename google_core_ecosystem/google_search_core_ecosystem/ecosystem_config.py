@@ -1,9 +1,0 @@
-PRODUCT_ID="google_search"
-PRODUCT_NAME="Google Search"
-CATEGORY="SEARCH"
-API_NAME="Programmable Search Engine API"
-INTEGRATION_MODE="API_KEY"
-AVAILABILITY="API_AVAILABLE"
-AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
-REQUIRED_SCOPES=[]
-LIVE_CONNECTION_ENABLED=False

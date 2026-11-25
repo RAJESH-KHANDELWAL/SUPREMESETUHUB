@@ -1,0 +1,63 @@
+name: DigitalOcean CORE Ecosystem Tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/digitalocean_core_ecosystem/**"
+      - ".github/workflows/digitalocean-core-ecosystem-tests.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/digitalocean_core_ecosystem/**"
+      - ".github/workflows/digitalocean-core-ecosystem-tests.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: digitalocean-core-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  contract-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile DigitalOcean CORE
+        run: python -m compileall -q backend/core/global_ecosystem/global_core_ecosystem/digitalocean_core_ecosystem
+      - name: Validate package layout and manifests
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path("backend/core/global_ecosystem/global_core_ecosystem/digitalocean_core_ecosystem")
+          expected = {"authentication", "capabilities", "docs", "events", "lifecycle", "models", "schemas", "security", "services", "tests"}
+          packages = sorted(
+              p for p in root.glob("digitalocean_*_core_ecosystem")
+              if p.is_dir() and not p.name.startswith("digitalocean_shared_")
+          )
+          shared_packages = sorted(
+              p for p in root.glob("digitalocean_shared_*_core_ecosystem")
+              if p.is_dir()
+          )
+          assert len(packages) == 5, packages
+          assert len(shared_packages) == 11, shared_packages
+          assert all(p.name.endswith("_core_ecosystem") for p in shared_packages)
+          for package in packages:
+              actual = {p.name for p in package.iterdir() if p.is_dir() and p.name != "__pycache__"}
+              assert actual == expected, (package, actual)
+              manifest = json.loads((package / "ecosystem_manifest.json").read_text())
+              assert manifest["live_provider_calls_enabled"] is False
+              assert (package / "authentication/contract.php").is_file()
+              assert not (package / "php").exists()
+          provider = json.loads((root / "ecosystem_manifest.json").read_text())
+          assert provider["capability_count"] == 5
+          assert provider["live_provider_calls_enabled"] is False
+          PY
+      - name: Run provider tests
+        run: python -m unittest discover -s backend/core/global_ecosystem/global_core_ecosystem/digitalocean_core_ecosystem -t backend/core/global_ecosystem/global_core_ecosystem -p "test*.py" -v

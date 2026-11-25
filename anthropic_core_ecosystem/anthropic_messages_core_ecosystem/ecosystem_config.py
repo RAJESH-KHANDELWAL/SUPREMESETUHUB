@@ -1,9 +1,0 @@
-PRODUCT_ID="anthropic_messages"
-PRODUCT_NAME="Anthropic Messages"
-CATEGORY="AI_PLATFORM"
-API_NAME="POST /v1/messages"
-INTEGRATION_MODE="SERVER_SIDE_ANTHROPIC_API"
-AVAILABILITY="ACCOUNT_AND_MODEL_ELIGIBILITY_REQUIRED"
-AUTHENTICATION_METHOD="Anthropic API authentication is owned by the API layer; verify current supported method before enabling"
-REQUIRED_SCOPES=[]
-LIVE_CONNECTION_ENABLED=False

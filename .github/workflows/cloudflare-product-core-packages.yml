@@ -1,0 +1,29 @@
+name: Cloudflare Product Core Package Tests
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_cloudflare_core_ecosystem/**"
+      - "backend/test/test_global_cloudflare_product_core_packages.py"
+      - ".github/workflows/cloudflare-product-core-packages.yml"
+  push:
+    branches: [main]
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_cloudflare_core_ecosystem/**"
+      - "backend/test/test_global_cloudflare_product_core_packages.py"
+      - ".github/workflows/cloudflare-product-core-packages.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  product-core-packages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Validate canonical product packages
+        env:
+          PYTHONPATH: .
+        run: python -m unittest backend.test.test_global_cloudflare_product_core_packages -v

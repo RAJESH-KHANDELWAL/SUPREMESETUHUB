@@ -1,12 +1,12 @@
 """Structural health manager for the Global Infrastructure Ecosystem."""
 from pathlib import Path
-from .structure import INFRASTRUCTURE_MODULES
+from .structure import INFRASTRUCTURE_MODULES, INFRASTRUCTURE_ECOSYSTEM_DOMAINS
 from .service import GlobalInfrastructureEcosystemService
 
 
 class BackendGlobalInfrastructureEcosystemManager:
     NAME = "BACKEND GLOBAL INFRASTRUCTURE ECOSYSTEM"
-    VERSION = "1.1.0"
+    VERSION = "1.2.0"
 
     def __init__(self):
         self.root = Path(__file__).resolve().parent
@@ -32,9 +32,13 @@ class BackendGlobalInfrastructureEcosystemManager:
             package = ecosystem_root / f"global_{name}_ecosystem"
             package_files = ("__init__.py",) if name in {"model", "server"} else ("__init__.py", "manager.py", "manager.php")
             checks[f"global_package_{name}"] = package.is_dir() and all((package / filename).is_file() for filename in package_files)
+        for name in INFRASTRUCTURE_ECOSYSTEM_DOMAINS:
+            package = self.root / name / "global_ecosystem" / f"global_{name}_ecosystem"
+            checks[f"ecosystem_domain_{name}"] = package.is_dir() and (package / "README.md").is_file()
         checks["backend_global_hostinger_api"] = (self.backend_root / "global_ecosystem" / "global_hosting_ecosystem" / "hostinger_api.py").is_file()
         checks["backend_global_nsfwinfra"] = (self.backend_root / "global_ecosystem" / "nsfwinfra_ecosystem" / "nsfwinfra.py").is_file()
         domain_checks = {name: checks[f"domain_{name}"] for name in INFRASTRUCTURE_MODULES}
+        ecosystem_domain_checks = {name: checks[f"ecosystem_domain_{name}"] for name in INFRASTRUCTURE_ECOSYSTEM_DOMAINS}
         healthy = all(checks.values())
         return {
             "name": self.NAME, "version": self.VERSION,
@@ -43,8 +47,11 @@ class BackendGlobalInfrastructureEcosystemManager:
             "present_domain_count": sum(checks[f"domain_{name}"] for name in INFRASTRUCTURE_MODULES),
             "expected_global_package_count": len(INFRASTRUCTURE_MODULES),
             "present_global_package_count": sum(checks[f"global_package_{name}"] for name in INFRASTRUCTURE_MODULES),
-            "checks": checks, "domain_checks": domain_checks, "healthy": healthy,
-            "provider_operations_enabled": False,
+            "expected_ecosystem_domain_count": len(INFRASTRUCTURE_ECOSYSTEM_DOMAINS),
+            "present_ecosystem_domain_count": sum(ecosystem_domain_checks.values()),
+            "checks": checks, "domain_checks": domain_checks,
+            "ecosystem_domain_checks": ecosystem_domain_checks,
+            "healthy": healthy, "provider_operations_enabled": False,
         }
 
     def overview(self):

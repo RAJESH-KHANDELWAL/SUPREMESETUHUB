@@ -1,11 +1,4 @@
-"""DEVELOPER CORE ECOSYSTEM package.
-
-This package is an independent layer-owned namespace. It contains no imports
-from API, CORE, or ENGINE sibling layers.
-"""
-LAYER = "CORE"
-CATEGORY = "DEVELOPER"
-ECOSYSTEM_NAME = f"GLOBAL {CATEGORY.replace('_', ' ')} {LAYER} ECOSYSTEM"
-ECOSYSTEM_ID = f"GLOBAL-{CATEGORY.replace('_', '-')}-{LAYER.upper()}-ECOSYSTEM"
-
-__all__ = ["LAYER", "CATEGORY", "ECOSYSTEM_NAME", "ECOSYSTEM_ID"]
+"""GLOBAL DEVELOPER CORE ECOSYSTEM public package."""
+from .manager import GlobalDeveloperCoreManager, get_manager
+from .catalog import get_global_developer_core_catalog
+__all__=["GlobalDeveloperCoreManager","get_manager","get_global_developer_core_catalog"]

@@ -1,0 +1,29 @@
+name: Global App Core Contract Tests
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_app_core_ecosystem/**"
+      - "backend/test/test_global_app_core_contracts.py"
+      - ".github/workflows/global-app-core-contract-tests.yml"
+  push:
+    branches: [main]
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_app_core_ecosystem/**"
+      - "backend/test/test_global_app_core_contracts.py"
+      - ".github/workflows/global-app-core-contract-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  app-core-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Run Global App Core contract tests
+        env:
+          PYTHONPATH: .
+        run: python -m unittest backend.test.test_global_app_core_contracts -v

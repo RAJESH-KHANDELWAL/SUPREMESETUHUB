@@ -1,3 +1,4 @@
-"""AWS CloudFormation product-family Core package."""
+"""Public exports for aws_cloudformation_core_ecosystem."""
 from .service import AwsCloudformationCoreService
-__all__ = ["AwsCloudformationCoreService"]
+from .manager import AwsCloudformationCoreManager,get_manager
+__all__=["AwsCloudformationCoreService","AwsCloudformationCoreManager","get_manager"]

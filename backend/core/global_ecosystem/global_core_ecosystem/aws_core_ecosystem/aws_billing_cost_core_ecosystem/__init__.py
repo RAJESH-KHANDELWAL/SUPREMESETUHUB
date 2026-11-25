@@ -1,3 +1,4 @@
-"""AWS Billing and Cost Management product-family Core package."""
+"""Public exports for aws_billing_cost_core_ecosystem."""
 from .service import AwsBillingCostCoreService
-__all__ = ["AwsBillingCostCoreService"]
+from .manager import AwsBillingCostCoreManager,get_manager
+__all__=["AwsBillingCostCoreService","AwsBillingCostCoreManager","get_manager"]

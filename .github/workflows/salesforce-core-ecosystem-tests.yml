@@ -1,0 +1,22 @@
+name: Salesforce Core Ecosystem Tests
+on:
+  push:
+    paths:
+      - 'backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/**'
+  pull_request:
+    paths:
+      - 'backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/**'
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m compileall -q backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem
+      - run: cd backend/core/global_ecosystem/global_core_ecosystem && python -m unittest discover -s salesforce_core_ecosystem/tests -v
+      - run: cd backend/core/global_ecosystem/global_core_ecosystem && python salesforce_core_ecosystem/tools/validate_salesforce_catalog.py
+      - run: php -l backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/manager.php
+      - run: php -l backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_php_core_ecosystem/SalesforceCoreContract.php

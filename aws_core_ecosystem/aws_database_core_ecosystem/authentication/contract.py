@@ -1,4 +1,0 @@
-"""AWS identity boundary metadata; credential resolution is API-layer only."""
-AUTHENTICATION_IN_CORE = False
-PREFERRED_CREDENTIAL_MODES = ("IAM_ROLE", "WEB_IDENTITY", "SHORT_LIVED_SESSION")
-LONG_LIVED_ACCESS_KEYS_DISCOURAGED = True

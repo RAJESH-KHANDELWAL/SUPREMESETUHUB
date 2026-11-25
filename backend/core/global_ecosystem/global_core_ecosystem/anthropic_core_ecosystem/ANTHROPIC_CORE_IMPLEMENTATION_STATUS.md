@@ -13,8 +13,12 @@ Review date: 2026-11-16.
 - Global registry integration tests cover the Anthropic provider, API/product roots and all nine product-family records (execution pending).
 - All nine product `ecosystem_config.py` files had invalid lowercase Python `false` literals; corrected to `False`.
 - Root Anthropic catalog had an invalid lowercase Python `true` literal; corrected to `True`.
-- Root provider catalog, contracts, policy, module service, orchestrator and ecosystem service: added.
-- Unified product catalog and product-to-domain taxonomy: added.
+- Root provider catalog, contracts, policy, module service, orchestrator and ecosystem service: present.
+- Unified product catalog and product-to-domain taxonomy: present.
+- Google Core-style provider `manager.py` / `get_manager()` and read-only `domain_runtime.py`: added.
+- All nine product-family packages now expose a Google Core-style `get_manager()` via `manager.py`.
+- Root domain discovery, offering lookup, health, dependency map and registry status are unified through the provider manager/service.
+- `test_anthropic_core_domains.py` added for 9-domain coverage, package-manager parity and provider manager behavior.
 - PHP 8+ language-neutral Core result contract: added.
 - Python catalog boolean syntax defect found during audit and corrected.
 - New files and tests still require CI execution and runtime verification.
