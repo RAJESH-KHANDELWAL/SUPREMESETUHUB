@@ -966,7 +966,7 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "ecosystem_type": "CORE_SERVICE",
         "capabilities": ["TRANSPORT_MODE_TAXONOMY", "ROAD_RAIL_AIR_AND_WATER_MOBILITY_CLASSIFICATION", "PUBLIC_AND_PERSONAL_MOBILITY_METADATA", "TRANSPORT_INFRASTRUCTURE_DISCOVERY", "ACCESSIBILITY_METADATA"],
         "parent_id": "GLOBAL-CORE-ECOSYSTEM",
-        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_transport_mobility_core_ecosystem", "status": "CORE_CATALOG_ONLY", "catalogue_section": "S14", "api_transport_in_core": false, "live_connection_verified": false},
+        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_transport_mobility_core_ecosystem", "status": "CORE_CATALOG_ONLY", "catalogue_section": "S14", "api_transport_in_core": False, "live_connection_verified": False},
     },
     {
         "ecosystem_id": "GLOBAL-BADA-BUSINESS-TRANSPORT-LOGISTICS-SUPPLY-CHAIN-SERVICE-WORK-BUSINESS-CORE-ECOSYSTEM",
@@ -974,7 +974,7 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "ecosystem_type": "CORE_SERVICE",
         "capabilities": ["TRANSPORT_SERVICE_TAXONOMY", "LOGISTICS_AND_FREIGHT_CLASSIFICATION", "SUPPLY_CHAIN_CAPABILITY_METADATA", "COURIER_AND_LAST_MILE_SERVICE_DISCOVERY", "WAREHOUSING_AND_COLD_CHAIN_CLASSIFICATION", "TRANSPORT_BUSINESS_LIFECYCLE_METADATA", "WORK_AND_SERVICE_TYPE_CLASSIFICATION"],
         "parent_id": "GLOBAL-BADA-BUSINESS-CORE-ECOSYSTEM",
-        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/automotive_mobility/global_transport_mobility_logistics_supply_chain_business_core_ecosystem", "status": "CORE_CATALOG_ONLY", "catalogue_section": "S15", "api_transport_in_core": false, "live_connection_verified": false},
+        "metadata": {"core_module": "backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/automotive_mobility/global_transport_mobility_logistics_supply_chain_business_core_ecosystem", "status": "CORE_CATALOG_ONLY", "catalogue_section": "S15", "api_transport_in_core": False, "live_connection_verified": False},
     },
 )
 
