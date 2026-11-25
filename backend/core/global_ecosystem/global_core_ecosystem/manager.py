@@ -1593,7 +1593,7 @@ def get_catalog() -> list[dict[str, Any]]:
             "api_module": "backend/api/global_ecosystem/global_api_ecosystem/meta_api_ecosystem",
             "engine_module": "backend/engine/global_ecosystem/global_engine_ecosystem/meta_engine_ecosystem",
             "status": "CORE_CATALOG_ONLY",
-            "product_count": 11,
+            "product_count": 12,
             "domain_count": 18,
             "canonical_master_entry_ids": ["S07_privacy_and_data_protection","S09_artificial_intelligence","S09_cybersecurity","S09_data_analytics","S09_digital_identity","S11_privacy_law","S08_individual_business","S08_small_business","S08_medium_business","S08_digital_business","S08_international_business"],
             "master_catalog_alignment": "EXISTING_RELATED_TOPICS_ONLY_NO_META_SPECIFIC_ENTRY",
