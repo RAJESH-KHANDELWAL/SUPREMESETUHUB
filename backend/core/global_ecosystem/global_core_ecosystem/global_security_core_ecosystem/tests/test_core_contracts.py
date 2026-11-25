@@ -38,7 +38,7 @@ def test_security_taxonomy_provider_inventory_and_master_catalog_refs():
         for section in master["sections"]
         for entry in section["entries"]
     }
-    assert master["counts"]["unique_catalogue_entries"] == 246
+    assert master["counts"]["unique_catalogue_entries"] == 278
     assert master["expansion"]["target_unique_entries"] == 2468
     module_index = master["ecosystem_module_index"]["modules"]
     security_module = [x for x in module_index if x["ecosystem_id"] == "GLOBAL-SECURITY-CORE-ECOSYSTEM"]
