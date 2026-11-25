@@ -3,14 +3,12 @@ from __future__ import annotations
 from typing import Any
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
-from backend.core.global_ecosystem.global_core_ecosystem.global_infrastructure_core_ecosystem import GlobalInfrastructureCoreService
 from backend.engine.global_ecosystem.global_engine_ecosystem.global_infrastructure_engine_ecosystem import get_infrastructure_engine
 from backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem import GlobalInfrastructureEcosystemService
-from backend.infrastructure.model.global_ecosystem.global_model_ecosystem import get_model_catalog
+from backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem.model.global_ecosystem.global_model_ecosystem import get_model_catalog, validate_resource_record
 
 router = APIRouter(prefix="/infrastructure", tags=["GLOBAL INFRASTRUCTURE API ECOSYSTEM"])
 _ecosystem = GlobalInfrastructureEcosystemService()
-_core = GlobalInfrastructureCoreService()
 _engine = get_infrastructure_engine()
 
 class ResourceValidationRequest(BaseModel):
@@ -31,7 +29,7 @@ def infrastructure_status() -> dict[str, Any]:
         "overview": overview,
         "layers": {
             "api": "ROUTES_REGISTERED",
-            "core": _core.describe()["status"],
+            "core": "MODEL_CONTRACT_VALIDATION",
             "engine": _engine.status()["state"],
             "database": "CANONICAL_OWNER_BACKEND_DATABASE_SERVICE; GLOBAL CATALOG IS READ_ONLY",
             "storage": "CANONICAL_OWNER_BACKEND_STORAGE_SERVICE; ARTIFACT ADAPTER NOT ENABLED",
@@ -50,7 +48,12 @@ def infrastructure_models() -> dict[str, Any]:
 
 @router.post("/validate-resource")
 def validate_infrastructure_resource(payload: ResourceValidationRequest) -> dict[str, Any]:
-    result = _core.validate_resource(payload.dict())
-    if not result.get("success"):
-        raise HTTPException(status_code=422, detail=result)
-    return result
+    record = payload.dict()
+    errors = validate_resource_record(record)
+    if errors:
+        raise HTTPException(status_code=422, detail={"success": False, "errors": errors})
+    return {
+        "success": True,
+        "validated_by": "GLOBAL_MODEL_ECOSYSTEM",
+        "resource": record,
+    }
