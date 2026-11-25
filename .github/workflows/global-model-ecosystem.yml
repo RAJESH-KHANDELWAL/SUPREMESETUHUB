@@ -36,6 +36,7 @@ jobs:
         run: python -m pytest -q backend/test/test_global_model_ecosystem.py
 
   php-contract-tests:
+    if: ${{ hashFiles('backend/infrastructure/model/global_ecosystem/global_model_ecosystem/**/*.php', 'backend/test/global_test_ecosystem/global_php_ecosystem/global_model_ecosystem_test.php') != '' }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
