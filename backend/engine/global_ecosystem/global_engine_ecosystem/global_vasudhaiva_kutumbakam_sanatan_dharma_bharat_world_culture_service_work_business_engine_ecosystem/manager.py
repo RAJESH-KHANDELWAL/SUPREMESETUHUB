@@ -31,8 +31,25 @@ class GlobalCultureServiceWorkBusinessEngine:
     def catalogue(self, domain: str | None = None) -> list[dict[str, Any]]:
         return self.core.catalogue(domain)
 
+    def _searchable_catalogue(self) -> list[dict[str, Any]]:
+        records: list[dict[str, Any]] = []
+        for capability in self.core.catalogue():
+            for domain in capability.get("domains", []):
+                records.append(
+                    {
+                        "id": capability["id"],
+                        "name": capability["name"],
+                        "description": capability.get("description", capability["name"]),
+                        "domain": domain,
+                        "keywords": capability.get("keywords", []),
+                        "work_types": capability.get("work", []),
+                        "business_types": capability.get("business", []),
+                    }
+                )
+        return records
+
     def search(self, query: str, domain: str | None = None) -> dict[str, Any]:
-        matches = search_catalogue(self.core.catalogue(), query, domain)
+        matches = search_catalogue(self._searchable_catalogue(), query, domain)
         return {
             "query": query.strip(),
             "domain": domain.upper() if domain else None,
