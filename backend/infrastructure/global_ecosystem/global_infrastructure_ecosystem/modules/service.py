@@ -1,7 +1,7 @@
 """Canonical infrastructure resource service in Global Infrastructure Ecosystem."""
 from __future__ import annotations
 from typing import Optional
-from backend.infrastructure.model import InfrastructureCategory, InfrastructureOwnershipType, InfrastructureRelationship, InfrastructureRelationshipType, InfrastructureResource, InfrastructureResourceStatus, InfrastructureResourceType
+from backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem.model import InfrastructureCategory, InfrastructureOwnershipType, InfrastructureRelationship, InfrastructureRelationshipType, InfrastructureResource, InfrastructureResourceStatus, InfrastructureResourceType
 from .repository import InfrastructureRepository
 
 class InfrastructureService:
