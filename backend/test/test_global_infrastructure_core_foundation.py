@@ -2,7 +2,7 @@ from backend.core.global_ecosystem.global_core_ecosystem.global_infrastructure_c
 def test_catalog_is_provider_neutral_and_read_only():
  c=GlobalInfrastructureCoreOrchestrator().catalog()
  assert c["ecosystem_id"]=="GLOBAL-INFRASTRUCTURE-CORE-ECOSYSTEM"
- assert len(c["domains"])==20
+ assert len(c["domains"])==21
  assert all(p["live_connection_verified"] is False for p in c["providers"])
 def test_catalog_returns_independent_data():
  d=get_domain_catalog(); d[0]["name"]="MUTATED"
