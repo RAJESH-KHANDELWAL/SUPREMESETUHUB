@@ -20,7 +20,7 @@ def test_taxonomy_and_classification():
  assert classify_provider("KINSTA")["hosting_category"]=="MANAGED_WORDPRESS"
 def test_master_catalog_read_only_reference():
  data=json.loads((ROOT.parents[3]/"GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json").read_text(encoding="utf-8"))
- assert data["expansion"]["target_unique_entries"]==2468 and data["expansion"]["current_unique_entries"]==246
+ assert data["expansion"]["target_unique_entries"]==2468 and data["expansion"]["current_unique_entries"]==278
  rows=[x for x in data["ecosystem_module_index"]["modules"] if x["ecosystem_id"]==ROOT_ID]
  assert len(rows)==1 and rows[0]["provider_directory_count"]==206 and rows[0]["domain_count"]==16
 def test_all_provider_and_domain_packages_have_contract_files():
