@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../../infrastructure/manager.php';
-require_once __DIR__ . '/../../infrastructure/global_ecosystem/global_infrastructure_ecosystem/manager.php';
+require_once __DIR__ . '/../../../infrastructure/manager.php';
+require_once __DIR__ . '/../../../infrastructure/global_ecosystem/global_infrastructure_ecosystem/manager.php';
 $root = (new BackendInfrastructureManager())->health();
 $ecosystem = (new BackendGlobalInfrastructureEcosystemManager())->health();
 if (!$root['healthy']) { fwrite(STDERR, "Infrastructure manager checks failed: " . json_encode($root['checks']) . PHP_EOL); exit(1); }

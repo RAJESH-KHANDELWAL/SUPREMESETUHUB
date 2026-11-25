@@ -6,14 +6,14 @@ on:
     paths:
       - "backend/infrastructure/model/**"
       - "backend/test/test_global_model_ecosystem.py"
-      - "backend/test/php/global_model_ecosystem_test.php"
+      - "backend/test/global_test_ecosystem/global_php_ecosystem/global_model_ecosystem_test.php"
       - ".github/workflows/global-model-ecosystem.yml"
   pull_request:
     branches: [main]
     paths:
       - "backend/infrastructure/model/**"
       - "backend/test/test_global_model_ecosystem.py"
-      - "backend/test/php/global_model_ecosystem_test.php"
+      - "backend/test/global_test_ecosystem/global_php_ecosystem/global_model_ecosystem_test.php"
       - ".github/workflows/global-model-ecosystem.yml"
   workflow_dispatch:
 
@@ -49,6 +49,6 @@ jobs:
         run: |
           set -euo pipefail
           find backend/infrastructure/model/global_ecosystem/global_model_ecosystem -name '*.php' -print0 | while IFS= read -r -d '' file; do php -l "$file"; done
-          php -l backend/test/php/global_model_ecosystem_test.php
+          php -l backend/test/global_test_ecosystem/global_php_ecosystem/global_model_ecosystem_test.php
       - name: Run PHP model contract tests
-        run: php backend/test/php/global_model_ecosystem_test.php
+        run: php backend/test/global_test_ecosystem/global_php_ecosystem/global_model_ecosystem_test.php

@@ -41,9 +41,9 @@ jobs:
 
       - name: Run backend/test PHP tests
         run: |
-          php backend/test/php/global_algorithm_kernel_test.php
-          php backend/test/php/global_model_ecosystem_test.php
-          php backend/test/php/infrastructure_manager_test.php
+          php backend/test/global_test_ecosystem/global_php_ecosystem/global_algorithm_kernel_test.php
+          php backend/test/global_test_ecosystem/global_php_ecosystem/global_model_ecosystem_test.php
+          php backend/test/global_test_ecosystem/global_php_ecosystem/infrastructure_manager_test.php
 
   python-quality:
     name: Python syntax checks
