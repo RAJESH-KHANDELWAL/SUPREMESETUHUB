@@ -13,6 +13,7 @@ MODULE_DIRS = sorted(
     and (folder / "manager.php").is_file()
     and (folder / "__init__.py").is_file()
     and (folder / "README.md").is_file()
+    and folder.name not in {"data", "tests"}
 )
 
 
