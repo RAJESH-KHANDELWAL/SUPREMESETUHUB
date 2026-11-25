@@ -1,2 +1,0 @@
-# Global Food & Hospitality Directory
-Country-wise food, beverage and hospitality taxonomy. Store country, region, currency, applicable regulator/licence, source, verification status and last-checked date. Do not assume one country's licence authorises another.

@@ -1,7 +1,0 @@
-"""Billing Core ecosystem package."""
-from .catalog import STRIPE_BILLING_CORE_ECOSYSTEM, get_catalog
-
-ECOSYSTEM_ID = "STRIPE-BILLING-CORE-ECOSYSTEM"
-ECOSYSTEM_NAME = "STRIPE BILLING CORE ECOSYSTEM"
-
-__all__ = ["STRIPE_BILLING_CORE_ECOSYSTEM", "get_catalog", "ECOSYSTEM_ID", "ECOSYSTEM_NAME"]

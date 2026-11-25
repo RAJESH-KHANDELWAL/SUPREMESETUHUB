@@ -1,1 +1,0 @@
-"""Jurisdictional metadata profile namespace."""

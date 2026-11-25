@@ -1,2 +1,0 @@
-"""AWS service-family lifecycle vocabulary."""
-LIFECYCLE_STATES = ("DISCOVERED", "REGISTERED", "CONFIGURATION_REQUIRED", "READY", "DISABLED", "ERROR")

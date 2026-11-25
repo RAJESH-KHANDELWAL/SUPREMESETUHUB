@@ -1,13 +1,3 @@
-# global_store_ecosystem
+# Ecosystem scaffold
 
-Layer: Global Infrastructure
-
-Responsibility: Managed storage of backup sets, snapshots, and recovery artifacts.
-
-Status: Structural scaffold only. This directory establishes the canonical ecosystem boundary and naming. Add implementation modules only after mapping existing code, imports, workflow references, and tests. Do not duplicate or remove existing functionality during scaffolding.
-
-Conventions:
-- Keep the ecosystem name exactly as listed in the layer master list.
-- Use `manager.py` as the primary Python manager entry point when implementation is added, consistent with the repository convention.
-- Add or update tests and workflow coverage when implementation changes.
-- Preserve compatibility until dependent imports and tests have been migrated.
+This directory is a structural scaffold only. Add implementation after mapping existing code, imports, workflows, and tests. Do not duplicate or remove existing functionality during scaffolding. Use `manager.py` as the primary Python manager when implementation is added. Preserve compatibility until dependent imports and tests are migrated.

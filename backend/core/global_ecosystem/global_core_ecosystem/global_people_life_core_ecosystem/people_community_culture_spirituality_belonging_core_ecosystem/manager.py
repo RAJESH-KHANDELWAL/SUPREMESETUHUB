@@ -1,8 +1,0 @@
-"""Domain-scoped metadata manager for COMMUNITY_CULTURE_SPIRITUALITY_AND_BELONGING."""
-from ..domain_runtime import PeopleLifeDomainManager
-
-class COMMUNITY_CULTURE_SPIRITUALITY_AND_BELONGINGManager(PeopleLifeDomainManager):
-    DOMAIN_ID = "COMMUNITY_CULTURE_SPIRITUALITY_AND_BELONGING"
-
-def get_manager() -> COMMUNITY_CULTURE_SPIRITUALITY_AND_BELONGINGManager:
-    return COMMUNITY_CULTURE_SPIRITUALITY_AND_BELONGINGManager()

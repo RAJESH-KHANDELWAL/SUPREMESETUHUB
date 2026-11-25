@@ -1,3 +1,0 @@
-"""Model namespace for GLOBAL_APP_DEVICE_BACKUP_STORAGE_ECOSYSTEM."""
-from .record import CategoryRecord
-__all__=["CategoryRecord"]

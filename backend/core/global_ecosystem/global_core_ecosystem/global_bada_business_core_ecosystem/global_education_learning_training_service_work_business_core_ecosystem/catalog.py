@@ -1,3 +1,0 @@
-from .domain_catalog import list_business_domains
-CATALOG={"ecosystem_id":"GLOBAL-BADA-BUSINESS-EDUCATION-LEARNING-TRAINING-CORE-ECOSYSTEM","name":"GLOBAL EDUCATION LEARNING TRAINING SERVICE WORK BUSINESS CORE ECOSYSTEM","version":"1.0.0","status":"REGISTERED","layer":"GLOBAL_BADA_BUSINESS","parent_id":"GLOBAL-BADA-BUSINESS-CORE-ECOSYSTEM","global_core_dependency":"GLOBAL-EDUCATION-LEARNING-TRAINING-CORE-ECOSYSTEM","domains":list_business_domains(),"capabilities":["SERVICE_CLASSIFICATION","WORK_CLASSIFICATION","BUSINESS_MODEL_DISCOVERY"],"payments_enabled":False,"execution_enabled":False,"live_businesses_verified":False}
-def get_catalog(): return {**CATALOG,"domains":[dict(x) for x in CATALOG["domains"]],"capabilities":list(CATALOG["capabilities"])}

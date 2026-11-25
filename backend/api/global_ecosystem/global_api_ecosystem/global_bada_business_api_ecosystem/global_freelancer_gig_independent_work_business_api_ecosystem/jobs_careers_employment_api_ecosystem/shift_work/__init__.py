@@ -1,1 +1,0 @@
-"""Shift Work taxonomy package."""

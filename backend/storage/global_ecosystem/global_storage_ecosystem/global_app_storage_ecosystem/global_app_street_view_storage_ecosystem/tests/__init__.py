@@ -1,1 +1,0 @@
-"""Offline tests for GLOBAL_APP_STREET_VIEW_STORAGE_ECOSYSTEM."""

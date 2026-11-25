@@ -1,1 +1,0 @@
-"""Krutrim Core tests."""

@@ -1,2 +1,0 @@
-# Adult 18+ Access
-A separately controlled adult-only access tier. Enforce age and jurisdiction requirements, lawful-content restrictions, privacy safeguards and dedicated moderation. Keep adult-only material out of general-audience discovery.

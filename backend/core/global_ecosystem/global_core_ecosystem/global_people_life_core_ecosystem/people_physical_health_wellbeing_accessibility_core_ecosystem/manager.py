@@ -1,8 +1,0 @@
-"""Domain-scoped metadata manager for PHYSICAL_HEALTH_WELLBEING_AND_ACCESSIBILITY."""
-from ..domain_runtime import PeopleLifeDomainManager
-
-class PHYSICAL_HEALTH_WELLBEING_AND_ACCESSIBILITYManager(PeopleLifeDomainManager):
-    DOMAIN_ID = "PHYSICAL_HEALTH_WELLBEING_AND_ACCESSIBILITY"
-
-def get_manager() -> PHYSICAL_HEALTH_WELLBEING_AND_ACCESSIBILITYManager:
-    return PHYSICAL_HEALTH_WELLBEING_AND_ACCESSIBILITYManager()

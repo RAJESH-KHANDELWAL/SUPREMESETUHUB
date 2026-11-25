@@ -1,1 +1,0 @@
-"""SAP Joule Core tests."""
