@@ -8,8 +8,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from backend.core.global_ecosystem.global_core_ecosystem.global_bada_business_core_ecosystem.global_culture_service_work_business_core_ecosystem.service import (
-    GlobalBadaBusinessCultureServiceWorkBusinessCore,
+from backend.core.global_ecosystem.global_core_ecosystem.global_bada_business_core_ecosystem.global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_core_ecosystem.service import (
+    GlobalBadaBusinessCulturalServiceWorkBusinessCore,
 )
 from backend.engine.global_ecosystem.global_engine_ecosystem.global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_engine_ecosystem.manager import (
     GlobalCultureServiceWorkBusinessEngine,
@@ -37,14 +37,14 @@ class GlobalCultureServiceWorkBusinessAPIService:
     def __init__(
         self,
         *,
-        core: GlobalBadaBusinessCultureServiceWorkBusinessCore | None = None,
+        core: GlobalBadaBusinessCulturalServiceWorkBusinessCore | None = None,
         engine: GlobalCultureServiceWorkBusinessEngine | None = None,
         ai: GlobalCultureServiceWorkBusinessAI | None = None,
         repository: GlobalCultureServiceWorkBusinessRepository | None = None,
         storage: GlobalCultureServiceWorkBusinessStorage | None = None,
         cloud: GlobalCultureServiceWorkBusinessCloud | None = None,
     ) -> None:
-        self.core = core or GlobalBadaBusinessCultureServiceWorkBusinessCore()
+        self.core = core or GlobalBadaBusinessCulturalServiceWorkBusinessCore()
         self.engine = engine or GlobalCultureServiceWorkBusinessEngine(self.core)
         self.ai = ai or GlobalCultureServiceWorkBusinessAI(self.engine)
         self.repository = repository or GlobalCultureServiceWorkBusinessRepository()
@@ -113,12 +113,10 @@ class GlobalCultureServiceWorkBusinessAPIService:
         )
 
     def validate_record(self, record: dict[str, Any]) -> list[str]:
-        from .records import CultureServiceWorkBusinessRecords
-        return CultureServiceWorkBusinessRecords(self.core, self.repository).validate(record)
+        return self.core.validate(record)
 
     def can_publish_record(self, record: dict[str, Any]) -> bool:
-        from .records import CultureServiceWorkBusinessRecords
-        return CultureServiceWorkBusinessRecords(self.core, self.repository).can_publish(record)
+        return self.core.can_publish(record)
 
     def save_record(self, record: dict[str, Any]) -> dict[str, Any]:
         from .records import CultureServiceWorkBusinessRecords
