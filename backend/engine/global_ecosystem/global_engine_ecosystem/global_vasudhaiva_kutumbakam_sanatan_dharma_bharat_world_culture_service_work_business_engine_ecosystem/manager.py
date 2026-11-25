@@ -1,11 +1,11 @@
 """ENGINE orchestration for culture-service-work-business discovery."""
 from __future__ import annotations
 from typing import Any
-from backend.core.global_ecosystem.global_core_ecosystem.global_bada_business_core_ecosystem.global_culture_service_work_business_core_ecosystem.service import GlobalBadaBusinessCultureServiceWorkBusinessCore
+from backend.core.global_ecosystem.global_core_ecosystem.global_bada_business_core_ecosystem.global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_core_ecosystem.service import GlobalBadaBusinessCulturalServiceWorkBusinessCore
 from .discovery import search_catalogue
 class GlobalCultureServiceWorkBusinessEngine:
-    def __init__(self, core: GlobalBadaBusinessCultureServiceWorkBusinessCore | None = None) -> None:
-        self.core=core or GlobalBadaBusinessCultureServiceWorkBusinessCore()
+    def __init__(self, core: GlobalBadaBusinessCulturalServiceWorkBusinessCore | None = None) -> None:
+        self.core=core or GlobalBadaBusinessCulturalServiceWorkBusinessCore()
     def status(self) -> dict[str,Any]:
         return {"component":"ENGINE","status":"READY","capabilities":["CATALOGUE_DISCOVERY","DOMAIN_FILTERING","RELEVANCE_RANKING"],"live_marketplace":False}
     def catalogue(self, domain: str | None = None) -> list[dict[str,Any]]:
