@@ -9,7 +9,7 @@ DOMAIN_DEFINITIONS: dict[str, dict[str, Any]] = {
         "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/sanatan_dharma_cultural_core_ecosystem",
         "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/sanatan_dharma",
         "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
-        "live_connection_verified": False
+        "live_connection_verified": false
     },
     "BHARAT_SANSKRITI": {
         "name": "Bharat Sanskriti",
@@ -19,7 +19,7 @@ DOMAIN_DEFINITIONS: dict[str, dict[str, Any]] = {
         "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/bharat_sanskriti_core_ecosystem",
         "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/bharat_sanskriti",
         "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
-        "live_connection_verified": False
+        "live_connection_verified": false
     },
     "BHARAT_CIVILIZATION": {
         "name": "Bharat Civilization",
@@ -29,7 +29,7 @@ DOMAIN_DEFINITIONS: dict[str, dict[str, Any]] = {
         "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/bharat_civilization_core_ecosystem",
         "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/bharat_civilization",
         "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
-        "live_connection_verified": False
+        "live_connection_verified": false
     },
     "WORLD_CULTURES": {
         "name": "World Cultures",
@@ -39,7 +39,7 @@ DOMAIN_DEFINITIONS: dict[str, dict[str, Any]] = {
         "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/world_cultures_core_ecosystem",
         "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/world_cultures",
         "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
-        "live_connection_verified": False
+        "live_connection_verified": false
     },
     "WORLD_CIVILIZATIONS": {
         "name": "World Civilizations",
@@ -49,7 +49,7 @@ DOMAIN_DEFINITIONS: dict[str, dict[str, Any]] = {
         "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/world_civilizations_core_ecosystem",
         "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/world_civilizations",
         "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
-        "live_connection_verified": False
+        "live_connection_verified": false
     },
     "LANGUAGES_AND_LITERATURE": {
         "name": "Languages and Literature",
@@ -59,7 +59,7 @@ DOMAIN_DEFINITIONS: dict[str, dict[str, Any]] = {
         "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/languages_literature_core_ecosystem",
         "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/languages",
         "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
-        "live_connection_verified": False
+        "live_connection_verified": false
     },
     "HERITAGE_AND_ARCHIVES": {
         "name": "Heritage and Archives",
@@ -69,7 +69,7 @@ DOMAIN_DEFINITIONS: dict[str, dict[str, Any]] = {
         "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/heritage_archives_core_ecosystem",
         "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/heritage",
         "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
-        "live_connection_verified": False
+        "live_connection_verified": false
     },
     "FESTIVALS_AND_LIVING_TRADITIONS": {
         "name": "Festivals and Living Traditions",
@@ -79,7 +79,7 @@ DOMAIN_DEFINITIONS: dict[str, dict[str, Any]] = {
         "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/festivals_living_traditions_core_ecosystem",
         "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/festivals",
         "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
-        "live_connection_verified": False
+        "live_connection_verified": false
     },
     "ARTS_AND_TRADITIONS": {
         "name": "Arts and Traditions",
@@ -89,7 +89,7 @@ DOMAIN_DEFINITIONS: dict[str, dict[str, Any]] = {
         "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/arts_traditions_core_ecosystem",
         "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/arts_and_traditions",
         "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
-        "live_connection_verified": False
+        "live_connection_verified": false
     },
     "KNOWLEDGE_AND_EDUCATION": {
         "name": "Knowledge and Education",
@@ -99,7 +99,7 @@ DOMAIN_DEFINITIONS: dict[str, dict[str, Any]] = {
         "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/knowledge_education_core_ecosystem",
         "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/knowledge_and_education",
         "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
-        "live_connection_verified": False
+        "live_connection_verified": false
     },
     "ORAL_HISTORY": {
         "name": "Oral History",
@@ -109,7 +109,7 @@ DOMAIN_DEFINITIONS: dict[str, dict[str, Any]] = {
         "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/oral_history_core_ecosystem",
         "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/oral_history",
         "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
-        "live_connection_verified": False
+        "live_connection_verified": false
     },
     "CULTURAL_TIMELINE": {
         "name": "Cultural Timeline",
@@ -119,7 +119,7 @@ DOMAIN_DEFINITIONS: dict[str, dict[str, Any]] = {
         "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/cultural_timeline_core_ecosystem",
         "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/timeline",
         "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
-        "live_connection_verified": False
+        "live_connection_verified": false
     },
     "EVIDENCE_AND_VERIFICATION": {
         "name": "Evidence and Verification",
@@ -129,7 +129,7 @@ DOMAIN_DEFINITIONS: dict[str, dict[str, Any]] = {
         "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/cultural_evidence_verification_core_ecosystem",
         "api_domain_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/verification",
         "implementation_mode": "LOCAL_DOMAIN_PACKAGE",
-        "live_connection_verified": False
+        "live_connection_verified": false
     }
 }
 PILLARS = {"vasudhaiva_kutumbakam":"Shared humanity, mutual respect and intercultural cooperation.","sanatan_dharma":"Plural philosophical, spiritual, ethical, textual and living traditions.","bharat_sanskriti":"Bharat's diverse regional, linguistic, artistic and community heritage.","world_culture":"Distinct cultures, languages, histories and living communities of the world."}

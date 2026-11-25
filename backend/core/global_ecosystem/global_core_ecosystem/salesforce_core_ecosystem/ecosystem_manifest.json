@@ -1,0 +1,224 @@
+{
+  "ecosystem_id": "SALESFORCE-CORE-ECOSYSTEM",
+  "provider_id": "salesforce",
+  "name": "Salesforce Core Ecosystem",
+  "classification": "CORE_IMPLEMENTATION_REGISTRY",
+  "product_count": 14,
+  "products": [
+    {
+      "product_id": "SALESFORCE_ANALYTICS",
+      "slug": "analytics",
+      "name": "Analytics and Reporting",
+      "purpose": "Salesforce Analytics APIs and reporting metadata.",
+      "domain_id": "ANALYTICS_REPORTING",
+      "package_name": "salesforce_analytics_core_ecosystem",
+      "enabled": true,
+      "implementation_mode": "CORE_METADATA"
+    },
+    {
+      "product_id": "SALESFORCE_APEX",
+      "slug": "apex",
+      "name": "Apex Development",
+      "purpose": "Apex developer tooling and code metadata boundaries.",
+      "domain_id": "DEVELOPER_PLATFORM",
+      "package_name": "salesforce_apex_core_ecosystem",
+      "enabled": true,
+      "implementation_mode": "CORE_METADATA"
+    },
+    {
+      "product_id": "SALESFORCE_BULK",
+      "slug": "bulk",
+      "name": "Bulk Data Operations",
+      "purpose": "Bulk import/export job metadata and async capability discovery.",
+      "domain_id": "DATA_OPERATIONS",
+      "package_name": "salesforce_bulk_core_ecosystem",
+      "enabled": true,
+      "implementation_mode": "CORE_METADATA"
+    },
+    {
+      "product_id": "SALESFORCE_COMPOSITE",
+      "slug": "composite",
+      "name": "Composite Requests",
+      "purpose": "Composite REST request composition metadata.",
+      "domain_id": "API",
+      "package_name": "salesforce_composite_core_ecosystem",
+      "enabled": true,
+      "implementation_mode": "CORE_METADATA"
+    },
+    {
+      "product_id": "SALESFORCE_DATA_CLOUD",
+      "slug": "data_cloud",
+      "name": "Data Cloud",
+      "purpose": "Data platform ingestion, model and activation metadata.",
+      "domain_id": "DATA_OPERATIONS",
+      "package_name": "salesforce_data_cloud_core_ecosystem",
+      "enabled": true,
+      "implementation_mode": "CORE_METADATA"
+    },
+    {
+      "product_id": "SALESFORCE_FILES_CONTENT",
+      "slug": "files_content",
+      "name": "Files and Content",
+      "purpose": "Salesforce files, content and document capability metadata.",
+      "domain_id": "CONTENT",
+      "package_name": "salesforce_files_content_core_ecosystem",
+      "enabled": true,
+      "implementation_mode": "CORE_METADATA"
+    },
+    {
+      "product_id": "SALESFORCE_IDENTITY_OAUTH",
+      "slug": "identity_oauth",
+      "name": "Identity and OAuth",
+      "purpose": "Identity and OAuth configuration capability metadata.",
+      "domain_id": "IDENTITY_AUTH",
+      "package_name": "salesforce_identity_oauth_core_ecosystem",
+      "enabled": true,
+      "implementation_mode": "CORE_METADATA"
+    },
+    {
+      "product_id": "SALESFORCE_MARKETING_CLOUD",
+      "slug": "marketing_cloud",
+      "name": "Marketing Cloud",
+      "purpose": "Campaign, journey and messaging metadata.",
+      "domain_id": "MARKETING",
+      "package_name": "salesforce_marketing_cloud_core_ecosystem",
+      "enabled": true,
+      "implementation_mode": "CORE_METADATA"
+    },
+    {
+      "product_id": "SALESFORCE_METADATA_TOOLING",
+      "slug": "metadata_tooling",
+      "name": "Metadata and Tooling",
+      "purpose": "Metadata, describe and developer tooling capability metadata.",
+      "domain_id": "DEVELOPER_PLATFORM",
+      "package_name": "salesforce_metadata_tooling_core_ecosystem",
+      "enabled": true,
+      "implementation_mode": "CORE_METADATA"
+    },
+    {
+      "product_id": "SALESFORCE_PLATFORM_EVENTS_PUBSUB",
+      "slug": "platform_events_pubsub",
+      "name": "Platform Events and Pub/Sub",
+      "purpose": "Event integration and Pub/Sub capability metadata.",
+      "domain_id": "EVENTS",
+      "package_name": "salesforce_platform_events_pubsub_core_ecosystem",
+      "enabled": true,
+      "implementation_mode": "CORE_METADATA"
+    },
+    {
+      "product_id": "SALESFORCE_REST",
+      "slug": "rest",
+      "name": "REST API",
+      "purpose": "REST resource and capability discovery.",
+      "domain_id": "API",
+      "package_name": "salesforce_rest_core_ecosystem",
+      "enabled": true,
+      "implementation_mode": "CORE_METADATA"
+    },
+    {
+      "product_id": "SALESFORCE_SERVICE_CLOUD",
+      "slug": "service_cloud",
+      "name": "Service Cloud",
+      "purpose": "Customer service, case and support capability metadata.",
+      "domain_id": "SERVICE",
+      "package_name": "salesforce_service_cloud_core_ecosystem",
+      "enabled": true,
+      "implementation_mode": "CORE_METADATA"
+    },
+    {
+      "product_id": "SALESFORCE_SOAP",
+      "slug": "soap",
+      "name": "SOAP API",
+      "purpose": "SOAP operation and compatibility capability metadata.",
+      "domain_id": "API",
+      "package_name": "salesforce_soap_core_ecosystem",
+      "enabled": true,
+      "implementation_mode": "CORE_METADATA"
+    },
+    {
+      "product_id": "SALESFORCE_STREAMING",
+      "slug": "streaming",
+      "name": "Streaming",
+      "purpose": "Streaming, CDC and subscription capability metadata.",
+      "domain_id": "EVENTS",
+      "package_name": "salesforce_streaming_core_ecosystem",
+      "enabled": true,
+      "implementation_mode": "CORE_METADATA"
+    }
+  ],
+  "domain_count": 9,
+  "domains": [
+    {
+      "id": "IDENTITY_AUTH",
+      "name": "Identity and Authorization",
+      "products": [
+        "identity_oauth"
+      ]
+    },
+    {
+      "id": "API",
+      "name": "API Interfaces and Composition",
+      "products": [
+        "rest",
+        "soap",
+        "composite"
+      ]
+    },
+    {
+      "id": "DATA_OPERATIONS",
+      "name": "Data Operations",
+      "products": [
+        "bulk",
+        "data_cloud"
+      ]
+    },
+    {
+      "id": "DEVELOPER_PLATFORM",
+      "name": "Developer and Metadata Platform",
+      "products": [
+        "apex",
+        "metadata_tooling"
+      ]
+    },
+    {
+      "id": "ANALYTICS_REPORTING",
+      "name": "Analytics and Reporting",
+      "products": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "CONTENT",
+      "name": "Files and Content",
+      "products": [
+        "files_content"
+      ]
+    },
+    {
+      "id": "MARKETING",
+      "name": "Marketing",
+      "products": [
+        "marketing_cloud"
+      ]
+    },
+    {
+      "id": "SERVICE",
+      "name": "Customer Service",
+      "products": [
+        "service_cloud"
+      ]
+    },
+    {
+      "id": "EVENTS",
+      "name": "Event Streaming",
+      "products": [
+        "platform_events_pubsub",
+        "streaming"
+      ]
+    }
+  ],
+  "live_connections_verified": false,
+  "api_transport_in_core": false,
+  "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+  "master_catalog_access_mode": "READ_ONLY_IMPLEMENTATION_REGISTRY"
+}

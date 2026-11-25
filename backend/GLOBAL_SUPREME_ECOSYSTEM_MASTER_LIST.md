@@ -278,43 +278,6 @@
 12. Universal
 13. Supreme
 
-## 14. Global Transport, Road, Rail, Air & Mobility Ecosystem
-1. Road Transport
-2. Rail Transport
-3. Air Transport
-4. Water Transport
-5. Public Transit
-6. Personal Mobility
-7. Shared Mobility
-8. Active Mobility
-9. Intermodal Transport
-10. Transport Infrastructure
-11. Traffic and Transit Systems
-12. Accessible Mobility
-
-## 15. Global Transport, Logistics, Supply Chain Service, Work & Business Ecosystem
-1. Passenger Transport Business
-2. Road Transport Business
-3. Rail Transport Business
-4. Air Transport Business
-5. Water Transport and Shipping Business
-6. Freight and Logistics Business
-7. Supply Chain Business
-8. Courier and Last-Mile Business
-9. Warehousing and Distribution Business
-10. Cold Chain Business
-11. Fleet and Vehicle Services Business
-12. Mobility Services Business
-13. Transport Booking and Ticketing Business
-14. Ports and Terminal Services Business
-15. Transport Infrastructure Services Business
-16. Vehicle Rental and Leasing Business
-17. Transport Maintenance and Repair Business
-18. Transport Finance and Insurance Business
-19. Transport Technology Business
-20. Transport Consulting and Compliance Business
-
-
 ## Master Direction
 
 **Geographic progression:**

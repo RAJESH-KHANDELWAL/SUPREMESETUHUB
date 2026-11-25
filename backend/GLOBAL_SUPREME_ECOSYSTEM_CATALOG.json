@@ -6,15 +6,15 @@
   "source_file": "backend/GLOBAL_SUPREME_ECOSYSTEM_MASTER_LIST.md",
   "expansion": {
     "target_unique_entries": 2468,
-    "current_unique_entries": 278,
-    "remaining_unique_entries": 2190,
+    "current_unique_entries": 246,
+    "remaining_unique_entries": 2222,
     "status": "FOUNDATION_CATALOG_WITH_IMPLEMENTATION_REGISTRY",
     "policy": "Expand only with meaningful, individually defined, non-duplicate entries. Do not manufacture entries merely to reach the target."
   },
   "counts": {
-    "section_count": 15,
-    "source_numbered_entries": 280,
-    "unique_catalogue_entries": 278,
+    "section_count": 13,
+    "source_numbered_entries": 248,
+    "unique_catalogue_entries": 246,
     "cross_reference_entries": 2,
     "capability_levels": 13
   },
@@ -1597,212 +1597,6 @@
           "name": "Supreme",
           "entry_id": "S13_supreme",
           "entry_kind": "capability_level"
-        }
-      ]
-    },
-    {
-      "section_number": 14,
-      "title": "Global Transport, Road, Rail, Air & Mobility Ecosystem",
-      "section_id": "global_transport_road_rail_air_mobility_ecosystem",
-      "entries": [
-        {
-          "position": 1,
-          "name": "Road Transport",
-          "entry_id": "S14_road_transport",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 2,
-          "name": "Rail Transport",
-          "entry_id": "S14_rail_transport",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 3,
-          "name": "Air Transport",
-          "entry_id": "S14_air_transport",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 4,
-          "name": "Water Transport",
-          "entry_id": "S14_water_transport",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 5,
-          "name": "Public Transit",
-          "entry_id": "S14_public_transit",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 6,
-          "name": "Personal Mobility",
-          "entry_id": "S14_personal_mobility",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 7,
-          "name": "Shared Mobility",
-          "entry_id": "S14_shared_mobility",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 8,
-          "name": "Active Mobility",
-          "entry_id": "S14_active_mobility",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 9,
-          "name": "Intermodal Transport",
-          "entry_id": "S14_intermodal_transport",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 10,
-          "name": "Transport Infrastructure",
-          "entry_id": "S14_transport_infrastructure",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 11,
-          "name": "Traffic and Transit Systems",
-          "entry_id": "S14_traffic_transit_systems",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 12,
-          "name": "Accessible Mobility",
-          "entry_id": "S14_accessible_mobility",
-          "entry_kind": "ecosystem_topic"
-        }
-      ]
-    },
-    {
-      "section_number": 15,
-      "title": "Global Transport, Logistics, Supply Chain Service, Work & Business Ecosystem",
-      "section_id": "global_transport_logistics_supply_chain_service_work_business_ecosystem",
-      "entries": [
-        {
-          "position": 1,
-          "name": "Passenger Transport Business",
-          "entry_id": "S15_passenger_transport_business",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 2,
-          "name": "Road Transport Business",
-          "entry_id": "S15_road_transport_business",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 3,
-          "name": "Rail Transport Business",
-          "entry_id": "S15_rail_transport_business",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 4,
-          "name": "Air Transport Business",
-          "entry_id": "S15_air_transport_business",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 5,
-          "name": "Water Transport and Shipping Business",
-          "entry_id": "S15_water_shipping_business",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 6,
-          "name": "Freight and Logistics Business",
-          "entry_id": "S15_freight_logistics_business",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 7,
-          "name": "Supply Chain Business",
-          "entry_id": "S15_supply_chain_business",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 8,
-          "name": "Courier and Last-Mile Business",
-          "entry_id": "S15_courier_last_mile_business",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 9,
-          "name": "Warehousing and Distribution Business",
-          "entry_id": "S15_warehousing_distribution_business",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 10,
-          "name": "Cold Chain Business",
-          "entry_id": "S15_cold_chain_business",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 11,
-          "name": "Fleet and Vehicle Services Business",
-          "entry_id": "S15_fleet_vehicle_services_business",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 12,
-          "name": "Mobility Services Business",
-          "entry_id": "S15_mobility_services_business",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 13,
-          "name": "Transport Booking and Ticketing Business",
-          "entry_id": "S15_booking_ticketing_business",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 14,
-          "name": "Ports and Terminal Services Business",
-          "entry_id": "S15_port_terminal_services_business",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 15,
-          "name": "Transport Infrastructure Services Business",
-          "entry_id": "S15_transport_infrastructure_services_business",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 16,
-          "name": "Vehicle Rental and Leasing Business",
-          "entry_id": "S15_vehicle_rental_leasing_business",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 17,
-          "name": "Transport Maintenance and Repair Business",
-          "entry_id": "S15_transport_maintenance_repair_business",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 18,
-          "name": "Transport Finance and Insurance Business",
-          "entry_id": "S15_transport_finance_insurance_business",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 19,
-          "name": "Transport Technology Business",
-          "entry_id": "S15_transport_technology_business",
-          "entry_kind": "ecosystem_topic"
-        },
-        {
-          "position": 20,
-          "name": "Transport Consulting and Compliance Business",
-          "entry_id": "S15_transport_consulting_compliance_business",
-          "entry_kind": "ecosystem_topic"
         }
       ]
     }
@@ -4980,6 +4774,608 @@
       "canonical_domain_source_ref": "backend/global_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_ecosystem",
       "canonical_api_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_api_ecosystem/",
       "business_expression_ref": "backend/global_ecosystem/global_bada_business_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_business_ecosystem"
+    },
+    "salesforce_core_ecosystem": {
+      "ecosystem_id": "SALESFORCE-CORE-ECOSYSTEM",
+      "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem",
+      "classification": "CORE_IMPLEMENTATION_REGISTRY",
+      "taxonomy_entries_counted_in_global_2468_target": false,
+      "reason": "Provider/product capability implementation metadata is a registry reference, not a new or duplicate master taxonomy topic.",
+      "provider_id": "salesforce",
+      "product_count": 14,
+      "product_package_count": 14,
+      "domain_count": 9,
+      "products": [
+        {
+          "product_id": "SALESFORCE_ANALYTICS",
+          "name": "Analytics and Reporting",
+          "package_name": "salesforce_analytics_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_analytics_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_analytics_core_ecosystem/manager.py",
+          "purpose": "Analytics and reporting capability metadata."
+        },
+        {
+          "product_id": "SALESFORCE_APEX",
+          "name": "Apex Development",
+          "package_name": "salesforce_apex_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_apex_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_apex_core_ecosystem/manager.py",
+          "purpose": "Developer and Apex metadata."
+        },
+        {
+          "product_id": "SALESFORCE_BULK",
+          "name": "Bulk Data Operations",
+          "package_name": "salesforce_bulk_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_bulk_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_bulk_core_ecosystem/manager.py",
+          "purpose": "Bulk job capability metadata."
+        },
+        {
+          "product_id": "SALESFORCE_COMPOSITE",
+          "name": "Composite Requests",
+          "package_name": "salesforce_composite_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_composite_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_composite_core_ecosystem/manager.py",
+          "purpose": "Composite REST capability metadata."
+        },
+        {
+          "product_id": "SALESFORCE_DATA_CLOUD",
+          "name": "Data Cloud",
+          "package_name": "salesforce_data_cloud_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_data_cloud_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_data_cloud_core_ecosystem/manager.py",
+          "purpose": "Data platform ingestion and activation metadata."
+        },
+        {
+          "product_id": "SALESFORCE_FILES_CONTENT",
+          "name": "Files and Content",
+          "package_name": "salesforce_files_content_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_files_content_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_files_content_core_ecosystem/manager.py",
+          "purpose": "Files and content metadata."
+        },
+        {
+          "product_id": "SALESFORCE_IDENTITY_OAUTH",
+          "name": "Identity and OAuth",
+          "package_name": "salesforce_identity_oauth_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_identity_oauth_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_identity_oauth_core_ecosystem/manager.py",
+          "purpose": "Identity and OAuth metadata."
+        },
+        {
+          "product_id": "SALESFORCE_MARKETING_CLOUD",
+          "name": "Marketing Cloud",
+          "package_name": "salesforce_marketing_cloud_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_marketing_cloud_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_marketing_cloud_core_ecosystem/manager.py",
+          "purpose": "Marketing campaign and journey metadata."
+        },
+        {
+          "product_id": "SALESFORCE_METADATA_TOOLING",
+          "name": "Metadata and Tooling",
+          "package_name": "salesforce_metadata_tooling_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_metadata_tooling_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_metadata_tooling_core_ecosystem/manager.py",
+          "purpose": "Metadata and tooling capability metadata."
+        },
+        {
+          "product_id": "SALESFORCE_PLATFORM_EVENTS_PUBSUB",
+          "name": "Platform Events and Pub/Sub",
+          "package_name": "salesforce_platform_events_pubsub_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_platform_events_pubsub_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_platform_events_pubsub_core_ecosystem/manager.py",
+          "purpose": "Event and Pub/Sub metadata."
+        },
+        {
+          "product_id": "SALESFORCE_REST",
+          "name": "REST API",
+          "package_name": "salesforce_rest_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_rest_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_rest_core_ecosystem/manager.py",
+          "purpose": "REST API resource metadata."
+        },
+        {
+          "product_id": "SALESFORCE_SERVICE_CLOUD",
+          "name": "Service Cloud",
+          "package_name": "salesforce_service_cloud_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_service_cloud_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_service_cloud_core_ecosystem/manager.py",
+          "purpose": "Customer support and service metadata."
+        },
+        {
+          "product_id": "SALESFORCE_SOAP",
+          "name": "SOAP API",
+          "package_name": "salesforce_soap_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_soap_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_soap_core_ecosystem/manager.py",
+          "purpose": "SOAP API metadata."
+        },
+        {
+          "product_id": "SALESFORCE_STREAMING",
+          "name": "Streaming",
+          "package_name": "salesforce_streaming_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_streaming_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/salesforce_streaming_core_ecosystem/manager.py",
+          "purpose": "Streaming and change-data-capture metadata."
+        }
+      ],
+      "domains": [
+        {
+          "domain_id": "IDENTITY_AUTH",
+          "name": "Identity and Authorization",
+          "product_slugs": [
+            "identity_oauth"
+          ],
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/domain_catalog.py"
+        },
+        {
+          "domain_id": "API",
+          "name": "API Interfaces and Composition",
+          "product_slugs": [
+            "rest",
+            "soap",
+            "composite"
+          ],
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/domain_catalog.py"
+        },
+        {
+          "domain_id": "DATA_OPERATIONS",
+          "name": "Data Operations",
+          "product_slugs": [
+            "bulk",
+            "data_cloud"
+          ],
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/domain_catalog.py"
+        },
+        {
+          "domain_id": "DEVELOPER_PLATFORM",
+          "name": "Developer and Metadata Platform",
+          "product_slugs": [
+            "apex",
+            "metadata_tooling"
+          ],
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/domain_catalog.py"
+        },
+        {
+          "domain_id": "ANALYTICS_REPORTING",
+          "name": "Analytics and Reporting",
+          "product_slugs": [
+            "analytics"
+          ],
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/domain_catalog.py"
+        },
+        {
+          "domain_id": "CONTENT",
+          "name": "Files and Content",
+          "product_slugs": [
+            "files_content"
+          ],
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/domain_catalog.py"
+        },
+        {
+          "domain_id": "MARKETING",
+          "name": "Marketing",
+          "product_slugs": [
+            "marketing_cloud"
+          ],
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/domain_catalog.py"
+        },
+        {
+          "domain_id": "SERVICE",
+          "name": "Customer Service",
+          "product_slugs": [
+            "service_cloud"
+          ],
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/domain_catalog.py"
+        },
+        {
+          "domain_id": "EVENTS",
+          "name": "Event Streaming",
+          "product_slugs": [
+            "platform_events_pubsub",
+            "streaming"
+          ],
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/domain_catalog.py"
+        }
+      ],
+      "shared_files": [
+        "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/constants.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/contracts.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/product_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/domain_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/policy.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/module_service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/orchestrator.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/manager.php",
+        "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/master_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/ecosystem_manifest.json",
+        "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/README.md",
+        "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/tests/test_salesforce_core.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/salesforce_core_ecosystem/tools/validate_salesforce_catalog.py"
+      ],
+      "php_facade_included": true,
+      "live_connections_verified": false,
+      "api_transport_in_core": false,
+      "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+      "master_catalog_access_mode": "IMPLEMENTATION_REGISTRY_ONLY"
+    },
+    "shopify_core_ecosystem": {
+      "ecosystem_id": "SHOPIFY-CORE-ECOSYSTEM",
+      "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem",
+      "classification": "CORE_IMPLEMENTATION_REGISTRY",
+      "taxonomy_entries_counted_in_global_2468_target": false,
+      "reason": "Registers Shopify Core implementation without adding or duplicating master taxonomy topics.",
+      "registered_package_count": 15,
+      "domain_count": 13,
+      "products": [
+        {
+          "product_id": "SHOPIFY_ADMIN",
+          "package_name": "shopify_admin_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_admin_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_admin_core_ecosystem/manager.py",
+          "domain_id": "Administration",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_BILLING",
+          "package_name": "shopify_billing_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_billing_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_billing_core_ecosystem/manager.py",
+          "domain_id": "Billing",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_CUSTOMERS",
+          "package_name": "shopify_customers_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_customers_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_customers_core_ecosystem/manager.py",
+          "domain_id": "Customers",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_DISCOUNTS",
+          "package_name": "shopify_discounts_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_discounts_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_discounts_core_ecosystem/manager.py",
+          "domain_id": "Commerce",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_FULFILLMENT",
+          "package_name": "shopify_fulfillment_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_fulfillment_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_fulfillment_core_ecosystem/manager.py",
+          "domain_id": "Fulfillment",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_INVENTORY",
+          "package_name": "shopify_inventory_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_inventory_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_inventory_core_ecosystem/manager.py",
+          "domain_id": "Inventory",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_LOCALIZATION",
+          "package_name": "shopify_localization_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_localization_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_localization_core_ecosystem/manager.py",
+          "domain_id": "Localization",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_METAOBJECTS",
+          "package_name": "shopify_metaobjects_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_metaobjects_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_metaobjects_core_ecosystem/manager.py",
+          "domain_id": "Content",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_ORDERS",
+          "package_name": "shopify_orders_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_orders_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_orders_core_ecosystem/manager.py",
+          "domain_id": "Orders",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_PAYMENTS",
+          "package_name": "shopify_payments_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_payments_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_payments_core_ecosystem/manager.py",
+          "domain_id": "Payments",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_PRODUCTS",
+          "package_name": "shopify_products_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_products_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_products_core_ecosystem/manager.py",
+          "domain_id": "Catalog",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_SHIPPING",
+          "package_name": "shopify_shipping_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_shipping_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_shipping_core_ecosystem/manager.py",
+          "domain_id": "Fulfillment",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_STOREFRONT",
+          "package_name": "shopify_storefront_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_storefront_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_storefront_core_ecosystem/manager.py",
+          "domain_id": "Storefront",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_STOREFRONT_GRAPHQL",
+          "package_name": "shopify_storefront_graphql_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_storefront_graphql_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_storefront_graphql_core_ecosystem/manager.py",
+          "domain_id": "Storefront",
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SHOPIFY_WEBHOOKS",
+          "package_name": "shopify_webhooks_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_webhooks_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_webhooks_core_ecosystem/manager.py",
+          "domain_id": "Events",
+          "status": "CORE_CATALOG_ONLY"
+        }
+      ],
+      "shared_files": [
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/constants.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/contracts.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/product_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/domain_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/policy.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/module_service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/orchestrator.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/manager.php",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_php_core_ecosystem/ShopifyCoreContract.php",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/ecosystem_manifest.json",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/README.md",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/tests/test_shopify_core.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/tools/validate_shopify_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_admin_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_admin_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_billing_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_billing_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_customers_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_customers_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_discounts_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_discounts_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_fulfillment_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_fulfillment_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_inventory_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_inventory_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_localization_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_localization_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_metaobjects_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_metaobjects_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_orders_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_orders_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_payments_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_payments_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_products_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_products_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_shipping_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_shipping_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_storefront_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_storefront_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_storefront_graphql_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_storefront_graphql_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_webhooks_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/shopify_core_ecosystem/shopify_webhooks_core_ecosystem/manager.py"
+      ],
+      "php_facade_included": true,
+      "live_connections_verified": false,
+      "api_transport_in_core": false,
+      "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+      "master_catalog_access_mode": "IMPLEMENTATION_REGISTRY_ONLY"
+    },
+    "slack_core_ecosystem": {
+      "ecosystem_id": "SLACK-CORE-ECOSYSTEM",
+      "repository_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem",
+      "classification": "CORE_IMPLEMENTATION_REGISTRY",
+      "taxonomy_entries_counted_in_global_2468_target": false,
+      "reason": "Registers Slack Core implementation without adding or duplicating master taxonomy topics.",
+      "registered_package_count": 14,
+      "domain_count": 8,
+      "products": [
+        {
+          "product_id": "SLACK_ADMIN",
+          "ecosystem_id": "SLACK-ADMIN-CORE-ECOSYSTEM",
+          "package_name": "slack_admin_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_admin_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_admin_core_ecosystem/manager.py",
+          "domain_id": "ADMINISTRATION",
+          "purpose": "Workspace administration and policy metadata",
+          "capability_count": 2,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_BOOKMARKS",
+          "ecosystem_id": "SLACK-BOOKMARKS-CORE-ECOSYSTEM",
+          "package_name": "slack_bookmarks_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_bookmarks_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_bookmarks_core_ecosystem/manager.py",
+          "domain_id": "CONTENT",
+          "purpose": "Bookmark discovery and lifecycle metadata",
+          "capability_count": 3,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_CANVASES",
+          "ecosystem_id": "SLACK-CANVASES-CORE-ECOSYSTEM",
+          "package_name": "slack_canvases_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_canvases_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_canvases_core_ecosystem/manager.py",
+          "domain_id": "CONTENT",
+          "purpose": "Canvas collaboration content metadata",
+          "capability_count": 3,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_CONVERSATIONS",
+          "ecosystem_id": "SLACK-CONVERSATIONS-CORE-ECOSYSTEM",
+          "package_name": "slack_conversations_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_conversations_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_conversations_core_ecosystem/manager.py",
+          "domain_id": "COLLABORATION",
+          "purpose": "Channels, direct messages and membership metadata",
+          "capability_count": 4,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_EVENTS",
+          "ecosystem_id": "SLACK-EVENTS-CORE-ECOSYSTEM",
+          "package_name": "slack_events_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_events_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_events_core_ecosystem/manager.py",
+          "domain_id": "EVENTS",
+          "purpose": "Event subscription and delivery lifecycle metadata",
+          "capability_count": 2,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_FILES",
+          "ecosystem_id": "SLACK-FILES-CORE-ECOSYSTEM",
+          "package_name": "slack_files_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_files_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_files_core_ecosystem/manager.py",
+          "domain_id": "CONTENT",
+          "purpose": "File discovery, sharing and lifecycle metadata",
+          "capability_count": 4,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_LISTS",
+          "ecosystem_id": "SLACK-LISTS-CORE-ECOSYSTEM",
+          "package_name": "slack_lists_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_lists_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_lists_core_ecosystem/manager.py",
+          "domain_id": "COLLABORATION",
+          "purpose": "Lists, records and fields metadata",
+          "capability_count": 3,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_MESSAGES",
+          "ecosystem_id": "SLACK-MESSAGES-CORE-ECOSYSTEM",
+          "package_name": "slack_messages_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_messages_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_messages_core_ecosystem/manager.py",
+          "domain_id": "MESSAGING",
+          "purpose": "Messages, threads and lifecycle metadata",
+          "capability_count": 4,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_OAUTH",
+          "ecosystem_id": "SLACK-OAUTH-CORE-ECOSYSTEM",
+          "package_name": "slack_oauth_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_oauth_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_oauth_core_ecosystem/manager.py",
+          "domain_id": "IDENTITY",
+          "purpose": "OAuth installation and scope metadata only",
+          "capability_count": 2,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_REACTIONS",
+          "ecosystem_id": "SLACK-REACTIONS-CORE-ECOSYSTEM",
+          "package_name": "slack_reactions_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_reactions_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_reactions_core_ecosystem/manager.py",
+          "domain_id": "MESSAGING",
+          "purpose": "Emoji reaction lifecycle metadata",
+          "capability_count": 3,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_SEARCH",
+          "ecosystem_id": "SLACK-SEARCH-CORE-ECOSYSTEM",
+          "package_name": "slack_search_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_search_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_search_core_ecosystem/manager.py",
+          "domain_id": "DISCOVERY",
+          "purpose": "Search capability and query classification metadata",
+          "capability_count": 3,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_USERS",
+          "ecosystem_id": "SLACK-USERS-CORE-ECOSYSTEM",
+          "package_name": "slack_users_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_users_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_users_core_ecosystem/manager.py",
+          "domain_id": "IDENTITY",
+          "purpose": "User, profile and presence metadata",
+          "capability_count": 3,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_WEBHOOKS",
+          "ecosystem_id": "SLACK-WEBHOOKS-CORE-ECOSYSTEM",
+          "package_name": "slack_webhooks_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_webhooks_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_webhooks_core_ecosystem/manager.py",
+          "domain_id": "EVENTS",
+          "purpose": "Webhook subscription and delivery metadata",
+          "capability_count": 2,
+          "status": "CORE_CATALOG_ONLY"
+        },
+        {
+          "product_id": "SLACK_WORKFLOW",
+          "ecosystem_id": "SLACK-WORKFLOW-CORE-ECOSYSTEM",
+          "package_name": "slack_workflow_core_ecosystem",
+          "package_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_workflow_core_ecosystem",
+          "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_workflow_core_ecosystem/manager.py",
+          "domain_id": "AUTOMATION",
+          "purpose": "Workflow, trigger and automation lifecycle metadata",
+          "capability_count": 4,
+          "status": "CORE_CATALOG_ONLY"
+        }
+      ],
+      "shared_files": [
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/__init__.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/constants.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/contracts.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/product_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/domain_catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/catalog.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/policy.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/module_service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/orchestrator.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/service.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/manager.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/manager.php",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/slack_php_core_ecosystem/SlackCoreContract.php",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/ecosystem_manifest.json",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/README.md",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/tests/test_slack_core.py",
+        "backend/core/global_ecosystem/global_core_ecosystem/slack_core_ecosystem/tools/validate_slack_catalog.py"
+      ],
+      "php_facade_included": true,
+      "live_connections_verified": false,
+      "api_transport_in_core": false,
+      "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+      "master_catalog_access_mode": "IMPLEMENTATION_REGISTRY_ONLY"
     }
   }
 }
