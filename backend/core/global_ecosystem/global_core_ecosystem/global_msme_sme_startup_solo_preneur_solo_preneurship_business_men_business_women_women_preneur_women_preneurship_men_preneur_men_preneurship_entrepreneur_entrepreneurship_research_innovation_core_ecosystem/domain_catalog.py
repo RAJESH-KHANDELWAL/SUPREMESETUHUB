@@ -117,11 +117,11 @@ class GeographicRegistry:
         location=self.get(location_id)
         if not location:
             raise KeyError("LOCATION_NOT_FOUND")
-        from ..global_bada_business_core_ecosystem.global_msme_sme_startup_solo_preneur_solo_preneurship_business_men_business_women_women_preneur_women_preneurship_men_preneur_men_preneurship_entrepreneur_entrepreneurship_research_innovation_service_work_business_core_ecosystem.service_catalog import list_services
+        from ..global_bada_business_core_ecosystem.global_msme_sme_startup_solo_preneur_solo_preneurship_business_men_business_women_women_preneur_women_preneurship_men_preneur_men_preneurship_entrepreneur_entrepreneurship_research_innovation_service_work_business_core_ecosystem.manager import get_manager as get_business_manager
         return {
             "location": location,
             "domains": list_domains(),
-            "services_work_business": list_services(),
+            "services_work_business": get_business_manager().list_services(),
             "coverage_mode": "ALL_CANONICAL_DOMAINS_AND_SERVICE_CLASSIFICATIONS",
         }
     def coverage(self):
