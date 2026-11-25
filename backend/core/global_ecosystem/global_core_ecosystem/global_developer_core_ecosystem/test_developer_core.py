@@ -43,7 +43,7 @@ class DeveloperCoreTests(unittest.TestCase):
     def test_master_catalog_index_preserves_2468_target(self):
         import json
         from pathlib import Path
-        master_path=Path(__file__).resolve().parents[5]/"GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+        master_path=Path(__file__).resolve().parents[4]/"GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
         master=json.loads(master_path.read_text(encoding="utf-8"))
         self.assertEqual(master["expansion"]["target_unique_entries"],2468)
         self.assertEqual(master["counts"]["unique_catalogue_entries"],246)
