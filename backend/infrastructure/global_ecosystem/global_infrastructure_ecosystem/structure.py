@@ -40,6 +40,11 @@ def get_module_paths() -> dict[str, str]:
 
 
 def get_ecosystem_domain_paths() -> dict[str, str]:
+    # Preserve the legacy infrastructure service-module registry API.
+    return dict(ECOSYSTEM_DOMAIN_PATHS)
+
+
+def get_canonical_ecosystem_domain_paths() -> dict[str, str]:
     return dict(CANONICAL_ECOSYSTEM_DOMAIN_PATHS)
 
 
