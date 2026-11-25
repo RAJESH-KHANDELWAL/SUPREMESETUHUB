@@ -1,0 +1,1 @@
+"""RERECOVERY infrastructure domain package."""
