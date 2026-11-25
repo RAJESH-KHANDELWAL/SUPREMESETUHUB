@@ -1,9 +1,0 @@
-{
-  "provider": "digitalocean",
-  "layer": "CORE",
-  "capability": "cloud",
-  "scope": "Droplets, compute, networking, firewalls and managed cloud services",
-  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/digitalocean_api_ecosystem/digitalocean_cloud_api_ecosystem",
-  "status": "CONTRACT_ONLY",
-  "live_provider_calls_enabled": false
-}

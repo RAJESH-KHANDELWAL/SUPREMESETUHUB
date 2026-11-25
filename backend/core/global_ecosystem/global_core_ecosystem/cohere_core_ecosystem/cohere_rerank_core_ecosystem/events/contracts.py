@@ -1,8 +1,0 @@
-"""Capability event data contract; delivery is owned by runtime."""
-from dataclasses import dataclass, field
-from typing import Any, Mapping
-@dataclass(frozen=True)
-class CapabilityEvent:
-    name: str
-    capability: str = "rerank"
-    payload: Mapping[str, Any] = field(default_factory=dict)

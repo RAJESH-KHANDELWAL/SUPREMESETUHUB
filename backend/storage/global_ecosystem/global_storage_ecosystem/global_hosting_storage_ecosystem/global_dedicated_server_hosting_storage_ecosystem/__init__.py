@@ -1,3 +1,0 @@
-"""GLOBAL_DEDICATED_SERVER_HOSTING_HOSTING_STORAGE_ECOSYSTEM package."""
-from .service import GlobalDedicatedServerHostingHostingStorageEcosystem
-__all__=["GlobalDedicatedServerHostingHostingStorageEcosystem"]

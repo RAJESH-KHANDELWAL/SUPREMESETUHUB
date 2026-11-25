@@ -1,1 +1,0 @@
-"""Offline tests for GLOBAL_APP_IDENTITY_STORAGE_ECOSYSTEM."""

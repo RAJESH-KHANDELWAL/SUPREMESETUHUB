@@ -1,3 +1,0 @@
-"""Business-facing governance adapter using canonical Cultural CORE validation."""
-from backend.core.global_ecosystem.global_core_ecosystem.global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem.global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_core_ecosystem.governance import validate_record, is_publishable
-__all__ = ["validate_record", "is_publishable"]

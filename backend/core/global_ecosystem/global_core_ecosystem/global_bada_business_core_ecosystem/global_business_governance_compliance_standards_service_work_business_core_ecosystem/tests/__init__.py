@@ -1,1 +1,0 @@
-"""Business governance CORE tests."""

@@ -1,1 +1,0 @@
-"""Adobe API ecosystem package."""

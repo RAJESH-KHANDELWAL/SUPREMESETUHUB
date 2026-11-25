@@ -1,1 +1,0 @@
-"""Anthropic Core ecosystem tests."""

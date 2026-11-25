@@ -1,1 +1,0 @@
-"""Offline app namespace tests."""
