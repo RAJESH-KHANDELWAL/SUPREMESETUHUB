@@ -47,7 +47,7 @@ def test_master_catalog_reference_is_read_only_and_correct_target():
     assert reference["access_mode"] == "READ_ONLY_ON_DEMAND"
     assert reference["loaded"] is True
     assert reference["catalog_id_verified"] is True
-    assert reference["current_unique_entries"] == 246
+    assert reference["current_unique_entries"] == 278
 
 def test_catalog_helpers_are_owned_by_manager_and_return_defensive_copies():
     first = list_ecosystems()
