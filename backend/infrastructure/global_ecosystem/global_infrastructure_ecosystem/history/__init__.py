@@ -1,0 +1,1 @@
+"""HISTORY infrastructure domain package."""

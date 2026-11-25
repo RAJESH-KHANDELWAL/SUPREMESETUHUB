@@ -2,8 +2,10 @@
 /** Structural health manager for the Global Infrastructure Ecosystem. */
 final class BackendGlobalInfrastructureEcosystemManager {
     public const NAME = 'BACKEND GLOBAL INFRASTRUCTURE ECOSYSTEM';
-    public const VERSION = '1.1.0';
+    public const VERSION = '1.2.0';
     private const DOMAINS = ['backup','billing','cdn','containers','database','dns','domains','email','firewall','ftp','hosting','ipam','load_balancer','model','monitoring','network','object_storage','security','server','ssl','storage'];
+    private const ECOSYSTEM_DOMAINS = ['backup','rebackup','recovery','rerecovery','database','redatabase','history','rehistory','storage','restorage','sync','resync'];
+
     public function health(): array {
         $root = __DIR__;
         $backendRoot = dirname(dirname(dirname($root)));
@@ -27,15 +29,37 @@ final class BackendGlobalInfrastructureEcosystemManager {
             foreach ($packageFiles as $packageFile) { if (!is_file($packageRoot . '/' . $packageFile)) { $packageHealthy = false; } }
             $checks['global_package_' . $domain] = $packageHealthy;
         }
+        $ecosystemDomainChecks = [];
+        foreach (self::ECOSYSTEM_DOMAINS as $domain) {
+            $domainRoot = $root . '/' . $domain;
+            $ecosystemRoot = $domainRoot . '/global_ecosystem';
+            $packageRoot = $ecosystemRoot . '/global_' . $domain . '_ecosystem';
+            $checks['ecosystem_domain_' . $domain] = is_dir($domainRoot) && is_file($domainRoot . '/__init__.py');
+            $checks['ecosystem_domain_parent_' . $domain] = is_dir($ecosystemRoot) && is_file($ecosystemRoot . '/__init__.py');
+            $packageHealthy = is_dir($packageRoot);
+            foreach (['README.md','__init__.py','manager.py','manager.php'] as $file) {
+                if (!is_file($packageRoot . '/' . $file)) { $packageHealthy = false; }
+            }
+            $checks['ecosystem_domain_package_' . $domain] = $packageHealthy;
+            $ecosystemDomainChecks[$domain] = $checks['ecosystem_domain_' . $domain] && $checks['ecosystem_domain_parent_' . $domain] && $packageHealthy;
+        }
         $checks['backend_global_hostinger_api'] = is_file($backendRoot . '/global_ecosystem/global_hosting_ecosystem/hostinger_api.py');
         $checks['backend_global_nsfwinfra'] = is_file($backendRoot . '/global_ecosystem/nsfwinfra_ecosystem/nsfwinfra.py');
         $healthy = !in_array(false, $checks, true);
         $present = 0; $globalPackagesPresent = 0;
-        foreach (self::DOMAINS as $domain) { if ($checks['domain_' . $domain]) { $present++; } if ($checks['global_package_' . $domain]) { $globalPackagesPresent++; } }
-        return ['name'=>self::NAME,'version'=>self::VERSION,
-                'status'=>$healthy?'READY':'INCOMPLETE',
-                'expected_domain_count'=>count(self::DOMAINS),'present_domain_count'=>$present,
-                'expected_global_package_count'=>count(self::DOMAINS),'present_global_package_count'=>$globalPackagesPresent,
-                'checks'=>$checks,'domain_checks'=>$domainChecks,'healthy'=>$healthy,'provider_operations_enabled'=>false];
+        foreach (self::DOMAINS as $domain) {
+            if ($checks['domain_' . $domain]) { $present++; }
+            if ($checks['global_package_' . $domain]) { $globalPackagesPresent++; }
+        }
+        return [
+            'name'=>self::NAME, 'version'=>self::VERSION,
+            'status'=>$healthy?'READY':'INCOMPLETE',
+            'expected_domain_count'=>count(self::DOMAINS), 'present_domain_count'=>$present,
+            'expected_global_package_count'=>count(self::DOMAINS), 'present_global_package_count'=>$globalPackagesPresent,
+            'expected_ecosystem_domain_count'=>count(self::ECOSYSTEM_DOMAINS),
+            'present_ecosystem_domain_count'=>count(array_filter($ecosystemDomainChecks)),
+            'checks'=>$checks, 'domain_checks'=>$domainChecks, 'ecosystem_domain_checks'=>$ecosystemDomainChecks,
+            'healthy'=>$healthy, 'provider_operations_enabled'=>false
+        ];
     }
 }
