@@ -78,8 +78,24 @@ class GlobalMSMESMEStartupEntrepreneurshipBusinessCoreManager:
         }
 
     def geography(self):
+        """Return geographic registry coverage and validation through this manager."""
         registry = get_geographic_registry()
-        return {"coverage": registry.coverage(), "validation": registry.validate()}
+        return {
+            "coverage": registry.coverage(),
+            "validation": registry.validate(),
+        }
+
+    def list_geographic_locations(self, parent_id):
+        """List the direct child locations beneath a country, state, or other place."""
+        return get_geographic_registry().children(parent_id)
+
+    def get_geographic_location(self, location_id):
+        """Get one registered geographic location by its stable ID."""
+        return get_geographic_registry().get(location_id)
+
+    def enterprise_coverage(self, location_id):
+        """Connect a location to the complete domain and service/work/business catalogs."""
+        return get_geographic_registry().enterprise_coverage(location_id)
 
 
 def get_manager():
