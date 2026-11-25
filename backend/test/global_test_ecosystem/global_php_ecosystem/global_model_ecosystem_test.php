@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-require_once dirname(__DIR__, 3) . '/infrastructure/model/global_ecosystem/global_model_ecosystem/resources.php';
-require_once dirname(__DIR__, 3) . '/infrastructure/model/global_ecosystem/global_model_ecosystem/relationships.php';
-require_once dirname(__DIR__, 3) . '/infrastructure/model/global_ecosystem/global_model_ecosystem/catalog.php';
-require_once dirname(__DIR__, 3) . '/infrastructure/model/global_ecosystem/global_model_ecosystem/schemas.php';
-require_once dirname(__DIR__, 3) . '/infrastructure/model/global_ecosystem/global_model_ecosystem/validation.php';
+require_once dirname(__DIR__, 3) . '/infrastructure/global_ecosystem/global_infrastructure_ecosystem/model/global_ecosystem/global_model_ecosystem/resources.php';
+require_once dirname(__DIR__, 3) . '/infrastructure/global_ecosystem/global_infrastructure_ecosystem/model/global_ecosystem/global_model_ecosystem/relationships.php';
+require_once dirname(__DIR__, 3) . '/infrastructure/global_ecosystem/global_infrastructure_ecosystem/model/global_ecosystem/global_model_ecosystem/catalog.php';
+require_once dirname(__DIR__, 3) . '/infrastructure/global_ecosystem/global_infrastructure_ecosystem/model/global_ecosystem/global_model_ecosystem/schemas.php';
+require_once dirname(__DIR__, 3) . '/infrastructure/global_ecosystem/global_infrastructure_ecosystem/model/global_ecosystem/global_model_ecosystem/validation.php';
 
 use SupremeSetuHub\Infrastructure\Model\GlobalEcosystem\GlobalModelEcosystem\GlobalProviderReference;
 use SupremeSetuHub\Infrastructure\Model\GlobalEcosystem\GlobalModelEcosystem\GlobalResourceCapacity;
