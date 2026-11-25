@@ -1,0 +1,1 @@
+"""SYNC infrastructure domain package."""
