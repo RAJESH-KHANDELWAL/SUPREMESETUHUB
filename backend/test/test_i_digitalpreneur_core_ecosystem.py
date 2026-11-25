@@ -1,7 +1,7 @@
 """Tests for the isolated iDigitalPreneur CORE ecosystem boundary."""
 import unittest
 
-from backend.core.global_ecosystem.global_core_ecosystem.global_bada_business_core_ecosystem.global_affiliate_marketing_business_core_ecosystem.platforms.i_digitalpreneur import (
+from backend.core.global_ecosystem.global_core_ecosystem.global_bada_business_core_ecosystem.global_affiliate_marketing_business_core_ecosystem.i_digitalpreneur_core_ecosystem import (
     ECOSYSTEM_ID,
     IDigitalPreneurCoreManager,
     IDigitalPreneurCoreService,
