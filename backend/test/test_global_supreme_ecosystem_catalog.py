@@ -18,8 +18,8 @@ class GlobalSupremeEcosystemCatalogTests(unittest.TestCase):
     def test_current_catalog_metadata_matches_actual_entries(self) -> None:
         summary = _summarize_master_catalog(self.catalog)
         self.assertEqual(summary["target_unique_entry_count"], MASTER_CATALOG_TARGET_UNIQUE_ENTRIES)
-        self.assertEqual(summary["unique_entry_count"], 246)
-        self.assertEqual(summary["remaining_unique_entries"], 2222)
+        self.assertEqual(summary["unique_entry_count"], 278)
+        self.assertEqual(summary["remaining_unique_entries"], 2190)
         self.assertFalse(summary["target_reached"])
 
     def test_rejects_stale_current_entry_metadata(self) -> None:
