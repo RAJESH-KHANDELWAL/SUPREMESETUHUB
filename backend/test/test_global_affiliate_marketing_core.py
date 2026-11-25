@@ -61,8 +61,8 @@ class AffiliateMarketingCoreTests(unittest.TestCase):
     def test_master_catalog_bridge_validates_2468_source(self):
         inventory = GlobalAffiliateMarketingCoreManager().master_catalog_inventory()
         self.assertEqual(inventory["target_unique_entries"], 2468)
-        self.assertEqual(inventory["current_unique_entries"], 246)
-        self.assertEqual(inventory["remaining_unique_entries"], 2222)
+        self.assertEqual(inventory["current_unique_entries"], 278)
+        self.assertEqual(inventory["remaining_unique_entries"], 2190)
         self.assertEqual(inventory["source_numbered_entries"], 248)
         self.assertEqual(inventory["cross_reference_entries"], 2)
         self.assertEqual(inventory["section_count"], 13)
