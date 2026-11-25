@@ -1,15 +1,23 @@
-"""Canonical paths and ownership for the GLOBAL INFRASTRUCTURE ECOSYSTEM."""
+"""Canonical paths, ownership, and file contracts for Infrastructure."""
 INFRASTRUCTURE_MODULES = (
     "backup", "billing", "cdn", "containers", "database", "dns", "domains",
     "email", "firewall", "ftp", "hosting", "ipam", "load_balancer", "model",
     "monitoring", "network", "object_storage", "security", "server", "ssl", "storage",
 )
-# Independent top-level foundation/infrastructure ecosystem domains. These are
-# separate from the infrastructure service-module registry above.
+# Independent top-level foundation/infrastructure ecosystem domains.
 INFRASTRUCTURE_ECOSYSTEM_DOMAINS = (
     "backup", "rebackup", "recovery", "rerecovery", "database", "redatabase",
     "history", "rehistory", "storage", "restorage", "sync", "resync",
 )
+# Per-domain file contracts. Special domains keep their ownership boundaries:
+# database delegates persistence to backend.database; FTP delegates profile
+# definitions to profiles.py; model is a resource catalogue, not a CRUD domain.
+DOMAIN_REQUIRED_FILES = {
+    "database": ("__init__.py", "controller.py", "model.py", "service.py", "healthcheck.py"),
+    "ftp": ("__init__.py", "controller.py", "model.py", "service.py", "healthcheck.py", "profiles.py"),
+    "model": ("__init__.py", "README.md", "resource.py"),
+}
+DEFAULT_DOMAIN_REQUIRED_FILES = ("__init__.py", "controller.py", "model.py", "service.py")
 INFRASTRUCTURE_ROOT_MODULES = ("controller", "hostinger_catalog", "repository", "service")
 PROVIDER_ADAPTER_PATHS = {
     "hostinger_api": "backend.global_ecosystem.global_hosting_ecosystem.hostinger_api",

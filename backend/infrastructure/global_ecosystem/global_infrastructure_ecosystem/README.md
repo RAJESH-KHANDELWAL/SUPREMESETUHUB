@@ -17,6 +17,13 @@ All 21 domain folders live directly inside this ecosystem root. There is no inte
 - `email/`, `firewall/`, `ftp/`, `hosting/`, `ipam/`, `load_balancer/`, `model/`
 - `monitoring/`, `network/`, `object_storage/`, `security/`, `server/`, `ssl/`, `storage/`
 
+Most service domains expose `controller.py`, `model.py`, and `service.py`. The structural manager validates each domain against its declared file contract in `structure.py`.
+
+### Intentional domain boundaries
+- `database/` exposes a read-only Infrastructure controller and typed health-check contracts. Actual persistence and database ownership remain in `backend/database/`; Infrastructure does not create a second database engine or own migrations.
+- `ftp/` exposes a read-only controller over named FTPS profiles. The `FtpProfile` model remains defined in `profiles.py` and is re-exported from `model.py`. No upload, delete, rename, or permission-changing methods are exposed.
+- `model/` is a resource catalogue domain with `resource.py`, not a CRUD service domain.
+
 ## Supporting structure
 - `integrations/`: CORE and Global CORE integration entry points.
 - `structure.py`: canonical ownership and package path registry.
