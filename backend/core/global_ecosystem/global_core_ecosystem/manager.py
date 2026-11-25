@@ -952,6 +952,25 @@ CATEGORIES: tuple[dict[str, Any], ...] = (
         "metadata": {"module_path": "global_bada_business_core_ecosystem", "implementation_state": "FOUNDATION_READY"},
     },
     {
+        "ecosystem_id": "GLOBAL-AFFILIATE-MARKETING-BUSINESS-CORE-ECOSYSTEM",
+        "name": "GLOBAL AFFILIATE MARKETING BUSINESS CORE ECOSYSTEM",
+        "ecosystem_type": "CORE_SERVICE",
+        "capabilities": [
+            "AFFILIATE_PLATFORM_IDENTITY",
+            "PROGRAM_REGISTRATION_POLICY",
+            "REFERRAL_WORKFLOW_GOVERNANCE",
+            "DISCLOSURE_VALIDATION",
+            "COMMISSION_EVENT_METADATA",
+        ],
+        "parent_id": "GLOBAL-BADA-BUSINESS-CORE-ECOSYSTEM",
+        "metadata": {
+            "module_path": "global_bada_business_core_ecosystem.global_affiliate_marketing_business_core_ecosystem",
+            "implementation_state": "FOUNDATION_READY",
+            "live_provider_connections_verified": False,
+            "program_terms_verified": False,
+        },
+    },
+    {
         "ecosystem_id": "GLOBAL-BADA-BUSINESS-VASUDHAIVA-KUTUMBAKAM-SANATAN-DHARMA-BHARAT-WORLD-CULTURE-SERVICE-WORK-BUSINESS-CORE-ECOSYSTEM",
         "name": "GLOBAL BADA BUSINESS | VASUDHAIVA KUTUMBAKAM | SANATAN DHARMA | BHARAT SANSKRITI | WORLD CULTURE SERVICE WORK BUSINESS CORE ECOSYSTEM",
         "ecosystem_type": "CORE_SERVICE",
