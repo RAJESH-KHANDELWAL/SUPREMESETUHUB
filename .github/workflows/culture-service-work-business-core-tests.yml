@@ -1,0 +1,46 @@
+name: Culture Service Work Business CORE Tests
+
+on:
+  pull_request:
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_core_ecosystem/**"
+      - "backend/engine/global_ecosystem/global_engine_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_engine_ecosystem/**"
+      - "backend/database/global_ecosystem/global_database_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_database_ecosystem/**"
+      - "backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_api_ecosystem/**"
+      - "backend/ai/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_ai_ecosystem/**"
+      - "tests/test_global_culture_service_work_business_ecosystem.py"
+      - ".github/workflows/culture-service-work-business-core-tests.yml"
+  push:
+    branches:
+      - main
+      - recovery/restore-6pm-bada-business-core
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_core_ecosystem/**"
+      - "backend/engine/global_ecosystem/global_engine_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_engine_ecosystem/**"
+      - "backend/database/global_ecosystem/global_database_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_database_ecosystem/**"
+      - "backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_api_ecosystem/**"
+      - "backend/ai/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_ai_ecosystem/**"
+      - "tests/test_global_culture_service_work_business_ecosystem.py"
+      - ".github/workflows/culture-service-work-business-core-tests.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  culture-service-work-business:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: .
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate Python syntax
+        run: |
+          python -m compileall -q backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_core_ecosystem
+          python -m compileall -q backend/engine/global_ecosystem/global_engine_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_engine_ecosystem
+          python -m compileall -q backend/database/global_ecosystem/global_database_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_database_ecosystem
+          python -m compileall -q backend/api/global_ecosystem/global_api_ecosystem/global_bada_business_api_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_service_work_business_api_ecosystem
+      - name: Run culture service work business tests
+        run: python -m unittest tests.test_global_culture_service_work_business_ecosystem -v
