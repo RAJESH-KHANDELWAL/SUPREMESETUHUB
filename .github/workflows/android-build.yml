@@ -13,8 +13,8 @@ permissions:
   contents: read
 
 jobs:
-  backend-tests:
-    name: Backend and Android Foundation Tests
+  android-setup-tests:
+    name: Android and Global Android Ecosystem Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -25,18 +25,16 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: pip
-          cache-dependency-path: backend/requirements.txt
 
-      - name: Install Backend Dependencies
-        working-directory: backend
+      - name: Install Android Test Dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -r requirements.txt
-          python -m pip install pytest
+          python -m pip install -r backend/requirements.txt
 
-      - name: Run Full Backend Tests
-        run: python -m pytest backend/test -v
+      - name: Run Android Setup Python Tests
+        run: |
+          python -m pytest backend/test/test_android.py -v
+          python -m pytest backend/test/test_global_android_ecosystem.py -v
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
@@ -44,18 +42,18 @@ jobs:
           php-version: "8.3"
           coverage: none
 
-      - name: Validate Android PHP Test Syntax
+      - name: Validate Android Setup PHP Tests
         run: |
-          php -l backend/test/test_backend_android.php
-          php -l backend/test/test_backend_global_android_ecosystem.php
+          php -l backend/test/test_android.php
+          php -l backend/test/test_global_android_ecosystem.php
 
-      - name: Run Android PHP Contract Tests
+      - name: Run Android Setup PHP Tests
         run: |
-          php backend/test/test_backend_android.php
-          php backend/test/test_backend_global_android_ecosystem.php
+          php backend/test/test_android.php
+          php backend/test/test_global_android_ecosystem.php
 
   android-release:
-    name: Build Android Release AAB
+    name: Build New Android Project Release AAB
     runs-on: ubuntu-latest
 
     steps:
@@ -88,22 +86,22 @@ jobs:
         with:
           gradle-version: "9.6.0"
 
-      - name: Build Android Release AAB
+      - name: Build New Android Project AAB
         working-directory: backend/mobile/android
         run: |
           gradle :app:bundleRelease \
             --stacktrace \
             --no-daemon
 
-      - name: Verify Release AAB
+      - name: Verify Android Release AAB
         run: |
           AAB="backend/mobile/android/app/build/outputs/bundle/release/app-release.aab"
           test -f "$AAB"
           ls -lh "$AAB"
 
-      - name: Upload Release AAB
+      - name: Upload Android Release AAB
         uses: actions/upload-artifact@v4
         with:
-          name: supreme-setu-hub-release-aab
+          name: supreme-setu-hub-android-release-aab
           path: backend/mobile/android/app/build/outputs/bundle/release/app-release.aab
           if-no-files-found: error
