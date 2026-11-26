@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . '/../manager.php';
+require_once __DIR__ . '/../core/global_ecosystem/global_core_ecosystem/adobe_core_ecosystem/manager.php';
 
 $payload = [
     'success' => true,
@@ -16,4 +16,4 @@ if (($normalized['ecosystem_id'] ?? null) !== 'ADOBE-CORE-ECOSYSTEM') {
 if (array_key_exists('api_key', $normalized)) {
     throw new RuntimeException('Adobe contract leaked a secret field');
 }
-echo "Adobe Core PHP test passed\\n";
+echo "Adobe Core PHP test passed\n";
