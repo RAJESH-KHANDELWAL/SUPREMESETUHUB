@@ -1,3 +1,3 @@
 # Frontend Global Android Ecosystem
 
-Owns the Android client application: screens, navigation, UI components, client state, offline UX, device permissions, and client-side platform integrations. Backend APIs and server-side logic belong under backend/android.
+Frontend-owned Android UI, application flows, client integrations, and presentation modules belong here. This is a separate Android root, not Foundation or Infrastructure.
