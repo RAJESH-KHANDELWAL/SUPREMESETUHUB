@@ -1,14 +1,54 @@
-"""Python tests for Backend Global Foundation Ecosystem."""
+"""Combined Python tests for Backend Global Foundation Ecosystem.
+
+Retains the pre-existing connector, domain-layout, and integration coverage,
+alongside the new dedicated Foundation/Ecosystem checks.
+"""
+from importlib.util import module_from_spec, spec_from_file_location
+from pathlib import Path
+import shutil
+import subprocess
 import unittest
 
+from backend.foundation.audit.global_ecosystem.global_audit_ecosystem import GlobalAuditEcosystemManager
+from backend.foundation.core.global_ecosystem.global_core_ecosystem import GlobalCoreEcosystemManager
+from backend.foundation.dependencies.global_ecosystem.global_dependencies_ecosystem import GlobalDependenciesEcosystemManager
+from backend.foundation.file_manager.global_ecosystem.global_file_manager_ecosystem import GlobalFileManagerEcosystemManager
+from backend.foundation.identity.global_ecosystem.global_identity_ecosystem import GlobalIdentityEcosystemManager
+from backend.foundation.registry.global_ecosystem.global_registry_ecosystem import GlobalRegistryEcosystemManager
+from backend.foundation.security.global_ecosystem.global_security_ecosystem import GlobalSecurityEcosystemManager
+from backend.foundation.sync.global_ecosystem.global_sync_ecosystem import GlobalSyncEcosystemManager
 from backend.foundation.global_ecosystem.manager import get_manager as get_global_manager
 from backend.foundation.global_ecosystem.global_foundation_ecosystem import (
     GlobalFoundationEcosystemManager,
     get_manager,
 )
 
+ROOT = Path(__file__).resolve().parents[2]
+FOUNDATION = ROOT / "backend" / "foundation"
+GLOBAL_ECOSYSTEM = FOUNDATION / "global_ecosystem"
+PACKAGE = GLOBAL_ECOSYSTEM / "global_foundation_ecosystem"
+CONSOLIDATED_FOLDERS = (
+    "audit", "core", "dependencies", "file_manager",
+    "identity", "registry", "security",
+)
+
+
+def load_module(path, name):
+    spec = spec_from_file_location(name, path)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"Cannot load module: {path}")
+    module = module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+class SampleFoundationComponent:
+    def ping(self):
+        return "PONG"
+
 
 class BackendGlobalFoundationEcosystemTests(unittest.TestCase):
+    # New dedicated ecosystem checks
     def test_global_ecosystem_resolves_foundation_manager(self):
         manager = get_global_manager().get_global_foundation_manager()
         self.assertIsInstance(manager, GlobalFoundationEcosystemManager)
@@ -21,9 +61,111 @@ class BackendGlobalFoundationEcosystemTests(unittest.TestCase):
         self.assertEqual(report["present_domain_count"], 12)
 
     def test_global_foundation_php_bridge_exists(self):
-        from pathlib import Path
-        package = Path(__file__).resolve().parents[1] / "foundation" / "global_ecosystem" / "global_foundation_ecosystem"
-        self.assertTrue((package / "manager.php").is_file())
+        self.assertTrue((PACKAGE / "manager.php").is_file())
+
+    # Preserved pre-existing backend connector and layout checks
+    def test_backend_parent_manager_health(self):
+        report = load_module(GLOBAL_ECOSYSTEM / "manager.py", "backend_global_ecosystem_manager").get_manager().health()
+        self.assertTrue(report["healthy"], report)
+
+    def test_backend_foundation_manager_health(self):
+        report = load_module(PACKAGE / "manager.py", "backend_global_foundation_manager").get_manager().health()
+        self.assertTrue(report["healthy"], report)
+
+    def test_removed_domain_folders_stay_consolidated(self):
+        present = [name for name in CONSOLIDATED_FOLDERS if (PACKAGE / name).exists()]
+        self.assertEqual(present, [], f"Unwanted domain folders/files remain: {present}")
+        misplaced = [name for name in CONSOLIDATED_FOLDERS if (FOUNDATION / name).exists()]
+        self.assertEqual(misplaced, [], f"Unwanted folders remain at foundation root: {misplaced}")
+
+    def test_sync_remains_a_canonical_foundation_domain(self):
+        sync_package = PACKAGE / "sync" / "global_ecosystem" / "global_sync_ecosystem"
+        self.assertTrue(sync_package.is_dir(), f"Missing canonical sync domain: {sync_package}")
+        self.assertTrue((sync_package / "README.md").is_file())
+
+    def test_backend_to_frontend_foundation_connector(self):
+        result = load_module(
+            PACKAGE / "backend_global_foundation_ecosystem_frontend_global_foundation_ecosystem_connect.py",
+            "backend_global_foundation_connector",
+        ).connect_foundations()
+        self.assertTrue(result["connected"], result)
+
+    def test_backend_foundation_to_frontend_infrastructure_connector(self):
+        result = load_module(
+            PACKAGE / "backend_global_foundation_ecosystem_frontend_global_infrastructure_ecosystem_connect.py",
+            "backend_foundation_frontend_infrastructure_ecosystem_connector",
+        ).connect_ecosystems()
+        self.assertTrue(result["connected"], result)
+
+    def test_backend_foundation_to_frontend_infrastructure_root_connector(self):
+        result = load_module(
+            FOUNDATION / "backend_foundation_frontend_infrastructure_connect.py",
+            "backend_foundation_frontend_infrastructure_connector",
+        ).connect_backend_foundation_frontend_infrastructure()
+        self.assertTrue(result["connected"], result)
+
+    def test_backend_global_infrastructure_to_frontend_global_foundation_connector(self):
+        connector = (
+            ROOT / "backend" / "infrastructure" / "global_ecosystem"
+            / "global_infrastructure_ecosystem"
+            / "backend_global_infrastructure_ecosystem_frontend_global_foundation_ecosystem_connect.py"
+        )
+        result = load_module(connector, "backend_global_infrastructure_frontend_foundation").connect_ecosystems()
+        self.assertTrue(result["connected"], result)
+
+    @unittest.skipUnless(shutil.which("php"), "PHP CLI is not installed")
+    def test_backend_php_files_pass_syntax_check(self):
+        files = (
+            FOUNDATION / "manager.php",
+            FOUNDATION / "backend_foundation_frontend_infrastructure_connect.php",
+            GLOBAL_ECOSYSTEM / "manager.php",
+            PACKAGE / "manager.php",
+            PACKAGE / "backend_global_foundation_ecosystem_frontend_global_foundation_ecosystem_connect.php",
+            PACKAGE / "backend_global_foundation_ecosystem_frontend_global_infrastructure_ecosystem_connect.php",
+            ROOT / "backend/infrastructure/global_ecosystem/global_infrastructure_ecosystem/backend_global_infrastructure_ecosystem_frontend_global_foundation_ecosystem_connect.php",
+        )
+        for path in files:
+            result = subprocess.run(["php", "-l", str(path)], capture_output=True, text=True)
+            self.assertEqual(result.returncode, 0, f"{path}: {result.stdout}{result.stderr}")
+
+    # Preserved integration tests moved from the old standalone integration file
+    def test_all_ecosystem_managers_wrap_and_delegate_to_original_component(self):
+        cases = (
+            (GlobalAuditEcosystemManager, "audit"),
+            (GlobalCoreEcosystemManager, "core"),
+            (GlobalDependenciesEcosystemManager, "dependencies"),
+            (GlobalFileManagerEcosystemManager, "file_manager"),
+            (GlobalIdentityEcosystemManager, "identity"),
+            (GlobalRegistryEcosystemManager, "registry"),
+            (GlobalSecurityEcosystemManager, "security"),
+            (GlobalSyncEcosystemManager, "sync"),
+        )
+        for manager_class, component_key in cases:
+            with self.subTest(ecosystem=manager_class.NAME):
+                original_component = SampleFoundationComponent()
+                manager = manager_class(original_component)
+                self.assertIs(manager.get_component(), original_component)
+                self.assertEqual(manager.ping(), "PONG")
+                result = manager.status()
+                self.assertEqual(result["status"], "INTEGRATED")
+                self.assertEqual(result["ecosystem"], manager_class.NAME)
+                self.assertEqual(result["component_key"], component_key)
+                self.assertEqual(result["component_type"], "SampleFoundationComponent")
+
+    def test_manager_rejects_missing_component(self):
+        for manager_class in (
+            GlobalAuditEcosystemManager,
+            GlobalCoreEcosystemManager,
+            GlobalDependenciesEcosystemManager,
+            GlobalFileManagerEcosystemManager,
+            GlobalIdentityEcosystemManager,
+            GlobalRegistryEcosystemManager,
+            GlobalSecurityEcosystemManager,
+            GlobalSyncEcosystemManager,
+        ):
+            with self.subTest(ecosystem=manager_class.NAME):
+                with self.assertRaisesRegex(ValueError, "Foundation component is required"):
+                    manager_class(None)
 
 
 if __name__ == "__main__":
