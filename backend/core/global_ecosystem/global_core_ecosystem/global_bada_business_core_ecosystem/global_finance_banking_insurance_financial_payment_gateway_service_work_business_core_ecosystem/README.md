@@ -32,7 +32,7 @@ The master file remains unchanged by this module:
 | `manager.py` | Stable public Python manager API |
 | `manager.php` | PHP interoperability facade; Python remains canonical |
 | `php/` | PHP value contracts for safe result/domain metadata |
-| `test/` | Contract, catalogue, policy, package and mapping tests |
+| `backend/test/test_global_finance_banking_insurance_financial_payment_gateway_service_work_business_core_ecosystem.py` | Centralized contract, catalogue, policy, package and mapping tests |
 
 ## Classification model
 
