@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . '/../manager.php';
+require_once __DIR__ . '/../core/global_ecosystem/global_core_ecosystem/anthropic_core_ecosystem/manager.php';
 
 $contract = AnthropicCoreManager::normalize([
     'success' => true,
@@ -14,4 +14,4 @@ if (!$contract instanceof AnthropicCoreContract) {
 if (($contract->toArray()['ecosystem_id'] ?? null) !== 'ANTHROPIC-CORE-ECOSYSTEM') {
     throw new RuntimeException('Anthropic ecosystem ID mismatch');
 }
-echo "Anthropic Core PHP test passed\\n";
+echo "Anthropic Core PHP test passed\n";
