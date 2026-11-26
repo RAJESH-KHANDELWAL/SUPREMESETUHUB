@@ -1,45 +1,38 @@
-"""Backend-level Android ecosystem adapter.
-
-The native Android project remains owned by Backend Foundation. This manager
-provides the independent Backend Android namespace without duplicating the
-project configuration or claiming that a release build has been verified.
-"""
-
-from backend.foundation.global_ecosystem.global_foundation_ecosystem.android import (
-    AndroidFoundationManager,
-)
+"""Backend entry point for the independent Android ecosystem."""
 
 
 class GlobalAndroidEcosystemManager:
-    """Expose the canonical Android Foundation project contract."""
+    """Describe the Backend Android namespace without assuming a native app build."""
 
     NAME = "GLOBAL ANDROID ECOSYSTEM"
-    VERSION = "1.0.0"
-
-    def __init__(self, foundation_component=None):
-        self._component = foundation_component or AndroidFoundationManager()
-
-    def get_component(self):
-        return self._component
+    VERSION = "1.1.0"
 
     def project_contract(self):
-        return self._component.project_contract()
+        return {
+            "ecosystem": "GLOBAL_ANDROID_ECOSYSTEM",
+            "backend_root": "backend/android",
+            "backend_ecosystem_path": "backend/android/global_ecosystem/global_android_ecosystem",
+            "frontend_root": "frontend/android",
+            "frontend_ecosystem_path": "frontend/android/global_ecosystem/global_android_ecosystem",
+            "native_build_configured": False,
+        }
 
     def status(self):
-        component_status = self._component.status()
+        contract = self.project_contract()
         return {
             "name": self.NAME,
             "version": self.VERSION,
-            "status": "INTEGRATED",
-            "ecosystem": "GLOBAL_ANDROID_ECOSYSTEM",
-            "component_status": component_status["status"],
-            "build_verified": component_status.get("build_verified", False),
-            "project_path": component_status["project_path"],
+            "status": "STRUCTURE_READY",
+            "ecosystem": contract["ecosystem"],
+            "backend_root": contract["backend_root"],
+            "frontend_root": contract["frontend_root"],
+            "native_build_configured": contract["native_build_configured"],
+            "build_verified": False,
         }
 
 
 def get_manager():
-    """Return the backend Android ecosystem adapter."""
+    """Return the Backend Global Android Ecosystem manager."""
     return GlobalAndroidEcosystemManager()
 
 

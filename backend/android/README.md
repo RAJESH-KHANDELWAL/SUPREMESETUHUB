@@ -1,5 +1,7 @@
 # Backend Android
 
-Independent Android-owned backend namespace. Keep Android backend APIs, service contracts, integrations, and backend support modules here. This namespace is separate from Foundation and Infrastructure Android subtrees.
+Independent Android-owned backend namespace. Backend APIs, service contracts, server-side integrations, and backend support modules belong here.
 
-See `global_ecosystem/global_android_ecosystem/` for the main backend Android ecosystem entry point.
+Main entry point: `global_ecosystem/global_android_ecosystem/`.
+
+Android is a separate top-level platform namespace, not a Foundation or Infrastructure child.

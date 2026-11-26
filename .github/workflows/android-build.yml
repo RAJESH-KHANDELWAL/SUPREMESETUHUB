@@ -1,4 +1,4 @@
-name: Android Build
+name: Android Structure Validation
 
 on:
   workflow_dispatch:
@@ -13,8 +13,8 @@ permissions:
   contents: read
 
 jobs:
-  android-setup-tests:
-    name: Android and Global Android Ecosystem Tests
+  android-structure-tests:
+    name: Backend and Frontend Android Structure Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -26,14 +26,15 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install Android Test Dependencies
+      - name: Install Test Dependencies
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r backend/requirements.txt
 
-      - name: Run Android Setup Python Tests
+      - name: Run Android Python Tests
         run: |
           python -m pytest backend/test/test_android.py -v
+          python -m pytest backend/test/test_android_global_ecosystem.py -v
           python -m pytest backend/test/test_global_android_ecosystem.py -v
 
       - name: Set up PHP
@@ -42,66 +43,12 @@ jobs:
           php-version: "8.3"
           coverage: none
 
-      - name: Validate Android Setup PHP Tests
+      - name: Validate Android PHP Tests
         run: |
           php -l backend/test/test_android.php
           php -l backend/test/test_global_android_ecosystem.php
 
-      - name: Run Android Setup PHP Tests
+      - name: Run Android PHP Tests
         run: |
           php backend/test/test_android.php
           php backend/test/test_global_android_ecosystem.php
-
-  android-release:
-    name: Build New Android Project Release AAB
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: "17"
-          cache: gradle
-
-      - name: Prepare Android SDK
-        run: |
-          set -e
-          SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
-          "$SDKMANAGER" --install \
-            "platform-tools" \
-            "platforms;android-36" \
-            "build-tools;36.0.0"
-
-      - name: Verify Android SDK
-        run: |
-          test -d "$ANDROID_HOME/platforms/android-36"
-          test -d "$ANDROID_HOME/build-tools/36.0.0"
-
-      - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: "9.6.0"
-
-      - name: Build New Android Project AAB
-        working-directory: backend/mobile/android
-        run: |
-          gradle :app:bundleRelease \
-            --stacktrace \
-            --no-daemon
-
-      - name: Verify Android Release AAB
-        run: |
-          AAB="backend/mobile/android/app/build/outputs/bundle/release/app-release.aab"
-          test -f "$AAB"
-          ls -lh "$AAB"
-
-      - name: Upload Android Release AAB
-        uses: actions/upload-artifact@v4
-        with:
-          name: supreme-setu-hub-android-release-aab
-          path: backend/mobile/android/app/build/outputs/bundle/release/app-release.aab
-          if-no-files-found: error

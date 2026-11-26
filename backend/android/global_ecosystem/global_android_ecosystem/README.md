@@ -1,30 +1,20 @@
 # Backend Global Android Ecosystem
 
-This namespace is the Backend-wide Android entry point. It delegates project ownership and configuration to the canonical Android Foundation component; it does not create a second Android Gradle project.
+This is the Backend-owned Android ecosystem entry point.
 
-## Canonical Android project
+## Canonical structure
 
-- Project: `backend/mobile/android`
-- App module: `backend/mobile/android/app`
-- Package / application ID: `com.mainbasefoundation.android`
-- Namespace: `com.mainbasefoundation.android`
-- Compile SDK / Target SDK: `36`
-- Minimum SDK: `26`
-- Java compatibility: `17`
-- Release task: `:app:bundleRelease`
-- Release artifact: `backend/mobile/android/app/build/outputs/bundle/release/app-release.aab`
+- Backend Android root: `backend/android/`
+- Backend ecosystem: `backend/android/global_ecosystem/global_android_ecosystem/`
+- Frontend Android root: `frontend/android/`
+- Frontend ecosystem: `frontend/android/global_ecosystem/global_android_ecosystem/`
 
-## Adapter
+Backend and Frontend Android are independent top-level namespaces. Android is not nested under Foundation or Infrastructure.
 
-- `manager.py` exposes `GlobalAndroidEcosystemManager` and `get_manager()`.
-- The manager delegates to `AndroidFoundationManager`.
-- The adapter reports configuration status separately from build verification.
+## Build boundary
 
-## Boundaries
+The deleted `backend/mobile/android/` project is not part of this setup. No Gradle project, APK, or AAB build is claimed. Native Android build configuration must be added under the approved Android-owned structure before a native build workflow is enabled.
 
-- Backend Android namespace: ecosystem-level entry point and integration adapters.
-- Backend Foundation Android: canonical app contract and shared foundation-owned project.
-- Backend Infrastructure Android: build/runtime, CI, deployment and operational integration.
-- Frontend Android: UI/navigation/presentation/client features.
+## Manager
 
-No Android release build is considered verified until CI or a local Gradle build produces and validates the AAB.
+`manager.py` exposes `GlobalAndroidEcosystemManager` and `get_manager()`. Its status reports structural readiness only; it does not claim runtime or native-build verification.
