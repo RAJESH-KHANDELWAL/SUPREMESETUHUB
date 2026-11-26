@@ -7,14 +7,14 @@ on:
       - backup/main
     paths:
       - "backend/android/global_ecosystem/global_android_ecosystem/native_android_app/**"
-      - "backend/test/test_android_foundation.py"
+      - "backend/android/global_ecosystem/global_android_ecosystem/native_android_app/test/**"
       - "backend/requirements.txt"
   pull_request:
     branches:
       - backup/main
     paths:
       - "backend/android/global_ecosystem/global_android_ecosystem/native_android_app/**"
-      - "backend/test/test_android_foundation.py"
+      - "backend/android/global_ecosystem/global_android_ecosystem/native_android_app/test/**"
       - "backend/requirements.txt"
 
 permissions:
@@ -40,7 +40,7 @@ jobs:
           python -m pip install -r requirements.txt
           python -m pip install pytest
       - name: Run Android Foundation Contract Tests
-        run: python -m pytest backend/test/test_android_foundation.py -v
+        run: python -m pytest backend/android/global_ecosystem/global_android_ecosystem/native_android_app/test/test_android_foundation.py -v
       - name: Run Full Backend Tests
         run: python -m pytest backend/test -v
 
