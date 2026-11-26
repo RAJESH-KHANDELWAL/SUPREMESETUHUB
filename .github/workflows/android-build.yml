@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   android-structure-tests:
-    name: Backend and Frontend Android Structure Tests
+    name: Backend and Frontend Android Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -31,11 +31,10 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r backend/requirements.txt
 
-      - name: Run Android Python Tests
+      - name: Run Backend and Frontend Android Python Tests
         run: |
-          python -m pytest backend/test/test_android.py -v
-          python -m pytest backend/test/test_android_global_ecosystem.py -v
-          python -m pytest backend/test/test_global_android_ecosystem.py -v
+          python -m pytest backend/test/test_backend_global_android_ecosystem.py -v
+          python -m pytest backend/test/test_frontend_global_android_ecosystem.py -v
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
@@ -43,12 +42,12 @@ jobs:
           php-version: "8.3"
           coverage: none
 
-      - name: Validate Android PHP Tests
+      - name: Validate PHP Test Syntax
         run: |
-          php -l backend/test/test_android.php
-          php -l backend/test/test_global_android_ecosystem.php
+          php -l backend/test/test_backend_global_android_ecosystem.php
+          php -l backend/test/test_frontend_global_android_ecosystem.php
 
-      - name: Run Android PHP Tests
+      - name: Run Backend and Frontend Android PHP Tests
         run: |
-          php backend/test/test_android.php
-          php backend/test/test_global_android_ecosystem.php
+          php backend/test/test_backend_global_android_ecosystem.php
+          php backend/test/test_frontend_global_android_ecosystem.php
