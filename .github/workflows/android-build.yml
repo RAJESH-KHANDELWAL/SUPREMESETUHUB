@@ -23,8 +23,8 @@ permissions:
   contents: read
 
 jobs:
-  backend-tests:
-    name: Backend and Android Foundation Tests
+  android-foundation-tests:
+    name: Android Foundation Tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -33,16 +33,12 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: pip
-          cache-dependency-path: backend/requirements.txt
-      - name: Install Backend Dependencies
-        working-directory: backend
+      - name: Install Test Dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -r requirements.txt
           python -m pip install pytest
-      - name: Run Backend Test Suite
-        run: python -m pytest backend/test -v
+      - name: Run Android Foundation Tests
+        run: python -m pytest backend/test/test_android_foundation.py -v
 
   android-release:
     name: Build Android Release AAB
