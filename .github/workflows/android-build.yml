@@ -1,4 +1,4 @@
-name: Android Build
+name: Backend Global Android Ecosystem Build
 
 on:
   workflow_dispatch:
@@ -6,15 +6,17 @@ on:
     branches:
       - backup/main
     paths:
+      - ".github/workflows/android-build.yml"
       - "backend/android/global_ecosystem/global_android_ecosystem/native_android_app/**"
-      - "backend/android/global_ecosystem/global_android_ecosystem/native_android_app/test/**"
+      - "backend/test/**"
       - "backend/requirements.txt"
   pull_request:
     branches:
       - backup/main
     paths:
+      - ".github/workflows/android-build.yml"
       - "backend/android/global_ecosystem/global_android_ecosystem/native_android_app/**"
-      - "backend/android/global_ecosystem/global_android_ecosystem/native_android_app/test/**"
+      - "backend/test/**"
       - "backend/requirements.txt"
 
 permissions:
@@ -39,9 +41,7 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           python -m pip install pytest
-      - name: Run Android Foundation Contract Tests
-        run: python -m pytest backend/android/global_ecosystem/global_android_ecosystem/native_android_app/test/test_android_foundation.py -v
-      - name: Run Full Backend Tests
+      - name: Run Backend Test Suite
         run: python -m pytest backend/test -v
 
   android-release:
@@ -86,6 +86,6 @@ jobs:
       - name: Upload Release AAB
         uses: actions/upload-artifact@v4
         with:
-          name: supreme-setu-hub-release-aab
+          name: backend-global-android-ecosystem-release-aab
           path: backend/android/global_ecosystem/global_android_ecosystem/native_android_app/app/build/outputs/bundle/release/app-release.aab
           if-no-files-found: error
