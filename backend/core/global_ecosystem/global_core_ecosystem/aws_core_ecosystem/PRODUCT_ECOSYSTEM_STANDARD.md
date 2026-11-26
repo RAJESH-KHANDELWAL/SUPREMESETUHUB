@@ -1,11 +1,12 @@
-# AWS Product Ecosystem Standard
+# AWS Product Core Ecosystem Standard
 
-Each AWS service-family Core package follows the Google Core package boundary while retaining AWS service semantics.
+- Provider package: `aws_core_ecosystem`.
+- Service-family package: `aws_<family>_core_ecosystem`.
+- Domain package: `aws_<domain>_core_ecosystem`.
+- Shared package: `aws_shared_<capability>_core_ecosystem`.
 
-Required package files: README.md, __init__.py, ecosystem_config.py, ecosystem_manifest.json and service.py.
+All provider-owned directories follow the AWS prefix and Core Ecosystem suffix. `php` and `tests` are intentional support directories.
 
-Required subfolders: authentication, capabilities, docs, events, lifecycle, models, schemas, security, services and tests.
+Each family retains its AWS-specific service facade, manifest, configuration, contracts, capabilities, lifecycle, security, documentation and tests. The family manager delegates to that service. Domain managers expose read-only status, offering inventory and lookup through the provider's canonical inventory.
 
-Core is metadata-first and read-only. Authentication directories define context and contract boundaries only. AWS credential resolution, SigV4 request signing, SDK clients and HTTP/API calls belong to the AWS API layer. Persistent resource state belongs to Storage/Database. Job execution belongs to Runtime/Engine. User authorization, confirmations and workflows belong to Application.
-
-Every AWS operation must be authorized against the actual IAM principal, account, region, resource ARN and requested action. Elevated and destructive actions require explicit authorization and auditable approval. A family remains catalog-only until independent integration tests verify its deployed adapter and account-level access.
+Core is metadata-only. AWS SDK clients, SigV4, credential resolution, transport, persistence, queues and infrastructure mutations remain outside this layer.

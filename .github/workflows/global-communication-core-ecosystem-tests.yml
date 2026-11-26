@@ -1,0 +1,35 @@
+name: Global Communication Core Ecosystem Tests
+
+on:
+  push:
+    paths:
+      - ".github/workflows/global-communication-core-ecosystem-tests.yml"
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_communication_core_ecosystem/**"
+      - "backend/core/global_ecosystem/global_core_ecosystem/manager.py"
+      - "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+  pull_request:
+    paths:
+      - ".github/workflows/global-communication-core-ecosystem-tests.yml"
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_communication_core_ecosystem/**"
+      - "backend/core/global_ecosystem/global_core_ecosystem/manager.py"
+      - "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json"
+
+permissions:
+  contents: read
+
+jobs:
+  communication-core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile Communication Core modules
+        run: python -m compileall -q backend/core/global_ecosystem/global_core_ecosystem/global_communication_core_ecosystem
+      - name: Run Communication Core unit tests
+        run: |
+          python -m unittest backend.core.global_ecosystem.global_core_ecosystem.global_communication_core_ecosystem.test_global_communication_core
+          python -m unittest backend.core.global_ecosystem.global_core_ecosystem.global_communication_core_ecosystem.test_global_communication_core_domains
+      - name: Validate PHP interoperability facade
+        run: php -l backend/core/global_ecosystem/global_core_ecosystem/global_communication_core_ecosystem/manager.php

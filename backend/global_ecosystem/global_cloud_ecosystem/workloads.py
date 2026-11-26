@@ -58,7 +58,7 @@ _WORKLOADS: tuple[dict[str, Any], ...] = tuple(
         "tier": row[2],
         "regions": tuple(row[3].split(",")),
         "workloads": tuple(row[4].split(",")),
-        "adult_industry": row[0].startswith("adult_") or row[0] == "sexual_wellness_education",
+        "adult_industry": row[0].startswith("adult_"),
         "guardrails": _ADULT_GUARDRAILS if row[0].startswith("adult_") else (
             ("age_appropriate_access", "privacy_and_legal_compliance")
             if row[0] == "sexual_wellness_education" else ()

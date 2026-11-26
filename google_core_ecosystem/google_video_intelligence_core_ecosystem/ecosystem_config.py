@@ -1,9 +1,0 @@
-PRODUCT_ID="google_video_intelligence"
-PRODUCT_NAME="Cloud Video Intelligence"
-CATEGORY="VIDEO_ANALYSIS"
-API_NAME="Cloud Video Intelligence API"
-INTEGRATION_MODE="CLOUD_PROJECT_CREDENTIALS"
-AVAILABILITY="API_AVAILABLE"
-AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
-REQUIRED_SCOPES=[]
-LIVE_CONNECTION_ENABLED=False

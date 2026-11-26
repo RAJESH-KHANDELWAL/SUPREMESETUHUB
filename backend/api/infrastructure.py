@@ -13,14 +13,14 @@ from backend.infrastructure.server.controller import ServerController
 from backend.infrastructure.ipam.controller import IPAMController
 from backend.infrastructure.network.controller import NetworkController
 from backend.infrastructure.dns.controller import DNSController
-from backend.infrastructure.hostinger_catalog import (
+from backend.infrastructure.global_ecosystem.global_infrastructure_ecosystem.modules.hostinger_catalog import (
     hostinger_catalog,
     hostinger_readiness,
 )
 from backend.api.wordpress import require_wordpress_owner
 from backend.database.gde_connection import GDEDatabaseConnection
 from backend.infrastructure.ftp.service import FtpInfrastructureService
-from backend.infrastructure.hostinger_api import (
+from backend.global_ecosystem.global_hosting_ecosystem.hostinger_api import (
     connection_status as hostinger_connection_status,
     list_vps_instances as hostinger_list_vps_instances,
     list_websites as hostinger_list_websites,

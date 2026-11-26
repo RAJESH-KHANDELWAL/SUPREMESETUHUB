@@ -1,8 +1,0 @@
-"""
-FOUNDATION FILE MANAGER
-
-Central file-management coordination layer for
-MAIN BASE FOUNDATION.
-"""
-
-FILE_MANAGER_LAYER = "FOUNDATION FILE MANAGER"

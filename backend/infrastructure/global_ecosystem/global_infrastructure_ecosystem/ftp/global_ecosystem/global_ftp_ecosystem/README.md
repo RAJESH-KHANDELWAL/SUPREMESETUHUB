@@ -1,9 +1,9 @@
-# Global FTP Ecosystem
+# Ftp Global Ecosystem
 
-Reserved ecosystem package for the ftp infrastructure domain.
+Reserved Global Ecosystem package for the ftp infrastructure domain.
 
-- Parent module: `backend/infrastructure/ftp/`
-- Ecosystem path: `backend/infrastructure/ftp/global_ecosystem/global_ftp_ecosystem/`
+- Parent module: `backend/infrastructure/global_ecosystem/global_infrastructure_ecosystem/ftp/`
+- Ecosystem path: `backend/infrastructure/global_ecosystem/global_infrastructure_ecosystem/ftp/global_ecosystem/global_ftp_ecosystem/`
 - Status: structure scaffold only
 
-This README establishes the module boundary and folder structure. It does not duplicate existing services, enable provider operations, or claim a live integration. Add domain-specific implementation here only after reviewing the existing module and its canonical backend dependencies.
+This package validates its structural boundary only. It does not duplicate domain services, execute infrastructure changes, connect to providers, or claim live integrations. Domain operations remain owned by canonical infrastructure modules and require separately reviewed, authorized, tested integrations.

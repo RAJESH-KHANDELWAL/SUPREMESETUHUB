@@ -1,0 +1,47 @@
+name: Package Domain Hosting WordPress Plugin
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - "wordpress-plugin/supremesetuhub-domain-hosting/**"
+      - ".github/workflows/package-domain-hosting-plugin.yml"
+  push:
+    branches: [main]
+    paths:
+      - "wordpress-plugin/supremesetuhub-domain-hosting/**"
+      - ".github/workflows/package-domain-hosting-plugin.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          coverage: none
+      - name: Validate plugin
+        run: |
+          set -euo pipefail
+          test -f wordpress-plugin/supremesetuhub-domain-hosting/readme.md
+          php -l wordpress-plugin/supremesetuhub-domain-hosting/supremesetuhub-domain-hosting.php
+      - name: Package plugin
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          zip -r dist/supremesetuhub-domain-hosting.zip wordpress-plugin/supremesetuhub-domain-hosting
+          unzip -t dist/supremesetuhub-domain-hosting.zip
+      - name: Upload installable plugin ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: supremesetuhub-domain-hosting
+          path: dist/supremesetuhub-domain-hosting.zip
+          if-no-files-found: error
+          retention-days: 30

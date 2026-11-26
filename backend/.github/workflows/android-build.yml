@@ -33,7 +33,7 @@ jobs:
           python -m pip install pytest
 
       - name: Run Backend Tests
-        run: python -m pytest backend/tests -v
+        run: python -m pytest backend/test -v
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
