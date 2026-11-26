@@ -1,7 +1,6 @@
 """Contract tests for the canonical Backend Global Android Ecosystem native app."""
 
 from pathlib import Path
-import re
 import unittest
 
 
