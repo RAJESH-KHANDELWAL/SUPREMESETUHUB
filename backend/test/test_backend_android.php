@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP-side contract checks for the canonical Android.
- * Run with: php backend/test/test_android.php
+ * Run with: php backend/test/test_backend_android.php
  */
 
 $root = dirname(__DIR__, 2);
