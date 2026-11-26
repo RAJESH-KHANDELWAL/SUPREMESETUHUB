@@ -5,7 +5,7 @@ from pathlib import Path
 import unittest
 
 ROOT = Path(__file__).resolve().parents[2]
-ANDROID_FOUNDATION_MANAGER = (
+ANDROID_MANAGER = (
     ROOT / "backend" / "foundation" / "global_ecosystem"
     / "global_foundation_ecosystem" / "android" / "manager.py"
 )
@@ -21,14 +21,14 @@ def load_manager(path, module_name):
     return module
 
 
-class BackendAndroidFoundationTests(unittest.TestCase):
+class AndroidTests(unittest.TestCase):
     def test_canonical_android_project_files_exist(self):
-        self.assertTrue(ANDROID_FOUNDATION_MANAGER.is_file())
+        self.assertTrue(ANDROID_MANAGER.is_file())
         self.assertTrue(ANDROID_BUILD_FILE.is_file())
 
     def test_android_foundation_contract(self):
         manager_class = load_manager(
-            ANDROID_FOUNDATION_MANAGER, "android_manager"
+            ANDROID_MANAGER, "android_manager"
         ).AndroidFoundationManager
         contract = manager_class().project_contract()
 
@@ -44,7 +44,7 @@ class BackendAndroidFoundationTests(unittest.TestCase):
 
     def test_android_foundation_status_does_not_claim_build_verification(self):
         manager_class = load_manager(
-            ANDROID_FOUNDATION_MANAGER, "android_status_manager"
+            ANDROID_MANAGER, "android_status_manager"
         ).AndroidFoundationManager
         status = manager_class().status()
 
