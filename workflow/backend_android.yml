@@ -3,66 +3,46 @@ name: Backend Android Tests
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
+    branches: [main]
     paths:
-      - "backend/android/**"
-      - "frontend/android/**"
-      - "backend/test/test_backend_global_android_ecosystem.py"
-      - "backend/test/test_backend_global_android_ecosystem.php"
-      - "backend/test/test_frontend_global_android_ecosystem.py"
-      - "backend/test/test_frontend_global_android_ecosystem.php"
+      - "backend/foundation/global_ecosystem/global_foundation_ecosystem/android/**"
+      - "backend/mobile/android/**"
+      - "backend/test/test_android.py"
+      - "backend/test/test_android.php"
   pull_request:
-    branches:
-      - main
+    branches: [main]
     paths:
-      - "backend/android/**"
-      - "frontend/android/**"
-      - "backend/test/test_backend_global_android_ecosystem.py"
-      - "backend/test/test_backend_global_android_ecosystem.php"
-      - "backend/test/test_frontend_global_android_ecosystem.py"
-      - "backend/test/test_frontend_global_android_ecosystem.php"
+      - "backend/foundation/global_ecosystem/global_foundation_ecosystem/android/**"
+      - "backend/mobile/android/**"
+      - "backend/test/test_android.py"
+      - "backend/test/test_android.php"
 
 permissions:
   contents: read
 
 jobs:
-  android-ecosystem-tests:
-    name: Validate Backend and Frontend Android Ecosystems
+  backend-android-tests:
+    name: Validate Canonical Android Setup
     runs-on: ubuntu-latest
-    env:
-      PYTHONPATH: ${{ github.workspace }}
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
-      - name: Install Python Test Dependency
-        run: python -m pip install --upgrade pytest
-
-      - name: Run Backend and Frontend Android Python Tests
+      - name: Install Backend Test Dependencies
         run: |
-          python -m pytest -v \
-            backend/test/test_backend_global_android_ecosystem.py \
-            backend/test/test_frontend_global_android_ecosystem.py
-
+          python -m pip install --upgrade pip
+          python -m pip install -r backend/requirements.txt
+      - name: Run Android Python Tests
+        run: python -m pytest backend/test/test_android.py -v
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: "8.3"
           coverage: none
-
-      - name: Validate PHP Test Syntax
-        run: |
-          php -l backend/test/test_backend_global_android_ecosystem.php
-          php -l backend/test/test_frontend_global_android_ecosystem.php
-
-      - name: Run Backend and Frontend Android PHP Tests
-        run: |
-          php backend/test/test_backend_global_android_ecosystem.php
-          php backend/test/test_frontend_global_android_ecosystem.php
+      - name: Validate Android PHP Test Syntax
+        run: php -l backend/test/test_android.php
+      - name: Run Android PHP Tests
+        run: php backend/test/test_android.php
