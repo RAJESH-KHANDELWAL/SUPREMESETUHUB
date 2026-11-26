@@ -1,7 +1,7 @@
 <?php
 /**
- * PHP-side structural checks for Global Android Ecosystem.
- * Run with: php backend/test/test_backend_global_android_ecosystem.php
+ * PHP structural checks for Backend Global Android Ecosystem.
+ * Run with: php backend/test/test_global_android_ecosystem.php
  */
 
 $root = dirname(__DIR__, 2);
@@ -15,7 +15,7 @@ $required = [
     'Global Android Ecosystem manager' => $manager,
     'Global Android Ecosystem README' => $readme,
     'Global Android Ecosystem package initializer' => $init,
-    'Canonical Android Foundation manager' => $foundationManager,
+    'Android Foundation manager' => $foundationManager,
 ];
 
 foreach ($required as $label => $path) {
@@ -35,7 +35,7 @@ if ($managerContent === false || $readmeContent === false) {
 $managerChecks = [
     '/class\s+GlobalAndroidEcosystemManager\b/' => 'GlobalAndroidEcosystemManager class',
     '/def\s+get_manager\s*\(/' => 'get_manager factory',
-    '/AndroidFoundationManager/' => 'Foundation manager delegation',
+    '/AndroidFoundationManager/' => 'Android manager delegation',
     '/GLOBAL_ANDROID_ECOSYSTEM/' => 'ecosystem identity',
 ];
 

@@ -1,4 +1,4 @@
-"""Python integration tests for Global Android Ecosystem."""
+"""Python integration tests for Backend Global Android Ecosystem."""
 
 from importlib.util import module_from_spec, spec_from_file_location
 from pathlib import Path
@@ -25,22 +25,25 @@ def load_module(path, module_name):
     return module
 
 
-class BackendGlobalAndroidEcosystemTests(unittest.TestCase):
-    def test_backend_android_ecosystem_package_files_exist(self):
+class GlobalAndroidEcosystemTests(unittest.TestCase):
+    def test_package_files_exist(self):
         self.assertTrue((PACKAGE / "README.md").is_file())
         self.assertTrue((PACKAGE / "__init__.py").is_file())
         self.assertTrue(MANAGER_FILE.is_file())
         self.assertTrue(FOUNDATION_MANAGER_FILE.is_file())
 
-    def test_backend_android_manager_resolves_foundation_component(self):
-        module = load_module(MANAGER_FILE, "backend_global_android_ecosystem_manager")
+    def test_manager_resolves_android_component(self):
+        module = load_module(MANAGER_FILE, "global_android_ecosystem_manager")
         manager = module.get_manager()
 
         self.assertIsInstance(manager, module.GlobalAndroidEcosystemManager)
-        self.assertEqual(manager.get_component().__class__.__name__, "AndroidFoundationManager")
+        self.assertEqual(
+            manager.get_component().__class__.__name__,
+            "AndroidFoundationManager",
+        )
 
-    def test_backend_android_ecosystem_status_and_contract(self):
-        module = load_module(MANAGER_FILE, "backend_global_android_ecosystem_status_manager")
+    def test_ecosystem_status_and_contract(self):
+        module = load_module(MANAGER_FILE, "global_android_ecosystem_status_manager")
         manager = module.get_manager()
         status = manager.status()
         contract = manager.project_contract()

@@ -1,4 +1,4 @@
-"""Python contract tests for the canonical Android."""
+"""Python contract tests for the canonical Android setup."""
 
 from importlib.util import module_from_spec, spec_from_file_location
 from pathlib import Path
@@ -26,7 +26,7 @@ class AndroidTests(unittest.TestCase):
         self.assertTrue(ANDROID_MANAGER.is_file())
         self.assertTrue(ANDROID_BUILD_FILE.is_file())
 
-    def test_android_foundation_contract(self):
+    def test_android_project_contract(self):
         manager_class = load_manager(
             ANDROID_MANAGER, "android_manager"
         ).AndroidFoundationManager
@@ -42,7 +42,7 @@ class AndroidTests(unittest.TestCase):
         self.assertEqual(contract["java_version"], 17)
         self.assertEqual(contract["release_task"], ":app:bundleRelease")
 
-    def test_android_foundation_status_does_not_claim_build_verification(self):
+    def test_android_status_does_not_claim_build_verification(self):
         manager_class = load_manager(
             ANDROID_MANAGER, "android_status_manager"
         ).AndroidFoundationManager
