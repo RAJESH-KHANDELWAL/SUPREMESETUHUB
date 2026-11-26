@@ -35,11 +35,24 @@ jobs:
           python -m pip install -r requirements.txt
           python -m pip install pytest
 
-      - name: Run Android Foundation Contract Tests
-        run: python -m pytest backend/test/test_android_foundation.py -v
-
       - name: Run Full Backend Tests
         run: python -m pytest backend/test -v
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          coverage: none
+
+      - name: Validate Android PHP Test Syntax
+        run: |
+          php -l backend/test/test_backend_android.php
+          php -l backend/test/test_backend_global_android_ecosystem.php
+
+      - name: Run Android PHP Contract Tests
+        run: |
+          php backend/test/test_backend_android.php
+          php backend/test/test_backend_global_android_ecosystem.php
 
   android-release:
     name: Build Android Release AAB
