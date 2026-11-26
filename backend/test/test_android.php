@@ -24,7 +24,7 @@ function expect_match(string $pattern, string $content, string $label): void
     }
 }
 
-expect_file($manager, 'Android Foundation manager');
+expect_file($manager, 'Android manager');
 expect_file($gradle, 'Android app Gradle configuration');
 
 $content = file_get_contents($gradle);
