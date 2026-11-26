@@ -1,0 +1,50 @@
+name: Cohere Core Ecosystem Tests
+
+on:
+  push:
+    paths:
+      - "backend/test/test_cohere_core_ecosystem.py"
+      - "backend/test/test_cohere_core_ecosystem.php"
+      - "backend/core/global_ecosystem/global_core_ecosystem/cohere_core_ecosystem/**"
+      - ".github/workflows/cohere-core-ecosystem.yml"
+  pull_request:
+    paths:
+      - "backend/test/test_cohere_core_ecosystem.py"
+      - "backend/test/test_cohere_core_ecosystem.php"
+      - "backend/core/global_ecosystem/global_core_ecosystem/cohere_core_ecosystem/**"
+      - ".github/workflows/cohere-core-ecosystem.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cohere-core-ecosystem:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install backend test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r backend/requirements.txt
+
+      - name: Run Cohere Python test
+        env:
+          PYTHONPATH: .
+        run: python -m pytest backend/test/test_cohere_core_ecosystem.py -q
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          coverage: none
+
+      - name: Run Cohere PHP test
+        run: php backend/test/test_cohere_core_ecosystem.php
