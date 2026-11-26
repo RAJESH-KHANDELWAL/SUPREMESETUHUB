@@ -1,0 +1,50 @@
+name: Backend Android Ecosystem Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "backend/android/**"
+      - "backend/test/test_backend_global_android_ecosystem.py"
+      - "backend/test/test_backend_global_android_ecosystem.php"
+      - "backend/.github/workflows/**"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "backend/android/**"
+      - "backend/test/test_backend_global_android_ecosystem.py"
+      - "backend/test/test_backend_global_android_ecosystem.php"
+      - "backend/.github/workflows/**"
+
+permissions:
+  contents: read
+
+jobs:
+  backend-android-tests:
+    name: Backend Android Validation
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pytest
+        run: python -m pip install --upgrade pytest
+      - name: Run Backend Android Python Test
+        run: python -m pytest -v backend/test/test_backend_global_android_ecosystem.py
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          coverage: none
+      - name: Validate and Run Backend Android PHP Test
+        run: |
+          php -l backend/test/test_backend_global_android_ecosystem.php
+          php backend/test/test_backend_global_android_ecosystem.php
