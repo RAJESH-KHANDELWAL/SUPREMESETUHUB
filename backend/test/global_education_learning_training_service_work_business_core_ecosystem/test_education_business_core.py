@@ -1,7 +1,7 @@
 import unittest
-from ..domain_catalog import list_business_domains, get_business_domain, validate_business_domains
-from ..manager import get_manager
-from ..policy import is_allowed
+from backend.core.global_ecosystem.global_core_ecosystem.global_bada_business_core_ecosystem.global_education_learning_training_service_work_business_core_ecosystem.domain_catalog import list_business_domains, get_business_domain, validate_business_domains
+from backend.core.global_ecosystem.global_core_ecosystem.global_bada_business_core_ecosystem.global_education_learning_training_service_work_business_core_ecosystem.manager import get_manager
+from backend.core.global_ecosystem.global_core_ecosystem.global_bada_business_core_ecosystem.global_education_learning_training_service_work_business_core_ecosystem.policy import is_allowed
 
 class EducationBusinessCoreTests(unittest.TestCase):
     def test_unique_domain_ids(self):
