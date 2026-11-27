@@ -16,5 +16,13 @@ def test_manager_exposes_business_interfaces():
     manager = get_manager()
     assert isinstance(manager.status(), dict)
     assert isinstance(manager.health(), dict)
-    assert isinstance(manager.list_domains(), list)
     assert isinstance(manager.catalog(), dict)
+
+
+def test_manager_lists_domains_with_success_envelope():
+    result = get_manager().list_domains()
+    assert isinstance(result, dict)
+    assert result["success"] is True
+    assert isinstance(result["count"], int)
+    assert isinstance(result["domains"], list)
+    assert result["count"] == len(result["domains"])
