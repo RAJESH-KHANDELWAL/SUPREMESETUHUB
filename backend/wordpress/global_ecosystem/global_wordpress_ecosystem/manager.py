@@ -32,7 +32,7 @@ class GlobalWordPressEcosystemManager:
     def health(self) -> dict[str, Any]:
         from pathlib import Path
 
-        root = Path(__file__).resolve().parents[3]
+        root = Path(__file__).resolve().parents[2]
         required = ("controller.py", "service.py", "registry.py", "connection.py")
         checks = {name: (root / name).is_file() for name in required}
         ready = all(checks.values())
