@@ -7,9 +7,25 @@ from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_
 
 PACKAGE = "backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_freelancer_gig_independent_work_business_api_ecosystem.jobs_careers_employment_api_ecosystem"
 
+def _registered_paths(router):
+    paths = set()
+    for route in router.routes:
+        path = getattr(route, "path", None)
+        if path:
+            paths.add(path)
+        included_router = getattr(route, "original_router", None)
+        include_context = getattr(route, "include_context", None)
+        prefix = getattr(include_context, "prefix", "")
+        for child in getattr(included_router, "routes", ()):
+            child_path = getattr(child, "path", None)
+            if child_path:
+                paths.add(f"{prefix}{child_path}")
+    return paths
+
+
 class WorkCareerSpecializationTests(unittest.TestCase):
     def test_every_direct_specialization_folder_is_registered(self):
-        mounted_paths = {route.path for route in router.routes}
+        mounted_paths = _registered_paths(router)
         total = 0
         for category in CATEGORY_DEFINITIONS:
             category_id = category["id"]
