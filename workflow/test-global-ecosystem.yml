@@ -130,8 +130,9 @@ jobs:
             -t . \
             -p "test_global_affiliate_marketing.py" \
             -v
-          python -m unittest \
-            backend.test.global_ecosystem.global_test_ecosystem.py.global_ecosystem.global_py_ecosystem.test_global_affiliate_marketing_core_ecosystem \
+          python -m unittest discover \\
+            -s backend/test/global_ecosystem/global_test_ecosystem/py/global_ecosystem/global_py_ecosystem \\
+            -p "test_global_affiliate_marketing_core_ecosystem.py" \\
             -v
 
       - name: Run GLOBAL CORE ECOSYSTEM Tests
