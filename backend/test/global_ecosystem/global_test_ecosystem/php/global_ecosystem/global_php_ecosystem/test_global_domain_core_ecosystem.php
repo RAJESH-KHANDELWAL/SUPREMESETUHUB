@@ -6,7 +6,7 @@ declare(strict_types=1);
  * independent Domain Core provider packages.
  */
 
-$repoRoot = dirname(__DIR__, 4);
+$repoRoot = dirname(__DIR__, 7);
 $providerRoot = $repoRoot
     . '/backend/core/global_ecosystem/global_core_ecosystem/global_domain_core_ecosystem';
 
