@@ -3,7 +3,7 @@ import unittest
 from ..contracts import PROVIDER_ID, readiness
 
 
-class ProviderContractTests(unittest.TestCase):
+class ProviderContractTest(unittest.TestCase):
     def test_provider_identity(self):
         self.assertEqual(PROVIDER_ID, "acme")
 
