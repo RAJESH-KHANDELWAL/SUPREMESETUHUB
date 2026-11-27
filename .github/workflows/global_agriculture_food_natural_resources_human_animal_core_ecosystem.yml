@@ -1,0 +1,65 @@
+name: global_agriculture_food_natural_resources_human_animal_core_ecosystem
+
+on:
+  push:
+    branches:
+      - main
+      - feature/agriculture-food-natural-resources-human-animal-core
+      - migration/workflows-to-workflow
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_agriculture_food_natural_resources_human_animal_core_ecosystem/**"
+      - "backend/core/global_ecosystem/global_core_ecosystem/manager.py"
+      - ".github/workflows/global_agriculture_food_natural_resources_human_animal_core_ecosystem.yml"
+  pull_request:
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/global_agriculture_food_natural_resources_human_animal_core_ecosystem/**"
+      - "backend/core/global_ecosystem/global_core_ecosystem/manager.py"
+      - ".github/workflows/global_agriculture_food_natural_resources_human_animal_core_ecosystem.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: .
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Python test and YAML tools
+        run: python -m pip install "pytest>=8,<9" PyYAML
+      - name: Validate Python syntax
+        run: python -m compileall -q "backend/core/global_ecosystem/global_core_ecosystem/global_agriculture_food_natural_resources_human_animal_core_ecosystem"
+      - name: Validate CORE YAML manifest
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+          path = Path("backend/core/global_ecosystem/global_core_ecosystem/global_agriculture_food_natural_resources_human_animal_core_ecosystem/global_agriculture_food_natural_resources_human_animal_core_ecosystem.yml")
+          with path.open(encoding="utf-8") as stream:
+              data = yaml.safe_load(stream)
+          if not isinstance(data, dict) or not data:
+              raise SystemExit(f"Invalid or empty YAML manifest: {path}")
+          print(f"YAML OK: {path}")
+          PY
+      - name: Run CORE tests
+        run: python -m pytest "backend/core/global_ecosystem/global_core_ecosystem/global_agriculture_food_natural_resources_human_animal_core_ecosystem/tests" -q
+      - name: Run Python contract test
+        run: python -m pytest "backend/core/global_ecosystem/global_core_ecosystem/global_agriculture_food_natural_resources_human_animal_core_ecosystem/test_global_agriculture_food_natural_resources_human_animal_core_ecosystem.py" -q
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          coverage: none
+      - name: Lint and run PHP contract test
+        run: |
+          set -euo pipefail
+          php -l "backend/core/global_ecosystem/global_core_ecosystem/global_agriculture_food_natural_resources_human_animal_core_ecosystem/manager.php"
+          php -l "backend/core/global_ecosystem/global_core_ecosystem/global_agriculture_food_natural_resources_human_animal_core_ecosystem/test_global_agriculture_food_natural_resources_human_animal_core_ecosystem.py"
+          php "backend/core/global_ecosystem/global_core_ecosystem/global_agriculture_food_natural_resources_human_animal_core_ecosystem/test_global_agriculture_food_natural_resources_human_animal_core_ecosystem.py"
