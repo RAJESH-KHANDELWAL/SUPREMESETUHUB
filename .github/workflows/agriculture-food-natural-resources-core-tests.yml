@@ -37,7 +37,15 @@ jobs:
         run: python -m pytest backend/core/global_ecosystem/global_core_ecosystem/global_agriculture_food_natural_resources_human_animal_core_ecosystem/tests -q
       - name: Run Bada Business Agriculture CORE tests
         run: python -m pytest backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_agriculture_food_natural_resources_human_animal_service_work_business_core_ecosystem/tests -q
-      - name: Check PHP interoperability facades
+      - name: Run manager-level Python tests
+        run: |
+          python -m pytest backend/core/global_ecosystem/global_core_ecosystem/global_agriculture_food_natural_resources_human_animal_core_ecosystem/test_global_agriculture_food_natural_resources_human_animal_core_ecosystem.py -q
+          python -m pytest backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_agriculture_food_natural_resources_human_animal_service_work_business_core_ecosystem/test_global_agriculture_food_natural_resources_human_animal_service_work_business_core_ecosystem.py -q
+      - name: Check and run PHP interoperability tests
         run: |
           php -l backend/core/global_ecosystem/global_core_ecosystem/global_agriculture_food_natural_resources_human_animal_core_ecosystem/manager.php
+          php -l backend/core/global_ecosystem/global_core_ecosystem/global_agriculture_food_natural_resources_human_animal_core_ecosystem/test_global_agriculture_food_natural_resources_human_animal_core_ecosystem.php
+          php backend/core/global_ecosystem/global_core_ecosystem/global_agriculture_food_natural_resources_human_animal_core_ecosystem/test_global_agriculture_food_natural_resources_human_animal_core_ecosystem.php
           php -l backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_agriculture_food_natural_resources_human_animal_service_work_business_core_ecosystem/manager.php
+          php -l backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_agriculture_food_natural_resources_human_animal_service_work_business_core_ecosystem/test_global_agriculture_food_natural_resources_human_animal_service_work_business_core_ecosystem.php
+          php backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_agriculture_food_natural_resources_human_animal_service_work_business_core_ecosystem/test_global_agriculture_food_natural_resources_human_animal_service_work_business_core_ecosystem.php
