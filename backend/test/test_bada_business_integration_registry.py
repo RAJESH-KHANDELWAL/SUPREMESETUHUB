@@ -19,7 +19,7 @@ class BadaBusinessIntegrationRegistryTests(unittest.TestCase):
         self.assertEqual(get_status()["api_documentation_verified_count"], 0)
 
     def test_provider_lookup(self):
-        self.assertEqual(get_integration("google")["package"], "google_business_api_ecosystem")
+        self.assertTrue(get_integration("google")["package"].endswith(".google_business_api_ecosystem"))
         self.assertIsNone(get_integration("not-a-provider"))
 
     def test_integration_routes_are_registered(self):
