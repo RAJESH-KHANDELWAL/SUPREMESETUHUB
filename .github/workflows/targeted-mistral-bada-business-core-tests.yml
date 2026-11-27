@@ -31,7 +31,7 @@ jobs:
         env:
           PYTHONPATH: .
         run: |
-          python -m pytest backend/core/global_ecosystem/global_core_ecosystem/mistral_core_ecosystem -q
+          python -m pytest backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem/mistral_core_ecosystem -q
 
       - name: Test every Bada Business CORE Ecosystem test folder
         if: always()
