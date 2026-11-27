@@ -3,7 +3,7 @@
   "package": "Premium Plus",
   "promocode": "6251561325",
   "source": "User-provided referral URLs in conversation",
-  "verification_note": "URLs are preserved exactly as supplied. Expiry tokens may expire; current validity has not been verified. Country names are not inferred where only countryId is known.",
+  "verification_note": "URLs are preserved exactly as supplied. Expiry tokens may expire; current validity has not been verified. Country names are not inferred where only countryId is known. Multiple URLs for the same countryId are retained when their full URLs differ.",
   "duplicate_policy": "Exact full-URL duplicates are stored once. Different countryId or expires values are distinct referral URLs.",
   "unique_links": [
     {
@@ -45,6 +45,26 @@
       "country_id": 7,
       "country_name": null,
       "url": "https://idigitalpreneur.com/buy-package/premium-plus?promocode=6251561325&countryId=7&expires=IN8TsT1S6xlq1Mr-Uy-iU8RX3tBdHarblozs4tSgYis2"
+    },
+    {
+      "country_id": 7,
+      "country_name": null,
+      "url": "https://idigitalpreneur.com/buy-package/premium-plus?promocode=6251561325&countryId=7&expires=Ht1V3suDXfO3H95WYP5uEEh6p7Sn4bgOhrH24ocyMMSA"
+    },
+    {
+      "country_id": 8,
+      "country_name": null,
+      "url": "https://idigitalpreneur.com/buy-package/premium-plus?promocode=6251561325&countryId=8&expires=swZ_YpanmzhAcxxj218IDXqUN6-E57aYUQjrEXBJd95Z"
+    },
+    {
+      "country_id": 9,
+      "country_name": null,
+      "url": "https://idigitalpreneur.com/buy-package/premium-plus?promocode=6251561325&countryId=9&expires=wyht8Fo5v-_F5WHEZ8sqtsRU1JsgjBAtlk4Mef3CA39x"
+    },
+    {
+      "country_id": 12,
+      "country_name": null,
+      "url": "https://idigitalpreneur.com/buy-package/premium-plus?promocode=6251561325&countryId=12&expires=ljTbMLPRXScjcnhHUawmQpcoMzdjhXwx-OC0MsMcro8r"
     }
   ],
   "duplicate_entries_removed": [
