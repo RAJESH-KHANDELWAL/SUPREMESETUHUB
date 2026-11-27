@@ -151,7 +151,7 @@ jobs:
           python -m pytest backend/core/global_ecosystem/global_core_ecosystem/google_core_ecosystem/test_google_core_domains.py -q
 
       - name: Run Culture Service Work Business Layer Tests
-        run: python -m unittest discover -s tests -p "test_global_culture_service_work_business_ecosystem.py" -v
+        run: python -m pytest backend/core/global_ecosystem/global_core_ecosystem/global_vasudhaiva_kutumbakam_sanatan_dharma_bharat_world_culture_core_ecosystem/test_cultural_core_domains.py -q
 
       - name: Run SUPREME UPDATE SERVER tests
         run: |
