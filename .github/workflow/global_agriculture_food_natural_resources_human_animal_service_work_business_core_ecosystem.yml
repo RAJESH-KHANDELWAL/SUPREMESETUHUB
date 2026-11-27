@@ -61,5 +61,5 @@ jobs:
         run: |
           set -euo pipefail
           php -l "backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_agriculture_food_natural_resources_human_animal_service_work_business_core_ecosystem/manager.php"
-          php -l "backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_agriculture_food_natural_resources_human_animal_service_work_business_core_ecosystem/test_global_agriculture_food_natural_resources_human_animal_service_work_business_core_ecosystem.py"
-          php "backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_agriculture_food_natural_resources_human_animal_service_work_business_core_ecosystem/test_global_agriculture_food_natural_resources_human_animal_service_work_business_core_ecosystem.py"
+          php -l "backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_agriculture_food_natural_resources_human_animal_service_work_business_core_ecosystem/test_global_agriculture_food_natural_resources_human_animal_service_work_business_core_ecosystem.php"
+          php "backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_agriculture_food_natural_resources_human_animal_service_work_business_core_ecosystem/test_global_agriculture_food_natural_resources_human_animal_service_work_business_core_ecosystem.php"
