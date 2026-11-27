@@ -141,6 +141,7 @@ jobs:
         run: |
           python -m unittest discover \
             -s backend/test \
+            -t . \
             -p "test_*.py" \
             -v
           python -m unittest \
@@ -165,6 +166,7 @@ jobs:
         run: |
           python -m unittest discover \
             -s backend/test \
+            -t . \
             -p "test_global_ecosystem_api.py" \
             -v
 
