@@ -11,8 +11,6 @@ from ..global_msme_sme_startup_solo_preneur_solo_preneurship_business_men_busine
 
 
 from .service_catalog import (
-    SERVICES,
-    GEOGRAPHIC_SCOPES,
     list_services,
     get_service,
     search_services,
