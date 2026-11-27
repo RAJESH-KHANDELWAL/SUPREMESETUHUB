@@ -5,7 +5,7 @@ declare(strict_types=1);
  * Contract tests for GLOBAL AFFILIATE MARKETING BUSINESS CORE.
  * This test is read-only and does not call external affiliate providers.
  */
-require_once dirname(__DIR__, 4)
+require_once dirname(__DIR__, 7)
     . '/backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem/global_affiliate_marketing_business_core_ecosystem/manager.php';
 
 function expectAffiliateCore(bool $condition, string $message): void
