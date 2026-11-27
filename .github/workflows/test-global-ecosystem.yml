@@ -44,7 +44,7 @@ jobs:
           php backend/test/global_test_ecosystem/global_php_ecosystem/global_algorithm_kernel_test.php
           php backend/test/global_test_ecosystem/global_php_ecosystem/global_model_ecosystem_test.php
           php backend/test/global_test_ecosystem/global_php_ecosystem/infrastructure_manager_test.php
-          php backend/test/global_test_ecosystem/global_php_ecosystem/global_affiliate_marketing_core_ecosystem_test.php
+          php backend/test/global_test_ecosystem/global_php_ecosystem/test_global_affiliate_marketing_core_ecosystem.php
 
   python-quality:
     name: Python syntax checks
@@ -130,7 +130,7 @@ jobs:
             -p "test_global_affiliate_marketing.py" \
             -v
           python -m unittest \
-            backend.test.global_test_ecosystem.global_py_ecosystem.global_affiliate_marketing_core_ecosystem_test \
+            backend.test.global_test_ecosystem.global_py_ecosystem.test_global_affiliate_marketing_core_ecosystem \
             -v
 
       - name: Run GLOBAL CORE ECOSYSTEM Tests
