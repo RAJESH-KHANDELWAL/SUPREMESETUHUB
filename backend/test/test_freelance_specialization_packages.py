@@ -5,6 +5,22 @@ from backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_
 
 PACKAGE = "backend.api.global_ecosystem.global_api_ecosystem.global_bada_business_api_ecosystem.global_freelancer_gig_independent_work_business_api_ecosystem"
 
+def _registered_paths(router):
+    paths = set()
+    for route in router.routes:
+        path = getattr(route, "path", None)
+        if path:
+            paths.add(path)
+        included_router = getattr(route, "original_router", None)
+        include_context = getattr(route, "include_context", None)
+        prefix = getattr(include_context, "prefix", "")
+        for child in getattr(included_router, "routes", ()):
+            child_path = getattr(child, "path", None)
+            if child_path:
+                paths.add(f"{prefix}{child_path}")
+    return paths
+
+
 class FreelanceSpecializationPackageTests(unittest.TestCase):
     def test_each_specialization_has_independent_layers(self):
         self.assertEqual(len(SUBCATEGORY_IDS), 25)
@@ -27,7 +43,7 @@ class FreelanceSpecializationPackageTests(unittest.TestCase):
 
     def test_aggregate_router_mounts_all_specializations(self):
         router = importlib.import_module(f"{PACKAGE}.specializations").router
-        paths = {route.path for route in router.routes}
+        paths = _registered_paths(router)
         for specialization_id in SUBCATEGORY_IDS:
             self.assertIn(f"/freelance/specializations/{specialization_id}", paths)
 
