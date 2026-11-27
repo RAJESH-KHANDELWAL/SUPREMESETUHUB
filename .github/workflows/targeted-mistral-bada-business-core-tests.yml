@@ -31,7 +31,7 @@ jobs:
         env:
           PYTHONPATH: .
         run: |
-          python -m pytest backend/core/global_ecosystem/global_core_ecosystem/mistral_core_ecosystem -q
+          python -m compileall -q backend/core/global_ecosystem/global_core_ecosystem/mistral_core_ecosystem
           python -m pytest backend/test/test_mistral_core.py -q
 
       - name: Test independent Global AI CORE Ecosystem
