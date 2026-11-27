@@ -4,7 +4,7 @@ from pathlib import Path
 import unittest
 
 
-REPOSITORY_ROOT = Path(__file__).resolve().parents[7]
+REPOSITORY_ROOT = Path(__file__).resolve().parents[6]
 PROVIDER_ROOT = (
     REPOSITORY_ROOT
     / "backend"
