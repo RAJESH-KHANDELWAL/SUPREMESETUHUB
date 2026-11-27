@@ -44,6 +44,7 @@ jobs:
           php backend/test/global_test_ecosystem/global_php_ecosystem/global_algorithm_kernel_test.php
           php backend/test/global_test_ecosystem/global_php_ecosystem/global_model_ecosystem_test.php
           php backend/test/global_test_ecosystem/global_php_ecosystem/infrastructure_manager_test.php
+          php backend/test/global_test_ecosystem/global_php_ecosystem/global_affiliate_marketing_core_ecosystem_test.php
 
   python-quality:
     name: Python syntax checks
@@ -122,7 +123,15 @@ jobs:
           python -m pip install "fastapi>=0.115,<1.0" "pydantic>=2.7,<3.0"
 
       - name: Run Affiliate Marketing CORE and DATABASE Workflow Tests
-        run: python -m unittest discover -s tests -p "test_global_affiliate_marketing.py" -v
+        run: |
+          python -m unittest discover \
+            -s backend/test \
+            -t . \
+            -p "test_global_affiliate_marketing.py" \
+            -v
+          python -m unittest \
+            backend.test.global_test_ecosystem.global_py_ecosystem.global_affiliate_marketing_core_ecosystem_test \
+            -v
 
       - name: Run GLOBAL CORE ECOSYSTEM Tests
         run: |
