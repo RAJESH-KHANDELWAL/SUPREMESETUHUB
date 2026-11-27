@@ -45,6 +45,7 @@ jobs:
           php backend/test/global_test_ecosystem/global_php_ecosystem/global_model_ecosystem_test.php
           php backend/test/global_test_ecosystem/global_php_ecosystem/infrastructure_manager_test.php
           php backend/test/global_test_ecosystem/global_php_ecosystem/test_global_affiliate_marketing_core_ecosystem.php
+          php backend/test/global_test_ecosystem/global_php_ecosystem/test_domain_core_provider_directories.php
 
   python-quality:
     name: Python syntax checks
