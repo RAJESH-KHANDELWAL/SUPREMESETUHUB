@@ -70,7 +70,7 @@ This ecosystem is Python-based. Do not add PHP files for symmetry; PHP belongs i
 From repository root:
 
 ```bash
-PYTHONPATH=. python -m pytest -q backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/tests
+PYTHONPATH=. python -m pytest -q backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/test
 ```
 
 Tests validate registry metadata and contracts only. They do not certify live security controls, legal compliance or production protection.
