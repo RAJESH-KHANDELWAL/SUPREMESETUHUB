@@ -3770,7 +3770,7 @@
       "manager_path": "backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/manager.py",
       "catalog_path": "backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/catalog.json",
       "shared_runtime_path": "backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/domain_runtime.py",
-      "test_path": "backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/tests/",
+      "test_path": "backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/test/",
       "master_catalog_reference_count": 106,
       "master_catalog_unique_reference_count": 52,
       "master_catalog_access_mode": "READ_ONLY_VALIDATED_REFERENCES",
