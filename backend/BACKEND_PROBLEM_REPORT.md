@@ -49,8 +49,8 @@ Severity reflects likely impact, not a formal security rating.
 ### BE-002 — Security CORE domain-count assertion disagrees with observed catalog size
 
 **Severity:** High  
-**File:** `backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/tests/test_core_contracts.py`  
-**Source:** [Open test_core_contracts.py](https://github.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/blob/main/backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/tests/test_core_contracts.py)  
+**File:** `backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/test/test_core_contracts.py`  
+**Source:** [Open test_core_contracts.py](https://github.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/blob/main/backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/test/test_core_contracts.py)  
 **Related catalog:** `backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/domain_catalog.py`  
 **CI evidence:** [Python Core Database Tests run](https://github.com/RAJESH-KHANDELWAL/SUPREMESETUHUB/actions/runs/44217506532)
 
