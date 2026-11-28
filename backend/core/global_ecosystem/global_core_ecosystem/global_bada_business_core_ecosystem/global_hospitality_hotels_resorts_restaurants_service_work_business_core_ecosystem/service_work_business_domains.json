@@ -1,0 +1,73 @@
+{
+  "accommodation_operations": [
+    "hotel_operations",
+    "resort_operations",
+    "front_office",
+    "guest_relations",
+    "housekeeping",
+    "room_service",
+    "reservations"
+  ],
+  "food_beverage": [
+    "restaurant_operations",
+    "cafe_operations",
+    "dhaba_operations",
+    "kitchen",
+    "chef_services",
+    "food_safety",
+    "catering"
+  ],
+  "events": [
+    "banquet_operations",
+    "wedding_venues",
+    "conference_centres",
+    "event_management"
+  ],
+  "facility_services": [
+    "laundry",
+    "maintenance",
+    "engineering",
+    "security",
+    "transport",
+    "wellness_spa",
+    "recreation"
+  ],
+  "business_functions": [
+    "ownership",
+    "franchise",
+    "procurement",
+    "supplier_management",
+    "inventory",
+    "sales",
+    "marketing",
+    "distribution",
+    "revenue_management",
+    "finance",
+    "accounting",
+    "human_resources",
+    "training",
+    "technology",
+    "consulting",
+    "quality_assurance",
+    "compliance"
+  ],
+  "workforce": [
+    "executives",
+    "general_managers",
+    "department_managers",
+    "chefs",
+    "cooks",
+    "servers",
+    "stewards",
+    "receptionists",
+    "housekeeping_staff",
+    "maintenance_staff",
+    "sales_staff",
+    "accountants",
+    "technology_staff",
+    "consultants",
+    "contractors",
+    "freelancers",
+    "apprentices"
+  ]
+}
