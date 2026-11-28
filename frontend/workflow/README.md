@@ -1,1 +1,0 @@
-Frontend workflow resources and workflow organization.

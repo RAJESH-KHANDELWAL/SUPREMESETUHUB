@@ -1,2 +1,0 @@
-from .ecosystem_service import PlatformService
-class MillionaireTrackStorage(PlatformService):pass

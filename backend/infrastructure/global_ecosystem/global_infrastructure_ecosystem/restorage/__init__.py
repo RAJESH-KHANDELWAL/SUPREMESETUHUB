@@ -1,1 +1,0 @@
-"""RESTORAGE infrastructure domain package."""

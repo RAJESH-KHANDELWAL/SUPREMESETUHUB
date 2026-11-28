@@ -1,1 +1,0 @@
-"""RESYNC global infrastructure ecosystem package."""

@@ -1,1 +1,0 @@
-"""Global Python ecosystem package."""

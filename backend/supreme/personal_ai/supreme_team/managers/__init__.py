@@ -1,1 +1,0 @@
-"""SUPREME management designation package."""

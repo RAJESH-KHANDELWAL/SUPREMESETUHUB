@@ -1,1 +1,0 @@
-"""Global Hub backend namespace."""

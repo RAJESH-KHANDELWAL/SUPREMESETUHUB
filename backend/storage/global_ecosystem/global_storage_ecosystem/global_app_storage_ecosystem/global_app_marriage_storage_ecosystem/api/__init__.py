@@ -1,1 +1,0 @@
-"""API namespace for GLOBAL_APP_MARRIAGE_STORAGE_ECOSYSTEM."""

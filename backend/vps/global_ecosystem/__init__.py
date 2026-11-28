@@ -1,1 +1,0 @@
-"""Global VPS ecosystem namespace."""

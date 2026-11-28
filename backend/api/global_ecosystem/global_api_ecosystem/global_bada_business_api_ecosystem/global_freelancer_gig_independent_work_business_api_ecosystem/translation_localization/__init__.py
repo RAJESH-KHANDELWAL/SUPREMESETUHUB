@@ -1,5 +1,0 @@
-"""Independent Translation Localization freelance specialization package."""
-SPECIALIZATION_ID = "translation_localization"
-SPECIALIZATION_NAME = "Translation Localization"
-DOMAIN_ID = "freelance_gig_independent_work"
-DESCRIPTION = "Language translation, multilingual adaptation, localization and transcription services."

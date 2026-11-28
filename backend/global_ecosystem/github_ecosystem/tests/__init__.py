@@ -1,1 +1,0 @@
-"""GitHub ecosystem tests."""

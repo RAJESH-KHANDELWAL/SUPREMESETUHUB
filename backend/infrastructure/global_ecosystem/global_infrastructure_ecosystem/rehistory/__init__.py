@@ -1,1 +1,0 @@
-"""REHISTORY infrastructure domain package."""

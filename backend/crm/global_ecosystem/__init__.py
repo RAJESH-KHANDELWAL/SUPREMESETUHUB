@@ -1,6 +1,0 @@
-"""GLOBAL CRM ECOSYSTEM namespace."""
-
-LAYER = "CRM"
-ECOSYSTEM_ID = "GLOBAL-CRM-ECOSYSTEM"
-
-__all__ = ["LAYER", "ECOSYSTEM_ID"]

@@ -1,1 +1,0 @@
-"""REDATABASE infrastructure domain package."""

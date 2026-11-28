@@ -1,1 +1,0 @@
-"""Offline tests for GLOBAL_APP_HEALTHCARE_STORAGE_ECOSYSTEM."""
