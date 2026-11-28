@@ -1,4 +1,4 @@
-name: GLOBAL PHP ECOSYSTEM Tests
+name: PHP and GLOBAL PHP ECOSYSTEM Tests
 
 on:
   push:
@@ -6,15 +6,12 @@ on:
       - main
     paths:
       - "backend/php/**"
-      - "backend/infrastructure/model/global_ecosystem/global_model_ecosystem/**"
-      - "backend/test/php/**"
       - ".github/workflows/test-global-php-ecosystem.yml"
   pull_request:
     branches:
       - main
     paths:
       - "backend/php/**"
-      - "backend/test/php/**"
       - ".github/workflows/test-global-php-ecosystem.yml"
   workflow_dispatch:
 
@@ -22,7 +19,7 @@ permissions:
   contents: read
 
 jobs:
-  test-global-php-ecosystem:
+  test-php:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -34,22 +31,16 @@ jobs:
           php-version: "8.3"
           coverage: none
 
-      - name: Validate GLOBAL PHP ECOSYSTEM syntax
+      - name: Validate PHP syntax
         run: |
+          php -l backend/php/IdentityGate.php
+          php -l backend/php/test_php.php
           php -l backend/php/global_ecosystem/global_php_ecosystem/GlobalAlgorithmKernel.php
           php -l backend/php/global_ecosystem/global_php_ecosystem/bootstrap.php
-          php -l backend/php/global_ecosystem/global_php_ecosystem/bada_business_php_ecosystem/BadaBusinessPHPAdapter.php
-          php -l backend/php/global_ecosystem/global_php_ecosystem/bada_business_php_ecosystem/bootstrap.php
-          php -l backend/test/php/global_algorithm_kernel_test.php
-          php -l backend/infrastructure/model/global_ecosystem/global_model_ecosystem/resources.php
-          php -l backend/infrastructure/model/global_ecosystem/global_model_ecosystem/relationships.php
-          php -l backend/infrastructure/model/global_ecosystem/global_model_ecosystem/catalog.php
-          php -l backend/infrastructure/model/global_ecosystem/global_model_ecosystem/schemas.php
-          php -l backend/infrastructure/model/global_ecosystem/global_model_ecosystem/validation.php
-          php -l backend/test/php/global_model_ecosystem_test.php
+          php -l backend/php/global_ecosystem/global_php_ecosystem/test_global_php_ecosystem.php
 
-      - name: Run GLOBAL PHP ECOSYSTEM smoke tests
-        run: php backend/test/php/global_algorithm_kernel_test.php
+      - name: Run PHP foundation tests
+        run: php backend/php/test_php.php
 
-      - name: Run GLOBAL MODEL ECOSYSTEM tests
-        run: php backend/test/php/global_model_ecosystem_test.php
+      - name: Run GLOBAL PHP ECOSYSTEM tests
+        run: php backend/php/global_ecosystem/global_php_ecosystem/test_global_php_ecosystem.php
