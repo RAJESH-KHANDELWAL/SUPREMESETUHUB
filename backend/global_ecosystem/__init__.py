@@ -1,21 +1,26 @@
-"""GLOBAL ECOSYSTEM layer under CORE; implementations live in GLOBAL CORE ECOSYSTEM."""
-from importlib import import_module
+"""Bharat-to-global domain taxonomy and ecosystem namespace package.
 
-_EXPORTS = {
-    "EcosystemIdentity": "models",
-    "GlobalEcosystemIdentity": "models",
-    "EcosystemManager": "manager",
-    "GlobalEcosystemManager": "manager",
-    "EcosystemRegistry": "registry",
-    "GlobalEcosystemRegistry": "registry",
-}
-__all__ = list(_EXPORTS)
+This package exposes read-only catalogue operations. It does not own runtime
+business logic; CORE, API, ENGINE, DATABASE and SECURITY remain independent.
+"""
+from .domain_taxonomy import (
+    get_domain,
+    get_domain_by_name,
+    get_domain_catalog,
+    list_domains,
+    search_domains,
+    validate_domain_taxonomy,
+)
+from .catalog import GLOBAL_BUSINESS_ECOSYSTEMS, GLOBAL_DOMAIN_ECOSYSTEMS, VENDOR_ECOSYSTEMS
 
-def __getattr__(name: str):
-    module_name = _EXPORTS.get(name)
-    if module_name is None:
-        raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
-    module = import_module(f".global_core_ecosystem.{module_name}", __name__)
-    value = getattr(module, name)
-    globals()[name] = value
-    return value
+__all__ = [
+    "list_domains",
+    "get_domain",
+    "get_domain_by_name",
+    "search_domains",
+    "get_domain_catalog",
+    "validate_domain_taxonomy",
+    "GLOBAL_BUSINESS_ECOSYSTEMS",
+    "GLOBAL_DOMAIN_ECOSYSTEMS",
+    "VENDOR_ECOSYSTEMS",
+]

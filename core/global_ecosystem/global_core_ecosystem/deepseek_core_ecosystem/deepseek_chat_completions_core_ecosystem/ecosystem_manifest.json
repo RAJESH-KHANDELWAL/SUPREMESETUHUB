@@ -1,8 +1,0 @@
-{
-  "provider": "deepseek",
-  "layer": "CORE",
-  "capability": "chat_completions",
-  "endpoint": "POST /chat/completions",
-  "status": "CONTRACT_ONLY",
-  "live_provider_calls_enabled": false
-}

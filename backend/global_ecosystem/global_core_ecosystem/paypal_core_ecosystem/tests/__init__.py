@@ -1,1 +1,0 @@
-"""PayPal Core test suite."""

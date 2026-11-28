@@ -1,0 +1,9 @@
+"""Atlassian provider metadata; no credentials or live connection are stored here."""
+
+PROVIDER_ID = "atlassian"
+PROVIDER_NAME = "Atlassian"
+STATUS = "CATALOG_ONLY"
+LIVE_CONNECTION_VERIFIED = False
+DOMAINS = ["WORK_MANAGEMENT", "SERVICE_MANAGEMENT", "DEVELOPER_COLLABORATION"]
+CAPABILITIES = ["PROJECTS", "ISSUES", "KNOWLEDGE_BASE", "SERVICE_DESK"]
+API_AVAILABLE = None

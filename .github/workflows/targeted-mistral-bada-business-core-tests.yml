@@ -1,0 +1,67 @@
+name: TARGETED MISTRAL AND BADA BUSINESS CORE TESTS
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  targeted-core-tests:
+    name: Folder-wise Mistral and Bada Business CORE tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Test Dependencies
+        run: |
+          python -m pip install -r backend/requirements.txt "starlette<1.0" "pytest>=8.0,<9.0"
+
+      - name: Test independent Mistral CORE Ecosystem
+        if: always()
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m compileall -q backend/core/global_ecosystem/global_core_ecosystem/mistral_core_ecosystem
+          python -m pytest backend/test/test_mistral_core.py -q
+
+      - name: Test independent Global AI CORE Ecosystem
+        if: always()
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m pytest backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem/tests -q
+          python -m pytest backend/core/global_ecosystem/global_core_ecosystem/global_ai_core_ecosystem/test_global_ai_core_domains.py -q
+
+      - name: Test every Bada Business CORE Ecosystem test folder
+        if: always()
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m pytest backend/core/global_ecosystem/global_core_ecosystem/bada_business_core_ecosystem -q
+
+      - name: Test every Global Bada Business CORE Ecosystem test folder
+        if: always()
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m pytest backend/core/global_ecosystem/global_core_ecosystem/global_bada_business_core_ecosystem -q
+
+      - name: Test Global Bada Business API catalog and world-map integration tests
+        if: always()
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m pytest \
+            backend/test/test_global_bada_business_full_world_catalog.py \
+            backend/test/test_global_bada_business_world_map.py \
+            backend/test/test_bada_business_ecosystem_resources.py -q

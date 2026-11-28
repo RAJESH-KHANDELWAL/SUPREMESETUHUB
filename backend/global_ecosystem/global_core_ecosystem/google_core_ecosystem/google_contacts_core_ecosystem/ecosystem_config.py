@@ -1,9 +1,0 @@
-PRODUCT_ID="contacts"
-PRODUCT_NAME="Google Contacts"
-CATEGORY="CONTACTS"
-API_NAME="People API"
-INTEGRATION_MODE="USER_OAUTH"
-AVAILABILITY="API_AVAILABLE"
-AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
-REQUIRED_SCOPES=["https://www.googleapis.com/auth/contacts.readonly"]
-LIVE_CONNECTION_ENABLED=False

@@ -1,7 +1,0 @@
-"""Payouts Core ecosystem package."""
-from .catalog import STRIPE_PAYOUTS_CORE_ECOSYSTEM, get_catalog
-
-ECOSYSTEM_ID = "STRIPE-PAYOUTS-CORE-ECOSYSTEM"
-ECOSYSTEM_NAME = "STRIPE PAYOUTS CORE ECOSYSTEM"
-
-__all__ = ["STRIPE_PAYOUTS_CORE_ECOSYSTEM", "get_catalog", "ECOSYSTEM_ID", "ECOSYSTEM_NAME"]

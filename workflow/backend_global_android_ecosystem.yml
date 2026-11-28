@@ -1,0 +1,48 @@
+name: Backend Global Android Ecosystem Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "backend/android/global_ecosystem/global_android_ecosystem/**"
+      - "backend/foundation/global_ecosystem/global_foundation_ecosystem/android/**"
+      - "backend/test/test_global_android_ecosystem.py"
+      - "backend/test/test_global_android_ecosystem.php"
+  pull_request:
+    branches: [main]
+    paths:
+      - "backend/android/global_ecosystem/global_android_ecosystem/**"
+      - "backend/foundation/global_ecosystem/global_foundation_ecosystem/android/**"
+      - "backend/test/test_global_android_ecosystem.py"
+      - "backend/test/test_global_android_ecosystem.php"
+
+permissions:
+  contents: read
+
+jobs:
+  backend-global-android-tests:
+    name: Validate Backend Global Android Ecosystem
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Backend Test Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r backend/requirements.txt
+      - name: Run Global Android Python Tests
+        run: python -m pytest backend/test/test_global_android_ecosystem.py -v
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          coverage: none
+      - name: Validate Global Android PHP Test Syntax
+        run: php -l backend/test/test_global_android_ecosystem.php
+      - name: Run Global Android PHP Tests
+        run: php backend/test/test_global_android_ecosystem.php

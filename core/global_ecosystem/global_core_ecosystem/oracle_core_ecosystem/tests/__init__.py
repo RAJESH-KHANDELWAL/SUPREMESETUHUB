@@ -1,1 +1,0 @@
-"""Oracle Core verification suite."""

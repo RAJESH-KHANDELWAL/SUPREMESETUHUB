@@ -1,1 +1,0 @@
-"""Gemma Models Core tests."""

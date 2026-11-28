@@ -1,8 +1,0 @@
-{
-  "provider": "deepseek",
-  "layer": "CORE",
-  "capability": "responses",
-  "endpoint": "POST /responses",
-  "status": "CONTRACT_ONLY",
-  "live_provider_calls_enabled": false
-}

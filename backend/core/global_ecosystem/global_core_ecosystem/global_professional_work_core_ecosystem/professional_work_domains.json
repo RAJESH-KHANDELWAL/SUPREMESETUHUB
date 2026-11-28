@@ -1,0 +1,80 @@
+{
+  "ecosystem": "global_professional_work_core_ecosystem",
+  "version": "1.0.0",
+  "purpose": "Global reference taxonomy for professional work and professional disciplines",
+  "domains": [
+    {
+      "id": "professional_practice",
+      "name": "Professional Practice",
+      "areas": [
+        "independent practice",
+        "professional standards",
+        "client engagement"
+      ]
+    },
+    {
+      "id": "professional_services",
+      "name": "Professional Services",
+      "areas": [
+        "advisory",
+        "consulting",
+        "specialist services"
+      ]
+    },
+    {
+      "id": "professional_qualifications",
+      "name": "Qualifications and Credentials",
+      "areas": [
+        "degrees",
+        "certifications",
+        "licenses",
+        "continuing education"
+      ]
+    },
+    {
+      "id": "professional_ethics",
+      "name": "Ethics and Standards",
+      "areas": [
+        "codes of conduct",
+        "quality standards",
+        "conflicts of interest"
+      ]
+    },
+    {
+      "id": "professional_associations",
+      "name": "Professional Associations",
+      "areas": [
+        "membership bodies",
+        "industry associations",
+        "peer networks"
+      ]
+    },
+    {
+      "id": "professional_careers",
+      "name": "Professional Careers",
+      "areas": [
+        "career pathways",
+        "skills frameworks",
+        "professional development"
+      ]
+    },
+    {
+      "id": "professional_research",
+      "name": "Professional Research and Knowledge",
+      "areas": [
+        "research",
+        "publications",
+        "knowledge exchange"
+      ]
+    },
+    {
+      "id": "cross_border_practice",
+      "name": "Cross-border Professional Practice",
+      "areas": [
+        "international practice",
+        "recognition frameworks",
+        "jurisdictional requirements"
+      ]
+    }
+  ]
+}

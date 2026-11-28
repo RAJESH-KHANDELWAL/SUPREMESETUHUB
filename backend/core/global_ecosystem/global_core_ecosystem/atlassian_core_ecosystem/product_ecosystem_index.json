@@ -1,0 +1,45 @@
+{
+  "provider": "atlassian",
+  "ecosystem_id": "ATLASSIAN-CORE-ECOSYSTEM",
+  "families": [
+    "ADMIN-IDENTITY",
+    "BITBUCKET",
+    "CONFLUENCE",
+    "JIRA",
+    "JIRA-SERVICE-MANAGEMENT"
+  ],
+  "domains": [
+    {
+      "domain_id": "PROVIDER_GOVERNANCE",
+      "package": "atlassian_provider_governance_core_ecosystem"
+    },
+    {
+      "domain_id": "IDENTITY_AND_ORGANIZATION",
+      "package": "atlassian_identity_and_organization_core_ecosystem"
+    },
+    {
+      "domain_id": "DEVELOPER_AND_SOURCE_CONTROL",
+      "package": "atlassian_developer_and_source_control_core_ecosystem"
+    },
+    {
+      "domain_id": "KNOWLEDGE_AND_COLLABORATION",
+      "package": "atlassian_knowledge_and_collaboration_core_ecosystem"
+    },
+    {
+      "domain_id": "WORK_MANAGEMENT_AND_PLANNING",
+      "package": "atlassian_work_management_and_planning_core_ecosystem"
+    },
+    {
+      "domain_id": "IT_SERVICE_AND_OPERATIONS",
+      "package": "atlassian_it_service_and_operations_core_ecosystem"
+    },
+    {
+      "domain_id": "GOVERNANCE_AND_SECURITY",
+      "package": "atlassian_governance_and_security_core_ecosystem"
+    },
+    {
+      "domain_id": "INTEGRATION_AND_AUTOMATION",
+      "package": "atlassian_integration_and_automation_core_ecosystem"
+    }
+  ]
+}

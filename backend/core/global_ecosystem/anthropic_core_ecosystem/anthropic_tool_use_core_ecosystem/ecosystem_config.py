@@ -1,9 +1,0 @@
-PRODUCT_ID="anthropic_tool_use"
-PRODUCT_NAME="Anthropic Tool Use"
-CATEGORY="AI_PLATFORM"
-API_NAME="Messages API tool definitions"
-INTEGRATION_MODE="SERVER_SIDE_ANTHROPIC_API"
-AVAILABILITY="ACCOUNT_AND_MODEL_ELIGIBILITY_REQUIRED"
-AUTHENTICATION_METHOD="Anthropic API authentication is owned by the API layer; verify current supported method before enabling"
-REQUIRED_SCOPES=[]
-LIVE_CONNECTION_ENABLED=False

@@ -1,9 +1,0 @@
-"""GitHub provider metadata; no credentials or live connection are stored here."""
-
-PROVIDER_ID = "github"
-PROVIDER_NAME = "GitHub"
-STATUS = "CATALOG_ONLY"
-LIVE_CONNECTION_VERIFIED = False
-DOMAINS = ["SOURCE_CONTROL", "CI_CD", "DEVELOPER_COLLABORATION"]
-CAPABILITIES = ["REPOSITORIES", "PULL_REQUESTS", "ACTIONS", "ISSUES"]
-API_AVAILABLE = None

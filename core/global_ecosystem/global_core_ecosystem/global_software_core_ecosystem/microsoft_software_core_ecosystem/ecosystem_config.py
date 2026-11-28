@@ -1,9 +1,0 @@
-"""Microsoft provider metadata; no credentials or live connection are stored here."""
-
-PROVIDER_ID = "microsoft"
-PROVIDER_NAME = "Microsoft"
-STATUS = "CATALOG_ONLY"
-LIVE_CONNECTION_VERIFIED = False
-DOMAINS = ["PRODUCTIVITY", "CLOUD", "OPERATING_SYSTEMS", "DEVELOPER_TOOLS"]
-CAPABILITIES = ["PRODUCTIVITY_SUITE", "CLOUD_SERVICES", "IDENTITY", "DEVELOPER_PLATFORM"]
-API_AVAILABLE = None

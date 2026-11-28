@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "domain_id": "BACKUP_RECOVERY",
+  "name": "Backup Recovery",
+  "parent_id": "GLOBAL-SERVER-CORE-ECOSYSTEM",
+  "canonical_path": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/server_backup_recovery_core_ecosystem/",
+  "layer": "CORE",
+  "status": "CORE_CONTRACT_METADATA",
+  "description": "Backup and recovery policy metadata, retention intent and recovery objectives; no backup execution.",
+  "master_catalog_refs": [
+    "S10_global_infrastructure",
+    "S10_global_storage",
+    "S09_digital_storage",
+    "S11_data_protection"
+  ],
+  "control_areas": [
+    {
+      "area_id": "BACKUP_RECOVERY_01",
+      "name": "Backup policy and schedule metadata",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "BACKUP_RECOVERY_02",
+      "name": "Retention, immutability and legal-hold requirements",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "BACKUP_RECOVERY_03",
+      "name": "Recovery point and recovery time objectives",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "BACKUP_RECOVERY_04",
+      "name": "Restore testing and clean-room recovery",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "BACKUP_RECOVERY_05",
+      "name": "Cross-region and cross-provider recovery",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "BACKUP_RECOVERY_06",
+      "name": "Backup access separation and audit evidence",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    }
+  ],
+  "ownership": {
+    "core": "Catalogs, identifiers, contracts, policies and discovery metadata only",
+    "api": "Authentication, authorization, transport and request handling",
+    "engine": "Provider adapters, SDK execution and remote operations",
+    "database": "Durable persistence, schemas and migrations",
+    "storage": "Object, file, backup and artifact persistence"
+  },
+  "operational_boundaries": {
+    "remote_operations_enabled": false,
+    "live_provider_connections_verified": false,
+    "production_readiness_claimed": false,
+    "credentials_stored_in_repository": false
+  }
+}

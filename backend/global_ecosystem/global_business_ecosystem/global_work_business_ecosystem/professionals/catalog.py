@@ -1,0 +1,1 @@
+CATEGORY={"id":"professionals","name":"Professionals","role_names":["Professional","Licensed Professional","Knowledge Worker","Specialist","Practitioner"],"responsibilities":["Apply advanced domain knowledge","Deliver professional services within competence and licensing limits"]}

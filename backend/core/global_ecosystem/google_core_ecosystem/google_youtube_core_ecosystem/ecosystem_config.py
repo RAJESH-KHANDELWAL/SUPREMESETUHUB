@@ -1,9 +1,0 @@
-PRODUCT_ID="youtube"
-PRODUCT_NAME="YouTube"
-CATEGORY="VIDEO_AND_CHANNEL"
-API_NAME="YouTube Data API"
-INTEGRATION_MODE="USER_OAUTH"
-AVAILABILITY="API_AVAILABLE"
-AUTHENTICATION_METHOD="OAuth 2.0 or API key depending on operation"
-REQUIRED_SCOPES=["https://www.googleapis.com/auth/youtube.readonly"]
-LIVE_CONNECTION_ENABLED=False

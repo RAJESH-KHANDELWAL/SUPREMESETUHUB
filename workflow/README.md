@@ -1,1 +1,1 @@
-Backend workflow resources and workflow organization.
+Repository-level workflow resources and workflow organization.

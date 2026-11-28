@@ -1,1 +1,0 @@
-"""BharatGPT Core tests."""

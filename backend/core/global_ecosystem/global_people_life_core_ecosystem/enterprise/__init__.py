@@ -1,4 +1,0 @@
-"""ENTERPRISE domain package; CORE metadata only."""
-DOMAIN_ID = "ENTERPRISE"
-STATUS = "CORE_CATALOG_ONLY"
-AGE_RESTRICTED = False

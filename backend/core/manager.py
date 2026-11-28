@@ -1,6 +1,18 @@
-"""Backward-compatible imports for the GLOBAL CORE ECOSYSTEM manager."""
-from backend.core.global_ecosystem.global_core_ecosystem.manager import (
-    EcosystemManager, GlobalEcosystemManager,
-)
+from backend.core.app import MainBaseFoundation
+from backend.core.bootstrap import Bootstrap
 
-__all__ = ["EcosystemManager", "GlobalEcosystemManager"]
+
+class FoundationManager:
+
+    def __init__(self):
+        self.bootstrap = Bootstrap()
+        self.foundation = MainBaseFoundation()
+
+    def start(self):
+        boot = self.bootstrap.boot()
+        system = self.foundation.start()
+
+        return {
+            "boot": boot,
+            "system": system
+        }

@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "INSTAGRAM_PHOTO_CORE_ECOSYSTEM",
+  "provider_id": "instagram",
+  "provider_name": "Instagram",
+  "category": "PHOTO",
+  "domain_id": "PHOTO_SHARING_AND_COMMUNITIES",
+  "status": "CORE_CATALOG_ONLY",
+  "enabled": true,
+  "connected": false,
+  "live_connection_verified": false,
+  "api_transport_in_core": false,
+  "storage_in_core": false,
+  "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+  "layer_boundaries": {
+    "core": "Identity, capability metadata, policy and readiness only.",
+    "api": "Authentication, SDK and HTTP transport belong in API.",
+    "storage": "Media files and durable assets belong in storage.",
+    "database": "Persistence and migrations belong in database."
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "schema_version": "1.1.0",
+  "ecosystem_id": "GLOBAL-SERVER-CORE-ECOSYSTEM",
+  "canonical_root": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/",
+  "layer": "CORE",
+  "coverage": {
+    "geography": "BHARAT_FIRST_GLOBAL_EXTENSIBLE",
+    "service_tiers": [
+      "NORMAL",
+      "BASIC",
+      "STANDARD",
+      "PREMIUM",
+      "PROFESSIONAL",
+      "ENTERPRISE",
+      "SUPREME"
+    ],
+    "provider_neutral": true,
+    "domain_manifest_file": "domain_manifest.json",
+    "control_areas_per_domain": 6,
+    "control_area_count": 96,
+    "master_catalog_mapping": "EXACT_ENTRY_ID_VALIDATED"
+  },
+  "domain_count": 16,
+  "domains": [
+    {
+      "domain_id": "AVAILABILITY",
+      "directory": "server_availability_core_ecosystem",
+      "description": "Availability zones, redundancy intent and readiness metadata; no uptime guarantee.",
+      "status": "CORE_CONTRACT_METADATA",
+      "master_catalog_refs": [
+        "S10_global_infrastructure",
+        "S10_global_server",
+        "S09_cloud_computing",
+        "S13_global"
+      ]
+    },
+    {
+      "domain_id": "BACKUP_RECOVERY",
+      "directory": "server_backup_recovery_core_ecosystem",
+      "description": "Backup and recovery policy metadata, retention intent and recovery objectives; no backup execution.",
+      "status": "CORE_CONTRACT_METADATA",
+      "master_catalog_refs": [
+        "S10_global_infrastructure",
+        "S10_global_storage",
+        "S09_digital_storage",
+        "S11_data_protection"
+      ]
+    },
+    {
+      "domain_id": "COMPLIANCE",
+      "directory": "server_compliance_core_ecosystem",
+      "description": "Compliance control references, jurisdiction gates and evidence metadata; no certification claim.",
+      "status": "CORE_CONTRACT_METADATA",
+      "master_catalog_refs": [
+        "S01_bharat_india",
+        "S01_global_international",
+        "S11_indian_law",
+        "S11_international_law",
+        "S11_compliance",
+        "S11_global_standards"
+      ]
+    },
+    {
+      "domain_id": "COMPUTE",
+      "directory": "server_compute_core_ecosystem",
+      "description": "Compute resource classes, machine capability metadata and sizing descriptors; no provisioning.",
+      "status": "CORE_CONTRACT_METADATA",
+      "master_catalog_refs": [
+        "S10_global_server",
+        "S10_global_infrastructure",
+        "S09_computer",
+        "S09_cloud_computing"
+      ]
+    },
+    {
+      "domain_id": "IDENTITY",
+      "directory": "server_identity_core_ecosystem",
+      "description": "Canonical server identity, provider identity and resource ownership references.",
+      "status": "CORE_CONTRACT_METADATA",
+      "master_catalog_refs": [
+        "S10_global_identity",
+        "S09_digital_identity",
+        "S02_human_identity",
+        "S11_governance"
+      ]
+    },
+    {
+      "domain_id": "LIFECYCLE",
+      "directory": "server_lifecycle_core_ecosystem",
+      "description": "Lifecycle states, transition rules and explicit approval gates.",
+      "status": "CORE_CONTRACT_METADATA",
+      "master_catalog_refs": [
+        "S10_global_server",
+        "S10_global_engine_core",
+        "S11_risk_management",
+        "S11_audit"
+      ]
+    },
+    {
+      "domain_id": "NETWORK",
+      "directory": "server_network_core_ecosystem",
+      "description": "Network attachment, segmentation and connectivity metadata; no network changes.",
+      "status": "CORE_CONTRACT_METADATA",
+      "master_catalog_refs": [
+        "S10_global_network",
+        "S09_global_networks",
+        "S09_internet",
+        "S09_cloud_computing"
+      ]
+    },
+    {
+      "domain_id": "OBSERVABILITY",
+      "directory": "server_observability_core_ecosystem",
+      "description": "Health, telemetry and event schema metadata; no live monitoring guarantee.",
+      "status": "CORE_CONTRACT_METADATA",
+      "master_catalog_refs": [
+        "S10_global_infrastructure",
+        "S10_global_server",
+        "S12_technical_knowledge",
+        "S11_audit"
+      ]
+    },
+    {
+      "domain_id": "SECURITY",
+      "directory": "server_security_core_ecosystem",
+      "description": "Security posture metadata, least-privilege requirements and secret-handling boundaries.",
+      "status": "CORE_CONTRACT_METADATA",
+      "master_catalog_refs": [
+        "S10_global_security",
+        "S09_cybersecurity",
+        "S11_cyber_law",
+        "S11_digital_security",
+        "S11_risk_management"
+      ]
+    },
+    {
+      "domain_id": "RESOURCE",
+      "directory": "server_resource_core_ecosystem",
+      "description": "Resource inventory, capacity descriptors, ownership tags and immutable resource references.",
+      "status": "CORE_CONTRACT_METADATA",
+      "master_catalog_refs": [
+        "S10_global_infrastructure",
+        "S10_global_server",
+        "S10_global_database",
+        "S10_global_storage"
+      ]
+    },
+    {
+      "domain_id": "DISCOVERY_REGISTRY",
+      "directory": "server_discovery_registry_core_ecosystem",
+      "description": "Capability discovery, canonical registration, lookup and versioned registry metadata.",
+      "status": "CORE_CONTRACT_METADATA",
+      "master_catalog_refs": [
+        "S10_global_infrastructure",
+        "S10_global_integration_core",
+        "S12_technical_knowledge",
+        "S11_governance"
+      ]
+    },
+    {
+      "domain_id": "PROVIDER_ABSTRACTION",
+      "directory": "server_provider_abstraction_core_ecosystem",
+      "description": "Provider-neutral capability mapping and adapter contract boundaries; no SDK execution.",
+      "status": "CORE_CONTRACT_METADATA",
+      "master_catalog_refs": [
+        "S10_global_infrastructure",
+        "S10_global_server",
+        "S09_cloud_computing",
+        "S09_software"
+      ]
+    },
+    {
+      "domain_id": "GEOGRAPHY",
+      "directory": "server_geography_core_ecosystem",
+      "description": "Country, subdivision, region, zone, residency and jurisdiction metadata.",
+      "status": "CORE_CONTRACT_METADATA",
+      "master_catalog_refs": [
+        "S01_bharat_india",
+        "S01_indian_states",
+        "S01_union_territories",
+        "S01_global_international",
+        "S10_global_infrastructure",
+        "S11_data_protection"
+      ]
+    },
+    {
+      "domain_id": "WORKLOAD_GOVERNANCE",
+      "directory": "server_workload_governance_core_ecosystem",
+      "description": "Workload classification, risk controls, policy references and domain-to-profile mapping.",
+      "status": "CORE_CONTRACT_METADATA",
+      "master_catalog_refs": [
+        "S08_global_economy",
+        "S10_global_business_core",
+        "S10_global_health_core",
+        "S10_global_education_core",
+        "S10_global_ai_core",
+        "S11_governance"
+      ]
+    },
+    {
+      "domain_id": "SERVICE_TIER",
+      "directory": "server_service_tier_core_ecosystem",
+      "description": "NORMAL-to-SUPREME tier taxonomy and product-defined entitlement references.",
+      "status": "CORE_CONTRACT_METADATA",
+      "master_catalog_refs": [
+        "S13_normal",
+        "S13_basic",
+        "S13_standard",
+        "S13_professional",
+        "S13_advanced",
+        "S13_expert",
+        "S13_enterprise",
+        "S13_global",
+        "S13_supreme"
+      ]
+    },
+    {
+      "domain_id": "INTEROPERABILITY",
+      "directory": "server_interoperability_core_ecosystem",
+      "description": "Versioned cross-provider identifiers, portable metadata and compatibility declarations.",
+      "status": "CORE_CONTRACT_METADATA",
+      "master_catalog_refs": [
+        "S10_global_integration_core",
+        "S10_global_engine_core",
+        "S09_software",
+        "S09_global_networks"
+      ]
+    }
+  ],
+  "workload_profile_mappings": {
+    "relationships_dating_community": "relationships_dating_community_server_workload_profile",
+    "sexual_wellness_health_education": "sexual_wellness_health_education_server_workload_profile",
+    "lawful_adult_only_entertainment": "adult_only_entertainment_server_workload_profile"
+  },
+  "adult_content_governance": {
+    "classification_only": true,
+    "adult_only_access_requires_independently_enforced_age_assurance": true,
+    "consent_and_content_rights_required": true,
+    "privacy_security_moderation_reporting_and_jurisdiction_gates_required": true,
+    "prohibited": [
+      "CHILD_SEXUAL_ABUSE_MATERIAL",
+      "NON_CONSENSUAL_INTIMATE_IMAGERY",
+      "TRAFFICKING",
+      "EXPLOITATION",
+      "UNLAWFUL_CONTENT"
+    ],
+    "core_does_not_host_generate_distribute_or_authorize_explicit_content": true
+  },
+  "operational_status": {
+    "live_provider_connections_verified": false,
+    "remote_operations_enabled": false,
+    "production_readiness_claimed": false
+  },
+  "master_catalog_source": "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json",
+  "master_catalog_access_mode": "READ_ONLY_VALIDATED_REFERENCES",
+  "control_area_count": 96
+}
