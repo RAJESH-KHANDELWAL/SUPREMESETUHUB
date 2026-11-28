@@ -1,0 +1,28 @@
+{
+  "ecosystem": "global_legal_service_work_business_core_ecosystem",
+  "layer": "global_bada_business_core_ecosystem",
+  "domains": [
+    "legal_consultation_and_advisory",
+    "advocacy_and_litigation",
+    "corporate_and_commercial_law",
+    "contracts_and_documentation",
+    "dispute_resolution_mediation_arbitration",
+    "intellectual_property_services",
+    "tax_labour_property_and_family_law",
+    "legal_research_and_paralegal_support",
+    "compliance_and_case_management",
+    "legal_technology_and_online_platforms"
+  ],
+  "provider_types": [
+    "advocates_and_lawyers",
+    "law_firms_and_legal_chambers",
+    "legal_consultants",
+    "mediators_and_arbitrators",
+    "paralegal_and_legal_support_providers",
+    "legal_technology_service_providers"
+  ],
+  "compliance": {
+    "jurisdiction_specific_authorization_required": true,
+    "note": "Regulated legal advice, representation and reserved legal practice must be performed by appropriately authorized professionals."
+  }
+}
