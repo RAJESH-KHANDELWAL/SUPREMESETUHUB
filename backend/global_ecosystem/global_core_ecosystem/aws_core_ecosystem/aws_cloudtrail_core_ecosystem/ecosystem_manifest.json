@@ -1,0 +1,22 @@
+{
+  "provider": "aws",
+  "core_layer": "AWS_CORE",
+  "ecosystem_id": "AWS-CLOUDTRAIL-CORE-ECOSYSTEM",
+  "display_name": "AWS CloudTrail",
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/aws_api_ecosystem/aws_cloudtrail_api_ecosystem",
+  "capabilities": [
+    "AUDIT_TRAIL_METADATA",
+    "EVENT_HISTORY_QUERY_BOUNDARY",
+    "EVENT_SELECTOR_METADATA",
+    "GOVERNANCE_EVIDENCE_METADATA"
+  ],
+  "domains": [
+    "OBSERVABILITY_AND_AUDIT",
+    "SECURITY_AND_IDENTITY"
+  ],
+  "readiness": "CORE_CATALOG_ONLY",
+  "api_available": null,
+  "live_connection_verified": false,
+  "credential_handling": "IAM_ROLE_OR_WEB_IDENTITY_OR_EXTERNAL_SECRET_REFERENCE_ONLY",
+  "api_transport_in_core": false
+}

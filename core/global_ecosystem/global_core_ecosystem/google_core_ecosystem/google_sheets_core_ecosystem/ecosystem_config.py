@@ -1,0 +1,9 @@
+PRODUCT_ID="sheets"
+PRODUCT_NAME="Google Sheets"
+CATEGORY="PRODUCTIVITY"
+API_NAME="Google Sheets API"
+INTEGRATION_MODE="USER_OAUTH"
+AVAILABILITY="API_AVAILABLE"
+AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
+REQUIRED_SCOPES=["https://www.googleapis.com/auth/spreadsheets"]
+LIVE_CONNECTION_ENABLED=False

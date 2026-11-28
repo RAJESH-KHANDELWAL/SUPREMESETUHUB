@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "domain_id": "COMPUTE",
+  "name": "Compute",
+  "parent_id": "GLOBAL-SERVER-CORE-ECOSYSTEM",
+  "canonical_path": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/server_compute_core_ecosystem/",
+  "layer": "CORE",
+  "status": "CORE_CONTRACT_METADATA",
+  "description": "Compute resource classes, machine capability metadata and sizing descriptors; no provisioning.",
+  "master_catalog_refs": [
+    "S10_global_server",
+    "S10_global_infrastructure",
+    "S09_computer",
+    "S09_cloud_computing"
+  ],
+  "control_areas": [
+    {
+      "area_id": "COMPUTE_01",
+      "name": "Virtual machine and bare-metal resource classes",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "COMPUTE_02",
+      "name": "CPU, memory, accelerator and architecture metadata",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "COMPUTE_03",
+      "name": "Operating system and image provenance",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "COMPUTE_04",
+      "name": "Autoscaling and capacity policy descriptors",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "COMPUTE_05",
+      "name": "Compute placement and affinity constraints",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "COMPUTE_06",
+      "name": "Lifecycle and decommissioning requirements",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    }
+  ],
+  "ownership": {
+    "core": "Catalogs, identifiers, contracts, policies and discovery metadata only",
+    "api": "Authentication, authorization, transport and request handling",
+    "engine": "Provider adapters, SDK execution and remote operations",
+    "database": "Durable persistence, schemas and migrations",
+    "storage": "Object, file, backup and artifact persistence"
+  },
+  "operational_boundaries": {
+    "remote_operations_enabled": false,
+    "live_provider_connections_verified": false,
+    "production_readiness_claimed": false,
+    "credentials_stored_in_repository": false
+  }
+}

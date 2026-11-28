@@ -1,0 +1,15 @@
+core:
+  name: global_agriculture_food_natural_resources_human_animal_core_ecosystem
+  type: ecosystem
+  domain: agriculture_food_natural_resources_human_animal
+  manager:
+    python: manager.py
+    php: manager.php
+  tests:
+    python: test_global_agriculture_food_natural_resources_human_animal_core_ecosystem.py
+    php: test_global_agriculture_food_natural_resources_human_animal_core_ecosystem.php
+  validation:
+    python_syntax: "python -m compileall -q ."
+    python_tests: "python -m pytest tests -q"
+    php_lint: "php -l manager.php"
+    php_test: "php test_global_agriculture_food_natural_resources_human_animal_core_ecosystem.php"

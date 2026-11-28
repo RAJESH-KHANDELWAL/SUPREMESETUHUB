@@ -1,0 +1,23 @@
+{
+  "ecosystem_id": "ADOBE-ADOBE-FONTS-CORE-ECOSYSTEM",
+  "provider": "adobe",
+  "product_key": "adobe_fonts",
+  "name": "Adobe Fonts",
+  "description": "Font discovery, activation, licensing metadata and typography.",
+  "layer": "core",
+  "package_status": "SCAFFOLDED",
+  "directories": [
+    "authentication",
+    "capabilities",
+    "docs",
+    "events",
+    "lifecycle",
+    "models",
+    "schemas",
+    "security",
+    "services",
+    "tests"
+  ],
+  "live_connection_verified": false,
+  "credentials_configured": false
+}

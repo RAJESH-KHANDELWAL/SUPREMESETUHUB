@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "provider": "google",
+  "product_id": "google_play_books",
+  "product_name": "Google Play Books",
+  "category": "BOOKS_AND_MEDIA",
+  "api": "Google Books API",
+  "integration_mode": "USER_OAUTH",
+  "availability": "API_AVAILABLE_WITH_PRODUCT_SPECIFIC_LIMITS",
+  "authentication": {
+    "method": "Product-specific authentication; verify before enabling",
+    "scopes": []
+  },
+  "live_connection": false,
+  "layer_boundaries": {
+    "core": "identity, capability metadata, lifecycle, policy and readiness",
+    "api": "OAuth, SDK and HTTP transport",
+    "storage": "durable files and records",
+    "database": "persistence and migrations",
+    "runtime": "jobs and queues",
+    "application": "sessions, consent and UI"
+  }
+}

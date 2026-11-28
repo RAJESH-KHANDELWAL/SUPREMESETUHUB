@@ -1,0 +1,17 @@
+{
+  "provider": "deepseek",
+  "ecosystem_id": "DEEPSEEK-CORE-ECOSYSTEM",
+  "name": "DEEPSEEK CORE ECOSYSTEM",
+  "layer": "CORE",
+  "capability_count": 4,
+  "capabilities": [
+    "chat_completions",
+    "responses",
+    "search",
+    "fetch"
+  ],
+  "status": "INTERFACE_ONLY",
+  "live_provider_calls_enabled": false,
+  "live_connection_verified": false,
+  "api_ecosystem_ref": "backend/api/global_ecosystem/global_api_ecosystem/deepseek_api_ecosystem"
+}

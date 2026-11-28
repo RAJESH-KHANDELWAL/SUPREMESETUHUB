@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "provider_id": "AWS",
+  "ecosystem_layer": "PROVIDER_CAPABILITY_METADATA",
+  "capability_areas": [
+    "cloud_infrastructure",
+    "storage_and_databases",
+    "networking_and_edge",
+    "ai_and_data_services",
+    "managed_operations"
+  ],
+  "live_integration_configured": false,
+  "partnership_verified": false,
+  "account_connection_verified": false
+}

@@ -1,0 +1,9 @@
+PRODUCT_ID="firebase_authentication"
+PRODUCT_NAME="Firebase Authentication"
+CATEGORY="IDENTITY_AND_AUTHENTICATION"
+API_NAME="Firebase Authentication APIs"
+INTEGRATION_MODE="CLOUD_PROJECT_CREDENTIALS"
+AVAILABILITY="API_AVAILABLE"
+AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
+REQUIRED_SCOPES=[]
+LIVE_CONNECTION_ENABLED=False

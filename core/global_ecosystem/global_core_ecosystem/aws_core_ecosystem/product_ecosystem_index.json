@@ -1,0 +1,142 @@
+{
+  "provider": "aws",
+  "ecosystem_id": "AWS-CORE-ECOSYSTEM",
+  "service_family_count": 16,
+  "domain_count": 13,
+  "service_families": [
+    {
+      "ecosystem_id": "AWS-API-GATEWAY-CORE-ECOSYSTEM",
+      "package_name": "aws_api_gateway_core_ecosystem",
+      "core_layer": "AWS_CORE"
+    },
+    {
+      "ecosystem_id": "AWS-BEDROCK-SAGEMAKER-CORE-ECOSYSTEM",
+      "package_name": "aws_bedrock_sagemaker_core_ecosystem",
+      "core_layer": "AWS_CORE"
+    },
+    {
+      "ecosystem_id": "AWS-BILLING-COST-CORE-ECOSYSTEM",
+      "package_name": "aws_billing_cost_core_ecosystem",
+      "core_layer": "AWS_CORE"
+    },
+    {
+      "ecosystem_id": "AWS-CLOUDFORMATION-CORE-ECOSYSTEM",
+      "package_name": "aws_cloudformation_core_ecosystem",
+      "core_layer": "AWS_CORE"
+    },
+    {
+      "ecosystem_id": "AWS-CLOUDTRAIL-CORE-ECOSYSTEM",
+      "package_name": "aws_cloudtrail_core_ecosystem",
+      "core_layer": "AWS_CORE"
+    },
+    {
+      "ecosystem_id": "AWS-CLOUDWATCH-CORE-ECOSYSTEM",
+      "package_name": "aws_cloudwatch_core_ecosystem",
+      "core_layer": "AWS_CORE"
+    },
+    {
+      "ecosystem_id": "AWS-CONTAINERS-CORE-ECOSYSTEM",
+      "package_name": "aws_containers_core_ecosystem",
+      "core_layer": "AWS_CORE"
+    },
+    {
+      "ecosystem_id": "AWS-DATABASE-CORE-ECOSYSTEM",
+      "package_name": "aws_database_core_ecosystem",
+      "core_layer": "AWS_CORE"
+    },
+    {
+      "ecosystem_id": "AWS-EC2-COMPUTE-CORE-ECOSYSTEM",
+      "package_name": "aws_ec2_compute_core_ecosystem",
+      "core_layer": "AWS_CORE"
+    },
+    {
+      "ecosystem_id": "AWS-IAM-STS-CORE-ECOSYSTEM",
+      "package_name": "aws_iam_sts_core_ecosystem",
+      "core_layer": "AWS_CORE"
+    },
+    {
+      "ecosystem_id": "AWS-KMS-SECRETS-CORE-ECOSYSTEM",
+      "package_name": "aws_kms_secrets_core_ecosystem",
+      "core_layer": "AWS_CORE"
+    },
+    {
+      "ecosystem_id": "AWS-LAMBDA-CORE-ECOSYSTEM",
+      "package_name": "aws_lambda_core_ecosystem",
+      "core_layer": "AWS_CORE"
+    },
+    {
+      "ecosystem_id": "AWS-LIGHTSAIL-CORE-ECOSYSTEM",
+      "package_name": "aws_lightsail_core_ecosystem",
+      "core_layer": "AWS_CORE"
+    },
+    {
+      "ecosystem_id": "AWS-ROUTE53-DNS-CORE-ECOSYSTEM",
+      "package_name": "aws_route53_dns_core_ecosystem",
+      "core_layer": "AWS_CORE"
+    },
+    {
+      "ecosystem_id": "AWS-S3-STORAGE-CORE-ECOSYSTEM",
+      "package_name": "aws_s3_storage_core_ecosystem",
+      "core_layer": "AWS_CORE"
+    },
+    {
+      "ecosystem_id": "AWS-VPC-NETWORKING-CORE-ECOSYSTEM",
+      "package_name": "aws_vpc_networking_core_ecosystem",
+      "core_layer": "AWS_CORE"
+    }
+  ],
+  "domains": [
+    {
+      "domain_id": "APPLICATION_INTEGRATION_AND_API_MANAGEMENT",
+      "package_name": "aws_application_integration_and_api_management_core_ecosystem"
+    },
+    {
+      "domain_id": "AI_ML_AND_INTELLIGENCE",
+      "package_name": "aws_ai_ml_and_intelligence_core_ecosystem"
+    },
+    {
+      "domain_id": "BILLING_COST_AND_GOVERNANCE",
+      "package_name": "aws_billing_cost_and_governance_core_ecosystem"
+    },
+    {
+      "domain_id": "COMPUTE_AND_CONTAINERS",
+      "package_name": "aws_compute_and_containers_core_ecosystem"
+    },
+    {
+      "domain_id": "DATABASE_AND_DATA_SERVICES",
+      "package_name": "aws_database_and_data_services_core_ecosystem"
+    },
+    {
+      "domain_id": "DOMAIN_AND_NAME_SERVICES",
+      "package_name": "aws_domain_and_name_services_core_ecosystem"
+    },
+    {
+      "domain_id": "INFRASTRUCTURE_PROVISIONING_AND_AUTOMATION",
+      "package_name": "aws_infrastructure_provisioning_and_automation_core_ecosystem"
+    },
+    {
+      "domain_id": "NETWORKING_AND_EDGE",
+      "package_name": "aws_networking_and_edge_core_ecosystem"
+    },
+    {
+      "domain_id": "OBSERVABILITY_AND_AUDIT",
+      "package_name": "aws_observability_and_audit_core_ecosystem"
+    },
+    {
+      "domain_id": "ORGANIZATION_AND_GOVERNANCE",
+      "package_name": "aws_organization_and_governance_core_ecosystem"
+    },
+    {
+      "domain_id": "SECURITY_AND_IDENTITY",
+      "package_name": "aws_security_and_identity_core_ecosystem"
+    },
+    {
+      "domain_id": "STORAGE_AND_DATA_MANAGEMENT",
+      "package_name": "aws_storage_and_data_management_core_ecosystem"
+    },
+    {
+      "domain_id": "DEVELOPER_AND_APPLICATION_PLATFORM",
+      "package_name": "aws_developer_and_application_platform_core_ecosystem"
+    }
+  ]
+}

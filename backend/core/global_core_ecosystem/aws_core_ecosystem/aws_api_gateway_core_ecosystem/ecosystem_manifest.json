@@ -1,0 +1,23 @@
+{
+  "provider": "aws",
+  "core_layer": "AWS_CORE",
+  "ecosystem_id": "AWS-API-GATEWAY-CORE-ECOSYSTEM",
+  "display_name": "AWS API Gateway",
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/aws_api_ecosystem/aws_api_gateway_ecosystem",
+  "capabilities": [
+    "REST_API_METADATA",
+    "HTTP_API_METADATA",
+    "WEBSOCKET_API_METADATA",
+    "STAGE_AND_DEPLOYMENT_METADATA",
+    "AUTHORIZER_CONFIGURATION_BOUNDARY"
+  ],
+  "domains": [
+    "APPLICATION_INTEGRATION_AND_API_MANAGEMENT",
+    "NETWORKING_AND_EDGE"
+  ],
+  "readiness": "CORE_CATALOG_ONLY",
+  "api_available": null,
+  "live_connection_verified": false,
+  "credential_handling": "IAM_ROLE_OR_WEB_IDENTITY_OR_EXTERNAL_SECRET_REFERENCE_ONLY",
+  "api_transport_in_core": false
+}

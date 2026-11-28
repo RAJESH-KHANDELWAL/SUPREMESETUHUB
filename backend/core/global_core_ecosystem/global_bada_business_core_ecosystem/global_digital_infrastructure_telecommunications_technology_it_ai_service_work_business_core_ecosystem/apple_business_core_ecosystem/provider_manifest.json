@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "provider_id": "APPLE",
+  "ecosystem_layer": "PROVIDER_CAPABILITY_METADATA",
+  "capability_areas": [
+    "devices_and_operating_systems",
+    "developer_ecosystem",
+    "cloud_and_account_services",
+    "enterprise_device_management"
+  ],
+  "live_integration_configured": false,
+  "partnership_verified": false,
+  "account_connection_verified": false
+}

@@ -1,0 +1,9 @@
+PRODUCT_ID="drive"
+PRODUCT_NAME="Google Drive"
+CATEGORY="STORAGE"
+API_NAME="Google Drive API"
+INTEGRATION_MODE="USER_OAUTH"
+AVAILABILITY="API_AVAILABLE"
+AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
+REQUIRED_SCOPES=["https://www.googleapis.com/auth/drive.file"]
+LIVE_CONNECTION_ENABLED=False

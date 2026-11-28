@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "partner_id": "clips4sale",
+  "partner_name": "Clips4Sale",
+  "classification": "creator_marketplace",
+  "layer": "GLOBAL_AI_ADJACENT_INTEGRATION_ALIAS",
+  "is_ai_model_provider": false,
+  "canonical_domain_core_ref": "backend/core/global_ecosystem/global_core_ecosystem/global_platforms_core_ecosystem",
+  "api_catalog_ref": "backend/api/global_ecosystem/global_api_ecosystem/global_ai_api_ecosystem/clips4sale_ai_api_ecosystem",
+  "age_restricted_or_adult_industry": true,
+  "status": "COMPATIBILITY_ONLY",
+  "live_connection_verified": false
+}

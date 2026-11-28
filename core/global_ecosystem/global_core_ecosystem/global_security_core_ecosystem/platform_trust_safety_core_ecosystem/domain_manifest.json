@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "domain_id": "PLATFORM_TRUST_SAFETY",
+  "name": "Platform trust and safety operations",
+  "scope": "Abuse reporting, moderation operations, escalation, appeals and platform integrity",
+  "parent_id": "GLOBAL-SECURITY-CORE-ECOSYSTEM",
+  "layer": "CORE",
+  "status": "CORE_CATALOG_ONLY",
+  "package_path": "backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/platform_trust_safety_core_ecosystem",
+  "implementation_boundary": "Metadata, contracts and discovery only; enforcement belongs in separately tested API, application, identity, runtime and infrastructure layers."
+}

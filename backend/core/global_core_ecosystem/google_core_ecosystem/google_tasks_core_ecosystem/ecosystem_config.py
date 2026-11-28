@@ -1,0 +1,9 @@
+PRODUCT_ID="tasks"
+PRODUCT_NAME="Google Tasks"
+CATEGORY="TASK_MANAGEMENT"
+API_NAME="Google Tasks API"
+INTEGRATION_MODE="USER_OAUTH"
+AVAILABILITY="API_AVAILABLE"
+AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
+REQUIRED_SCOPES=["https://www.googleapis.com/auth/tasks.readonly"]
+LIVE_CONNECTION_ENABLED=False

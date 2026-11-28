@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "provider": "cloudflare",
+  "product_id": "cdn",
+  "product_name": "Cloudflare CDN",
+  "category": "performance",
+  "capabilities": [
+    "cdn",
+    "cache_rules"
+  ],
+  "core_status": "CORE_CATALOG_ONLY",
+  "api_catalog_ref": null,
+  "live_connection": false,
+  "layer_boundaries": {
+    "core": "product identity, capabilities, lifecycle metadata, policy and readiness",
+    "api": "Cloudflare token handling, REST transport and endpoint adapters",
+    "engine": "execution, workflows and background jobs",
+    "database": "durable records and migrations",
+    "storage": "object and file persistence",
+    "security_identity": "authorization, tenant identity and secret management",
+    "application": "sessions, consent and user interface"
+  },
+  "non_execution_guarantees": {
+    "provider_api_calls": false,
+    "provisioning": false,
+    "resource_mutation": false,
+    "persistence": false
+  }
+}

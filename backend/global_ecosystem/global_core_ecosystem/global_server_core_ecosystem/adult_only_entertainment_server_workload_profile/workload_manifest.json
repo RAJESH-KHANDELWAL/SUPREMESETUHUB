@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.1.0",
+  "profile_id": "SERVER-WORKLOAD-ADULT_ONLY_ENTERTAINMENT",
+  "domain_id": "ADULT_ONLY_ENTERTAINMENT",
+  "label": "Lawful Adult-only Entertainment Platforms",
+  "risk_profile": "RESTRICTED_HIGH_COMPLIANCE",
+  "scope": "SERVER_REQUIREMENTS_METADATA_ONLY",
+  "geography_catalog": "../geographic_scope_catalog.json",
+  "service_tier_catalog": "../service_tier_catalog.json",
+  "service_tiers": [
+    "NORMAL",
+    "BASIC",
+    "STANDARD",
+    "PREMIUM",
+    "PROFESSIONAL",
+    "ENTERPRISE",
+    "SUPREME"
+  ],
+  "required_control_areas": [
+    "robust_age_assurance",
+    "informed_consent_and_rights_verification",
+    "jurisdiction_gating",
+    "moderation_and_takedown",
+    "privacy_by_design",
+    "auditability"
+  ],
+  "layer_boundary": {
+    "core": "classification and provider-neutral requirements metadata only",
+    "api": "authentication, authorization, transport and request handling",
+    "engine": "provider adapters and execution",
+    "database": "durable persistence and migrations",
+    "storage": "files, objects, backups and artifacts"
+  },
+  "operational_status": "NON_EXECUTING_PROFILE",
+  "note": "No provisioning, legal approval or production operation is performed by this profile.",
+  "adult_safety_policy": {
+    "minimum_age": "18_PLUS_OR_HIGHER_WHERE_LOCAL_LAW_REQUIRES",
+    "require": [
+      "robust_age_assurance",
+      "informed_consent",
+      "rights_verification",
+      "privacy_by_design",
+      "moderation",
+      "reporting_and_takedown",
+      "jurisdiction_restrictions",
+      "auditability"
+    ],
+    "prohibit": [
+      "child_sexual_abuse_material",
+      "non_consensual_intimate_imagery",
+      "trafficking",
+      "sexual_exploitation",
+      "unlawful_content"
+    ],
+    "explicit_content_authorized_by_core": false
+  },
+  "workload_areas": [
+    {
+      "area_id": "ADULT_ONLY_ENTERTAINMENT_WORKLOAD_01",
+      "name": "Lawful adult-only access and age-assurance services",
+      "scope": "Lawful adult-only server workload classification; requires independently enforced age assurance, consent, rights, privacy and jurisdiction controls. CORE does not host or authorize explicit content."
+    },
+    {
+      "area_id": "ADULT_ONLY_ENTERTAINMENT_WORKLOAD_02",
+      "name": "Creator, performer and rights-management systems",
+      "scope": "Lawful adult-only server workload classification; requires independently enforced age assurance, consent, rights, privacy and jurisdiction controls. CORE does not host or authorize explicit content."
+    },
+    {
+      "area_id": "ADULT_ONLY_ENTERTAINMENT_WORKLOAD_03",
+      "name": "Consent, release and content provenance records",
+      "scope": "Lawful adult-only server workload classification; requires independently enforced age assurance, consent, rights, privacy and jurisdiction controls. CORE does not host or authorize explicit content."
+    },
+    {
+      "area_id": "ADULT_ONLY_ENTERTAINMENT_WORKLOAD_04",
+      "name": "Payment, subscription and billing platforms",
+      "scope": "Lawful adult-only server workload classification; requires independently enforced age assurance, consent, rights, privacy and jurisdiction controls. CORE does not host or authorize explicit content."
+    },
+    {
+      "area_id": "ADULT_ONLY_ENTERTAINMENT_WORKLOAD_05",
+      "name": "Moderation, reporting, takedown and jurisdiction controls",
+      "scope": "Lawful adult-only server workload classification; requires independently enforced age assurance, consent, rights, privacy and jurisdiction controls. CORE does not host or authorize explicit content."
+    }
+  ],
+  "workload_area_count": 5
+}

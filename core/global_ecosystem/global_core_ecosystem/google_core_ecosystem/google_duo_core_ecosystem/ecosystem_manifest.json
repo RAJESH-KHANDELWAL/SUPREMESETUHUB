@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "provider": "google",
+  "product_id": "google_duo",
+  "product_name": "Google Duo",
+  "category": "COMMUNICATION",
+  "api": null,
+  "integration_mode": "PRODUCT_INFORMATION_ONLY",
+  "availability": "API_AVAILABLE",
+  "live_connection": false
+}

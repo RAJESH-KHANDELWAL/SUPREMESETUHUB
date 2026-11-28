@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "ecosystem_id": "CHINGARI-SOCIAL-MEDIA-CORE-ECOSYSTEM",
+  "platform_id": "chingari",
+  "platform_name": "Chingari",
+  "parent_id": "GLOBAL-SOCIAL-MEDIA-CORE-ECOSYSTEM",
+  "domain_id": "VIDEO_LIVE_STREAMING_AND_CREATOR_MEDIA",
+  "core_path": "backend/core/global_ecosystem/global_core_ecosystem/global_social_media_core_ecosystem/chingari_social_media_core_ecosystem",
+  "status": "CORE_CATALOG_ONLY",
+  "age_classification": "GENERAL_OR_PROVIDER_DEFINED",
+  "adult_only_18_plus": false,
+  "api_transport_in_core": false,
+  "live_connection_verified": false,
+  "api_calls_performed": 0,
+  "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
+}

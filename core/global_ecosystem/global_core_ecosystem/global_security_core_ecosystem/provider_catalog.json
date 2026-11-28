@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0.0",
+  "providers": [
+    {
+      "provider_id": "APPLE",
+      "name": "Apple",
+      "folder": "apple_security_core_ecosystem",
+      "ecosystem_id": "APPLE-SECURITY-CORE-ECOSYSTEM",
+      "status": "CORE_CATALOG_ONLY",
+      "enabled": true,
+      "capabilities": [
+        "DEVICE_SECURITY_METADATA",
+        "PLATFORM_SECURITY_METADATA",
+        "IDENTITY_AND_PRIVACY_METADATA"
+      ],
+      "live_connection_verified": false,
+      "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
+    },
+    {
+      "provider_id": "AWS",
+      "name": "Amazon Web Services",
+      "folder": "aws_security_core_ecosystem",
+      "ecosystem_id": "AWS-SECURITY-CORE-ECOSYSTEM",
+      "status": "CORE_CATALOG_ONLY",
+      "enabled": true,
+      "capabilities": [
+        "CLOUD_SECURITY_METADATA",
+        "IDENTITY_AND_ACCESS_METADATA",
+        "DETECTION_AND_COMPLIANCE_METADATA"
+      ],
+      "live_connection_verified": false,
+      "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
+    },
+    {
+      "provider_id": "CLOUDFLARE",
+      "name": "Cloudflare",
+      "folder": "cloudflare_security_core_ecosystem",
+      "ecosystem_id": "CLOUDFLARE-SECURITY-CORE-ECOSYSTEM",
+      "status": "CORE_CATALOG_ONLY",
+      "enabled": true,
+      "capabilities": [
+        "EDGE_SECURITY_METADATA",
+        "APPLICATION_PROTECTION_METADATA",
+        "ZERO_TRUST_NETWORK_METADATA"
+      ],
+      "live_connection_verified": false,
+      "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
+    },
+    {
+      "provider_id": "GOOGLE",
+      "name": "Google",
+      "folder": "google_security_core_ecosystem",
+      "ecosystem_id": "GOOGLE-SECURITY-CORE-ECOSYSTEM",
+      "status": "CORE_CATALOG_ONLY",
+      "enabled": true,
+      "capabilities": [
+        "CLOUD_SECURITY_METADATA",
+        "IDENTITY_SECURITY_METADATA",
+        "THREAT_DETECTION_METADATA"
+      ],
+      "live_connection_verified": false,
+      "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
+    },
+    {
+      "provider_id": "IBM",
+      "name": "IBM",
+      "folder": "ibm_security_core_ecosystem",
+      "ecosystem_id": "IBM-SECURITY-CORE-ECOSYSTEM",
+      "status": "CORE_CATALOG_ONLY",
+      "enabled": true,
+      "capabilities": [
+        "ENTERPRISE_SECURITY_METADATA",
+        "THREAT_INTELLIGENCE_METADATA",
+        "RISK_AND_COMPLIANCE_METADATA"
+      ],
+      "live_connection_verified": false,
+      "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
+    },
+    {
+      "provider_id": "MICROSOFT",
+      "name": "Microsoft",
+      "folder": "microsoft_security_core_ecosystem",
+      "ecosystem_id": "MICROSOFT-SECURITY-CORE-ECOSYSTEM",
+      "status": "CORE_CATALOG_ONLY",
+      "enabled": true,
+      "capabilities": [
+        "IDENTITY_SECURITY_METADATA",
+        "CLOUD_AND_ENDPOINT_SECURITY_METADATA",
+        "THREAT_PROTECTION_METADATA"
+      ],
+      "live_connection_verified": false,
+      "credential_storage": "EXTERNAL_SECRET_STORE_ONLY"
+    }
+  ],
+  "provider_coverage_exhaustive": false
+}

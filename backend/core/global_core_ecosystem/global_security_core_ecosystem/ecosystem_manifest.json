@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.5.0",
+  "ecosystem_id": "GLOBAL-SECURITY-CORE-ECOSYSTEM",
+  "parent_id": "GLOBAL-CORE-ECOSYSTEM",
+  "layer": "CORE",
+  "category": "SECURITY",
+  "division": {
+    "id": "SECURITY",
+    "folder": "global_security_core_ecosystem"
+  },
+  "status": "CORE_CATALOG_ONLY",
+  "canonical_path": "backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem",
+  "registry": {
+    "module": "manager.py",
+    "domains": "catalog.json",
+    "domain_catalog_module": "manager.py",
+    "providers": "provider_catalog.json",
+    "provider_catalog_module": "provider_catalog.py",
+    "shared_provider_service": "module_service.py",
+    "jurisdictions": "jurisdiction_catalog.py",
+    "content_safety_policy": "content_safety_policy.py",
+    "compatibility_facade": "catalog.py",
+    "master_catalog_source": "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json",
+    "master_catalog_reference_mapping": "catalog.json",
+    "central_manager": "manager.py",
+    "orchestrator": "orchestrator.py",
+    "service_facade": "service.py",
+    "shared_domain_runtime": "domain_runtime.py",
+    "domain_manager_factory": "manager.py:get_domain_manager"
+  },
+  "domain_count": 33,
+  "domain_coverage_exhaustive": false,
+  "provider_count": 6,
+  "provider_coverage_exhaustive": false,
+  "live_provider_connections_verified": false,
+  "security_enforcement_verified": false,
+  "api_calls_performed": 0,
+  "credential_storage": "EXTERNAL_SECRET_STORE_ONLY",
+  "service_tiers": [
+    "BASIC",
+    "NORMAL",
+    "STANDARD",
+    "PROFESSIONAL",
+    "ADVANCED",
+    "EXPERT",
+    "SPECIALIZED",
+    "ENTERPRISE",
+    "NATIONAL",
+    "INTERNATIONAL",
+    "GLOBAL",
+    "UNIVERSAL",
+    "SUPREME"
+  ],
+  "security_baseline": {
+    "least_privilege": true,
+    "tenant_isolation_required": true,
+    "mfa_recommended": true,
+    "zero_trust_principle": true,
+    "secrets_in_core": false,
+    "auditability_required": true,
+    "independent_runtime_enforcement_required": true
+  },
+  "layer_boundaries": {
+    "core": "Canonical security-domain/provider/jurisdiction metadata, master-catalog references, safety metadata, discovery and readiness; no provider transport or enforcement.",
+    "api": "provider authentication, transport and webhooks",
+    "storage": "security evidence and durable artifacts",
+    "database": "policy persistence, schemas and migrations",
+    "runtime": "scanning, detection, response and enforcement execution",
+    "application": "admin, analyst and end-user workflows"
+  },
+  "shared_support_areas": [
+    "compatibility",
+    "configuration",
+    "contracts",
+    "documentation",
+    "events",
+    "exceptions",
+    "orchestration",
+    "security",
+    "testing",
+    "utilities",
+    "validation"
+  ],
+  "domain_packages": ".",
+  "jurisdictional_coverage": {
+    "national_and_regional_profiles": "jurisdictions/",
+    "india_profile": "jurisdictions/india/",
+    "global_profile": "jurisdictions/global/",
+    "country_coverage_exhaustive": false
+  },
+  "protected_subject_areas": [
+    "AGE_ASSURANCE",
+    "CHILD_SAFETY_CSEA_PREVENTION",
+    "ADULT_CONTENT_PLATFORM_SAFETY",
+    "CONSENT_INTIMATE_IMAGE_PROTECTION",
+    "SEXUAL_EXPLOITATION_TRAFFICKING_PREVENTION",
+    "SENSITIVE_INTIMATE_DATA_PRIVACY",
+    "SEXUAL_HEALTH_INFORMATION_INTEGRITY",
+    "CONTENT_MODERATION_CLASSIFICATION",
+    "AI_SYNTHETIC_MEDIA_ABUSE"
+  ],
+  "content_safety_boundary": {
+    "adult_material_storage": false,
+    "explicit_sexual_media_generation_or_distribution": false,
+    "child_sexual_abuse_material": "PROHIBITED_AND_NEVER_STORED_OR_REPRODUCED",
+    "non_consensual_intimate_imagery": "PROHIBITED_AND_REPORTING_AND_TAKEDOWN_SAFEGUARDS",
+    "scope": "Protective security controls and metadata only; educational or adult-content content libraries belong in separately governed product ecosystems."
+  },
+  "jurisdiction_profile_count": 2,
+  "legal_compliance_verified": false,
+  "domain_folder_suffix": "_core_ecosystem",
+  "domain_package_location": "ECOSYSTEM_ROOT",
+  "protected_groups": [
+    "MEN",
+    "WOMEN",
+    "GIRLS",
+    "BOYS"
+  ],
+  "protected_group_safety_metadata": true,
+  "master_catalog_alignment": {
+    "source": "backend/GLOBAL_SUPREME_ECOSYSTEM_CATALOG.json",
+    "current_unique_entries": 246,
+    "target_unique_entries": 2468,
+    "remaining_unique_entries": 2222,
+    "mapped_reference_count": 106,
+    "mapped_unique_entry_count": 52,
+    "validation": "EXACT_ENTRY_ID_AND_SECTION_VALIDATION_AT_RUNTIME",
+    "counts_as_new_master_entries": false
+  },
+  "tier_count": 13,
+  "control_area_count": 330,
+  "taxonomy": {
+    "domain_count": 33,
+    "control_area_count": 330,
+    "coverage_area_count": 330,
+    "coverage_areas_per_domain": 10,
+    "coverage_status": "DEFINED_CORE_TAXONOMY_NON_EXHAUSTIVE",
+    "domain_coverage_exhaustive": false
+  }
+}

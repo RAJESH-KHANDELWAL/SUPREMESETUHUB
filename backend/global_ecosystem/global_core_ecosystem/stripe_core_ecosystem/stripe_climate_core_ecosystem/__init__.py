@@ -1,0 +1,7 @@
+"""Climate Core ecosystem package."""
+from .catalog import STRIPE_CLIMATE_CORE_ECOSYSTEM, get_catalog
+
+ECOSYSTEM_ID = "STRIPE-CLIMATE-CORE-ECOSYSTEM"
+ECOSYSTEM_NAME = "STRIPE CLIMATE CORE ECOSYSTEM"
+
+__all__ = ["STRIPE_CLIMATE_CORE_ECOSYSTEM", "get_catalog", "ECOSYSTEM_ID", "ECOSYSTEM_NAME"]

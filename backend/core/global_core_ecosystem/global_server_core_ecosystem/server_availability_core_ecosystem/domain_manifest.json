@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "domain_id": "AVAILABILITY",
+  "name": "Availability",
+  "parent_id": "GLOBAL-SERVER-CORE-ECOSYSTEM",
+  "canonical_path": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/server_availability_core_ecosystem/",
+  "layer": "CORE",
+  "status": "CORE_CONTRACT_METADATA",
+  "description": "Availability zones, redundancy intent and readiness metadata; no uptime guarantee.",
+  "master_catalog_refs": [
+    "S10_global_infrastructure",
+    "S10_global_server",
+    "S09_cloud_computing",
+    "S13_global"
+  ],
+  "control_areas": [
+    {
+      "area_id": "AVAILABILITY_01",
+      "name": "Availability targets and SLO metadata",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "AVAILABILITY_02",
+      "name": "Fault domains and failure isolation",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "AVAILABILITY_03",
+      "name": "Redundancy and failover topology",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "AVAILABILITY_04",
+      "name": "Capacity headroom and saturation thresholds",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "AVAILABILITY_05",
+      "name": "Maintenance windows and disruption budgets",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    },
+    {
+      "area_id": "AVAILABILITY_06",
+      "name": "Readiness evidence and dependency status",
+      "scope": "Provider-neutral server infrastructure metadata and contract definition; no remote execution."
+    }
+  ],
+  "ownership": {
+    "core": "Catalogs, identifiers, contracts, policies and discovery metadata only",
+    "api": "Authentication, authorization, transport and request handling",
+    "engine": "Provider adapters, SDK execution and remote operations",
+    "database": "Durable persistence, schemas and migrations",
+    "storage": "Object, file, backup and artifact persistence"
+  },
+  "operational_boundaries": {
+    "remote_operations_enabled": false,
+    "live_provider_connections_verified": false,
+    "production_readiness_claimed": false,
+    "credentials_stored_in_repository": false
+  }
+}

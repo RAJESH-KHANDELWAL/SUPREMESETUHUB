@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "domain_id": "SERVICE_TIER",
+  "ecosystem_id": "GLOBAL-SERVER-CORE-ECOSYSTEM",
+  "parent_domain": "SERVER_CORE",
+  "layer": "CORE",
+  "canonical_path": "backend/core/global_ecosystem/global_core_ecosystem/global_server_core_ecosystem/server_service_tier_core_ecosystem",
+  "status": "CORE_CONTRACT_METADATA",
+  "purpose": "NORMAL-to-SUPREME tier taxonomy and product-defined entitlement references.",
+  "capability": "SERVICE_TIER",
+  "service_tiers": [
+    "NORMAL",
+    "BASIC",
+    "STANDARD",
+    "PREMIUM",
+    "PROFESSIONAL",
+    "ENTERPRISE",
+    "SUPREME"
+  ],
+  "geography": "BHARAT_FIRST_GLOBAL_EXTENSIBLE",
+  "owns": [
+    "provider-neutral metadata",
+    "domain contracts",
+    "validation rules",
+    "policy references"
+  ],
+  "does_not_own": [
+    "API transport or authentication",
+    "provider SDK execution or provisioning",
+    "durable database persistence",
+    "object/file storage",
+    "billing or UI"
+  ],
+  "remote_operations_enabled": false,
+  "production_ready": false
+}

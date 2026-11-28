@@ -1,0 +1,1037 @@
+{
+  "ecosystem_id": "GLOBAL-DATABASE-CORE-ECOSYSTEM",
+  "source_ref": "main",
+  "directory_count": 147,
+  "canonical_api_catalog_provider_count": 7,
+  "entries": [
+    {
+      "directory": "adobe_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "airtable_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "aiven_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "alibaba_cloud_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "amazon_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "anthropic_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "apache_cassandra_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "apache_doris_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "apache_hbase_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "apache_iceberg_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "apache_ignite_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "apache_pinot_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "apache_solr_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "apache_spark_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "apple_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": true,
+      "implementation_status": "CATALOG_ONLY",
+      "review_required": false
+    },
+    {
+      "directory": "appwrite_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "arangodb_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "asana_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "aws_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": true,
+      "implementation_status": "CATALOG_ONLY",
+      "review_required": false
+    },
+    {
+      "directory": "azure_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "backblaze_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "baidu_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "bitquery_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "blockchain_specialized_data_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "box_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "canva_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "chroma_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "clickhouse_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "cloud_database_platform_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "cloudflare_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "cockroachdb_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "cohere_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "confluent_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "convex_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "couchbase_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "couchdb_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "crunchy_bridge_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "databricks_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "datastax_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "deepseek_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "dgraph_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "digitalocean_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "discord_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "document_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "dragonfly_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "dropbox_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "duckdb_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "dune_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "elastic_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "elasticsearch_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "embedded_edge_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "falkordb_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "figma_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "firebase_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "firebolt_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "flipside_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "gitlab_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "google_cloud_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "google_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": true,
+      "implementation_status": "CATALOG_ONLY",
+      "review_required": false
+    },
+    {
+      "directory": "grammarly_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "graph_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "greenplum_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "h2_database_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "hasura_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "hetzner_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "huawei_cloud_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "hubspot_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "huggingface_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "ibm_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": true,
+      "implementation_status": "CATALOG_ONLY",
+      "review_required": false
+    },
+    {
+      "directory": "influxdb_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "informix_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "integrations",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "janusgraph_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "jd_cloud_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "kingsoft_cloud_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "kuzu_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "linkedin_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "mariadb_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "meilisearch_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "memcached_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "memgraph_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "meta_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "microsoft_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": true,
+      "implementation_status": "CATALOG_ONLY",
+      "review_required": false
+    },
+    {
+      "directory": "milvus_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "mistral_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "monday_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "mongodb_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "motherduck_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "mysql_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "neo4j_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "neon_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "notion_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "nvidia_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "openai_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "opensearch_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "oracle_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": true,
+      "implementation_status": "CATALOG_ONLY",
+      "review_required": false
+    },
+    {
+      "directory": "ovhcloud_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "percona_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "pinecone_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "planetscale_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "pocketbase_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "postgresql_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "prometheus_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "qdrant_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "questdb_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "railway_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "ravendb_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "reddit_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "redis_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "relational_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "render_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "rethinkdb_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "salesforce_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": true,
+      "implementation_status": "CATALOG_ONLY",
+      "review_required": false
+    },
+    {
+      "directory": "scaleway_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "scylladb_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "search_analytics_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "services",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "shopify_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "single_store_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "snowflake_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "spotify_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "sqlite_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "starrocks_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "supabase_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "telegram_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "tencent_cloud_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "teradata_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "tidb_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "tiktok_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "time_series_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "tools",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "trello_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "turso_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "valkey_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "vector_ai_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "victoria_metrics_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "vultr_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "warehouse_lakehouse_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "wasabi_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "weaviate_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "wordpress_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "x_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "xata_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "yandex_cloud_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "yugabytedb_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "zendesk_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    },
+    {
+      "directory": "zilliz_database_core_ecosystem",
+      "inventory_status": "LEGACY_DIRECTORY_PRESERVED",
+      "canonical_api_provider": false,
+      "implementation_status": "UNCLASSIFIED_NOT_REGISTERED",
+      "review_required": true
+    }
+  ]
+}

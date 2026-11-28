@@ -1,0 +1,16 @@
+{
+  "ecosystem_id": "GLOBAL-DOMAIN-AFILIAS-CORE-ECOSYSTEM",
+  "provider_id": "afilias",
+  "display_name": "Identity Digital",
+  "layer": "CORE",
+  "domain": "DOMAIN",
+  "status": "CORE_CATALOG_ONLY",
+  "scope": "Domain registry operator",
+  "official_docs_url": "https://identity.digital/",
+  "api_module": "afilias_domain_api_ecosystem/afilias_domain_api_ecosystem.py",
+  "live_connection_verified": false,
+  "api_available": null,
+  "execution_enabled": false,
+  "credential_storage_enabled": false,
+  "provider_mutations_enabled": false
+}

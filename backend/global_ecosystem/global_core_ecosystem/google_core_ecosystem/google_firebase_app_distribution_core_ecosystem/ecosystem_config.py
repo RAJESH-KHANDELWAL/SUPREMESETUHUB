@@ -1,0 +1,9 @@
+PRODUCT_ID="firebase_app_distribution"
+PRODUCT_NAME="Firebase App Distribution"
+CATEGORY="APP_TESTING_AND_DISTRIBUTION"
+API_NAME="Firebase App Distribution API"
+INTEGRATION_MODE="CLOUD_PROJECT_CREDENTIALS"
+AVAILABILITY="API_AVAILABLE"
+AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
+REQUIRED_SCOPES=[]
+LIVE_CONNECTION_ENABLED=False

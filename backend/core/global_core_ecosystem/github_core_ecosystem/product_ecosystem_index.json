@@ -1,0 +1,20 @@
+{
+  "provider": "github",
+  "layer": "CORE",
+  "family_count": 12,
+  "packages": [
+    "github_actions_core_ecosystem",
+    "github_apps_core_ecosystem",
+    "github_authentication_core_ecosystem",
+    "github_checks_core_ecosystem",
+    "github_graphql_core_ecosystem",
+    "github_issues_core_ecosystem",
+    "github_organizations_core_ecosystem",
+    "github_pull_requests_core_ecosystem",
+    "github_repositories_core_ecosystem",
+    "github_rest_core_ecosystem",
+    "github_security_core_ecosystem",
+    "github_webhooks_core_ecosystem"
+  ],
+  "live_provider_calls_enabled": false
+}

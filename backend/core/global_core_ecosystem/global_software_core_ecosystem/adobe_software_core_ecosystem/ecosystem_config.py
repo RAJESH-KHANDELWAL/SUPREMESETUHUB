@@ -1,0 +1,9 @@
+"""Adobe provider metadata; no credentials or live connection are stored here."""
+
+PROVIDER_ID = "adobe"
+PROVIDER_NAME = "Adobe"
+STATUS = "CATALOG_ONLY"
+LIVE_CONNECTION_VERIFIED = False
+DOMAINS = ["CREATIVE", "DOCUMENTS", "DIGITAL_EXPERIENCE"]
+CAPABILITIES = ["CREATIVE_CLOUD", "DOCUMENT_WORKFLOWS", "DIGITAL_ASSETS"]
+API_AVAILABLE = None

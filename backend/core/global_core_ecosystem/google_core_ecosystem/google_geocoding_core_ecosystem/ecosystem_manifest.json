@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "provider": "google",
+  "product_id": "google_geocoding",
+  "product_name": "Google Geocoding",
+  "category": "MAPS_AND_LOCATION",
+  "api": "Geocoding API",
+  "integration_mode": "API_KEY_OR_OAUTH",
+  "availability": "API_AVAILABLE",
+  "authentication": {
+    "method": "Product-specific authentication; verify before enabling",
+    "scopes": []
+  },
+  "live_connection": false,
+  "layer_boundaries": {
+    "core": "identity, capability metadata, lifecycle, policy and readiness",
+    "api": "OAuth, SDK and HTTP transport",
+    "storage": "durable files and records",
+    "database": "persistence and migrations",
+    "runtime": "jobs and queues",
+    "application": "sessions, consent and UI"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "provider": "github",
+  "layer": "CORE",
+  "ecosystem_id": "GITHUB-CORE-ECOSYSTEM",
+  "family_count": 12,
+  "families": [
+    "actions",
+    "apps",
+    "authentication",
+    "checks",
+    "graphql",
+    "issues",
+    "organizations",
+    "pull_requests",
+    "repositories",
+    "rest",
+    "security",
+    "webhooks"
+  ],
+  "api_ecosystem_ref": "backend/api/global_ecosystem/global_api_ecosystem/github_api_ecosystem",
+  "api_transport_ref": "backend/integration/provider/github.py",
+  "api_routes_ref": "backend/api/connectors.py",
+  "status": "REGISTERED",
+  "live_provider_calls_enabled": false,
+  "live_connection_verified_by_core": false
+}

@@ -1,0 +1,9 @@
+PRODUCT_ID="google_maps_elevation"
+PRODUCT_NAME="Google Maps Elevation"
+CATEGORY="MAPS_AND_GEOSPATIAL"
+API_NAME="Elevation API"
+INTEGRATION_MODE="API_KEY_OR_OAUTH"
+AVAILABILITY="API_AVAILABLE"
+AUTHENTICATION_METHOD="Product-specific authentication; verify before enabling"
+REQUIRED_SCOPES=[]
+LIVE_CONNECTION_ENABLED=False

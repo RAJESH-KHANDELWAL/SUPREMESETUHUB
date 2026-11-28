@@ -1,0 +1,10 @@
+"""Confluence Core product-family metadata manager."""
+from __future__ import annotations
+from .service import ConfluenceCoreService
+class ConfluenceCoreManager:
+ def __init__(self)->None:self._service=ConfluenceCoreService()
+ def status(self):return self._service.status()
+ def capabilities(self):return self._service.capabilities()
+ def authorize_capability(self,capability,context=None):return self._service.authorize_capability(capability,context)
+def get_manager()->ConfluenceCoreManager:return ConfluenceCoreManager()
+__all__=["ConfluenceCoreManager","get_manager"]
