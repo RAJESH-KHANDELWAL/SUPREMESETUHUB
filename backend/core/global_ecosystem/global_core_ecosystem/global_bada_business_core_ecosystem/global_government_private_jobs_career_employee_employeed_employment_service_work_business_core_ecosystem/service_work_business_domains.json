@@ -1,0 +1,93 @@
+{
+  "ecosystem_id": "global_government_private_jobs_careers_employment_service_work_business_core_ecosystem",
+  "layer": "global_bada_business_core_ecosystem",
+  "scope": [
+    "government",
+    "private_sector",
+    "public_private_partnership",
+    "nonprofit"
+  ],
+  "service_domains": [
+    {
+      "id": "government_employment_services",
+      "description": "Public employment exchanges, government career services, public recruitment operations, and workforce programmes."
+    },
+    {
+      "id": "private_sector_recruitment",
+      "description": "Private employer hiring, recruitment process, talent acquisition, and hiring operations."
+    },
+    {
+      "id": "staffing_and_placement",
+      "description": "Temporary staffing, permanent placement, contract staffing, and recruitment process outsourcing."
+    },
+    {
+      "id": "executive_search",
+      "description": "Leadership, board, and senior-management search services."
+    },
+    {
+      "id": "recruitment_and_job_portals",
+      "description": "Job boards, vacancy marketplaces, recruitment platforms, and employer job sites."
+    },
+    {
+      "id": "career_guidance_and_counselling",
+      "description": "Career assessment, coaching, counselling, and transition services."
+    },
+    {
+      "id": "resume_and_interview_services",
+      "description": "Resume writing, profile optimisation, interview preparation, and job-search support."
+    },
+    {
+      "id": "human_resources_and_payroll",
+      "description": "HR consulting, HR technology, benefits administration, and payroll services."
+    },
+    {
+      "id": "workforce_management",
+      "description": "Workforce planning, attendance, shift scheduling, and field workforce operations."
+    },
+    {
+      "id": "employer_branding",
+      "description": "Employer value proposition, recruitment marketing, candidate experience, and talent campaigns."
+    },
+    {
+      "id": "internships_and_apprenticeships",
+      "description": "Student internships, graduate programmes, trade apprenticeships, and returnships."
+    },
+    {
+      "id": "freelancing_and_gig_work",
+      "description": "Freelance marketplaces, independent contracting, gig platforms, and project-based work."
+    },
+    {
+      "id": "remote_and_hybrid_work",
+      "description": "Fully remote roles, hybrid roles, distributed teams, and cross-border remote-work services."
+    },
+    {
+      "id": "outsourcing_and_bpo",
+      "description": "Business-process outsourcing, knowledge-process outsourcing, customer support, and staff augmentation."
+    },
+    {
+      "id": "reskilling_and_outplacement",
+      "description": "Career reskilling, redeployment, workforce transition, and outplacement services."
+    },
+    {
+      "id": "employment_compliance",
+      "description": "Employment contracts, workplace policies, labour-compliance advisory, and safety training."
+    },
+    {
+      "id": "professional_networking",
+      "description": "Professional networks, industry associations, talent communities, and referral networks."
+    }
+  ],
+  "record_requirements": [
+    "jurisdiction",
+    "provider_type",
+    "source",
+    "verification_status",
+    "last_verified_at"
+  ],
+  "verification_status_values": [
+    "unverified",
+    "source_verified",
+    "provider_confirmed",
+    "archived"
+  ]
+}

@@ -1,0 +1,43 @@
+name: HUGGING FACE CORE ECOSYSTEM TESTS
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/huggingface_core_ecosystem/**"
+      - "backend/core/global_ecosystem/global_core_ecosystem/manager.py"
+      - ".github/workflows/huggingface-core-ecosystem-tests.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "backend/core/global_ecosystem/global_core_ecosystem/huggingface_core_ecosystem/**"
+      - "backend/core/global_ecosystem/global_core_ecosystem/manager.py"
+      - ".github/workflows/huggingface-core-ecosystem-tests.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  huggingface-core:
+    name: Hugging Face CORE catalog, hierarchy and PHP contract
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install test runner
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "pytest>=8.0,<9.0"
+      - name: Validate Python syntax
+        run: |
+          python -m compileall -q backend/core/global_ecosystem/global_core_ecosystem/huggingface_core_ecosystem
+          python -m py_compile backend/core/global_ecosystem/global_core_ecosystem/manager.py
+      - name: Run Hugging Face CORE tests
+        env:
+          PYTHONPATH: .
+        run: python -m pytest backend/core/global_ecosystem/global_core_ecosystem/huggingface_core_ecosystem/test_huggingface_core.py -q
+      - name: Check PHP facade syntax
+        run: php -l backend/core/global_ecosystem/global_core_ecosystem/huggingface_core_ecosystem/manager.php

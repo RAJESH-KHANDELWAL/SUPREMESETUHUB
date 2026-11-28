@@ -14,7 +14,7 @@ class FrontendGlobalInfrastructureEcosystemManager:
 
     def __init__(self):
         self.root = Path(__file__).resolve().parent
-        self.repository_root = self.root.parents[4]
+        self.repository_root = self.root.parents[3]
         self.backend_root = (
             self.repository_root
             / "backend"

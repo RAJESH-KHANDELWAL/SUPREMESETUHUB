@@ -7,11 +7,10 @@ _ECOSYSTEM_DOMAIN_DIR = (
     _PACKAGE_DIR / "global_ecosystem" / "global_infrastructure_ecosystem"
 )
 
-# Keep legacy imports (backend.infrastructure.<domain>) working while the
-# implementation packages physically live under GLOBAL INFRASTRUCTURE ECOSYSTEM.
-# The package directory remains second so global_ecosystem and root modules
-# continue to resolve normally.
-__path__ = [str(_ECOSYSTEM_DOMAIN_DIR), str(_PACKAGE_DIR)]
+# Resolve root compatibility shims first (backend.infrastructure.<module>).
+# The ecosystem directory remains available for modules not defined at the
+# package root, while canonical implementations are imported by full path.
+__path__ = [str(_PACKAGE_DIR), str(_ECOSYSTEM_DOMAIN_DIR)]
 
 from .model import (
     InfrastructureCategory,

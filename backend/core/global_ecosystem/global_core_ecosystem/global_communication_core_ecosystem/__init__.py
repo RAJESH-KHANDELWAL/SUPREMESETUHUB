@@ -1,11 +1,16 @@
-"""COMMUNICATION CORE ECOSYSTEM package.
-
-This package is an independent layer-owned namespace. It contains no imports
-from API, CORE, or ENGINE sibling layers.
-"""
+"""Global Communication Core Ecosystem metadata package."""
 LAYER = "CORE"
 CATEGORY = "COMMUNICATION"
-ECOSYSTEM_NAME = f"GLOBAL {CATEGORY.replace('_', ' ')} {LAYER} ECOSYSTEM"
-ECOSYSTEM_ID = f"GLOBAL-{CATEGORY.replace('_', '-')}-{LAYER.upper()}-ECOSYSTEM"
-
-__all__ = ["LAYER", "CATEGORY", "ECOSYSTEM_NAME", "ECOSYSTEM_ID"]
+ECOSYSTEM_NAME = "GLOBAL COMMUNICATION CORE ECOSYSTEM"
+ECOSYSTEM_ID = "GLOBAL-COMMUNICATION-CORE-ECOSYSTEM"
+from .catalog import get_communication_core_catalog
+from .contracts import CoreResult, Readiness, SecretReference, TenantContext
+from .domain_runtime import CommunicationCoreDomainManager
+from .manager import CommunicationCoreManager, get_manager
+from .module_service import CommunicationProviderCoreService
+__all__ = [
+    "LAYER", "CATEGORY", "ECOSYSTEM_NAME", "ECOSYSTEM_ID",
+    "get_communication_core_catalog", "CoreResult", "Readiness",
+    "SecretReference", "TenantContext", "CommunicationCoreDomainManager",
+    "CommunicationCoreManager", "CommunicationProviderCoreService", "get_manager",
+]

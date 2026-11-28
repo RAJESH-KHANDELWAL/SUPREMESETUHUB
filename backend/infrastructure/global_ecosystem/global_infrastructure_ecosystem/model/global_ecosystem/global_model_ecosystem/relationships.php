@@ -8,9 +8,14 @@ final class RelationshipTypes
     public static function all(): array
     {
         return [
-            'CONTAINS', 'HOSTS', 'RUNS_ON', 'CONNECTED_TO', 'USES', 'DEPENDS_ON',
-            'SERVES', 'ROUTES_TO', 'BACKS_UP', 'PROTECTED_BY', 'DELIVERED_BY',
-            'REPLICATES_TO', 'MONITORED_BY',
+            'HOSTS',
+            'USES',
+            'DEPENDS_ON',
+            'CONNECTS_TO',
+            'CONTAINS',
+            'MANAGES',
+            'REPLICATES',
+            'BACKS_UP',
         ];
     }
 }

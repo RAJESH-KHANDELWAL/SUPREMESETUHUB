@@ -1,0 +1,1 @@
+Repository-level workflow definitions and supporting automation files belong in this directory.

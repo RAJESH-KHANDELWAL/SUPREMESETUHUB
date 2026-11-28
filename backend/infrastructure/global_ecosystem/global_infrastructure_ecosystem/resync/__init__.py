@@ -1,0 +1,1 @@
+"""RESYNC infrastructure domain package."""

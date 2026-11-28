@@ -62,9 +62,13 @@ jobs:
 
           echo ""
           echo "Checking backend tests:"
-          test -d backend/tests
+          test -d backend/test
+          echo "backend/test: FOUND"
 
-          echo "backend/tests: FOUND"
+          # Keep the legacy directory covered until its tests are consolidated.
+          if [ -d backend/tests ]; then
+            echo "backend/tests (legacy): FOUND"
+          fi
 
       # ----------------------------------------
       # PYTHON
@@ -113,7 +117,7 @@ jobs:
         run: |
           set -e
 
-          python -m pytest backend/tests -v
+          python -m pytest backend/test backend/tests -v
 
       # ----------------------------------------
       # BACKEND TEST RESULT

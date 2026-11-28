@@ -1,0 +1,37 @@
+{
+  "ecosystem_id": "I-DIGITALPRENEUR-CORE-ECOSYSTEM",
+  "link_type": "shared_video_presentation",
+  "source": "User-provided URLs in conversation",
+  "verification_note": "URLs are preserved exactly as supplied. Current availability and destination content have not been independently verified.",
+  "duplicate_policy": "Exact full-URL duplicates are stored once. The same video_id with a different userid is a distinct URL and is retained.",
+  "unique_links": [
+    {
+      "video_id": 19,
+      "url": "https://idigitalpreneur.com/affiliate/shared-video-form?videoid=19&userid=KgHBLF-zPECIxThQ3ZBwVHUNtp9cxYVA"
+    },
+    {
+      "video_id": 16,
+      "url": "https://idigitalpreneur.com/affiliate/shared-video-form?videoid=16&userid=iu8wU1kGOtD2biGj4oL9R8tfLHNhsz4G"
+    },
+    {
+      "video_id": 14,
+      "url": "https://idigitalpreneur.com/affiliate/shared-video-form?videoid=14&userid=zu1Gz0N4Z_HEMszFFyxxLI3lI5yvSkNq"
+    },
+    {
+      "video_id": 12,
+      "url": "https://idigitalpreneur.com/affiliate/shared-video-form?videoid=12&userid=E8qji-1N2sPS8lxYcJXH1i5L_l91NFfr"
+    },
+    {
+      "video_id": 5,
+      "url": "https://idigitalpreneur.com/affiliate/shared-video-form?videoid=5&userid=YH9LAtYjfqDU8YFv118gRPNirPfEpdfp"
+    },
+    {
+      "video_id": 4,
+      "url": "https://idigitalpreneur.com/affiliate/shared-video-form?videoid=4&userid=YDC6cwWJuOYzjFN2i3yEHH3K3DDjxPrt"
+    },
+    {
+      "video_id": 2,
+      "url": "https://idigitalpreneur.com/affiliate/shared-video-form?videoid=2&userid=9SgBPyYmKtN8V4uazPbqaQ0a_jIrQVBn"
+    }
+  ]
+}
