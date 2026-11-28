@@ -191,4 +191,4 @@ jobs:
       - name: Run Global Security CORE integrity and contract tests
         env:
           PYTHONPATH: .
-        run: python -m pytest -q backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/tests
+        run: python -m pytest -q backend/core/global_ecosystem/global_core_ecosystem/global_security_core_ecosystem/test
